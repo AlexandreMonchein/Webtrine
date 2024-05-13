@@ -1,8 +1,7 @@
-import React from "react";
-import { Home } from "./components/home/home.component.tsx";
-import { Error } from "./components/error/error.component.tsx";
-import { ClassicNavbar } from "./components/navbars/classicNavbar.component.tsx";
-import { ClassicFooter } from "./components/footers/classicFooter.component.tsx";
+import { Home } from "./components/home/src/home.component";
+import { ClassicError } from "./components/error/src/classicError.component";
+import { ClassicNavbar } from "./components/navbars/src/classicNavbar.component";
+import { ClassicFooter } from "./components/footers/src/classicFooter.component";
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
@@ -12,7 +11,7 @@ function App() {
       <ClassicNavbar />
       <Routes>
         <Route exact path="/" element={<Home />} />
-        <Route exact path="/*" element={<Error />} />
+        <Route exact path="/*" element={<ClassicError />} />
       </Routes>
       <ClassicFooter />
     </Router>
