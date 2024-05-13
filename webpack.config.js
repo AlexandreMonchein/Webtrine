@@ -11,14 +11,10 @@ module.exports = {
         },
       },
     ],
-    resolve: {
-      extensions: [".js", ".jsx", ".ts", ".tsx", ".json", ".png", ".jpg"],
-    },
   },
   resolve: {
     extensions: [".js", ".jsx", ".ts", ".tsx", ".json", ".png", ".jpg"],
   },
-
   plugins: [
     new HtmlWebpackPlugin({
       template: "./public/index.html",
