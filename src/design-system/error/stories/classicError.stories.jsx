@@ -1,5 +1,6 @@
 import React from 'react';
-import { ClassicError } from '../src/classicError.component.tsx';
+
+import { ClassicError } from '../src/classicError.component';
 
 export default {
   title: 'Error/ClassicError',
