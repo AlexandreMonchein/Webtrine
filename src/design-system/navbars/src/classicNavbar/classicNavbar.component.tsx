@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 
-import { getSocials } from "../../../../store/state.selector";
+import { getClient, getSocials } from "../../../../store/state.selector";
 import { ToggleThemeMode } from "../../../buttons/mode-theme/src/modeTheme.component";
 
 import {
@@ -18,6 +18,7 @@ import {
 
 export const ClassicNavbar = ({ toggleTheme, theme }) => {
   const { facebook, instagram, x, linkedIn } = useSelector(getSocials);
+  const client = useSelector(getClient);
   console.warn(">>> ClassicNavbar");
 
   return (
@@ -26,7 +27,7 @@ export const ClassicNavbar = ({ toggleTheme, theme }) => {
         <a href="/">
           <img
             alt="LOGO"
-            src={require("../../../../assets/icons/white/logo-webtrine-white.png")}
+            src={require(`../../../../assets/${client}/icons/white/logo-webtrine-white.png`)}
           />
         </a>
       </Logo>
@@ -56,7 +57,7 @@ export const ClassicNavbar = ({ toggleTheme, theme }) => {
                 >
                   <img
                     alt="facebook"
-                    src={require("../../../../assets/icons/white/facebook-white.png")}
+                    src={require(`../../../../assets/${client}/icons/white/facebook-white.png`)}
                   />
                 </a>
               </SocialLogo>
@@ -68,7 +69,7 @@ export const ClassicNavbar = ({ toggleTheme, theme }) => {
                 <a href={`https://www.instagram.com/${instagram?.profileId}`}>
                   <img
                     alt="instagram"
-                    src={require("../../../../assets/icons/white/instagram-white.png")}
+                    src={require(`../../../../assets/${client}/icons/white/instagram-white.png`)}
                   />
                 </a>
               </SocialLogo>
@@ -80,7 +81,7 @@ export const ClassicNavbar = ({ toggleTheme, theme }) => {
                 <a href={`https://twitter.com/${x?.profileId}`}>
                   <img
                     alt="x"
-                    src={require("../../../../assets/icons/white/x-white.png")}
+                    src={require(`../../../../assets/${client}/icons/white/x-white.png`)}
                   />
                 </a>
               </SocialLogo>
@@ -92,7 +93,7 @@ export const ClassicNavbar = ({ toggleTheme, theme }) => {
                 <a href={`https://www.linkedin.com/in/${linkedIn?.profileId}`}>
                   <img
                     alt="linkedin"
-                    src={require("../../../../assets/icons/white/linkedin-white.png")}
+                    src={require(`../../../../assets/${client}/icons/white/linkedin-white.png`)}
                   />
                 </a>
               </SocialLogo>

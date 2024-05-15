@@ -5,13 +5,16 @@ export const Container = styled.header`
   justify-content: space-between;
   align-items: center;
   padding: 16px 32px;
+  height: 48px;
+  position: relative;
+  z-index: var(--z-index-navbars);
 
   background-color: var(--color-quaternary);
   color: var(--color-primary);
 `;
 export const Logo = styled.div`
   img {
-    width: 40%;
+    width: 150px;
   }
 `;
 
@@ -30,7 +33,7 @@ export const SocialLogo = styled.div`
 export const DefaultContent = styled.ul`
   list-style-type: none;
   display: flex;
-  flex-direction: row;
+  align-items: center;
 `;
 
 export const Links = styled.a`
@@ -38,7 +41,6 @@ export const Links = styled.a`
   font-weight: bold;
   text-decoration: none;
   color: white;
-  font-family: NexaBold;
   text-transform: uppercase;
   cursor: pointer;
 `;
