@@ -14,7 +14,7 @@ export const RootStyle = createGlobalStyle`
       font-family: "Josefin Sans",sans-serif;
 
       --navbar-font-size: 16px;
-      --title-font-size: 48px;
+      --title-font-size: 42px;
       --subtitle-font-size: 32px;
       --text-font-size: 24px;
 

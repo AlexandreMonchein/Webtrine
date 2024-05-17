@@ -1,6 +1,7 @@
 import { useCallback, useState } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
+import { Display } from "./design-system/components/display/src/display.component";
 import { ClassicError } from "./design-system/error/src/classicError.component";
 import { ClassicFooter } from "./design-system/footers/src/classicFooter.component";
 import { Home } from "./design-system/home/src/home.component";
@@ -21,6 +22,7 @@ function App() {
         <ClassicNavbar toggleTheme={toggleTheme} theme={theme} />
         <Routes>
           <Route exact path="/" element={<Home />} />
+          <Route exact path="/display/" element={<Display />} />
           <Route exact path="/*" element={<ClassicError />} />
         </Routes>
         <ClassicFooter />

@@ -5,6 +5,7 @@ import { getClient, getSocials } from "../../../../store/state.selector";
 import { ToggleThemeMode } from "../../../buttons/mode-theme/src/modeTheme.component";
 
 import {
+  Category,
   Container,
   Content,
   Languages,
@@ -14,6 +15,8 @@ import {
   SocialContent,
   SocialLogo,
   Socials,
+  SubCategory,
+  SubCategoryContainer,
 } from "./classicNavbar.styled";
 
 export const ClassicNavbar = ({ toggleTheme, theme }) => {
@@ -27,24 +30,51 @@ export const ClassicNavbar = ({ toggleTheme, theme }) => {
         <a href="/">
           <img
             alt="LOGO"
-            src={require(`../../../../assets/${client}/icons/white/logo-webtrine-white.png`)}
+            src={require(
+              `../../../../assets/${client}/icons/white/logo-webtrine-white.png`
+            )}
           />
         </a>
       </Logo>
       <MainNavigation>
         <Content>
-          <li>
-            <Links href="#">Presentation</Links>
-          </li>
-          <li>
-            <Links href="#">Qui sommes-nous</Links>
-          </li>
-          <li>
-            <Links href="#">Ils nous font confiance</Links>
-          </li>
-          <li>
-            <Links href="#">Contact</Links>
-          </li>
+          <Category className="deroulant">
+            <Links href="#">Webtrine</Links>
+            <SubCategoryContainer className="sous">
+              <SubCategory>
+                <Links href="#">Qui sommes-nous</Links>
+              </SubCategory>
+              <SubCategory>
+                <Links href="#">Ils nous font confiance</Links>
+              </SubCategory>
+              <SubCategory>
+                <Links href="#">L'équipe</Links>
+              </SubCategory>
+              <SubCategory>
+                <Links href="#">Contact</Links>
+              </SubCategory>
+            </SubCategoryContainer>
+          </Category><Category className="deroulant">
+            <Links href="#">Webtrine</Links>
+            <SubCategoryContainer className="sous">
+              <SubCategory>
+                <Links href="#">Qui sommes-nous</Links>
+              </SubCategory>
+              <SubCategory>
+                <Links href="#">Ils nous font confiance</Links>
+              </SubCategory>
+              <SubCategory>
+                <Links href="#">L'équipe</Links>
+              </SubCategory>
+              <SubCategory>
+                <Links href="#">Contact</Links>
+              </SubCategory>
+            </SubCategoryContainer>
+          </Category>
+
+          <Category>
+            <Links href="/display">Display</Links>
+          </Category>
         </Content>
       </MainNavigation>
       <Socials>
@@ -57,7 +87,9 @@ export const ClassicNavbar = ({ toggleTheme, theme }) => {
                 >
                   <img
                     alt="facebook"
-                    src={require(`../../../../assets/${client}/icons/white/facebook-white.png`)}
+                    src={require(
+                      `../../../../assets/${client}/icons/white/facebook-white.png`
+                    )}
                   />
                 </a>
               </SocialLogo>
@@ -69,7 +101,9 @@ export const ClassicNavbar = ({ toggleTheme, theme }) => {
                 <a href={`https://www.instagram.com/${instagram?.profileId}`}>
                   <img
                     alt="instagram"
-                    src={require(`../../../../assets/${client}/icons/white/instagram-white.png`)}
+                    src={require(
+                      `../../../../assets/${client}/icons/white/instagram-white.png`
+                    )}
                   />
                 </a>
               </SocialLogo>
@@ -81,7 +115,9 @@ export const ClassicNavbar = ({ toggleTheme, theme }) => {
                 <a href={`https://twitter.com/${x?.profileId}`}>
                   <img
                     alt="x"
-                    src={require(`../../../../assets/${client}/icons/white/x-white.png`)}
+                    src={require(
+                      `../../../../assets/${client}/icons/white/x-white.png`
+                    )}
                   />
                 </a>
               </SocialLogo>
@@ -93,7 +129,9 @@ export const ClassicNavbar = ({ toggleTheme, theme }) => {
                 <a href={`https://www.linkedin.com/in/${linkedIn?.profileId}`}>
                   <img
                     alt="linkedin"
-                    src={require(`../../../../assets/${client}/icons/white/linkedin-white.png`)}
+                    src={require(
+                      `../../../../assets/${client}/icons/white/linkedin-white.png`
+                    )}
                   />
                 </a>
               </SocialLogo>

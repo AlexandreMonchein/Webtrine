@@ -2,8 +2,10 @@ import React from "react";
 import { useSelector } from "react-redux";
 
 import { getTemplates } from "../../../store/state.selector";
-import PresentationWithBackground from "../../components/presentation/src/presentationWithBackground.component";
-import { WhoWeAre } from "../../components/who-we-are/src/whoWeAre.component";
+import { Contact } from "../../components/contact/src/contact.component";
+import { Description } from "../../components/description/src/description.component";
+import { Banner } from "../../components/presentation/src/banner.component";
+import { Showcase } from "../../components/showcase/src/showcase.component";
 
 import { Content } from "./home.styled";
 
@@ -13,9 +15,11 @@ export const Home = () => {
 
   return (
     <Content data-testid="Home">
-      <PresentationWithBackground {...templates[0].datas} />
-      <WhoWeAre {...templates[0].datas} />
-      <WhoWeAre {...templates[0].datas} />
+      <Banner {...templates[0].datas} />
+      <Description {...templates[1].datas} />
+      <Showcase {...templates[2].datas} />
+      <Description {...templates[1].datas} />
+      <Contact />
     </Content>
   );
 };

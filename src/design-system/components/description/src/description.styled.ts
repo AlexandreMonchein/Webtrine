@@ -7,19 +7,28 @@ export const Section = styled.section`
 `;
 
 export const Container = styled.div`
-  padding: 0 80px;
+  margin: 0 120px;
+  display: block;
 `;
 
-export const Title = styled.h2`
+export const SectionTitle = styled.h2`
   line-height: 56px;
   font-size: var(--title-font-size);
+  font-family: "Josefin Sans", sans-serif;
   text-align: center;
+  font-weight: lighter;
+  text-transform: uppercase;
+  word-wrap: break-word;
 `;
 
 export const Content = styled.div`
   display: grid;
   grid-gap: 60px;
-  grid-template-columns: 31fr 34fr !important;
+  grid-template-columns: 31fr 34fr;
+
+  &.isTextOnly {
+    grid-template-columns: none;
+  }
 
   &.isReversed {
     :first-child {
@@ -32,15 +41,15 @@ export const Content = styled.div`
   }
 `;
 export const ImageWrapper = styled.figure`
+  max-width: 620px;
   margin: 0;
 `;
-export const Image = styled.img`
-  vertical-align: middle;
-  width: 100%;
-`;
+export const Image = styled.img``;
 
 export const TextContent = styled.div`
   display: flex;
+  overflow: hidden;
+  max-height: 460px;
 `;
 export const Text = styled.p`
   font-size: var(--text-font-size);

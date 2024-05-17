@@ -1,6 +1,4 @@
-import React from "react";
 import { useSelector } from "react-redux";
-import styled from "styled-components";
 
 import { getClient } from "../../../../store/state.selector";
 
@@ -11,11 +9,11 @@ import {
     SubTitle,
     TextContainer,
     Title,
-} from "./presentationWithBackground.styled";
+} from "./banner.styled";
 
-export const PresentationWithBackground = ({ title, subTitle }) => {
+export const Banner = ({ title, subTitle }) => {
     const client = useSelector(getClient);
-    console.warn(">>> PresentationWithBackground", title, subTitle);
+    console.warn(">>> Banner", title, subTitle);
 
     return (
         <Content>
@@ -29,4 +27,4 @@ export const PresentationWithBackground = ({ title, subTitle }) => {
     );
 };
 
-export default PresentationWithBackground;
+export default Banner;

@@ -19,7 +19,22 @@ export const Logo = styled.div`
   }
 `;
 
-export const MainNavigation = styled.div``;
+export const MainNavigation = styled.nav`
+  width: 100%;
+  margin: 0 auto;
+  position: sticky;
+  top: 0px;
+
+  ul li:hover .sous {
+    display: block;
+    width: 200%;
+  }
+
+  .deroulant > a::after {
+    content: " >";
+    font-size: 12px;
+  }
+`;
 export const Socials = styled.div`
   display: flex;
   align-items: center;
@@ -35,19 +50,72 @@ export const DefaultContent = styled.ul`
   list-style-type: none;
   display: flex;
   align-items: center;
+  justify-content: center;
 `;
 
 export const Links = styled.a`
+  display: block;
+
   font-size: 16px;
   font-weight: bold;
-  text-decoration: none;
-  color: var(--color-primary);
   text-transform: uppercase;
+  text-decoration: none;
   cursor: pointer;
+
+  color: var(--color-primary);
+  border-bottom: 2px solid transparent;
+  padding: 10px 0px;
+
+  &:hover {
+    color: orange;
+    border-bottom: 2px solid gold;
+  }
 `;
 
 export const Content = styled(DefaultContent)`
   gap: 24px;
+
+  &::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+`;
+
+export const Category = styled.li`
+  float: left;
+  width: 100px;
+  text-align: center;
+  position: relative;
+`;
+
+export const SubCategory = styled.li``;
+
+export const SubCategoryContainer = styled.ul`
+  display: none;
+  list-style-type: none;
+  box-shadow: 0px 1px 2px #ccc;
+  background-color: var(--color-secondary);
+  position: absolute;
+  width: 100%;
+  z-index: var(--z-index-navbars);
+
+  ${SubCategory} {
+    float: none;
+    width: 100%;
+    text-align: left;
+  }
+
+  ${Links} {
+    color: var(--color-quinary);
+    padding: 10px;
+    border-bottom: none;
+
+    &:hover {
+      border-bottom: none;
+      background-color: rgba(200, 200, 200, 0.1);
+    }
+  }
 `;
 
 export const SocialContent = styled(DefaultContent)`
