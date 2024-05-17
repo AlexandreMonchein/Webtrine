@@ -2,50 +2,32 @@ import { createGlobalStyle } from "styled-components";
 
 export const RootStyle = createGlobalStyle`
   body {
-    letter-spacing: 2px;  
 
-    --color-primary: #E8EEF1;
-    --color-secondary: #43B0F1;
-    --color-tertiary: #057DCD;
-    --color-quaternary: #1E3D58;
-    --color-quinary: #000000;
-    
-    --background-color: var(--color-quaternary);
-    --foreground-color: var(--color-primary);
-
-    --z-index-navbars: 3;
-    --z-index-text: 2;
-    --z-index-backgrounds: 1;
   };
 
   [data-theme="dark"] {
-    letter-spacing: 2px;  
 
-    --color-primary:  #E8EEF1;
-    --color-secondary: #43B0F1;
-    --color-tertiary: #057DCD;
-    --color-quaternary: #1E3D58;
-    
-    --background-color: var(--color-quaternary);
-    --foreground-color: var(--color-primary);
-    
-    --z-index-navbars: 3;
-    --z-index-text: 2;
-    --z-index-backgrounds: 1;
   }
 
   @media screen and (prefers-color-scheme: dark) {
-    body {  
-      letter-spacing: 2px;  
+    body {    
+      font-family: "Josefin Sans",sans-serif;
 
-      --color-primary: #E8EEF1;
-      --color-secondary: #43B0F1;
-      --color-tertiary: #057DCD;
+      --navbar-font-size: 16px;
+      --title-font-size: 48px;
+      --subtitle-font-size: 32px;
+      --text-font-size: 24px;
+
+      --color-primary: #ffffff;
+      --color-secondary: #E8EEF1;
+      --color-tertiary: #60A3D9;
       --color-quaternary: #1E3D58;
-        
-      --background-color: var(--color-quaternary);
-      --foreground-color: var(--color-primary);
+      --color-quinary: #000000;
       
+      --background-color-1: var(--color-primary);
+      --background-color-2: var(--color-secondary);
+      --foreground-color: var(--color-primary);
+
       --z-index-navbars: 3;
       --z-index-text: 2;
       --z-index-backgrounds: 1;

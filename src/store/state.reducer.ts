@@ -24,6 +24,16 @@ export const initialState = {
           subTitle: "Il n'as jamais été aussi simple de se faire connaître",
         },
       },
+      {
+        type: "who-we-are",
+        id: "whoWeAre",
+        datas: {
+          features: { isReversed: false, isCentered: false },
+          title: "Qui sommes-nous ?",
+          subTitle:
+            "Nous vous présentons l’équipe de coaches certifiées qui vous accompagnera tout au long de votre transformation si vous rejoignez le programme de coaching Change ma vie : Mode d’emploi !",
+        },
+      },
     ],
   },
 };

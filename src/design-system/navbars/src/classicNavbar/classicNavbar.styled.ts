@@ -8,6 +8,7 @@ export const Container = styled.header`
   height: 48px;
   position: relative;
   z-index: var(--z-index-navbars);
+  font-size: var(--navbar-font-size);
 
   background-color: var(--color-quaternary);
   color: var(--color-primary);
@@ -37,10 +38,10 @@ export const DefaultContent = styled.ul`
 `;
 
 export const Links = styled.a`
-  font-size: 110%;
+  font-size: 16px;
   font-weight: bold;
   text-decoration: none;
-  color: white;
+  color: var(--color-primary);
   text-transform: uppercase;
   cursor: pointer;
 `;
@@ -57,6 +58,5 @@ export const Languages = styled.div`
   display: flex;
   align-items: center;
 
-  font-size: 110%;
   font-weight: bold;
 `;
