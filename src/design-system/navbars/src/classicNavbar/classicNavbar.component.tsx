@@ -22,7 +22,6 @@ import {
 export const ClassicNavbar = ({ toggleTheme, theme }) => {
   const { facebook, instagram, x, linkedIn } = useSelector(getSocials);
   const client = useSelector(getClient);
-  console.warn(">>> ClassicNavbar");
 
   return (
     <Container>
@@ -88,7 +87,7 @@ export const ClassicNavbar = ({ toggleTheme, theme }) => {
                   <img
                     alt="facebook"
                     src={require(
-                      `../../../../assets/${client}/icons/white/facebook-white.png`
+                      `../../../../assets/default/icons/white/facebook-white.png`
                     )}
                   />
                 </a>
@@ -102,7 +101,7 @@ export const ClassicNavbar = ({ toggleTheme, theme }) => {
                   <img
                     alt="instagram"
                     src={require(
-                      `../../../../assets/${client}/icons/white/instagram-white.png`
+                      `../../../../assets/default/icons/white/instagram-white.png`
                     )}
                   />
                 </a>
@@ -116,7 +115,7 @@ export const ClassicNavbar = ({ toggleTheme, theme }) => {
                   <img
                     alt="x"
                     src={require(
-                      `../../../../assets/${client}/icons/white/x-white.png`
+                      `../../../../assets/default/icons/white/x-white.png`
                     )}
                   />
                 </a>
@@ -130,7 +129,7 @@ export const ClassicNavbar = ({ toggleTheme, theme }) => {
                   <img
                     alt="linkedin"
                     src={require(
-                      `../../../../assets/${client}/icons/white/linkedin-white.png`
+                      `../../../../assets/default/icons/white/linkedin-white.png`
                     )}
                   />
                 </a>

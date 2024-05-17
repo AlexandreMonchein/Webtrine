@@ -16,7 +16,6 @@ import {
 
 export const Description = (template) => {
   const src = "https://changemavie.com/wp-content/uploads/2024/02/equipe-1.jpg";
-  console.warn(">>> Home", template);
 
   return (
     <Section data-testid="WhoWeAre">

@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 // Container for the contact form
 export const ContactSection = styled.section`
-  padding: 20px;
+  padding: 40px 120px;
   margin: 0 auto;
   background-color: var(--color-primary);
   border-radius: 10px;

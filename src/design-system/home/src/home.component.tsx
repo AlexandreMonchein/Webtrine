@@ -11,7 +11,6 @@ import { Content } from "./home.styled";
 
 export const Home = () => {
   const templates = useSelector(getTemplates);
-  console.warn(">>> Home", templates);
 
   return (
     <Content data-testid="Home">

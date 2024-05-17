@@ -1,7 +1,7 @@
 import React from "react";
 import classNames from "classnames";
 
-import { SectionTitle } from "../../who-we-are/src/description.styled";
+import { SectionTitle } from "../../description/src/description.styled";
 
 import {
   Description,
