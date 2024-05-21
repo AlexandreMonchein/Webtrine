@@ -1,1 +1,1 @@
-export const getCustomer = () => process.env;
+export const getCustomer = () => process.env.REACT_APP_CUSTOMER;

@@ -9,11 +9,14 @@ import { ClassicFooter } from "./design-system/footers/src/classicFooter/classic
 import { Home } from "./design-system/home/src/home.component";
 import { ClassicNavbar } from "./design-system/navbars/src/classicNavbar/classicNavbar.component";
 import { getMainTemplates, getSecondTemplates } from "./store/state.selector";
+import { getCustomer } from "./customer.utils";
 import { RootStyle } from "./globalStyles";
 
 function App() {
   const mainTemplates = useSelector(getMainTemplates);
   const secondTemplates = useSelector(getSecondTemplates);
+
+  console.warn(">>> CUSTOMER:", getCustomer());
 
   const [theme, setTheme] = useState("light");
 

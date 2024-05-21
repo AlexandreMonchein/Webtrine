@@ -1,9 +1,11 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
+console.warn(">>> env:", process.env.REACT_APP_CUSTOMER);
+
 module.exports = {
   mode: "development",
-  entry: "./src/index.js",
+  entry: "./src/index.tsx",
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "main.js",
@@ -11,7 +13,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.js|\.jsx|\.ts|\.tsx$/,
+        test: /\.js|\.jsx|\.ts|\.tsx|\.json$/,
         exclude: /node_modules/,
         use: {
           loader: "babel-loader",

@@ -1,8 +1,7 @@
 import { createGlobalStyle } from "styled-components";
 
 export const RootStyle = createGlobalStyle`
-  :root {
-      font-family: "Josefin Sans",sans-serif;
+      :root {
       margin: 0;
       padding: 0;
       border: 0;
@@ -10,6 +9,8 @@ export const RootStyle = createGlobalStyle`
       vertical-align: baseline;
     }
     body {    
+      font-family: "Josefin Sans",sans-serif;
+
       --navbar-font-size: 16px;
       --title-font-size: 42px;
       --subtitle-font-size: 32px;
@@ -37,7 +38,6 @@ export const RootStyle = createGlobalStyle`
   @media screen and (prefers-color-scheme: dark) {
 
     :root {
-      font-family: "Josefin Sans",sans-serif;
       margin: 0;
       padding: 0;
       border: 0;
@@ -45,6 +45,8 @@ export const RootStyle = createGlobalStyle`
       vertical-align: baseline;
     }
     body {    
+      font-family: "Josefin Sans",sans-serif;
+
       --navbar-font-size: 16px;
       --title-font-size: 42px;
       --subtitle-font-size: 32px;
