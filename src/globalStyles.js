@@ -10,7 +10,16 @@ export const RootStyle = createGlobalStyle`
   }
 
   @media screen and (prefers-color-scheme: dark) {
+
+    :root {
+      margin: 0;
+      padding: 0;
+      border: 0;
+      font-size: 100%;
+      vertical-align: baseline;
+    }
     body {    
+      
       font-family: "Josefin Sans",sans-serif;
 
       --navbar-font-size: 16px;

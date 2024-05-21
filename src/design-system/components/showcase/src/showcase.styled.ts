@@ -2,8 +2,7 @@ import styled from "styled-components";
 
 // Container for the whole section
 export const SectionContainer = styled.section`
-  padding: 20px;
-  margin: 0 120px;
+  padding: 1px 120px;
 `;
 
 // Grid container for items

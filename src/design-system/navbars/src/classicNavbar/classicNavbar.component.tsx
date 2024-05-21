@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useCallback, useEffect, useState } from "react";
+import classNames from "classnames";
 import { useSelector } from "react-redux";
 
 import { getClient, getSocials } from "../../../../store/state.selector";
@@ -23,8 +24,49 @@ export const ClassicNavbar = ({ toggleTheme, theme }) => {
   const { facebook, instagram, x, linkedIn } = useSelector(getSocials);
   const client = useSelector(getClient);
 
+  const features = { isFixed: true, hasHideOnScroll: false };
+
+  // keep track of previous scroll position
+  const [prevScrollPos, setPrevScrollPos] = useState(window.scrollY);
+
+  const onScroll = useCallback(() => {
+    // current scroll position
+    const currentScrollPos = window.scrollY;
+
+    if (prevScrollPos > currentScrollPos) {
+      // user has scrolled up
+      document.getElementById("navbar").classList.add("show");
+      document.getElementById("navbar").classList.remove("hide");
+      console.warn(">>> up", prevScrollPos, currentScrollPos);
+    } else {
+      // user has scrolled down
+      console.warn(">>> down", prevScrollPos, currentScrollPos);
+      document.getElementById("navbar").classList.add("hide");
+      document.getElementById("navbar").classList.remove("show");
+    }
+
+    // update previous scroll position
+    setPrevScrollPos(currentScrollPos);
+  }, [prevScrollPos, setPrevScrollPos]);
+
+  useEffect(() => {
+    if (features.isFixed && features.hasHideOnScroll) {
+      window.addEventListener("scroll", onScroll);
+    }
+
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+    };
+  }, [prevScrollPos]);
+
   return (
-    <Container>
+    <Container
+      id="navbar"
+      className={classNames({
+        isFixed: features.isFixed,
+        hideOnScroll: features.hasHideOnScroll,
+      })}
+    >
       <Logo>
         <a href="/">
           <img
@@ -38,41 +80,27 @@ export const ClassicNavbar = ({ toggleTheme, theme }) => {
       <MainNavigation>
         <Content>
           <Category className="deroulant">
-            <Links href="#">Webtrine</Links>
+            <Links href="/#banner">Webtrine</Links>
             <SubCategoryContainer className="sous">
               <SubCategory>
-                <Links href="#">Qui sommes-nous</Links>
+                <Links href="/#description">Qui sommes-nous</Links>
               </SubCategory>
               <SubCategory>
-                <Links href="#">Ils nous font confiance</Links>
+                <Links href="/#showcase">L'équipe</Links>
               </SubCategory>
               <SubCategory>
-                <Links href="#">L'équipe</Links>
+                <Links href="/#showcase">Ils nous font confiance</Links>
               </SubCategory>
               <SubCategory>
-                <Links href="#">Contact</Links>
-              </SubCategory>
-            </SubCategoryContainer>
-          </Category><Category className="deroulant">
-            <Links href="#">Webtrine</Links>
-            <SubCategoryContainer className="sous">
-              <SubCategory>
-                <Links href="#">Qui sommes-nous</Links>
-              </SubCategory>
-              <SubCategory>
-                <Links href="#">Ils nous font confiance</Links>
-              </SubCategory>
-              <SubCategory>
-                <Links href="#">L'équipe</Links>
-              </SubCategory>
-              <SubCategory>
-                <Links href="#">Contact</Links>
+                <Links href="/#contact">Contact</Links>
               </SubCategory>
             </SubCategoryContainer>
           </Category>
-
           <Category>
             <Links href="/display">Display</Links>
+          </Category>
+          <Category>
+            <Links href="/display2">Display2</Links>
           </Category>
         </Content>
       </MainNavigation>

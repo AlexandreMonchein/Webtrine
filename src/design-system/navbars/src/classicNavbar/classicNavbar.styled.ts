@@ -12,6 +12,26 @@ export const Container = styled.header`
 
   background-color: var(--color-quaternary);
   color: var(--color-primary);
+
+  &.isFixed {
+    position: fixed;
+    top: 0px;
+    width: auto;
+    left: 0;
+    right: 0;
+
+    &.hideOnScroll {
+      &.show {
+        transition-duration: 0.5s;
+        transform: translateY(0);
+      }
+
+      &.hide {
+        transition-duration: 0.5s;
+        transform: translateY(-100%);
+      }
+    }
+  }
 `;
 export const Logo = styled.div`
   img {

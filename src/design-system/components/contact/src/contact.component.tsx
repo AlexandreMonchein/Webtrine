@@ -13,6 +13,7 @@ import {
 export const Contact = () => {
   return (
     <ContactSection>
+      <a id="contact" />
       <Content>
         <Title>Contactez-nous</Title>
         <Description>

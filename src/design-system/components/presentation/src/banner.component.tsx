@@ -1,7 +1,3 @@
-import { useSelector } from "react-redux";
-
-import { getClient } from "../../../../store/state.selector";
-
 import {
   Background,
   BackgroundContainer,
@@ -16,6 +12,7 @@ export const Banner = ({ title, subTitle }) => {
 
   return (
     <Content>
+      <a id="banner" />
       <TextContainer>
         {title ? <Title>{title}</Title> : null}
         {subTitle ? <SubTitle>{subTitle}</SubTitle> : null}

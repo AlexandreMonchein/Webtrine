@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 // Container for the showcase page
 export const ShowcaseContainer = styled.div`
-  padding: 20px;
+  padding-top: 120px;
   padding-left: 40px;
   padding-right: 40px;
   display: grid;
@@ -13,8 +13,7 @@ export const ShowcaseContainer = styled.div`
   overflow: hidden;
 `;
 
-// Styled image
-export const Image = styled.img`
+export const ImageContainer = styled.div`
   width: 100%;
   height: auto;
   max-width: 100%;
@@ -31,4 +30,9 @@ export const Image = styled.img`
     height: 100%;
     grid-row-end: span 2;
   }
+`;
+
+// Styled image
+export const Image = styled.img`
+  width: 100%;
 `;

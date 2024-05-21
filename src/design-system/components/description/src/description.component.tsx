@@ -1,7 +1,4 @@
 import classNames from "classnames";
-import { useSelector } from "react-redux";
-
-import { getTemplates } from "../../../../store/state.selector";
 
 import {
   Container,
@@ -15,15 +12,17 @@ import {
 } from "./description.styled";
 
 export const Description = (template) => {
-  const src = "https://changemavie.com/wp-content/uploads/2024/02/equipe-1.jpg";
+  const { features, src, title, content } = template;
 
+  console.warn('>>> datas', template);
   return (
     <Section data-testid="WhoWeAre">
-      <SectionTitle>Qui sommes-nous ?</SectionTitle>
+      <a id="description" />
+      <SectionTitle>{title}</SectionTitle>
       <Container>
         <Content
           className={classNames({
-            isReversed: false,
+            isReversed: features.isReversed,
             isTextOnly: src ? false : true,
           })}
         >
@@ -36,15 +35,10 @@ export const Description = (template) => {
           <TextContent>
             <Text
               className={classNames({
-                isCentered: false,
+                isCentered: features.isCentered,
               })}
             >
-              Enim ex aliquip reprehenderit ad excepteur aliqua excepteur amet
-              proident duis qui exercitation. Exercitation laboris duis elit
-              mollit ut incididunt adipisicing voluptate irure adipisicing minim
-              culpa proident. Proident nostrud cillum sint Lorem excepteur.
-              Laboris non exercitation sint do quis id deserunt exercitation
-              sunt sunt pariatur ullamco esse.
+              {content}
             </Text>
           </TextContent>
         </Content>

@@ -42,11 +42,11 @@ export const Showcase = () => {
         title: "Item 5",
         description: "Enim anim non sit magna Lorem incididunt magna cupidatat. Irure do mollit officia est irure culpa laborum dolor laborum. Consectetur proident exercitation voluptate excepteur Lorem irure anim ut consequat in commodo id eu cupidatat.",
       },
-      // {
-      //   image: "https://via.placeholder.com/150",
-      //   title: "Item 6",
-      //   description: "Enim anim non sit magna Lorem incididunt magna cupidatat. Irure do mollit officia est irure culpa laborum dolor laborum. Consectetur proident exercitation voluptate excepteur Lorem irure anim ut consequat in commodo id eu cupidatat.",
-      // },
+      {
+        image: "https://via.placeholder.com/150",
+        title: "Item 6",
+        description: "Enim anim non sit magna Lorem incididunt magna cupidatat. Irure do mollit officia est irure culpa laborum dolor laborum. Consectetur proident exercitation voluptate excepteur Lorem irure anim ut consequat in commodo id eu cupidatat.",
+      },
     ],
   };
 
@@ -56,6 +56,7 @@ export const Showcase = () => {
 
   return (
     <SectionContainer>
+      <a id="showcase" />
       {template.title ? <SectionTitle>{template.title}</SectionTitle> : null}
       <ItemsGrid className={classNames({ isOdd: isOdd, isEven: isEven })}>
         {template.content.map((data, index) => (

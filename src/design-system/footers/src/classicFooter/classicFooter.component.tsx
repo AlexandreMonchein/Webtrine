@@ -1,8 +1,7 @@
 import { useSelector } from 'react-redux';
 
 import { getClient, getSocials } from '../../../../store/state.selector';
-import { ToggleThemeMode } from '../../../buttons/mode-theme/src/modeTheme.component';
-import { Languages, SocialContent, SocialLogo, Socials } from '../../../navbars/src/classicNavbar/classicNavbar.styled';
+import { SocialContent, SocialLogo, Socials } from '../../../navbars/src/classicNavbar/classicNavbar.styled';
 
 import { FooterContainer, LeftSection, Logo, MiddleSection, RightSection } from './classicFooter.styled';
 
@@ -83,12 +82,6 @@ export const ClassicFooter = ({ toggleTheme, theme }) => {
               </li>
             ) : null}
           </SocialContent>
-          <Languages>
-            <p>FR</p>
-            <span>/</span>
-            <p>EN</p>
-          </Languages>
-          <ToggleThemeMode toggleTheme={toggleTheme} theme={theme} />
         </Socials>
       </RightSection>
     </FooterContainer>
