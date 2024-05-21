@@ -1,3 +1,4 @@
+const webpack = require("webpack");
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
@@ -7,7 +8,7 @@ module.exports = {
   mode: "development",
   entry: "./src/index.tsx",
   output: {
-    path: path.resolve(__dirname, "dist"),
+    path: path.resolve(__dirname, "build"),
     filename: "main.js",
   },
   module: {
@@ -20,11 +21,16 @@ module.exports = {
         },
       },
       {
-        test: /\.(png|jpe?g|gif)$/i,
+        test: /\.(jpg|png|jpe?g|gif)$/i,
         exclude: /node_modules/,
-        use: {
-          loader: "file-loader",
-        },
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              esModule: false,
+            },
+          },
+        ],
       },
     ],
   },
@@ -37,5 +43,8 @@ module.exports = {
       template: "./public/index.html",
       filename: "./index.html",
     }),
+    new webpack.DefinePlugin({
+      process: {env: { REACT_APP_CUSTOMER: JSON.stringify(process.env.REACT_APP_CUSTOMER)}}
+  }),
   ],
 };
