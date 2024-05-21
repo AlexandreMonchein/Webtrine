@@ -55,9 +55,8 @@
     "jackspeak": "2.1.1"
   },
   "scripts": {
-    "start": "webpack --mode=development",
-    "build": "webpack --mode=production",
-    "dev": "react-scripts start",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "storybook": "storybook dev -p 6006",

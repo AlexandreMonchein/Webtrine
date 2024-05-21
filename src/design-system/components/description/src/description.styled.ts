@@ -24,7 +24,7 @@ export const SectionTitle = styled.h2`
 export const Content = styled.div`
   display: grid;
   grid-gap: 120px;
-  grid-template-columns: 24fr 34fr;
+  grid-template-columns: 3fr 1fr;
 
   &.isTextOnly {
     grid-template-columns: none;
@@ -32,7 +32,8 @@ export const Content = styled.div`
 
   &.isReversed {
     grid-gap: 120px;
-    grid-template-columns: 32fr 20fr;
+    grid-template-columns: 1fr 3fr;
+
     :first-child {
       order: 1;
     }
