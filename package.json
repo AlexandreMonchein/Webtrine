@@ -2,6 +2,11 @@
   "name": "webtrine-app",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": "^21.1",
+    "pnpm": "^9.0"
+  },
+  "packageManager": "pnpm@9.0.6",
   "dependencies": {
     "@reduxjs/toolkit": "^2.2.4",
     "@testing-library/jest-dom": "^5.17.0",
@@ -57,6 +62,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "wbuild": "webpack --config webpack.config.js",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "storybook": "storybook dev -p 6006",

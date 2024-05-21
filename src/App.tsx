@@ -9,14 +9,11 @@ import { ClassicFooter } from "./design-system/footers/src/classicFooter/classic
 import { Home } from "./design-system/home/src/home.component";
 import { ClassicNavbar } from "./design-system/navbars/src/classicNavbar/classicNavbar.component";
 import { getMainTemplates, getSecondTemplates } from "./store/state.selector";
-import { getCustomer } from "./customer.utils";
 import { RootStyle } from "./globalStyles";
 
 function App() {
   const mainTemplates = useSelector(getMainTemplates);
   const secondTemplates = useSelector(getSecondTemplates);
-
-  console.warn(">>> customer", getCustomer());
 
   const [theme, setTheme] = useState("light");
 
@@ -30,14 +27,13 @@ function App() {
         <RootStyle />
         <ClassicNavbar toggleTheme={toggleTheme} theme={theme} />
         <Routes>
-          <Route exact path="/" element={<Home template={mainTemplates} />} />
+          <Route path="/" element={<Home template={mainTemplates} />} />
           <Route
-            exact
             path="/display"
             element={<Display template={secondTemplates} />}
           />
-          <Route exact path="/display2" element={<Display2 />} />
-          <Route exact path="/*" element={<ClassicError />} />
+          <Route path="/display2" element={<Display2 />} />
+          <Route path="/*" element={<ClassicError />} />
         </Routes>
         <ClassicFooter toggleTheme={toggleTheme} theme={theme} />
       </div>
