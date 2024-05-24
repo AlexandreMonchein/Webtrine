@@ -71,7 +71,6 @@ export const CardBack = styled(CardSide)`
   align-items: center;
   justify-content: center;
   transform: rotateY(180deg);
-  padding: 20px;
 `;
 
 export const CardImage = styled.img`
