@@ -32,6 +32,7 @@ export const Content = styled.div`
     css`
       flex-direction: column;
       align-items: center;
+      gap: 0px;
     `
   )};
 

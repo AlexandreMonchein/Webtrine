@@ -1,4 +1,7 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+
+import { bp } from "../../../../breakpoint";
+import { breakpointNames } from "../../../../breakpointDef";
 
 // Container for the contact form
 export const ContactSection = styled.section`
@@ -29,8 +32,16 @@ export const Description = styled.p`
 `;
 
 export const FormContainer = styled.div`
-  width: 50%;
+  width: 70%;
+
+  ${bp.max(
+    breakpointNames.medium,
+    css`
+      width: 100%;
+    `
+  )};
 `;
+
 // Styled form
 export const ContactForm = styled.form`
   display: flex;
@@ -53,6 +64,7 @@ export const Textarea = styled.textarea`
   border: 1px solid var(--color-quaternary);
   border-radius: 5px;
   resize: vertical;
+  min-height: 200px;
 `;
 
 // Styled button

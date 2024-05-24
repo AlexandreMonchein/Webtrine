@@ -87,10 +87,11 @@
         "type": "banner",
         "id": "banner",
         "datas": {
-          "features": {},
+          "features": { "multi": false },
           "datas": {
             "title": "Webtrine",
-            "subTitle": "Il n'as jamais été aussi simple de se faire connaître"
+            "subTitle": "Il n'as jamais été aussi simple de se faire connaître",
+            "images": ["banner", "banner", "banner"]
           }
         }
       },
