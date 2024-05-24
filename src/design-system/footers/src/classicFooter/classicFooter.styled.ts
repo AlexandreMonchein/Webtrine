@@ -6,7 +6,6 @@ import { DefaultContent } from "../../../navbars/src/classicNavbar/classicNavbar
 export const FooterContainer = styled.footer`
   background-color: var(--color-quaternary);
   color: var(--color-primary);
-  position: relative;
   left: 0;
   right: 0;
   bottom: 0;

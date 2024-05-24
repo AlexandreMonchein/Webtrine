@@ -37,6 +37,9 @@
     "color-quaternary": "#1E3D58",
     "color-quinary": "#000000",
 
+    "hover-color": "orange",
+    "hover-border-color": "gold",
+
     "z-index-navbars": 3,
     "z-index-text": 2,
     "z-index-backgrounds": 1

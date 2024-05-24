@@ -12,6 +12,7 @@ export const breakpoints = {
   [breakpointNames.medium]: 768,
   [breakpointNames.large]: 1024,
   [breakpointNames.xlarge]: 1240,
+  [breakpointNames.wide]: 1920,
 };
 
 export const breakpointsOrder = [

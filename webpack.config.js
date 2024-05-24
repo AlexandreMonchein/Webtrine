@@ -21,16 +21,23 @@ module.exports = {
         },
       },
       {
-        test: /\.(jpg|png|jpe?g|gif)$/i,
+        test: /\.(jpg|png|jpe?g|gif|svg)$/i,
         exclude: /node_modules/,
         use: [
           {
-            loader: 'file-loader',
+            loader: "file-loader",
             options: {
               esModule: false,
             },
           },
         ],
+      },
+      {
+        test: /\.(jpg|png|svg)$/,
+        loader: "url-loader",
+        options: {
+          limit: 25000,
+        },
       },
     ],
   },
@@ -44,7 +51,11 @@ module.exports = {
       filename: "./index.html",
     }),
     new webpack.DefinePlugin({
-      process: {env: { REACT_APP_CUSTOMER: JSON.stringify(process.env.REACT_APP_CUSTOMER)}}
-  }),
+      process: {
+        env: {
+          REACT_APP_CUSTOMER: JSON.stringify(process.env.REACT_APP_CUSTOMER),
+        },
+      },
+    }),
   ],
 };

@@ -1,4 +1,7 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+
+import { bp } from "../../../../breakpoint";
+import { breakpointNames } from "../../../../breakpointDef";
 
 export const Section = styled.section`
   position: relative;
@@ -26,12 +29,26 @@ export const Content = styled.div`
   grid-gap: 64px;
   grid-template-columns: 1fr 1fr;
 
+  ${bp.min(
+    breakpointNames.wide,
+    css`
+      grid-template-columns: 1fr 3fr;
+    `
+  )};
+
   &.isTextOnly {
     grid-template-columns: none;
   }
 
   &.isReversed {
     grid-template-columns: 1fr 1fr;
+
+    ${bp.min(
+      breakpointNames.wide,
+      css`
+        grid-template-columns: 3fr 1fr;
+      `
+    )};
 
     :first-child {
       order: 1;

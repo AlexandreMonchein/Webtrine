@@ -1,4 +1,7 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+
+import { bp } from "../../../../breakpoint";
+import { breakpointNames } from "../../../../breakpointDef";
 
 export const Container = styled.header`
   display: flex;
@@ -9,7 +12,6 @@ export const Container = styled.header`
   position: relative;
   z-index: var(--z-index-navbars);
   font-size: var(--navbar-font-size);
-
   background-color: var(--color-quaternary);
   color: var(--color-primary);
 
@@ -32,17 +34,23 @@ export const Container = styled.header`
     }
   }
 `;
+
 export const Logo = styled.div`
-  position: absolute;
   display: flex;
-  height: 64px;
-  width: 128px;
   align-items: center;
 
   img {
     display: block;
-    width: 100%;
+    width: 128px;
+    height: 64px;
   }
+
+  ${bp.max(
+    breakpointNames.medium,
+    css`
+      position: relative;
+    `
+  )};
 `;
 
 export const MainNavigation = styled.nav`
@@ -51,7 +59,12 @@ export const MainNavigation = styled.nav`
   position: sticky;
   top: 0px;
 
-  padding-left: calc(128px + 24px);
+  ${bp.max(
+    breakpointNames.medium,
+    css`
+      display: none;
+    `
+  )};
 
   ul li:hover .sous {
     display: block;
@@ -59,10 +72,12 @@ export const MainNavigation = styled.nav`
   }
 
   .deroulant > a::after {
-    content: " >";
-    font-size: 12px;
+    content: "▼";
+    font-size: 15px;
+    padding-left: 5px;
   }
 `;
+
 export const Settings = styled.div`
   display: flex;
   align-items: center;
@@ -74,26 +89,23 @@ export const DefaultContent = styled.ul`
   display: flex;
   align-items: center;
   justify-content: center;
-
   padding-inline-start: 0px;
 `;
 
 export const Links = styled.a`
   display: block;
-
   font-size: 16px;
   font-weight: bold;
   text-transform: uppercase;
   text-decoration: none;
   cursor: pointer;
-
   color: var(--color-primary);
   border-bottom: 2px solid transparent;
   padding: 10px 0px;
 
   &:hover {
-    color: orange;
-    border-bottom: 2px solid gold;
+    color: var(--hover-color);
+    border-bottom: 2px solid var(--hover-border-color);
   }
 `;
 
@@ -112,6 +124,13 @@ export const Category = styled.li`
   width: 100px;
   text-align: center;
   position: relative;
+
+  ${bp.max(
+    breakpointNames.medium,
+    css`
+      width: 100%;
+    `
+  )};
 `;
 
 export const SubCategory = styled.li``;
@@ -119,11 +138,20 @@ export const SubCategory = styled.li``;
 export const SubCategoryContainer = styled.ul`
   display: none;
   list-style-type: none;
-  box-shadow: 0px 1px 2px #ccc;
   background-color: var(--color-secondary);
   position: absolute;
   width: 100%;
   z-index: var(--z-index-navbars);
+
+  ${bp.max(
+    breakpointNames.medium,
+    css`
+      flex-direction: column;
+      display: contents;
+      align-items: flex-start;
+      word-break: break-word;
+    `
+  )};
 
   ${SubCategory} {
     float: none;
@@ -138,7 +166,7 @@ export const SubCategoryContainer = styled.ul`
 
     &:hover {
       border-bottom: none;
-      background-color: rgba(200, 200, 200, 0.1);
+      color: var(--hover-color);
     }
   }
 `;
@@ -146,6 +174,86 @@ export const SubCategoryContainer = styled.ul`
 export const Languages = styled.div`
   display: flex;
   align-items: center;
-
   font-weight: bold;
+`;
+
+export const BurgerMenuIcon = styled.div`
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  z-index: 3;
+
+  div {
+    width: 25px;
+    height: 3px;
+    background-color: var(--color-primary);
+    margin: 4px 0;
+    transition: 0.4s;
+  }
+
+  ${bp.max(
+    breakpointNames.medium,
+    css`
+      display: flex;
+    `
+  )};
+`;
+
+export const Sidebar = styled.div`
+  height: 100%;
+  width: 320px;
+  position: fixed;
+  top: 0;
+  left: -320px;
+  background-color: var(--color-quaternary);
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+
+  ${bp.min(
+    breakpointNames.large,
+    css`
+      display: none;
+    `
+  )};
+
+  .deroulant > a::after {
+    content: "▼";
+    font-size: 15px;
+    padding-left: 5px;
+  }
+
+  &.open {
+    left: 0;
+    transition: left 0.5s;
+  }
+
+  ${SubCategoryContainer} {
+    display: none;
+    &.show {
+      display: contents;
+    }
+    &.hide {
+      display: none;
+    }
+  }
+
+  ${SubCategory} {
+    padding-left: 5%;
+  }
+
+  ${Links} {
+    padding: 8px 8px 8px 32px;
+    color: var(--color-primary);
+    transition: 0.3s;
+    text-align: left;
+
+    &:hover {
+      color: var(--hover-color);
+    }
+  }
+
+  ${Content} {
+    flex-direction: column;
+  }
 `;

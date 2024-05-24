@@ -15,6 +15,9 @@ export const RootStyle = createGlobalStyle<{ globalStyle }>`
       --color-tertiary: ${(props) => _.get(props, "globalStyle.color-tertiary")};
       --color-quaternary: ${(props) => _.get(props, "globalStyle.color-quaternary")};
       --color-quinary: ${(props) => _.get(props, "globalStyle.color-quinary")};
+
+      --hover-color: ${(props) => _.get(props, "globalStyle.hover-color")};
+      --hover-border-color: ${(props) => _.get(props, "globalStyle.hover-border-color")};
       
       --background-color-1: var(--color-primary);
       --background-color-2: var(--color-secondary);
