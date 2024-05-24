@@ -1,3 +1,5 @@
+import { getCustomer } from "../../../../customer.utils";
+
 import {
   Background,
   BackgroundContainer,
@@ -7,8 +9,13 @@ import {
   Title,
 } from "./banner.styled";
 
-export const Banner = ({ title, subTitle }) => {
-  const client = 'dipaolo';
+export const Banner = (template) => {
+  const customer = getCustomer();
+
+  const {
+    features,
+    datas: { title, subTitle },
+  } = template;
 
   return (
     <Content>
@@ -21,7 +28,7 @@ export const Banner = ({ title, subTitle }) => {
         <Background
           alt="Background"
           src={require(
-            `../../../../assets/${client}/presentation/banner/banner.jpg`
+            `../../../../assets/${customer}/presentation/banner/banner.jpg`
           )}
         />
       </BackgroundContainer>

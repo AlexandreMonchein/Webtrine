@@ -1,0 +1,24 @@
+{
+  "banner": {
+    "title": "Webtrine",
+    "subTitle": "It's never been easier to get known online"
+  },
+  "description": {
+    "title": "Enim ex aliquip reprehenderit ad excepteur",
+    "content": "Enim ex aliquip reprehenderit ad excepteur aliqua excepteur amet proident duis qui exercitation. Exercitation laboris duis elit mollit ut incididunt adipisicing voluptate irure adipisicing minim culpa proident. Proident nostrud cillum sint Lorem excepteur. Laboris non exercitation sint do quis id deserunt exercitation sunt sunt pariatur ullamco esse."
+  },
+  "showcase": {
+    "title": "Enim ex aliquip reprehenderit ad excepteur"
+  },
+  "contact": {
+    "title": "Enim ex aliquip reprehenderit ad excepteur",
+    "description": "Enim ex aliquip reprehenderit ad excepteur",
+    "name": "Name",
+    "namePlaceholder": "Your name",
+    "subject": "Subject",
+    "subjectPlaceholder": "Subject of your message",
+    "content": "Content",
+    "contentPlaceholder": "Content of your message",
+    "send": "Send"
+  }
+}

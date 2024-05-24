@@ -2,13 +2,20 @@ import styled from "styled-components";
 
 // Container for the footer
 export const FooterContainer = styled.footer`
-  background-color: #1e3d58;
+  background-color: var(--color-quaternary);
+  color: var(--color-primary);
+  position: relative;
+  left: 0;
+  right: 0;
+  bottom: 0;
   padding: 40px 120px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: #ffffff;
   flex-wrap: wrap;
+
+  z-index: var(--z-index-navbars);
+  font-size: var(--navbar-font-size);
 `;
 
 // Left section for logos

@@ -1,5 +1,5 @@
 import { useCallback, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 import { Display } from "./design-system/components/display/display1/src/display.component";
@@ -8,37 +8,63 @@ import { ClassicError } from "./design-system/error/src/classicError.component";
 import { ClassicFooter } from "./design-system/footers/src/classicFooter/classicFooter.component";
 import { Home } from "./design-system/home/src/home.component";
 import { ClassicNavbar } from "./design-system/navbars/src/classicNavbar/classicNavbar.component";
-import { getMainTemplates, getSecondTemplates } from "./store/state.selector";
-import { getCustomer } from "./customer.utils";
+import { setConfig } from "./store/state.action";
+import { getTemplates } from "./store/state.selector";
 import { RootStyle } from "./globalStyles";
 
-function App() {
-  const mainTemplates = useSelector(getMainTemplates);
-  const secondTemplates = useSelector(getSecondTemplates);
-
-  console.warn(">>> CUSTOMER:", getCustomer());
+function App(config) {
+  const dispatch = useDispatch();
 
   const [theme, setTheme] = useState("light");
-
   const toggleTheme = useCallback(() => {
     setTheme(theme === "light" ? "dark" : "light");
   }, [theme]);
 
+  dispatch(setConfig(config));
+
+  const templates = useSelector(getTemplates);
+  console.warn(">>> templates", templates);
+
+  const getTemplateById = useCallback(
+    (templateId) => {
+      const template = templates.filter(
+        (template) => template.id === templateId
+      )[0];
+
+      return template || undefined;
+    },
+    [templates]
+  );
+
   return (
     <Router>
       <div data-theme={theme}>
+        <ClassicNavbar
+          template={templates[0]?.datas}
+          toggleTheme={toggleTheme}
+          theme={theme}
+        />
         <RootStyle />
-        <ClassicNavbar toggleTheme={toggleTheme} theme={theme} />
         <Routes>
-          <Route path="/" element={<Home template={mainTemplates} />} />
+          <Route path="/" element={<Home templates={templates} />} />
           <Route
             path="/display"
-            element={<Display template={secondTemplates} />}
+            element={<Display template={getTemplateById("display")} />}
           />
-          <Route path="/display2" element={<Display2 />} />
-          <Route path="/*" element={<ClassicError />} />
+          <Route
+            path="/display2"
+            element={<Display2 template={getTemplateById("display2")} />}
+          />
+          <Route
+            path="/*"
+            element={<ClassicError template={getTemplateById("error")} />}
+          />
         </Routes>
-        <ClassicFooter toggleTheme={toggleTheme} theme={theme} />
+        <ClassicFooter
+          template={templates[1]?.datas}
+          toggleTheme={toggleTheme}
+          theme={theme}
+        />
       </div>
     </Router>
   );

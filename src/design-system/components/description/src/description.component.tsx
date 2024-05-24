@@ -1,4 +1,5 @@
 import classNames from "classnames";
+import { useTranslation } from "react-i18next";
 
 import {
   Container,
@@ -12,9 +13,9 @@ import {
 } from "./description.styled";
 
 export const Description = (template) => {
+  const { t } = useTranslation();
   const { features, src, title, content } = template;
 
-  console.warn('>>> datas', template);
   return (
     <Section data-testid="WhoWeAre">
       <a id="description" />

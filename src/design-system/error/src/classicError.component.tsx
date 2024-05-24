@@ -1,5 +1,5 @@
 import React from "react";
 
-export const ClassicError = () => {
+export const ClassicError = ({ template }) => {
   return <div>ClassicError</div>;
 };

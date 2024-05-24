@@ -1,3 +1,5 @@
+import { useTranslation } from "react-i18next";
+
 import {
   Button,
   ContactForm,
@@ -11,44 +13,45 @@ import {
 } from "./contact.styled";
 
 export const Contact = () => {
+  const { t } = useTranslation();
+
   return (
     <ContactSection>
       <a id="contact" />
       <Content>
-        <Title>Contactez-nous</Title>
-        <Description>
-          Si vous êtes intéressé, contactez-nous via ce formulaire.
-        </Description>
+        <Title>{t("contact.title")}</Title>
+        <Description>{t("contact.description")}</Description>
         <FormContainer>
           <ContactForm>
-            <label htmlFor="name">Nom:</label>
+            <label htmlFor="name">{t("contact.name")}</label>
             <Input
               type="text"
               id="name"
               name="name"
-              placeholder="Votre nom"
+              placeholder={t("contact.namePlaceholder")}
               required
             />
 
-            <label htmlFor="subject">Sujet:</label>
+            <label htmlFor="subject">{t("contact.subject")}</label>
             <Input
               type="text"
               id="subject"
               name="subject"
-              placeholder="Le sujet de votre message"
+              placeholder={t("contact.subjectPlaceholder")}
               required
             />
 
-            <label htmlFor="content">Contenu:</label>
+            <label htmlFor="content">{t("contact.content")}</label>
             <Textarea
               id="content"
               name="content"
-              placeholder="Votre message"
+              placeholder={t("contact.contentPlaceholder")}
               required
             ></Textarea>
 
-            <Button type="submit">Envoyer</Button>
-          </ContactForm></FormContainer>
+            <Button type="submit">{t("contact.send")}</Button>
+          </ContactForm>
+        </FormContainer>
       </Content>
     </ContactSection>
   );

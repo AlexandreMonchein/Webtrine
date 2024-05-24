@@ -13,7 +13,7 @@ export function pluralize(string, num) {
 
 export const Card = ({ slug, name, imageSrc, price, numOfColors }) => {
   return (
-    <Link href={`/shoe/${slug}`}>
+    <Link href={`/display2/display/${slug}`}>
       <Wrapper>
         <ImageWrapper>
           <Image alt="" src={imageSrc} />

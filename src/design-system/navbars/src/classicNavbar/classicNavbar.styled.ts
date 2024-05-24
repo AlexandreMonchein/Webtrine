@@ -16,7 +16,6 @@ export const Container = styled.header`
   &.isFixed {
     position: fixed;
     top: 0px;
-    width: auto;
     left: 0;
     right: 0;
 

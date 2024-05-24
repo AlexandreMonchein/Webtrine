@@ -1,5 +1,6 @@
 import React, { useCallback, useEffect, useState } from "react";
 import classNames from "classnames";
+import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
 
 import { getClient, getSocials } from "../../../../store/state.selector";
@@ -20,17 +21,20 @@ import {
   SubCategoryContainer,
 } from "./classicNavbar.styled";
 
-export const ClassicNavbar = ({ toggleTheme, theme }) => {
+export const ClassicNavbar = ({ template, toggleTheme, theme }) => {
+  const { t, i18n } = useTranslation();
+  const { name } = useSelector(getClient);
   const { facebook, instagram, x, linkedIn } = useSelector(getSocials);
-  const client = useSelector(getClient);
 
-  const features = { isFixed: true, hasHideOnScroll: false };
+  const {
+    features: { isFixed, hasHideOnScroll },
+    content,
+  } = template;
+  console.warn(">>> data", content);
 
-  // keep track of previous scroll position
   const [prevScrollPos, setPrevScrollPos] = useState(window.scrollY);
 
   const onScroll = useCallback(() => {
-    // current scroll position
     const currentScrollPos = window.scrollY;
 
     if (prevScrollPos > currentScrollPos) {
@@ -45,12 +49,15 @@ export const ClassicNavbar = ({ toggleTheme, theme }) => {
       document.getElementById("navbar").classList.remove("show");
     }
 
-    // update previous scroll position
     setPrevScrollPos(currentScrollPos);
   }, [prevScrollPos, setPrevScrollPos]);
 
+  const handleChangeLanguage = (lang: string) => {
+    i18n.changeLanguage(lang);
+  };
+
   useEffect(() => {
-    if (features.isFixed && features.hasHideOnScroll) {
+    if (isFixed && hasHideOnScroll) {
       window.addEventListener("scroll", onScroll);
     }
 
@@ -63,8 +70,8 @@ export const ClassicNavbar = ({ toggleTheme, theme }) => {
     <Container
       id="navbar"
       className={classNames({
-        isFixed: features.isFixed,
-        hideOnScroll: features.hasHideOnScroll,
+        isFixed: isFixed,
+        hideOnScroll: hasHideOnScroll,
       })}
     >
       <Logo>
@@ -72,7 +79,7 @@ export const ClassicNavbar = ({ toggleTheme, theme }) => {
           <img
             alt="LOGO"
             src={require(
-              `../../../../assets/${client}/icons/white/logo-webtrine-white.png`
+              `../../../../assets/${name}/icons/white/logo-webtrine-white.png`
             )}
           />
         </a>
@@ -109,9 +116,7 @@ export const ClassicNavbar = ({ toggleTheme, theme }) => {
           {facebook ? (
             <li>
               <SocialLogo>
-                <a
-                  href={`https://www.facebook.com/profile.php?id=${facebook?.profileId}`}
-                >
+                <a href={`https://www.facebook.com/profile.php?id=${facebook}`}>
                   <img
                     alt="facebook"
                     src={require(
@@ -125,7 +130,7 @@ export const ClassicNavbar = ({ toggleTheme, theme }) => {
           {instagram ? (
             <li>
               <SocialLogo>
-                <a href={`https://www.instagram.com/${instagram?.profileId}`}>
+                <a href={`https://www.instagram.com/${instagram}`}>
                   <img
                     alt="instagram"
                     src={require(
@@ -139,7 +144,7 @@ export const ClassicNavbar = ({ toggleTheme, theme }) => {
           {x ? (
             <li>
               <SocialLogo>
-                <a href={`https://twitter.com/${x?.profileId}`}>
+                <a href={`https://twitter.com/${x}`}>
                   <img
                     alt="x"
                     src={require(
@@ -153,7 +158,7 @@ export const ClassicNavbar = ({ toggleTheme, theme }) => {
           {linkedIn ? (
             <li>
               <SocialLogo>
-                <a href={`https://www.linkedin.com/in/${linkedIn?.profileId}`}>
+                <a href={`https://www.linkedin.com/in/${linkedIn}`}>
                   <img
                     alt="linkedin"
                     src={require(
@@ -166,9 +171,13 @@ export const ClassicNavbar = ({ toggleTheme, theme }) => {
           ) : null}
         </SocialContent>
         <Languages>
-          <p>FR</p>
-          <span>/</span>
-          <p>EN</p>
+          <div>
+            {i18n.language === "fr" ? (
+              <button onClick={() => handleChangeLanguage("en")}>EN</button>
+            ) : (
+              <button onClick={() => handleChangeLanguage("fr")}>FR</button>
+            )}
+          </div>
         </Languages>
         <ToggleThemeMode toggleTheme={toggleTheme} theme={theme} />
       </Socials>

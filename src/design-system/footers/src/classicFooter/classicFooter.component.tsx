@@ -1,15 +1,22 @@
-import { useSelector } from 'react-redux';
+import { useSelector } from "react-redux";
 
-import { getClient, getSocials } from '../../../../store/state.selector';
-import { SocialContent, SocialLogo, Socials } from '../../../navbars/src/classicNavbar/classicNavbar.styled';
+import { getClient, getSocials } from "../../../../store/state.selector";
+import {
+  SocialContent,
+  SocialLogo,
+  Socials,
+} from "../../../navbars/src/classicNavbar/classicNavbar.styled";
 
-import { FooterContainer, LeftSection, Logo, MiddleSection, RightSection } from './classicFooter.styled';
+import {
+  FooterContainer,
+  LeftSection,
+  Logo,
+  MiddleSection,
+  RightSection,
+} from "./classicFooter.styled";
 
-export const ClassicFooter = ({ toggleTheme, theme }) => {
+export const ClassicFooter = ({ template, toggleTheme, theme }) => {
   const { facebook, instagram, x, linkedIn } = useSelector(getSocials);
-  const client = useSelector(getClient);
-
-  console.warn('>>>  client', client);
 
   return (
     <FooterContainer>
@@ -70,7 +77,9 @@ export const ClassicFooter = ({ toggleTheme, theme }) => {
             {linkedIn ? (
               <li>
                 <SocialLogo>
-                  <a href={`https://www.linkedin.com/in/${linkedIn?.profileId}`}>
+                  <a
+                    href={`https://www.linkedin.com/in/${linkedIn?.profileId}`}
+                  >
                     <img
                       alt="linkedin"
                       src={require(

@@ -22,9 +22,6 @@ export const ItemsGrid = styled.div`
     grid-column: span 2;
     justify-self: center;
 
-    width: 65%;
-    padding-left: 10%;
-
     div {
       display: flex;
       padding-left: 16px;
