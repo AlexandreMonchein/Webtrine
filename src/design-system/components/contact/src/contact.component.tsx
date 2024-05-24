@@ -17,13 +17,12 @@ export const Contact = () => {
 
   return (
     <ContactSection>
-      <a id="contact" />
       <Content>
         <Title>{t("contact.title")}</Title>
         <Description>{t("contact.description")}</Description>
         <FormContainer>
           <ContactForm>
-            <label htmlFor="name">{t("contact.name")}</label>
+            <label htmlFor="name">{t("contact.name")} *</label>
             <Input
               type="text"
               id="name"
@@ -32,7 +31,15 @@ export const Contact = () => {
               required
             />
 
-            <label htmlFor="subject">{t("contact.subject")}</label>
+            <label htmlFor="subject">{t("contact.company")}</label>
+            <Input
+              type="text"
+              id="subject"
+              name="subject"
+              placeholder={t("contact.companyPlaceholder")}
+            />
+
+            <label htmlFor="subject">{t("contact.subject")} *</label>
             <Input
               type="text"
               id="subject"
@@ -41,7 +48,7 @@ export const Contact = () => {
               required
             />
 
-            <label htmlFor="content">{t("contact.content")}</label>
+            <label htmlFor="content">{t("contact.content")} *</label>
             <Textarea
               id="content"
               name="content"

@@ -40,7 +40,6 @@ export const Banner = (template) => {
 
   return (
     <Content>
-      <a id="banner" />
       <TextContainer>
         {title ? <Title>{title}</Title> : null}
         {subTitle ? <SubTitle>{subTitle}</SubTitle> : null}

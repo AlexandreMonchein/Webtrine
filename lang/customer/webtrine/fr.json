@@ -15,6 +15,8 @@
     "description": "Enim ex aliquip reprehenderit ad excepteur",
     "name": "Nom",
     "namePlaceholder": "Votre nom",
+    "company": "Entreprise",
+    "companyPlaceholder": "Votre entreprise",
     "subject": "Sujet",
     "subjectPlaceholder": "Sujet de votre message",
     "content": "Contenu",

@@ -22,7 +22,6 @@ export const Showcase = (template) => {
 
   return (
     <SectionContainer>
-      <a id="showcase" />
       {title ? <SectionTitle>{title}</SectionTitle> : null}
       <ItemsGrid className={classNames({ isOdd: isOdd, isEven: isEven })}>
         {content.map((data, index) => (

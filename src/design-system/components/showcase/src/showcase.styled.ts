@@ -69,6 +69,13 @@ export const TextContainer = styled.div`
   &.isSingleItem {
     align-items: flex-start;
   }
+
+  ${bp.max(
+    breakpointNames.medium,
+    css`
+      padding-top: 2%;
+    `
+  )};
 `;
 
 // Title and description

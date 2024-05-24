@@ -18,7 +18,6 @@ export const Description = (template) => {
 
   return (
     <Section data-testid="WhoWeAre">
-      <a id="description" />
       <SectionTitle>{title}</SectionTitle>
       <Container>
         <Content
