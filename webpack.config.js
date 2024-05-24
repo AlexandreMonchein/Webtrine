@@ -2,8 +2,6 @@ const webpack = require("webpack");
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
-console.warn(">>> env:", process.env.REACT_APP_CUSTOMER);
-
 module.exports = {
   mode: "development",
   entry: "./src/index.tsx",
