@@ -38,8 +38,6 @@ export const Banner = (template) => {
     setCurrentIndex(index);
   };
 
-  console.warn(">>> images", images[0]);
-
   return (
     <Content>
       <a id="banner" />

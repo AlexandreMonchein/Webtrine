@@ -6,7 +6,7 @@ import { breakpointNames } from "../../../../breakpointDef";
 export const Section = styled.section`
   position: relative;
   padding: 40px 120px;
-  background-color: var(--background-color-1);
+  /* background-color: var(--background-color-1); */
 `;
 
 export const Container = styled.div`
@@ -84,6 +84,13 @@ export const Text = styled.p`
 
   line-height: 1.5;
   word-break: break-word;
+
+  ${bp.max(
+    breakpointNames.medium,
+    css`
+      text-align: center;
+    `
+  )};
 
   &.isCentered {
     align-content: center;

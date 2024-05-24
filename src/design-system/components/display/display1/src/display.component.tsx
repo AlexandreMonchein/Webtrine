@@ -7,7 +7,6 @@ import { Image, ImageContainer, ShowcaseContainer } from "./display.styled";
 
 // Component to display images
 export const Display = ({ template }) => {
-  console.warn(">>> template", template);
   const images = template.datas.content;
 
   return (

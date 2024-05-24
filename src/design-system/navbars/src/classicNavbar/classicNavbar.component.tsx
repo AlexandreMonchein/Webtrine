@@ -40,10 +40,8 @@ export const ClassicNavbar = ({ template, toggleTheme, theme }) => {
       // user has scrolled up
       document.getElementById("navbar").classList.add("show");
       document.getElementById("navbar").classList.remove("hide");
-      console.warn(">>> up", prevScrollPos, currentScrollPos);
     } else {
       // user has scrolled down
-      console.warn(">>> down", prevScrollPos, currentScrollPos);
       document.getElementById("navbar").classList.add("hide");
       document.getElementById("navbar").classList.remove("show");
     }

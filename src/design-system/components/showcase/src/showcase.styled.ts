@@ -1,4 +1,7 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+
+import { bp } from "../../../../breakpoint";
+import { breakpointNames } from "../../../../breakpointDef";
 
 // Container for the whole section
 export const SectionContainer = styled.section`
@@ -38,6 +41,13 @@ export const Item = styled.div`
   align-items: center;
   text-align: center;
   padding-bottom: 5%;
+
+  ${bp.max(
+    breakpointNames.medium,
+    css`
+      flex-direction: column;
+    `
+  )}
 
   &.isSingleItem {
     flex-direction: row;

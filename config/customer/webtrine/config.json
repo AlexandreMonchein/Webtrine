@@ -151,6 +151,45 @@
         }
       },
       {
+        "type": "list",
+        "id": "list",
+        "datas": {
+          "features": {},
+          "title": "Ils nous font confiance",
+          "images": [
+            { "src": "cvs", "link": "https://website1.com" },
+            { "src": "dipaolo", "link": "https://website2.com" },
+            { "src": "cvs", "link": "https://website1.com" },
+            { "src": "dipaolo", "link": "https://website2.com" }
+          ]
+        }
+      },
+      {
+        "type": "flippingCard",
+        "id": "flippingCard",
+        "datas": {
+          "features": {},
+          "title": "Flipping Cards",
+          "images": [
+            {
+              "image": "https://via.placeholder.com/300x400.png?text=Image+1",
+              "title": "Card 1",
+              "description": "This is the description for Card 1"
+            },
+            {
+              "image": "https://via.placeholder.com/300x400.png?text=Image+2",
+              "title": "Card 2",
+              "description": "This is the description for Card 2"
+            },
+            {
+              "image": "https://via.placeholder.com/300x400.png?text=Image+3",
+              "title": "Card 3",
+              "description": "This is the description for Card 3"
+            }
+          ]
+        }
+      },
+      {
         "type": "contact",
         "id": "contact",
         "datas": {
