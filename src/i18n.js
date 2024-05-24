@@ -6,7 +6,6 @@ import { initReactI18next } from "react-i18next";
 import { getCustomer } from "./customer.utils";
 
 const customer = getCustomer();
-console.warn(">>> i18n customer:", customer);
 
 i18n
   .use(

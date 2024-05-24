@@ -9,7 +9,7 @@ import { ClassicFooter } from "./design-system/footers/src/classicFooter/classic
 import { Home } from "./design-system/home/src/home.component";
 import { ClassicNavbar } from "./design-system/navbars/src/classicNavbar/classicNavbar.component";
 import { setConfig } from "./store/state.action";
-import { getTemplates } from "./store/state.selector";
+import { getStyle, getTemplates } from "./store/state.selector";
 import { RootStyle } from "./globalStyles";
 
 function App(config) {
@@ -23,7 +23,7 @@ function App(config) {
   dispatch(setConfig(config));
 
   const templates = useSelector(getTemplates);
-  console.warn(">>> templates", templates);
+  const globalStyle = useSelector(getStyle);
 
   const getTemplateById = useCallback(
     (templateId) => {
@@ -38,13 +38,13 @@ function App(config) {
 
   return (
     <Router>
+      <RootStyle globalStyle={{ ...globalStyle }} />
       <div data-theme={theme}>
         <ClassicNavbar
           template={templates[0]?.datas}
           toggleTheme={toggleTheme}
           theme={theme}
         />
-        <RootStyle />
         <Routes>
           <Route path="/" element={<Home templates={templates} />} />
           <Route

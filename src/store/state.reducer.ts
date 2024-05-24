@@ -5,11 +5,11 @@ export function stateReducer(state = initialState, action) {
     case "SET_CONFIG":
       const {
         config: {
-          config: { client, layout },
+          config: { client, style, layout },
         },
       } = action;
 
-      return { ...state, client, layout };
+      return { ...state, client, style, layout };
 
     default:
       return state;

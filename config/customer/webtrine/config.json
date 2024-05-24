@@ -23,6 +23,24 @@
       "discord": null
     }
   },
+  "style": {
+    "font-family": "\"Josefin Sans\",sans-serif",
+
+    "navbar-font-size": "16px",
+    "title-font-size": "42px",
+    "subtitle-font-size": "32px",
+    "text-font-size": "24px",
+
+    "color-primary": "#ffffff",
+    "color-secondary": "#E8EEF1",
+    "color-tertiary": "#60A3D9",
+    "color-quaternary": "#1E3D58",
+    "color-quinary": "#000000",
+
+    "z-index-navbars": 3,
+    "z-index-text": 2,
+    "z-index-backgrounds": 1
+  },
   "layout": {
     "templates": [
       {

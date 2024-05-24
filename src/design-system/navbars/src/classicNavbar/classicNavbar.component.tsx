@@ -30,7 +30,6 @@ export const ClassicNavbar = ({ template, toggleTheme, theme }) => {
     features: { isFixed, hasHideOnScroll },
     content,
   } = template;
-  console.warn(">>> data", content);
 
   const [prevScrollPos, setPrevScrollPos] = useState(window.scrollY);
 
