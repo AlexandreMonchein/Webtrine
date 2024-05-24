@@ -32,16 +32,13 @@ export const Description = (template) => {
               <Image src={src} />
             </ImageWrapper>
           ) : null}
-
-          <TextContent>
-            <Text
-              className={classNames({
-                isCentered: features.isCentered,
-              })}
-            >
-              {content}
-            </Text>
-          </TextContent>
+          <Text
+            className={classNames({
+              isCentered: features.isCentered,
+            })}
+          >
+            {content}
+          </Text>
         </Content>
       </Container>
     </Section>

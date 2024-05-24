@@ -10,7 +10,6 @@ export const Section = styled.section`
 `;
 
 export const Container = styled.div`
-  margin: 0 120px;
   display: block;
 `;
 
@@ -25,31 +24,21 @@ export const SectionTitle = styled.h2`
 `;
 
 export const Content = styled.div`
-  display: grid;
-  grid-gap: 64px;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  gap: 48px;
 
-  ${bp.min(
-    breakpointNames.wide,
+  ${bp.max(
+    breakpointNames.medium,
     css`
-      grid-template-columns: 1fr 3fr;
+      flex-direction: column;
+      align-items: center;
     `
   )};
 
   &.isTextOnly {
-    grid-template-columns: none;
   }
 
   &.isReversed {
-    grid-template-columns: 1fr 1fr;
-
-    ${bp.min(
-      breakpointNames.wide,
-      css`
-        grid-template-columns: 3fr 1fr;
-      `
-    )};
-
     :first-child {
       order: 1;
     }
@@ -60,20 +49,33 @@ export const Content = styled.div`
   }
 `;
 export const ImageWrapper = styled.figure`
-  max-width: 620px;
   margin: 0;
+  width: 100%;
+  height: auto;
+
+  ${bp.max(
+    breakpointNames.medium,
+    css`
+      width: auto;
+    `
+  )};
+
+  ${bp.min(
+    breakpointNames.wide,
+    css`
+      width: auto;
+    `
+  )};
 `;
 export const Image = styled.img`
-  height: auto;
-  max-width: unset;
   vertical-align: middle;
-  width: 100%;
+  max-width: 620px;
+  min-width: 300px;
 `;
 
 export const TextContent = styled.div`
   display: flex;
   overflow: hidden;
-  max-height: 460px;
 `;
 export const Text = styled.p`
   font-size: var(--text-font-size);

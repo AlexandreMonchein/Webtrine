@@ -37,7 +37,6 @@ export const Item = styled.div`
   display: flex;
   align-items: center;
   text-align: center;
-  justify-content: center;
   padding-bottom: 5%;
 
   &.isSingleItem {
