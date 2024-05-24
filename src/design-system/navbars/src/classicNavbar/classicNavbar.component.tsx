@@ -3,7 +3,7 @@ import classNames from "classnames";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
 
-import { getClient, getSocials } from "../../../../store/state.selector";
+import { getClient } from "../../../../store/state.selector";
 import { ToggleThemeMode } from "../../../buttons/mode-theme/src/modeTheme.component";
 
 import {
@@ -14,9 +14,7 @@ import {
   Links,
   Logo,
   MainNavigation,
-  SocialContent,
-  SocialLogo,
-  Socials,
+  Settings,
   SubCategory,
   SubCategoryContainer,
 } from "./classicNavbar.styled";
@@ -24,7 +22,6 @@ import {
 export const ClassicNavbar = ({ template, toggleTheme, theme }) => {
   const { t, i18n } = useTranslation();
   const { name } = useSelector(getClient);
-  const { facebook, instagram, x, linkedIn } = useSelector(getSocials);
 
   const {
     features: { isFixed, hasHideOnScroll },
@@ -110,65 +107,7 @@ export const ClassicNavbar = ({ template, toggleTheme, theme }) => {
           </Category>
         </Content>
       </MainNavigation>
-      <Socials>
-        <SocialContent>
-          {facebook ? (
-            <li>
-              <SocialLogo>
-                <a href={`https://www.facebook.com/profile.php?id=${facebook}`}>
-                  <img
-                    alt="facebook"
-                    src={require(
-                      `../../../../assets/default/icons/white/facebook-white.png`
-                    )}
-                  />
-                </a>
-              </SocialLogo>
-            </li>
-          ) : null}
-          {instagram ? (
-            <li>
-              <SocialLogo>
-                <a href={`https://www.instagram.com/${instagram}`}>
-                  <img
-                    alt="instagram"
-                    src={require(
-                      `../../../../assets/default/icons/white/instagram-white.png`
-                    )}
-                  />
-                </a>
-              </SocialLogo>
-            </li>
-          ) : null}
-          {x ? (
-            <li>
-              <SocialLogo>
-                <a href={`https://twitter.com/${x}`}>
-                  <img
-                    alt="x"
-                    src={require(
-                      `../../../../assets/default/icons/white/x-white.png`
-                    )}
-                  />
-                </a>
-              </SocialLogo>
-            </li>
-          ) : null}
-          {linkedIn ? (
-            <li>
-              <SocialLogo>
-                <a href={`https://www.linkedin.com/in/${linkedIn}`}>
-                  <img
-                    alt="linkedin"
-                    src={require(
-                      `../../../../assets/default/icons/white/linkedin-white.png`
-                    )}
-                  />
-                </a>
-              </SocialLogo>
-            </li>
-          ) : null}
-        </SocialContent>
+      <Settings>
         <Languages>
           <div>
             {i18n.language === "fr" ? (
@@ -179,7 +118,7 @@ export const ClassicNavbar = ({ template, toggleTheme, theme }) => {
           </div>
         </Languages>
         <ToggleThemeMode toggleTheme={toggleTheme} theme={theme} />
-      </Socials>
+      </Settings>
     </Container>
   );
 };

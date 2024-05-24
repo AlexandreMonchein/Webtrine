@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Section = styled.section`
   position: relative;
-  padding: 40px 0;
+  padding: 40px 120px;
   background-color: var(--background-color-1);
 `;
 
@@ -23,16 +23,15 @@ export const SectionTitle = styled.h2`
 
 export const Content = styled.div`
   display: grid;
-  grid-gap: 120px;
-  grid-template-columns: 1fr 3fr;
+  grid-gap: 64px;
+  grid-template-columns: 1fr 1fr;
 
   &.isTextOnly {
     grid-template-columns: none;
   }
 
   &.isReversed {
-    grid-gap: 120px;
-    grid-template-columns: 3fr 1fr;
+    grid-template-columns: 1fr 1fr;
 
     :first-child {
       order: 1;
@@ -47,7 +46,12 @@ export const ImageWrapper = styled.figure`
   max-width: 620px;
   margin: 0;
 `;
-export const Image = styled.img``;
+export const Image = styled.img`
+  height: auto;
+  max-width: unset;
+  vertical-align: middle;
+  width: 100%;
+`;
 
 export const TextContent = styled.div`
   display: flex;

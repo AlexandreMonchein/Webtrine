@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
+import { DefaultContent } from "../../../navbars/src/classicNavbar/classicNavbar.styled";
+
 // Container for the footer
 export const FooterContainer = styled.footer`
   background-color: var(--color-quaternary);
@@ -51,4 +53,19 @@ export const Logo = styled.img`
   &:not(:last-child) {
     margin-right: 10px;
   }
+`;
+
+export const Socials = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 24px;
+`;
+export const SocialLogo = styled.div`
+  img {
+    width: 28px;
+    height: 28px;
+  }
+`;
+export const SocialContent = styled(DefaultContent)`
+  gap: 12px;
 `;

@@ -1,30 +1,24 @@
 import _ from "lodash";
 
 export const breakpointNames = {
-  xsmall: "xsmall",
   small: "small",
   medium: "medium",
   large: "large",
   xlarge: "xlarge",
-  wide: "wide",
 };
 
 export const breakpoints = {
-  [breakpointNames.xsmall]: 0,
-  [breakpointNames.small]: 600,
+  [breakpointNames.small]: 480,
   [breakpointNames.medium]: 768,
   [breakpointNames.large]: 1024,
-  [breakpointNames.xlarge]: 1440,
-  [breakpointNames.wide]: 1920,
+  [breakpointNames.xlarge]: 1240,
 };
 
 export const breakpointsOrder = [
-  breakpointNames.xsmall,
   breakpointNames.small,
   breakpointNames.medium,
   breakpointNames.large,
   breakpointNames.xlarge,
-  breakpointNames.wide,
 ];
 
 export const getNextBreakpoint = (currentBreakpoint) => {

@@ -1,11 +1,6 @@
 import { useSelector } from "react-redux";
 
-import { getClient, getSocials } from "../../../../store/state.selector";
-import {
-  SocialContent,
-  SocialLogo,
-  Socials,
-} from "../../../navbars/src/classicNavbar/classicNavbar.styled";
+import { getSocials } from "../../../../store/state.selector";
 
 import {
   FooterContainer,
@@ -13,6 +8,9 @@ import {
   Logo,
   MiddleSection,
   RightSection,
+  SocialContent,
+  SocialLogo,
+  Socials,
 } from "./classicFooter.styled";
 
 export const ClassicFooter = ({ template, toggleTheme, theme }) => {

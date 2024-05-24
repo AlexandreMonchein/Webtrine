@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 // Container for the whole section
 export const SectionContainer = styled.section`
-  padding: 1px 120px;
+  padding: 40px 120px;
 `;
 
 // Grid container for items
@@ -24,14 +24,6 @@ export const ItemsGrid = styled.div`
 
     div {
       display: flex;
-      padding-left: 16px;
-    }
-
-    img {
-      width: 120px;
-      height: 120px;
-      margin-right: 20px;
-      padding-left: 0;
     }
   }
 
@@ -45,14 +37,11 @@ export const Item = styled.div`
   display: flex;
   align-items: center;
   text-align: center;
+  justify-content: center;
   padding-bottom: 5%;
 
   &.isSingleItem {
     flex-direction: row;
-    text-align: left;
-  }
-
-  &.first-item {
     text-align: left;
   }
 `;
@@ -60,27 +49,15 @@ export const Item = styled.div`
 // Round image
 export const RoundImage = styled.img`
   border-radius: 50%;
-  width: 80px;
-  height: 80px;
-  margin-right: 0;
-
-  &.isSingleItem,
-  &.isOdd,
-  &.first-item {
-    width: 100px;
-    height: 100px;
-    margin-right: 20px;
-  }
 `;
 
 // Text container
 export const TextContainer = styled.div`
   display: flex;
   flex-direction: column;
-  padding-left: 16px;
+  padding-left: 2%;
 
-  &.isSingleItem,
-  &.first-item {
+  &.isSingleItem {
     align-items: flex-start;
   }
 `;
