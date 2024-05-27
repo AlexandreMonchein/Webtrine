@@ -18,10 +18,11 @@ const Banner = (datas) => {
   const customer = getCustomer();
 
   const {
-    features: { multi },
+    features: { multi, textPositionFeature },
     title,
     subTitle,
     images,
+    textPosition = "center-left", // default position
   } = datas;
 
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -30,7 +31,7 @@ const Banner = (datas) => {
     if (multi) {
       const interval = setInterval(() => {
         setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-      }, 5000); // Change image every 10 seconds
+      }, 5000); // Change image every 5 seconds
 
       return () => clearInterval(interval);
     }
@@ -42,7 +43,9 @@ const Banner = (datas) => {
 
   return (
     <Content>
-      <TextContainer>
+      <TextContainer
+        className={classNames(textPosition, { active: textPositionFeature })}
+      >
         {title ? <Title>{title}</Title> : null}
         {subTitle ? <SubTitle>{subTitle}</SubTitle> : null}
       </TextContainer>

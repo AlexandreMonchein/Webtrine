@@ -4,11 +4,13 @@ export const Content = styled.section`
   width: 100%;
   height: 100vh;
   position: relative;
-  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 export const BackgroundContainer = styled.div`
-  position: relative;
+  position: absolute;
   left: 0;
   width: 100%;
   height: 100%;
@@ -47,14 +49,67 @@ export const Background = styled.img`
 export const TextContainer = styled.div`
   position: absolute;
   width: 40%;
-  height: 50%;
-  top: 30%;
-  left: 5%;
+  height: auto;
   overflow-y: hidden;
+  display: flex;
+  flex-direction: column;
+
+  &.top-left {
+    top: 5vh;
+    left: 5vh;
+    text-align: start;
+  }
+
+  &.center-left {
+    top: 30vh;
+    left: 5vh;
+    text-align: start;
+  }
+
+  &.bottom-left {
+    bottom: 10vh;
+    left: 5vh;
+    text-align: start;
+  }
+
+  &.center-top {
+    top: 5vh;
+    left: 50vh;
+    text-align: center;
+  }
+
+  &.center {
+    top: 30vh;
+    left: 50vh;
+    text-align: center;
+  }
+
+  &.center-bottom {
+    bottom: 10vh;
+    left: 50vh;
+    text-align: center;
+  }
+
+  &.top-right {
+    top: 5vh;
+    right: 5vh;
+    text-align: end;
+  }
+
+  &.center-right {
+    top: 30vh;
+    right: 5vh;
+    text-align: end;
+  }
+
+  &.bottom-right {
+    bottom: 10vh;
+    right: 5vh;
+    text-align: end;
+  }
 `;
 
 export const Title = styled.h1`
-  position: relative;
   z-index: var(--z-index-text);
   color: var(--color-primary);
   text-transform: uppercase;
@@ -64,7 +119,6 @@ export const Title = styled.h1`
 `;
 
 export const SubTitle = styled.h2`
-  position: relative;
   z-index: var(--z-index-text);
   color: var(--color-primary);
   text-transform: uppercase;
