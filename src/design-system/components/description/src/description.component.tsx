@@ -12,9 +12,9 @@ import {
   TextContent,
 } from "./description.styled";
 
-export const Description = (template) => {
+const Description = (datas) => {
   const { t } = useTranslation();
-  const { features, src, title, content } = template;
+  const { features, src, title, content } = datas;
 
   return (
     <Section data-testid="WhoWeAre">
@@ -43,3 +43,5 @@ export const Description = (template) => {
     </Section>
   );
 };
+
+export default Description;

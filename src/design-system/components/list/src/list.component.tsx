@@ -10,7 +10,7 @@ import {
   Section,
 } from "./list.styled";
 
-export const List = (template) => {
+const List = (datas) => {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [showButtons, setShowButtons] = useState(false);
 
@@ -41,7 +41,7 @@ export const List = (template) => {
     };
   }, []);
 
-  const { title, images } = template;
+  const { title, images } = datas;
 
   return (
     <Section>
@@ -50,7 +50,7 @@ export const List = (template) => {
         {showButtons && (
           <ScrollButton onClick={() => scroll("left")}>‹</ScrollButton>
         )}
-        <ImageList ref={scrollContainerRef} imageCount={images.length}>
+        <ImageList ref={scrollContainerRef} imagecount={images.length}>
           {images.map((image, index) => (
             <a
               key={index}
@@ -74,3 +74,5 @@ export const List = (template) => {
     </Section>
   );
 };
+
+export default List;

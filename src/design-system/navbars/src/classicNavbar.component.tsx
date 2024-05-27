@@ -3,8 +3,8 @@ import classNames from "classnames";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
 
-import { getClient } from "../../../../store/state.selector";
-import { ToggleThemeMode } from "../../../buttons/mode-theme/src/modeTheme.component";
+import { getClient } from "../../../store/state.selector";
+import { ToggleThemeMode } from "../../buttons/mode-theme/src/modeTheme.component";
 
 import {
   BurgerMenuIcon,
@@ -95,7 +95,7 @@ export const ClassicNavbar = ({ template, toggleTheme, theme }) => {
           <img
             alt="LOGO"
             src={require(
-              `../../../../assets/${name}/icons/white/logo-webtrine-white.png`
+              `../../../assets/${name}/icons/white/logo-webtrine-white.png`
             )}
           />
         </a>

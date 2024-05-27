@@ -11,7 +11,7 @@ export const Container = styled.div`
   padding: 40px 0px;
 `;
 
-export const ImageList = styled.div<{ imageCount: number }>`
+export const ImageList = styled.div<{ imagecount: number }>`
   display: flex;
   overflow-x: auto;
   scroll-behavior: smooth;
@@ -25,7 +25,7 @@ export const ImageList = styled.div<{ imageCount: number }>`
   }
 
   justify-content: ${(props) =>
-    props.imageCount < 5 ? "center" : "flex-start"};
+    props.imagecount < 5 ? "center" : "flex-start"};
 `;
 
 export const ImageItem = styled.img`

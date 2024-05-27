@@ -47,40 +47,37 @@
   "layout": {
     "templates": [
       {
-        "type": "navbar",
-        "id": "navbar",
+        "type": "navbars",
+        "id": "classicNavbar",
         "datas": {
-          "features": { "isFixed": true, "hasHideOnScroll": false },
-          "content": {
-            "categories": [
-              {
-                "title": "Webtrine",
-                "link": "/#banner",
-                "sub": [
-                  { "title": "Qui sommes-nous", "link": "/#description" },
-                  { "title": "L'équipe", "link": "/#showcase" },
-                  { "title": "Ils nous font confiance", "link": "/#showcase" },
-                  { "title": "Contact", "link": "/#contact" }
-                ]
-              },
-              {
-                "title": "Display",
-                "link": "/display"
-              },
-              {
-                "title": "Display2",
-                "link": "/display2"
-              }
-            ]
-          }
+          "features": { "isFixed": false, "hasHideOnScroll": false },
+          "categories": [
+            {
+              "title": "Webtrine",
+              "link": "/#banner",
+              "sub": [
+                { "title": "Qui sommes-nous", "link": "/#description" },
+                { "title": "L'équipe", "link": "/#showcase" },
+                { "title": "Ils nous font confiance", "link": "/#showcase" },
+                { "title": "Contact", "link": "/#contact" }
+              ]
+            },
+            {
+              "title": "Display",
+              "link": "/display"
+            },
+            {
+              "title": "Display2",
+              "link": "/display2"
+            }
+          ]
         }
       },
       {
-        "type": "footer",
-        "id": "footer",
+        "type": "footers",
+        "id": "classicFooter",
         "datas": {
-          "features": {},
-          "content": {}
+          "features": {}
         }
       },
       {
@@ -88,11 +85,9 @@
         "id": "banner",
         "datas": {
           "features": { "multi": false },
-          "datas": {
-            "title": "Webtrine",
-            "subTitle": "Il n'as jamais été aussi simple de se faire connaître",
-            "images": ["banner", "banner", "banner"]
-          }
+          "title": "Webtrine",
+          "subTitle": "Il n'as jamais été aussi simple de se faire connaître",
+          "images": ["banner", "banner", "banner"]
         }
       },
       {
@@ -111,7 +106,7 @@
         "datas": {
           "features": {},
           "title": "Voici l'équipe",
-          "content": [
+          "images": [
             {
               "image": "https://via.placeholder.com/150",
               "title": "Item 1",

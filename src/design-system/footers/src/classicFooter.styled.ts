@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { DefaultContent } from "../../../navbars/src/classicNavbar/classicNavbar.styled";
+import { DefaultContent } from "../../navbars/src/classicNavbar.styled";
 
 // Container for the footer
 export const FooterContainer = styled.footer`

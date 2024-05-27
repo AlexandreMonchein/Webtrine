@@ -13,13 +13,7 @@ export const ItemsGrid = styled.div`
   display: grid;
   column-gap: 10%;
 
-  &.isOdd {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  &.isEven {
-    grid-template-columns: repeat(2, 1fr);
-  }
+  grid-template-columns: repeat(2, 1fr);
 
   &.isOdd .first-item {
     grid-column: span 2;
@@ -30,9 +24,16 @@ export const ItemsGrid = styled.div`
     }
   }
 
-  &.regular-item {
-    grid-template-columns: repeat(2, 1fr);
-  }
+  ${bp.max(
+    breakpointNames.small,
+    css`
+      grid-template-columns: repeat(1, 1fr);
+
+      &.isOdd .first-item {
+        grid-column: span 1;
+      }
+    `
+  )}
 `;
 
 // Individual item container

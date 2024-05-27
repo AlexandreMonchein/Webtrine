@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 
-import { getSocials } from "../../../../store/state.selector";
+import { getSocials } from "../../../store/state.selector";
 
 import {
   FooterContainer,
@@ -37,7 +37,7 @@ export const ClassicFooter = ({ template, toggleTheme, theme }) => {
                     <img
                       alt="facebook"
                       src={require(
-                        `../../../../assets/default/icons/white/facebook-white.png`
+                        `../../../assets/default/icons/white/facebook-white.png`
                       )}
                     />
                   </a>
@@ -51,7 +51,7 @@ export const ClassicFooter = ({ template, toggleTheme, theme }) => {
                     <img
                       alt="instagram"
                       src={require(
-                        `../../../../assets/default/icons/white/instagram-white.png`
+                        `../../../assets/default/icons/white/instagram-white.png`
                       )}
                     />
                   </a>
@@ -65,7 +65,7 @@ export const ClassicFooter = ({ template, toggleTheme, theme }) => {
                     <img
                       alt="x"
                       src={require(
-                        `../../../../assets/default/icons/white/x-white.png`
+                        `../../../assets/default/icons/white/x-white.png`
                       )}
                     />
                   </a>
@@ -81,7 +81,7 @@ export const ClassicFooter = ({ template, toggleTheme, theme }) => {
                     <img
                       alt="linkedin"
                       src={require(
-                        `../../../../assets/default/icons/white/linkedin-white.png`
+                        `../../../assets/default/icons/white/linkedin-white.png`
                       )}
                     />
                   </a>

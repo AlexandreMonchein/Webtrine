@@ -13,18 +13,18 @@ import {
   Title,
 } from "./showcase.styled";
 
-export const Showcase = (template) => {
-  const { title, content } = template;
+const Showcase = (datas) => {
+  const { title, images } = datas;
 
-  const isSingleItem = content.length === 1;
-  const isOdd = content.length % 2 !== 0;
-  const isEven = content.length % 2 === 0;
+  const isSingleItem = images.length === 1;
+  const isOdd = images.length % 2 !== 0;
+  const isEven = images.length % 2 === 0;
 
   return (
     <SectionContainer>
       {title ? <SectionTitle>{title}</SectionTitle> : null}
       <ItemsGrid className={classNames({ isOdd: isOdd, isEven: isEven })}>
-        {content.map((data, index) => (
+        {images.map((data, index) => (
           <Item
             key={index}
             className={classNames({
@@ -56,3 +56,5 @@ export const Showcase = (template) => {
     </SectionContainer>
   );
 };
+
+export default Showcase;

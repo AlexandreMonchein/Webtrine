@@ -85,13 +85,6 @@ export const Text = styled.p`
   line-height: 1.5;
   word-break: break-word;
 
-  ${bp.max(
-    breakpointNames.medium,
-    css`
-      text-align: center;
-    `
-  )};
-
   &.isCentered {
     align-content: center;
   }

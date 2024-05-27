@@ -14,13 +14,15 @@ import {
   Title,
 } from "./banner.styled";
 
-export const Banner = (template) => {
+const Banner = (datas) => {
   const customer = getCustomer();
 
   const {
     features: { multi },
-    datas: { title, subTitle, images },
-  } = template;
+    title,
+    subTitle,
+    images,
+  } = datas;
 
   const [currentIndex, setCurrentIndex] = useState(0);
 

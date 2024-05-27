@@ -12,8 +12,8 @@ import {
   Title,
 } from "./flippingCard.styled";
 
-export const FlippingCard = (template) => {
-  const { title, images } = template;
+const FlippingCard = (datas) => {
+  const { title, images } = datas;
 
   return (
     <Container>
@@ -34,3 +34,5 @@ export const FlippingCard = (template) => {
     </Container>
   );
 };
+
+export default FlippingCard;
