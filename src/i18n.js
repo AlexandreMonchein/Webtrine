@@ -7,6 +7,7 @@ import { getCustomer } from "./customer.utils";
 
 const customer = getCustomer();
 
+// eslint-disable-next-line import/no-named-as-default-member
 i18n
   .use(
     resourcesToBackend(

@@ -185,6 +185,38 @@
         }
       },
       {
+        "type": "map",
+        "id": "leafletMap",
+        "datas": {
+          "features": {},
+          "places": [
+            {
+              "id": 1,
+              "name": "Webtrine",
+              "address": "227 rue des veloutiers",
+              "phone": "0614612295",
+              "position": [45.658, 4.718]
+            }
+          ]
+        }
+      },
+      {
+        "type": "map",
+        "id": "googleMap",
+        "datas": {
+          "features": { "activated": false },
+          "places": [
+            {
+              "id": 1,
+              "name": "Webtrine",
+              "address": "227 rue des veloutiers",
+              "phone": "0614612295",
+              "position": { "lat": 45.658, "lng": 4.718 }
+            }
+          ]
+        }
+      },
+      {
         "type": "contact",
         "id": "contact",
         "datas": {

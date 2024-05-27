@@ -20,6 +20,7 @@ export const breakpointsOrder = [
   breakpointNames.medium,
   breakpointNames.large,
   breakpointNames.xlarge,
+  breakpointNames.wide,
 ];
 
 export const getNextBreakpoint = (currentBreakpoint) => {
