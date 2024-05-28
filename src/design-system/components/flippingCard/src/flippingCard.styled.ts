@@ -85,12 +85,7 @@ export const CardTitle = styled.h3`
   margin: 0;
   font-size: 1.5em;
   color: white;
-  background: rgba(
-    0,
-    0,
-    0,
-    0.5
-  ); /* Optional: Add a background for better readability */
+  background: rgba(0, 0, 0, 0.5);
   padding: 10px;
   text-align: center;
 `;
