@@ -2,8 +2,7 @@ import { useCallback, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
-import { Display } from "./design-system/components/display/display1/src/display.component";
-import { Display2 } from "./design-system/components/display/display2/src/display.component";
+import { Display } from "./design-system/components/display/src/display.component";
 import { ClassicError } from "./design-system/error/src/classicError.component";
 import { ClassicFooter } from "./design-system/footers/src/classicFooter.component";
 import { Home } from "./design-system/home/src/home.component";
@@ -50,10 +49,6 @@ function App(config) {
           <Route
             path="/display"
             element={<Display template={getTemplateById("display")} />}
-          />
-          <Route
-            path="/display2"
-            element={<Display2 template={getTemplateById("display2")} />}
           />
           <Route
             path="/*"

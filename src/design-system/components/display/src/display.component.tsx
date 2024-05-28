@@ -1,16 +1,14 @@
-import { useSelector } from "react-redux";
 import styled from "styled-components";
-
-import { getTemplates } from "../../../../../store/state.selector";
 
 import { Card } from "./card.component";
 
-export const Display2 = ({ template }) => {
+export const Display = ({ template }) => {
+  console.warn(">>> template", template);
   return (
     <DisplayWrapper>
       <MainColumn>
         <Wrapper>
-          {template.datas.content.map((data) => (
+          {template.datas.inventory.map((data) => (
             <CardWrapper key={data.slug}>
               <Card {...data} />
             </CardWrapper>

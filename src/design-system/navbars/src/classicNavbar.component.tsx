@@ -122,9 +122,6 @@ export const ClassicNavbar = ({ template, toggleTheme, theme }) => {
           <Category>
             <Links href="/display">Display</Links>
           </Category>
-          <Category>
-            <Links href="/display2">Display2</Links>
-          </Category>
         </Content>
       </MainNavigation>
       <Settings>
