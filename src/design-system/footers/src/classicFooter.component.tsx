@@ -1,5 +1,11 @@
+import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 
+import Discord from "../../../assets/icons/discord.component";
+import Facebook from "../../../assets/icons/facebook.component";
+import Instagram from "../../../assets/icons/instagram.component";
+import LinkedIn from "../../../assets/icons/linkedin.component";
+import X from "../../../assets/icons/x.component";
 import { getSocials } from "../../../store/state.selector";
 
 import {
@@ -13,8 +19,42 @@ import {
   Socials,
 } from "./classicFooter.styled";
 
-export const ClassicFooter = ({ template, toggleTheme, theme }) => {
-  const { facebook, instagram, x, linkedIn } = useSelector(getSocials);
+export const ClassicFooter = (template) => {
+  const [components, setComponents] = useState<React.ReactNode[]>([]);
+  const socials = useSelector(getSocials);
+
+  useEffect(() => {
+    const loadComponents = async () => {
+      const loadedComponents: React.ReactNode[] = [];
+
+      for (const [name, link] of Object.entries(socials)) {
+        try {
+          if (link) {
+            const Module = await import(
+              `../../../assets/icons/${name}.component`
+            );
+
+            loadedComponents.push(
+              <li key={name}>
+                <SocialLogo>
+                  {/* @ts-ignore */}
+                  <a href={link}>
+                    <Module.default key={name} />
+                  </a>
+                </SocialLogo>
+              </li>
+            );
+          }
+        } catch (error) {
+          console.error(`Error loading component: ${name}`, error);
+        }
+      }
+
+      setComponents(loadedComponents);
+    };
+
+    loadComponents();
+  }, []);
 
   return (
     <FooterContainer>
@@ -23,72 +63,11 @@ export const ClassicFooter = ({ template, toggleTheme, theme }) => {
         <Logo src="https://via.placeholder.com/50" alt="Logo 2" />
       </LeftSection>
       <MiddleSection>
-        <p>&copy; 2024 Your Company. All rights reserved.</p>
+        <p>&copy; 2024 Webtrine. All rights reserved.</p>
       </MiddleSection>
       <RightSection>
         <Socials>
-          <SocialContent>
-            {facebook ? (
-              <li>
-                <SocialLogo>
-                  <a
-                    href={`https://www.facebook.com/profile.php?id=${facebook?.profileId}`}
-                  >
-                    <img
-                      alt="facebook"
-                      src={require(
-                        `../../../assets/default/icons/white/facebook-white.png`
-                      )}
-                    />
-                  </a>
-                </SocialLogo>
-              </li>
-            ) : null}
-            {instagram ? (
-              <li>
-                <SocialLogo>
-                  <a href={`https://www.instagram.com/${instagram?.profileId}`}>
-                    <img
-                      alt="instagram"
-                      src={require(
-                        `../../../assets/default/icons/white/instagram-white.png`
-                      )}
-                    />
-                  </a>
-                </SocialLogo>
-              </li>
-            ) : null}
-            {x ? (
-              <li>
-                <SocialLogo>
-                  <a href={`https://twitter.com/${x?.profileId}`}>
-                    <img
-                      alt="x"
-                      src={require(
-                        `../../../assets/default/icons/white/x-white.png`
-                      )}
-                    />
-                  </a>
-                </SocialLogo>
-              </li>
-            ) : null}
-            {linkedIn ? (
-              <li>
-                <SocialLogo>
-                  <a
-                    href={`https://www.linkedin.com/in/${linkedIn?.profileId}`}
-                  >
-                    <img
-                      alt="linkedin"
-                      src={require(
-                        `../../../assets/default/icons/white/linkedin-white.png`
-                      )}
-                    />
-                  </a>
-                </SocialLogo>
-              </li>
-            ) : null}
-          </SocialContent>
+          <SocialContent>{components}</SocialContent>
         </Socials>
       </RightSection>
     </FooterContainer>

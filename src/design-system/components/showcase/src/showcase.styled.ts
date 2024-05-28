@@ -6,6 +6,14 @@ import { breakpointNames } from "../../../../breakpointDef";
 // Container for the whole section
 export const SectionContainer = styled.section`
   padding: 40px 120px;
+  color: var(--text-color-secondary);
+
+  ${bp.max(
+    breakpointNames.medium,
+    css`
+      padding: 20px 40px;
+    `
+  )}
 `;
 
 // Grid container for items

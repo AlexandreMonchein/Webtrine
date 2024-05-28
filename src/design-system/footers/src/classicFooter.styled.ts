@@ -1,5 +1,7 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
+import { bp } from "../../../breakpoint";
+import { breakpointNames } from "../../../breakpointDef";
 import { DefaultContent } from "../../navbars/src/classicNavbar.styled";
 
 // Container for the footer
@@ -17,6 +19,13 @@ export const FooterContainer = styled.footer`
 
   z-index: var(--z-index-navbars);
   font-size: var(--navbar-font-size);
+
+  ${bp.max(
+    breakpointNames.small,
+    css`
+      flex-direction: column;
+    `
+  )}
 `;
 
 // Left section for logos
@@ -29,6 +38,7 @@ export const LeftSection = styled.div`
 export const MiddleSection = styled.div`
   text-align: center;
   flex: 1;
+  color: var(--navigation-text-color);
 `;
 
 // Right section for social media links
@@ -60,10 +70,8 @@ export const Socials = styled.div`
   gap: 24px;
 `;
 export const SocialLogo = styled.div`
-  img {
-    width: 28px;
-    height: 28px;
-  }
+  width: 24px;
+  height: 24px;
 `;
 export const SocialContent = styled(DefaultContent)`
   gap: 12px;

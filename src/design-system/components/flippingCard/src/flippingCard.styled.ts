@@ -5,6 +5,7 @@ import { breakpointNames } from "../../../../breakpointDef";
 
 export const Container = styled.section`
   padding: 40px 0px;
+  color: var(--text-color-secondary);
 `;
 
 export const CardContainer = styled.div`

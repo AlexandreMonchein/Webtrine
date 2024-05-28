@@ -13,7 +13,8 @@ export const Container = styled.header`
   z-index: var(--z-index-navbars);
   font-size: var(--navbar-font-size);
   background-color: var(--color-quaternary);
-  color: var(--color-primary);
+  color: var(--color-quinary);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 
   &.isFixed {
     position: fixed;
@@ -99,7 +100,7 @@ export const Links = styled.a`
   text-transform: uppercase;
   text-decoration: none;
   cursor: pointer;
-  color: var(--color-primary);
+  color: var(--navigation-text-color);
   border-bottom: 2px solid transparent;
   padding: 10px 0px;
 
@@ -186,7 +187,7 @@ export const BurgerMenuIcon = styled.div`
   div {
     width: 25px;
     height: 3px;
-    background-color: var(--color-primary);
+    background-color: white;
     margin: 4px 0;
     transition: 0.4s;
   }
@@ -209,6 +210,7 @@ export const Sidebar = styled.div`
   overflow-x: hidden;
   transition: 0.5s;
   padding-top: 60px;
+  border-right: 1px solid rgba(255, 255, 255, 0.3);
 
   ${bp.min(
     breakpointNames.large,
@@ -244,7 +246,7 @@ export const Sidebar = styled.div`
 
   ${Links} {
     padding: 8px 8px 8px 32px;
-    color: var(--color-primary);
+    color: white;
     transition: 0.3s;
     text-align: left;
 

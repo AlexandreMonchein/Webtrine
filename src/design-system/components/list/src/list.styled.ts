@@ -1,6 +1,9 @@
 import styled from "styled-components";
 
-export const Section = styled.section``;
+export const Section = styled.section`
+  padding: 40px 0px;
+  color: var(--text-color-secondary);
+`;
 
 export const Container = styled.div`
   display: flex;
@@ -8,7 +11,6 @@ export const Container = styled.div`
   position: relative;
   width: 100%;
   overflow: hidden;
-  padding: 40px 0px;
 `;
 
 export const ImageList = styled.div<{ imagecount: number }>`

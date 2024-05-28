@@ -111,7 +111,7 @@ export const TextContainer = styled.div`
 
 export const Title = styled.h1`
   z-index: var(--z-index-text);
-  color: var(--color-primary);
+  color: white;
   text-transform: uppercase;
   font-size: var(--title-font-size);
   line-height: var(--line-height);
@@ -120,7 +120,7 @@ export const Title = styled.h1`
 
 export const SubTitle = styled.h2`
   z-index: var(--z-index-text);
-  color: var(--color-primary);
+  color: white;
   text-transform: uppercase;
   font-size: var(--subtitle-font-size);
   line-height: var(--line-height);

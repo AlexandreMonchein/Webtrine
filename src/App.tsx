@@ -60,11 +60,7 @@ function App(config) {
             element={<ClassicError template={getTemplateById("error")} />}
           />
         </Routes>
-        <ClassicFooter
-          template={templates[1]?.datas}
-          toggleTheme={toggleTheme}
-          theme={theme}
-        />
+        <ClassicFooter template={templates[1]?.datas} />
       </div>
     </Router>
   );

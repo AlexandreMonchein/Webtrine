@@ -6,7 +6,14 @@ import { breakpointNames } from "../../../../breakpointDef";
 export const Section = styled.section`
   position: relative;
   padding: 40px 120px;
-  /* background-color: var(--background-color-1); */
+  color: var(--text-color-secondary);
+
+  ${bp.max(
+    breakpointNames.medium,
+    css`
+      padding: 20px 40px;
+    `
+  )}
 `;
 
 export const Container = styled.div`

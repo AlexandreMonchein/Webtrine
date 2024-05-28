@@ -14,35 +14,64 @@
       "email": "webtrine.pro@gmail.com"
     },
     "socials": {
-      "facebook": 100010455097064,
-      "instagram": "alexandre_monschein",
-      "x": "Chiormaaa",
-      "linkedIn": "alexandre-monschein-34984a161",
+      "discord": "https://discord.com/invite/PVDBCjbHVK",
+      "facebook": null,
+      "instagram": null,
+      "linkedin": "https://www.linkedin.com/in/alexandre-monschein-34984a161",
+      "tiktok": null,
+      "telegram": null,
+      "twitch": null,
       "uber": null,
       "ubereat": null,
-      "discord": null
+      "whatsapp": null,
+      "x": null,
+      "youtube": null
     }
   },
   "style": {
-    "font-family": "\"Josefin Sans\",sans-serif",
+    "light": {
+      "font-family": "\"Josefin Sans\",sans-serif",
 
-    "navbar-font-size": "16px",
-    "title-font-size": "42px",
-    "subtitle-font-size": "32px",
-    "text-font-size": "24px",
+      "navbar-font-size": "16px",
+      "title-font-size": "42px",
+      "subtitle-font-size": "32px",
+      "text-font-size": "24px",
 
-    "color-primary": "#ffffff",
-    "color-secondary": "#E8EEF1",
-    "color-tertiary": "#60A3D9",
-    "color-quaternary": "#1E3D58",
-    "color-quinary": "#000000",
+      "color-primary": "#ffffff",
+      "color-secondary": "#E8EEF1",
+      "color-tertiary": "#60A3D9",
+      "color-quaternary": "#1E3D58",
+      "color-quinary": "#000000",
 
-    "hover-color": "orange",
-    "hover-border-color": "gold",
+      "navigation-text-color": "#ffffff",
+      "hover-color": "orange",
+      "hover-border-color": "gold",
 
-    "z-index-navbars": 3,
-    "z-index-text": 2,
-    "z-index-backgrounds": 1
+      "z-index-navbars": 3,
+      "z-index-text": 2,
+      "z-index-backgrounds": 1
+    },
+    "dark": {
+      "font-family": "\"Josefin Sans\",sans-serif",
+
+      "navbar-font-size": "16px",
+      "title-font-size": "42px",
+      "subtitle-font-size": "32px",
+      "text-font-size": "24px",
+
+      "color-primary": "#313134",
+      "color-secondary": "#4a4a50",
+      "color-tertiary": "#ffffff",
+      "color-quaternary": "#161617",
+      "color-quinary": "#ffffff",
+
+      "hover-color": "orange",
+      "hover-border-color": "gold",
+
+      "z-index-navbars": 3,
+      "z-index-text": 2,
+      "z-index-backgrounds": 1
+    }
   },
   "layout": {
     "templates": [
@@ -50,7 +79,7 @@
         "type": "navbars",
         "id": "classicNavbar",
         "datas": {
-          "features": { "isFixed": false, "hasHideOnScroll": false },
+          "features": { "isFixed": true, "hasHideOnScroll": false },
           "categories": [
             {
               "title": "Webtrine",
@@ -190,6 +219,48 @@
         "datas": {
           "features": {},
           "places": [
+            {
+              "id": 1,
+              "name": "Webtrine",
+              "address": "227 rue des veloutiers",
+              "phone": "0614612295",
+              "position": [45.658, 4.718]
+            },
+            {
+              "id": 1,
+              "name": "Webtrine",
+              "address": "227 rue des veloutiers",
+              "phone": "0614612295",
+              "position": [45.658, 4.718]
+            },
+            {
+              "id": 1,
+              "name": "Webtrine",
+              "address": "227 rue des veloutiers",
+              "phone": "0614612295",
+              "position": [45.658, 4.718]
+            },
+            {
+              "id": 1,
+              "name": "Webtrine",
+              "address": "227 rue des veloutiers",
+              "phone": "0614612295",
+              "position": [45.658, 4.718]
+            },
+            {
+              "id": 1,
+              "name": "Webtrine",
+              "address": "227 rue des veloutiers",
+              "phone": "0614612295",
+              "position": [45.658, 4.718]
+            },
+            {
+              "id": 1,
+              "name": "Webtrine",
+              "address": "227 rue des veloutiers",
+              "phone": "0614612295",
+              "position": [45.658, 4.718]
+            },
             {
               "id": 1,
               "name": "Webtrine",
