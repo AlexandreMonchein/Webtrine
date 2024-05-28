@@ -29,8 +29,6 @@ const MapComponent = (datas) => {
     places[0].position[1],
   ]);
 
-  console.warn(">>> datas", datas);
-
   return (
     <Section>
       <Container>
