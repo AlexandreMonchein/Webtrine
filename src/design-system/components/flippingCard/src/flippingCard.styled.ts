@@ -13,7 +13,6 @@ export const CardContainer = styled.div`
   justify-content: space-evenly;
   align-items: center;
   width: 100%;
-  perspective: 1000px; /* Container perspective for 3D effect */
 
   ${bp.max(
     breakpointNames.medium,
@@ -39,13 +38,10 @@ export const Card = styled.div`
   margin: 20px;
   position: relative;
   transform-style: preserve-3d;
-  transition:
-    transform 0.6s,
-    opacity 0.6s;
+  transition: transform 0.6s ease-in-out;
 
   &:hover {
-    transform: rotateY(180deg);
-    opacity: 1;
+    transform: rotateY(180deg) scaleY(1) scaleX(1);
   }
 `;
 
@@ -64,6 +60,7 @@ export const CardFront = styled(CardSide)`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  transform: rotateY(0deg) scaleY(1) scaleX(1);
 `;
 
 export const CardBack = styled(CardSide)`
@@ -71,7 +68,7 @@ export const CardBack = styled(CardSide)`
   display: flex;
   align-items: center;
   justify-content: center;
-  transform: rotateY(180deg);
+  transform: rotateY(180deg) scaleY(1) scaleX(1);
 `;
 
 export const CardImage = styled.img`

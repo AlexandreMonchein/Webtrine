@@ -12,9 +12,7 @@ import {
   Title,
 } from "./flippingCard.styled";
 
-const FlippingCard = (datas) => {
-  const { title, images } = datas;
-
+const FlippingCard = ({ title, images }) => {
   return (
     <Container>
       {title ? <Title>{title}</Title> : null}
