@@ -12,7 +12,7 @@ import {
   Title,
 } from "./contact.styled";
 
-const Contact = () => {
+const ExtendedContact = () => {
   const { t } = useTranslation();
 
   return (
@@ -64,4 +64,4 @@ const Contact = () => {
   );
 };
 
-export default Contact;
+export default ExtendedContact;

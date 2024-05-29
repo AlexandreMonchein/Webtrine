@@ -83,6 +83,7 @@ export const TextContainer = styled.div`
     breakpointNames.medium,
     css`
       padding-top: 2%;
+      padding-left: 0;
     `
   )};
 `;

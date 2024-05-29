@@ -168,11 +168,6 @@ export const ClassicNavbar = ({ template, toggleTheme, theme }) => {
               Display
             </Links>
           </Category>
-          <Category>
-            <Links href="/display2" onClick={toggleSidebar}>
-              Display2
-            </Links>
-          </Category>
         </Content>
       </Sidebar>
     </Container>

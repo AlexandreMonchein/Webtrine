@@ -1,15 +1,9 @@
 import React, { FC, Suspense, useEffect, useState } from "react";
 import _ from "lodash";
 
-import { Content } from "./home.styled";
+import { generalTemplatesTypes } from "../../../App";
 
-const excludedTemplatesType = [
-  "navbars",
-  "footers",
-  "error",
-  "display",
-  "display2",
-];
+import { Content } from "./home.styled";
 
 export const Home: FC<{ templates: any[] }> = ({ templates }) => {
   const [components, setComponents] = useState<React.ReactNode[]>([]);
@@ -17,24 +11,25 @@ export const Home: FC<{ templates: any[] }> = ({ templates }) => {
   useEffect(() => {
     const loadComponents = async () => {
       const loadedComponents: React.ReactNode[] = [];
+      if (templates) {
+        for (const template of templates) {
+          if (!generalTemplatesTypes.includes(template.type)) {
+            const { type, id, datas } = template;
 
-      for (const template of templates) {
-        if (!excludedTemplatesType.includes(template.type)) {
-          const { type, id, datas } = template;
+            try {
+              const Module = await import(
+                `../../components/${type}/src/${id}.component`
+              );
 
-          try {
-            const Module = await import(
-              `../../components/${type}/src/${id}.component`
-            );
-
-            loadedComponents.push(
-              <Module.default
-                key={`${type}-${id}-${Math.floor(Math.random() * 1000)}`}
-                {...datas}
-              />
-            );
-          } catch (error) {
-            console.error(`Error loading component: ${type}/${id}`, error);
+              loadedComponents.push(
+                <Module.default
+                  key={`${type}-${id}-${Math.floor(Math.random() * 1000)}`}
+                  {...datas}
+                />
+              );
+            } catch (error) {
+              console.error(`Error loading component: ${type}/${id}`, error);
+            }
           }
         }
       }

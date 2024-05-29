@@ -1,7 +1,8 @@
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
+import ExtendedContact from "./design-system/components/contact/src/extendedContact.component";
 import { Display } from "./design-system/components/display/src/display.component";
 import { ClassicError } from "./design-system/error/src/classicError.component";
 import { ClassicFooter } from "./design-system/footers/src/classicFooter.component";
@@ -10,6 +11,8 @@ import { ClassicNavbar } from "./design-system/navbars/src/classicNavbar.compone
 import { setConfig } from "./store/state.action";
 import { getStyle, getTemplates } from "./store/state.selector";
 import { RootStyle } from "./globalStyles";
+
+export const generalTemplatesTypes = ["navbars", "footers", "error", "display"];
 
 function App(config) {
   const dispatch = useDispatch();
@@ -26,36 +29,45 @@ function App(config) {
 
   const getTemplateById = useCallback(
     (templateId) => {
-      const template = templates.filter(
-        (template) => template.id === templateId
-      )[0];
-
-      return template || undefined;
+      if (templates) {
+        const template = templates.find(
+          (template) => template.id === templateId
+        );
+        return template || undefined;
+      }
     },
     [templates]
   );
+
+  const classicNavbarTemplate = getTemplateById("classicNavbar");
+  const displayTemplate = getTemplateById("display");
+  const classicFooterTemplate = getTemplateById("classicFooter");
 
   return (
     <Router>
       <RootStyle globalStyle={{ ...globalStyle }} />
       <div data-theme={theme}>
-        <ClassicNavbar
-          template={templates[0]?.datas}
-          toggleTheme={toggleTheme}
-          theme={theme}
-        />
+        {classicNavbarTemplate && (
+          <ClassicNavbar
+            template={classicNavbarTemplate.datas}
+            toggleTheme={toggleTheme}
+            theme={theme}
+          />
+        )}
         <Routes>
           <Route path="/" element={<Home templates={templates} />} />
-          <Route
-            path="/display"
-            element={<Display template={getTemplateById("display")} />}
-          />
-          <Route
-            path="/*"
-            element={<ClassicError template={getTemplateById("error")} />}
-          />
+          {displayTemplate && (
+            <Route
+              path="/display"
+              element={<Display template={displayTemplate.datas} />}
+            />
+          )}
+          <Route path="/contact" element={<ExtendedContact />} />
+          <Route path="/*" element={<ClassicError />} />
         </Routes>
-        <ClassicFooter template={templates[1]?.datas} />
+        {classicFooterTemplate && (
+          <ClassicFooter template={classicFooterTemplate.datas} />
+        )}
       </div>
     </Router>
   );

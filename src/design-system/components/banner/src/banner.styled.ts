@@ -50,7 +50,6 @@ export const TextContainer = styled.div`
   position: absolute;
   width: 40%;
   height: auto;
-  overflow-y: hidden;
   display: flex;
   flex-direction: column;
 
