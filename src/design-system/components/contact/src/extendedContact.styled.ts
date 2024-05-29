@@ -17,11 +17,7 @@ export const ContactSection = styled.section`
   )}
 `;
 
-export const Content = styled.div`
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-`;
+export const Content = styled.div``;
 
 export const Title = styled.h2`
   font-size: var(--title-font-size);
@@ -36,12 +32,14 @@ export const Description = styled.p`
 `;
 
 export const FormContainer = styled.div`
-  width: 70%;
+  display: flex;
+  gap: 20px;
+  text-align: left;
 
   ${bp.max(
     breakpointNames.medium,
     css`
-      width: 100%;
+      display: block;
     `
   )};
 `;
@@ -50,7 +48,43 @@ export const ContactForm = styled.form`
   display: flex;
   flex-direction: column;
   gap: 15px;
-  text-align: left;
+  flex: 2;
+`;
+
+export const ClientInfo = styled.div`
+  flex: 1;
+
+  p,
+  li {
+    font-size: var(--text-font-size);
+    color: var(--color-quaternary);
+    margin-bottom: 5px;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+
+    li {
+      margin-bottom: 5px;
+    }
+
+    a {
+      color: var(--text-color-tertiary);
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  ${bp.max(
+    breakpointNames.medium,
+    css`
+      text-align: center;
+    `
+  )};
 `;
 
 export const Input = styled.input`
@@ -82,4 +116,38 @@ export const Button = styled.button`
   &:hover {
     background-color: darken(var(--text-color-tertiary), 10%);
   }
+`;
+
+export const ProductDetails = styled.div`
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid;
+`;
+
+export const ProductInfo = styled.div`
+  display: flex;
+  margin-bottom: 20px;
+
+  img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-right: 20px;
+  }
+
+  ${bp.max(
+    breakpointNames.medium,
+    css`
+      flex-direction: column;
+      align-items: center;
+      margin: 0;
+
+      img {
+        margin: 0;
+      }
+    `
+  )};
 `;

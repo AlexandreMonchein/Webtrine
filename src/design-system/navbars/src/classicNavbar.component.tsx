@@ -119,8 +119,17 @@ export const ClassicNavbar = ({ template, toggleTheme, theme }) => {
               </SubCategory>
             </SubCategoryContainer>
           </Category>
+
           <Category>
             <Links href="/display">Display</Links>
+          </Category>
+
+          <Category>
+            <Links href="/prices">Prices</Links>
+          </Category>
+
+          <Category>
+            <Links href="/contact">Contact</Links>
           </Category>
         </Content>
       </MainNavigation>

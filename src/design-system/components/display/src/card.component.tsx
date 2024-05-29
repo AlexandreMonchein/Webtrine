@@ -1,68 +1,57 @@
-import styled from "styled-components";
-
-import { COLORS, WEIGHTS } from "./constants";
+import {
+  Image,
+  ImageWrapper,
+  Info,
+  Name,
+  Price,
+  StyledLink,
+  SubInfos,
+  Title,
+} from "./card.styled";
+import { Wrapper } from "./display.styled";
 import { Spacer } from "./spacer.styled";
 
 export function formatPrice(price) {
   return `$${price / 100}`;
 }
 
-export function pluralize(string, num) {
-  return num === 1 ? `1 ${string}` : `${num} ${string}s`;
+export function pluralize(name, colors) {
+  const num = colors.length;
+  return num === 1 ? `1 ${name} Available` : `${num} ${name}s Available`;
 }
 
-export const Card = ({ slug, name, imageSrc, price, numOfColors }) => {
+export const Card = ({
+  slug,
+  name,
+  description,
+  imageSrc,
+  price,
+  extraDatas,
+}) => {
+  const { sizes, colors } = extraDatas;
+
   return (
-    <Link href={`/display/${slug}`}>
+    <StyledLink
+      to={{
+        pathname: `/display/${slug}`,
+      }}
+      state={{ slug, name, description, imageSrc, price, extraDatas }}
+    >
       <Wrapper>
         <ImageWrapper>
           <Image alt="" src={imageSrc} />
         </ImageWrapper>
-        <Row>
+        <Title>
           <Name>{name}</Name>
           <Price>{formatPrice(price)}</Price>
-        </Row>
-        <Row>
-          <ColorInfo>{pluralize("Color", numOfColors)}</ColorInfo>
-        </Row>
+        </Title>
+        <SubInfos>
+          <Info>{pluralize("Color", colors)}</Info>
+          <Info>{pluralize("Size", sizes)}</Info>
+        </SubInfos>
       </Wrapper>
-    </Link>
+    </StyledLink>
   );
 };
 
-const Link = styled.a`
-  text-decoration: none;
-  color: inherit;
-`;
-
-const Wrapper = styled.article``;
-
-const ImageWrapper = styled.div`
-  position: relative;
-`;
-
-const Image = styled.img`
-  width: 100%;
-  border-radius: 16px 16px 16px 16px;
-`;
-
-const Row = styled.div`
-  font-size: 1rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-`;
-
-const Name = styled.h3`
-  font-weight: ${WEIGHTS.medium};
-  color: ${COLORS.gray[900]};
-`;
-const Price = styled.span`
-  color: var(--color);
-  text-decoration: var(--text-decoration);
-`;
-
-const ColorInfo = styled.p`
-  color: ${COLORS.gray[700]};
-  margin: 0;
-`;
+export default Card;

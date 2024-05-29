@@ -10,7 +10,7 @@
         "city": "Orlienas",
         "country": "France"
       },
-      "phone": 614612295,
+      "phone": "+33614612295",
       "email": "webtrine.pro@gmail.com"
     },
     "socials": {
@@ -79,7 +79,7 @@
         "type": "navbars",
         "id": "classicNavbar",
         "datas": {
-          "features": { "isFixed": true, "hasHideOnScroll": false },
+          "features": { "isFixed": false, "hasHideOnScroll": false },
           "categories": [
             {
               "title": "Webtrine",
@@ -303,65 +303,104 @@
             {
               "slug": "tech-challenge",
               "name": "NikeCourt Tech Challenge 20",
+              "description": "This is the description for product 1",
               "imageSrc": "https://via.placeholder.com/400",
               "price": 16500,
-              "numOfColors": 2
+              "extraDatas": {
+                "sizes": [{ "size": 39, "available": true }],
+                "colors": ["black", "white"]
+              }
             },
             {
               "slug": "metcon-5",
               "name": "Nike Metcon 5 AMP",
+              "description": "This is the description for product 1",
               "imageSrc": "https://via.placeholder.com/400",
               "price": 16500,
-              "numOfColors": 1
+              "extraDatas": {
+                "sizes": [{ "size": 39, "available": true }],
+                "colors": ["black"]
+              }
             },
             {
               "slug": "phantom",
               "name": "Nike Phantom Vision",
+              "description": "This is the description for product 1",
               "imageSrc": "https://via.placeholder.com/400",
               "price": 16500,
-              "numOfColors": 4
+              "extraDatas": {
+                "sizes": [
+                  { "size": 39, "available": true },
+                  { "size": 40, "available": true }
+                ],
+                "colors": ["black", "white"]
+              }
             },
             {
               "slug": "pegasus",
               "name": "Nike Air Zoom Pegasus",
+              "description": "This is the description for product 1",
               "imageSrc": "https://via.placeholder.com/400",
               "price": 16500,
-              "numOfColors": 1
+              "extraDatas": {
+                "sizes": [{ "size": 39, "available": true }],
+                "colors": ["black", "white"]
+              }
             },
             {
               "slug": "joyride",
               "name": "Nike Joyride Dual Run",
+              "description": "This is the description for product 1",
               "imageSrc": "https://via.placeholder.com/400",
               "price": 17000,
-              "numOfColors": 2
+              "extraDatas": {
+                "sizes": [{ "size": 39, "available": true }],
+                "colors": ["black", "white"]
+              }
             },
             {
               "slug": "legend-academy",
               "name": "Nike Tiempo Legend 8",
+              "description": "This is the description for product 1",
               "imageSrc": "https://via.placeholder.com/400",
               "price": 16500,
-              "numOfColors": 8
+              "extraDatas": {
+                "sizes": [{ "size": 39, "available": true }],
+                "colors": ["black", "white"]
+              }
             },
             {
               "slug": "react-infinity",
               "name": "Nike React Infinity Pro",
+              "description": "This is the description for product 1",
               "imageSrc": "https://via.placeholder.com/400",
               "price": 16000,
-              "numOfColors": 1
+              "extraDatas": {
+                "sizes": [{ "size": 39, "available": true }],
+                "colors": ["black", "white"]
+              }
             },
             {
               "slug": "phantom-flyknit",
               "name": "Nike React Phantom Run Flyknit 2",
+              "description": "This is the description for product 1",
               "imageSrc": "https://via.placeholder.com/400",
               "price": 18500,
-              "numOfColors": 4
+              "extraDatas": {
+                "sizes": [{ "size": 39, "available": true }],
+                "colors": ["black", "white"]
+              }
             },
             {
               "slug": "lebron",
               "name": "LeBron 17",
+              "description": "This is the description for product 1",
               "imageSrc": "https://via.placeholder.com/400",
               "price": 26000,
-              "numOfColors": 1
+              "extraDatas": {
+                "sizes": [{ "size": 39, "available": true }],
+                "colors": ["black", "white"]
+              }
             }
           ]
         }
