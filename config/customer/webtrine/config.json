@@ -80,24 +80,28 @@
         "id": "classicNavbar",
         "datas": {
           "features": { "isFixed": false, "hasHideOnScroll": false },
+          "content": {
+            "logo": {
+              "name": "logo-webtrine-white"
+            }
+          },
           "categories": [
             {
-              "title": "Webtrine",
-              "link": "/#banner",
-              "sub": [
-                { "title": "Qui sommes-nous", "link": "/#description" },
-                { "title": "L'équipe", "link": "/#showcase" },
-                { "title": "Ils nous font confiance", "link": "/#showcase" },
-                { "title": "Contact", "link": "/#contact" }
-              ]
+              "name": "Webtrine",
+              "link": "/",
+              "sub": null
             },
             {
-              "title": "Display",
+              "name": "Display",
               "link": "/display"
             },
             {
-              "title": "Display2",
-              "link": "/display2"
+              "name": "Prices",
+              "link": "/prices"
+            },
+            {
+              "name": "Contact",
+              "link": "/Contact"
             }
           ]
         }

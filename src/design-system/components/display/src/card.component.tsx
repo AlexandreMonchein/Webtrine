@@ -31,8 +31,6 @@ export const Card = ({ data, shouldRedirect }) => {
 
   const { sizes, colors } = extraDatas || {};
 
-  console.warn(">>> shouldRedirect", data, shouldRedirect);
-
   const variant = salePrice
     ? "on-sale"
     : isNew(releaseDate)

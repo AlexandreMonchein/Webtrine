@@ -212,6 +212,14 @@ export const Sidebar = styled.div`
   padding-top: 60px;
   border-right: 1px solid rgba(255, 255, 255, 0.3);
 
+  z-index: var(--z-index-navbars);
+
+  ${BurgerMenuIcon} {
+    position: absolute;
+    left: 10%;
+    top: 2%;
+  }
+
   ${bp.min(
     breakpointNames.large,
     css`

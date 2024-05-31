@@ -23,11 +23,14 @@ import {
 
 export const ClassicNavbar = ({ template, toggleTheme, theme }) => {
   const { t, i18n } = useTranslation();
-  const { name } = useSelector(getClient);
+  const { name: clientName } = useSelector(getClient);
 
   const {
     features: { isFixed, hasHideOnScroll },
-    content,
+    categories,
+    content: {
+      logo: { name },
+    },
   } = template;
 
   const [prevScrollPos, setPrevScrollPos] = useState(window.scrollY);
@@ -94,44 +97,34 @@ export const ClassicNavbar = ({ template, toggleTheme, theme }) => {
         <a href="/">
           <img
             alt="LOGO"
-            src={require(
-              `../../../assets/${name}/icons/white/logo-webtrine-white.png`
-            )}
+            src={require(`../../../assets/${clientName}/icons/${name}.png`)}
           />
         </a>
       </Logo>
       <MainNavigation>
         <Content>
-          {/* <Category className="deroulant"> */}
-          <Category>
-            <Links href="/">Webtrine</Links>
-            {/* <SubCategoryContainer className="sous">
-              <SubCategory>
-                <Links href="/#description">Qui sommes-nous</Links>
-              </SubCategory>
-              <SubCategory>
-                <Links href="/#showcase">L'équipe</Links>
-              </SubCategory>
-              <SubCategory>
-                <Links href="/#showcase">Ils nous font confiance</Links>
-              </SubCategory>
-              <SubCategory>
-                <Links href="/#contact">Contact</Links>
-              </SubCategory>
-            </SubCategoryContainer> */}
-          </Category>
+          {categories.map((category) => {
+            if (category.sub) {
+              return (
+                <Category className="deroulant">
+                  <Links onClick={handleOnClick}>{category.name}</Links>
+                  <SubCategoryContainer className="sous">
+                    {category.sub.map((sub) => (
+                      <SubCategory>
+                        <Links href={sub.link}>{sub.name}</Links>
+                      </SubCategory>
+                    ))}
+                  </SubCategoryContainer>
+                </Category>
+              );
+            }
 
-          <Category>
-            <Links href="/display">Display</Links>
-          </Category>
-
-          <Category>
-            <Links href="/prices">Prices</Links>
-          </Category>
-
-          <Category>
-            <Links href="/contact">Contact</Links>
-          </Category>
+            return (
+              <Category>
+                <Links href={category.link}>{category.name}</Links>
+              </Category>
+            );
+          })}
         </Content>
       </MainNavigation>
       <Settings>
@@ -153,53 +146,38 @@ export const ClassicNavbar = ({ template, toggleTheme, theme }) => {
           hideOnScroll: hasHideOnScroll,
         })}
       >
+        <BurgerMenuIcon onClick={toggleSidebar}>
+          <div></div>
+          <div></div>
+          <div></div>
+        </BurgerMenuIcon>
         <Content>
-          {/* <Category className="deroulant"> */}
-          <Category>
-            {/* <Links onClick={handleOnClick}>Webtrine</Links> */}
-            <Links href="/" onClick={toggleSidebar}>
-              Webtrine
-            </Links>
-            {/* <SubCategoryContainer className="sous">
-              <SubCategory>
-                <Links href="/#description" onClick={toggleSidebar}>
-                  Qui sommes-nous
-                </Links>
-              </SubCategory>
-              <SubCategory>
-                <Links href="/#showcase" onClick={toggleSidebar}>
-                  L'équipe
-                </Links>
-              </SubCategory>
-              <SubCategory>
-                <Links href="/#showcase" onClick={toggleSidebar}>
-                  Ils nous font confiance
-                </Links>
-              </SubCategory>
-              <SubCategory>
-                <Links href="/#contact" onClick={toggleSidebar}>
-                  Contact
-                </Links>
-              </SubCategory>
-            </SubCategoryContainer> */}
-          </Category>
-          <Category>
-            <Links href="/display" onClick={toggleSidebar}>
-              Display
-            </Links>
-          </Category>
+          {categories.map((category) => {
+            if (category.sub) {
+              return (
+                <Category className="deroulant">
+                  <Links onClick={handleOnClick}>{category.name}</Links>
+                  <SubCategoryContainer className="sous">
+                    {category.sub.map((sub) => (
+                      <SubCategory>
+                        <Links href={sub.link} onClick={toggleSidebar}>
+                          {sub.name}
+                        </Links>
+                      </SubCategory>
+                    ))}
+                  </SubCategoryContainer>
+                </Category>
+              );
+            }
 
-          <Category>
-            <Links href="/prices" onClick={toggleSidebar}>
-              Prices
-            </Links>
-          </Category>
-
-          <Category>
-            <Links href="/contact" onClick={toggleSidebar}>
-              Contact
-            </Links>
-          </Category>
+            return (
+              <Category>
+                <Links href={category.link} onClick={toggleSidebar}>
+                  {category.name}
+                </Links>
+              </Category>
+            );
+          })}
         </Content>
       </Sidebar>
     </Container>
