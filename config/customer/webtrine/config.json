@@ -79,7 +79,7 @@
         "type": "navbars",
         "id": "classicNavbar",
         "datas": {
-          "features": { "isFixed": false, "hasHideOnScroll": false },
+          "features": { "isFixed": true, "hasHideOnScroll": true },
           "content": {
             "logo": {
               "name": "logo-webtrine-white"

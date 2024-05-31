@@ -52,7 +52,7 @@ export const ClassicNavbar = ({ template, toggleTheme, theme }) => {
     setPrevScrollPos(currentScrollPos);
   }, [prevScrollPos, setPrevScrollPos]);
 
-  const handleChangeLanguage = (lang: string) => {
+  const handleChangeLanguage = (lang) => {
     i18n.changeLanguage(lang);
   };
 
@@ -70,15 +70,27 @@ export const ClassicNavbar = ({ template, toggleTheme, theme }) => {
     }
   };
 
+  const handleClickOutside = (event) => {
+    if (
+      isSidebarOpen &&
+      !document.getElementById("sidebar").contains(event.target) &&
+      !document.getElementById("burgerMenuIcon").contains(event.target)
+    ) {
+      setIsSidebarOpen(false);
+    }
+  };
+
   useEffect(() => {
     if (isFixed && hasHideOnScroll) {
       window.addEventListener("scroll", onScroll);
     }
+    document.addEventListener("mousedown", handleClickOutside);
 
     return () => {
       window.removeEventListener("scroll", onScroll);
+      document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, [prevScrollPos]);
+  }, [prevScrollPos, isSidebarOpen]);
 
   return (
     <Container
@@ -88,7 +100,7 @@ export const ClassicNavbar = ({ template, toggleTheme, theme }) => {
         hideOnScroll: hasHideOnScroll,
       })}
     >
-      <BurgerMenuIcon onClick={toggleSidebar}>
+      <BurgerMenuIcon id="burgerMenuIcon" onClick={toggleSidebar}>
         <div></div>
         <div></div>
         <div></div>
@@ -110,7 +122,7 @@ export const ClassicNavbar = ({ template, toggleTheme, theme }) => {
                   <Links onClick={handleOnClick}>{category.name}</Links>
                   <SubCategoryContainer className="sous">
                     {category.sub.map((sub) => (
-                      <SubCategory>
+                      <SubCategory key={sub.name}>
                         <Links href={sub.link}>{sub.name}</Links>
                       </SubCategory>
                     ))}
@@ -120,7 +132,7 @@ export const ClassicNavbar = ({ template, toggleTheme, theme }) => {
             }
 
             return (
-              <Category>
+              <Category key={category.name}>
                 <Links href={category.link}>{category.name}</Links>
               </Category>
             );
@@ -140,10 +152,10 @@ export const ClassicNavbar = ({ template, toggleTheme, theme }) => {
         <ToggleThemeMode toggleTheme={toggleTheme} theme={theme} />
       </Settings>
       <Sidebar
+        id="sidebar"
         className={classNames({
           isFixed: isFixed,
           open: isSidebarOpen,
-          hideOnScroll: hasHideOnScroll,
         })}
       >
         <BurgerMenuIcon onClick={toggleSidebar}>
@@ -155,11 +167,11 @@ export const ClassicNavbar = ({ template, toggleTheme, theme }) => {
           {categories.map((category) => {
             if (category.sub) {
               return (
-                <Category className="deroulant">
+                <Category className="deroulant" key={category.name}>
                   <Links onClick={handleOnClick}>{category.name}</Links>
                   <SubCategoryContainer className="sous">
                     {category.sub.map((sub) => (
-                      <SubCategory>
+                      <SubCategory key={sub.name}>
                         <Links href={sub.link} onClick={toggleSidebar}>
                           {sub.name}
                         </Links>
@@ -171,7 +183,7 @@ export const ClassicNavbar = ({ template, toggleTheme, theme }) => {
             }
 
             return (
-              <Category>
+              <Category key={category.name}>
                 <Links href={category.link} onClick={toggleSidebar}>
                   {category.name}
                 </Links>
