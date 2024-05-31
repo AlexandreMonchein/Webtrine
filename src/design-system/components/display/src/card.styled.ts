@@ -1,9 +1,10 @@
-import { Link } from "react-router-dom";
 import styled from "styled-components";
+
+import ConditionalLink from "../../link/src/link.component";
 
 import { COLORS, WEIGHTS } from "./constants";
 
-export const StyledLink = styled(Link)`
+export const StyledLink = styled(ConditionalLink)`
   text-decoration: none;
   color: inherit;
 `;
@@ -43,7 +44,34 @@ export const Price = styled.span`
   text-decoration: var(--text-decoration);
 `;
 
+export const SalePrice = styled.span`
+  padding-left: 5px;
+  font-weight: ${WEIGHTS.medium};
+  color: ${COLORS.primary};
+`;
+
 export const Info = styled.p`
   color: ${COLORS.gray[700]};
   margin: 0;
+`;
+
+export const Flag = styled.div`
+  position: absolute;
+  top: 12px;
+  right: -4px;
+  background: red;
+  height: 32px;
+  line-height: 32px;
+  padding: 0 10px;
+  font-size: ${14 / 16}rem;
+  font-weight: ${WEIGHTS.bold};
+  color: ${COLORS.white};
+  border-radius: 2px;
+`;
+
+export const SaleFlag = styled(Flag)`
+  background-color: ${COLORS.primary};
+`;
+export const NewFlag = styled(Flag)`
+  background-color: ${COLORS.secondary};
 `;

@@ -1,9 +1,11 @@
 import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { Link, useLocation } from "react-router-dom";
 import styled from "styled-components";
 
 const Product = () => {
   const location = useLocation();
+  const { t } = useTranslation();
   const { name, imageSrc, price, description, extraDatas } = location.state;
   const { sizes, colors } = extraDatas;
 
@@ -18,20 +20,20 @@ const Product = () => {
         </ImageWrapper>
         <ProductInfo>
           <ProductName>{name}</ProductName>
-          <ProductPrice>{`Price: $${(price / 100).toFixed(2)}`}</ProductPrice>
+          <ProductPrice>{`${t("display.price")}: ${price}`}</ProductPrice>
           <ProductDescription>{description}</ProductDescription>
           <form>
-            {sizes.length > 0 ? (
+            {sizes && sizes.length > 0 ? (
               <ProductSizes>
                 <label>
-                  <strong>Select Size:</strong>
+                  <strong>{t("display.selectSize")}</strong>
                   <select
                     value={selectedSize}
                     onChange={(e) => setSelectedSize(e.target.value)}
                     required
                   >
                     <option value="" disabled>
-                      Select size
+                      {t("display.selectSize")}
                     </option>
                     {sizes.map((size, index) => (
                       <option key={index} value={size.size}>
@@ -42,17 +44,17 @@ const Product = () => {
                 </label>
               </ProductSizes>
             ) : null}
-            {colors.length > 0 ? (
+            {colors && colors.length > 0 ? (
               <ProductColors>
                 <label>
-                  <strong>Select Color:</strong>
+                  <strong>{t("display.selectColor")}</strong>
                   <select
                     value={selectedColor}
                     onChange={(e) => setSelectedColor(e.target.value)}
                     required
                   >
                     <option value="" disabled>
-                      Select color
+                      {t("display.selectColor")}
                     </option>
                     {colors.map((color, index) => (
                       <option key={index} value={color}>

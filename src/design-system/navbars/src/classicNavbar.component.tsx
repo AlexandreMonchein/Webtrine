@@ -102,9 +102,10 @@ export const ClassicNavbar = ({ template, toggleTheme, theme }) => {
       </Logo>
       <MainNavigation>
         <Content>
-          <Category className="deroulant">
-            <Links>Webtrine</Links>
-            <SubCategoryContainer className="sous">
+          {/* <Category className="deroulant"> */}
+          <Category>
+            <Links href="/">Webtrine</Links>
+            {/* <SubCategoryContainer className="sous">
               <SubCategory>
                 <Links href="/#description">Qui sommes-nous</Links>
               </SubCategory>
@@ -117,7 +118,7 @@ export const ClassicNavbar = ({ template, toggleTheme, theme }) => {
               <SubCategory>
                 <Links href="/#contact">Contact</Links>
               </SubCategory>
-            </SubCategoryContainer>
+            </SubCategoryContainer> */}
           </Category>
 
           <Category>
@@ -145,11 +146,21 @@ export const ClassicNavbar = ({ template, toggleTheme, theme }) => {
         </Languages>
         <ToggleThemeMode toggleTheme={toggleTheme} theme={theme} />
       </Settings>
-      <Sidebar className={isSidebarOpen ? "open" : ""}>
+      <Sidebar
+        className={classNames({
+          isFixed: isFixed,
+          open: isSidebarOpen,
+          hideOnScroll: hasHideOnScroll,
+        })}
+      >
         <Content>
-          <Category className="deroulant">
-            <Links onClick={handleOnClick}>Webtrine</Links>
-            <SubCategoryContainer className="sous">
+          {/* <Category className="deroulant"> */}
+          <Category>
+            {/* <Links onClick={handleOnClick}>Webtrine</Links> */}
+            <Links href="/" onClick={toggleSidebar}>
+              Webtrine
+            </Links>
+            {/* <SubCategoryContainer className="sous">
               <SubCategory>
                 <Links href="/#description" onClick={toggleSidebar}>
                   Qui sommes-nous
@@ -170,11 +181,23 @@ export const ClassicNavbar = ({ template, toggleTheme, theme }) => {
                   Contact
                 </Links>
               </SubCategory>
-            </SubCategoryContainer>
+            </SubCategoryContainer> */}
           </Category>
           <Category>
             <Links href="/display" onClick={toggleSidebar}>
               Display
+            </Links>
+          </Category>
+
+          <Category>
+            <Links href="/prices" onClick={toggleSidebar}>
+              Prices
+            </Links>
+          </Category>
+
+          <Category>
+            <Links href="/contact" onClick={toggleSidebar}>
+              Contact
             </Links>
           </Category>
         </Content>

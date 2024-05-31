@@ -1,5 +1,3 @@
-import styled from "styled-components";
-
 import { Card } from "./card.component";
 import {
   CardWrapper,
@@ -9,14 +7,17 @@ import {
 } from "./display.styled";
 
 export const Display = ({ template }) => {
-  console.warn(">>> template", template);
+  const {
+    features: { shouldRedirect },
+  } = template;
+
   return (
     <DisplayWrapper>
       <MainColumn>
         <Wrapper>
           {template.inventory.map((data) => (
             <CardWrapper key={data.slug}>
-              <Card {...data} />
+              <Card data={data} shouldRedirect={shouldRedirect} />
             </CardWrapper>
           ))}
         </Wrapper>

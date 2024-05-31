@@ -52,6 +52,7 @@ export const ContactForm = styled.form`
 `;
 
 export const ClientInfo = styled.div`
+  padding-bottom: 40px;
   flex: 1;
 
   p,
@@ -59,6 +60,8 @@ export const ClientInfo = styled.div`
     font-size: var(--text-font-size);
     color: var(--color-quaternary);
     margin-bottom: 5px;
+    display: flex;
+    flex-direction: column;
   }
 
   ul {
@@ -119,7 +122,7 @@ export const Button = styled.button`
 `;
 
 export const ProductDetails = styled.div`
-  margin-bottom: 20px;
+  margin-bottom: 60px;
   display: flex;
   flex-direction: column;
   align-items: center;

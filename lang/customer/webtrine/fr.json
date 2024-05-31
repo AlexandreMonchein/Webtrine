@@ -10,6 +10,17 @@
   "showcase": {
     "title": "Enim ex aliquip reprehenderit ad excepteur"
   },
+  "display": {
+    "sale": "En Solde!",
+    "newRelease": "Nouveaux!",
+    "price": "Prix",
+    "selectSize": "Choisir une taille",
+    "selectColor": "Choisir une couleur",
+    "selectedSize": "Taille sélectionnée",
+    "selectedColor": "Couleur sélectionnée",
+    "productName": "Nom du produit",
+    "description": "Description"
+  },
   "contact": {
     "title": "Enim ex aliquip reprehenderit ad excepteur",
     "description": "Enim ex aliquip reprehenderit ad excepteur",

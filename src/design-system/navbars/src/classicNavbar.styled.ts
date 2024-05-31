@@ -228,6 +228,13 @@ export const Sidebar = styled.div`
   &.open {
     left: 0;
     transition: left 0.5s;
+
+    ${bp.max(
+      breakpointNames.medium,
+      css`
+        height: 110vh;
+      `
+    )};
   }
 
   ${SubCategoryContainer} {

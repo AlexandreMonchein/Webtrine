@@ -50,19 +50,21 @@ const ExtendedContact = () => {
               <img src={imageSrc} alt={name} />
               <div>
                 <p>
-                  <strong>Product Name:</strong> {name}
+                  <strong>{t("display.productName")}:</strong> {name}
                 </p>
                 <p>
-                  <strong>Price:</strong> ${price / 100}
+                  <strong>{t("display.price")}:</strong> {price}
                 </p>
                 <p>
-                  <strong>Description:</strong> {description}
+                  <strong>{t("display.description")}:</strong> {description}
                 </p>
                 <p>
-                  <strong>Selected Size:</strong> {selectedSize || "N/A"}
+                  <strong>{t("display.selectedSize")}:</strong>{" "}
+                  {selectedSize || "N/A"}
                 </p>
                 <p>
-                  <strong>Selected Color:</strong> {selectedColor || "N/A"}
+                  <strong>{t("display.selectedColor")}:</strong>{" "}
+                  {selectedColor || "N/A"}
                 </p>
               </div>
             </ProductInfo>
@@ -70,19 +72,16 @@ const ExtendedContact = () => {
         )}
         <FormContainer>
           <ClientInfo>
-            <h2>Conatct Information</h2>
+            <h2>Contact Information</h2>
             <p>
-              <strong>Address:</strong>{" "}
-              <p>
-                {client.contact.address.number}{" "}
-                {`${client.contact.address.street}, ${client.contact.address.zip} ${client.contact.address.city}, ${client.contact.address.country}`}
-              </p>
+              <strong>Address:</strong> {client.contact.address.number}{" "}
+              {`${client.contact.address.street}, ${client.contact.address.zip} ${client.contact.address.city}, ${client.contact.address.country}`}
             </p>
             <p>
-              <strong>Phone:</strong> <p>{client.contact.phone}</p>
+              <strong>Phone:</strong> {client.contact.phone}
             </p>
             <p>
-              <strong>Email:</strong> <p>{client.contact.email}</p>
+              <strong>Email:</strong> {client.contact.email}
             </p>
           </ClientInfo>
           <ContactForm>

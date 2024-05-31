@@ -289,7 +289,7 @@
       },
       {
         "type": "contact",
-        "id": "contact",
+        "id": "extendedContact",
         "datas": {
           "features": {}
         }
@@ -298,36 +298,47 @@
         "type": "display",
         "id": "display",
         "datas": {
-          "features": {},
+          "features": { "shouldRedirect": true },
           "inventory": [
             {
-              "slug": "tech-challenge",
-              "name": "NikeCourt Tech Challenge 20",
+              "slug": "test-sale",
+              "name": "Test product on sale",
               "description": "This is the description for product 1",
               "imageSrc": "https://via.placeholder.com/400",
-              "price": 16500,
+              "price": "150€",
+              "salePrice": "130€",
+              "releaseDate": "2020-01-01",
               "extraDatas": {
                 "sizes": [{ "size": 39, "available": true }],
                 "colors": ["black", "white"]
               }
             },
             {
-              "slug": "metcon-5",
-              "name": "Nike Metcon 5 AMP",
+              "slug": "test-new",
+              "name": "Test new product",
               "description": "This is the description for product 1",
               "imageSrc": "https://via.placeholder.com/400",
-              "price": 16500,
+              "price": "150€",
+              "salePrice": "",
+              "releaseDate": "2024-05-30",
               "extraDatas": {
                 "sizes": [{ "size": 39, "available": true }],
                 "colors": ["black"]
               }
             },
+
             {
-              "slug": "phantom",
-              "name": "Nike Phantom Vision",
-              "description": "This is the description for product 1",
+              "slug": "test-img-only",
+              "imageSrc": "https://via.placeholder.com/400"
+            },
+            {
+              "slug": "test1",
+              "name": "Test product",
+              "description": "This is the description for a test product",
               "imageSrc": "https://via.placeholder.com/400",
-              "price": 16500,
+              "price": "99999€",
+              "salePrice": "",
+              "releaseDate": "",
               "extraDatas": {
                 "sizes": [
                   { "size": 39, "available": true },
@@ -337,68 +348,98 @@
               }
             },
             {
-              "slug": "pegasus",
-              "name": "Nike Air Zoom Pegasus",
-              "description": "This is the description for product 1",
+              "slug": "test2",
+              "name": "Test product",
+              "description": "This is the description for a test product",
               "imageSrc": "https://via.placeholder.com/400",
-              "price": 16500,
+              "price": "99999€",
+              "salePrice": "",
+              "releaseDate": "",
               "extraDatas": {
-                "sizes": [{ "size": 39, "available": true }],
+                "sizes": [
+                  { "size": 39, "available": true },
+                  { "size": 40, "available": true }
+                ],
                 "colors": ["black", "white"]
               }
             },
             {
-              "slug": "joyride",
-              "name": "Nike Joyride Dual Run",
-              "description": "This is the description for product 1",
+              "slug": "test3",
+              "name": "Test product",
+              "description": "This is the description for a test product",
               "imageSrc": "https://via.placeholder.com/400",
-              "price": 17000,
+              "price": "99999€",
+              "salePrice": "",
+              "releaseDate": "",
               "extraDatas": {
-                "sizes": [{ "size": 39, "available": true }],
+                "sizes": [
+                  { "size": 39, "available": true },
+                  { "size": 40, "available": true }
+                ],
                 "colors": ["black", "white"]
               }
             },
             {
-              "slug": "legend-academy",
-              "name": "Nike Tiempo Legend 8",
-              "description": "This is the description for product 1",
+              "slug": "test4",
+              "name": "Test product",
+              "description": "This is the description for a test product",
               "imageSrc": "https://via.placeholder.com/400",
-              "price": 16500,
+              "price": "99999€",
+              "salePrice": "",
+              "releaseDate": "",
               "extraDatas": {
-                "sizes": [{ "size": 39, "available": true }],
+                "sizes": [
+                  { "size": 39, "available": true },
+                  { "size": 40, "available": true }
+                ],
                 "colors": ["black", "white"]
               }
             },
             {
-              "slug": "react-infinity",
-              "name": "Nike React Infinity Pro",
-              "description": "This is the description for product 1",
+              "slug": "test5",
+              "name": "Test product",
+              "description": "This is the description for a test product",
               "imageSrc": "https://via.placeholder.com/400",
-              "price": 16000,
+              "price": "99999€",
+              "salePrice": "",
+              "releaseDate": "",
               "extraDatas": {
-                "sizes": [{ "size": 39, "available": true }],
+                "sizes": [
+                  { "size": 39, "available": true },
+                  { "size": 40, "available": true }
+                ],
                 "colors": ["black", "white"]
               }
             },
             {
-              "slug": "phantom-flyknit",
-              "name": "Nike React Phantom Run Flyknit 2",
-              "description": "This is the description for product 1",
+              "slug": "test6",
+              "name": "Test product",
+              "description": "This is the description for a test product",
               "imageSrc": "https://via.placeholder.com/400",
-              "price": 18500,
+              "price": "99999€",
+              "salePrice": "",
+              "releaseDate": "",
               "extraDatas": {
-                "sizes": [{ "size": 39, "available": true }],
+                "sizes": [
+                  { "size": 39, "available": true },
+                  { "size": 40, "available": true }
+                ],
                 "colors": ["black", "white"]
               }
             },
             {
-              "slug": "lebron",
-              "name": "LeBron 17",
-              "description": "This is the description for product 1",
+              "slug": "test7",
+              "name": "Test product",
+              "description": "This is the description for a test product",
               "imageSrc": "https://via.placeholder.com/400",
-              "price": 26000,
+              "price": "99999€",
+              "salePrice": "",
+              "releaseDate": "",
               "extraDatas": {
-                "sizes": [{ "size": 39, "available": true }],
+                "sizes": [
+                  { "size": 39, "available": true },
+                  { "size": 40, "available": true }
+                ],
                 "colors": ["black", "white"]
               }
             }
