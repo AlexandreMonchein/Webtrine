@@ -93,64 +93,66 @@ export const ClassicNavbar = ({ template, toggleTheme, theme }) => {
   }, [prevScrollPos, isSidebarOpen]);
 
   return (
-    <Container
-      id="navbar"
-      className={classNames({
-        isFixed: isFixed,
-        hideOnScroll: hasHideOnScroll,
-      })}
-    >
-      <BurgerMenuIcon id="burgerMenuIcon" onClick={toggleSidebar}>
-        <div></div>
-        <div></div>
-        <div></div>
-      </BurgerMenuIcon>
-      <Logo>
-        <a href="/">
-          <img
-            alt="LOGO"
-            src={require(`../../../assets/${clientName}/icons/${name}.png`)}
-          />
-        </a>
-      </Logo>
-      <MainNavigation>
-        <Content>
-          {categories.map((category) => {
-            if (category.sub) {
+    <>
+      <Container
+        id="navbar"
+        className={classNames({
+          isFixed: isFixed,
+          hideOnScroll: hasHideOnScroll,
+        })}
+      >
+        <BurgerMenuIcon id="burgerMenuIcon" onClick={toggleSidebar}>
+          <div></div>
+          <div></div>
+          <div></div>
+        </BurgerMenuIcon>
+        <Logo>
+          <a href="/">
+            <img
+              alt="LOGO"
+              src={require(`../../../assets/${clientName}/icons/${name}.png`)}
+            />
+          </a>
+        </Logo>
+        <MainNavigation>
+          <Content>
+            {categories.map((category) => {
+              if (category.sub) {
+                return (
+                  <Category className="deroulant">
+                    <Links onClick={handleOnClick}>{category.name}</Links>
+                    <SubCategoryContainer className="sous">
+                      {category.sub.map((sub) => (
+                        <SubCategory key={sub.name}>
+                          <Links href={sub.link}>{sub.name}</Links>
+                        </SubCategory>
+                      ))}
+                    </SubCategoryContainer>
+                  </Category>
+                );
+              }
+
               return (
-                <Category className="deroulant">
-                  <Links onClick={handleOnClick}>{category.name}</Links>
-                  <SubCategoryContainer className="sous">
-                    {category.sub.map((sub) => (
-                      <SubCategory key={sub.name}>
-                        <Links href={sub.link}>{sub.name}</Links>
-                      </SubCategory>
-                    ))}
-                  </SubCategoryContainer>
+                <Category key={category.name}>
+                  <Links href={category.link}>{category.name}</Links>
                 </Category>
               );
-            }
-
-            return (
-              <Category key={category.name}>
-                <Links href={category.link}>{category.name}</Links>
-              </Category>
-            );
-          })}
-        </Content>
-      </MainNavigation>
-      <Settings>
-        <Languages>
-          <div>
-            {i18n.language === "fr" ? (
-              <button onClick={() => handleChangeLanguage("en")}>EN</button>
-            ) : (
-              <button onClick={() => handleChangeLanguage("fr")}>FR</button>
-            )}
-          </div>
-        </Languages>
-        <ToggleThemeMode toggleTheme={toggleTheme} theme={theme} />
-      </Settings>
+            })}
+          </Content>
+        </MainNavigation>
+        <Settings>
+          <Languages>
+            <div>
+              {i18n.language === "fr" ? (
+                <button onClick={() => handleChangeLanguage("en")}>EN</button>
+              ) : (
+                <button onClick={() => handleChangeLanguage("fr")}>FR</button>
+              )}
+            </div>
+          </Languages>
+          <ToggleThemeMode toggleTheme={toggleTheme} theme={theme} />
+        </Settings>
+      </Container>
       <Sidebar
         id="sidebar"
         className={classNames({
@@ -192,6 +194,6 @@ export const ClassicNavbar = ({ template, toggleTheme, theme }) => {
           })}
         </Content>
       </Sidebar>
-    </Container>
+    </>
   );
 };
