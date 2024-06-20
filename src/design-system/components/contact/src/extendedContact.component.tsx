@@ -27,14 +27,13 @@ import {
 
 const sendEmail = async (datas) => {
   try {
-    console.warn(">>> emails", resend.emails);
-
     await resend.emails.send({
       from: "alexandre.monschein@gmail.com",
       to: "contact@webtrine.fr",
       subject: datas.subject,
       headers: {
         "Access-Control-Allow-Origin": "*",
+        Authorization: `Bearer ${resend.key}`,
       },
       react: ContactMail(datas),
     });

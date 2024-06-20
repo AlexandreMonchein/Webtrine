@@ -31,7 +31,7 @@ export const Description = styled.p`
   margin-bottom: 40px;
 `;
 
-export const FormContainer = styled.div`
+export const FormContainer = styled.form`
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -57,7 +57,7 @@ export const FormDisplay = styled.div`
   )};
 `;
 
-export const ContactForm = styled.form`
+export const ContactForm = styled.div`
   display: flex;
   flex-direction: column;
   gap: 15px;
