@@ -6,7 +6,7 @@ import ExtendedContact from "./design-system/components/contact/src/extendedCont
 import { Display } from "./design-system/components/display/src/display.component";
 import Product from "./design-system/components/display/src/product.component";
 import { Prices } from "./design-system/components/prices/src/prices.component";
-import { ClassicError } from "./design-system/error/src/classicError.component";
+import { PageNotFound } from "./design-system/error/src/pageNotFound.component";
 import { ClassicFooter } from "./design-system/footers/src/classicFooter.component";
 import { Home } from "./design-system/home/src/home.component";
 import { ClassicNavbar } from "./design-system/navbars/src/classicNavbar.component";
@@ -67,7 +67,7 @@ function App(config) {
           <Route path="/contact" element={<ExtendedContact />} />
           <Route path="/prices" element={<Prices />} />
           <Route path="/display/:item" element={<Product />} />
-          <Route path="/*" element={<ClassicError />} />
+          <Route path="/*" element={<PageNotFound />} />
         </Routes>
         {classicFooterTemplate && (
           <ClassicFooter template={classicFooterTemplate.datas} />
