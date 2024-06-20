@@ -79,7 +79,7 @@
         "type": "navbars",
         "id": "classicNavbar",
         "datas": {
-          "features": { "isFixed": true, "hasHideOnScroll": true },
+          "features": { "isFixed": false, "hasHideOnScroll": false },
           "content": {
             "logo": {
               "name": "logo-webtrine-white"
@@ -101,7 +101,7 @@
             },
             {
               "name": "Contact",
-              "link": "/Contact"
+              "link": "/contact"
             }
           ]
         }

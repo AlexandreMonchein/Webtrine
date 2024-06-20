@@ -13,6 +13,12 @@
       {
         "runtime": "automatic"
       }
+    ],
+    [
+      "@babel/preset-typescript",
+      {
+        "runtime": "automatic"
+      }
     ]
   ]
 }

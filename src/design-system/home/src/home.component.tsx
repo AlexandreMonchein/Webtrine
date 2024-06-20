@@ -5,7 +5,13 @@ import { generalTemplatesTypes } from "../../../App";
 
 import { Content } from "./home.styled";
 
-export const Home: FC<{ templates: any[] }> = ({ templates }) => {
+interface Templates {
+  type: string;
+  id: string;
+  datas: any;
+}
+
+export const Home: FC<{ templates: Templates[] }> = ({ templates }) => {
   const [components, setComponents] = useState<React.ReactNode[]>([]);
 
   useEffect(() => {

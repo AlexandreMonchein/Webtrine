@@ -33,6 +33,7 @@ export const Description = styled.p`
 
 export const FormContainer = styled.div`
   display: flex;
+  flex-direction: column;
   gap: 20px;
   text-align: left;
 
@@ -40,6 +41,18 @@ export const FormContainer = styled.div`
     breakpointNames.medium,
     css`
       display: block;
+    `
+  )};
+`;
+
+export const FormDisplay = styled.div`
+  display: flex;
+  flex-direction: row;
+
+  ${bp.max(
+    breakpointNames.medium,
+    css`
+      flex-direction: column;
     `
   )};
 `;

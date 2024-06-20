@@ -12,11 +12,19 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.js|\.jsx|\.ts|\.tsx|\.json$/,
+        test: /\.(js|jsx|ts|tsx)$/,
         exclude: /node_modules/,
         use: {
           loader: "babel-loader",
         },
+      },
+      {
+        test: /\.css$/,
+        use: [
+          {
+            loader: "css-loader",
+          },
+        ],
       },
       {
         test: /\.(jpg|png|jpe?g|gif|svg)$/i,
@@ -29,13 +37,6 @@ module.exports = {
             },
           },
         ],
-      },
-      {
-        test: /\.(jpg|png|svg)$/,
-        loader: "url-loader",
-        options: {
-          limit: 25000,
-        },
       },
     ],
   },
@@ -52,6 +53,9 @@ module.exports = {
       process: {
         env: {
           REACT_APP_CUSTOMER: JSON.stringify(process.env.REACT_APP_CUSTOMER),
+          REACT_APP_RESEND_API_KEY: JSON.stringify(
+            "re_fH5kW59A_KgzV9S2iXc1FSc12mSrdNiy4"
+          ),
         },
       },
     }),

@@ -15,5 +15,5 @@
     "noEmit": true,
     "jsx": "react-jsx"
   },
-  "include": ["src", "webpack.config.js"]
+  "include": ["src", "src/design-system/emails", "webpack.config.js"]
 }
