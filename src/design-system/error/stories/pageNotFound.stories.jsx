@@ -1,15 +1,15 @@
 import React from 'react';
 
-import { ClassicError } from '../src/classicError.component';
+import { PageNotFound } from '../src/pageNotFound.component';
 
 export default {
-  title: 'Error/ClassicError',
-  component: ClassicError,
+  title: 'Error/PageNotFound',
+  component: PageNotFound,
   args: {},
   argTypes: {},
 };
 
 const Template = () => (
-    <ClassicError />
+    <PageNotFound />
 );
 export const Playground = Template.bind({});
