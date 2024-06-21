@@ -1,13 +1,10 @@
-"use server";
-
 import React, { useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
 
-import { resend } from "../../../../lib/resend";
+import { sendEmail } from "../../../../lib/resend";
 import { getClient } from "../../../../store/state.selector";
-import ContactMail from "../../../emails/src/basicEmail.component";
 
 import {
   Button,
@@ -25,23 +22,6 @@ import {
   Title,
 } from "./extendedContact.styled";
 
-const sendEmail = async (datas) => {
-  try {
-    await resend.emails.send({
-      from: "alexandre.monschein@gmail.com",
-      to: "contact@webtrine.fr",
-      subject: datas.subject,
-      headers: {
-        "Access-Control-Allow-Origin": "*",
-        Authorization: `Bearer ${resend.key}`,
-      },
-      react: ContactMail(datas),
-    });
-  } catch (e) {
-    console.warn(">>> error", e);
-  }
-};
-
 const ExtendedContact = () => {
   const { t } = useTranslation();
   const client = useSelector(getClient).contact;
@@ -54,13 +34,17 @@ const ExtendedContact = () => {
     description,
     selectedSize,
     selectedColor,
+    plan,
   } = location.state || {};
 
+  const { title: planTitle, price: planPrice, per: planPer } = plan || {};
+
+  console.warn(">>> location", location.state);
+
   const {
-    name: clientName,
     phone,
     email,
-    address: { number, street, zip, city, country },
+    address: { number, street, zip, city },
   } = client;
 
   const handleSubmit = useCallback(async (e) => {
@@ -101,7 +85,7 @@ const ExtendedContact = () => {
         <FormContainer onSubmit={handleSubmit}>
           {productName && (
             <ProductDetails>
-              <h2>Reservation Details</h2>
+              <h2>{t("display.reservationTitle")}</h2>
               <ProductInfo>
                 <img src={imageSrc} alt={productName} />
                 <div>
@@ -126,17 +110,34 @@ const ExtendedContact = () => {
               </ProductInfo>
             </ProductDetails>
           )}
+          {plan && (
+            <ProductDetails>
+              <h2>{t("prices.planTitle")}</h2>
+              <ProductInfo>
+                <div>
+                  <p>
+                    <strong>{t("prices.title")}:</strong> {planTitle}
+                  </p>
+                  <p>
+                    <strong>{t("prices.price")}:</strong> {planPrice} /{" "}
+                    {planPer}
+                  </p>
+                </div>
+              </ProductInfo>
+            </ProductDetails>
+          )}
           <FormDisplay>
             <ClientInfo>
-              <h2>Contact Information</h2>
+              <h2>{t("contact.infoTitle")}</h2>
               <p>
-                <strong>Address:</strong> {number} {`${street}, ${zip} ${city}`}
+                <strong>{t("contact.address")}:</strong> {number}{" "}
+                {`${street}, ${zip} ${city}`}
               </p>
               <p>
-                <strong>Phone:</strong> {phone}
+                <strong>{t("contact.phone")}:</strong> {phone}
               </p>
               <p>
-                <strong>Email:</strong> {email}
+                <strong>{t("contact.email")}:</strong> {email}
               </p>
             </ClientInfo>
             <ContactForm>
@@ -149,7 +150,7 @@ const ExtendedContact = () => {
                 required
               />
 
-              <label htmlFor="email">{t("contact.email")}</label>
+              <label htmlFor="email">{t("contact.email")} *</label>
               <Input
                 type="text"
                 id="email"
@@ -158,13 +159,14 @@ const ExtendedContact = () => {
                 required
               />
 
-              <label htmlFor="phone">{t("contact.phone")}</label>
+              <label htmlFor="phone">{t("contact.phone")} *</label>
               <Input
                 type="tel"
                 pattern="+[0-9]{2}[0-9]{9}"
                 id="phone"
                 name="phone"
                 placeholder={t("contact.phonePlaceholder")}
+                required
               />
 
               <label htmlFor="company">{t("contact.company")}</label>
