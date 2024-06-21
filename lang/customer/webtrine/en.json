@@ -19,13 +19,20 @@
     "selectedSize": "Selected size",
     "selectedColor": "Selected color",
     "productName": "Product name",
-    "description": "Description"
+    "description": "Description",
+    "reservationTitle": "Reservation Details"
   },
   "contact": {
     "title": "Enim ex aliquip reprehenderit ad excepteur",
     "description": "Enim ex aliquip reprehenderit ad excepteur",
+    "infoTitle": "Contact Information",
+    "address": "Address",
     "name": "Name",
     "namePlaceholder": "Your name",
+    "email": "Email",
+    "emailPlaceholder": "Your email",
+    "phone": "Phone",
+    "phonePlaceholder": "Your phone number",
     "company": "Company",
     "companyPlaceholder": "Your company",
     "subject": "Subject",
@@ -33,5 +40,11 @@
     "content": "Content",
     "contentPlaceholder": "Content of your message",
     "send": "Send"
+  },
+  "prices": {
+    "selectPlan": "Get in touch",
+    "planTitle": "Plan Details",
+    "title": "Plan",
+    "price": "Price"
   }
 }

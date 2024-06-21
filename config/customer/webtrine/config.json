@@ -39,7 +39,7 @@
 
       "color-primary": "#ffffff",
       "color-secondary": "#E8EEF1",
-      "color-tertiary": "#60A3D9",
+      "color-tertiary": "#007bff",
       "color-quaternary": "#1E3D58",
       "color-quinary": "#000000",
 
@@ -176,6 +176,79 @@
           "title": "Description 2: Enim ex aliquip reprehenderit ad excepteur",
           "content": "Enim ex aliquip reprehenderit ad excepteur aliqua excepteur amet proident duis qui exercitation. Exercitation laboris duis elit mollit ut incididunt adipisicing voluptate irure adipisicing minim culpa proident. Proident nostrud cillum sint Lorem excepteur. Laboris non exercitation sint do quis id deserunt exercitation sunt sunt pariatur ullamco esse.",
           "src": "https://via.placeholder.com/400"
+        }
+      },
+      {
+        "type": "prices",
+        "id": "allInOne",
+        "datas": {
+          "features": {},
+          "content": [
+            {
+              "imgSrc": "https://via.placeholder.com/50",
+              "text": "Feature 1 description"
+            },
+            {
+              "imgSrc": "https://via.placeholder.com/50",
+              "text": "Feature 2 description"
+            },
+            {
+              "imgSrc": "https://via.placeholder.com/50",
+              "text": "Feature 3 description"
+            },
+            {
+              "imgSrc": "https://via.placeholder.com/50",
+              "text": "Feature 4 description"
+            },
+            {
+              "imgSrc": "https://via.placeholder.com/50",
+              "text": "Feature 5 description"
+            },
+            {
+              "imgSrc": "https://via.placeholder.com/50",
+              "text": "Feature 6 description"
+            }
+          ],
+          "title": "Ce que je propose",
+          "descriptionTop": null,
+          "descriptionBottom": "This is a short description below the features grid.",
+          "price": "49.99€",
+          "per": "year",
+          "additionalDescription": "This is an additional short description if needed."
+        }
+      },
+      {
+        "type": "prices",
+        "id": "multiplePrices",
+        "datas": {
+          "title": "Our Pricing Plans",
+          "subtitle": "Choose a plan that fits your needs",
+          "plans": [
+            {
+              "title": "Basic",
+              "price": "19.99€",
+              "per": "year",
+              "features": ["Feature 1", "Feature 2", "Feature 3"]
+            },
+            {
+              "title": "Standard",
+              "price": "49.99€",
+              "per": "year",
+              "features": ["Feature 1", "Feature 2", "Feature 3", "Feature 4"]
+            },
+            {
+              "title": "Premium",
+              "price": "99.99€",
+              "per": "year",
+              "features": [
+                "Feature 1",
+                "Feature 2",
+                "Feature 3",
+                "Feature 4",
+                "Feature 5"
+              ]
+            }
+          ]
         }
       },
       {

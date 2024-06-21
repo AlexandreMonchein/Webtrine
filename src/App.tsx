@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import ExtendedContact from "./design-system/components/contact/src/extendedContact.component";
 import { Display } from "./design-system/components/display/src/display.component";
 import Product from "./design-system/components/display/src/product.component";
-import { Prices } from "./design-system/components/prices/src/prices.component";
+import Prices from "./design-system/components/prices/src/prices.component";
 import { PageNotFound } from "./design-system/error/src/pageNotFound.component";
 import { ClassicFooter } from "./design-system/footers/src/classicFooter.component";
 import { Home } from "./design-system/home/src/home.component";
@@ -15,6 +15,15 @@ import { getStyle, getTemplates } from "./store/state.selector";
 import { RootStyle } from "./globalStyles";
 
 export const generalTemplatesTypes = ["navbars", "footers", "error", "display"];
+
+export const getTemplateById = (templateId) => {
+  const templates = useSelector(getTemplates);
+
+  if (templates) {
+    const template = templates.find((template) => template.id === templateId);
+    return template || undefined;
+  }
+};
 
 function App(config) {
   const dispatch = useDispatch();
@@ -28,18 +37,6 @@ function App(config) {
 
   const templates = useSelector(getTemplates);
   const globalStyle = useSelector(getStyle);
-
-  const getTemplateById = useCallback(
-    (templateId) => {
-      if (templates) {
-        const template = templates.find(
-          (template) => template.id === templateId
-        );
-        return template || undefined;
-      }
-    },
-    [templates]
-  );
 
   const classicNavbarTemplate = getTemplateById("classicNavbar");
   const displayTemplate = getTemplateById("display");

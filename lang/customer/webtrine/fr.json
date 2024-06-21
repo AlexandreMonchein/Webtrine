@@ -19,11 +19,14 @@
     "selectedSize": "Taille sélectionnée",
     "selectedColor": "Couleur sélectionnée",
     "productName": "Nom du produit",
-    "description": "Description"
+    "description": "Description",
+    "reservationTitle": "Details de la reservation"
   },
   "contact": {
     "title": "Enim ex aliquip reprehenderit ad excepteur",
     "description": "Enim ex aliquip reprehenderit ad excepteur",
+    "infoTitle": "Informations de contact",
+    "address": "Adresse",
     "name": "Nom",
     "namePlaceholder": "Votre nom",
     "email": "Email",
@@ -37,5 +40,11 @@
     "content": "Contenu",
     "contentPlaceholder": "Contenu de votre message",
     "send": "Envoyer"
+  },
+  "prices": {
+    "selectPlan": "Prendre contact",
+    "planTitle": "Details du plan",
+    "title": "Plan",
+    "price": "Prix"
   }
 }

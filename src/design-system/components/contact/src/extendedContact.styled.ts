@@ -65,7 +65,7 @@ export const ContactForm = styled.div`
 `;
 
 export const ClientInfo = styled.div`
-  padding-bottom: 40px;
+  padding: 40px 20px;
   flex: 1;
 
   p,
@@ -99,6 +99,7 @@ export const ClientInfo = styled.div`
     breakpointNames.medium,
     css`
       text-align: center;
+      padding: 0;
     `
   )};
 `;
@@ -135,11 +136,18 @@ export const Button = styled.button`
 `;
 
 export const ProductDetails = styled.div`
-  margin-bottom: 60px;
+  margin-bottom: 40px;
   display: flex;
   flex-direction: column;
   align-items: center;
   border: 1px solid;
+
+  ${bp.max(
+    breakpointNames.medium,
+    css`
+      margin-bottom: 20px;
+    `
+  )};
 `;
 
 export const ProductInfo = styled.div`
