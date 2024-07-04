@@ -1,9 +1,11 @@
-import React, { useCallback } from "react";
+/* eslint-disable import/no-named-as-default-member */
+import { useCallback, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
 
-import { sendEmail } from "../../../../lib/resend";
+import emailjs from "@emailjs/browser";
+
 import { getClient } from "../../../../store/state.selector";
 
 import {
@@ -27,19 +29,20 @@ const ExtendedContact = () => {
   const client = useSelector(getClient).contact;
   const location = useLocation();
 
+  const { product, plan } = location.state || {};
+
   const {
     name: productName,
     imageSrc,
-    price,
+    price: productPrice,
     description,
     selectedSize,
     selectedColor,
-    plan,
-  } = location.state || {};
+  } = product || {};
 
   const { title: planTitle, price: planPrice, per: planPer } = plan || {};
 
-  console.warn(">>> location", location.state);
+  console.warn(">>> location.state", location.state);
 
   const {
     phone,
@@ -47,34 +50,50 @@ const ExtendedContact = () => {
     address: { number, street, zip, city },
   } = client;
 
+  useEffect(() => emailjs.init("OYqEmnhZaB6k1hEGB"), []);
+
   const handleSubmit = useCallback(async (e) => {
     e.preventDefault();
 
     const name = e.target.name.value || null;
     const company = e.target.company.value || null;
+    const emailFrom = e.target.email.value || null;
+    const number = e.target.phone.value || null;
     const subject = e.target.subject.value || null;
     const content = e.target.content.value || null;
 
     const datas = {
       name,
       company,
+      emailFrom,
+      number,
       subject,
       content,
-      product: productName
+      product: product
         ? {
             productName,
-            price,
+            productPrice,
             imageSrc,
             description,
             selectedSize,
             selectedColor,
           }
         : null,
+      plan: plan ? { planTitle, planPrice, planPer } : null,
     };
 
     console.warn("datas", { datas });
 
-    await sendEmail(datas);
+    const serviceId = "service_4fc2bmb";
+    const templateId = "template_8b4j0fm";
+    try {
+      await emailjs.send(serviceId, templateId, {
+        ...datas,
+      });
+      alert("email successfully sent check inbox");
+    } catch (error) {
+      console.log(error);
+    }
   }, []);
 
   return (
@@ -93,7 +112,7 @@ const ExtendedContact = () => {
                     <strong>{t("display.productName")}:</strong> {productName}
                   </p>
                   <p>
-                    <strong>{t("display.price")}:</strong> {price}
+                    <strong>{t("display.price")}:</strong> {productPrice}
                   </p>
                   <p>
                     <strong>{t("display.description")}:</strong> {description}

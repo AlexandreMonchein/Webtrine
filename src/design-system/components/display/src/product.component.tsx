@@ -71,12 +71,14 @@ const Product = () => {
                 pathname: "/contact",
               }}
               state={{
-                name,
-                imageSrc,
-                price,
-                description,
-                selectedSize,
-                selectedColor,
+                product: {
+                  name,
+                  imageSrc,
+                  price,
+                  description,
+                  selectedSize,
+                  selectedColor,
+                },
               }}
             >
               <ReserveButton type="button">Reserver</ReserveButton>
