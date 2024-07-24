@@ -13,6 +13,7 @@ import { ClassicNavbar } from "./design-system/navbars/src/classicNavbar.compone
 import { setConfig } from "./store/state.action";
 import { getStyle, getTemplates } from "./store/state.selector";
 import { RootStyle } from "./globalStyles";
+import ScrollToTop from "./scrollToTop.utils";
 
 export const generalTemplatesTypes = ["navbars", "footers", "error", "display"];
 
@@ -44,6 +45,7 @@ function App(config) {
 
   return (
     <Router>
+      <ScrollToTop />
       <RootStyle globalStyle={{ ...globalStyle }} />
       <div data-theme={theme}>
         {classicNavbarTemplate && (
