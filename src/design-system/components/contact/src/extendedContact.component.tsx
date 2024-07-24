@@ -1,12 +1,14 @@
 /* eslint-disable import/no-named-as-default-member */
 import { useCallback, useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
 
 import emailjs from "@emailjs/browser";
 
+import { showPopUp } from "../../../../store/state.action";
 import { getClient } from "../../../../store/state.selector";
+import PopUp from "../../popup/src/popUp.component";
 
 import {
   Button,
@@ -25,6 +27,7 @@ import {
 } from "./extendedContact.styled";
 
 const ExtendedContact = () => {
+  const dispatch = useDispatch();
   const { t } = useTranslation();
   const client = useSelector(getClient).contact;
   const location = useLocation();
@@ -82,22 +85,24 @@ const ExtendedContact = () => {
       plan: plan ? { planTitle, planPrice, planPer } : null,
     };
 
-    console.warn("datas", { datas });
-
     const serviceId = "service_4fc2bmb";
     const templateId = "template_8b4j0fm";
+
     try {
-      await emailjs.send(serviceId, templateId, {
-        ...datas,
-      });
-      alert("email successfully sent check inbox");
+      // await emailjs.send(serviceId, templateId, {
+      //   ...datas,
+      // });
+      dispatch(
+        showPopUp({ type: "success", message: "Email sent corrently!" })
+      );
     } catch (error) {
-      console.log(error);
+      dispatch(showPopUp({ type: "error", message: "Email not sent:" }));
     }
   }, []);
 
   return (
     <ContactSection>
+      <PopUp />
       <Content>
         <Title>{t("contact.title")}</Title>
         <Description>{t("contact.description")}</Description>
@@ -171,20 +176,21 @@ const ExtendedContact = () => {
 
               <label htmlFor="email">{t("contact.email")} *</label>
               <Input
-                type="text"
+                type="email"
                 id="email"
                 name="email"
                 placeholder={t("contact.emailPlaceholder")}
+                pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$"
                 required
               />
 
               <label htmlFor="phone">{t("contact.phone")} *</label>
               <Input
                 type="tel"
-                pattern="+[0-9]{2}[0-9]{9}"
                 id="phone"
                 name="phone"
                 placeholder={t("contact.phonePlaceholder")}
+                pattern="^\d{10}$"
                 required
               />
 

@@ -4,7 +4,6 @@ import { Provider } from "react-redux";
 
 import App from "./App";
 import { getCustomer } from "./customer.utils";
-import { RootStyle } from "./globalStyles";
 import i18n from "./i18n";
 import store from "./store";
 

@@ -131,7 +131,8 @@ export const Button = styled.button`
   transition: background-color 0.3s;
 
   &:hover {
-    background-color: darken(var(--text-color-tertiary), 10%);
+    opacity: 50%;
+    transition: opacity 0.3s;
   }
 `;
 
