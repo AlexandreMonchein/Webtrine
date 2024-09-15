@@ -1,27 +1,36 @@
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 import ExtendedContact from "./design-system/components/contact/src/extendedContact.component";
-import { Display } from "./design-system/components/display/src/display.component";
+import Display from "./design-system/components/display/src/display.component";
 import Product from "./design-system/components/display/src/product.component";
+import Legals from "./design-system/components/legals/src/legals.component";
 import Prices from "./design-system/components/prices/src/prices.component";
 import { PageNotFound } from "./design-system/error/src/pageNotFound.component";
-import { ClassicFooter } from "./design-system/footers/src/classicFooter.component";
+import DisplayFooter from "./design-system/footers/src/displayFooter.component";
 import { Home } from "./design-system/home/src/home.component";
-import { ClassicNavbar } from "./design-system/navbars/src/classicNavbar.component";
+import DisplayNavbar from "./design-system/navbars/src/displayNavbar.component";
 import { setConfig } from "./store/state.action";
-import { getStyle, getTemplates } from "./store/state.selector";
+import { getClient, getStyle, getTemplates } from "./store/state.selector";
 import { RootStyle } from "./globalStyles";
 import ScrollToTop from "./scrollToTop.utils";
 
-export const generalTemplatesTypes = ["navbars", "footers", "error", "display"];
+export const generalTemplatesTypes = [
+  "navbars",
+  "footers",
+  "error",
+  "display",
+  "legals",
+];
 
-export const getTemplateById = (templateId) => {
+export const getTemplateByType = (templateType) => {
   const templates = useSelector(getTemplates);
 
   if (templates) {
-    const template = templates.find((template) => template.id === templateId);
+    const template = templates.find(
+      (template) => template.type === templateType
+    );
     return template || undefined;
   }
 };
@@ -37,20 +46,26 @@ function App(config) {
   dispatch(setConfig(config));
 
   const templates = useSelector(getTemplates);
+  const { title } = useSelector(getClient);
   const globalStyle = useSelector(getStyle);
 
-  const classicNavbarTemplate = getTemplateById("classicNavbar");
-  const displayTemplate = getTemplateById("display");
-  const classicFooterTemplate = getTemplateById("classicFooter");
+  const navbarTemplate = getTemplateByType("navbars");
+  const displayTemplate = getTemplateByType("display");
+  const footerTemplate = getTemplateByType("footers");
+  const contactTemplate = getTemplateByType("contact");
+
+  useEffect(() => {
+    document.title = title;
+  }, []);
 
   return (
     <Router>
       <ScrollToTop />
       <RootStyle globalStyle={{ ...globalStyle }} />
       <div data-theme={theme}>
-        {classicNavbarTemplate && (
-          <ClassicNavbar
-            template={classicNavbarTemplate.datas}
+        {navbarTemplate && (
+          <DisplayNavbar
+            template={navbarTemplate}
             toggleTheme={toggleTheme}
             theme={theme}
           />
@@ -64,13 +79,22 @@ function App(config) {
             />
           )}
           <Route path="/contact" element={<ExtendedContact />} />
-          <Route path="/prices" element={<Prices />} />
+          <Route path="/prestation" element={<Prices />} />
           <Route path="/display/:item" element={<Product />} />
+
+          <Route path="/cgu-cgv" element={<Legals type="cgu-cgv" />} />
+          <Route
+            path="/mentions-legals"
+            element={<Legals type="mentions-legals" />}
+          />
+          <Route
+            path="/confidentialite"
+            element={<Legals type="confidentialite" />}
+          />
+
           <Route path="/*" element={<PageNotFound />} />
         </Routes>
-        {classicFooterTemplate && (
-          <ClassicFooter template={classicFooterTemplate.datas} />
-        )}
+        {footerTemplate && <DisplayFooter template={footerTemplate} />}
       </div>
     </Router>
   );

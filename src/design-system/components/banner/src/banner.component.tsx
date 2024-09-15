@@ -7,6 +7,7 @@ import {
   Background,
   BackgroundContainer,
   Content,
+  RedirectLink,
   Selector,
   SelectorsContainer,
   SubTitle,
@@ -50,26 +51,25 @@ const Banner = (datas) => {
         {subTitle ? <SubTitle>{subTitle}</SubTitle> : null}
       </TextContainer>
       <BackgroundContainer>
-        {multi ? (
-          images.map((image, index) => (
-            <Background
-              key={index}
-              alt={`Background ${index + 1}`}
-              src={require(
-                `../../../../assets/${customer}/presentation/banner/${image}.jpg`
-              )}
-              className={classNames({ active: index === currentIndex })}
-            />
-          ))
-        ) : (
-          <Background
-            alt="Background image"
-            src={require(
-              `../../../../assets/${customer}/presentation/banner/${images[0]}.jpg`
-            )}
-            className={classNames({ active: true })}
-          />
-        )}
+        {images.map((image, index) => {
+          const { name, copyright } = image || {};
+
+          const { url, title } = copyright || {};
+
+          return (
+            <>
+              <Background
+                key={index}
+                alt={`Background ${index + 1}`}
+                src={require(`../../../../assets/${customer}/${name}.jpg`)}
+                className={classNames({ active: index === currentIndex })}
+              />
+              {url && title ? (
+                <RedirectLink href={url}>{title}</RedirectLink>
+              ) : null}
+            </>
+          );
+        })}
       </BackgroundContainer>
       {multi ? (
         <SelectorsContainer>

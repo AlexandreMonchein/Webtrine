@@ -21,8 +21,6 @@ export function stateReducer(state = initialState, action) {
     case "DISPLAY_POPUP":
       const { type, message, error } = action.payload;
 
-      console.warn(">>> DISPLAY_POPUP", type, message, error);
-
       return { ...state, popUp: { showPopUp: true, type, message, error } };
 
     case "HIDE_POPUP":

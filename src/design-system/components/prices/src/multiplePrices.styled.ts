@@ -9,7 +9,6 @@ export const PricesContainer = styled.section`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background-color: #f8f8f8;
   color: var(--text-color-secondary);
 
   position: relative;

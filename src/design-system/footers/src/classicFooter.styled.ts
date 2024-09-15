@@ -24,28 +24,45 @@ export const FooterContainer = styled.footer`
     breakpointNames.small,
     css`
       flex-direction: column;
+      padding: 24px 16px;
     `
   )}
 `;
 
-// Left section for logos
 export const LeftSection = styled.div`
   display: flex;
+  flex-direction: column;
   align-items: center;
-`;
 
-// Middle section for copyright
-export const MiddleSection = styled.div`
-  text-align: center;
-  flex: 1;
-  color: var(--navigation-text-color);
+  img {
+    height: 32px;
+  }
 `;
-
-// Right section for social media links
 export const RightSection = styled.div`
   display: flex;
   align-items: center;
   gap: 20px;
+`;
+
+export const MiddleSection = styled.div`
+  text-align: center;
+  padding: 0px 64px 0px 64px;
+  color: var(--navigation-text-color);
+
+  ${bp.max(
+    breakpointNames.small,
+    css`
+      padding: 0px;
+    `
+  )}
+`;
+
+export const TopSection = styled.div``;
+
+export const BottomSection = styled.div`
+  display: flex;
+  gap: 24px;
+  justify-content: space-evenly;
 `;
 
 // Individual social media icon
@@ -75,4 +92,10 @@ export const SocialLogo = styled.div`
 `;
 export const SocialContent = styled(DefaultContent)`
   gap: 12px;
+`;
+
+export const SiteRef = styled.a`
+  text-decoration: none;
+  cursor: pointer;
+  color: var(--hover-color);
 `;

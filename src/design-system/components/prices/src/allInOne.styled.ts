@@ -11,7 +11,6 @@ export const PricesContainer = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #f8f8f8;
 
   ${bp.max(
     breakpointNames.medium,
@@ -31,15 +30,14 @@ export const Title = styled.h2`
 `;
 
 export const Description = styled.p`
-  font-size: var(--text-font-size);
+  font-size: var(--description-font-size);
   font-weight: var(--font-weight);
-  line-height: 1.5;
   word-break: break-word;
+  margin: 0;
 `;
 
 export const FeaturesCard = styled.div`
   background: var(--color-primary);
-  padding: 40px 0px;
   border-radius: 10px;
   box-shadow: 0px 0px 8px 8px rgba(0, 0, 0, 0.1);
   width: 100%;
@@ -75,13 +73,27 @@ export const FeatureImage = styled.img`
 
 export const FeatureText = styled.p`
   font-size: 16px;
+  padding-left: 12px;
   color: var(--text-color-secondary);
+`;
+
+export const PriceContainer = styled.div`
+  display: flex;
+  gap: 5px;
+  align-items: center;
 `;
 
 export const Price = styled.p`
   font-size: 32px;
   margin: 20px 0;
   color: var(--color-tertiary);
+  text-align: center;
+`;
+
+export const Per = styled.p`
+  font-size: 24px;
+  margin: 20px 0;
+  color: var(--color-quinary);
   text-align: center;
 `;
 

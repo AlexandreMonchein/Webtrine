@@ -1,6 +1,8 @@
 import classNames from "classnames";
 import { useTranslation } from "react-i18next";
 
+import { getCustomer } from "../../../../customer.utils";
+
 import {
   Container,
   Content,
@@ -14,30 +16,33 @@ import {
 
 const Description = (datas) => {
   const { t } = useTranslation();
-  const { features, src, title, content } = datas;
+  const customer = getCustomer();
+  const {
+    features: { isReversed },
+    image,
+    title,
+    content,
+  } = datas;
 
   return (
     <Section data-testid="WhoWeAre">
       <SectionTitle>{title}</SectionTitle>
       <Container>
-        <Content
-          className={classNames({
-            isReversed: features.isReversed,
-            isTextOnly: src ? false : true,
-          })}
-        >
-          {src ? (
-            <ImageWrapper>
-              <Image src={src} />
+        <Content>
+          {image ? (
+            <ImageWrapper
+              className={classNames({
+                isReversed: isReversed,
+              })}
+            >
+              <Image
+                src={require(`../../../../assets/${customer}/${image}.jpg`)}
+              />
             </ImageWrapper>
           ) : null}
-          <Text
-            className={classNames({
-              isCentered: features.isCentered,
-            })}
-          >
-            {content}
-          </Text>
+          {content.map(({ text }, index) => {
+            return <Text key={index}>{text}</Text>;
+          })}
         </Content>
       </Container>
     </Section>

@@ -23,8 +23,6 @@ const PopUp: React.FC = () => {
   const [progress, setProgress] = useState(0);
   const { showPopUp, type, message, error } = useSelector(isPopUpDisplayed);
 
-  console.warn(">>> PopUp", showPopUp, type, message, error);
-
   const handlePopUpClose = () => {
     dispatch(hidePopUp());
   };

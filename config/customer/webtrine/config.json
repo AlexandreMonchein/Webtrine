@@ -1,31 +1,14 @@
 {
   "client": {
+    "title": "Webtrine - Création de site vitrine",
     "name": "webtrine",
     "contact": {
       "name": "Alexandre Monschein",
-      "address": {
-        "street": "Rue des Veloutiers",
-        "number": 227,
-        "zip": 69530,
-        "city": "Orlienas",
-        "country": "France"
-      },
       "phone": "+33614612295",
       "email": "webtrine.pro@gmail.com"
     },
     "socials": {
-      "discord": "https://discord.com/invite/PVDBCjbHVK",
-      "facebook": null,
-      "instagram": null,
-      "linkedin": "https://www.linkedin.com/in/alexandre-monschein-34984a161",
-      "tiktok": null,
-      "telegram": null,
-      "twitch": null,
-      "uber": null,
-      "ubereat": null,
-      "whatsapp": null,
-      "x": null,
-      "youtube": null
+      "linkedin": "https://www.linkedin.com/in/alexandre-monschein-34984a161"
     }
   },
   "style": {
@@ -36,6 +19,7 @@
       "title-font-size": "42px",
       "subtitle-font-size": "32px",
       "text-font-size": "24px",
+      "description-font-size": "16px",
 
       "color-primary": "#ffffff",
       "color-secondary": "#E8EEF1",
@@ -58,6 +42,7 @@
       "title-font-size": "42px",
       "subtitle-font-size": "32px",
       "text-font-size": "24px",
+      "description-font-size": "16px",
 
       "color-primary": "#313134",
       "color-secondary": "#4a4a50",
@@ -79,7 +64,12 @@
         "type": "navbars",
         "id": "classicNavbar",
         "datas": {
-          "features": { "isFixed": false, "hasHideOnScroll": false },
+          "features": {
+            "isFixed": false,
+            "hasHideOnScroll": false,
+            "trad": false,
+            "darkMode": false
+          },
           "content": {
             "logo": {
               "name": "logo-webtrine-white"
@@ -88,16 +78,11 @@
           "categories": [
             {
               "name": "Webtrine",
-              "link": "/",
-              "sub": null
+              "link": "/"
             },
             {
-              "name": "Display",
-              "link": "/display"
-            },
-            {
-              "name": "Prices",
-              "link": "/prices"
+              "name": "prestation",
+              "link": "/prestation"
             },
             {
               "name": "Contact",
@@ -110,7 +95,14 @@
         "type": "footers",
         "id": "classicFooter",
         "datas": {
-          "features": {}
+          "features": {},
+          "images": [
+            {
+              "name": "logo-webtrine-white",
+              "alt": "logo-webtrine",
+              "link": "/"
+            }
+          ]
         }
       },
       {
@@ -119,8 +111,17 @@
         "datas": {
           "features": { "multi": false },
           "title": "Webtrine",
-          "subTitle": "Il n'a jamais été aussi simple de se faire connaître",
-          "images": ["banner", "banner", "banner"]
+          "subTitle": "Il n'a jamais été aussi simple d'avoir un site vitrine",
+          "images": [
+            {
+              "name": "banner",
+              "copyright": {
+                "url": "http://fr.freepik.com",
+                "title": "Designed by Yael_Fazy / Freepik"
+              }
+            }
+          ],
+          "textPosition": "center-right"
         }
       },
       {
@@ -128,54 +129,34 @@
         "id": "description",
         "datas": {
           "features": { "isReversed": false, "isCentered": false },
-          "title": "Description 1: Enim ex aliquip reprehenderit ad excepteur",
-          "content": "Enim ex aliquip reprehenderit ad excepteur aliqua excepteur amet proident duis qui exercitation. Exercitation laboris duis elit mollit ut incididunt adipisicing voluptate irure adipisicing minim culpa proident. Proident nostrud cillum sint Lorem excepteur. Laboris non exercitation sint do quis id deserunt exercitation sunt sunt pariatur ullamco esse.",
-          "src": "https://via.placeholder.com/400"
-        }
-      },
-      {
-        "type": "showcase",
-        "id": "showcase",
-        "datas": {
-          "features": {},
-          "title": "Voici l'équipe",
-          "images": [
+          "title": "Une petite présentation s'impose !",
+          "content": [
             {
-              "image": "https://via.placeholder.com/150",
-              "title": "Item 1",
-              "description": "This is the description for item 1.This is the description for item 1.This is the description for item 1."
+              "text": "Bonjour et bienvenue !"
             },
             {
-              "image": "https://via.placeholder.com/150",
-              "title": "Item 2",
-              "description": "This is the description for item 2.This is the description for item 2.This is the description for item 2."
+              "text": "Je m'appelle Alexandre, j'ai 24 ans et je suis développeur web. Ma passion dans ce domaine, c'est de créer des sites esthétiques et faciles à utiliser."
             },
             {
-              "image": "https://via.placeholder.com/150",
-              "title": "Item 3",
-              "description": "This is the description for item 3.This is the description for item 3.This is the description for item 3."
+              "text": "C'est cette passion qui m'a poussé à lancer mon propre projet, afin d'exprimer ma créativité et mon amour pour le développement web."
             },
             {
-              "image": "https://via.placeholder.com/150",
-              "title": "Item 4",
-              "description": "This is the description for item 4.This is the description for item 4.This is the description for item 4."
+              "text": "C'est ainsi qu'est née Webtrine. Webtrine c'est une solution que j'ai développée pour concevoir des sites vitrines à partir de templates que je crée et améliore continuellement. Ensemble, nous pourrons rapidement mettre en place VOTRE site en utilisant ces templates."
             },
             {
-              "image": "https://via.placeholder.com/150",
-              "title": "Item 5",
-              "description": "This is the description for item 5.This is the description for item 5.This is the description for item 5."
+              "text": "Mon objectif est de simplifier la création de votre présence en ligne. J'ai donc conçu une offre unique pour vous permettre d'obtenir facilement et rapidement votre identité web."
+            },
+            {
+              "text": "Le processus est simple : lors d'un premier rendez-vous, nous choisirons ensemble les templates et définirons les aspects graphiques ainsi que les formalités (comme le nom de domaine). Ensuite, vous me fournirez les informations nécessaires pour remplir votre site. En quelques jours seulement, votre site sera opérationnel et en ligne."
+            },
+            {
+              "text": "Avec Webtrine, la création de votre site vitrine n'a jamais été aussi simple."
+            },
+            {
+              "text": "Au plaisir de collaborer avec vous !"
             }
-          ]
-        }
-      },
-      {
-        "type": "description",
-        "id": "description",
-        "datas": {
-          "features": { "isReversed": true, "isCentered": true },
-          "title": "Description 2: Enim ex aliquip reprehenderit ad excepteur",
-          "content": "Enim ex aliquip reprehenderit ad excepteur aliqua excepteur amet proident duis qui exercitation. Exercitation laboris duis elit mollit ut incididunt adipisicing voluptate irure adipisicing minim culpa proident. Proident nostrud cillum sint Lorem excepteur. Laboris non exercitation sint do quis id deserunt exercitation sunt sunt pariatur ullamco esse.",
-          "src": "https://via.placeholder.com/400"
+          ],
+          "image": "me"
         }
       },
       {
@@ -185,349 +166,212 @@
           "features": {},
           "content": [
             {
-              "imgSrc": "https://via.placeholder.com/50",
-              "text": "Feature 1 description"
+              "imgSrc": "colorPalette",
+              "text": "Création de votre charte graphique"
             },
             {
-              "imgSrc": "https://via.placeholder.com/50",
-              "text": "Feature 2 description"
+              "imgSrc": "domain",
+              "text": "Création de votre nom de domaine"
             },
             {
-              "imgSrc": "https://via.placeholder.com/50",
-              "text": "Feature 3 description"
+              "imgSrc": "lodging",
+              "text": "Hébergement de votre site vitrine *"
             },
             {
-              "imgSrc": "https://via.placeholder.com/50",
-              "text": "Feature 4 description"
+              "imgSrc": "support",
+              "text": "Maintenance / Support de votre site **"
             },
             {
-              "imgSrc": "https://via.placeholder.com/50",
-              "text": "Feature 5 description"
+              "imgSrc": "websiteCreation",
+              "text": "Création de votre site vitrine"
             },
             {
-              "imgSrc": "https://via.placeholder.com/50",
-              "text": "Feature 6 description"
+              "imgSrc": "pencil",
+              "text": "Modification à la demande (1 fois / mois) ***"
             }
           ],
-          "title": "Ce que je propose",
+          "title": "L'offre Webtrine All Inclusive",
           "descriptionTop": null,
-          "descriptionBottom": "This is a short description below the features grid.",
-          "price": "49.99€",
-          "per": "year",
-          "additionalDescription": "This is an additional short description if needed."
+          "descriptionBottom": [
+            { "text": "* Pour un supplément de 150€/an" },
+            { "text": "** Sur les 6 mois suivant le déploiement du site" },
+            { "text": "*** Sur les 6 mois suivant le déploiement du site" }
+          ],
+          "price": "350,00€",
+          "per": null,
+          "additionalDescription": null
         }
       },
       {
-        "type": "prices",
-        "id": "multiplePrices",
+        "type": "error",
+        "id": "error"
+      },
+      {
+        "type": "legals",
+        "id": "legals",
         "datas": {
-          "title": "Our Pricing Plans",
-          "subtitle": "Choose a plan that fits your needs",
-          "plans": [
+          "type": "cgu-cgv",
+          "title": "CGV (Conditions Générales de Vente)",
+          "subTitle": "En vigueur au 01/09/2024",
+          "disclaimer": null,
+          "content": [
             {
-              "title": "Basic",
-              "price": "19.99€",
-              "per": "year",
-              "features": ["Feature 1", "Feature 2", "Feature 3"]
+              "title": "Article 1: Objet",
+              "texts": [
+                "Les présentes Conditions Générales d'Utilisation et de Vente (CGU/CGV) ont pour objet de définir les conditions d'utilisation du site Webtrine et de régir les ventes de prestations de services proposées par Webtrine. En accédant et en utilisant ce site, ainsi qu'en passant commande, vous acceptez pleinement et sans réserve les présentes CGU/CGV."
+              ]
             },
             {
-              "title": "Standard",
-              "price": "49.99€",
-              "per": "year",
-              "features": ["Feature 1", "Feature 2", "Feature 3", "Feature 4"]
+              "title": "Article 2: Accès au site",
+              "texts": [
+                "Le site Webtrine est accessible gratuitement à tout utilisateur disposant d'un accès à Internet. Tous les coûts liés à l'accès au site, tels que les frais matériels, logiciels ou d'accès à Internet, sont exclusivement à la charge de l'utilisateur."
+              ]
             },
             {
-              "title": "Premium",
-              "price": "99.99€",
-              "per": "year",
-              "features": [
-                "Feature 1",
-                "Feature 2",
-                "Feature 3",
-                "Feature 4",
-                "Feature 5"
+              "title": "Article 3: Prestations et Tarifs",
+              "texts": [
+                "Webtrine propose des services de création de sites vitrines. Les prestations offertes incluent :",
+                "- Création de site vitrine : 300€ incluant la mise en place de l'application et une assistance pour la réalisation.",
+                "- Options:",
+                "- Hébergement : 150€/an.",
+                "- Assistance : Incluse pour les 6 mois suivant le déploiement du site.",
+                "- Modifications à la demande : 1 fois par mois durant les 6 mois suivant le déploiement du site. Un abonnement avec un tarif annuel peut etre mis en place avec le client en fonction de ses besoins"
+              ]
+            },
+            {
+              "title": "Article 4: Commande et Paiement",
+              "texts": [
+                "Toute commande est validée dès réception du paiement. Le paiement est dû en intégralité au moment de la commande et peut être effectué par Paypal/virement bancaire. Un devis détaillant la prestation sera envoyé pour accord avant toute exécution."
+              ]
+            },
+            {
+              "title": "Article 5: Livraison",
+              "texts": [
+                "Le délai de livraison est estimé à 1 semaine à compter de la réception du paiement. Le client sera informé en cas de retard éventuel. La livraison correspond à la mise en ligne du site commandé."
+              ]
+            },
+            {
+              "title": "Article 6: Droit de Rétractation",
+              "texts": [
+                "Conformément à la loi, le client dispose d'un délai de 14 jours à compter de la validation de la commande pour exercer son droit de rétractation. Ce droit ne s'applique pas si la prestation a été entièrement exécutée avec l'accord du client."
+              ]
+            },
+            {
+              "title": "Article 7: Propriété Intellectuelle",
+              "texts": [
+                "Le site Webtrine ainsi que l'ensemble des contenus (textes, images, logos, etc.) sont protégés par les lois relatives à la propriété intellectuelle. Toute reproduction ou représentation, partielle ou totale, est interdite sans l'autorisation préalable de Webtrine."
+              ]
+            },
+            {
+              "title": "Article 8: Responsabilité",
+              "texts": [
+                "Webtrine ne saurait être tenu responsable des dommages directs ou indirects résultant de l'accès au site ou de son utilisation, ni des préjudices indirects subis par le client, tels que la perte de clientèle ou de chiffre d'affaires."
+              ]
+            },
+            {
+              "title": "Article 9: Assistance et Modifications",
+              "texts": [
+                "L'assistance et les modifications sont fournies selon les termes de la prestation choisie, soit durant les 6 mois suivant le déploiement du site. Les modifications à la demande sont limitées à une intervention par mois pendant cette période ou plus en fonction en fonction d'un abonnement annuel discuté avec le client et stipulé dans le devis fournis au client lors de l'achat de la prestation."
+              ]
+            },
+            {
+              "title": "Article 10: Résiliation",
+              "texts": [
+                "En cas de non-respect par le client de l'une de ses obligations, Webtrine se réserve le droit de suspendre ou de résilier la prestation sans indemnité."
+              ]
+            },
+            {
+              "title": "Article 11: Données Personnelles et Confidentialité ",
+              "texts": [
+                "Webtrine s'engage à respecter la vie privée de ses utilisateurs et clients. Les données personnelles collectées sont utilisées uniquement pour les besoins des services proposés. Elles sont traitées conformément à la réglementation en vigueur. Les utilisateurs disposent d'un droit d'accès, de rectification, d'opposition et de suppression de leurs données personnelles. Plus d'informations sur: webtrine.fr/confidentialite"
+              ]
+            },
+            {
+              "title": "Article 12: Modifications des CGU/CGV",
+              "texts": [
+                "Webtrine se réserve le droit de modifier à tout moment les présentes CGU/CGV. Les modifications entrent en vigueur dès leur mise en ligne. Il est conseillé de consulter régulièrement cette page pour prendre connaissance des éventuelles modifications."
               ]
             }
           ]
         }
       },
       {
-        "type": "list",
-        "id": "list",
+        "type": "legals",
+        "id": "legals",
         "datas": {
-          "features": {},
-          "title": "Ils nous font confiance",
-          "images": [
-            { "src": "cvs", "link": "https://website1.com" },
-            { "src": "dipaolo", "link": "https://website2.com" },
-            { "src": "cvs", "link": "https://website1.com" },
-            { "src": "dipaolo", "link": "https://website2.com" }
-          ]
-        }
-      },
-      {
-        "type": "flippingCard",
-        "id": "flippingCard",
-        "datas": {
-          "features": {},
-          "title": "Flipping Cards",
-          "images": [
+          "type": "mentions-legals",
+          "title": "Mentions légales",
+          "subTitle": "En vigueur au 01/09/2024",
+          "disclaimer": "Conformément aux dispositions des Articles 6-III et 19 de la Loi n°2004-575 du 21 juin 2004 pour la Confiance dans l’économie numérique, dite L.C.E.N., il est porté à la connaissance des utilisateurs et visiteurs, ci-après l'Utilisateur, du site https://www.webtrine.fr, les présentes mentions légales. La navigation sur le Site par l’Utilisateur implique acceptation intégrale et sans réserve des présentes mentions légales. Ces dernières sont accessibles sur le Site à la rubrique « Mentions légales ».",
+          "content": [
             {
-              "image": "https://via.placeholder.com/300x400.png?text=Image+1",
-              "title": "Card 1",
-              "description": "This is the description for Card 1"
+              "title": "Article 1 - L'editeur",
+              "texts": [
+                "L’édition et la direction de la publication du Site est assurée par Mr. Alexandre Monschein, domiciliée en France, dont le numéro de téléphone est 0614612295, et l’adresse e-mail est webtrine.pro@gmail.com"
+              ]
             },
             {
-              "image": "https://via.placeholder.com/300x400.png?text=Image+2",
-              "title": "Card 2",
-              "description": "This is the description for Card 2"
+              "title": "Article 2 - L'hébergeur",
+              "texts": [
+                "L’hébergeur du Site est la société OVHcloud, dont le siège social est situé au 2 rue Kellermann, 59100 Roubaix, avec le numéro de téléphone: 1007."
+              ]
             },
             {
-              "image": "https://via.placeholder.com/300x400.png?text=Image+3",
-              "title": "Card 3",
-              "description": "This is the description for Card 3"
+              "title": "Article 3 - Accès au site",
+              "texts": [
+                "Le Site est accessible en tout endroit, 7j/7, 24h/24 sauf cas de force majeure, interruption programmée ou non et pouvant découler d’une nécessité de maintenance. En cas de modification, interruption ou suspension du Site, le Gérant ne saurait être tenu responsable."
+              ]
+            },
+            {
+              "title": "Article 4 - Collecte des données",
+              "texts": [
+                "Le site est exempté de déclaration à la Commission Nationale Informatique et Libertés (CNIL) dans la mesure où il ne collecte aucune donnée concernant les utilisateurs.",
+                "Toute utilisation, reproduction, diffusion, commercialisation, modification de toute ou partie du Site, sans autorisation du Gérant est prohibée et pourra entraînée des actions et poursuites judiciaires telles que prévues par le Code de la propriété intellectuelle et le Code civil. Pour plus d’informations, se reporter aux CGV du site accessible à la rubrique << CGU-CGV >>."
+              ]
             }
           ]
         }
       },
       {
-        "type": "map",
-        "id": "leafletMap",
+        "type": "legals",
+        "id": "legals",
         "datas": {
-          "features": {},
-          "places": [
+          "type": "confidentialite",
+          "title": "Politique de confidentialité du site: Webtrine",
+          "subTitle": "En vigueur au 01/09/2024",
+          "disclaimer": null,
+          "content": [
             {
-              "id": 1,
-              "name": "Webtrine",
-              "address": "227 rue des veloutiers",
-              "phone": "0614612295",
-              "position": [45.658, 4.718]
+              "title": "Article 1 - Collecte des données personnelles :",
+              "texts": [
+                "Webtrine s'engage à respecter la vie privée de ses utilisateurs. Les données personnelles collectées via le site (nom, prénom, adresse e-mail, etc.) sont strictement confidentielles et utilisées uniquement pour les besoins des services proposés par Webtrine."
+              ]
             },
             {
-              "id": 2,
-              "name": "Webtrine",
-              "address": "227 rue des veloutiers",
-              "phone": "0614612295",
-              "position": [45.658, 4.718]
+              "title": "Article 2 - Utilisation des données :",
+              "texts": [
+                "Les données collectées sont utilisées pour la gestion des commandes, la communication avec les clients, et l'amélioration des services. Elles ne sont en aucun cas cédées ou vendues à des tiers sans le consentement préalable des utilisateurs."
+              ]
             },
             {
-              "id": 3,
-              "name": "Webtrine",
-              "address": "227 rue des veloutiers",
-              "phone": "0614612295",
-              "position": [45.658, 4.718]
+              "title": "Article 3 - Données à caractère personnel collectées et traitées dans le cadre de la navigation sur le site",
+              "texts": [
+                "Webtrine met en œuvre toutes les mesures techniques et organisationnelles nécessaires pour garantir la sécurité des données personnelles de ses utilisateurs."
+              ]
             },
             {
-              "id": 4,
-              "name": "Webtrine",
-              "address": "227 rue des veloutiers",
-              "phone": "0614612295",
-              "position": [45.658, 4.718]
+              "title": "Article 4 - Responsable du traitement des données",
+              "texts": [
+                "Conformément à la réglementation en vigueur, les utilisateurs disposent d'un droit d'accès, de rectification, d'opposition et de suppression de leurs données personnelles. Pour exercer ce droit, il suffit de contacter Webtrine à l'adresse suivante : webtrine.pro@gmail.com"
+              ]
             },
             {
-              "id": 5,
-              "name": "Webtrine",
-              "address": "227 rue des veloutiers",
-              "phone": "0614612295",
-              "position": [45.658, 4.718]
-            },
-            {
-              "id": 6,
-              "name": "Webtrine",
-              "address": "227 rue des veloutiers",
-              "phone": "0614612295",
-              "position": [45.658, 4.718]
-            },
-            {
-              "id": 7,
-              "name": "Webtrine",
-              "address": "227 rue des veloutiers",
-              "phone": "0614612295",
-              "position": [45.658, 4.718]
+              "title": "Article 5 - Modifications de la politique de confidentialité :",
+              "texts": [
+                "Webtrine se réserve le droit de modifier à tout moment la présente politique de confidentialité. Les utilisateurs seront informés de toute modification substantielle via le site."
+              ]
             }
           ]
-        }
-      },
-      {
-        "type": "map",
-        "id": "googleMap",
-        "datas": {
-          "features": { "activated": false },
-          "places": [
-            {
-              "id": 1,
-              "name": "Webtrine",
-              "address": "227 rue des veloutiers",
-              "phone": "0614612295",
-              "position": { "lat": 45.658, "lng": 4.718 }
-            }
-          ]
-        }
-      },
-      {
-        "type": "contact",
-        "id": "extendedContact",
-        "datas": {
-          "features": {}
-        }
-      },
-      {
-        "type": "display",
-        "id": "display",
-        "datas": {
-          "features": { "shouldRedirect": true },
-          "inventory": [
-            {
-              "slug": "test-sale",
-              "name": "Test product on sale",
-              "description": "This is the description for product 1",
-              "imageSrc": "https://via.placeholder.com/400",
-              "price": "150€",
-              "salePrice": "130€",
-              "releaseDate": "2020-01-01",
-              "extraDatas": {
-                "sizes": [{ "size": 39, "available": true }],
-                "colors": ["black", "white"]
-              }
-            },
-            {
-              "slug": "test-new",
-              "name": "Test new product",
-              "description": "This is the description for product 1",
-              "imageSrc": "https://via.placeholder.com/400",
-              "price": "150€",
-              "salePrice": "",
-              "releaseDate": "2024-05-30",
-              "extraDatas": {
-                "sizes": [{ "size": 39, "available": true }],
-                "colors": ["black"]
-              }
-            },
-
-            {
-              "slug": "test-img-only",
-              "imageSrc": "https://via.placeholder.com/400"
-            },
-            {
-              "slug": "test1",
-              "name": "Test product",
-              "description": "This is the description for a test product",
-              "imageSrc": "https://via.placeholder.com/400",
-              "price": "99999€",
-              "salePrice": "",
-              "releaseDate": "",
-              "extraDatas": {
-                "sizes": [
-                  { "size": 39, "available": true },
-                  { "size": 40, "available": true }
-                ],
-                "colors": ["black", "white"]
-              }
-            },
-            {
-              "slug": "test2",
-              "name": "Test product",
-              "description": "This is the description for a test product",
-              "imageSrc": "https://via.placeholder.com/400",
-              "price": "99999€",
-              "salePrice": "",
-              "releaseDate": "",
-              "extraDatas": {
-                "sizes": [
-                  { "size": 39, "available": true },
-                  { "size": 40, "available": true }
-                ],
-                "colors": ["black", "white"]
-              }
-            },
-            {
-              "slug": "test3",
-              "name": "Test product",
-              "description": "This is the description for a test product",
-              "imageSrc": "https://via.placeholder.com/400",
-              "price": "99999€",
-              "salePrice": "",
-              "releaseDate": "",
-              "extraDatas": {
-                "sizes": [
-                  { "size": 39, "available": true },
-                  { "size": 40, "available": true }
-                ],
-                "colors": ["black", "white"]
-              }
-            },
-            {
-              "slug": "test4",
-              "name": "Test product",
-              "description": "This is the description for a test product",
-              "imageSrc": "https://via.placeholder.com/400",
-              "price": "99999€",
-              "salePrice": "",
-              "releaseDate": "",
-              "extraDatas": {
-                "sizes": [
-                  { "size": 39, "available": true },
-                  { "size": 40, "available": true }
-                ],
-                "colors": ["black", "white"]
-              }
-            },
-            {
-              "slug": "test5",
-              "name": "Test product",
-              "description": "This is the description for a test product",
-              "imageSrc": "https://via.placeholder.com/400",
-              "price": "99999€",
-              "salePrice": "",
-              "releaseDate": "",
-              "extraDatas": {
-                "sizes": [
-                  { "size": 39, "available": true },
-                  { "size": 40, "available": true }
-                ],
-                "colors": ["black", "white"]
-              }
-            },
-            {
-              "slug": "test6",
-              "name": "Test product",
-              "description": "This is the description for a test product",
-              "imageSrc": "https://via.placeholder.com/400",
-              "price": "99999€",
-              "salePrice": "",
-              "releaseDate": "",
-              "extraDatas": {
-                "sizes": [
-                  { "size": 39, "available": true },
-                  { "size": 40, "available": true }
-                ],
-                "colors": ["black", "white"]
-              }
-            },
-            {
-              "slug": "test7",
-              "name": "Test product",
-              "description": "This is the description for a test product",
-              "imageSrc": "https://via.placeholder.com/400",
-              "price": "99999€",
-              "salePrice": "",
-              "releaseDate": "",
-              "extraDatas": {
-                "sizes": [
-                  { "size": 39, "available": true },
-                  { "size": 40, "available": true }
-                ],
-                "colors": ["black", "white"]
-              }
-            }
-          ]
-        }
-      },
-      {
-        "type": "error",
-        "id": "error",
-        "datas": {
-          "features": {}
         }
       }
     ]

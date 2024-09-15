@@ -26,11 +26,14 @@ import {
   Title,
 } from "./extendedContact.styled";
 
-const ExtendedContact = () => {
+const ExtendedContact = (datas) => {
   const dispatch = useDispatch();
   const { t } = useTranslation();
   const client = useSelector(getClient).contact;
   const location = useLocation();
+
+  const { features } = datas || {};
+  const { displayPlan = false } = features || {};
 
   const { product, plan } = location.state || {};
 
@@ -45,13 +48,9 @@ const ExtendedContact = () => {
 
   const { title: planTitle, price: planPrice, per: planPer } = plan || {};
 
-  console.warn(">>> location.state", location.state);
+  const { phone, email, address } = client;
 
-  const {
-    phone,
-    email,
-    address: { number, street, zip, city },
-  } = client;
+  const { number, street, zip, city } = address || {};
 
   useEffect(() => emailjs.init("OYqEmnhZaB6k1hEGB"), []);
 
@@ -89,9 +88,9 @@ const ExtendedContact = () => {
     const templateId = "template_8b4j0fm";
 
     try {
-      // await emailjs.send(serviceId, templateId, {
-      //   ...datas,
-      // });
+      await emailjs.send(serviceId, templateId, {
+        ...datas,
+      });
       dispatch(
         showPopUp({ type: "success", message: "Email sent corrently!" })
       );
@@ -134,7 +133,7 @@ const ExtendedContact = () => {
               </ProductInfo>
             </ProductDetails>
           )}
-          {plan && (
+          {displayPlan && plan && (
             <ProductDetails>
               <h2>{t("prices.planTitle")}</h2>
               <ProductInfo>
@@ -143,8 +142,8 @@ const ExtendedContact = () => {
                     <strong>{t("prices.title")}:</strong> {planTitle}
                   </p>
                   <p>
-                    <strong>{t("prices.price")}:</strong> {planPrice} /{" "}
-                    {planPer}
+                    <strong>{t("prices.price")}:</strong> {planPrice}{" "}
+                    {planPer ? ` / ${planPer}` : null}
                   </p>
                 </div>
               </ProductInfo>
@@ -153,10 +152,13 @@ const ExtendedContact = () => {
           <FormDisplay>
             <ClientInfo>
               <h2>{t("contact.infoTitle")}</h2>
-              <p>
-                <strong>{t("contact.address")}:</strong> {number}{" "}
-                {`${street}, ${zip} ${city}`}
-              </p>
+              {number && street && zip && city ? (
+                <p>
+                  <strong>{t("contact.address")}:</strong> {number}{" "}
+                  {`${street}, ${zip} ${city}`}
+                </p>
+              ) : null}
+
               <p>
                 <strong>{t("contact.phone")}:</strong> {phone}
               </p>

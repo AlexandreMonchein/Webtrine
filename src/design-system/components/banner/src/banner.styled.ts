@@ -46,6 +46,16 @@ export const Background = styled.img`
   }
 `;
 
+export const RedirectLink = styled.a`
+  position: absolute;
+  z-index: calc(var(--z-index-backgrounds) + 100);
+
+  padding: 12px;
+  bottom: 0;
+  text-decoration: none;
+  color: var(--color-primary);
+`;
+
 export const TextContainer = styled.div`
   position: absolute;
   width: 40%;
