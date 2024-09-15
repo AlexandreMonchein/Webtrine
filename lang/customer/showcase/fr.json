@@ -1,0 +1,50 @@
+{
+  "banner": {
+    "title": "Webtrine",
+    "subTitle": "Il n'as jamais été aussi simple de se faire connaître"
+  },
+  "description": {
+    "title": "Enim ex aliquip reprehenderit ad excepteur",
+    "content": "Enim ex aliquip reprehenderit ad excepteur aliqua excepteur amet proident duis qui exercitation. Exercitation laboris duis elit mollit ut incididunt adipisicing voluptate irure adipisicing minim culpa proident. Proident nostrud cillum sint Lorem excepteur. Laboris non exercitation sint do quis id deserunt exercitation sunt sunt pariatur ullamco esse."
+  },
+  "showcase": {
+    "title": "Enim ex aliquip reprehenderit ad excepteur"
+  },
+  "display": {
+    "sale": "En Solde!",
+    "newRelease": "Nouveaux!",
+    "price": "Prix",
+    "selectSize": "Choisir une taille",
+    "selectColor": "Choisir une couleur",
+    "selectedSize": "Taille sélectionnée",
+    "selectedColor": "Couleur sélectionnée",
+    "productName": "Nom du produit",
+    "description": "Description",
+    "reservationTitle": "Details de la reservation"
+  },
+  "contact": {
+    "title": "Enim ex aliquip reprehenderit ad excepteur",
+    "description": "Enim ex aliquip reprehenderit ad excepteur",
+    "infoTitle": "Informations de contact",
+    "address": "Adresse",
+    "name": "Nom",
+    "namePlaceholder": "Votre nom",
+    "email": "Email",
+    "emailPlaceholder": "Votre email",
+    "phone": "Téléphone",
+    "phonePlaceholder": "0123456789",
+    "company": "Entreprise",
+    "companyPlaceholder": "Votre entreprise",
+    "subject": "Sujet",
+    "subjectPlaceholder": "Sujet de votre message",
+    "content": "Contenu",
+    "contentPlaceholder": "Contenu de votre message",
+    "send": "Envoyer"
+  },
+  "prices": {
+    "selectPlan": "Prendre contact",
+    "planTitle": "Details du plan",
+    "title": "Plan",
+    "price": "Prix"
+  }
+}

@@ -31,54 +31,33 @@ export const SectionTitle = styled.h2`
 `;
 
 export const Content = styled.div`
-  display: flex;
-  gap: 48px;
-
   ${bp.max(
     breakpointNames.medium,
     css`
+      display: flex;
+      gap: 48px;
       flex-direction: column;
       align-items: center;
       gap: 0px;
     `
   )};
-
-  &.isTextOnly {
-  }
-
-  &.isReversed {
-    :first-child {
-      order: 1;
-    }
-
-    :last-child {
-      order: -1;
-    }
-  }
 `;
 export const ImageWrapper = styled.figure`
   margin: 0;
-  width: 100%;
+  width: auto;
+  padding: 0 24px 0 0;
   height: auto;
+  float: left;
 
-  ${bp.max(
-    breakpointNames.medium,
-    css`
-      width: auto;
-    `
-  )};
-
-  ${bp.min(
-    breakpointNames.wide,
-    css`
-      width: auto;
-    `
-  )};
+  &.isReversed {
+    float: right;
+    padding: 0 0 0 24px;
+  }
 `;
 export const Image = styled.img`
-  vertical-align: middle;
-  max-width: 620px;
-  min-width: 300px;
+  width: 100%;
+  height: auto;
+  max-width: 50vh;
 `;
 
 export const TextContent = styled.div`
@@ -91,10 +70,7 @@ export const Text = styled.p`
 
   line-height: 1.5;
   word-break: break-word;
-
-  &.isCentered {
-    align-content: center;
-  }
+  text-align: justify;
 `;
 
 export const DescriptionContentWrapper = styled.ul`

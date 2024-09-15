@@ -9,3 +9,5 @@ export const getSocials = (state) => getClient(state).socials;
 export const getLayout = (state) => state?.layout;
 
 export const getTemplates = (state) => getLayout(state)?.templates;
+
+export const isPopUpDisplayed = (state) => state.popUp;

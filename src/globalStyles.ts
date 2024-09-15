@@ -9,6 +9,7 @@ export const RootStyle = createGlobalStyle<{ globalStyle }>`
     --title-font-size: ${(props) => _.get(props, "globalStyle.light.title-font-size")};
     --subtitle-font-size: ${(props) => _.get(props, "globalStyle.light.subtitle-font-size")};
     --text-font-size: ${(props) => _.get(props, "globalStyle.light.text-font-size")};
+    --description-font-size: ${(props) => _.get(props, "globalStyle.light.description-font-size")};
 
     --color-primary: ${(props) => _.get(props, "globalStyle.light.color-primary")};
     --color-secondary: ${(props) => _.get(props, "globalStyle.light.color-secondary")};
@@ -46,6 +47,7 @@ export const RootStyle = createGlobalStyle<{ globalStyle }>`
     --title-font-size: ${(props) => _.get(props, "globalStyle.dark.title-font-size")};
     --subtitle-font-size: ${(props) => _.get(props, "globalStyle.dark.subtitle-font-size")};
     --text-font-size: ${(props) => _.get(props, "globalStyle.dark.text-font-size")};
+    --description-font-size: ${(props) => _.get(props, "globalStyle.dark.description-font-size")};
 
     --color-primary: ${(props) => _.get(props, "globalStyle.dark.color-primary")};
     --color-secondary: ${(props) => _.get(props, "globalStyle.dark.color-secondary")};
@@ -74,6 +76,7 @@ export const RootStyle = createGlobalStyle<{ globalStyle }>`
     --title-font-size: ${(props) => _.get(props, "globalStyle.dark.title-font-size")};
     --subtitle-font-size: ${(props) => _.get(props, "globalStyle.dark.subtitle-font-size")};
     --text-font-size: ${(props) => _.get(props, "globalStyle.dark.text-font-size")};
+    --description-font-size: ${(props) => _.get(props, "globalStyle.dark.description-font-size")};
 
     --color-primary: ${(props) => _.get(props, "globalStyle.dark.color-primary")};
     --color-secondary: ${(props) => _.get(props, "globalStyle.dark.color-secondary")};

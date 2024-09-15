@@ -8,7 +8,6 @@ export const ErrorContainer = styled.div`
   justify-content: center;
   height: 100vh;
   text-align: center;
-  background-color: #f8f8f8;
 `;
 
 export const ErrorGif = styled.img`

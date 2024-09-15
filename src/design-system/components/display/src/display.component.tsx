@@ -6,7 +6,7 @@ import {
   Wrapper,
 } from "./display.styled";
 
-export const Display = ({ template }) => {
+const Display = (template) => {
   const {
     features: { shouldRedirect },
   } = template;
@@ -25,3 +25,5 @@ export const Display = ({ template }) => {
     </DisplayWrapper>
   );
 };
+
+export default Display;

@@ -1,10 +1,14 @@
-import React, { useCallback } from "react";
+/* eslint-disable import/no-named-as-default-member */
+import { useCallback, useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
 
-import { sendEmail } from "../../../../lib/resend";
+import emailjs from "@emailjs/browser";
+
+import { showPopUp } from "../../../../store/state.action";
 import { getClient } from "../../../../store/state.selector";
+import PopUp from "../../popup/src/popUp.component";
 
 import {
   Button,
@@ -22,63 +26,82 @@ import {
   Title,
 } from "./extendedContact.styled";
 
-const ExtendedContact = () => {
+const ExtendedContact = (datas) => {
+  const dispatch = useDispatch();
   const { t } = useTranslation();
   const client = useSelector(getClient).contact;
   const location = useLocation();
 
+  const { features } = datas || {};
+  const { displayPlan = false } = features || {};
+
+  const { product, plan } = location.state || {};
+
   const {
     name: productName,
     imageSrc,
-    price,
+    price: productPrice,
     description,
     selectedSize,
     selectedColor,
-    plan,
-  } = location.state || {};
+  } = product || {};
 
   const { title: planTitle, price: planPrice, per: planPer } = plan || {};
 
-  console.warn(">>> location", location.state);
+  const { phone, email, address } = client;
 
-  const {
-    phone,
-    email,
-    address: { number, street, zip, city },
-  } = client;
+  const { number, street, zip, city } = address || {};
+
+  useEffect(() => emailjs.init("OYqEmnhZaB6k1hEGB"), []);
 
   const handleSubmit = useCallback(async (e) => {
     e.preventDefault();
 
     const name = e.target.name.value || null;
     const company = e.target.company.value || null;
+    const emailFrom = e.target.email.value || null;
+    const number = e.target.phone.value || null;
     const subject = e.target.subject.value || null;
     const content = e.target.content.value || null;
 
     const datas = {
       name,
       company,
+      emailFrom,
+      number,
       subject,
       content,
-      product: productName
+      product: product
         ? {
             productName,
-            price,
+            productPrice,
             imageSrc,
             description,
             selectedSize,
             selectedColor,
           }
         : null,
+      plan: plan ? { planTitle, planPrice, planPer } : null,
     };
 
-    console.warn("datas", { datas });
+    const serviceId = "service_4fc2bmb";
+    const templateId = "template_8b4j0fm";
 
-    await sendEmail(datas);
+    try {
+      await emailjs.send(serviceId, templateId, {
+        ...datas,
+      });
+      dispatch(
+        showPopUp({ type: "success", message: "Email sent corrently!" })
+      );
+    } catch (error) {
+      dispatch(showPopUp({ type: "error", message: "Email not sent:" }));
+    }
   }, []);
 
   return (
     <ContactSection>
+      <PopUp />
       <Content>
         <Title>{t("contact.title")}</Title>
         <Description>{t("contact.description")}</Description>
@@ -93,7 +116,7 @@ const ExtendedContact = () => {
                     <strong>{t("display.productName")}:</strong> {productName}
                   </p>
                   <p>
-                    <strong>{t("display.price")}:</strong> {price}
+                    <strong>{t("display.price")}:</strong> {productPrice}
                   </p>
                   <p>
                     <strong>{t("display.description")}:</strong> {description}
@@ -110,7 +133,7 @@ const ExtendedContact = () => {
               </ProductInfo>
             </ProductDetails>
           )}
-          {plan && (
+          {displayPlan && plan && (
             <ProductDetails>
               <h2>{t("prices.planTitle")}</h2>
               <ProductInfo>
@@ -119,8 +142,8 @@ const ExtendedContact = () => {
                     <strong>{t("prices.title")}:</strong> {planTitle}
                   </p>
                   <p>
-                    <strong>{t("prices.price")}:</strong> {planPrice} /{" "}
-                    {planPer}
+                    <strong>{t("prices.price")}:</strong> {planPrice}{" "}
+                    {planPer ? ` / ${planPer}` : null}
                   </p>
                 </div>
               </ProductInfo>
@@ -129,10 +152,13 @@ const ExtendedContact = () => {
           <FormDisplay>
             <ClientInfo>
               <h2>{t("contact.infoTitle")}</h2>
-              <p>
-                <strong>{t("contact.address")}:</strong> {number}{" "}
-                {`${street}, ${zip} ${city}`}
-              </p>
+              {number && street && zip && city ? (
+                <p>
+                  <strong>{t("contact.address")}:</strong> {number}{" "}
+                  {`${street}, ${zip} ${city}`}
+                </p>
+              ) : null}
+
               <p>
                 <strong>{t("contact.phone")}:</strong> {phone}
               </p>
@@ -152,20 +178,21 @@ const ExtendedContact = () => {
 
               <label htmlFor="email">{t("contact.email")} *</label>
               <Input
-                type="text"
+                type="email"
                 id="email"
                 name="email"
                 placeholder={t("contact.emailPlaceholder")}
+                pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$"
                 required
               />
 
               <label htmlFor="phone">{t("contact.phone")} *</label>
               <Input
                 type="tel"
-                pattern="+[0-9]{2}[0-9]{9}"
                 id="phone"
                 name="phone"
                 placeholder={t("contact.phonePlaceholder")}
+                pattern="^\d{10}$"
                 required
               />
 

@@ -1,0 +1,560 @@
+{
+  "client": {
+    "name": "webtrine",
+    "contact": {
+      "name": "Alexandre Monschein",
+      "address": {
+        "street": "Rue des Veloutiers",
+        "number": 227,
+        "zip": 69530,
+        "city": "Orlienas",
+        "country": "France"
+      },
+      "phone": "+33614612295",
+      "email": "webtrine.pro@gmail.com"
+    },
+    "socials": {
+      "discord": "https://discord.com/invite/PVDBCjbHVK",
+      "facebook": null,
+      "instagram": null,
+      "linkedin": "https://www.linkedin.com/in/alexandre-monschein-34984a161",
+      "tiktok": null,
+      "telegram": null,
+      "twitch": null,
+      "uber": null,
+      "ubereat": null,
+      "whatsapp": null,
+      "x": null,
+      "youtube": null
+    }
+  },
+  "style": {
+    "light": {
+      "font-family": "\"Josefin Sans\",sans-serif",
+
+      "navbar-font-size": "16px",
+      "title-font-size": "42px",
+      "subtitle-font-size": "32px",
+      "text-font-size": "24px",
+      "description-font-size": "16px",
+
+      "color-primary": "#ffffff",
+      "color-secondary": "#E8EEF1",
+      "color-tertiary": "#007bff",
+      "color-quaternary": "#1E3D58",
+      "color-quinary": "#000000",
+
+      "navigation-text-color": "#ffffff",
+      "hover-color": "orange",
+      "hover-border-color": "gold",
+
+      "z-index-navbars": 3,
+      "z-index-text": 2,
+      "z-index-backgrounds": 1
+    },
+    "dark": {
+      "font-family": "\"Josefin Sans\",sans-serif",
+
+      "navbar-font-size": "16px",
+      "title-font-size": "42px",
+      "subtitle-font-size": "32px",
+      "text-font-size": "24px",
+      "description-font-size": "16px",
+
+      "color-primary": "#313134",
+      "color-secondary": "#4a4a50",
+      "color-tertiary": "#ffffff",
+      "color-quaternary": "#161617",
+      "color-quinary": "#ffffff",
+
+      "hover-color": "orange",
+      "hover-border-color": "gold",
+
+      "z-index-navbars": 3,
+      "z-index-text": 2,
+      "z-index-backgrounds": 1
+    }
+  },
+  "layout": {
+    "templates": [
+      {
+        "type": "navbars",
+        "id": "classicNavbar",
+        "datas": {
+          "features": {
+            "isFixed": false,
+            "hasHideOnScroll": false,
+            "trad": false,
+            "darkMode": false
+          },
+          "content": {
+            "logo": {
+              "name": "logo-webtrine-white"
+            }
+          },
+          "categories": [
+            {
+              "name": "Webtrine",
+              "link": "/",
+              "sub": null
+            },
+            {
+              "name": "Display",
+              "link": "/display"
+            },
+            {
+              "name": "Prices",
+              "link": "/prices"
+            },
+            {
+              "name": "Contact",
+              "link": "/contact"
+            }
+          ]
+        }
+      },
+      {
+        "type": "footers",
+        "id": "classicFooter",
+        "datas": {
+          "features": {}
+        }
+      },
+      {
+        "type": "banner",
+        "id": "banner",
+        "datas": {
+          "features": { "multi": false },
+          "title": "Webtrine",
+          "subTitle": "Il n'a jamais été aussi simple de se faire connaître",
+          "images": [
+            {
+              "name": "banner"
+            },
+            {
+              "name": "banner"
+            },
+            {
+              "name": "banner"
+            }
+          ]
+        }
+      },
+      {
+        "type": "description",
+        "id": "description",
+        "datas": {
+          "features": { "isReversed": false, "isCentered": false },
+          "title": "Description 1: Enim ex aliquip reprehenderit ad excepteur",
+          "content": [
+            {
+              "text": "Enim ex aliquip reprehenderit ad excepteur aliqua excepteur amet proident duis qui exercitation. Exercitation laboris duis elit mollit ut incididunt adipisicing voluptate irure adipisicing minim culpa proident. Proident nostrud cillum sint Lorem excepteur. Laboris non exercitation sint do quis id deserunt exercitation sunt sunt pariatur ullamco esse."
+            }
+          ],
+          "image": "me"
+        }
+      },
+      {
+        "type": "showcase",
+        "id": "showcase",
+        "datas": {
+          "features": {},
+          "title": "Voici l'équipe",
+          "images": [
+            {
+              "image": "https://via.placeholder.com/150",
+              "title": "Item 1",
+              "description": "This is the description for item 1.This is the description for item 1.This is the description for item 1."
+            },
+            {
+              "image": "https://via.placeholder.com/150",
+              "title": "Item 2",
+              "description": "This is the description for item 2.This is the description for item 2.This is the description for item 2."
+            },
+            {
+              "image": "https://via.placeholder.com/150",
+              "title": "Item 3",
+              "description": "This is the description for item 3.This is the description for item 3.This is the description for item 3."
+            },
+            {
+              "image": "https://via.placeholder.com/150",
+              "title": "Item 4",
+              "description": "This is the description for item 4.This is the description for item 4.This is the description for item 4."
+            },
+            {
+              "image": "https://via.placeholder.com/150",
+              "title": "Item 5",
+              "description": "This is the description for item 5.This is the description for item 5.This is the description for item 5."
+            }
+          ]
+        }
+      },
+      {
+        "type": "description",
+        "id": "description",
+        "datas": {
+          "features": { "isReversed": true, "isCentered": true },
+          "title": "Description 2: Enim ex aliquip reprehenderit ad excepteur",
+          "content": [
+            {
+              "text": "Enim ex aliquip reprehenderit ad excepteur aliqua excepteur amet proident duis qui exercitation. Exercitation laboris duis elit mollit ut incididunt adipisicing voluptate irure adipisicing minim culpa proident. Proident nostrud cillum sint Lorem excepteur. Laboris non exercitation sint do quis id deserunt exercitation sunt sunt pariatur ullamco esse."
+            }
+          ],
+          "image": "me"
+        }
+      },
+      {
+        "type": "prices",
+        "id": "allInOne",
+        "datas": {
+          "features": {},
+          "content": [
+            {
+              "imgSrc": "colorPalette",
+              "text": "Feature 1 description"
+            },
+            {
+              "imgSrc": "colorPalette",
+              "text": "Feature 2 description"
+            },
+            {
+              "imgSrc": "colorPalette",
+              "text": "Feature 3 description"
+            },
+            {
+              "imgSrc": "colorPalette",
+              "text": "Feature 4 description"
+            },
+            {
+              "imgSrc": "colorPalette",
+              "text": "Feature 5 description"
+            },
+            {
+              "imgSrc": "colorPalette",
+              "text": "Feature 6 description"
+            }
+          ],
+          "title": "Ce que je propose",
+          "descriptionTop": null,
+          "descriptionBottom": "This is a short description below the features grid.",
+          "price": "49.99€",
+          "per": "year",
+          "additionalDescription": "This is an additional short description if needed."
+        }
+      },
+      {
+        "type": "prices",
+        "id": "multiplePrices",
+        "datas": {
+          "title": "Our Pricing Plans",
+          "subtitle": "Choose a plan that fits your needs",
+          "plans": [
+            {
+              "title": "Basic",
+              "price": "19.99€",
+              "per": "year",
+              "features": ["Feature 1", "Feature 2", "Feature 3"]
+            },
+            {
+              "title": "Standard",
+              "price": "49.99€",
+              "per": "year",
+              "features": ["Feature 1", "Feature 2", "Feature 3", "Feature 4"]
+            },
+            {
+              "title": "Premium",
+              "price": "99.99€",
+              "per": "year",
+              "features": [
+                "Feature 1",
+                "Feature 2",
+                "Feature 3",
+                "Feature 4",
+                "Feature 5"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "type": "list",
+        "id": "list",
+        "datas": {
+          "features": {},
+          "title": "Ils nous font confiance",
+          "images": [
+            { "src": "cvs", "link": "https://website1.com" },
+            { "src": "dipaolo", "link": "https://website2.com" },
+            { "src": "cvs", "link": "https://website1.com" },
+            { "src": "dipaolo", "link": "https://website2.com" }
+          ]
+        }
+      },
+      {
+        "type": "flippingCard",
+        "id": "flippingCard",
+        "datas": {
+          "features": {},
+          "title": "Flipping Cards",
+          "images": [
+            {
+              "image": "https://via.placeholder.com/300x400.png?text=Image+1",
+              "title": "Card 1",
+              "description": "This is the description for Card 1"
+            },
+            {
+              "image": "https://via.placeholder.com/300x400.png?text=Image+2",
+              "title": "Card 2",
+              "description": "This is the description for Card 2"
+            },
+            {
+              "image": "https://via.placeholder.com/300x400.png?text=Image+3",
+              "title": "Card 3",
+              "description": "This is the description for Card 3"
+            }
+          ]
+        }
+      },
+      {
+        "type": "map",
+        "id": "leafletMap",
+        "datas": {
+          "features": {},
+          "places": [
+            {
+              "id": 1,
+              "name": "Webtrine",
+              "address": "227 rue des veloutiers",
+              "phone": "0614612295",
+              "position": [45.658, 4.718]
+            },
+            {
+              "id": 2,
+              "name": "Webtrine",
+              "address": "227 rue des veloutiers",
+              "phone": "0614612295",
+              "position": [45.658, 4.718]
+            },
+            {
+              "id": 3,
+              "name": "Webtrine",
+              "address": "227 rue des veloutiers",
+              "phone": "0614612295",
+              "position": [45.658, 4.718]
+            },
+            {
+              "id": 4,
+              "name": "Webtrine",
+              "address": "227 rue des veloutiers",
+              "phone": "0614612295",
+              "position": [45.658, 4.718]
+            },
+            {
+              "id": 5,
+              "name": "Webtrine",
+              "address": "227 rue des veloutiers",
+              "phone": "0614612295",
+              "position": [45.658, 4.718]
+            },
+            {
+              "id": 6,
+              "name": "Webtrine",
+              "address": "227 rue des veloutiers",
+              "phone": "0614612295",
+              "position": [45.658, 4.718]
+            },
+            {
+              "id": 7,
+              "name": "Webtrine",
+              "address": "227 rue des veloutiers",
+              "phone": "0614612295",
+              "position": [45.658, 4.718]
+            }
+          ]
+        }
+      },
+      {
+        "type": "map",
+        "id": "googleMap",
+        "datas": {
+          "features": { "activated": false },
+          "places": [
+            {
+              "id": 1,
+              "name": "Webtrine",
+              "address": "227 rue des veloutiers",
+              "phone": "0614612295",
+              "position": { "lat": 45.658, "lng": 4.718 }
+            }
+          ]
+        }
+      },
+      {
+        "type": "contact",
+        "id": "extendedContact",
+        "datas": {
+          "features": {}
+        }
+      },
+      {
+        "type": "display",
+        "id": "display",
+        "datas": {
+          "features": { "shouldRedirect": true },
+          "inventory": [
+            {
+              "slug": "test-sale",
+              "name": "Test product on sale",
+              "description": "This is the description for product 1",
+              "imageSrc": "https://via.placeholder.com/400",
+              "price": "150€",
+              "salePrice": "130€",
+              "releaseDate": "2020-01-01",
+              "extraDatas": {
+                "sizes": [{ "size": 39, "available": true }],
+                "colors": ["black", "white"]
+              }
+            },
+            {
+              "slug": "test-new",
+              "name": "Test new product",
+              "description": "This is the description for product 1",
+              "imageSrc": "https://via.placeholder.com/400",
+              "price": "150€",
+              "salePrice": "",
+              "releaseDate": "2024-05-30",
+              "extraDatas": {
+                "sizes": [{ "size": 39, "available": true }],
+                "colors": ["black"]
+              }
+            },
+
+            {
+              "slug": "test-img-only",
+              "imageSrc": "https://via.placeholder.com/400"
+            },
+            {
+              "slug": "test1",
+              "name": "Test product",
+              "description": "This is the description for a test product",
+              "imageSrc": "https://via.placeholder.com/400",
+              "price": "99999€",
+              "salePrice": "",
+              "releaseDate": "",
+              "extraDatas": {
+                "sizes": [
+                  { "size": 39, "available": true },
+                  { "size": 40, "available": true }
+                ],
+                "colors": ["black", "white"]
+              }
+            },
+            {
+              "slug": "test2",
+              "name": "Test product",
+              "description": "This is the description for a test product",
+              "imageSrc": "https://via.placeholder.com/400",
+              "price": "99999€",
+              "salePrice": "",
+              "releaseDate": "",
+              "extraDatas": {
+                "sizes": [
+                  { "size": 39, "available": true },
+                  { "size": 40, "available": true }
+                ],
+                "colors": ["black", "white"]
+              }
+            },
+            {
+              "slug": "test3",
+              "name": "Test product",
+              "description": "This is the description for a test product",
+              "imageSrc": "https://via.placeholder.com/400",
+              "price": "99999€",
+              "salePrice": "",
+              "releaseDate": "",
+              "extraDatas": {
+                "sizes": [
+                  { "size": 39, "available": true },
+                  { "size": 40, "available": true }
+                ],
+                "colors": ["black", "white"]
+              }
+            },
+            {
+              "slug": "test4",
+              "name": "Test product",
+              "description": "This is the description for a test product",
+              "imageSrc": "https://via.placeholder.com/400",
+              "price": "99999€",
+              "salePrice": "",
+              "releaseDate": "",
+              "extraDatas": {
+                "sizes": [
+                  { "size": 39, "available": true },
+                  { "size": 40, "available": true }
+                ],
+                "colors": ["black", "white"]
+              }
+            },
+            {
+              "slug": "test5",
+              "name": "Test product",
+              "description": "This is the description for a test product",
+              "imageSrc": "https://via.placeholder.com/400",
+              "price": "99999€",
+              "salePrice": "",
+              "releaseDate": "",
+              "extraDatas": {
+                "sizes": [
+                  { "size": 39, "available": true },
+                  { "size": 40, "available": true }
+                ],
+                "colors": ["black", "white"]
+              }
+            },
+            {
+              "slug": "test6",
+              "name": "Test product",
+              "description": "This is the description for a test product",
+              "imageSrc": "https://via.placeholder.com/400",
+              "price": "99999€",
+              "salePrice": "",
+              "releaseDate": "",
+              "extraDatas": {
+                "sizes": [
+                  { "size": 39, "available": true },
+                  { "size": 40, "available": true }
+                ],
+                "colors": ["black", "white"]
+              }
+            },
+            {
+              "slug": "test7",
+              "name": "Test product",
+              "description": "This is the description for a test product",
+              "imageSrc": "https://via.placeholder.com/400",
+              "price": "99999€",
+              "salePrice": "",
+              "releaseDate": "",
+              "extraDatas": {
+                "sizes": [
+                  { "size": 39, "available": true },
+                  { "size": 40, "available": true }
+                ],
+                "colors": ["black", "white"]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "error",
+        "id": "error",
+        "datas": {
+          "features": {}
+        }
+      }
+    ]
+  }
+}

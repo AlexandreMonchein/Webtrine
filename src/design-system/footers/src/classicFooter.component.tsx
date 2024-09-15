@@ -1,27 +1,37 @@
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 
-import Discord from "../../../assets/icons/discord.component";
-import Facebook from "../../../assets/icons/facebook.component";
-import Instagram from "../../../assets/icons/instagram.component";
-import LinkedIn from "../../../assets/icons/linkedin.component";
-import X from "../../../assets/icons/x.component";
-import { getSocials } from "../../../store/state.selector";
+import {
+  getClient,
+  getSocials,
+  getTemplates,
+} from "../../../store/state.selector";
 
 import {
+  BottomSection,
   FooterContainer,
   LeftSection,
   Logo,
   MiddleSection,
   RightSection,
+  SiteRef,
   SocialContent,
   SocialLogo,
   Socials,
+  TopSection,
 } from "./classicFooter.styled";
 
-export const ClassicFooter = (template) => {
+const ClassicFooter = (template) => {
   const [components, setComponents] = useState<React.ReactNode[]>([]);
+  const { name: clientName } = useSelector(getClient);
   const socials = useSelector(getSocials);
+  const legals = useSelector(getTemplates).filter(
+    (template) => template.type === "legals"
+  );
+
+  const { images } = template || {};
+
+  console.warn(">>> template", images);
 
   useEffect(() => {
     const loadComponents = async () => {
@@ -59,11 +69,32 @@ export const ClassicFooter = (template) => {
   return (
     <FooterContainer>
       <LeftSection>
-        <Logo src="https://via.placeholder.com/50" alt="Logo 1" />
-        <Logo src="https://via.placeholder.com/50" alt="Logo 2" />
+        {images.map((image) => {
+          return (
+            <a href="/" key={image.name}>
+              <img
+                alt={image.alt}
+                src={require(
+                  `../../../assets/${clientName}/icons/${image.name}.png`
+                )}
+              />
+            </a>
+          );
+        })}
       </LeftSection>
       <MiddleSection>
-        <p>&copy; 2024 Webtrine. All rights reserved.</p>
+        <TopSection>
+          {" "}
+          <p>
+            © 2024 Webtrine, tous droits réservés. Réalisé par{" "}
+            <SiteRef href="/">Webtrine</SiteRef>.
+          </p>
+        </TopSection>
+        <BottomSection>
+          {legals.map((legal) => (
+            <SiteRef href={legal.datas.type}>{legal.datas.type}</SiteRef>
+          ))}
+        </BottomSection>
       </MiddleSection>
       <RightSection>
         <Socials>
@@ -73,3 +104,5 @@ export const ClassicFooter = (template) => {
     </FooterContainer>
   );
 };
+
+export default ClassicFooter;

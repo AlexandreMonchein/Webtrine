@@ -21,17 +21,19 @@ import {
   SubCategoryContainer,
 } from "./classicNavbar.styled";
 
-export const ClassicNavbar = ({ template, toggleTheme, theme }) => {
+const ClassicNavbar = (props) => {
   const { t, i18n } = useTranslation();
   const { name: clientName } = useSelector(getClient);
 
   const {
-    features: { isFixed, hasHideOnScroll },
+    features: { isFixed, hasHideOnScroll, trad, darkMode },
     categories,
     content: {
       logo: { name },
     },
-  } = template;
+    toggleTheme,
+    theme,
+  } = props;
 
   const [prevScrollPos, setPrevScrollPos] = useState(window.scrollY);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -141,16 +143,20 @@ export const ClassicNavbar = ({ template, toggleTheme, theme }) => {
           </Content>
         </MainNavigation>
         <Settings>
-          <Languages>
-            <div>
-              {i18n.language === "fr" ? (
-                <button onClick={() => handleChangeLanguage("en")}>EN</button>
-              ) : (
-                <button onClick={() => handleChangeLanguage("fr")}>FR</button>
-              )}
-            </div>
-          </Languages>
-          <ToggleThemeMode toggleTheme={toggleTheme} theme={theme} />
+          {trad ? (
+            <Languages>
+              <div>
+                {i18n.language === "fr" ? (
+                  <button onClick={() => handleChangeLanguage("en")}>EN</button>
+                ) : (
+                  <button onClick={() => handleChangeLanguage("fr")}>FR</button>
+                )}
+              </div>
+            </Languages>
+          ) : null}
+          {darkMode ? (
+            <ToggleThemeMode toggleTheme={toggleTheme} theme={theme} />
+          ) : null}
         </Settings>
       </Container>
       <Sidebar
@@ -197,3 +203,5 @@ export const ClassicNavbar = ({ template, toggleTheme, theme }) => {
     </>
   );
 };
+
+export default ClassicNavbar;

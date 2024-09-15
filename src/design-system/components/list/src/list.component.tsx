@@ -1,5 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
+import { useSelector } from "react-redux";
 
+import { getCustomer } from "../../../../customer.utils";
 import { SectionTitle } from "../../description/src/description.styled";
 
 import {
@@ -11,6 +13,7 @@ import {
 } from "./list.styled";
 
 const List = (datas) => {
+  const customer = useSelector(getCustomer);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [showButtons, setShowButtons] = useState(false);
 
@@ -60,7 +63,7 @@ const List = (datas) => {
             >
               <ImageItem
                 src={require(
-                  `../../../../assets/webtrine/clients/${image.src}.jpeg`
+                  `../../../../assets/${customer}/clients/${image.src}.jpeg`
                 )}
                 alt={`Trust Image ${index + 1}`}
               />
