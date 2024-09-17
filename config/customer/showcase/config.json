@@ -1,5 +1,6 @@
 {
   "client": {
+    "title": "Webtrine's showcase webapp",
     "name": "webtrine",
     "contact": {
       "name": "Alexandre Monschein",
@@ -117,7 +118,14 @@
         "type": "footers",
         "id": "classicFooter",
         "datas": {
-          "features": {}
+          "features": {},
+          "images": [
+            {
+              "name": "logo-webtrine-white",
+              "alt": "logo-webtrine",
+              "link": "/"
+            }
+          ]
         }
       },
       {
@@ -236,7 +244,9 @@
           ],
           "title": "Ce que je propose",
           "descriptionTop": null,
-          "descriptionBottom": "This is a short description below the features grid.",
+          "descriptionBottom": [
+            { "text": "This is a short description below the features grid." }
+          ],
           "price": "49.99€",
           "per": "year",
           "additionalDescription": "This is an additional short description if needed."

@@ -24,8 +24,6 @@ const Legals = ({ type = null }) => {
     datas: { title, subTitle, disclaimer, content },
   } = legalsTemplates.find((template) => template.datas.type === type);
 
-  console.warn(">>> template", title, subTitle, content);
-
   return (
     <Container>
       <Main>
@@ -34,18 +32,14 @@ const Legals = ({ type = null }) => {
         <Disclaimer>{disclaimer}</Disclaimer>
       </Main>
       <Content>
-        {content.map(({ title, texts }, index) => {
-          console.warn(">>> text", texts);
-
-          return (
-            <ContentWrapper key={index}>
-              <ContentTitle>{title}</ContentTitle>
-              {texts.map((text) => (
-                <ContentText>{text}</ContentText>
-              ))}
-            </ContentWrapper>
-          );
-        })}
+        {content.map(({ title, texts }, index) => (
+          <ContentWrapper key={index}>
+            <ContentTitle>{title}</ContentTitle>
+            {texts.map((text) => (
+              <ContentText>{text}</ContentText>
+            ))}
+          </ContentWrapper>
+        ))}
       </Content>
     </Container>
   );

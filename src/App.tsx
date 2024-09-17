@@ -46,7 +46,7 @@ function App(config) {
   dispatch(setConfig(config));
 
   const templates = useSelector(getTemplates);
-  const { title } = useSelector(getClient);
+  const { title = "" } = useSelector(getClient);
   const globalStyle = useSelector(getStyle);
 
   const navbarTemplate = getTemplateByType("navbars");

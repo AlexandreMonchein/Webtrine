@@ -86,11 +86,9 @@ const AllInOne = (datas: AllInOneProps) => {
         <FeaturesGrid>{components}</FeaturesGrid>
       </FeaturesCard>
       {!_.isEmpty(descriptionBottom)
-        ? descriptionBottom.map((content) => {
-            console.warn(">>> content", content);
-
-            return <Description>{content.text}</Description>;
-          })
+        ? descriptionBottom.map((content, index) => (
+            <Description key={index}>{content.text}</Description>
+          ))
         : null}
       <PriceContainer>
         <Price>{price}</Price>

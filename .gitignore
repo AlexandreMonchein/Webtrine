@@ -6,6 +6,7 @@ packages/**/pnpm.lock.yml
 packages/**/node_modules
 
 # production
+/temp_build
 /build
 /dist
 

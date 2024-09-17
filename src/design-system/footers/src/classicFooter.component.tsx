@@ -31,8 +31,6 @@ const ClassicFooter = (template) => {
 
   const { images } = template || {};
 
-  console.warn(">>> template", images);
-
   useEffect(() => {
     const loadComponents = async () => {
       const loadedComponents: React.ReactNode[] = [];
@@ -91,8 +89,10 @@ const ClassicFooter = (template) => {
           </p>
         </TopSection>
         <BottomSection>
-          {legals.map((legal) => (
-            <SiteRef href={legal.datas.type}>{legal.datas.type}</SiteRef>
+          {legals.map((legal, index) => (
+            <SiteRef key={index} href={legal.datas.type}>
+              {legal.datas.type}
+            </SiteRef>
           ))}
         </BottomSection>
       </MiddleSection>

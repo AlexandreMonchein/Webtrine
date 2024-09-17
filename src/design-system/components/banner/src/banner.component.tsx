@@ -57,7 +57,7 @@ const Banner = (datas) => {
           const { url, title } = copyright || {};
 
           return (
-            <>
+            <div key={index}>
               <Background
                 key={index}
                 alt={`Background ${index + 1}`}
@@ -65,9 +65,11 @@ const Banner = (datas) => {
                 className={classNames({ active: index === currentIndex })}
               />
               {url && title ? (
-                <RedirectLink href={url}>{title}</RedirectLink>
+                <RedirectLink key={`link-${index}`} href={url}>
+                  {title}
+                </RedirectLink>
               ) : null}
-            </>
+            </div>
           );
         })}
       </BackgroundContainer>
@@ -75,7 +77,7 @@ const Banner = (datas) => {
         <SelectorsContainer>
           {images.map((_, index) => (
             <Selector
-              key={index}
+              key={`image-${index}`}
               className={classNames({ active: index === currentIndex })}
               onClick={() => handleSelectorClick(index)}
             />
