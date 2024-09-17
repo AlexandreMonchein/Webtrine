@@ -74,13 +74,13 @@
     "jackspeak": "2.1.1"
   },
   "scripts": {
-    "dev": "REACT_APP_CUSTOMER=${REACT_APP_CUSTOMER:=webtrine} react-scripts start",
+    "start": "REACT_APP_CUSTOMER=${REACT_APP_CUSTOMER:=webtrine} react-scripts start",
+    "start:storybook": "storybook dev -p 6006",
     "build": "REACT_APP_CUSTOMER=${REACT_APP_CUSTOMER:=webtrine} ./scripts/build.sh",
+    "build:storybook": "storybook build",
     "serve": "REACT_APP_CUSTOMER=${REACT_APP_CUSTOMER:=webtrine} ./scripts/serve.sh",
     "test": "REACT_APP_CUSTOMER=${REACT_APP_CUSTOMER:=webtrine} react-scripts test",
-    "eject": "react-scripts eject",
-    "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
