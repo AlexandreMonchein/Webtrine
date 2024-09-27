@@ -38,7 +38,7 @@ export const FormContainer = styled.form`
   text-align: left;
 
   ${bp.max(
-    breakpointNames.medium,
+    breakpointNames.large,
     css`
       display: block;
     `
@@ -50,7 +50,7 @@ export const FormDisplay = styled.div`
   flex-direction: row;
 
   ${bp.max(
-    breakpointNames.medium,
+    breakpointNames.large,
     css`
       flex-direction: column;
     `
@@ -96,7 +96,7 @@ export const ClientInfo = styled.div`
   }
 
   ${bp.max(
-    breakpointNames.medium,
+    breakpointNames.large,
     css`
       text-align: center;
       padding: 0;
@@ -144,7 +144,7 @@ export const ProductDetails = styled.div`
   border: 1px solid;
 
   ${bp.max(
-    breakpointNames.medium,
+    breakpointNames.large,
     css`
       margin-bottom: 20px;
     `
@@ -164,7 +164,7 @@ export const ProductInfo = styled.div`
   }
 
   ${bp.max(
-    breakpointNames.medium,
+    breakpointNames.large,
     css`
       flex-direction: column;
       align-items: center;

@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 import ExtendedContact from "./design-system/components/contact/src/extendedContact.component";
+import MultiDescription from "./design-system/components/description/src/multiDescriptions.component";
 import Display from "./design-system/components/display/src/display.component";
 import Product from "./design-system/components/display/src/product.component";
 import Legals from "./design-system/components/legals/src/legals.component";
@@ -16,7 +17,7 @@ import { getClient, getStyle, getTemplates } from "./store/state.selector";
 import { RootStyle } from "./globalStyles";
 import ScrollToTop from "./scrollToTop.utils";
 
-export const generalTemplatesTypes = [
+export const templatesTypesBlackList = [
   "navbars",
   "footers",
   "error",
@@ -24,13 +25,34 @@ export const generalTemplatesTypes = [
   "legals",
 ];
 
-export const getTemplateByType = (templateType) => {
+export const templatesIdsBlackList = ["multiDescriptions"];
+
+export const getTemplate = (
+  templateType,
+  templateId = null,
+  templateName = null
+) => {
   const templates = useSelector(getTemplates);
 
+  let template;
   if (templates) {
-    const template = templates.find(
-      (template) => template.type === templateType
-    );
+    template = templates.find((template) => template.type === templateType);
+
+    if (templateId) {
+      template = templates.find(
+        (template) =>
+          template.type === templateType && template.id === templateId
+      );
+
+      if (templateName) {
+        template = templates.find(
+          (template) =>
+            template.type === templateType &&
+            template.id === templateId &&
+            template.name === templateName
+        );
+      }
+    }
     return template || undefined;
   }
 };
@@ -49,10 +71,9 @@ function App(config) {
   const { title = "" } = useSelector(getClient);
   const globalStyle = useSelector(getStyle);
 
-  const navbarTemplate = getTemplateByType("navbars");
-  const displayTemplate = getTemplateByType("display");
-  const footerTemplate = getTemplateByType("footers");
-  const contactTemplate = getTemplateByType("contact");
+  const navbarTemplate = getTemplate("navbars");
+  const displayTemplate = getTemplate("display");
+  const footerTemplate = getTemplate("footers");
 
   useEffect(() => {
     document.title = title;
@@ -72,6 +93,15 @@ function App(config) {
         )}
         <Routes>
           <Route path="/" element={<Home templates={templates} />} />
+          <Route
+            path="/presentation"
+            element={<MultiDescription templateName="Presentation" />}
+          />
+          <Route
+            path="/description"
+            element={<MultiDescription templateName="Description" />}
+          />
+
           {displayTemplate && (
             <Route
               path="/display"

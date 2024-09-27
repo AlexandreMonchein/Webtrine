@@ -1,7 +1,7 @@
 import React, { FC, Suspense, useEffect, useState } from "react";
 import _ from "lodash";
 
-import { generalTemplatesTypes } from "../../../App";
+import { templatesIdsBlackList, templatesTypesBlackList } from "../../../App";
 
 import { Content } from "./home.styled";
 
@@ -19,7 +19,10 @@ export const Home: FC<{ templates: Templates[] }> = ({ templates }) => {
       const loadedComponents: React.ReactNode[] = [];
       if (templates) {
         for (const template of templates) {
-          if (!generalTemplatesTypes.includes(template.type)) {
+          if (
+            !templatesTypesBlackList.includes(template.type) &&
+            !templatesIdsBlackList.includes(template.id)
+          ) {
             const { type, id, datas } = template;
 
             try {

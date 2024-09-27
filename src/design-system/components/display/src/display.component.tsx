@@ -6,7 +6,8 @@ import {
   Wrapper,
 } from "./display.styled";
 
-const Display = (template) => {
+const Display = ({ template }) => {
+  console.warn(">>> template", template);
   const {
     features: { shouldRedirect },
   } = template;

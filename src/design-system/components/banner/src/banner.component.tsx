@@ -19,11 +19,11 @@ const Banner = (datas) => {
   const customer = getCustomer();
 
   const {
-    features: { multi, textPositionFeature },
+    features: { multi, textPositionFeature, medium = false },
     title,
     subTitle,
     images,
-    textPosition = "center-left", // default position
+    textPosition = "bottom-left", // default position
   } = datas;
 
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -43,9 +43,12 @@ const Banner = (datas) => {
   };
 
   return (
-    <Content>
+    <Content className={classNames(textPosition, { medium: medium })}>
       <TextContainer
-        className={classNames(textPosition, { active: textPositionFeature })}
+        className={classNames(textPosition, {
+          active: textPositionFeature,
+          medium: medium,
+        })}
       >
         {title ? <Title>{title}</Title> : null}
         {subTitle ? <SubTitle>{subTitle}</SubTitle> : null}

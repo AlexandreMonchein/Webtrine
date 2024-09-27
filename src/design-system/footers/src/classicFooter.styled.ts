@@ -33,10 +33,6 @@ export const LeftSection = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-
-  img {
-    height: 32px;
-  }
 `;
 export const RightSection = styled.div`
   display: flex;
@@ -65,20 +61,15 @@ export const BottomSection = styled.div`
   justify-content: space-evenly;
 `;
 
-// Individual social media icon
 export const SocialIcon = styled.a`
   color: #ffffff;
   font-size: 24px;
   text-decoration: none;
 `;
 
-// Logos
 export const Logo = styled.img`
-  width: 50px;
-  height: auto;
-  &:not(:last-child) {
-    margin-right: 10px;
-  }
+  display: block;
+  height: 64px;
 `;
 
 export const Socials = styled.div`

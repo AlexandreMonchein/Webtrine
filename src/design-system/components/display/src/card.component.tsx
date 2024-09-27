@@ -59,23 +59,25 @@ export const Card = ({ data, shouldRedirect }) => {
           <NewFlag>{t("display.newRelease")}</NewFlag>
         )}
       </StyledLink>
-      <Title>
-        <Name>{name}</Name>
-        <div>
-          <Price
-            style={{
-              color: variant === "on-sale" ? COLORS.gray[700] : undefined,
-              textDecoration:
-                variant === "on-sale" ? "line-through" : undefined,
-            }}
-          >
-            {price}
-          </Price>
-          {variant === "on-sale" ? (
-            <SalePrice>{salePrice}</SalePrice>
-          ) : undefined}
-        </div>
-      </Title>
+      {name ? (
+        <Title>
+          <Name>{name}</Name>
+          <div>
+            <Price
+              style={{
+                color: variant === "on-sale" ? COLORS.gray[700] : undefined,
+                textDecoration:
+                  variant === "on-sale" ? "line-through" : undefined,
+              }}
+            >
+              {price}
+            </Price>
+            {variant === "on-sale" ? (
+              <SalePrice>{salePrice}</SalePrice>
+            ) : undefined}
+          </div>
+        </Title>
+      ) : null}
       <SubInfos>
         {sizes ? <Info>{pluralize("Size", sizes)}</Info> : null}
         {colors ? <Info>{pluralize("Color", colors)}</Info> : null}

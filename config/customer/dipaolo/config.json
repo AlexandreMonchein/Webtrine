@@ -1,1 +1,592 @@
-{}
+{
+  "client": {
+    "title": "Laboratoire Di Paolo - Prothésiste dentaire sur Saint-Etienne",
+    "name": "dipaolo",
+    "contact": {
+      "name": "Di Paolo",
+      "phone": "+33661118442",
+      "email": "laboratoiredipaolo@gmail.com"
+    },
+    "socials": {
+      "facebook": "https://www.facebook.com/laboratoire.dipaolo",
+      "instagram": "https://www.instagram.com/laboratoire.dipaolo"
+    }
+  },
+  "style": {
+    "light": {
+      "font-family": "\"Josefin Sans\",sans-serif",
+
+      "navbar-font-size": "16px",
+      "title-font-size": "42px",
+      "subtitle-font-size": "32px",
+      "text-font-size": "24px",
+      "description-font-size": "16px",
+
+      "color-primary": "#ffffff",
+      "color-secondary": "#E8EEF1",
+      "color-tertiary": "#007bff",
+      "color-quaternary": "#1E3D58",
+      "color-quinary": "#000000",
+
+      "navigation-text-color": "#ffffff",
+      "hover-color": "orange",
+      "hover-border-color": "gold",
+
+      "z-index-navbars": 3,
+      "z-index-text": 2,
+      "z-index-backgrounds": 1
+    },
+    "dark": {
+      "font-family": "\"Josefin Sans\",sans-serif",
+
+      "navbar-font-size": "16px",
+      "title-font-size": "42px",
+      "subtitle-font-size": "32px",
+      "text-font-size": "24px",
+      "description-font-size": "16px",
+
+      "color-primary": "#313134",
+      "color-secondary": "#4a4a50",
+      "color-tertiary": "#ffffff",
+      "color-quaternary": "#161617",
+      "color-quinary": "#ffffff",
+
+      "hover-color": "orange",
+      "hover-border-color": "gold",
+
+      "z-index-navbars": 3,
+      "z-index-text": 2,
+      "z-index-backgrounds": 1
+    }
+  },
+  "layout": {
+    "templates": [
+      {
+        "type": "navbars",
+        "id": "classicNavbar",
+        "datas": {
+          "features": {
+            "isFixed": false,
+            "hasHideOnScroll": false,
+            "trad": false,
+            "darkMode": false
+          },
+          "content": {
+            "logo": {
+              "name": "logo-dipaolo"
+            }
+          },
+          "categories": [
+            {
+              "name": "Accueil",
+              "link": "/"
+            },
+            {
+              "name": "Le laboratoire",
+              "link": "/presentation"
+            },
+            {
+              "name": "Nos prothèses",
+              "link": "/description"
+            },
+            {
+              "name": "Gallerie",
+              "link": "/display"
+            },
+            {
+              "name": "Contact",
+              "link": "/contact"
+            }
+          ]
+        }
+      },
+      {
+        "type": "footers",
+        "id": "classicFooter",
+        "datas": {
+          "features": {},
+          "images": [
+            {
+              "name": "logo-dipaolo",
+              "alt": "logo-dipaolo",
+              "link": "/"
+            }
+          ]
+        }
+      },
+      {
+        "type": "banner",
+        "id": "banner",
+        "datas": {
+          "features": { "multi": false },
+          "title": "Di Paolo",
+          "subTitle": "Prothésiste dentaire sur Saint-Etienne",
+          "images": [
+            {
+              "name": "accueil_banner"
+            }
+          ],
+          "textPosition": "center-left"
+        }
+      },
+      {
+        "type": "description",
+        "id": "description",
+        "datas": {
+          "features": { "isReversed": false, "isCentered": false },
+          "title": "Lorem ipsum dolor sit amet",
+          "content": [
+            {
+              "text": "lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi."
+            },
+            {
+              "text": "lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi."
+            },
+            {
+              "text": "lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi."
+            }
+          ],
+          "image": "accueil_1"
+        }
+      },
+      {
+        "type": "description",
+        "id": "description",
+        "datas": {
+          "features": { "isReversed": true, "isCentered": false },
+          "title": "Lorem ipsum dolor sit amet",
+          "content": [
+            {
+              "text": "lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi."
+            },
+            {
+              "text": "lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi."
+            },
+            {
+              "text": "lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi."
+            }
+          ],
+          "image": "accueil_2"
+        }
+      },
+      {
+        "type": "description",
+        "id": "multiDescriptions",
+        "name": "Presentation",
+        "datas": {
+          "content": {
+            "topBanner": {
+              "features": { "medium": true },
+              "title": "Di Paolo",
+              "subTitle": "Le laboratoire",
+              "images": [
+                {
+                  "name": "le_labo_banner_1"
+                }
+              ],
+              "textPosition": "center-left"
+            },
+            "description": [
+              {
+                "title": "Lorem ipsum dolor sit amet",
+                "content": [
+                  {
+                    "text": "lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi."
+                  },
+                  {
+                    "text": "lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi."
+                  },
+                  {
+                    "text": "lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi."
+                  }
+                ],
+                "image": "le_labo_1"
+              },
+              {
+                "content": [
+                  {
+                    "text": "lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi."
+                  },
+                  {
+                    "text": "lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi."
+                  },
+                  {
+                    "text": "lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi."
+                  }
+                ],
+                "image": "le_labo_2"
+              },
+              {
+                "content": [
+                  {
+                    "text": "lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi."
+                  },
+                  {
+                    "text": "lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi."
+                  },
+                  {
+                    "text": "lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi."
+                  }
+                ],
+                "image": "le_labo_3"
+              }
+            ],
+            "bottomBanner": {
+              "features": { "medium": true },
+              "title": "Di Paolo",
+              "subTitle": "Prothésiste dentaire sur Saint-Etienne",
+              "images": [
+                {
+                  "name": "le_labo_banner_2"
+                }
+              ],
+              "textPosition": "center-left"
+            }
+          }
+        }
+      },
+      {
+        "type": "description",
+        "id": "multiDescriptions",
+        "name": "Description",
+        "datas": {
+          "content": {
+            "topBanner": {
+              "features": { "medium": true },
+              "title": "Di Paolo",
+              "subTitle": "Nos Prothèses",
+              "images": [
+                {
+                  "name": "nos_protheses_banner_1"
+                }
+              ],
+              "textPosition": "center-left"
+            },
+            "description": [
+              {
+                "title": "Lorem ipsum dolor sit amet",
+                "content": [
+                  {
+                    "text": "lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi."
+                  },
+                  {
+                    "text": "lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi."
+                  },
+                  {
+                    "text": "lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi."
+                  }
+                ],
+                "image": "nos_protheses_1"
+              },
+              {
+                "content": [
+                  {
+                    "text": "lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi."
+                  },
+                  {
+                    "text": "lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi."
+                  },
+                  {
+                    "text": "lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi."
+                  }
+                ],
+                "image": "nos_protheses_2"
+              },
+              {
+                "content": [
+                  {
+                    "text": "lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi."
+                  },
+                  {
+                    "text": "lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi."
+                  },
+                  {
+                    "text": "lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi."
+                  }
+                ],
+                "image": "nos_protheses_3"
+              }
+            ],
+            "bottomBanner": {
+              "features": { "medium": true },
+              "title": "Di paolo",
+              "subTitle": "Prothésiste dentaire sur Saint-Etienne",
+              "images": [
+                {
+                  "name": "nos_protheses_banner_2"
+                }
+              ],
+              "textPosition": "center-left"
+            }
+          }
+        }
+      },
+      {
+        "type": "display",
+        "id": "display",
+        "datas": {
+          "features": { "shouldRedirect": false },
+          "inventory": [
+            {
+              "slug": "test1",
+              "imageSrc": "https://via.placeholder.com/400"
+            },
+            {
+              "slug": "test2",
+              "imageSrc": "https://via.placeholder.com/400"
+            },
+            {
+              "slug": "test3",
+              "imageSrc": "https://via.placeholder.com/400"
+            },
+            {
+              "slug": "test4",
+              "imageSrc": "https://via.placeholder.com/400"
+            },
+            {
+              "slug": "test5",
+              "imageSrc": "https://via.placeholder.com/400"
+            },
+            {
+              "slug": "test6",
+              "imageSrc": "https://via.placeholder.com/400"
+            },
+            {
+              "slug": "test7",
+              "imageSrc": "https://via.placeholder.com/400"
+            },
+            {
+              "slug": "test8",
+              "imageSrc": "https://via.placeholder.com/400"
+            },
+            {
+              "slug": "test9",
+              "imageSrc": "https://via.placeholder.com/400"
+            },
+            {
+              "slug": "test10",
+              "imageSrc": "https://via.placeholder.com/400"
+            },
+            {
+              "slug": "test11",
+              "imageSrc": "https://via.placeholder.com/400"
+            },
+            {
+              "slug": "test12",
+              "imageSrc": "https://via.placeholder.com/400"
+            }
+          ]
+        }
+      },
+      {
+        "type": "list",
+        "id": "list",
+        "datas": {
+          "features": {},
+          "title": "Ils nous font confiance",
+          "images": [
+            { "src": "dipaolo", "link": "https://website2.com" },
+            { "src": "dipaolo", "link": "https://website2.com" },
+            { "src": "dipaolo", "link": "https://website2.com" },
+            { "src": "dipaolo", "link": "https://website2.com" }
+          ]
+        }
+      },
+      {
+        "type": "map",
+        "id": "leafletMap",
+        "datas": {
+          "features": {},
+          "places": [
+            {
+              "id": 1,
+              "name": "Julien Di Paolo",
+              "address": "6 Rue de Molina, 42000 Saint-Étienne",
+              "phone": "04 77 41 59 13",
+              "position": [45.466, 4.395]
+            }
+          ]
+        }
+      },
+      {
+        "type": "contact",
+        "id": "extendedContact",
+        "datas": {
+          "features": {}
+        }
+      },
+      {
+        "type": "error",
+        "id": "error"
+      },
+      {
+        "type": "legals",
+        "id": "legals",
+        "datas": {
+          "type": "cgu-cgv",
+          "title": "CGV (Conditions Générales de Vente)",
+          "subTitle": "En vigueur au 01/09/2024",
+          "disclaimer": null,
+          "content": [
+            {
+              "title": "Article 1: Objet",
+              "texts": [
+                "Les présentes Conditions Générales d'Utilisation et de Vente (CGU/CGV) ont pour objet de définir les conditions d'utilisation du site {entreprise} et de régir les ventes de prestations de services proposées par {entreprise}. En accédant et en utilisant ce site, ainsi qu'en passant commande, vous acceptez pleinement et sans réserve les présentes CGU/CGV."
+              ]
+            },
+            {
+              "title": "Article 2: Accès au site",
+              "texts": [
+                "Le site {entreprise} est accessible gratuitement à tout utilisateur disposant d'un accès à Internet. Tous les coûts liés à l'accès au site, tels que les frais matériels, logiciels ou d'accès à Internet, sont exclusivement à la charge de l'utilisateur."
+              ]
+            },
+            {
+              "title": "Article 3: Prestations et Tarifs",
+              "texts": [
+                "{entreprise} propose des services de création de sites vitrines. Les prestations offertes incluent :",
+                "- Création de site vitrine : 300€ incluant la mise en place de l'application et une assistance pour la réalisation.",
+                "- Options:",
+                "- Hébergement : 150€/an.",
+                "- Assistance : Incluse pour les 6 mois suivant le déploiement du site.",
+                "- Modifications à la demande : 1 fois par mois durant les 6 mois suivant le déploiement du site. Un abonnement avec un tarif annuel peut etre mis en place avec le client en fonction de ses besoins"
+              ]
+            },
+            {
+              "title": "Article 4: Commande et Paiement",
+              "texts": [
+                "Toute commande est validée dès réception du paiement. Le paiement est dû en intégralité au moment de la commande et peut être effectué par Paypal/virement bancaire. Un devis détaillant la prestation sera envoyé pour accord avant toute exécution."
+              ]
+            },
+            {
+              "title": "Article 5: Livraison",
+              "texts": [
+                "Le délai de livraison est estimé à 1 semaine à compter de la réception du paiement. Le client sera informé en cas de retard éventuel. La livraison correspond à la mise en ligne du site commandé."
+              ]
+            },
+            {
+              "title": "Article 6: Droit de Rétractation",
+              "texts": [
+                "Conformément à la loi, le client dispose d'un délai de 14 jours à compter de la validation de la commande pour exercer son droit de rétractation. Ce droit ne s'applique pas si la prestation a été entièrement exécutée avec l'accord du client."
+              ]
+            },
+            {
+              "title": "Article 7: Propriété Intellectuelle",
+              "texts": [
+                "Le site {entreprise} ainsi que l'ensemble des contenus (textes, images, logos, etc.) sont protégés par les lois relatives à la propriété intellectuelle. Toute reproduction ou représentation, partielle ou totale, est interdite sans l'autorisation préalable de {entreprise}."
+              ]
+            },
+            {
+              "title": "Article 8: Responsabilité",
+              "texts": [
+                "{entreprise} ne saurait être tenu responsable des dommages directs ou indirects résultant de l'accès au site ou de son utilisation, ni des préjudices indirects subis par le client, tels que la perte de clientèle ou de chiffre d'affaires."
+              ]
+            },
+            {
+              "title": "Article 9: Assistance et Modifications",
+              "texts": [
+                "L'assistance et les modifications sont fournies selon les termes de la prestation choisie, soit durant les 6 mois suivant le déploiement du site. Les modifications à la demande sont limitées à une intervention par mois pendant cette période ou plus en fonction en fonction d'un abonnement annuel discuté avec le client et stipulé dans le devis fournis au client lors de l'achat de la prestation."
+              ]
+            },
+            {
+              "title": "Article 10: Résiliation",
+              "texts": [
+                "En cas de non-respect par le client de l'une de ses obligations, {entreprise} se réserve le droit de suspendre ou de résilier la prestation sans indemnité."
+              ]
+            },
+            {
+              "title": "Article 11: Données Personnelles et Confidentialité ",
+              "texts": [
+                "{entreprise} s'engage à respecter la vie privée de ses utilisateurs et clients. Les données personnelles collectées sont utilisées uniquement pour les besoins des services proposés. Elles sont traitées conformément à la réglementation en vigueur. Les utilisateurs disposent d'un droit d'accès, de rectification, d'opposition et de suppression de leurs données personnelles. Plus d'informations sur: {entreprise}.fr/confidentialite"
+              ]
+            },
+            {
+              "title": "Article 12: Modifications des CGU/CGV",
+              "texts": [
+                "{entreprise} se réserve le droit de modifier à tout moment les présentes CGU/CGV. Les modifications entrent en vigueur dès leur mise en ligne. Il est conseillé de consulter régulièrement cette page pour prendre connaissance des éventuelles modifications."
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "type": "legals",
+        "id": "legals",
+        "datas": {
+          "type": "mentions-legals",
+          "title": "Mentions légales",
+          "subTitle": "En vigueur au 01/09/2024",
+          "disclaimer": "Conformément aux dispositions des Articles 6-III et 19 de la Loi n°2004-575 du 21 juin 2004 pour la Confiance dans l’économie numérique, dite L.C.E.N., il est porté à la connaissance des utilisateurs et visiteurs, ci-après l'Utilisateur, du site https://www.{entreprise}.fr, les présentes mentions légales. La navigation sur le Site par l’Utilisateur implique acceptation intégrale et sans réserve des présentes mentions légales. Ces dernières sont accessibles sur le Site à la rubrique « Mentions légales ».",
+          "content": [
+            {
+              "title": "Article 1 - L'editeur",
+              "texts": [
+                "L’édition et la direction de la publication du Site est assurée par Mr. Alexandre Monschein, domiciliée en France, dont le numéro de téléphone est 0614612295, et l’adresse e-mail est {entreprise}.pro@gmail.com"
+              ]
+            },
+            {
+              "title": "Article 2 - L'hébergeur",
+              "texts": [
+                "L’hébergeur du Site est la société OVHcloud, dont le siège social est situé au 2 rue Kellermann, 59100 Roubaix, avec le numéro de téléphone: 1007."
+              ]
+            },
+            {
+              "title": "Article 3 - Accès au site",
+              "texts": [
+                "Le Site est accessible en tout endroit, 7j/7, 24h/24 sauf cas de force majeure, interruption programmée ou non et pouvant découler d’une nécessité de maintenance. En cas de modification, interruption ou suspension du Site, le Gérant ne saurait être tenu responsable."
+              ]
+            },
+            {
+              "title": "Article 4 - Collecte des données",
+              "texts": [
+                "Le site est exempté de déclaration à la Commission Nationale Informatique et Libertés (CNIL) dans la mesure où il ne collecte aucune donnée concernant les utilisateurs.",
+                "Toute utilisation, reproduction, diffusion, commercialisation, modification de toute ou partie du Site, sans autorisation du Gérant est prohibée et pourra entraînée des actions et poursuites judiciaires telles que prévues par le Code de la propriété intellectuelle et le Code civil. Pour plus d’informations, se reporter aux CGV du site accessible à la rubrique << CGU-CGV >>."
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "type": "legals",
+        "id": "legals",
+        "datas": {
+          "type": "confidentialite",
+          "title": "Politique de confidentialité du site: {entreprise}",
+          "subTitle": "En vigueur au 01/09/2024",
+          "disclaimer": null,
+          "content": [
+            {
+              "title": "Article 1 - Collecte des données personnelles :",
+              "texts": [
+                "{entreprise} s'engage à respecter la vie privée de ses utilisateurs. Les données personnelles collectées via le site (nom, prénom, adresse e-mail, etc.) sont strictement confidentielles et utilisées uniquement pour les besoins des services proposés par {entreprise}."
+              ]
+            },
+            {
+              "title": "Article 2 - Utilisation des données :",
+              "texts": [
+                "Les données collectées sont utilisées pour la gestion des commandes, la communication avec les clients, et l'amélioration des services. Elles ne sont en aucun cas cédées ou vendues à des tiers sans le consentement préalable des utilisateurs."
+              ]
+            },
+            {
+              "title": "Article 3 - Données à caractère personnel collectées et traitées dans le cadre de la navigation sur le site",
+              "texts": [
+                "{entreprise} met en œuvre toutes les mesures techniques et organisationnelles nécessaires pour garantir la sécurité des données personnelles de ses utilisateurs."
+              ]
+            },
+            {
+              "title": "Article 4 - Responsable du traitement des données",
+              "texts": [
+                "Conformément à la réglementation en vigueur, les utilisateurs disposent d'un droit d'accès, de rectification, d'opposition et de suppression de leurs données personnelles. Pour exercer ce droit, il suffit de contacter {entreprise} à l'adresse suivante : {entreprise}.pro@gmail.com"
+              ]
+            },
+            {
+              "title": "Article 5 - Modifications de la politique de confidentialité :",
+              "texts": [
+                "{entreprise} se réserve le droit de modifier à tout moment la présente politique de confidentialité. Les utilisateurs seront informés de toute modification substantielle via le site."
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

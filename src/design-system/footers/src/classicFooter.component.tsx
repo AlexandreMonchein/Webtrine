@@ -70,7 +70,7 @@ const ClassicFooter = (template) => {
         {images.map((image) => {
           return (
             <a href="/" key={image.name}>
-              <img
+              <Logo
                 alt={image.alt}
                 src={require(
                   `../../../assets/${clientName}/icons/${image.name}.png`

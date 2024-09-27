@@ -7,6 +7,10 @@ export const Content = styled.section`
   display: flex;
   justify-content: center;
   align-items: center;
+
+  &.medium {
+    height: 70vh;
+  }
 `;
 
 export const BackgroundContainer = styled.div`
@@ -73,6 +77,10 @@ export const TextContainer = styled.div`
     top: 30vh;
     left: 5vh;
     text-align: start;
+
+    &.medium {
+      top: 15vh;
+    }
   }
 
   &.bottom-left {
@@ -91,6 +99,10 @@ export const TextContainer = styled.div`
     top: 30vh;
     left: 50vh;
     text-align: center;
+
+    &.medium {
+      top: 15vh;
+    }
   }
 
   &.center-bottom {
@@ -109,6 +121,10 @@ export const TextContainer = styled.div`
     top: 30vh;
     right: 5vh;
     text-align: end;
+
+    &.medium {
+      top: 15vh;
+    }
   }
 
   &.bottom-right {

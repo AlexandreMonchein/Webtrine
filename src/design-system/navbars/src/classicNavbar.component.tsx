@@ -3,8 +3,14 @@ import classNames from "classnames";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
 
-import { getClient } from "../../../store/state.selector";
-import { ToggleThemeMode } from "../../buttons/mode-theme/src/modeTheme.component";
+import { getClient, getSocials } from "../../../store/state.selector";
+import { ToggleButton } from "../../buttons/src/classicButton.component";
+import { ToggleThemeMode } from "../../buttons/src/modeTheme.component";
+import {
+  SocialContent,
+  SocialLogo,
+  Socials,
+} from "../../footers/src/classicFooter.styled";
 
 import {
   BurgerMenuIcon,
@@ -23,7 +29,42 @@ import {
 
 const ClassicNavbar = (props) => {
   const { t, i18n } = useTranslation();
+  const [components, setComponents] = useState<React.ReactNode[]>([]);
   const { name: clientName } = useSelector(getClient);
+  const socials = useSelector(getSocials);
+
+  useEffect(() => {
+    const loadComponents = async () => {
+      const loadedComponents: React.ReactNode[] = [];
+
+      for (const [name, link] of Object.entries(socials)) {
+        try {
+          if (link) {
+            const Module = await import(
+              `../../../assets/icons/${name}.component`
+            );
+
+            loadedComponents.push(
+              <li key={name}>
+                <SocialLogo>
+                  {/* @ts-ignore */}
+                  <a href={link}>
+                    <Module.default key={name} />
+                  </a>
+                </SocialLogo>
+              </li>
+            );
+          }
+        } catch (error) {
+          console.error(`Error loading component: ${name}`, error);
+        }
+      }
+
+      setComponents(loadedComponents);
+    };
+
+    loadComponents();
+  }, []);
 
   const {
     features: { isFixed, hasHideOnScroll, trad, darkMode },
@@ -157,6 +198,15 @@ const ClassicNavbar = (props) => {
           {darkMode ? (
             <ToggleThemeMode toggleTheme={toggleTheme} theme={theme} />
           ) : null}
+          {components ? (
+            <Socials>
+              <SocialContent>{components}</SocialContent>
+            </Socials>
+          ) : null}
+          <ToggleButton
+            displayedText="Appeler DiPaolo"
+            hiddenText="+33123456789"
+          />
         </Settings>
       </Container>
       <Sidebar

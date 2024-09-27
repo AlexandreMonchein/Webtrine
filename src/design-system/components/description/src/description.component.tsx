@@ -1,5 +1,4 @@
 import classNames from "classnames";
-import { useTranslation } from "react-i18next";
 
 import { getCustomer } from "../../../../customer.utils";
 
@@ -11,21 +10,24 @@ import {
   Section,
   SectionTitle,
   Text,
-  TextContent,
 } from "./description.styled";
 
 const Description = (datas) => {
-  const { t } = useTranslation();
   const customer = getCustomer();
   const {
-    features: { isReversed },
+    features: { isReversed, isContinious = false },
     image,
     title,
     content,
   } = datas;
 
   return (
-    <Section data-testid="WhoWeAre">
+    <Section
+      data-testid="WhoWeAre"
+      className={classNames({
+        isContinious: isContinious,
+      })}
+    >
       <SectionTitle>{title}</SectionTitle>
       <Container>
         <Content>

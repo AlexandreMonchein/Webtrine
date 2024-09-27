@@ -89,13 +89,19 @@ export const DefaultContent = styled.ul`
 `;
 
 export const Content = styled(DefaultContent)`
-  gap: 24px;
+  gap: 32px;
+  padding: 0px 12px 0px 12px;
 
-  &::after {
+  ${bp.max(
+    breakpointNames.medium,
+    css`
+      gap: 24px;
+    `
+  )}/* &::after {
     content: "";
     display: table;
     clear: both;
-  }
+  } */
 `;
 
 export const Sidebar = styled.div`
@@ -207,7 +213,6 @@ export const Logo = styled.div`
 
   img {
     display: block;
-    width: 128px;
     height: 64px;
   }
 
@@ -252,7 +257,6 @@ export const Settings = styled.div`
 
 export const Category = styled.li`
   float: left;
-  width: 100px;
   text-align: center;
   position: relative;
 
