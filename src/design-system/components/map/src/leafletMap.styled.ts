@@ -84,3 +84,5 @@ export const MapWrapper = styled.div`
     `
   )}
 `;
+
+export const Marker = styled.div``;

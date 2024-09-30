@@ -1,26 +1,11 @@
 {
   "banner": {
-    "title": "Di Paolo",
+    "title": "Webtrine",
     "subTitle": "It's never been easier to get known online"
   },
   "description": {
     "title": "Enim ex aliquip reprehenderit ad excepteur",
     "content": "Enim ex aliquip reprehenderit ad excepteur aliqua excepteur amet proident duis qui exercitation. Exercitation laboris duis elit mollit ut incididunt adipisicing voluptate irure adipisicing minim culpa proident. Proident nostrud cillum sint Lorem excepteur. Laboris non exercitation sint do quis id deserunt exercitation sunt sunt pariatur ullamco esse."
-  },
-  "showcase": {
-    "title": "Enim ex aliquip reprehenderit ad excepteur"
-  },
-  "display": {
-    "sale": "Sale!",
-    "newRelease": "Just Released!",
-    "price": "Price",
-    "selectSize": "Select a size",
-    "selectColor": "Select a color",
-    "selectedSize": "Selected size",
-    "selectedColor": "Selected color",
-    "productName": "Product name",
-    "description": "Description",
-    "reservationTitle": "Reservation Details"
   },
   "contact": {
     "title": "Enim ex aliquip reprehenderit ad excepteur",
@@ -40,11 +25,5 @@
     "content": "Content",
     "contentPlaceholder": "Content of your message",
     "send": "Send"
-  },
-  "prices": {
-    "selectPlan": "Get in touch",
-    "planTitle": "Plan Details",
-    "title": "Plan",
-    "price": "Price"
   }
 }

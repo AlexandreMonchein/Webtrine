@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { icon } from "leaflet";
 import { MapContainer, Marker, TileLayer, useMap } from "react-leaflet";
 
 import {
@@ -16,6 +17,11 @@ const FlyToLocation = ({ position }: { position: [number, number] }) => {
   map.flyTo(position, 13);
   return null;
 };
+
+const ICON = icon({
+  iconUrl: "./marker_icon.png",
+  iconSize: [32, 32],
+});
 
 const MapComponent = (datas) => {
   const { places } = datas;
@@ -60,6 +66,7 @@ const MapComponent = (datas) => {
               <Marker
                 key={place.id}
                 position={[place.position[0], place.position[1]]}
+                icon={ICON}
               >
                 {/* Add popups or other marker features here if needed */}
               </Marker>

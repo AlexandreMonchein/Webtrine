@@ -58,9 +58,23 @@ export const ImageWrapper = styled.figure`
   height: auto;
   float: left;
 
+  ${bp.max(
+    breakpointNames.medium,
+    css`
+      padding: 0;
+    `
+  )};
+
   &.isReversed {
     float: right;
     padding: 0 0 0 24px;
+
+    ${bp.max(
+      breakpointNames.medium,
+      css`
+        padding: 0;
+      `
+    )};
   }
 `;
 

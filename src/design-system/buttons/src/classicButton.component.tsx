@@ -20,8 +20,6 @@ export const ToggleButton = ({ displayedText, hiddenText }) => {
     }
   }, []);
 
-  console.warn(">>> buttonWidth", buttonWidth);
-
   return (
     <ButtonContainer>
       <Button onClick={handleClick}>
