@@ -92,8 +92,6 @@ const Product = () => {
 
 export default Product;
 
-// Styled-components
-
 const Content = styled.section`
   padding: 40px 120px;
   min-height: 100vh;

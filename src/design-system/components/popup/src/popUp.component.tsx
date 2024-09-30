@@ -12,10 +12,11 @@ import {
   ProgressBar,
 } from "./popUp.styled";
 
+// To replace with actual SVG icons
 const icons = {
-  success: "✅", // You can replace this with an actual SVG import
-  warning: "⚠️", // You can replace this with an actual SVG import
-  error: "❌", // You can replace this with an actual SVG import
+  success: "✅",
+  warning: "⚠️",
+  error: "❌",
 };
 
 const PopUp: React.FC = () => {

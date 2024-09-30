@@ -53,7 +53,7 @@ const List = (datas) => {
         {showButtons && (
           <ScrollButton onClick={() => scroll("left")}>‹</ScrollButton>
         )}
-        <ImageList ref={scrollContainerRef} imagecount={images.length}>
+        <ImageList ref={scrollContainerRef} $imagecount={images.length}>
           {images.map((image, index) => (
             <a
               key={index}

@@ -43,7 +43,7 @@ export const Home: FC<{ templates: Templates[] }> = ({ templates }) => {
         }
       }
 
-      setComponents(loadedComponents); // Ensure unique components
+      setComponents(loadedComponents);
     };
 
     loadComponents();

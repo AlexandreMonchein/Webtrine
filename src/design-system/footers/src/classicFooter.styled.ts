@@ -4,7 +4,6 @@ import { bp } from "../../../breakpoint";
 import { breakpointNames } from "../../../breakpointDef";
 import { DefaultContent } from "../../navbars/src/classicNavbar.styled";
 
-// Container for the footer
 export const FooterContainer = styled.footer`
   background-color: var(--color-quaternary);
   color: var(--color-primary);

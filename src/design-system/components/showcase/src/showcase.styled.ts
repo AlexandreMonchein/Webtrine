@@ -3,7 +3,6 @@ import styled, { css } from "styled-components";
 import { bp } from "../../../../breakpoint";
 import { breakpointNames } from "../../../../breakpointDef";
 
-// Container for the whole section
 export const SectionContainer = styled.section`
   padding: 40px 120px;
   color: var(--text-color-secondary);
@@ -16,7 +15,6 @@ export const SectionContainer = styled.section`
   )}
 `;
 
-// Grid container for items
 export const ItemsGrid = styled.div`
   display: grid;
   column-gap: 10%;
@@ -44,7 +42,6 @@ export const ItemsGrid = styled.div`
   )}
 `;
 
-// Individual item container
 export const Item = styled.div`
   display: flex;
   align-items: center;
@@ -64,12 +61,10 @@ export const Item = styled.div`
   }
 `;
 
-// Round image
 export const RoundImage = styled.img`
   border-radius: 50%;
 `;
 
-// Text container
 export const TextContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -88,7 +83,6 @@ export const TextContainer = styled.div`
   )};
 `;
 
-// Title and description
 export const Title = styled.h3`
   margin: 0;
   font-size: 1.2em;
