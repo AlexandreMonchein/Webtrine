@@ -25,13 +25,13 @@ export const Content = styled.div`
 
 export const Title = styled.h2`
   font-size: var(--title-font-size);
-  color: var(--text-color-tertiary);
+  color: var(--title-colors);
   margin-bottom: 10px;
 `;
 
 export const Description = styled.p`
   font-size: var(--text-font-size);
-  color: var(--color-quinary);
+  color: var(--text-color);
   margin-bottom: 40px;
 `;
 
@@ -49,21 +49,21 @@ export const FormContainer = styled.div`
 export const ContactForm = styled.form`
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 16px;
   text-align: left;
 `;
 
 export const Input = styled.input`
   padding: 10px;
   font-size: var(--text-font-size);
-  border: 1px solid var(--color-quaternary);
+  border: 1px solid var(--border-colors);
   border-radius: 5px;
 `;
 
 export const Textarea = styled.textarea`
   padding: 10px;
   font-size: var(--text-font-size);
-  border: 1px solid var(--color-quaternary);
+  border: 1px solid var(--border-colors);
   border-radius: 5px;
   resize: vertical;
   min-height: 200px;
@@ -72,14 +72,14 @@ export const Textarea = styled.textarea`
 export const Button = styled.button`
   padding: 10px;
   font-size: var(--text-font-size);
-  color: var(--text-color-primary);
-  background-color: var(--text-color-tertiary);
+  color: var(--button-text-color);
+  background-color: var(--background-color);
   border: none;
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s;
 
   &:hover {
-    background-color: darken(var(--text-color-tertiary), 10%);
+    background-color: var(--background-color);
   }
 `;

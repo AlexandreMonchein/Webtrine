@@ -1,8 +1,12 @@
 export const SET_CONFIG = "SET_CONFIG";
-export const setConfig = (config) => {
+export const setConfig = ({ config, style }) => {
+  const { client, layout } = config || {};
+
   return {
     type: SET_CONFIG,
-    config,
+    client,
+    style,
+    layout,
   };
 };
 

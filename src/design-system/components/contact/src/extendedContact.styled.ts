@@ -21,13 +21,13 @@ export const Content = styled.div``;
 
 export const Title = styled.h2`
   font-size: var(--title-font-size);
-  color: var(--text-color-tertiary);
+  color: var(--title-color-2);
   margin-bottom: 10px;
 `;
 
 export const Description = styled.p`
   font-size: var(--text-font-size);
-  color: var(--color-quinary);
+  color: var(--text-color);
   margin-bottom: 40px;
 `;
 
@@ -60,39 +60,27 @@ export const FormDisplay = styled.div`
 export const ContactForm = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 16px;
   flex: 2;
+
+  ${bp.min(
+    breakpointNames.large,
+    css`
+      padding: 40px 20px;
+    `
+  )};
 `;
 
 export const ClientInfo = styled.div`
   padding: 40px 20px;
   flex: 1;
 
-  p,
-  li {
+  p {
     font-size: var(--text-font-size);
-    color: var(--color-quaternary);
-    margin-bottom: 5px;
+    color: var(--text-colo);
     display: flex;
     flex-direction: column;
-  }
-
-  ul {
-    list-style: none;
-    padding: 0;
-
-    li {
-      margin-bottom: 5px;
-    }
-
-    a {
-      color: var(--text-color-tertiary);
-      text-decoration: none;
-
-      &:hover {
-        text-decoration: underline;
-      }
-    }
+    gap: 6px;
   }
 
   ${bp.max(
@@ -107,14 +95,14 @@ export const ClientInfo = styled.div`
 export const Input = styled.input`
   padding: 10px;
   font-size: var(--text-font-size);
-  border: 1px solid var(--color-quaternary);
+  border: 1px solid var(--border-colors);
   border-radius: 5px;
 `;
 
 export const Textarea = styled.textarea`
   padding: 10px;
   font-size: var(--text-font-size);
-  border: 1px solid var(--color-quaternary);
+  border: 1px solid var(--border-colors);
   border-radius: 5px;
   resize: vertical;
   min-height: 200px;
@@ -124,15 +112,14 @@ export const Button = styled.button`
   padding: 10px;
   font-size: var(--text-font-size);
   color: var(--text-color-primary);
-  background-color: var(--text-color-tertiary);
+  background-color: var(--button-background-color);
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: all 0.3s;
 
   &:hover {
-    opacity: 50%;
-    transition: opacity 0.3s;
+    filter: brightness(80%);
   }
 `;
 

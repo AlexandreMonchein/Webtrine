@@ -27,7 +27,8 @@ export const Title = styled.h2`
   font-size: var(--title-font-size);
   font-family: "Josefin Sans", sans-serif;
   text-align: center;
-  font-weight: lighter;
+  font-weight: var(--title-font-weight);
+  color: var(--title-color-2);
   text-transform: uppercase;
   word-wrap: break-word;
 `;

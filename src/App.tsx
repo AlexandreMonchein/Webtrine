@@ -14,7 +14,7 @@ import { Home } from "./design-system/home/src/home.component";
 import DisplayNavbar from "./design-system/navbars/src/displayNavbar.component";
 import { setConfig } from "./store/state.action";
 import { getClient, getStyle, getTemplates } from "./store/state.selector";
-import { RootStyle } from "./globalStyles";
+import { getCustomer } from "./customer.utils";
 import ScrollToTop from "./scrollToTop.utils";
 
 export const templatesTypesBlackList = [
@@ -35,8 +35,11 @@ export const getTemplate = (
   const templates = useSelector(getTemplates);
 
   let template;
+
   if (templates) {
-    template = templates.find((template) => template.type === templateType);
+    if (templateType) {
+      template = templates.find((template) => template.type === templateType);
+    }
 
     if (templateId) {
       template = templates.find(
@@ -57,7 +60,7 @@ export const getTemplate = (
   }
 };
 
-function App(config) {
+function App(props) {
   const dispatch = useDispatch();
 
   const [theme, setTheme] = useState("light");
@@ -65,10 +68,16 @@ function App(config) {
     setTheme(theme === "light" ? "dark" : "light");
   }, [theme]);
 
-  dispatch(setConfig(config));
+  dispatch(setConfig(props));
 
   const templates = useSelector(getTemplates);
   const { title = "" } = useSelector(getClient);
+  const customer = useSelector(getCustomer);
+
+  const RootStyle = require(
+    `./theme/customer/${customer}/globalStyles.ts`
+  ).RootStyle;
+
   const globalStyle = useSelector(getStyle);
 
   const navbarTemplate = getTemplate("navbars");

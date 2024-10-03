@@ -24,8 +24,8 @@
   },
   "contact": {
     "title": "Enim ex aliquip reprehenderit ad excepteur",
-    "description": "Enim ex aliquip reprehenderit ad excepteur",
-    "infoTitle": "Contact Information",
+    "description": null,
+    "infoTitle": "Contact Information:",
     "address": "Address",
     "name": "Name",
     "namePlaceholder": "Your name",

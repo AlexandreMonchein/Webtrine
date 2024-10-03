@@ -12,6 +12,11 @@ export const Button = styled.button`
   font-size: 16px;
   white-space: nowrap; /* Ensure text stays on one line */
   transition: background-color 0.3s ease;
+
+  &:hover {
+    opacity: 0.8;
+    transition: opacity 0.25s ease-in-out;
+  }
 `;
 
 export const Text = styled.span`

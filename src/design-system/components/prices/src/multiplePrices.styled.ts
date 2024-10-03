@@ -33,7 +33,7 @@ export const Title = styled.h2`
 
 export const SubTitle = styled.p`
   font-size: var(--text-font-size);
-  font-weight: var(--font-weight);
+  font-weight: var(--text-font-weight);
   line-height: 1.5;
   word-break: break-word;
 `;
@@ -46,7 +46,7 @@ export const PriceCardsContainer = styled.div`
 `;
 
 export const PriceCard = styled.div`
-  background: var(--color-primary);
+  background: var(--price-background-color);
   padding: 40px 30px;
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -63,7 +63,7 @@ export const CardTitle = styled.h3`
 export const CardPrice = styled.p`
   font-size: 32px;
   margin-bottom: 20px;
-  color: var(--color-tertiary);
+  color: var(--price-color);
 `;
 
 export const FeaturesList = styled.ul`
@@ -81,15 +81,15 @@ export const FeatureItem = styled.li`
 export const ActionButton = styled(Link)`
   padding: 10px 20px;
   font-size: 16px;
-  color: var(--color-primary);
-  background-color: var(--color-tertiary);
+  color: var(--button-text-color);
+  background-color: var(--button-background-color);
   border: none;
   border-radius: 5px;
   cursor: pointer;
   text-decoration: none;
-  transition: background-color 0.3s;
+  transition: all 0.3s;
 
   &:hover {
-    background-color: #0056b3;
+    filter: brightness(80%);
   }
 `;

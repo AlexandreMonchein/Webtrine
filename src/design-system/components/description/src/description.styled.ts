@@ -32,9 +32,10 @@ export const Container = styled.div`
 export const SectionTitle = styled.h2`
   line-height: 56px;
   font-size: var(--title-font-size);
+  color: var(--title-color-2);
   font-family: "Josefin Sans", sans-serif;
   text-align: center;
-  font-weight: lighter;
+  font-weight: var(--title-font-weight);
   text-transform: uppercase;
   word-wrap: break-word;
 `;
@@ -91,7 +92,7 @@ export const TextContent = styled.div`
 
 export const Text = styled.p`
   font-size: var(--text-font-size);
-  font-weight: var(--font-weight);
+  font-weight: var(--text-font-weight);
 
   line-height: 1.5;
   word-break: break-word;

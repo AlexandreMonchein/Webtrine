@@ -69,6 +69,7 @@ const ClassicNavbar = (props) => {
   const {
     features: { isFixed, hasHideOnScroll, trad, darkMode },
     categories,
+    actionButton,
     content: {
       logo: { name },
     },
@@ -203,10 +204,14 @@ const ClassicNavbar = (props) => {
               <SocialContent>{components}</SocialContent>
             </Socials>
           ) : null}
-          <ToggleButton
-            displayedText="Appeler DiPaolo"
-            hiddenText="+33123456789"
-          />
+          {actionButton ? (
+            actionButton.type === "call" ? (
+              <ToggleButton
+                displayedText={actionButton.displayedText}
+                hiddenText={actionButton.hiddenText}
+              />
+            ) : null
+          ) : null}
         </Settings>
       </Container>
       <Sidebar

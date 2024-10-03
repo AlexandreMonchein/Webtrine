@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import classNames from "classnames";
 import { icon } from "leaflet";
 import { MapContainer, Marker, TileLayer, useMap } from "react-leaflet";
 
@@ -6,8 +7,13 @@ import {
   Container,
   List,
   ListItem,
+  ListItemText,
+  ListMultipleItem,
+  ListMultipleItemText,
+  ListWrapper,
   MapWrapper,
   Section,
+  Title,
 } from "./leafletMap.styled";
 
 import "leaflet/dist/leaflet.css";
@@ -24,11 +30,13 @@ const ICON = icon({
 });
 
 const MapComponent = (datas) => {
-  const { places } = datas;
+  const { places, title } = datas;
 
   if (!places.length) {
     return;
   }
+
+  const onePlaceOnly = places.length === 1;
 
   const [selectedPosition, setSelectedPosition] = useState<[number, number]>([
     places[0].position[0],
@@ -38,19 +46,66 @@ const MapComponent = (datas) => {
   return (
     <Section>
       <Container>
-        <List>
-          {places.map((place) => (
+        <List
+          className={classNames({
+            solo: onePlaceOnly,
+          })}
+        >
+          <Title
+            className={classNames({
+              solo: onePlaceOnly,
+            })}
+          >
+            {title}
+          </Title>
+          {onePlaceOnly ? (
             <ListItem
-              key={place.id}
+              key={places[0].id}
               onClick={() =>
-                setSelectedPosition([place.position[0], place.position[1]])
+                setSelectedPosition([
+                  places[0].position[0],
+                  places[0].position[1],
+                ])
               }
             >
-              <h3>{place.name}</h3>
-              <p>{place.address}</p>
-              <p>{place.phone}</p>
+              {places[0].name ? (
+                <ListItemText>{places[0].name}</ListItemText>
+              ) : null}
+              {places[0].address ? (
+                <ListItemText>{places[0].address}</ListItemText>
+              ) : null}
+              {places[0].mail ? (
+                <ListItemText>{places[0].mail}</ListItemText>
+              ) : null}
+              {places[0].phone ? (
+                <ListItemText>{places[0].phone}</ListItemText>
+              ) : null}
             </ListItem>
-          ))}
+          ) : (
+            <ListWrapper>
+              {places.map((place) => (
+                <ListMultipleItem
+                  key={place.id}
+                  onClick={() =>
+                    setSelectedPosition([place.position[0], place.position[1]])
+                  }
+                >
+                  {place.name ? (
+                    <ListMultipleItemText>{place.name}</ListMultipleItemText>
+                  ) : null}
+                  {place.address ? (
+                    <ListMultipleItemText>{place.address}</ListMultipleItemText>
+                  ) : null}
+                  {place.mail ? (
+                    <ListMultipleItemText>{place.mail}</ListMultipleItemText>
+                  ) : null}
+                  {place.phone ? (
+                    <ListMultipleItemText>{place.phone}</ListMultipleItemText>
+                  ) : null}
+                </ListMultipleItem>
+              ))}
+            </ListWrapper>
+          )}
         </List>
         <MapWrapper>
           <MapContainer

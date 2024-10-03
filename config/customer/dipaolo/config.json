@@ -12,53 +12,6 @@
       "instagram": "https://www.instagram.com/laboratoire.dipaolo"
     }
   },
-  "style": {
-    "light": {
-      "font-family": "\"Josefin Sans\",sans-serif",
-
-      "navbar-font-size": "16px",
-      "title-font-size": "42px",
-      "subtitle-font-size": "32px",
-      "text-font-size": "24px",
-      "description-font-size": "16px",
-
-      "color-primary": "#ffffff",
-      "color-secondary": "#E8EEF1",
-      "color-tertiary": "#007bff",
-      "color-quaternary": "#1E3D58",
-      "color-quinary": "#000000",
-
-      "navigation-text-color": "#ffffff",
-      "hover-color": "orange",
-      "hover-border-color": "gold",
-
-      "z-index-navbars": 3,
-      "z-index-text": 2,
-      "z-index-backgrounds": 1
-    },
-    "dark": {
-      "font-family": "\"Josefin Sans\",sans-serif",
-
-      "navbar-font-size": "16px",
-      "title-font-size": "42px",
-      "subtitle-font-size": "32px",
-      "text-font-size": "24px",
-      "description-font-size": "16px",
-
-      "color-primary": "#313134",
-      "color-secondary": "#4a4a50",
-      "color-tertiary": "#ffffff",
-      "color-quaternary": "#161617",
-      "color-quinary": "#ffffff",
-
-      "hover-color": "orange",
-      "hover-border-color": "gold",
-
-      "z-index-navbars": 3,
-      "z-index-text": 2,
-      "z-index-backgrounds": 1
-    }
-  },
   "layout": {
     "templates": [
       {
@@ -97,7 +50,12 @@
               "name": "Contact",
               "link": "/contact"
             }
-          ]
+          ],
+          "actionButton": {
+            "type": "call",
+            "displayedText": "Appeler DiPaolo",
+            "hiddenText": "+33123456789"
+          }
         }
       },
       {
@@ -379,40 +337,21 @@
         }
       },
       {
-        "type": "list",
-        "id": "list",
-        "datas": {
-          "features": {},
-          "title": "Ils nous font confiance",
-          "images": [
-            { "src": "dipaolo", "link": "https://website2.com" },
-            { "src": "dipaolo", "link": "https://website2.com" },
-            { "src": "dipaolo", "link": "https://website2.com" },
-            { "src": "dipaolo", "link": "https://website2.com" }
-          ]
-        }
-      },
-      {
         "type": "map",
         "id": "leafletMap",
         "datas": {
+          "title": "Ou nous trouver: ",
           "features": {},
           "places": [
             {
               "id": 1,
               "name": "Julien Di Paolo",
               "address": "6 Rue de Molina, 42000 Saint-Étienne",
+              "mail": "laboratoiredipaolo@gmail.com",
               "phone": "04 77 41 59 13",
               "position": [45.466, 4.395]
             }
           ]
-        }
-      },
-      {
-        "type": "contact",
-        "id": "extendedContact",
-        "datas": {
-          "features": {}
         }
       },
       {

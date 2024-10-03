@@ -3,14 +3,10 @@
     "title": "Di Paolo",
     "subTitle": "Prothésiste dentaire sur Saint-Etienne"
   },
-  "description": {
-    "title": "Enim ex aliquip reprehenderit ad excepteur",
-    "content": "Enim ex aliquip reprehenderit ad excepteur aliqua excepteur amet proident duis qui exercitation. Exercitation laboris duis elit mollit ut incididunt adipisicing voluptate irure adipisicing minim culpa proident. Proident nostrud cillum sint Lorem excepteur. Laboris non exercitation sint do quis id deserunt exercitation sunt sunt pariatur ullamco esse."
-  },
   "contact": {
     "title": "Enim ex aliquip reprehenderit ad excepteur",
-    "description": "Enim ex aliquip reprehenderit ad excepteur",
-    "infoTitle": "Informations de contact",
+    "description": null,
+    "infoTitle": "Informations de contact:",
     "address": "Adresse",
     "name": "Nom",
     "namePlaceholder": "Votre nom",

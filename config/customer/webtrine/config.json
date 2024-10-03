@@ -11,53 +11,6 @@
       "linkedin": "https://www.linkedin.com/in/alexandre-monschein-34984a161"
     }
   },
-  "style": {
-    "light": {
-      "font-family": "\"Josefin Sans\",sans-serif",
-
-      "navbar-font-size": "16px",
-      "title-font-size": "42px",
-      "subtitle-font-size": "32px",
-      "text-font-size": "24px",
-      "description-font-size": "16px",
-
-      "color-primary": "#ffffff",
-      "color-secondary": "#E8EEF1",
-      "color-tertiary": "#007bff",
-      "color-quaternary": "#1E3D58",
-      "color-quinary": "#000000",
-
-      "navigation-text-color": "#ffffff",
-      "hover-color": "orange",
-      "hover-border-color": "gold",
-
-      "z-index-navbars": 3,
-      "z-index-text": 2,
-      "z-index-backgrounds": 1
-    },
-    "dark": {
-      "font-family": "\"Josefin Sans\",sans-serif",
-
-      "navbar-font-size": "16px",
-      "title-font-size": "42px",
-      "subtitle-font-size": "32px",
-      "text-font-size": "24px",
-      "description-font-size": "16px",
-
-      "color-primary": "#313134",
-      "color-secondary": "#4a4a50",
-      "color-tertiary": "#ffffff",
-      "color-quaternary": "#161617",
-      "color-quinary": "#ffffff",
-
-      "hover-color": "orange",
-      "hover-border-color": "gold",
-
-      "z-index-navbars": 3,
-      "z-index-text": 2,
-      "z-index-backgrounds": 1
-    }
-  },
   "layout": {
     "templates": [
       {

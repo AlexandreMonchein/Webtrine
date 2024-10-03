@@ -38,7 +38,7 @@ export const Links = styled.a`
 
   &:hover {
     color: var(--hover-color);
-    border-bottom: 2px solid var(--hover-border-color);
+    border-bottom: 2px solid var(--hover-color);
   }
 `;
 
@@ -69,7 +69,7 @@ export const SubCategoryContainer = styled.ul`
   }
 
   ${Links} {
-    color: var(--color-quinary);
+    color: var(--text-color);
     padding: 10px;
     border-bottom: none;
 
@@ -93,15 +93,11 @@ export const Content = styled(DefaultContent)`
   padding: 0px 12px 0px 12px;
 
   ${bp.max(
-    breakpointNames.medium,
+    breakpointNames.large,
     css`
       gap: 24px;
     `
-  )}/* &::after {
-    content: "";
-    display: table;
-    clear: both;
-  } */
+  )}
 `;
 
 export const Sidebar = styled.div`
@@ -110,7 +106,7 @@ export const Sidebar = styled.div`
   position: fixed;
   top: 0;
   left: -321px;
-  background-color: var(--color-quaternary);
+  background-color: var(--background-color);
   overflow-x: hidden;
   transition: 0.5s;
   padding-top: 60px;
@@ -181,8 +177,8 @@ export const Container = styled.header`
   position: relative;
   z-index: var(--z-index-navbars);
   font-size: var(--navbar-font-size);
-  background-color: var(--color-quaternary);
-  color: var(--color-quinary);
+  background-color: var(--background-color);
+  color: var(--text-color);
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 
   top: 0;

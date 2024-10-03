@@ -32,7 +32,10 @@ const ExtendedContact = (datas) => {
   const client = useSelector(getClient).contact;
   const location = useLocation();
 
-  const { features } = datas || {};
+  const titleKey = "contact.title";
+  const descriptionKey = "contact.description";
+
+  const { features, title, subTitle } = datas || {};
   const { displayPlan = false } = features || {};
 
   const { product, plan } = location.state || {};
@@ -103,8 +106,16 @@ const ExtendedContact = (datas) => {
     <ContactSection>
       <PopUp />
       <Content>
-        <Title>{t("contact.title")}</Title>
-        <Description>{t("contact.description")}</Description>
+        {title ? (
+          <Title>{title}</Title>
+        ) : t(titleKey) !== titleKey ? (
+          <Title>{t(titleKey)}</Title>
+        ) : null}
+        {subTitle ? (
+          <Description>{subTitle}</Description>
+        ) : t(descriptionKey) !== descriptionKey ? (
+          <Description>{t(descriptionKey)}</Description>
+        ) : null}
         <FormContainer onSubmit={handleSubmit}>
           {productName && (
             <ProductDetails>

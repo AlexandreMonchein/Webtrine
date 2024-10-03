@@ -24,20 +24,20 @@ export const Title = styled.h2`
   line-height: 56px;
   font-size: var(--title-font-size);
   text-align: center;
-  font-weight: lighter;
+  font-weight: var(--title-font-weight);
   text-transform: uppercase;
   word-wrap: break-word;
 `;
 
 export const Description = styled.p`
   font-size: var(--description-font-size);
-  font-weight: var(--font-weight);
+  font-weight: var(--text-font-weight);
   word-break: break-word;
   margin: 0;
 `;
 
 export const FeaturesCard = styled.div`
-  background: var(--color-primary);
+  background: var(--price-background-color);
   border-radius: 10px;
   box-shadow: 0px 0px 8px 8px rgba(0, 0, 0, 0.1);
   width: 100%;
@@ -86,22 +86,22 @@ export const PriceContainer = styled.div`
 export const Price = styled.p`
   font-size: 32px;
   margin: 20px 0;
-  color: var(--color-tertiary);
+  color: var(--price-color);
   text-align: center;
 `;
 
 export const Per = styled.p`
   font-size: 24px;
   margin: 20px 0;
-  color: var(--color-quinary);
+  color: var(--text-color);
   text-align: center;
 `;
 
 export const ActionButton = styled(Link)`
   padding: 10px 20px;
   font-size: 16px;
-  color: var(--color-primary);
-  background-color: var(--color-tertiary);
+  color: var(--button-text-color);
+  background-color: var(--button-background-color);
   border: none;
   border-radius: 5px;
   cursor: pointer;

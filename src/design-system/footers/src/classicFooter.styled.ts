@@ -5,7 +5,7 @@ import { breakpointNames } from "../../../breakpointDef";
 import { DefaultContent } from "../../navbars/src/classicNavbar.styled";
 
 export const FooterContainer = styled.footer`
-  background-color: var(--color-quaternary);
+  background-color: var(--background-color);
   color: var(--color-primary);
   left: 0;
   right: 0;
@@ -41,7 +41,6 @@ export const RightSection = styled.div`
 
 export const MiddleSection = styled.div`
   text-align: center;
-  padding: 0px 64px 0px 64px;
   color: var(--navigation-text-color);
 
   ${bp.max(
