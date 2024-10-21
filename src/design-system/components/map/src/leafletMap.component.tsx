@@ -6,10 +6,12 @@ import { MapContainer, Marker, TileLayer, useMap } from "react-leaflet";
 import {
   Container,
   List,
+  ListContainer,
   ListItem,
   ListItemText,
   ListMultipleItem,
   ListMultipleItemText,
+  ListSection,
   ListWrapper,
   MapWrapper,
   Section,
@@ -30,7 +32,7 @@ const ICON = icon({
 });
 
 const MapComponent = (datas) => {
-  const { places, title } = datas;
+  const { places, openTimesTitle, openTimes, title } = datas;
 
   if (!places.length) {
     return;
@@ -51,61 +53,77 @@ const MapComponent = (datas) => {
             solo: onePlaceOnly,
           })}
         >
-          <Title
+          <ListSection
             className={classNames({
               solo: onePlaceOnly,
             })}
           >
-            {title}
-          </Title>
-          {onePlaceOnly ? (
-            <ListItem
-              key={places[0].id}
-              onClick={() =>
-                setSelectedPosition([
-                  places[0].position[0],
-                  places[0].position[1],
-                ])
-              }
+            <Title
+              className={classNames({
+                solo: onePlaceOnly,
+              })}
             >
-              {places[0].name ? (
-                <ListItemText>{places[0].name}</ListItemText>
-              ) : null}
-              {places[0].address ? (
-                <ListItemText>{places[0].address}</ListItemText>
-              ) : null}
-              {places[0].mail ? (
-                <ListItemText>{places[0].mail}</ListItemText>
-              ) : null}
-              {places[0].phone ? (
-                <ListItemText>{places[0].phone}</ListItemText>
-              ) : null}
-            </ListItem>
-          ) : (
-            <ListWrapper>
-              {places.map((place) => (
-                <ListMultipleItem
-                  key={place.id}
-                  onClick={() =>
-                    setSelectedPosition([place.position[0], place.position[1]])
-                  }
-                >
-                  {place.name ? (
-                    <ListMultipleItemText>{place.name}</ListMultipleItemText>
-                  ) : null}
-                  {place.address ? (
-                    <ListMultipleItemText>{place.address}</ListMultipleItemText>
-                  ) : null}
-                  {place.mail ? (
-                    <ListMultipleItemText>{place.mail}</ListMultipleItemText>
-                  ) : null}
-                  {place.phone ? (
-                    <ListMultipleItemText>{place.phone}</ListMultipleItemText>
-                  ) : null}
-                </ListMultipleItem>
-              ))}
-            </ListWrapper>
-          )}
+              {title}
+            </Title>
+            {onePlaceOnly ? (
+              <ListItem
+                key={places[0].id}
+                onClick={() =>
+                  setSelectedPosition([
+                    places[0].position[0],
+                    places[0].position[1],
+                  ])
+                }
+              >
+                {places[0].address ? (
+                  <ListItemText>{places[0].address}</ListItemText>
+                ) : null}
+                {places[0].phone ? (
+                  <ListItemText>{places[0].phone}</ListItemText>
+                ) : null}
+              </ListItem>
+            ) : (
+              <ListWrapper>
+                {places.map((place) => (
+                  <ListMultipleItem
+                    key={place.id}
+                    onClick={() =>
+                      setSelectedPosition([
+                        place.position[0],
+                        place.position[1],
+                      ])
+                    }
+                  >
+                    {place.address ? (
+                      <ListMultipleItemText>
+                        {place.address}
+                      </ListMultipleItemText>
+                    ) : null}
+                    {place.phone ? (
+                      <ListMultipleItemText>{place.phone}</ListMultipleItemText>
+                    ) : null}
+                  </ListMultipleItem>
+                ))}
+              </ListWrapper>
+            )}
+          </ListSection>
+          {openTimes ? (
+            <ListSection
+              className={classNames({
+                solo: onePlaceOnly,
+              })}
+            >
+              <Title>{openTimesTitle}</Title>
+              <ListContainer>
+                {openTimes.map((openTime, index) => (
+                  <ListItem key={index}>
+                    <ListItemText>{openTime.days}</ListItemText>
+                    <ListItemText>{openTime.hours}</ListItemText>
+                  </ListItem>
+                ))}
+              </ListContainer>
+            </ListSection>
+          ) : null}
         </List>
         <MapWrapper>
           <MapContainer

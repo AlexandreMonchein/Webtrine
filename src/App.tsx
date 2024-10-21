@@ -4,8 +4,8 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 import ExtendedContact from "./design-system/components/contact/src/extendedContact.component";
 import MultiDescription from "./design-system/components/description/src/multiDescriptions.component";
-import Display from "./design-system/components/display/src/display.component";
-import Product from "./design-system/components/display/src/product.component";
+import Gallery from "./design-system/components/gallery/src/gallery.component";
+import Product from "./design-system/components/gallery/src/product.component";
 import Legals from "./design-system/components/legals/src/legals.component";
 import Prices from "./design-system/components/prices/src/prices.component";
 import { PageNotFound } from "./design-system/error/src/pageNotFound.component";
@@ -21,7 +21,7 @@ export const templatesTypesBlackList = [
   "navbars",
   "footers",
   "error",
-  "display",
+  "gallery",
   "legals",
 ];
 
@@ -81,7 +81,7 @@ function App(props) {
   const globalStyle = useSelector(getStyle);
 
   const navbarTemplate = getTemplate("navbars");
-  const displayTemplate = getTemplate("display");
+  const galleryTemplate = getTemplate("gallery");
   const footerTemplate = getTemplate("footers");
 
   useEffect(() => {
@@ -111,10 +111,10 @@ function App(props) {
             element={<MultiDescription templateName="Description" />}
           />
 
-          {displayTemplate && (
+          {galleryTemplate && (
             <Route
-              path="/display"
-              element={<Display template={displayTemplate.datas} />}
+              path="/gallerie"
+              element={<Gallery template={galleryTemplate.datas} />}
             />
           )}
           <Route path="/contact" element={<ExtendedContact />} />

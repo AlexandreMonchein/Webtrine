@@ -42,18 +42,37 @@ export const ListWrapper = styled.div`
     breakpointNames.medium,
     css`
       flex-direction: row;
+      overflow-y: scroll;
     `
   )}
 `;
 
 export const Title = styled.h1`
   color: var(--title-color-2);
+  text-align: center;
 
   &:not(.solo) {
     width: 100%;
     display: flex;
     justify-content: center;
   }
+`;
+
+export const ListSection = styled.div`
+  height: 50%;
+  width: 100%;
+
+  &.solo {
+    align-content: center;
+  }
+
+  ${bp.min(
+    breakpointNames.large,
+    css`
+      overflow-y: scroll;
+      align-content: center;
+    `
+  )}
 `;
 
 export const List = styled.div`
@@ -69,6 +88,8 @@ export const List = styled.div`
     align-content: center;
     justify-content: space-around;
     gap: 32px;
+    overflow-y: hidden;
+    overflow-x: hidden;
   }
 
   ${bp.max(
@@ -77,20 +98,32 @@ export const List = styled.div`
       display: flex;
       flex-direction: row;
       width: auto;
-      height: 50%;
+      height: 100%;
       overflow-y: scroll;
       overflow-x: visible;
       white-space: nowrap;
 
       &.solo {
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         flex-wrap: nowrap;
-        justify-content: center;
-        align-items: center;
         gap: 0px;
         height: 35%;
+        overflow: hidden;
         padding: 0;
+        justify-content: space-evenly;
+        align-items: flex-start;
+      }
+    `
+  )}
+
+  ${bp.max(
+    breakpointNames.small,
+    css`
+      &.solo {
+        flex-direction: column;
+        align-items: center;
+        height: 100vh;
       }
     `
   )}
@@ -125,6 +158,13 @@ export const ListItem = styled.div`
     flex-direction: column;
     gap: 12px;
   }
+`;
+
+export const ListContainer = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 `;
 
 export const ListMultipleItemText = styled.p`

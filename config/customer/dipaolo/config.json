@@ -44,7 +44,7 @@
             },
             {
               "name": "Gallerie",
-              "link": "/display"
+              "link": "/gallerie"
             },
             {
               "name": "Contact",
@@ -281,7 +281,33 @@
       },
       {
         "type": "display",
-        "id": "display",
+        "id": "qualityDisplay",
+        "datas": {
+          "features": {},
+          "title": "This is the title",
+          "content": [
+            {
+              "name": "clock",
+              "text": "this is the svg this is the svg this is the svg"
+            },
+            {
+              "name": "euro",
+              "text": "this is the svg"
+            },
+            {
+              "name": "france",
+              "text": "this is the svg"
+            },
+            {
+              "name": "quality",
+              "text": "this is the svg"
+            }
+          ]
+        }
+      },
+      {
+        "type": "gallery",
+        "id": "gallery",
         "datas": {
           "features": { "shouldRedirect": false },
           "inventory": [
@@ -341,17 +367,44 @@
         "id": "leafletMap",
         "datas": {
           "title": "Ou nous trouver: ",
+          "openTimesTitle": "Horaires d'ouverture:",
+          "openTimes": [
+            {
+              "days": "Lun - Ven",
+              "hours": "8h - 18h"
+            },
+            {
+              "days": "Sam - Dim",
+              "hours": "Fermé"
+            }
+          ],
           "features": {},
           "places": [
             {
               "id": 1,
-              "name": "Julien Di Paolo",
               "address": "6 Rue de Molina, 42000 Saint-Étienne",
-              "mail": "laboratoiredipaolo@gmail.com",
               "phone": "04 77 41 59 13",
               "position": [45.466, 4.395]
             }
           ]
+        }
+      },
+      {
+        "type": "banner",
+        "id": "banner",
+        "datas": {
+          "features": { "multi": false, "medium": true },
+          "title": "Di Paolo",
+          "subTitle": "Prothésiste dentaire sur Saint-Etienne",
+          "images": [
+            {
+              "name": "accueil_banner"
+            }
+          ],
+          "textPosition": "center-left",
+          "contact": {
+            "title": "Contactez-nous"
+          }
         }
       },
       {

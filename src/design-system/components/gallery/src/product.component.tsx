@@ -20,20 +20,20 @@ const Product = () => {
         </ImageWrapper>
         <ProductInfo>
           <ProductName>{name}</ProductName>
-          <ProductPrice>{`${t("display.price")}: ${price}`}</ProductPrice>
+          <ProductPrice>{`${t("gallery.price")}: ${price}`}</ProductPrice>
           <ProductDescription>{description}</ProductDescription>
           <form>
             {sizes && sizes.length > 0 ? (
               <ProductSizes>
                 <label>
-                  <strong>{t("display.selectSize")}</strong>
+                  <strong>{t("gallery.selectSize")}</strong>
                   <select
                     value={selectedSize}
                     onChange={(e) => setSelectedSize(e.target.value)}
                     required
                   >
                     <option value="" disabled>
-                      {t("display.selectSize")}
+                      {t("gallery.selectSize")}
                     </option>
                     {sizes.map((size, index) => (
                       <option key={index} value={size.size}>
@@ -47,14 +47,14 @@ const Product = () => {
             {colors && colors.length > 0 ? (
               <ProductColors>
                 <label>
-                  <strong>{t("display.selectColor")}</strong>
+                  <strong>{t("gallery.selectColor")}</strong>
                   <select
                     value={selectedColor}
                     onChange={(e) => setSelectedColor(e.target.value)}
                     required
                   >
                     <option value="" disabled>
-                      {t("display.selectColor")}
+                      {t("gallery.selectColor")}
                     </option>
                     {colors.map((color, index) => (
                       <option key={index} value={color}>

@@ -213,6 +213,13 @@ export const Logo = styled.div`
   }
 
   ${bp.max(
+    breakpointNames.small,
+    css`
+      display: none;
+    `
+  )};
+
+  ${bp.max(
     breakpointNames.medium,
     css`
       position: relative;

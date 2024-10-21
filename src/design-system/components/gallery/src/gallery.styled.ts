@@ -3,7 +3,7 @@ import styled, { css } from "styled-components";
 import { bp } from "../../../../breakpoint";
 import { breakpointNames } from "../../../../breakpointDef";
 
-export const DisplayWrapper = styled.section`
+export const GalleryWrapper = styled.section`
   display: flex;
   flex-direction: row-reverse;
   align-items: baseline;

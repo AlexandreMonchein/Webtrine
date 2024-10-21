@@ -1,18 +1,18 @@
 import { Card } from "./card.component";
 import {
   CardWrapper,
-  DisplayWrapper,
+  GalleryWrapper,
   MainColumn,
   Wrapper,
-} from "./display.styled";
+} from "./gallery.styled";
 
-const Display = ({ template }) => {
+const Gallery = ({ template }) => {
   const {
     features: { shouldRedirect },
   } = template;
 
   return (
-    <DisplayWrapper>
+    <GalleryWrapper>
       <MainColumn>
         <Wrapper>
           {template.inventory.map((data) => (
@@ -22,8 +22,8 @@ const Display = ({ template }) => {
           ))}
         </Wrapper>
       </MainColumn>
-    </DisplayWrapper>
+    </GalleryWrapper>
   );
 };
 
-export default Display;
+export default Gallery;

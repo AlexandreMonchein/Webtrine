@@ -57,8 +57,8 @@
               "link": "/presentation"
             },
             {
-              "name": "Display",
-              "link": "/display"
+              "name": "Gallery",
+              "link": "/gallerie"
             },
             {
               "name": "Prices",
@@ -488,8 +488,8 @@
         }
       },
       {
-        "type": "display",
-        "id": "display",
+        "type": "gallery",
+        "id": "gallery",
         "datas": {
           "features": { "shouldRedirect": true },
           "inventory": [

@@ -13,8 +13,8 @@ import {
   Title,
 } from "./card.styled";
 import { COLORS } from "./constants";
-import { Wrapper } from "./display.styled";
-import { isNew, pluralize } from "./display.utils";
+import { Wrapper } from "./gallery.styled";
+import { isNew, pluralize } from "./gallery.utils";
 
 export const Card = ({ data, shouldRedirect }) => {
   const { t } = useTranslation();
@@ -41,7 +41,7 @@ export const Card = ({ data, shouldRedirect }) => {
     <Wrapper>
       <StyledLink
         to={{
-          pathname: `/display/${slug}`,
+          pathname: `/gallery/${slug}`,
         }}
         condition={shouldRedirect}
         state={{
@@ -54,9 +54,9 @@ export const Card = ({ data, shouldRedirect }) => {
         }}
       >
         <Image alt="" src={imageSrc} />
-        {variant === "on-sale" && <SaleFlag>{t("display.sale")}</SaleFlag>}
+        {variant === "on-sale" && <SaleFlag>{t("gallery.sale")}</SaleFlag>}
         {variant === "newRelease" && (
-          <NewFlag>{t("display.newRelease")}</NewFlag>
+          <NewFlag>{t("gallery.newRelease")}</NewFlag>
         )}
       </StyledLink>
       {name ? (
