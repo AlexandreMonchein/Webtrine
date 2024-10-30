@@ -63,6 +63,7 @@ export const ListSection = styled.div`
   width: 100%;
 
   &.solo {
+    overflow: hidden;
     align-content: center;
   }
 
