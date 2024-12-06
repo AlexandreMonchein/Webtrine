@@ -2,16 +2,19 @@ import { useLayoutEffect, useRef, useState } from "react";
 
 import { Button, ButtonContainer, Text } from "./classicButton.styled";
 
-export const ToggleButton = ({ displayedText, hiddenText }) => {
+export const ToggleButton = ({ type, displayedText, hiddenText }) => {
   const [isHidden, setIsHidden] = useState(false);
   const [buttonWidth, setButtonWidth] = useState<number | null>(null);
   const displayedRef = useRef<HTMLSpanElement>(null);
   const hiddenRef = useRef<HTMLSpanElement>(null);
 
-  const handleClick = () => {
+  const handleClickCallType = () => {
     setIsHidden(!isHidden);
   };
 
+  const handleClickRedirectType = () => {
+    window.location.href = "/contact";
+  };
   useLayoutEffect(() => {
     if (displayedRef.current && hiddenRef.current) {
       const displayedWidth = displayedRef.current.offsetWidth;
@@ -22,7 +25,11 @@ export const ToggleButton = ({ displayedText, hiddenText }) => {
 
   return (
     <ButtonContainer>
-      <Button onClick={handleClick}>
+      <Button
+        onClick={
+          type === "call" ? handleClickCallType : handleClickRedirectType
+        }
+      >
         <Text style={{ width: buttonWidth ? `${buttonWidth}px` : "auto" }}>
           {isHidden ? hiddenText : displayedText}
         </Text>

@@ -408,56 +408,24 @@
         "id": "leafletMap",
         "datas": {
           "title": "Ou nous trouver: ",
+          "openTimesTitle": "Horaires d'ouverture:",
+          "openTimes": [
+            {
+              "days": "Lun - Ven",
+              "hours": "8h - 18h"
+            },
+            {
+              "days": "Sam - Dim",
+              "hours": "Fermé"
+            }
+          ],
           "features": {},
           "places": [
             {
               "id": 1,
-              "name": "Webtrine",
-              "address": "227 rue des veloutiers",
-              "phone": "0614612295",
-              "position": [45.658, 4.718]
-            },
-            {
-              "id": 2,
-              "name": "Webtrine",
-              "address": "227 rue des veloutiers",
-              "phone": "0614612295",
-              "position": [45.658, 4.718]
-            },
-            {
-              "id": 3,
-              "name": "Webtrine",
-              "address": "227 rue des veloutiers",
-              "phone": "0614612295",
-              "position": [45.658, 4.718]
-            },
-            {
-              "id": 4,
-              "name": "Webtrine",
-              "address": "227 rue des veloutiers",
-              "phone": "0614612295",
-              "position": [45.658, 4.718]
-            },
-            {
-              "id": 5,
-              "name": "Webtrine",
-              "address": "227 rue des veloutiers",
-              "phone": "0614612295",
-              "position": [45.658, 4.718]
-            },
-            {
-              "id": 6,
-              "name": "Webtrine",
-              "address": "227 rue des veloutiers",
-              "phone": "0614612295",
-              "position": [45.658, 4.718]
-            },
-            {
-              "id": 7,
-              "name": "Webtrine",
-              "address": "227 rue des veloutiers",
-              "phone": "0614612295",
-              "position": [45.658, 4.718]
+              "address": "6 Rue de Molina, 42000 Saint-Étienne",
+              "phone": "04 77 41 59 13",
+              "position": [45.466, 4.395]
             }
           ]
         }

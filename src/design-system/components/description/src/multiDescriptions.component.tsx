@@ -1,8 +1,6 @@
-import { useSelector } from "react-redux";
-
 import { getTemplate } from "../../../../App";
-import { getTemplates } from "../../../../store/state.selector";
 import Banner from "../../banner/src/banner.component";
+import Gallery from "../../gallery/src/gallery.component";
 
 import Description from "./description.component";
 
@@ -21,7 +19,7 @@ const MultiDescription = ({ templateName = null }) => {
     datas: { content },
   } = template || {};
 
-  const { topBanner, description, bottomBanner } = content || {};
+  const { topBanner, description, gallery, bottomBanner } = content || {};
 
   return (
     <>
@@ -35,6 +33,7 @@ const MultiDescription = ({ templateName = null }) => {
           />
         );
       })}
+      {gallery && <Gallery template={gallery} />}
       {bottomBanner && <Banner {...bottomBanner} />}
     </>
   );

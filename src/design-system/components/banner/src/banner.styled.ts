@@ -24,7 +24,7 @@ export const BackgroundContainer = styled.div`
   &::before {
     content: "";
     background: #000;
-    z-index: 20;
+    z-index: calc(var(--z-index-backgrounds) + 1);
     top: 0;
     left: 0;
     width: 100%;
@@ -52,7 +52,7 @@ export const Background = styled.img`
 
 export const RedirectLink = styled.a`
   position: absolute;
-  z-index: calc(var(--z-index-backgrounds) + 100);
+  z-index: calc(var(--z-index-backgrounds) + 3);
 
   padding: 12px;
   bottom: 0;
@@ -67,6 +67,10 @@ export const TextContainer = styled.div`
   display: flex;
   flex-direction: column;
 
+  &.medium {
+    position: relative;
+  }
+
   &.top-left {
     top: 5vh;
     left: 5vh;
@@ -79,7 +83,11 @@ export const TextContainer = styled.div`
     text-align: start;
 
     &.medium {
-      top: 15vh;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding-right: 50%;
+      padding-left: 5%;
     }
   }
 
@@ -101,7 +109,9 @@ export const TextContainer = styled.div`
     text-align: center;
 
     &.medium {
-      top: 15vh;
+      top: 0;
+      left: 0;
+      width: 100%;
     }
   }
 
@@ -174,4 +184,18 @@ export const Selector = styled.div`
   &.active {
     opacity: 1;
   }
+`;
+
+export const ContactContainer = styled.div`
+  position: absolute;
+  z-index: calc(var(--z-index-backgrounds) + 2);
+
+  top: 50%;
+  right: 10%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: 16px;
 `;

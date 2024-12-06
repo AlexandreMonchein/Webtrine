@@ -1,5 +1,7 @@
 import { useTranslation } from "react-i18next";
 
+import { getCustomer } from "../../../../customer.utils";
+
 import {
   Image,
   Info,
@@ -30,6 +32,7 @@ export const Card = ({ data, shouldRedirect }) => {
   } = data;
 
   const { sizes, colors } = extraDatas || {};
+  const customer = getCustomer();
 
   const variant = salePrice
     ? "on-sale"
@@ -53,7 +56,10 @@ export const Card = ({ data, shouldRedirect }) => {
           extraDatas,
         }}
       >
-        <Image alt="" src={imageSrc} />
+        <Image
+          alt={imageSrc}
+          src={require(`../../../../assets/${customer}/${imageSrc}.jpg`)}
+        />
         {variant === "on-sale" && <SaleFlag>{t("gallery.sale")}</SaleFlag>}
         {variant === "newRelease" && (
           <NewFlag>{t("gallery.newRelease")}</NewFlag>

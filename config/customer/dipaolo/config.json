@@ -43,6 +43,10 @@
               "link": "/description"
             },
             {
+              "name": "Flux numérique",
+              "link": "/flux"
+            },
+            {
               "name": "Gallerie",
               "link": "/gallerie"
             },
@@ -54,7 +58,7 @@
           "actionButton": {
             "type": "call",
             "displayedText": "Appeler DiPaolo",
-            "hiddenText": "+33123456789"
+            "hiddenText": "+33661118442"
           }
         }
       },
@@ -76,12 +80,12 @@
         "type": "banner",
         "id": "banner",
         "datas": {
-          "features": { "multi": false },
-          "title": "Di Paolo",
-          "subTitle": "Prothésiste dentaire sur Saint-Etienne",
+          "features": { "multi": false, "medium": true },
+          "title": "Laboratoire DI PAOLO",
+          "subTitle": "Créateur de prothèses dentaire de précision",
           "images": [
             {
-              "name": "accueil_banner"
+              "name": "accueil_banner_1"
             }
           ],
           "textPosition": "center-left"
@@ -92,39 +96,62 @@
         "id": "description",
         "datas": {
           "features": { "isReversed": false, "isCentered": false },
-          "title": "Lorem ipsum dolor sit amet",
+          "title": "Un laboratoire au service de ses patients",
           "content": [
             {
-              "text": "lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi."
+              "text": "Nous sommes spécialisés dans la conception et la fabrication de prothèses dentaires, avec une forte intégration des technologies numériques."
             },
             {
-              "text": "lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi."
+              "text": "Nous utilisons la conception 3D et l’impression 3D pour offrir des solutions adaptées aux besoins spécifiques de nos clients."
             },
             {
-              "text": "lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi."
+              "text": "Nous collaborons étroitement avec les dentistes et les chirurgiens-dentistes de la région Auvergne-Rhône-Alpes pour garantir la proximité et la disponibilité."
+            },
+            {
+              "text": "Nous sommes spécialisés dans la fabrication de prothèses complexes, qu’il s’agisse de prothèses sur implants, de prothèses amovibles, ou d’autres types de solutions personnalisées."
             }
           ],
           "image": "accueil_1"
         }
       },
       {
-        "type": "description",
-        "id": "description",
+        "type": "display",
+        "id": "qualityDisplay",
         "datas": {
-          "features": { "isReversed": true, "isCentered": false },
-          "title": "Lorem ipsum dolor sit amet",
+          "features": {},
+          "title": "Confiez-nous le sourire de vos patients",
           "content": [
             {
-              "text": "lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi."
+              "name": "franceColored",
+              "text": "100% français"
             },
             {
-              "text": "lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi."
-            },
+              "name": "quality",
+              "text": "Qualité"
+            }
+          ]
+        }
+      },
+      {
+        "type": "banner",
+        "id": "banner",
+        "datas": {
+          "features": { "multi": false, "medium": true },
+          "title": "Contactez-nous pour plus de renseignement",
+          "subTitle": "Ouvert du Lundi au Vendredi de 8h à 18h",
+          "images": [
             {
-              "text": "lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi."
+              "name": "accueil_banner_2"
             }
           ],
-          "image": "accueil_2"
+          "textPosition": "center-left",
+          "contact": [
+            {
+              "type": "redirect",
+              "to": "contact",
+              "displayedText": "Aller au formulaire de contact"
+            }
+          ]
         }
       },
       {
@@ -135,70 +162,72 @@
           "content": {
             "topBanner": {
               "features": { "medium": true },
-              "title": "Di Paolo",
-              "subTitle": "Le laboratoire",
+              "title": "L'histoire du Laboratoire",
+              "subTitle": null,
               "images": [
                 {
-                  "name": "le_labo_banner_1"
+                  "name": "accueil_banner_1"
                 }
               ],
-              "textPosition": "center-left"
+              "textPosition": "center"
             },
             "description": [
               {
-                "title": "Lorem ipsum dolor sit amet",
+                "title": "Depuis plus de 50 ans à vos côtés",
                 "content": [
                   {
-                    "text": "lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi."
+                    "text": "Fondée par le père de Julien DI PAOLO à la fin des années 70, il reprend officiellement l’entreprise en février 2010 après avoir travaillé aux côtés de ses parents pendant plusieurs années."
                   },
                   {
-                    "text": "lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi."
+                    "text": "Le Laboratoire à su conserver son esprit artisanal tout en s’adaptant aux évolutions technologiques, puis en 2011, il déménage dans de nouveaux locaux plus spacieux, ce qui favorise le développement de l’entreprise."
                   },
                   {
-                    "text": "lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi."
+                    "text": "Aujourd’hui, le Laboratoire Di Paolo emploie 18 personnes et se distinguent par son approche à la fois humaine et innovante sur le marché français de la prothèse dentaire. Avec une demande croissante pour des solutions sur mesure et de haute précision, l’entreprise investit massivement dans des outils de conception assistée par ordinateur (CAO), des machines d’usinage de pointe et des imprimantes 3D."
+                  },
+                  {
+                    "text": "Julien Di Paolo, a su anticiper cette tendance et moderniser son entreprise, faisant du Laboratoire Di Paolo un acteur important dans la région Auvergne-Rhône-Alpes."
                   }
-                ],
-                "image": "le_labo_1"
-              },
-              {
-                "content": [
-                  {
-                    "text": "lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi."
-                  },
-                  {
-                    "text": "lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi."
-                  },
-                  {
-                    "text": "lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi."
-                  }
-                ],
-                "image": "le_labo_2"
-              },
-              {
-                "content": [
-                  {
-                    "text": "lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi."
-                  },
-                  {
-                    "text": "lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi."
-                  },
-                  {
-                    "text": "lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi."
-                  }
-                ],
-                "image": "le_labo_3"
+                ]
               }
             ],
+            "gallery": {
+              "features": { "shouldRedirect": false },
+              "inventory": [
+                {
+                  "slug": "test1",
+                  "imageSrc": "salle_arrive"
+                },
+                {
+                  "slug": "test2",
+                  "imageSrc": "salle_ceram"
+                },
+                {
+                  "slug": "test3",
+                  "imageSrc": "salle_platre"
+                },
+                {
+                  "slug": "test4",
+                  "imageSrc": "salle_prise_de_teinte"
+                }
+              ]
+            },
             "bottomBanner": {
               "features": { "medium": true },
-              "title": "Di Paolo",
-              "subTitle": "Prothésiste dentaire sur Saint-Etienne",
+              "title": "Contactez-nous pour plus de renseignement ",
+              "subTitle": null,
               "images": [
                 {
                   "name": "le_labo_banner_2"
                 }
               ],
-              "textPosition": "center-left"
+              "textPosition": "center-left",
+              "contact": [
+                {
+                  "type": "redirect",
+                  "to": "contact",
+                  "displayedText": "Aller au formulaire de contact"
+                }
+              ]
             }
           }
         }
@@ -211,98 +240,148 @@
           "content": {
             "topBanner": {
               "features": { "medium": true },
-              "title": "Di Paolo",
-              "subTitle": "Nos Prothèses",
+              "title": "Nos Prothèses",
+              "subTitle": null,
               "images": [
                 {
                   "name": "nos_protheses_banner_1"
                 }
               ],
-              "textPosition": "center-left"
+              "textPosition": "center"
             },
             "description": [
               {
-                "title": "Lorem ipsum dolor sit amet",
+                "title": "Des prothèses les plus simples au plus complexes",
                 "content": [
                   {
-                    "text": "lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi."
+                    "text": "Nous collaborons étroitement avec nos clients pour garantir une proximité."
                   },
                   {
-                    "text": "lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi."
-                  },
-                  {
-                    "text": "lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi."
+                    "text": " Nous sommes spécialisés dans la fabrication de prothèses des plus simples au plus complexes, qu’il s’agisse de prothèses sur implants, de prothèses amovibles, ou d’autres types de solutions personnalisées."
                   }
-                ],
-                "image": "nos_protheses_1"
-              },
-              {
-                "content": [
-                  {
-                    "text": "lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi."
-                  },
-                  {
-                    "text": "lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi."
-                  },
-                  {
-                    "text": "lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi."
-                  }
-                ],
-                "image": "nos_protheses_2"
-              },
-              {
-                "content": [
-                  {
-                    "text": "lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi."
-                  },
-                  {
-                    "text": "lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi."
-                  },
-                  {
-                    "text": "lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi."
-                  }
-                ],
-                "image": "nos_protheses_3"
+                ]
               }
             ],
+            "gallery": {
+              "features": { "shouldRedirect": false },
+              "inventory": [
+                {
+                  "slug": "test1",
+                  "imageSrc": "implant"
+                },
+                {
+                  "slug": "test2",
+                  "imageSrc": "emax"
+                },
+                {
+                  "slug": "test3",
+                  "imageSrc": "chassis_metallique"
+                },
+                {
+                  "slug": "test4",
+                  "imageSrc": "amovible"
+                }
+              ]
+            },
             "bottomBanner": {
               "features": { "medium": true },
-              "title": "Di paolo",
-              "subTitle": "Prothésiste dentaire sur Saint-Etienne",
+              "title": "Contactez-nous pour plus de renseignement ",
+              "subTitle": null,
               "images": [
                 {
                   "name": "nos_protheses_banner_2"
                 }
               ],
-              "textPosition": "center-left"
+              "textPosition": "center-left",
+              "contact": [
+                {
+                  "type": "redirect",
+                  "to": "contact",
+                  "displayedText": "Aller au formulaire de contact"
+                }
+              ]
             }
           }
         }
       },
       {
-        "type": "display",
-        "id": "qualityDisplay",
+        "type": "description",
+        "id": "multiDescriptions",
+        "name": "Flux",
         "datas": {
-          "features": {},
-          "title": "This is the title",
-          "content": [
-            {
-              "name": "clock",
-              "text": "this is the svg this is the svg this is the svg"
+          "content": {
+            "topBanner": {
+              "features": { "medium": true },
+              "title": "Un flux numérique complet !",
+              "subTitle": null,
+              "images": [
+                {
+                  "name": "flux_numerique_banner_1"
+                }
+              ],
+              "textPosition": "center"
             },
-            {
-              "name": "euro",
-              "text": "this is the svg"
+            "description": [
+              {
+                "title": "Nos équipements",
+                "content": [
+                  {
+                    "text": "Notre Laboratoire est en capacité de répondre à toutes vos demandes en numériques, nous travaillons avec tous les types de scanner intra-orale et nous sommes équipés de plusieurs poste de CAO (3Shape et Exocad)."
+                  },
+                  {
+                    "text": "Notre présence dans ce domaine depuis plus de 20ans nous a permis d'acquérir une grande expérience dans le flux numérique, nous maîtrisons parfaitement les outils à notre disposition comme le DSD, Smilecloud, Ditramax, Bluesky pour la réalisation de guide chirurgicaux, planification implantaire, MCI numérique, impression de DICOM...."
+                  }
+                ]
+              }
+            ],
+            "gallery": {
+              "features": { "shouldRedirect": false },
+              "inventory": [
+                {
+                  "slug": "test1",
+                  "imageSrc": "medit"
+                },
+                {
+                  "slug": "test2",
+                  "imageSrc": "3shape"
+                },
+                {
+                  "slug": "test3",
+                  "imageSrc": "dentsply_sirona"
+                },
+                {
+                  "slug": "test4",
+                  "imageSrc": "itero"
+                },
+                {
+                  "slug": "test5",
+                  "imageSrc": "shining_3d"
+                },
+                {
+                  "slug": "test6",
+                  "imageSrc": "exocad"
+                }
+              ]
             },
-            {
-              "name": "france",
-              "text": "this is the svg"
-            },
-            {
-              "name": "quality",
-              "text": "this is the svg"
+            "bottomBanner": {
+              "features": { "medium": true },
+              "title": "Contactez-nous pour plus de renseignement ",
+              "subTitle": null,
+              "images": [
+                {
+                  "name": "flux_numerique_banner_2"
+                }
+              ],
+              "textPosition": "center-left",
+              "contact": [
+                {
+                  "type": "redirect",
+                  "to": "contact",
+                  "displayedText": "Aller au formulaire de contact"
+                }
+              ]
             }
-          ]
+          }
         }
       },
       {
@@ -313,98 +392,37 @@
           "inventory": [
             {
               "slug": "test1",
-              "imageSrc": "https://via.placeholder.com/400"
+              "imageSrc": "IMG_4801"
             },
             {
               "slug": "test2",
-              "imageSrc": "https://via.placeholder.com/400"
+              "imageSrc": "IMG_4818"
             },
             {
               "slug": "test3",
-              "imageSrc": "https://via.placeholder.com/400"
+              "imageSrc": "IMG_4890"
             },
             {
               "slug": "test4",
-              "imageSrc": "https://via.placeholder.com/400"
+              "imageSrc": "IMG_4900"
             },
             {
               "slug": "test5",
-              "imageSrc": "https://via.placeholder.com/400"
+              "imageSrc": "IMG_4917"
             },
             {
               "slug": "test6",
-              "imageSrc": "https://via.placeholder.com/400"
+              "imageSrc": "IMG_4946"
             },
             {
               "slug": "test7",
-              "imageSrc": "https://via.placeholder.com/400"
+              "imageSrc": "IMG_4952"
             },
             {
               "slug": "test8",
-              "imageSrc": "https://via.placeholder.com/400"
-            },
-            {
-              "slug": "test9",
-              "imageSrc": "https://via.placeholder.com/400"
-            },
-            {
-              "slug": "test10",
-              "imageSrc": "https://via.placeholder.com/400"
-            },
-            {
-              "slug": "test11",
-              "imageSrc": "https://via.placeholder.com/400"
-            },
-            {
-              "slug": "test12",
-              "imageSrc": "https://via.placeholder.com/400"
+              "imageSrc": "IMG_4979"
             }
           ]
-        }
-      },
-      {
-        "type": "map",
-        "id": "leafletMap",
-        "datas": {
-          "title": "Ou nous trouver: ",
-          "openTimesTitle": "Horaires d'ouverture:",
-          "openTimes": [
-            {
-              "days": "Lun - Ven",
-              "hours": "8h - 18h"
-            },
-            {
-              "days": "Sam - Dim",
-              "hours": "Fermé"
-            }
-          ],
-          "features": {},
-          "places": [
-            {
-              "id": 1,
-              "address": "6 Rue de Molina, 42000 Saint-Étienne",
-              "phone": "04 77 41 59 13",
-              "position": [45.466, 4.395]
-            }
-          ]
-        }
-      },
-      {
-        "type": "banner",
-        "id": "banner",
-        "datas": {
-          "features": { "multi": false, "medium": true },
-          "title": "Di Paolo",
-          "subTitle": "Prothésiste dentaire sur Saint-Etienne",
-          "images": [
-            {
-              "name": "accueil_banner"
-            }
-          ],
-          "textPosition": "center-left",
-          "contact": {
-            "title": "Contactez-nous"
-          }
         }
       },
       {

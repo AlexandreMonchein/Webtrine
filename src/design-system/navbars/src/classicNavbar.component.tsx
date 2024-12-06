@@ -207,6 +207,7 @@ const ClassicNavbar = (props) => {
           {actionButton ? (
             actionButton.type === "call" ? (
               <ToggleButton
+                type="call"
                 displayedText={actionButton.displayedText}
                 hiddenText={actionButton.hiddenText}
               />

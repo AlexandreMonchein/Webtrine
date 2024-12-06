@@ -42,9 +42,10 @@ const Description = (datas) => {
               />
             </ImageWrapper>
           ) : null}
-          {content.map(({ text }, index) => {
-            return <Text key={index}>{text}</Text>;
-          })}
+          {content &&
+            content.map(({ text }, index) => {
+              return <Text key={index}>{text}</Text>;
+            })}
         </Content>
       </Container>
     </Section>

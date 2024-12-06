@@ -2,10 +2,12 @@ import React, { useEffect, useState } from "react";
 import classNames from "classnames";
 
 import { getCustomer } from "../../../../customer.utils";
+import { ToggleButton } from "../../../buttons/src/classicButton.component";
 
 import {
   Background,
   BackgroundContainer,
+  ContactContainer,
   Content,
   RedirectLink,
   Selector,
@@ -24,6 +26,7 @@ const Banner = (datas) => {
     subTitle,
     images,
     textPosition = "bottom-left", // default position
+    contact,
   } = datas;
 
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -56,7 +59,6 @@ const Banner = (datas) => {
       <BackgroundContainer>
         {images.map((image, index) => {
           const { name, copyright } = image || {};
-
           const { url, title } = copyright || {};
 
           return (
@@ -71,6 +73,13 @@ const Banner = (datas) => {
                 <RedirectLink key={`link-${index}`} href={url}>
                   {title}
                 </RedirectLink>
+              ) : null}
+              {contact ? (
+                <ContactContainer>
+                  {contact.map((info) => (
+                    <ToggleButton key={info.type} {...info} />
+                  ))}
+                </ContactContainer>
               ) : null}
             </div>
           );

@@ -110,6 +110,10 @@ function App(props) {
             path="/description"
             element={<MultiDescription templateName="Description" />}
           />
+          <Route
+            path="/flux"
+            element={<MultiDescription templateName="Flux" />}
+          />
 
           {galleryTemplate && (
             <Route
