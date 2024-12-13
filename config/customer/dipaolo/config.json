@@ -336,6 +336,7 @@
             ],
             "gallery": {
               "features": { "shouldRedirect": false },
+              "type": "logo",
               "inventory": [
                 {
                   "slug": "test1",

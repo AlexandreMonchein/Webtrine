@@ -35,4 +35,10 @@ export const CardWrapper = styled.div`
       max-width: 500px;
     `
   )};
+
+  &.is-logo {
+    img {
+      height: auto;
+    }
+  }
 `;

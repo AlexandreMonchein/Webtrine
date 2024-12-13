@@ -9,6 +9,7 @@ import {
 const Gallery = ({ template }) => {
   const {
     features: { shouldRedirect },
+    type,
   } = template;
 
   return (
@@ -16,7 +17,10 @@ const Gallery = ({ template }) => {
       <MainColumn>
         <Wrapper>
           {template.inventory.map((data) => (
-            <CardWrapper key={data.slug}>
+            <CardWrapper
+              key={data.slug}
+              className={type && type === "logo" && "is-logo"}
+            >
               <Card data={data} shouldRedirect={shouldRedirect} />
             </CardWrapper>
           ))}
