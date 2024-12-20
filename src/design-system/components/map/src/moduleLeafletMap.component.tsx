@@ -4,6 +4,7 @@ import { icon } from "leaflet";
 import { MapContainer, Marker, TileLayer, useMap } from "react-leaflet";
 
 import {
+  BigTitle,
   Container,
   List,
   ListContainer,
@@ -31,8 +32,11 @@ const ICON = icon({
   iconSize: [32, 32],
 });
 
-const MapComponent = (datas) => {
-  const { places, openTimesTitle, openTimes, title, bigTitle } = datas;
+export const MapComponent = (datas) => {
+  console.warn(">>> MapComponent", datas);
+  const { features, places, openTimesTitle, openTimes, title, bigTitle } =
+    datas;
+  const { isSmall = false } = features || {};
 
   if (!places.length) {
     return;
@@ -46,12 +50,13 @@ const MapComponent = (datas) => {
   ]);
 
   return (
-    <Section>
-      {bigTitle ? <Title>{bigTitle}</Title> : null}
-      <Container>
+    <Section className={classNames({ isSmall: isSmall })}>
+      {bigTitle ? <BigTitle>{bigTitle}</BigTitle> : null}
+      <Container className={classNames({ isSmall: isSmall })}>
         <List
           className={classNames({
             solo: onePlaceOnly,
+            isSmall: isSmall,
           })}
         >
           <ListSection
@@ -154,5 +159,3 @@ const MapComponent = (datas) => {
     </Section>
   );
 };
-
-export default MapComponent;

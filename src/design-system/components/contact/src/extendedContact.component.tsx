@@ -6,8 +6,10 @@ import { useLocation } from "react-router-dom";
 
 import emailjs from "@emailjs/browser";
 
+import { getTemplate } from "../../../../App";
 import { showPopUp } from "../../../../store/state.action";
 import { getClient } from "../../../../store/state.selector";
+import { MapComponent } from "../../map/src/moduleLeafletMap.component";
 import PopUp from "../../popup/src/popUp.component";
 
 import {
@@ -27,6 +29,7 @@ import {
 } from "./extendedContact.styled";
 
 const ExtendedContact = (datas) => {
+  let template;
   const dispatch = useDispatch();
   const { t } = useTranslation();
   const client = useSelector(getClient).contact;
@@ -35,7 +38,15 @@ const ExtendedContact = (datas) => {
   const titleKey = "contact.title";
   const descriptionKey = "contact.description";
 
-  const { features, title, subTitle } = datas || {};
+  if (!datas || Object.keys(datas).length === 0) {
+    template = getTemplate("contact", "extendedContact", "Contact").datas;
+  }
+
+  console.warn(">>> ExtendedContact", { datas, template });
+
+  const { features, title, subTitle, map } = template ? template : datas;
+
+  console.warn(">>> map", map);
   const { displayPlan = false } = features || {};
 
   const { product, plan } = location.state || {};
@@ -105,6 +116,7 @@ const ExtendedContact = (datas) => {
   return (
     <ContactSection>
       <PopUp />
+      {map ? <MapComponent {...map.datas} /> : null}
       <Content>
         {title ? (
           <Title>{title}</Title>

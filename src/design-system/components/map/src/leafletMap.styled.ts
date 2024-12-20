@@ -2,7 +2,6 @@ import styled, { css } from "styled-components";
 
 import { bp } from "../../../../breakpoint";
 import { breakpointNames } from "../../../../breakpointDef";
-import { Text } from "../../description/src/description.styled";
 
 export const Section = styled.section`
   padding: 40px 120px;
@@ -17,10 +16,24 @@ export const Section = styled.section`
       padding: 20px 40px;
     `
   )}
+
+  &.isSmall {
+    padding: 0;
+  }
 `;
 export const Container = styled.div`
   display: flex;
   height: 70vh;
+
+  &.isSmall {
+    ${bp.min(
+      breakpointNames.large,
+      css`
+        height: 50vh;
+        gap: 32px;
+      `
+    )}
+  }
 
   ${bp.max(
     breakpointNames.medium,
@@ -29,6 +42,10 @@ export const Container = styled.div`
       width: 100%;
       height: 100vh;
       gap: 32px;
+
+      &.isSmall {
+        gap: 0;
+      }
     `
   )}
 `;
@@ -47,7 +64,19 @@ export const ListWrapper = styled.div`
   )}
 `;
 
-export const Title = styled.h1`
+export const BigTitle = styled.h1`
+  font-size: var(--title-font-size);
+  color: var(--title-color-2);
+
+  ${bp.max(
+    breakpointNames.medium,
+    css`
+      display: none;
+    `
+  )}
+`;
+
+export const Title = styled.h2`
   color: var(--title-color-2);
   text-align: center;
 
@@ -59,7 +88,7 @@ export const Title = styled.h1`
 `;
 
 export const ListSection = styled.div`
-  height: 50%;
+  /* height: 50%; */
   width: 100%;
 
   &.solo {
@@ -88,9 +117,14 @@ export const List = styled.div`
   &.solo {
     align-content: center;
     justify-content: space-around;
+    flex-direction: column;
     gap: 32px;
     overflow-y: hidden;
     overflow-x: hidden;
+
+    &.isSmall {
+      gap: 0;
+    }
   }
 
   ${bp.max(

@@ -1,4 +1,7 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+
+import { bp } from "../../../../breakpoint";
+import { breakpointNames } from "../../../../breakpointDef";
 
 export const Content = styled.section`
   width: 100%;
@@ -60,12 +63,53 @@ export const RedirectLink = styled.a`
   color: var(--color-primary);
 `;
 
+export const Overlay = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 120px;
+  gap: 64px;
+
+  ${bp.max(
+    breakpointNames.medium,
+    css`
+      flex-direction: column;
+    `
+  )};
+
+  ${bp.min(
+    breakpointNames.wide,
+    css`
+      gap: 128px;
+    `
+  )};
+`;
+
 export const TextContainer = styled.div`
   position: absolute;
   width: 40%;
   height: auto;
   display: flex;
   flex-direction: column;
+
+  ${bp.max(
+    breakpointNames.medium,
+    css`
+      top: 0 !important;
+      left: 0 !important;
+      width: 100% !important;
+      padding: 0 !important;
+      text-align: center !important;
+    `
+  )};
+
+  &.isSplit {
+    top: 0 !important;
+    left: 0 !important;
+    width: auto !important;
+    padding: 0 !important;
+  }
 
   &.medium {
     position: relative;
@@ -187,15 +231,9 @@ export const Selector = styled.div`
 `;
 
 export const ContactContainer = styled.div`
-  position: absolute;
+  position: relative;
   z-index: calc(var(--z-index-backgrounds) + 2);
-
-  top: 50%;
-  right: 10%;
-
   display: flex;
   flex-direction: column;
   align-items: center;
-
-  gap: 16px;
 `;

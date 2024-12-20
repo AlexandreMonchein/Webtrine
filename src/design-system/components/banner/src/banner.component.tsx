@@ -9,6 +9,7 @@ import {
   BackgroundContainer,
   ContactContainer,
   Content,
+  Overlay,
   RedirectLink,
   Selector,
   SelectorsContainer,
@@ -47,15 +48,36 @@ const Banner = (datas) => {
 
   return (
     <Content className={classNames(textPosition, { medium: medium })}>
-      <TextContainer
-        className={classNames(textPosition, {
-          active: textPositionFeature,
-          medium: medium,
-        })}
-      >
-        {title ? <Title>{title}</Title> : null}
-        {subTitle ? <SubTitle>{subTitle}</SubTitle> : null}
-      </TextContainer>
+      {contact ? (
+        <Overlay>
+          <TextContainer
+            className={classNames(textPosition, {
+              active: textPositionFeature,
+              medium: medium,
+              isSplit: contact,
+            })}
+          >
+            {title ? <Title>{title}</Title> : null}
+            {subTitle ? <SubTitle>{subTitle}</SubTitle> : null}
+          </TextContainer>
+          <ContactContainer>
+            {contact.map((info) => (
+              <ToggleButton key={info.type} {...info} />
+            ))}
+          </ContactContainer>
+        </Overlay>
+      ) : (
+        <TextContainer
+          className={classNames(textPosition, {
+            active: textPositionFeature,
+            medium: medium,
+            isSplit: contact,
+          })}
+        >
+          {title ? <Title>{title}</Title> : null}
+          {subTitle ? <SubTitle>{subTitle}</SubTitle> : null}
+        </TextContainer>
+      )}
       <BackgroundContainer>
         {images.map((image, index) => {
           const { name, copyright } = image || {};
@@ -73,13 +95,6 @@ const Banner = (datas) => {
                 <RedirectLink key={`link-${index}`} href={url}>
                   {title}
                 </RedirectLink>
-              ) : null}
-              {contact ? (
-                <ContactContainer>
-                  {contact.map((info) => (
-                    <ToggleButton key={info.type} {...info} />
-                  ))}
-                </ContactContainer>
               ) : null}
             </div>
           );

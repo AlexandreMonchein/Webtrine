@@ -4,7 +4,7 @@
     "name": "dipaolo",
     "contact": {
       "name": "Di Paolo",
-      "phone": "+33661118442",
+      "phone": "+33477415913",
       "email": "laboratoiredipaolo@gmail.com"
     },
     "socials": {
@@ -57,8 +57,8 @@
           ],
           "actionButton": {
             "type": "call",
-            "displayedText": "Appeler DiPaolo",
-            "hiddenText": "+33661118442"
+            "displayedText": "Appeler",
+            "hiddenText": "+33477415913"
           }
         }
       },
@@ -96,13 +96,13 @@
         "id": "description",
         "datas": {
           "features": { "isReversed": false, "isCentered": false },
-          "title": "Un laboratoire au service de ses patients",
+          "title": "Un laboratoire au service de vos patients",
           "content": [
             {
               "text": "Nous sommes spécialisés dans la conception et la fabrication de prothèses dentaires, avec une forte intégration des technologies numériques."
             },
             {
-              "text": "Nous utilisons la conception 3D et l’impression 3D pour offrir des solutions adaptées aux besoins spécifiques de nos clients."
+              "text": "Nous utilisons la conception et l’impression 3D pour offrir des solutions adaptées aux besoins spécifiques de nos clients."
             },
             {
               "text": "Nous collaborons étroitement avec les dentistes et les chirurgiens-dentistes de la région Auvergne-Rhône-Alpes pour garantir la proximité et la disponibilité."
@@ -266,19 +266,23 @@
               "features": { "shouldRedirect": false },
               "inventory": [
                 {
-                  "slug": "test1",
+                  "slug": "implant",
+                  "name": "Implant",
                   "imageSrc": "implant"
                 },
                 {
-                  "slug": "test2",
+                  "slug": "emax",
+                  "name": "Emax",
                   "imageSrc": "emax"
                 },
                 {
-                  "slug": "test3",
+                  "slug": "chassis_metallique",
+                  "name": "Chassis métallique",
                   "imageSrc": "chassis_metallique"
                 },
                 {
-                  "slug": "test4",
+                  "slug": "amovible",
+                  "name": "Amovible",
                   "imageSrc": "amovible"
                 }
               ]
@@ -424,6 +428,42 @@
               "imageSrc": "IMG_4979"
             }
           ]
+        }
+      },
+      {
+        "type": "contact",
+        "id": "extendedContact",
+        "name": "Contact",
+        "datas": {
+          "map": {
+            "type": "map",
+            "id": "leafletMap",
+            "datas": {
+              "bigTitle": "Vous pouvez nous trouver ici",
+              "title": "Ou nous trouver: ",
+              "openTimesTitle": "Horaires d'ouverture:",
+              "openTimes": [
+                {
+                  "days": "Lun - Ven",
+                  "hours": "8h - 18h"
+                },
+                {
+                  "days": "Sam - Dim",
+                  "hours": "Fermé"
+                }
+              ],
+              "features": { "isSmall": true },
+              "places": [
+                {
+                  "id": 1,
+                  "address": "6 Rue de Molina, 42000 Saint-Étienne",
+                  "phone": "04 77 41 59 13",
+                  "position": [45.466, 4.395]
+                }
+              ]
+            }
+          },
+          "features": {}
         }
       },
       {

@@ -27,6 +27,8 @@ export const templatesTypesBlackList = [
 
 export const templatesIdsBlackList = ["multiDescriptions"];
 
+export const templatesNamesBlackList = ["Contact"];
+
 export const getTemplate = (
   templateType,
   templateId = null,

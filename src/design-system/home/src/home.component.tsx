@@ -1,13 +1,18 @@
 import React, { FC, Suspense, useEffect, useState } from "react";
 import _ from "lodash";
 
-import { templatesIdsBlackList, templatesTypesBlackList } from "../../../App";
+import {
+  templatesIdsBlackList,
+  templatesNamesBlackList,
+  templatesTypesBlackList,
+} from "../../../App";
 
 import { Content } from "./home.styled";
 
 interface Templates {
   type: string;
   id: string;
+  name?: string;
   datas: any;
 }
 
@@ -21,7 +26,8 @@ export const Home: FC<{ templates: Templates[] }> = ({ templates }) => {
         for (const template of templates) {
           if (
             !templatesTypesBlackList.includes(template.type) &&
-            !templatesIdsBlackList.includes(template.id)
+            !templatesIdsBlackList.includes(template.id) &&
+            !templatesNamesBlackList.includes(template.name)
           ) {
             const { type, id, datas } = template;
 

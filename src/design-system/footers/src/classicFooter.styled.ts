@@ -57,6 +57,14 @@ export const BottomSection = styled.div`
   display: flex;
   gap: 24px;
   justify-content: space-evenly;
+  flex-direction: column;
+
+  ${bp.min(
+    breakpointNames.small,
+    css`
+      flex-direction: row;
+    `
+  )}
 `;
 
 export const SocialIcon = styled.a`

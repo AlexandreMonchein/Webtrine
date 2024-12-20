@@ -38,7 +38,16 @@ export const CardWrapper = styled.div`
 
   &.is-logo {
     img {
+      // edit on wide screen
       height: auto;
+
+      ${bp.min(
+        breakpointNames.wide,
+        css`
+          min-width: auto;
+          max-width: 500px;
+        `
+      )};
     }
   }
 `;
