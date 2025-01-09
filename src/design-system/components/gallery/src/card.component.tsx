@@ -1,3 +1,4 @@
+import classNames from "classnames";
 import { useTranslation } from "react-i18next";
 
 import { getCustomer } from "../../../../customer.utils";
@@ -18,7 +19,7 @@ import { COLORS } from "./constants";
 import { Wrapper } from "./gallery.styled";
 import { isNew, pluralize } from "./gallery.utils";
 
-export const Card = ({ data, shouldRedirect }) => {
+export const Card = ({ data, shouldRedirect, type }) => {
   const { t } = useTranslation();
   const {
     slug,
@@ -41,7 +42,7 @@ export const Card = ({ data, shouldRedirect }) => {
       : "default";
 
   return (
-    <Wrapper>
+    <Wrapper className={classNames({ isLogo: type === "logo" })}>
       <StyledLink
         to={{
           pathname: `/gallery/${slug}`,

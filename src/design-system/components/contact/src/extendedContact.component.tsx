@@ -42,11 +42,8 @@ const ExtendedContact = (datas) => {
     template = getTemplate("contact", "extendedContact", "Contact").datas;
   }
 
-  console.warn(">>> ExtendedContact", { datas, template });
-
   const { features, title, subTitle, map } = template ? template : datas;
 
-  console.warn(">>> map", map);
   const { displayPlan = false } = features || {};
 
   const { product, plan } = location.state || {};

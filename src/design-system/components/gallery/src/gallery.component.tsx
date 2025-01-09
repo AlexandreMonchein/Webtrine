@@ -1,32 +1,37 @@
+import classNames from "classnames";
+
 import { Card } from "./card.component";
 import {
   CardWrapper,
-  GalleryWrapper,
+  GalleryRoot,
   MainColumn,
   Wrapper,
 } from "./gallery.styled";
 
-const Gallery = ({ template }) => {
+const Gallery = (datas) => {
+  console.warn(">>> Gallery datas", datas);
   const {
-    features: { shouldRedirect },
-    type,
-  } = template;
+    template: {
+      features: { shouldRedirect = false },
+      type,
+    },
+  } = datas;
 
   return (
-    <GalleryWrapper>
+    <GalleryRoot className={classNames({ isLogo: type === "logo" })}>
       <MainColumn>
-        <Wrapper>
-          {template.inventory.map((data) => (
+        <Wrapper className={classNames({ isLogo: type === "logo" })}>
+          {datas.template.inventory.map((data) => (
             <CardWrapper
               key={data.slug}
-              className={type && type === "logo" && "is-logo"}
+              className={classNames({ isLogo: type === "logo" })}
             >
-              <Card data={data} shouldRedirect={shouldRedirect} />
+              <Card data={data} shouldRedirect={shouldRedirect} type={type} />
             </CardWrapper>
           ))}
         </Wrapper>
       </MainColumn>
-    </GalleryWrapper>
+    </GalleryRoot>
   );
 };
 

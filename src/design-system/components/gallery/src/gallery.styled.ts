@@ -3,12 +3,16 @@ import styled, { css } from "styled-components";
 import { bp } from "../../../../breakpoint";
 import { breakpointNames } from "../../../../breakpointDef";
 
-export const GalleryWrapper = styled.section`
+export const GalleryRoot = styled.section`
   display: flex;
   flex-direction: row-reverse;
   align-items: baseline;
   gap: 32px;
-  padding: 40px 40px;
+  padding: 40px 120px;
+
+  &.isLogo {
+    padding: 0px 120px;
+  }
 `;
 
 export const MainColumn = styled.div`
@@ -21,6 +25,10 @@ export const Wrapper = styled.div`
   justify-content: space-around;
   column-gap: 32px;
   padding-bottom: 32px;
+
+  &.isLogo {
+    padding-bottom: 0px;
+  }
 `;
 
 export const CardWrapper = styled.div`
@@ -36,16 +44,18 @@ export const CardWrapper = styled.div`
     `
   )};
 
-  &.is-logo {
+  &.isLogo {
+    min-width: 64px;
+    max-width: 128px;
+
     img {
-      // edit on wide screen
       height: auto;
 
       ${bp.min(
         breakpointNames.wide,
         css`
           min-width: auto;
-          max-width: 500px;
+          max-width: 256px;
         `
       )};
     }

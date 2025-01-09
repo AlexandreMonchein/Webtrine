@@ -14,8 +14,9 @@ import {
 
 const Description = (datas) => {
   const customer = getCustomer();
+
   const {
-    features: { isReversed, isContinious = false },
+    features: { isReversed = false, isContinious = false },
     image,
     title,
     content,
@@ -28,7 +29,7 @@ const Description = (datas) => {
         isContinious: isContinious,
       })}
     >
-      <SectionTitle>{title}</SectionTitle>
+      {title ? <SectionTitle>{title}</SectionTitle> : null}
       <Container>
         <Content>
           {image ? (

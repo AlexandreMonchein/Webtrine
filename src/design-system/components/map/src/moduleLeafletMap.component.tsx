@@ -33,7 +33,6 @@ const ICON = icon({
 });
 
 export const MapComponent = (datas) => {
-  console.warn(">>> MapComponent", datas);
   const { features, places, openTimesTitle, openTimes, title, bigTitle } =
     datas;
   const { isSmall = false } = features || {};
