@@ -9,7 +9,6 @@ import {
 } from "./gallery.styled";
 
 const Gallery = (datas) => {
-  console.warn(">>> Gallery datas", datas);
   const {
     template: {
       features: { shouldRedirect = false },
