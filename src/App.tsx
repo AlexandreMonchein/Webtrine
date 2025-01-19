@@ -73,7 +73,7 @@ function App(props) {
   dispatch(setConfig(props));
 
   const templates = useSelector(getTemplates);
-  const { title = "" } = useSelector(getClient);
+  const { title = "", logo = "" } = useSelector(getClient);
   const customer = useSelector(getCustomer);
 
   const RootStyle = require(
@@ -88,6 +88,11 @@ function App(props) {
 
   useEffect(() => {
     document.title = title;
+
+    const iconLink = document.createElement("link");
+    iconLink.rel = "icon";
+    iconLink.href = require(`./assets/${customer}/icons/${logo}.png`);
+    document.head.appendChild(iconLink);
   }, []);
 
   return (
