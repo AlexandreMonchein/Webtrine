@@ -47,7 +47,7 @@
               "link": "/flux"
             },
             {
-              "name": "Gallerie",
+              "name": "Galerie photo",
               "link": "/gallerie"
             },
             {
@@ -82,13 +82,13 @@
         "datas": {
           "features": { "multi": false, "medium": true },
           "title": "Laboratoire DI PAOLO",
-          "subTitle": "Créateur de prothèses dentaire de précision",
+          "subTitle": "Créateur de prothèses dentaires de précision",
           "images": [
             {
               "name": "accueil_banner_1"
             }
           ],
-          "textPosition": "center-left"
+          "textPosition": "center-right"
         }
       },
       {
@@ -182,12 +182,13 @@
                   "text": "Le Laboratoire à su conserver son esprit artisanal tout en s’adaptant aux évolutions technologiques, puis en 2011, il déménage dans de nouveaux locaux plus spacieux, ce qui favorise le développement de l’entreprise."
                 },
                 {
-                  "text": "Aujourd’hui, le Laboratoire Di Paolo emploie 18 personnes et se distinguent par son approche à la fois humaine et innovante sur le marché français de la prothèse dentaire. Avec une demande croissante pour des solutions sur mesure et de haute précision, l’entreprise investit massivement dans des outils de conception assistée par ordinateur (CAO), des machines d’usinage de pointe et des imprimantes 3D."
+                  "text": "Aujourd’hui, le Laboratoire Di Paolo emploie 18 personnes et se distingue par son approche à la fois humaine et innovante sur le marché français de la prothèse dentaire. Avec une demande croissante pour des solutions sur mesure et de haute précision, l’entreprise investit massivement dans des outils de conception assistée par ordinateur (CAO), des machines d’usinage de pointe et des imprimantes 3D."
                 },
                 {
-                  "text": "Julien Di Paolo, a su anticiper cette tendance et moderniser son entreprise, faisant du Laboratoire Di Paolo un acteur important dans la région Auvergne-Rhône-Alpes."
+                  "text": "Julien Di Paolo a su anticiper cette tendance et moderniser son entreprise, faisant du Laboratoire Di Paolo un acteur important dans la région Auvergne-Rhône-Alpes."
                 }
-              ]
+              ],
+              "image": "accueil"
             },
             "gallery-1": {
               "template": {
@@ -212,6 +213,10 @@
                   {
                     "slug": "salle_scan",
                     "imageSrc": "salle_scan"
+                  },
+                  {
+                    "slug": "accueil_2",
+                    "imageSrc": "accueil_2"
                   }
                 ]
               }
@@ -342,7 +347,7 @@
               "features": { "isReversed": false, "isContinious": false },
               "content": [
                 {
-                  "text": "Notre Laboratoire est en capacité de répondre à toutes vos demandes en numériques, nous travaillons avec tous les types de scanner intra-orale et nous sommes équipés de plusieurs poste de CAO (3Shape et Exocad)."
+                  "text": "Notre Laboratoire est en capacité de répondre à toutes vos demandes en numérique. Nous travaillons avec tous les types de scanner intra-orale et nous sommes équipés de plusieurs postes de CAO (3Shape et Exocad)."
                 }
               ]
             },
@@ -396,8 +401,8 @@
                     "imageSrc": "4"
                   },
                   {
-                    "slug": "guide",
-                    "imageSrc": "guide"
+                    "slug": "guide_3",
+                    "imageSrc": "guide_3"
                   },
                   {
                     "slug": "guide_2",
@@ -442,36 +447,48 @@
           "features": { "shouldRedirect": false },
           "inventory": [
             {
-              "slug": "test1",
+              "slug": "img_1",
               "imageSrc": "IMG_4801"
             },
             {
-              "slug": "test2",
+              "slug": "img_2",
               "imageSrc": "IMG_4818"
             },
             {
-              "slug": "test3",
+              "slug": "img_3",
               "imageSrc": "IMG_4890"
             },
             {
-              "slug": "test4",
+              "slug": "img_4",
               "imageSrc": "IMG_4900"
             },
             {
-              "slug": "test5",
-              "imageSrc": "IMG_4917"
-            },
-            {
-              "slug": "test6",
+              "slug": "img_5",
               "imageSrc": "IMG_4946"
             },
             {
-              "slug": "test7",
+              "slug": "img_6",
               "imageSrc": "IMG_4952"
             },
             {
-              "slug": "test8",
-              "imageSrc": "IMG_4979"
+              "slug": "img_7",
+              "imageSrc": "guide_3"
+            },
+            {
+              "slug": "img_8",
+              "imageSrc": "PICT0003"
+            },
+            {
+              "slug": "img_9",
+              "imageSrc": "PICT0017"
+            },
+            {
+              "slug": "img_10",
+              "imageSrc": "emax"
+            },
+            {
+              "slug": "img_11",
+              "imageSrc": "zircone"
             }
           ]
         }

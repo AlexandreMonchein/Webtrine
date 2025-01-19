@@ -173,7 +173,7 @@ export const Container = styled.header`
   justify-content: space-between;
   align-items: center;
   padding: 16px 32px;
-  height: 48px;
+  height: 64px;
   position: relative;
   z-index: var(--z-index-navbars);
   font-size: var(--navbar-font-size);
@@ -209,7 +209,7 @@ export const Logo = styled.div`
 
   img {
     display: block;
-    height: 64px;
+    height: 96px;
   }
 
   ${bp.max(

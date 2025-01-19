@@ -177,7 +177,11 @@ export const TextContainer = styled.div`
     text-align: end;
 
     &.medium {
-      top: 15vh;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding-left: 50%;
+      padding-right: 5%;
     }
   }
 
