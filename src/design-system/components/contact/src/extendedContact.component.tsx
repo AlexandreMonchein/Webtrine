@@ -59,7 +59,7 @@ const ExtendedContact = (datas) => {
 
   const { title: planTitle, price: planPrice, per: planPer } = plan || {};
 
-  const { phone, email, address } = client;
+  const { phone, email, address, mailTemplate: templateId } = client;
 
   const { number, street, zip, city } = address || {};
 
@@ -96,7 +96,6 @@ const ExtendedContact = (datas) => {
     };
 
     const serviceId = "service_4fc2bmb";
-    const templateId = "template_8b4j0fm";
 
     try {
       await emailjs.send(serviceId, templateId, {
