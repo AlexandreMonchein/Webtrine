@@ -83,9 +83,12 @@ const ClassicFooter = (template) => {
       <MiddleSection>
         <TopSection>
           {" "}
-          <p>
+          <p tabIndex={0}>
             © 2024 Webtrine, tous droits réservés. Réalisé par{" "}
-            <SiteRef href="/">Webtrine</SiteRef>.
+            <SiteRef tabIndex={-1} href="/">
+              Webtrine
+            </SiteRef>
+            .
           </p>
         </TopSection>
         <BottomSection>

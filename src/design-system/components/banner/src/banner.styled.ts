@@ -82,6 +82,7 @@ export const Overlay = styled.div`
     breakpointNames.wide,
     css`
       gap: 128px;
+      padding: 480px;
     `
   )};
 `;
@@ -194,20 +195,12 @@ export const TextContainer = styled.div`
 
 export const Title = styled.h1`
   z-index: var(--z-index-text);
-  color: white;
-  text-transform: uppercase;
-  font-size: var(--title-font-size);
-  line-height: var(--line-height);
-  letter-spacing: 2px;
+  color: var(--title-color-1);
 `;
 
 export const SubTitle = styled.h2`
   z-index: var(--z-index-text);
-  color: white;
-  text-transform: uppercase;
-  font-size: var(--subtitle-font-size);
-  line-height: var(--line-height);
-  letter-spacing: 2px;
+  color: var(--title-color-1);
 `;
 
 export const SelectorsContainer = styled.div`

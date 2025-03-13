@@ -3,14 +3,8 @@ import { createGlobalStyle } from "styled-components";
 
 export const RootStyle = createGlobalStyle<{ globalStyle }>`
  :root {
-    // font
-    --font-family: ${(props) => _.get(props, "globalStyle.font-family")};
-    --title-font-weight: ${(props) => _.get(props, "globalStyle.titles-font-weight")};
-    --text-font-weight: ${(props) => _.get(props, "globalStyle.text-font-weight")};
-
     // sizes
     --navbar-font-size: ${(props) => _.get(props, "globalStyle.navbar-font-size")};
-    --title-font-size: ${(props) => _.get(props, "globalStyle.title-font-size")};
     --subtitle-font-size: ${(props) => _.get(props, "globalStyle.subtitle-font-size")};
     --text-font-size: ${(props) => _.get(props, "globalStyle.text-font-size")};
     --description-font-size: ${(props) => _.get(props, "globalStyle.description-font-size")};
@@ -37,7 +31,7 @@ export const RootStyle = createGlobalStyle<{ globalStyle }>`
     --price-background-color: var(--white);
     --price-color: var(--blue);
 
-    --title-color-1: var(--black);
+    --title-color-1: var(--white);
     --title-color-2: var(--blue);
     --text-color: var(--black);
 
@@ -50,12 +44,6 @@ export const RootStyle = createGlobalStyle<{ globalStyle }>`
     --z-index-navbars: 3;
     --z-index-text: 2;
     --z-index-backgrounds: 1;
-
-    font-family: var(--font-family);
-    margin: 0;
-    padding: 0;
-    border: 0;
-    vertical-align: baseline;  
   }
 
   [data-theme="dark"] {

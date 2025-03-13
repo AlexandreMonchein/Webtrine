@@ -63,7 +63,6 @@ export const Flag = styled.div`
   right: -4px;
   background: red;
   height: 32px;
-  line-height: 32px;
   padding: 0 10px;
   font-size: ${14 / 16}rem;
   font-weight: ${WEIGHTS.bold};

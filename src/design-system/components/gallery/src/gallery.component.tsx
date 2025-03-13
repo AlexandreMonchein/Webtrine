@@ -10,10 +10,7 @@ import {
 
 const Gallery = (datas) => {
   const {
-    template: {
-      features: { shouldRedirect = false },
-      type,
-    },
+    template: { type },
   } = datas;
 
   return (
@@ -25,7 +22,7 @@ const Gallery = (datas) => {
               key={data.slug}
               className={classNames({ isLogo: type === "logo" })}
             >
-              <Card data={data} shouldRedirect={shouldRedirect} type={type} />
+              <Card data={data} type={type} />
             </CardWrapper>
           ))}
         </Wrapper>

@@ -23,20 +23,10 @@ export const PricesContainer = styled.section`
 `;
 
 export const Title = styled.h2`
-  line-height: 56px;
-  font-size: var(--title-font-size);
   text-align: center;
-  font-weight: lighter;
-  text-transform: uppercase;
-  word-wrap: break-word;
 `;
 
-export const SubTitle = styled.p`
-  font-size: var(--text-font-size);
-  font-weight: var(--text-font-weight);
-  line-height: 1.5;
-  word-break: break-word;
-`;
+export const SubTitle = styled.p``;
 
 export const PriceCardsContainer = styled.div`
   display: flex;

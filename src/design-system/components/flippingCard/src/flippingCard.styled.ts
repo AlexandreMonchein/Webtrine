@@ -23,14 +23,8 @@ export const CardContainer = styled.div`
 `;
 
 export const Title = styled.h2`
-  line-height: 56px;
-  font-size: var(--title-font-size);
-  font-family: "Josefin Sans", sans-serif;
-  text-align: center;
-  font-weight: var(--title-font-weight);
   color: var(--title-color-2);
-  text-transform: uppercase;
-  word-wrap: break-word;
+  text-align: center;
 `;
 
 export const Card = styled.div`

@@ -26,6 +26,7 @@ export const ToggleButton = ({ type, displayedText, hiddenText }) => {
   return (
     <ButtonContainer>
       <Button
+        type="button"
         onClick={
           type === "call" ? handleClickCallType : handleClickRedirectType
         }

@@ -3,8 +3,9 @@ import styled, { css } from "styled-components";
 import { bp } from "../../../breakpoint";
 import { breakpointNames } from "../../../breakpointDef";
 
-export const BurgerMenuIcon = styled.div`
+export const BurgerMenuIcon = styled.button`
   display: none;
+  background: none;
   flex-direction: column;
   cursor: pointer;
   z-index: 3;
@@ -27,16 +28,13 @@ export const BurgerMenuIcon = styled.div`
 
 export const Links = styled.a`
   display: block;
-  font-size: 16px;
-  font-weight: bold;
-  text-transform: uppercase;
   text-decoration: none;
   cursor: pointer;
   color: var(--navigation-text-color);
   border-bottom: 2px solid transparent;
   padding: 10px 0px;
 
-  &:hover {
+  &:hover, &:focus-visible {
     color: var(--hover-color);
     border-bottom: 2px solid var(--hover-color);
   }
@@ -73,7 +71,7 @@ export const SubCategoryContainer = styled.ul`
     padding: 10px;
     border-bottom: none;
 
-    &:hover {
+    &:hover, &:focus-visible {
       border-bottom: none;
       color: var(--hover-color);
     }
@@ -158,7 +156,7 @@ export const Sidebar = styled.div`
     transition: 0.5s;
     text-align: left;
 
-    &:hover {
+    &:hover, &:focus-visible {
       color: var(--hover-color);
     }
   }
@@ -173,7 +171,6 @@ export const Container = styled.header`
   justify-content: space-between;
   align-items: center;
   padding: 16px 32px;
-  height: 64px;
   position: relative;
   z-index: var(--z-index-navbars);
   font-size: var(--navbar-font-size);
@@ -209,7 +206,7 @@ export const Logo = styled.div`
 
   img {
     display: block;
-    height: 96px;
+    width: 96px;
   }
 
   ${bp.max(
@@ -274,5 +271,4 @@ export const Category = styled.li`
 export const Languages = styled.div`
   display: flex;
   align-items: center;
-  font-weight: bold;
 `;

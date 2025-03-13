@@ -26,18 +26,13 @@ export const Section = styled.section`
 `;
 
 export const Container = styled.div`
-  display: block;
+  display: flex;
+  justify-content: center;
 `;
 
 export const SectionTitle = styled.h2`
-  line-height: 56px;
-  font-size: var(--title-font-size);
   color: var(--title-color-2);
-  font-family: "Josefin Sans", sans-serif;
   text-align: center;
-  font-weight: var(--title-font-weight);
-  text-transform: uppercase;
-  word-wrap: break-word;
 `;
 
 export const Content = styled.div`
@@ -53,7 +48,7 @@ export const Content = styled.div`
   )};
 `;
 
-export const ImageWrapper = styled.figure`
+export const ImageContainer = styled.div`
   margin: 0;
   padding: 0 24px 0 0;
   height: auto;
@@ -62,7 +57,7 @@ export const ImageWrapper = styled.figure`
   ${bp.max(
     breakpointNames.medium,
     css`
-      padding: 0;
+      padding: 0 0 12px 0;
     `
   )};
 
@@ -73,7 +68,7 @@ export const ImageWrapper = styled.figure`
     ${bp.max(
       breakpointNames.medium,
       css`
-        padding: 0;
+      padding: 0 0 12px 0;
       `
     )};
   }
@@ -81,8 +76,8 @@ export const ImageWrapper = styled.figure`
 
 export const Image = styled.img`
   width: 100%;
-  height: auto;
-  max-width: 50vh;
+  max-width: 416px;
+  border-radius: 8px;
 `;
 
 export const TextContent = styled.div`
@@ -91,12 +86,7 @@ export const TextContent = styled.div`
 `;
 
 export const Text = styled.p`
-  font-size: var(--text-font-size);
-  font-weight: var(--text-font-weight);
-
-  line-height: 1.5;
-  word-break: break-word;
-  text-align: justify;
+  padding-bottom: 16px;
 `;
 
 export const DescriptionContentWrapper = styled.ul`

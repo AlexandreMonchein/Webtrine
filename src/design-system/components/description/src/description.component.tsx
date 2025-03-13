@@ -6,7 +6,7 @@ import {
   Container,
   Content,
   Image,
-  ImageWrapper,
+  ImageContainer,
   Section,
   SectionTitle,
   Text,
@@ -29,23 +29,29 @@ const Description = (datas) => {
         isContinious: isContinious,
       })}
     >
-      {title ? <SectionTitle>{title}</SectionTitle> : null}
+      {title ? <SectionTitle tabIndex={0}>{title}</SectionTitle> : null}
       <Container>
         <Content>
           {image ? (
-            <ImageWrapper
+            <ImageContainer
               className={classNames({
                 isReversed: isReversed,
               })}
             >
               <Image
+                tabIndex={0}
                 src={require(`../../../../assets/${customer}/${image}.jpg`)}
+                alt=""
               />
-            </ImageWrapper>
+            </ImageContainer>
           ) : null}
           {content &&
             content.map(({ text }, index) => {
-              return <Text key={index}>{text}</Text>;
+              return (
+                <Text tabIndex={0} key={index}>
+                  {text}
+                </Text>
+              );
             })}
         </Content>
       </Container>

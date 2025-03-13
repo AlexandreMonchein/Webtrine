@@ -25,7 +25,7 @@ const FeatureSection = (datas: Datas) => {
               );
 
               return (
-                <ContentItem key={name}>
+                <ContentItem tabIndex={0} key={name}>
                   <SvgIcon key={name}>
                     <Module.default key={name} color="orange" size={64} />
                   </SvgIcon>
@@ -48,7 +48,7 @@ const FeatureSection = (datas: Datas) => {
 
   return (
     <Section>
-      <Title>{title}</Title>
+      <Title tabIndex={0}>{title}</Title>
       <ContentGrid>{components}</ContentGrid>
     </Section>
   );

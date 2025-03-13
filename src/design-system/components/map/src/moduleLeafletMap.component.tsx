@@ -1,7 +1,7 @@
-import React, { useState } from "react";
-import classNames from "classnames";
+import { ReactElement, useState } from "react";
 import { icon } from "leaflet";
-import { MapContainer, Marker, TileLayer, useMap } from "react-leaflet";
+import { GestureHandling } from "leaflet-gesture-handling";
+import { Marker, TileLayer, useMap, useMapEvents } from "react-leaflet";
 
 import {
   BigTitle,
@@ -10,118 +10,86 @@ import {
   ListContainer,
   ListItem,
   ListItemText,
-  ListMultipleItem,
-  ListMultipleItemText,
   ListSection,
-  ListWrapper,
-  MapWrapper,
+  MapContainer,
   Section,
   Title,
 } from "./leafletMap.styled";
 
 import "leaflet/dist/leaflet.css";
-
-const FlyToLocation = ({ position }: { position: [number, number] }) => {
-  const map = useMap();
-  map.flyTo(position, 13);
-  return null;
-};
+import "leaflet-gesture-handling/dist/leaflet-gesture-handling.css";
 
 const ICON = icon({
   iconUrl: "./marker_icon.png",
   iconSize: [32, 32],
 });
 
-export const MapComponent = (datas) => {
-  const { features, places, openTimesTitle, openTimes, title, bigTitle } =
-    datas;
-  const { isSmall = false } = features || {};
+export const MapLeaflet = (datas): ReactElement => {
+  const { places, openTimesTitle, openTimes, title, bigTitle } = datas;
 
   if (!places.length) {
     return;
   }
-
-  const onePlaceOnly = places.length === 1;
 
   const [selectedPosition, setSelectedPosition] = useState<[number, number]>([
     places[0].position[0],
     places[0].position[1],
   ]);
 
+  const onClickMarker = (e) => {
+    console.warn(">>> onClickMarker", e);
+  };
+  const zoom = 13;
+
+  const [init, setInit] = useState<boolean>(true);
+
+  const LocationMarker = () => {
+    const map = useMapEvents({
+      locationfound(e) {
+        map.flyTo(e.latlng, map.getZoom());
+      },
+    });
+
+    return null;
+  };
+  const GestureHandlingSetter = () => {
+    const map = useMap() as any;
+    map.gestureHandling.enable();
+    map.addHandler("gestureHandling", GestureHandling);
+    setInit(false);
+    return null;
+  };
+
   return (
-    <Section className={classNames({ isSmall: isSmall })}>
-      {bigTitle ? <BigTitle>{bigTitle}</BigTitle> : null}
-      <Container className={classNames({ isSmall: isSmall })}>
-        <List
-          className={classNames({
-            solo: onePlaceOnly,
-            isSmall: isSmall,
-          })}
-        >
-          <ListSection
-            className={classNames({
-              solo: onePlaceOnly,
-            })}
-          >
-            <Title
-              className={classNames({
-                solo: onePlaceOnly,
-              })}
+    <Section>
+      {bigTitle ? <BigTitle tabIndex={0}>{bigTitle}</BigTitle> : null}
+      <Container>
+        <List>
+          <ListSection>
+            <Title tabIndex={0}>{title}</Title>
+            <ListItem
+              key={places[0].id}
+              onClick={() =>
+                setSelectedPosition([
+                  places[0].position[0],
+                  places[0].position[1],
+                ])
+              }
             >
-              {title}
-            </Title>
-            {onePlaceOnly ? (
-              <ListItem
-                key={places[0].id}
-                onClick={() =>
-                  setSelectedPosition([
-                    places[0].position[0],
-                    places[0].position[1],
-                  ])
-                }
-              >
-                {places[0].address ? (
-                  <ListItemText>{places[0].address}</ListItemText>
-                ) : null}
-                {places[0].phone ? (
-                  <ListItemText>{places[0].phone}</ListItemText>
-                ) : null}
-              </ListItem>
-            ) : (
-              <ListWrapper>
-                {places.map((place) => (
-                  <ListMultipleItem
-                    key={place.id}
-                    onClick={() =>
-                      setSelectedPosition([
-                        place.position[0],
-                        place.position[1],
-                      ])
-                    }
-                  >
-                    {place.address ? (
-                      <ListMultipleItemText>
-                        {place.address}
-                      </ListMultipleItemText>
-                    ) : null}
-                    {place.phone ? (
-                      <ListMultipleItemText>{place.phone}</ListMultipleItemText>
-                    ) : null}
-                  </ListMultipleItem>
-                ))}
-              </ListWrapper>
-            )}
+              {places[0].address ? (
+                <ListItemText tabIndex={0}>{places[0].address}</ListItemText>
+              ) : null}
+              {places[0].phone ? (
+                <ListItemText tabIndex={0}>{places[0].phone}</ListItemText>
+              ) : null}
+            </ListItem>
           </ListSection>
           {openTimes ? (
-            <ListSection
-              className={classNames({
-                solo: onePlaceOnly,
-              })}
-            >
-              <Title>{openTimesTitle}</Title>
+            <ListSection>
+              <Title tabIndex={0}>{openTimesTitle}</Title>
               <ListContainer>
                 {openTimes.map((openTime, index) => (
-                  <ListItem key={index}>
+                  <ListItem tabIndex={0} key={index}>
                     <ListItemText>{openTime.days}</ListItemText>
                     <ListItemText>{openTime.hours}</ListItemText>
                   </ListItem>
@@ -130,30 +98,36 @@ export const MapComponent = (datas) => {
             </ListSection>
           ) : null}
         </List>
-        <MapWrapper>
-          <MapContainer
-            center={selectedPosition}
-            zoom={13}
-            style={{ height: "100%", width: "100%" }}
-          >
-            <TileLayer
-              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-              attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        <MapContainer
+          id="map-id"
+          center={selectedPosition}
+          zoom={zoom}
+          scrollWheelZoom={false}
+          doubleClickZoom={true}
+          minZoom={2}
+          preferCanvas={false}
+          whenCreated={() => console.log("Map Created")}
+          whenReady={() => console.log("Map Ready")}
+        >
+          <TileLayer
+            url="https://{s}.tile.osm.org/{z}/{x}/{y}.png"
+            noWrap={true}
+          />
+          {places.map((place, index) => (
+            <Marker
+              key={`marker_contact_list_${index}`}
+              position={place.position}
+              icon={ICON}
+              eventHandlers={{
+                click: () => {
+                  onClickMarker && onClickMarker(place.id);
+                },
+              }}
             />
-            {places.map((place) => (
-              <Marker
-                key={place.id}
-                position={[place.position[0], place.position[1]]}
-                icon={ICON}
-              >
-                {/* Add popups or other marker features here if needed */}
-              </Marker>
-            ))}
-            <FlyToLocation
-              position={[selectedPosition[0], selectedPosition[1]]}
-            />
-          </MapContainer>
-        </MapWrapper>
+          ))}
+          <LocationMarker />
+          {init && <GestureHandlingSetter />}
+        </MapContainer>
       </Container>
     </Section>
   );

@@ -124,7 +124,7 @@ const ProductInfo = styled.div`
   border-radius: 16px;
 `;
 
-const ProductName = styled.h1`
+const ProductName = styled.h3`
   font-size: 2rem;
   color: #333;
   margin-bottom: 16px;

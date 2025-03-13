@@ -15,9 +15,8 @@ export const Section = styled.section`
 `;
 
 export const Title = styled.h2`
-  text-align: center;
-  font-size: var(--title-font-size);
   color: var(--title-color-2);
+  text-align: center;
 `;
 
 export const ContentGrid = styled.div`
@@ -35,7 +34,9 @@ export const ContentGrid = styled.div`
 `;
 
 export const ContentItem = styled.div`
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 export const SvgIcon = styled.div`
@@ -47,7 +48,5 @@ export const SvgIcon = styled.div`
 `;
 
 export const Text = styled.p`
-  font-size: var(--text-font-size);
-  font-weight: var(--text-font-weight);
   color: var(--text-color);
 `;

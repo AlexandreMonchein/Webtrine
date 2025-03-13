@@ -57,8 +57,8 @@ const Banner = (datas) => {
               isSplit: contact,
             })}
           >
-            {title ? <Title>{title}</Title> : null}
-            {subTitle ? <SubTitle>{subTitle}</SubTitle> : null}
+            {title ? <Title tabIndex={0}>{title}</Title> : null}
+            {subTitle ? <SubTitle tabIndex={0}>{subTitle}</SubTitle> : null}
           </TextContainer>
           <ContactContainer>
             {contact.map((info) => (
@@ -74,8 +74,8 @@ const Banner = (datas) => {
             isSplit: contact,
           })}
         >
-          {title ? <Title>{title}</Title> : null}
-          {subTitle ? <SubTitle>{subTitle}</SubTitle> : null}
+          {title ? <Title tabIndex={0}>{title}</Title> : null}
+          {subTitle ? <SubTitle tabIndex={0}>{subTitle}</SubTitle> : null}
         </TextContainer>
       )}
       <BackgroundContainer>
@@ -92,7 +92,7 @@ const Banner = (datas) => {
                 className={classNames({ active: index === currentIndex })}
               />
               {url && title ? (
-                <RedirectLink key={`link-${index}`} href={url}>
+                <RedirectLink tabIndex={0} key={`link-${index}`} href={url}>
                   {title}
                 </RedirectLink>
               ) : null}

@@ -59,6 +59,9 @@ importers:
       leaflet:
         specifier: ^1.9.4
         version: 1.9.4
+      leaflet-gesture-handling:
+        specifier: ^1.2.2
+        version: 1.2.2
       lodash:
         specifier: ^4.17.21
         version: 4.17.21
@@ -5008,6 +5011,9 @@ packages:
   lazy-universal-dotenv@4.0.0:
     resolution: {integrity: sha512-aXpZJRnTkpK6gQ/z4nk+ZBLd/Qdp118cvPruLSIQzQNRhKwEcdXCOzXuF55VDqIiuAaY3UGZ10DJtvZzDcvsxg==}
     engines: {node: '>=14.0.0'}
+
+  leaflet-gesture-handling@1.2.2:
+    resolution: {integrity: sha512-Blf5V4PoNphWkzL7Y1qge+Spkd4OCQ2atjwUNhMhLIcjKzPcBH++x/lwOinaR9jSqLWqJ6oKYO8d0XdTffy4hQ==}
 
   leaflet@1.9.4:
     resolution: {integrity: sha512-nxS1ynzJOmOlHp+iL3FyWqK89GtNL8U8rvlMOsQdTTssxZwCXh8N2NB3GDQOL+YR3XnWyZAxwQixURb+FA74PA==}
@@ -13543,7 +13549,7 @@ snapshots:
 
   jest-message-util@29.7.0:
     dependencies:
-      '@babel/code-frame': 7.24.2
+      '@babel/code-frame': 7.24.7
       '@jest/types': 29.6.3
       '@types/stack-utils': 2.0.3
       chalk: 4.1.2
@@ -13916,6 +13922,8 @@ snapshots:
       app-root-dir: 1.0.2
       dotenv: 16.4.5
       dotenv-expand: 10.0.0
+
+  leaflet-gesture-handling@1.2.2: {}
 
   leaflet@1.9.4: {}
 

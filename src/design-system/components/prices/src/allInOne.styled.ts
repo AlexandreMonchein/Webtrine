@@ -21,18 +21,10 @@ export const PricesContainer = styled.section`
 `;
 
 export const Title = styled.h2`
-  line-height: 56px;
-  font-size: var(--title-font-size);
   text-align: center;
-  font-weight: var(--title-font-weight);
-  text-transform: uppercase;
-  word-wrap: break-word;
 `;
 
 export const Description = styled.p`
-  font-size: var(--description-font-size);
-  font-weight: var(--text-font-weight);
-  word-break: break-word;
   margin: 0;
 `;
 

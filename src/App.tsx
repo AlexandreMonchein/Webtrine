@@ -14,6 +14,7 @@ import { Home } from "./design-system/home/src/home.component";
 import DisplayNavbar from "./design-system/navbars/src/displayNavbar.component";
 import { setConfig } from "./store/state.action";
 import { getClient, getStyle, getTemplates } from "./store/state.selector";
+import GlobalStyle from "./theme/customer/default/globalStyled";
 import { getCustomer } from "./customer.utils";
 import ScrollToTop from "./scrollToTop.utils";
 
@@ -98,6 +99,7 @@ function App(props) {
   return (
     <Router>
       <ScrollToTop />
+      <GlobalStyle />
       <RootStyle globalStyle={{ ...globalStyle }} />
       <div data-theme={theme}>
         {navbarTemplate && (

@@ -1,9 +1,14 @@
 import React, { useCallback, useEffect, useState } from "react";
 import classNames from "classnames";
 import { useTranslation } from "react-i18next";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
-import { getClient, getSocials } from "../../../store/state.selector";
+import { toggleModal } from "../../../store/state.action";
+import {
+  getClient,
+  getModalState,
+  getSocials,
+} from "../../../store/state.selector";
 import { ToggleButton } from "../../buttons/src/classicButton.component";
 import { ToggleThemeMode } from "../../buttons/src/modeTheme.component";
 import {
@@ -11,6 +16,8 @@ import {
   SocialLogo,
   Socials,
 } from "../../footers/src/classicFooter.styled";
+import { FocusTrapProvider } from "../../utils/focusTrap/focusTrap.provider";
+import { MODAL_TYPES } from "../../utils/focusTrap/type";
 
 import {
   BurgerMenuIcon,
@@ -28,10 +35,12 @@ import {
 } from "./classicNavbar.styled";
 
 const ClassicNavbar = (props) => {
-  const { t, i18n } = useTranslation();
+  const { i18n } = useTranslation();
+  const dispatch = useDispatch();
   const [components, setComponents] = useState<React.ReactNode[]>([]);
   const { name: clientName } = useSelector(getClient);
   const socials = useSelector(getSocials);
+  const modal = useSelector(getModalState);
 
   useEffect(() => {
     const loadComponents = async () => {
@@ -48,7 +57,7 @@ const ClassicNavbar = (props) => {
               <li key={name}>
                 <SocialLogo>
                   {/* @ts-ignore */}
-                  <a href={link}>
+                  <a aria-label={name} href={link}>
                     <Module.default key={name} />
                   </a>
                 </SocialLogo>
@@ -100,8 +109,12 @@ const ClassicNavbar = (props) => {
     i18n.changeLanguage(lang);
   };
 
-  const toggleSidebar = () => {
+  const toggleSidebar = (e) => {
+    console.warn(">>> toggleSidebar", e);
     setIsSidebarOpen(!isSidebarOpen);
+    dispatch(
+      toggleModal({ type: MODAL_TYPES.SIDE_NAV, active: isSidebarOpen })
+    );
   };
 
   const handleOnClick = (e) => {
@@ -118,7 +131,7 @@ const ClassicNavbar = (props) => {
     if (
       isSidebarOpen &&
       !document.getElementById("sidebar").contains(event.target) &&
-      !document.getElementById("burgerMenuIcon").contains(event.target)
+      !document.getElementById("burgerMenuNavbarIcon").contains(event.target)
     ) {
       setIsSidebarOpen(false);
     }
@@ -137,7 +150,7 @@ const ClassicNavbar = (props) => {
   }, [prevScrollPos, isSidebarOpen]);
 
   return (
-    <>
+    <FocusTrapProvider isVisible={modal?.active} type={modal?.type}>
       <Container
         id="navbar"
         className={classNames({
@@ -145,7 +158,12 @@ const ClassicNavbar = (props) => {
           hideOnScroll: hasHideOnScroll,
         })}
       >
-        <BurgerMenuIcon id="burgerMenuIcon" onClick={toggleSidebar}>
+        <BurgerMenuIcon
+          tabIndex={isSidebarOpen ? -1 : 0}
+          id="burgerMenuNavbarIcon"
+          onClick={toggleSidebar}
+          aria-label="Menu"
+        >
           <div></div>
           <div></div>
           <div></div>
@@ -153,7 +171,7 @@ const ClassicNavbar = (props) => {
         <Logo>
           <a href="/">
             <img
-              alt="LOGO"
+              alt={name}
               src={require(`../../../assets/${clientName}/icons/${name}.png`)}
             />
           </a>
@@ -222,7 +240,11 @@ const ClassicNavbar = (props) => {
           open: isSidebarOpen,
         })}
       >
-        <BurgerMenuIcon onClick={toggleSidebar}>
+        <BurgerMenuIcon
+          tabIndex={isSidebarOpen ? 0 : -1}
+          id="burgerMenuSidebarIcon"
+          onClick={toggleSidebar}
+        >
           <div></div>
           <div></div>
           <div></div>
@@ -232,11 +254,20 @@ const ClassicNavbar = (props) => {
             if (category.sub) {
               return (
                 <Category className="deroulant" key={category.name}>
-                  <Links onClick={handleOnClick}>{category.name}</Links>
+                  <Links
+                    tabIndex={isSidebarOpen ? 0 : -1}
+                    onClick={handleOnClick}
+                  >
+                    {category.name}
+                  </Links>
                   <SubCategoryContainer className="sous">
                     {category.sub.map((sub) => (
                       <SubCategory key={sub.name}>
-                        <Links href={sub.link} onClick={toggleSidebar}>
+                        <Links
+                          tabIndex={isSidebarOpen ? 0 : -1}
+                          href={sub.link}
+                          onClick={toggleSidebar}
+                        >
                           {sub.name}
                         </Links>
                       </SubCategory>
@@ -248,7 +279,11 @@ const ClassicNavbar = (props) => {
 
             return (
               <Category key={category.name}>
-                <Links href={category.link} onClick={toggleSidebar}>
+                <Links
+                  tabIndex={isSidebarOpen ? 0 : -1}
+                  href={category.link}
+                  onClick={toggleSidebar}
+                >
                   {category.name}
                 </Links>
               </Category>
@@ -256,7 +291,7 @@ const ClassicNavbar = (props) => {
           })}
         </Content>
       </Sidebar>
-    </>
+    </FocusTrapProvider>
   );
 };
 

@@ -10,7 +10,7 @@ export const FooterContainer = styled.footer`
   left: 0;
   right: 0;
   bottom: 0;
-  padding: 40px 120px;
+  padding: 16px 32px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -75,7 +75,7 @@ export const SocialIcon = styled.a`
 
 export const Logo = styled.img`
   display: block;
-  height: 64px;
+  width: 96px;
 `;
 
 export const Socials = styled.div`

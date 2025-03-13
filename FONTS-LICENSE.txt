@@ -1,0 +1,4 @@
+Font: Luciole
+Author: Centre Technique Régional pour la Déficience Visuelle (CTRDV)
+License: Free for use under the specified terms
+Website: https://luciole-vision.com/

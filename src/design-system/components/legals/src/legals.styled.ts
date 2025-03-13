@@ -5,7 +5,6 @@ import { breakpointNames } from "../../../../breakpointDef";
 
 export const Container = styled.section`
   padding: 20px;
-  font-family: Arial, sans-serif;
 
   display: flex;
   flex-direction: column;
@@ -54,7 +53,6 @@ export const ContentTitle = styled.h2`
 
 export const ContentText = styled.p`
   font-size: 16px;
-  line-height: 1.5;
 `;
 
 export const Disclaimer = styled(ContentText)``;

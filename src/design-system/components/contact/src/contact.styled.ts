@@ -24,13 +24,11 @@ export const Content = styled.div`
 `;
 
 export const Title = styled.h2`
-  font-size: var(--title-font-size);
-  color: var(--title-colors);
+  color: var(--title-color-2);
   margin-bottom: 10px;
 `;
 
 export const Description = styled.p`
-  font-size: var(--text-font-size);
   color: var(--text-color);
   margin-bottom: 40px;
 `;

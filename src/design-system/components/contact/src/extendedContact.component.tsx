@@ -9,7 +9,7 @@ import emailjs from "@emailjs/browser";
 import { getTemplate } from "../../../../App";
 import { showPopUp } from "../../../../store/state.action";
 import { getClient } from "../../../../store/state.selector";
-import { MapComponent } from "../../map/src/moduleLeafletMap.component";
+import { MapLeaflet } from "../../map/src/moduleLeafletMap.component";
 import PopUp from "../../popup/src/popUp.component";
 
 import {
@@ -22,8 +22,7 @@ import {
   FormContainer,
   FormDisplay,
   Input,
-  ProductDetails,
-  ProductInfo,
+  Spacer,
   Textarea,
   Title,
 } from "./extendedContact.styled";
@@ -33,7 +32,6 @@ const ExtendedContact = (datas) => {
   const dispatch = useDispatch();
   const { t } = useTranslation();
   const client = useSelector(getClient).contact;
-  const location = useLocation();
 
   const titleKey = "contact.title";
   const descriptionKey = "contact.description";
@@ -42,22 +40,7 @@ const ExtendedContact = (datas) => {
     template = getTemplate("contact", "extendedContact", "Contact").datas;
   }
 
-  const { features, title, subTitle, map } = template ? template : datas;
-
-  const { displayPlan = false } = features || {};
-
-  const { product, plan } = location.state || {};
-
-  const {
-    name: productName,
-    imageSrc,
-    price: productPrice,
-    description,
-    selectedSize,
-    selectedColor,
-  } = product || {};
-
-  const { title: planTitle, price: planPrice, per: planPer } = plan || {};
+  const { title, subTitle, map } = template ? template : datas;
 
   const { phone, email, address, mailTemplate: templateId } = client;
 
@@ -82,17 +65,6 @@ const ExtendedContact = (datas) => {
       number,
       subject,
       content,
-      product: product
-        ? {
-            productName,
-            productPrice,
-            imageSrc,
-            description,
-            selectedSize,
-            selectedColor,
-          }
-        : null,
-      plan: plan ? { planTitle, planPrice, planPer } : null,
     };
 
     const serviceId = "service_4fc2bmb";
@@ -112,76 +84,31 @@ const ExtendedContact = (datas) => {
   return (
     <ContactSection>
       <PopUp />
-      {map ? <MapComponent {...map.datas} /> : null}
+      {map ? (
+        <>
+          <MapLeaflet {...map.datas} />
+          <Spacer />
+        </>
+      ) : null}
       <Content>
         {title ? (
-          <Title>{title}</Title>
+          <Title tabIndex={0}>{title}</Title>
         ) : t(titleKey) !== titleKey ? (
-          <Title>{t(titleKey)}</Title>
+          <Title tabIndex={0}>{t(titleKey)}</Title>
         ) : null}
         {subTitle ? (
-          <Description>{subTitle}</Description>
+          <Description tabIndex={0}>{subTitle}</Description>
         ) : t(descriptionKey) !== descriptionKey ? (
-          <Description>{t(descriptionKey)}</Description>
+          <Description tabIndex={0}>{t(descriptionKey)}</Description>
         ) : null}
         <FormContainer onSubmit={handleSubmit}>
-          {productName && (
-            <ProductDetails>
-              <h2>{t("display.reservationTitle")}</h2>
-              <ProductInfo>
-                <img src={imageSrc} alt={productName} />
-                <div>
-                  <p>
-                    <strong>{t("display.productName")}:</strong> {productName}
-                  </p>
-                  <p>
-                    <strong>{t("display.price")}:</strong> {productPrice}
-                  </p>
-                  <p>
-                    <strong>{t("display.description")}:</strong> {description}
-                  </p>
-                  <p>
-                    <strong>{t("display.selectedSize")}:</strong>{" "}
-                    {selectedSize || "N/A"}
-                  </p>
-                  <p>
-                    <strong>{t("display.selectedColor")}:</strong>{" "}
-                    {selectedColor || "N/A"}
-                  </p>
-                </div>
-              </ProductInfo>
-            </ProductDetails>
-          )}
-          {displayPlan && plan && (
-            <ProductDetails>
-              <h2>{t("prices.planTitle")}</h2>
-              <ProductInfo>
-                <div>
-                  <p>
-                    <strong>{t("prices.title")}:</strong> {planTitle}
-                  </p>
-                  <p>
-                    <strong>{t("prices.price")}:</strong> {planPrice}{" "}
-                    {planPer ? ` / ${planPer}` : null}
-                  </p>
-                </div>
-              </ProductInfo>
-            </ProductDetails>
-          )}
           <FormDisplay>
             <ClientInfo>
-              <h2>{t("contact.infoTitle")}</h2>
-              {number && street && zip && city ? (
-                <p>
-                  <strong>{t("contact.address")}:</strong> {number}{" "}
-                  {`${street}, ${zip} ${city}`}
-                </p>
-              ) : null}
-
-              <p>
+              <h2 tabIndex={0}>{t("contact.infoTitle")}</h2>
+              <p tabIndex={0}>
                 <strong>{t("contact.phone")}:</strong> {phone}
               </p>
-              <p>
+              <p tabIndex={0}>
                 <strong>{t("contact.email")}:</strong> {email}
               </p>
             </ClientInfo>

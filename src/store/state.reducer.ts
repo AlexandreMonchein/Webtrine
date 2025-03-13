@@ -5,6 +5,10 @@ export const initialState = {
     message: null,
     error: null,
   },
+  modal: {
+    type: null,
+    active: false,
+  },
 };
 
 export function stateReducer(state = initialState, action) {
@@ -21,6 +25,10 @@ export function stateReducer(state = initialState, action) {
 
     case "HIDE_POPUP":
       return { ...state, popUp: { showPopUp: false } };
+
+    case "TOGGLE_MODAL":
+      const { modalType, active } = action;
+      return { ...state, modal: { type: modalType, active: !active } };
 
     default:
       return state;

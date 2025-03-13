@@ -15,18 +15,27 @@ export const ContactSection = styled.section`
       padding: 20px 40px;
     `
   )}
+
+  ${bp.min(
+    breakpointNames.wide,
+    css`
+      padding: 20px 480px;
+    `
+  )}
+`;
+
+export const Spacer = styled.hr`
+  margin: 24px 0;
 `;
 
 export const Content = styled.div``;
 
 export const Title = styled.h2`
-  font-size: var(--title-font-size);
   color: var(--title-color-2);
   margin-bottom: 10px;
 `;
 
 export const Description = styled.p`
-  font-size: var(--text-font-size);
   color: var(--text-color);
   margin-bottom: 40px;
 `;
@@ -121,45 +130,4 @@ export const Button = styled.button`
   &:hover {
     filter: brightness(80%);
   }
-`;
-
-export const ProductDetails = styled.div`
-  margin-bottom: 40px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  border: 1px solid;
-
-  ${bp.max(
-    breakpointNames.large,
-    css`
-      margin-bottom: 20px;
-    `
-  )};
-`;
-
-export const ProductInfo = styled.div`
-  display: flex;
-  margin-bottom: 20px;
-
-  img {
-    width: 150px;
-    height: 150px;
-    object-fit: cover;
-    border-radius: 8px;
-    margin-right: 20px;
-  }
-
-  ${bp.max(
-    breakpointNames.large,
-    css`
-      flex-direction: column;
-      align-items: center;
-      margin: 0;
-
-      img {
-        margin: 0;
-      }
-    `
-  )};
 `;
