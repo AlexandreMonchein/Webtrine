@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Get customer from environment variables
-CUSTOMER=$(printenv REACT_APP_CUSTOMER)
+CUSTOMER=$(printenv VITE_CUSTOMER)
 
 if [ -z "$CUSTOMER" ]; then
     echo "Error: No customer specified."

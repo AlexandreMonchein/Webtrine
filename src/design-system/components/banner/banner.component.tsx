@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import classNames from "classnames";
 
-import { getCustomer } from "../../../../customer.utils";
-import { ToggleButton } from "../../../buttons/src/classicButton.component";
+import { getCustomer } from "../../../customer.utils";
+import { ToggleButton } from "../../buttons/src/classicButton.component";
 
 import {
   Background,
@@ -88,7 +88,7 @@ const Banner = (datas) => {
               <Background
                 key={index}
                 alt={`Background ${index + 1}`}
-                src={require(`../../../../assets/${customer}/${name}.jpg`)}
+                src={`/assets/${customer}/${name}.jpg`}
                 className={classNames({ active: index === currentIndex })}
               />
               {url && title ? (

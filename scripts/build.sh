@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Get customer from environment variables
-CUSTOMER=$(printenv REACT_APP_CUSTOMER)
+CUSTOMER=$(printenv VITE_CUSTOMER)
 
 echo "Building for customer: $CUSTOMER"
 
@@ -13,7 +13,7 @@ if [ -d "./build" ]; then
 fi
 
 # Set environment variable and run build command
-REACT_APP_CUSTOMER=$CUSTOMER pnpm react-scripts build
+VITE_CUSTOMER=$CUSTOMER pnpm react-scripts build
 
 # Create customer-specific build directory if it doesn't exist
 mkdir -p ./build/$CUSTOMER

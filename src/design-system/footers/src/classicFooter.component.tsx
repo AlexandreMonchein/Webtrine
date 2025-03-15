@@ -21,7 +21,7 @@ import {
   TopSection,
 } from "./classicFooter.styled";
 
-const ClassicFooter = (template) => {
+const ClassicFooter = ({ template }) => {
   const [components, setComponents] = useState<React.ReactNode[]>([]);
   const { name: clientName } = useSelector(getClient);
   const socials = useSelector(getSocials);
@@ -31,6 +31,12 @@ const ClassicFooter = (template) => {
 
   const { images } = template || {};
 
+  // Use import.meta.glob to load all components ahead of time
+  // @ts-expect-error TODO: fix vite errors
+  const componentFiles = import.meta.glob(
+    "../../components/**/**/*.component.tsx"
+  );
+
   useEffect(() => {
     const loadComponents = async () => {
       const loadedComponents: React.ReactNode[] = [];
@@ -38,21 +44,28 @@ const ClassicFooter = (template) => {
       for (const [name, link] of Object.entries(socials)) {
         try {
           if (link) {
-            const module = await import(
-              `../../../assets/icons/${name}.component`
-            );
-            const Component = module.default;
+            const componentPath = `../../../components/icons/${name}.component`;
 
-            loadedComponents.push(
-              <li key={name}>
-                <SocialLogo>
-                  {/* @ts-ignore */}
-                  <a href={link}>
-                    <Component key={name} />
-                  </a>
-                </SocialLogo>
-              </li>
-            );
+            // Check if the path matches a valid component file
+            const module = componentFiles[componentPath];
+
+            if (module) {
+              const resolvedModule = await module();
+              const Component = resolvedModule.default;
+
+              loadedComponents.push(
+                <li key={name}>
+                  <SocialLogo>
+                    {/* @ts-ignore TODO: fix this type error */}
+                    <a href={link}>
+                      <Component />
+                    </a>
+                  </SocialLogo>
+                </li>
+              );
+            }
+          } else {
+            console.error(`Component not found: ${link}`);
           }
         } catch (error) {
           console.error(`Error loading component: ${name}`, error);
@@ -68,22 +81,21 @@ const ClassicFooter = (template) => {
   return (
     <FooterContainer>
       <LeftSection>
-        {images.map((image) => {
-          return (
-            <a href="/" key={image.name}>
-              <Logo
-                alt={image.alt}
-                src={require(
-                  `../../../assets/${clientName}/icons/${image.name}.png`
-                )}
-              />
-            </a>
-          );
-        })}
+        {images &&
+          images.map((image) => {
+            return (
+              <a href="/" key={image.name}>
+                <Logo
+                  alt={image.alt}
+                  // @ts-expect-error TODO: fix vite errors
+                  src={`${import.meta.env.BASE_URL}assets/${clientName}/icons/${image.name}.png`}
+                />
+              </a>
+            );
+          })}
       </LeftSection>
       <MiddleSection>
         <TopSection>
-          {" "}
           <p tabIndex={0}>
             © 2024 Webtrine, tous droits réservés. Réalisé par{" "}
             <SiteRef tabIndex={-1} href="/">

@@ -42,6 +42,10 @@ const ClassicNavbar = (props) => {
   const socials = useSelector(getSocials);
   const modal = useSelector(getModalState);
 
+  // Use import.meta.glob to load all components ahead of time
+  // @ts-expect-error TODO: fix vite errors
+  const componentFiles = import.meta.glob("../../assets/**/*.component.tsx");
+
   useEffect(() => {
     const loadComponents = async () => {
       const loadedComponents: React.ReactNode[] = [];
@@ -49,21 +53,24 @@ const ClassicNavbar = (props) => {
       for (const [name, link] of Object.entries(socials)) {
         try {
           if (link) {
-            const module = await import(
-              `../../../assets/icons/${name}.component`
-            );
-            const Component = module.default;
+            const componentPath = `../../../assets/icons/${name}.component`;
+            const module = componentFiles[componentPath];
 
-            loadedComponents.push(
-              <li key={name}>
-                <SocialLogo>
-                  {/* @ts-ignore */}
-                  <a aria-label={name} href={link}>
-                    <Component key={name} />
-                  </a>
-                </SocialLogo>
-              </li>
-            );
+            if (module) {
+              const resolvedModule = await module();
+              const Component = resolvedModule.default;
+
+              loadedComponents.push(
+                <li key={name}>
+                  <SocialLogo>
+                    {/* @ts-ignore */}
+                    <a aria-label={name} href={link}>
+                      <Component key={name} />
+                    </a>
+                  </SocialLogo>
+                </li>
+              );
+            }
           }
         } catch (error) {
           console.error(`Error loading component: ${name}`, error);
@@ -182,7 +189,8 @@ const ClassicNavbar = (props) => {
           <a href="/">
             <img
               alt={name}
-              src={require(`../../../assets/${clientName}/icons/${name}.png`)}
+              // @ts-expect-error TODO: fix vite errors
+              src={`${import.meta.env.BASE_URL}assets/${clientName}/icons/${name}.png`}
             />
           </a>
         </Logo>

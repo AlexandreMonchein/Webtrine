@@ -62,9 +62,8 @@ const List = (datas) => {
               rel="noopener noreferrer"
             >
               <ImageItem
-                src={require(
-                  `../../../../assets/${customer}/clients/${image.src}.jpeg`
-                )}
+                // @ts-expect-error TODO: fix vite errors
+                src={`${import.meta.env.BASE_URL}/assets/${customer}/clients/${image.src}.jpeg`}
                 alt={`Trust Image ${index + 1}`}
               />
             </a>

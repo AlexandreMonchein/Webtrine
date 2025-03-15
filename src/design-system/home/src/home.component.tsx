@@ -18,6 +18,12 @@ interface Templates {
 export const Home: FC<{ templates: Templates[] }> = ({ templates }) => {
   const [components, setComponents] = useState<React.ReactNode[]>([]);
 
+  // Use import.meta.glob to load all components ahead of time
+  // @ts-expect-error TODO: fix vite errors
+  const componentFiles = import.meta.glob(
+    "../../components/**/**/*.component.tsx"
+  );
+
   useEffect(() => {
     const loadComponents = async () => {
       const loadedComponents: React.ReactNode[] = [];
@@ -30,34 +36,40 @@ export const Home: FC<{ templates: Templates[] }> = ({ templates }) => {
           ) {
             const { type, id, datas } = template;
 
-            try {
-              const module = await import(
-                `../../components/${type}/${id}.component`
-              );
-              const Component = module.default;
+            const componentPath = `../../components/${type}/${id}.component.tsx`;
+            const module = componentFiles[componentPath];
 
-              loadedComponents.push(
-                <Component
-                  key={`${type}-${id}-${Math.floor(Math.random() * 1000)}`}
-                  {...datas}
-                />
-              );
-            } catch (error) {
-              console.error(`Error loading component: ${type}/${id}`, error);
+            if (module) {
+              try {
+                const resolvedModule = await module();
+                const Component = resolvedModule.default;
+
+                loadedComponents.push(
+                  <Component
+                    key={`${type}-${id}`} // Fixed key
+                    {...datas}
+                  />
+                );
+              } catch (error) {
+                console.error(`Error loading component: ${type}/${id}`, error);
+              }
+            } else {
+              console.error(`Component not found: ${componentPath}`);
             }
           }
         }
       }
-
-      setComponents(loadedComponents);
+      setComponents(loadedComponents); // Update once all components are loaded
     };
 
     loadComponents();
-  }, [templates]);
+  }, [templates, componentFiles]);
 
   return (
     <Content data-testid="Home">
-      <Suspense fallback={<div>Loading...</div>}>{components}</Suspense>
+      <Suspense fallback={<div>Loading Home Component...</div>}>
+        {components}
+      </Suspense>
     </Content>
   );
 };

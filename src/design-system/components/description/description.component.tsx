@@ -40,7 +40,8 @@ const Description = (datas) => {
             >
               <Image
                 tabIndex={0}
-                src={require(`../../../assets/${customer}/${image}.jpg`)}
+                // @ts-expect-error TODO: fix vite errors
+                src={`${import.meta.env.BASE_URL}assets/${customer}/${image}.jpg`}
                 alt=""
               />
             </ImageContainer>

@@ -1,22 +1,27 @@
-import type { StorybookConfig } from "@storybook/react-webpack5";
+import { StorybookConfig } from "@storybook/react-vite";
+import { mergeConfig } from "vite";
 
 const config: StorybookConfig = {
-  stories: ["../src/**/*.stories.@(js|jsx|mjs|ts|tsx)"],
-  addons: [
-    "@storybook/preset-create-react-app",
-    "@storybook/addon-onboarding",
-    "@storybook/addon-links",
-    "@storybook/addon-essentials",
-    "@chromatic-com/storybook",
-    "@storybook/addon-interactions",
-  ],
   framework: {
-    name: "@storybook/react-webpack5",
+    name: "@storybook/react-vite",
     options: {},
   },
-  docs: {
-    autodocs: "tag",
+  stories: ["../src/**/*.stories.@(tsx|mdx)"],
+  addons: [
+    "@storybook/addon-docs",
+    "@storybook/addon-actions",
+    "@storybook/addon-controls",
+    "@storybook/addon-viewport",
+    "@storybook/addon-backgrounds",
+  ],
+  async viteFinal(config) {
+    const mergedConfig = mergeConfig(config, {
+      build: {
+        sourcemap: false, // prevent node out of memory error
+      },
+    });
+    return mergedConfig;
   },
-  staticDirs: ["../public"],
 };
+
 export default config;

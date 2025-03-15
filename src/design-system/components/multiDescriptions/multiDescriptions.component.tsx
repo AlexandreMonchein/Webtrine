@@ -24,19 +24,22 @@ const MultiDescription = ({ templateName = null }) => {
   useEffect(() => {
     const loadComponents = async () => {
       const loadedComponents: React.ReactNode[] = [];
+      // @ts-expect-error TODO: fix vite errors
+      const modules = import.meta.glob("../**/*.component.tsx");
 
       for (const [index, datas] of Object.entries(content)) {
         const moduleName = index.replace(regex, "");
 
         try {
           if (moduleName) {
-            const module = await import(
-              `../../${moduleName}/src/${moduleName}.component`
-            );
-            const Component = module.default;
+            const modulePath = `../${moduleName}/${moduleName}.component.tsx`;
+            if (modules[modulePath]) {
+              const module = await modules[modulePath]();
+              const Component = module.default;
 
-            // @ts-ignore
-            loadedComponents.push(<Component key={index} {...datas} />);
+              // @ts-ignore
+              loadedComponents.push(<Component key={index} {...datas} />);
+            }
           }
         } catch (error) {
           console.error(`Error loading component: ${moduleName}`, error);

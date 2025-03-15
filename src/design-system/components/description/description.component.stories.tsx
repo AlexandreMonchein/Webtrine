@@ -1,14 +1,12 @@
-import type { Meta, StoryObj } from "@storybook/react";
-
 import DescriptionComponent from "./description.component";
 
 const meta = {
   component: DescriptionComponent,
-} satisfies Meta<typeof DescriptionComponent>;
+};
 
 export default meta;
 
-type Story = StoryObj<typeof meta>;
+type Story = Record<string, any>;
 
 export const Default: Story = {
   args: {

@@ -10,13 +10,25 @@ import store from "./store";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 const customer = getCustomer();
-const config = require(`../config/customer/${customer}/config.json`);
-const style = require(`../config/customer/${customer}/style.config.json`);
 
-root.render(
-  <Provider store={store}>
-    <I18nextProvider i18n={i18n}>
-      <App config={config} style={style} />
-    </I18nextProvider>
-  </Provider>
-);
+const loadConfig = async () => {
+  try {
+    // Dynamically import the JSON files using the customer value
+    const config = await import(`../config/customer/${customer}/config.json`);
+    const style = await import(
+      `../config/customer/${customer}/style.config.json`
+    );
+
+    root.render(
+      <Provider store={store}>
+        <I18nextProvider i18n={i18n}>
+          <App config={config.default} style={style.default} />
+        </I18nextProvider>
+      </Provider>
+    );
+  } catch (error) {
+    console.error("Error loading configuration files:", error);
+  }
+};
+
+loadConfig();

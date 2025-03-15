@@ -52,7 +52,7 @@ module.exports = {
     new webpack.DefinePlugin({
       process: {
         env: {
-          REACT_APP_CUSTOMER: JSON.stringify(process.env.REACT_APP_CUSTOMER),
+          VITE_CUSTOMER: JSON.stringify(process.env.VITE_CUSTOMER),
           REACT_APP_RESEND_API_KEY: JSON.stringify(
             "re_fH5kW59A_KgzV9S2iXc1FSc12mSrdNiy4"
           ),

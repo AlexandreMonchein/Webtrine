@@ -1,1 +1,1 @@
-export const getCustomer = () => process.env.REACT_APP_CUSTOMER;
+export const getCustomer = () => import.meta.env.VITE_CUSTOMER;

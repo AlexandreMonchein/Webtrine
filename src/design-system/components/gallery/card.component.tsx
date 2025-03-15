@@ -15,7 +15,8 @@ export const Card = ({ data, type }) => {
       <Image
         tabIndex={0}
         alt={imageSrc}
-        src={require(`../../../../assets/${customer}/${imageSrc}.jpg`)}
+        // @ts-expect-error TODO: fix vite errors
+        src={`${import.meta.env.BASE_URL}assets/${customer}/${imageSrc}.jpg`}
       />
     </Wrapper>
   );

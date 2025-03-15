@@ -62,6 +62,7 @@ export const getTemplate = (
 
 function App(props) {
   const dispatch = useDispatch();
+  const [RootStyle, setRootStyle] = useState<any>(null);
 
   const [theme, setTheme] = useState("light");
   const toggleTheme = useCallback(() => {
@@ -74,9 +75,21 @@ function App(props) {
   const { title = "", logo = "" } = useSelector(getClient);
   const customer = useSelector(getCustomer);
 
-  const RootStyle = require(
-    `./theme/customer/${customer}/globalStyles.ts`
-  ).RootStyle;
+  useEffect(() => {
+    const loadRootStyle = async () => {
+      try {
+        // Dynamically import the correct globalStyles file based on customer
+        const module = await import(
+          `./theme/customer/${customer}/globalStyles.ts`
+        );
+        setRootStyle(() => module.RootStyle);
+      } catch (error) {
+        console.error("Error loading global styles:", error);
+      }
+    };
+
+    loadRootStyle();
+  }, [customer]); // Trigger re-load when `customer` changes
 
   const globalStyle = useSelector(getStyle);
 
@@ -89,7 +102,8 @@ function App(props) {
 
     const iconLink = document.createElement("link");
     iconLink.rel = "icon";
-    iconLink.href = require(`./assets/${customer}/icons/${logo}.png`);
+    // @ts-expect-error TODO: fix vite errors
+    iconLink.href = `${import.meta.env.BASE_URL}assets/${customer}/icons/${logo}.png`;
     document.head.appendChild(iconLink);
   }, [customer, logo, title]);
 
@@ -97,7 +111,7 @@ function App(props) {
     <Router>
       <ScrollToTop />
       <GlobalStyle />
-      <RootStyle globalStyle={{ ...globalStyle }} />
+      {RootStyle && <RootStyle globalStyle={{ ...globalStyle }} />}
       <div data-theme={theme}>
         {navbarTemplate && (
           <DisplayNavbar
