@@ -32,7 +32,7 @@ export const Home: FC<{ templates: Templates[] }> = ({ templates }) => {
 
             try {
               const module = await import(
-                `../../components/${type}/src/${id}.component`
+                `../../components/${type}/${id}.component`
               );
               const Component = module.default;
 

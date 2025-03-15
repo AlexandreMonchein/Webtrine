@@ -3,11 +3,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 import ExtendedContact from "./design-system/components/contact/src/extendedContact.component";
-import Gallery from "./design-system/components/gallery/src/gallery.component";
-import Product from "./design-system/components/gallery/src/product.component";
-import Legals from "./design-system/components/legals/src/legals.component";
-import MultiDescription from "./design-system/components/multiDescriptions/src/multiDescriptions.component";
-import Prices from "./design-system/components/prices/src/prices.component";
+import Gallery from "./design-system/components/gallery/gallery.component";
+import Product from "./design-system/components/gallery/product.component";
+import Legals from "./design-system/components/legals/legals.component";
+import MultiDescription from "./design-system/components/multiDescriptions/multiDescriptions.component";
+import Prices from "./design-system/components/prices/prices.component";
 import { PageNotFound } from "./design-system/error/src/pageNotFound.component";
 import DisplayFooter from "./design-system/footers/src/displayFooter.component";
 import { Home } from "./design-system/home/src/home.component";

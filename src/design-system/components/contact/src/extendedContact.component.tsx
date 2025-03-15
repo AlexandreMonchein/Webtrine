@@ -8,8 +8,8 @@ import emailjs from "@emailjs/browser";
 import { getTemplate } from "../../../../App";
 import { showPopUp } from "../../../../store/state.action";
 import { getClient, getTemplates } from "../../../../store/state.selector";
-import { MapLeaflet } from "../../map/src/moduleLeafletMap.component";
-import PopUp from "../../popup/src/popUp.component";
+import { MapLeaflet } from "../../map/moduleLeafletMap.component";
+import PopUp from "../../popup/popUp.component";
 
 import {
   Button,

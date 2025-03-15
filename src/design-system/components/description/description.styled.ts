@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components";
 
-import { bp } from "../../../../breakpoint";
-import { breakpointNames } from "../../../../breakpointDef";
+import { bp } from "../../../breakpoint";
+import { breakpointNames } from "../../../breakpointDef";
 
 export const Section = styled.section`
   position: relative;
@@ -68,7 +68,7 @@ export const ImageContainer = styled.div`
     ${bp.max(
       breakpointNames.medium,
       css`
-      padding: 0 0 12px 0;
+        padding: 0 0 12px 0;
       `
     )};
   }

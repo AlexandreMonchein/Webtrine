@@ -1,6 +1,6 @@
 import classNames from "classnames";
 
-import { getCustomer } from "../../../../customer.utils";
+import { getCustomer } from "../../../customer.utils";
 
 import {
   Container,
@@ -40,7 +40,7 @@ const Description = (datas) => {
             >
               <Image
                 tabIndex={0}
-                src={require(`../../../../assets/${customer}/${image}.jpg`)}
+                src={require(`../../../assets/${customer}/${image}.jpg`)}
                 alt=""
               />
             </ImageContainer>

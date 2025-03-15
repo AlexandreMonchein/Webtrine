@@ -1,8 +1,8 @@
 import { Suspense, useEffect, useState } from "react";
 
-import { getTemplate } from "../../../../App";
+import { getTemplate } from "../../../App";
 import { useSelector } from "react-redux";
-import { getTemplates } from "../../../../store/state.selector";
+import { getTemplates } from "../../../store/state.selector";
 
 const regex = /-[0-9]/i;
 

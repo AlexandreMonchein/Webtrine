@@ -81,7 +81,7 @@
         "type": "description",
         "id": "description",
         "datas": {
-          "features": { "isReversed": false, "isCentered": false },
+          "features": { "isReversed": false, "isContinious": false },
           "title": "Une petite présentation s'impose !",
           "content": [
             {

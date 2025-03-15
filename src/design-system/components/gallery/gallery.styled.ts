@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components";
 
-import { bp } from "../../../../breakpoint";
-import { breakpointNames } from "../../../../breakpointDef";
+import { bp } from "../../../breakpoint";
+import { breakpointNames } from "../../../breakpointDef";
 
 export const GalleryRoot = styled.section`
   display: flex;

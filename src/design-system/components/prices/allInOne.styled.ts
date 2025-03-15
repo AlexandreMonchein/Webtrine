@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 import styled, { css } from "styled-components";
 
-import { bp } from "../../../../breakpoint";
-import { breakpointNames } from "../../../../breakpointDef";
+import { bp } from "../../../breakpoint";
+import { breakpointNames } from "../../../breakpointDef";
 
 export const PricesContainer = styled.section`
   position: relative;

@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 
-import { getTemplates } from "../../../../store/state.selector";
+import { getTemplates } from "../../../store/state.selector";
 
 import {
   Container,

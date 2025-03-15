@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
 
-import { getCustomer } from "../../../../customer.utils";
-import { SectionTitle } from "../../description/src/description.styled";
+import { getCustomer } from "../../../customer.utils";
+import { SectionTitle } from "../description/description.styled";
 
 import {
   Container,

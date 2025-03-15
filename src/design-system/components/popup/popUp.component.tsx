@@ -1,8 +1,8 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { hidePopUp } from "../../../../store/state.action";
-import { isPopUpDisplayed } from "../../../../store/state.selector";
+import { hidePopUp } from "../../../store/state.action";
+import { isPopUpDisplayed } from "../../../store/state.selector";
 
 import {
   CloseButton,

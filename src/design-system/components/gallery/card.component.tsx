@@ -1,6 +1,6 @@
 import classNames from "classnames";
 
-import { getCustomer } from "../../../../customer.utils";
+import { getCustomer } from "../../../customer.utils";
 
 import { Image } from "./card.styled";
 import { Wrapper } from "./gallery.styled";

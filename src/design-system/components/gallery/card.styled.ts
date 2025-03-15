@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import ConditionalLink from "../../link/src/link.component";
+import ConditionalLink from "../link/link.component";
 
 import { COLORS, WEIGHTS } from "./constants";
 
