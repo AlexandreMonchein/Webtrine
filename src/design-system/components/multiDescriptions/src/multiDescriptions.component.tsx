@@ -1,24 +1,21 @@
 import { Suspense, useEffect, useState } from "react";
 
 import { getTemplate } from "../../../../App";
-import Banner from "../../banner/src/banner.component";
-import Description from "../../description/src/description.component";
-import Gallery from "../../gallery/src/gallery.component";
+import { useSelector } from "react-redux";
+import { getTemplates } from "../../../../store/state.selector";
 
 const regex = /-[0-9]/i;
 
 const MultiDescription = ({ templateName = null }) => {
   const [components, setComponents] = useState<React.ReactNode[]>([]);
+  const templates = useSelector(getTemplates);
 
   const template = getTemplate(
+    templates,
     "description",
     "multiDescriptions",
     templateName
   );
-
-  if (!template) {
-    return null;
-  }
 
   const {
     datas: { content },
@@ -33,15 +30,16 @@ const MultiDescription = ({ templateName = null }) => {
 
         try {
           if (moduleName) {
-            const Module = await import(
+            const module = await import(
               `../../${moduleName}/src/${moduleName}.component`
             );
+            const Component = module.default;
 
             // @ts-ignore
-            loadedComponents.push(<Module.default key={index} {...datas} />);
+            loadedComponents.push(<Component key={index} {...datas} />);
           }
         } catch (error) {
-          console.error(`Error loading component: ${name}`, error);
+          console.error(`Error loading component: ${moduleName}`, error);
         }
       }
       setComponents(loadedComponents);
@@ -49,24 +47,11 @@ const MultiDescription = ({ templateName = null }) => {
     loadComponents();
   }, [content]);
 
-  return <Suspense fallback={<div>Loading...</div>}>{components}</Suspense>;
+  if (!template) {
+    return null;
+  }
 
-  // return (
-  //   <>
-  //     {topBanner && <Banner {...topBanner} />}
-  //     {description.map((data, index) => {
-  //       return (
-  //         <Description
-  //           key={index}
-  //           {...data}
-  //           features={{ isReversed: index % 2 === 1, isContinious: true }}
-  //         />
-  //       );
-  //     })}
-  //     {gallery && <Gallery template={gallery} />}
-  //     {bottomBanner && <Banner {...bottomBanner} />}
-  //   </>
-  // );
+  return <Suspense fallback={<div>Loading...</div>}>{components}</Suspense>;
 };
 
 export default MultiDescription;

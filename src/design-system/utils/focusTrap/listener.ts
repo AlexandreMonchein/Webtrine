@@ -41,8 +41,6 @@ export const tabKeyListener = (
     FOCUSABLE_ELEMENTS.join(",")
   );
 
-  console.warn(">>> tabKeyListener"), wrapper, focusableElements;
-
   if (focusableElements.length === 0) {
     return;
   }

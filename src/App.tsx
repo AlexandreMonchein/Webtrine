@@ -25,18 +25,15 @@ export const templatesTypesBlackList = [
   "gallery",
   "legals",
 ];
-
 export const templatesIdsBlackList = ["multiDescriptions"];
-
 export const templatesNamesBlackList = ["Contact"];
 
 export const getTemplate = (
+  templates,
   templateType,
   templateId = null,
   templateName = null
 ) => {
-  const templates = useSelector(getTemplates);
-
   let template;
 
   if (templates) {
@@ -83,9 +80,9 @@ function App(props) {
 
   const globalStyle = useSelector(getStyle);
 
-  const navbarTemplate = getTemplate("navbars");
-  const galleryTemplate = getTemplate("gallery");
-  const footerTemplate = getTemplate("footers");
+  const navbarTemplate = getTemplate(templates, "navbars");
+  const galleryTemplate = getTemplate(templates, "gallery");
+  const footerTemplate = getTemplate(templates, "footers");
 
   useEffect(() => {
     document.title = title;
@@ -94,7 +91,7 @@ function App(props) {
     iconLink.rel = "icon";
     iconLink.href = require(`./assets/${customer}/icons/${logo}.png`);
     document.head.appendChild(iconLink);
-  }, []);
+  }, [customer, logo, title]);
 
   return (
     <Router>

@@ -20,14 +20,15 @@ const FeatureSection = (datas: Datas) => {
         content.map(async ({ name, text }) => {
           try {
             if (name && text) {
-              const Module = await import(
+              const module = await import(
                 `../../../../assets/icons/${name}.component`
               );
+              const Component = module.default;
 
               return (
                 <ContentItem tabIndex={0} key={name}>
                   <SvgIcon key={name}>
-                    <Module.default key={name} color="orange" size={64} />
+                    <Component key={name} color="orange" size={64} />
                   </SvgIcon>
                   <Text>{text}</Text>
                 </ContentItem>

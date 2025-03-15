@@ -9,11 +9,12 @@ const DisplayNavbar = ({ template, toggleTheme, theme }) => {
 
       try {
         const Module = await import(`./${id}.component`);
+        const Component = Module.default;
 
         const props = { ...datas, toggleTheme, theme };
 
         setNavbar(
-          <Module.default
+          <Component
             key={`${type}-${id}-${Math.floor(Math.random() * 1000)}`}
             {...props}
           />
@@ -24,7 +25,7 @@ const DisplayNavbar = ({ template, toggleTheme, theme }) => {
     };
 
     loadComponent();
-  }, [template]);
+  }, [template, toggleTheme, theme]);
 
   return <Suspense fallback={<div>Loading...</div>}>{navbar}</Suspense>;
 };

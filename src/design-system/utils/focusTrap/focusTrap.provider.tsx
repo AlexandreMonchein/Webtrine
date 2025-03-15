@@ -44,7 +44,6 @@ export const FocusTrapProvider = ({ isVisible, type, children }) => {
 
   const setFocus = useCallback(
     (modalType: ModalType) => {
-      console.warn(">>> setFocus", modalType);
       if (!modalType) {
         return;
       }
@@ -59,31 +58,30 @@ export const FocusTrapProvider = ({ isVisible, type, children }) => {
 
       setAnchorId(anchorId);
 
-      const wrapperEl = document.getElementById(wrapperId);
+      if (wrapperId) {
+        const wrapperEl = document.getElementById(wrapperId);
 
-      console.warn(">>> wrapperEl", wrapperEl, wrapperId, idToFocus);
+        if (!wrapperEl || !idToFocus) {
+          /*
+           * and reset states
+           * Create reset fn
+           */
+          return;
+        }
 
-      if (!wrapperEl || !idToFocus) {
-        /*
-         * and reset states
-         * Create reset fn
-         */
-        return;
+        wrapperElement.current = wrapperEl;
+
+        setIsTrapped(true);
+        document.getElementById(idToFocus)?.focus();
+
+        // Will directly give the focus to the element on first call
+        document.addEventListener("keydown", listener);
       }
-
-      wrapperElement.current = wrapperEl;
-
-      setIsTrapped(true);
-      document.getElementById(idToFocus)?.focus();
-
-      // Will directly give the focus to the element on first call
-      document.addEventListener("keydown", listener);
     },
     [listener]
   );
 
   const releaseFocus = useCallback(() => {
-    console.warn(">>> releaseFocus", anchorId);
     document.removeEventListener("keydown", listener);
 
     if (anchorId) {

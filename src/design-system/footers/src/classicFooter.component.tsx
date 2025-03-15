@@ -38,16 +38,17 @@ const ClassicFooter = (template) => {
       for (const [name, link] of Object.entries(socials)) {
         try {
           if (link) {
-            const Module = await import(
+            const module = await import(
               `../../../assets/icons/${name}.component`
             );
+            const Component = module.default;
 
             loadedComponents.push(
               <li key={name}>
                 <SocialLogo>
                   {/* @ts-ignore */}
                   <a href={link}>
-                    <Module.default key={name} />
+                    <Component key={name} />
                   </a>
                 </SocialLogo>
               </li>
@@ -62,7 +63,7 @@ const ClassicFooter = (template) => {
     };
 
     loadComponents();
-  }, []);
+  }, [socials]);
 
   return (
     <FooterContainer>

@@ -2,13 +2,12 @@
 import { useCallback, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
-import { useLocation } from "react-router-dom";
 
 import emailjs from "@emailjs/browser";
 
 import { getTemplate } from "../../../../App";
 import { showPopUp } from "../../../../store/state.action";
-import { getClient } from "../../../../store/state.selector";
+import { getClient, getTemplates } from "../../../../store/state.selector";
 import { MapLeaflet } from "../../map/src/moduleLeafletMap.component";
 import PopUp from "../../popup/src/popUp.component";
 
@@ -32,54 +31,61 @@ const ExtendedContact = (datas) => {
   const dispatch = useDispatch();
   const { t } = useTranslation();
   const client = useSelector(getClient).contact;
+  const templates = useSelector(getTemplates);
 
   const titleKey = "contact.title";
   const descriptionKey = "contact.description";
 
   if (!datas || Object.keys(datas).length === 0) {
-    template = getTemplate("contact", "extendedContact", "Contact").datas;
+    template = getTemplate(
+      templates,
+      "contact",
+      "extendedContact",
+      "Contact"
+    ).datas;
   }
 
   const { title, subTitle, map } = template ? template : datas;
 
-  const { phone, email, address, mailTemplate: templateId } = client;
-
-  const { number, street, zip, city } = address || {};
+  const { phone, email, mailTemplate: templateId } = client;
 
   useEffect(() => emailjs.init("OYqEmnhZaB6k1hEGB"), []);
 
-  const handleSubmit = useCallback(async (e) => {
-    e.preventDefault();
+  const handleSubmit = useCallback(
+    async (e) => {
+      e.preventDefault();
 
-    const name = e.target.name.value || null;
-    const company = e.target.company.value || null;
-    const emailFrom = e.target.email.value || null;
-    const number = e.target.phone.value || null;
-    const subject = e.target.subject.value || null;
-    const content = e.target.content.value || null;
+      const name = e.target.name.value || null;
+      const company = e.target.company.value || null;
+      const emailFrom = e.target.email.value || null;
+      const number = e.target.phone.value || null;
+      const subject = e.target.subject.value || null;
+      const content = e.target.content.value || null;
 
-    const datas = {
-      name,
-      company,
-      emailFrom,
-      number,
-      subject,
-      content,
-    };
+      const datas = {
+        name,
+        company,
+        emailFrom,
+        number,
+        subject,
+        content,
+      };
 
-    const serviceId = "service_4fc2bmb";
+      const serviceId = "service_4fc2bmb";
 
-    try {
-      await emailjs.send(serviceId, templateId, {
-        ...datas,
-      });
-      dispatch(
-        showPopUp({ type: "success", message: "Email sent corrently!" })
-      );
-    } catch (error) {
-      dispatch(showPopUp({ type: "error", message: "Email not sent:" }));
-    }
-  }, []);
+      try {
+        await emailjs.send(serviceId, templateId, {
+          ...datas,
+        });
+        dispatch(
+          showPopUp({ type: "success", message: "Email sent corrently!" })
+        );
+      } catch (error) {
+        dispatch(showPopUp({ type: "error", message: "Email not sent:" }));
+      }
+    },
+    [dispatch, templateId]
+  );
 
   return (
     <ContactSection>

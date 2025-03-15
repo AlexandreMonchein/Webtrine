@@ -8,10 +8,11 @@ const DisplayFooter = ({ template }) => {
       const { type, id, datas } = template;
 
       try {
-        const Module = await import(`./${id}.component`);
+        const module = await import(`./${id}.component`);
+        const Component = module.default;
 
         setNavbar(
-          <Module.default
+          <Component
             key={`${type}-${id}-${Math.floor(Math.random() * 1000)}`}
             {...datas}
           />

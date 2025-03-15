@@ -43,8 +43,6 @@ const Legals = ({ type = null }) => {
       </Content>
     </Container>
   );
-
-  return "yeah";
 };
 
 export default Legals;

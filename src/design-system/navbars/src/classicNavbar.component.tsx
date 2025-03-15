@@ -49,16 +49,17 @@ const ClassicNavbar = (props) => {
       for (const [name, link] of Object.entries(socials)) {
         try {
           if (link) {
-            const Module = await import(
+            const module = await import(
               `../../../assets/icons/${name}.component`
             );
+            const Component = module.default;
 
             loadedComponents.push(
               <li key={name}>
                 <SocialLogo>
                   {/* @ts-ignore */}
                   <a aria-label={name} href={link}>
-                    <Module.default key={name} />
+                    <Component key={name} />
                   </a>
                 </SocialLogo>
               </li>
@@ -73,7 +74,7 @@ const ClassicNavbar = (props) => {
     };
 
     loadComponents();
-  }, []);
+  }, [socials]);
 
   const {
     features: { isFixed, hasHideOnScroll, trad, darkMode },
@@ -94,12 +95,12 @@ const ClassicNavbar = (props) => {
 
     if (prevScrollPos > currentScrollPos) {
       // user has scrolled up
-      document.getElementById("navbar").classList.add("show");
-      document.getElementById("navbar").classList.remove("hide");
+      document.getElementById("navbar")?.classList.add("show");
+      document.getElementById("navbar")?.classList.remove("hide");
     } else {
       // user has scrolled down
-      document.getElementById("navbar").classList.add("hide");
-      document.getElementById("navbar").classList.remove("show");
+      document.getElementById("navbar")?.classList.add("hide");
+      document.getElementById("navbar")?.classList.remove("show");
     }
 
     setPrevScrollPos(currentScrollPos);
@@ -110,7 +111,6 @@ const ClassicNavbar = (props) => {
   };
 
   const toggleSidebar = (e) => {
-    console.warn(">>> toggleSidebar", e);
     setIsSidebarOpen(!isSidebarOpen);
     dispatch(
       toggleModal({ type: MODAL_TYPES.SIDE_NAV, active: isSidebarOpen })
@@ -127,15 +127,18 @@ const ClassicNavbar = (props) => {
     }
   };
 
-  const handleClickOutside = (event) => {
-    if (
-      isSidebarOpen &&
-      !document.getElementById("sidebar").contains(event.target) &&
-      !document.getElementById("burgerMenuNavbarIcon").contains(event.target)
-    ) {
-      setIsSidebarOpen(false);
-    }
-  };
+  const handleClickOutside = useCallback(
+    (event) => {
+      if (
+        isSidebarOpen &&
+        !document.getElementById("sidebar")?.contains(event.target) &&
+        !document.getElementById("burgerMenuNavbarIcon")?.contains(event.target)
+      ) {
+        setIsSidebarOpen(false);
+      }
+    },
+    [isSidebarOpen]
+  );
 
   useEffect(() => {
     if (isFixed && hasHideOnScroll) {
@@ -147,7 +150,14 @@ const ClassicNavbar = (props) => {
       window.removeEventListener("scroll", onScroll);
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, [prevScrollPos, isSidebarOpen]);
+  }, [
+    prevScrollPos,
+    isSidebarOpen,
+    isFixed,
+    hasHideOnScroll,
+    handleClickOutside,
+    onScroll,
+  ]);
 
   return (
     <FocusTrapProvider isVisible={modal?.active} type={modal?.type}>

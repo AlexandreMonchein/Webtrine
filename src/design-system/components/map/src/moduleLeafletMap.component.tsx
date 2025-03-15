@@ -24,24 +24,24 @@ const ICON = icon({
   iconSize: [32, 32],
 });
 
-export const MapLeaflet = (datas): ReactElement => {
+export const MapLeaflet = (datas): ReactElement | null => {
   const { places, openTimesTitle, openTimes, title, bigTitle } = datas;
 
-  if (!places.length) {
-    return;
-  }
-
   const [selectedPosition, setSelectedPosition] = useState<[number, number]>([
-    places[0].position[0],
-    places[0].position[1],
+    places.length ? places[0].position[0] : 0,
+    places.length ? places[0].position[1] : 0,
   ]);
+
+  const [init, setInit] = useState<boolean>(true);
+
+  if (!places.length) {
+    return null;
+  }
 
   const onClickMarker = (e) => {
     console.warn(">>> onClickMarker", e);
   };
   const zoom = 13;
-
-  const [init, setInit] = useState<boolean>(true);
 
   const LocationMarker = () => {
     const map = useMapEvents({

@@ -1,5 +1,4 @@
 import React, { FC, Suspense, useEffect, useState } from "react";
-import _ from "lodash";
 
 import {
   templatesIdsBlackList,
@@ -35,9 +34,10 @@ export const Home: FC<{ templates: Templates[] }> = ({ templates }) => {
               const Module = await import(
                 `../../components/${type}/src/${id}.component`
               );
+              const Component = Module.default;
 
               loadedComponents.push(
-                <Module.default
+                <Component
                   key={`${type}-${id}-${Math.floor(Math.random() * 1000)}`}
                   {...datas}
                 />

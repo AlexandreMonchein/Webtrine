@@ -5,7 +5,6 @@ import { useTranslation } from "react-i18next";
 import {
   ActionButton,
   Description,
-  FeatureImage,
   FeatureItem,
   FeaturesCard,
   FeaturesGrid,
@@ -46,7 +45,7 @@ const AllInOne = (datas: AllInOneProps) => {
     additionalDescription,
     content,
   } = datas;
-  [];
+
   useEffect(() => {
     const loadComponents = async (content: Content[]) => {
       const loadedComponents: React.ReactNode[] = [];
@@ -56,13 +55,14 @@ const AllInOne = (datas: AllInOneProps) => {
           const { imgSrc, text } = data;
 
           if (imgSrc) {
-            const Module = await import(
+            const module = await import(
               `../../../../assets/icons/${imgSrc}.component`
             );
+            const Component = module.default;
 
             loadedComponents.push(
               <FeatureItem key={index}>
-                <Module.default key={`${imgSrc}-${index}`} size={32} />
+                <Component key={`${imgSrc}-${index}`} size={32} />
                 <FeatureText key={`text-${index}`}>{text}</FeatureText>
               </FeatureItem>
             );

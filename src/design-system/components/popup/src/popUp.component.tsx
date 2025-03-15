@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { hidePopUp } from "../../../../store/state.action";
@@ -24,9 +24,9 @@ const PopUp: React.FC = () => {
   const [progress, setProgress] = useState(0);
   const { showPopUp, type, message, error } = useSelector(isPopUpDisplayed);
 
-  const handlePopUpClose = () => {
+  const handlePopUpClose = useCallback(() => {
     dispatch(hidePopUp());
-  };
+  }, [dispatch]);
 
   useEffect(() => {
     if (!showPopUp) return;
@@ -43,7 +43,7 @@ const PopUp: React.FC = () => {
     }, 100);
 
     return () => clearInterval(interval);
-  }, [showPopUp]);
+  }, [handlePopUpClose, showPopUp]);
 
   return showPopUp ? (
     <PopUpContainer type={type}>
