@@ -31,10 +31,10 @@ export const Home: FC<{ templates: Templates[] }> = ({ templates }) => {
             const { type, id, datas } = template;
 
             try {
-              const Module = await import(
+              const module = await import(
                 `../../components/${type}/src/${id}.component`
               );
-              const Component = Module.default;
+              const Component = module.default;
 
               loadedComponents.push(
                 <Component
