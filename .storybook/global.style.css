@@ -1,0 +1,37 @@
+:root {
+  --navbar-font-size: 16px;
+  --subtitle-font-size: 32px;
+  --text-font-size: 24px;
+  --description-font-size: 16px;
+
+  --white: #ffffff;
+  --light-grey: #e8eef1;
+  --orange: #ff9d00;
+  --dark-grey: #505757;
+  --black: #000000;
+
+  --hover-color: var(--orange);
+
+  --navigation-text-color: var(--white);
+
+  --back-color-1: var(--white);
+  --back-color-2: var(--light-grey);
+  --background-color: var(--dark-grey);
+
+  --button-background-color: var(--dark-grey);
+  --button-text-color: var(--white);
+
+  --title-color-1: var(--white);
+  --title-color-2: var(--orange);
+  --text-color: var(--black);
+
+  --border-colors: var(--black);
+
+  --text-color-primary: var(--white);
+  --text-color-secondary: var(--black);
+  --text-color-tertiary: var(--azur-blue);
+
+  --z-index-navbars: 3;
+  --z-index-text: 2;
+  --z-index-backgrounds: 1;
+}
