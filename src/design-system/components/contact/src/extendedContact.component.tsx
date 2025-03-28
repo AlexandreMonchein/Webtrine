@@ -1,4 +1,3 @@
-/* eslint-disable import/no-named-as-default-member */
 import { useCallback, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
@@ -24,6 +23,9 @@ import {
   Spacer,
   Textarea,
   Title,
+  Field,
+  Label,
+  Hint,
 } from "./extendedContact.styled";
 
 const ExtendedContact = (datas) => {
@@ -59,7 +61,6 @@ const ExtendedContact = (datas) => {
       const company = e.target.company.value || null;
       const emailFrom = e.target.email.value || null;
       const number = e.target.phone.value || null;
-      const subject = e.target.subject.value || null;
       const content = e.target.content.value || null;
 
       const datas = {
@@ -67,7 +68,6 @@ const ExtendedContact = (datas) => {
         company,
         emailFrom,
         number,
-        subject,
         content,
       };
 
@@ -78,10 +78,15 @@ const ExtendedContact = (datas) => {
           ...datas,
         });
         dispatch(
-          showPopUp({ type: "success", message: "Email sent corrently!" })
+          showPopUp({ type: "success", message: "Email envoyé avec succès !" })
         );
       } catch (error) {
-        dispatch(showPopUp({ type: "error", message: "Email not sent:" }));
+        dispatch(
+          showPopUp({
+            type: "error",
+            message: "Erreur : L'email n'a pas pu être envoyé.",
+          })
+        );
       }
     },
     [dispatch, templateId]
@@ -119,59 +124,70 @@ const ExtendedContact = (datas) => {
               </p>
             </ClientInfo>
             <ContactForm>
-              <label htmlFor="name">{t("contact.name")} *</label>
-              <Input
-                type="text"
-                id="name"
-                name="name"
-                placeholder={t("contact.namePlaceholder")}
-                required
-              />
-
-              <label htmlFor="email">{t("contact.email")} *</label>
-              <Input
-                type="email"
-                id="email"
-                name="email"
-                placeholder={t("contact.emailPlaceholder")}
-                pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$"
-                required
-              />
-
-              <label htmlFor="phone">{t("contact.phone")} *</label>
-              <Input
-                type="tel"
-                id="phone"
-                name="phone"
-                placeholder={t("contact.phonePlaceholder")}
-                pattern="^\d{10}$"
-                required
-              />
-
-              <label htmlFor="company">{t("contact.company")}</label>
-              <Input
-                type="text"
-                id="company"
-                name="company"
-                placeholder={t("contact.companyPlaceholder")}
-              />
-
-              <label htmlFor="subject">{t("contact.subject")} *</label>
-              <Input
-                type="text"
-                id="subject"
-                name="subject"
-                placeholder={t("contact.subjectPlaceholder")}
-                required
-              />
-
-              <label htmlFor="content">{t("contact.content")} *</label>
-              <Textarea
-                id="content"
-                name="content"
-                placeholder={t("contact.contentPlaceholder")}
-                required
-              ></Textarea>
+              <Field>
+                <Label htmlFor="name">
+                  {t("contact.name")} <span>{t("contact.required")}</span>
+                </Label>
+                <Hint id="hint-name">{t("contact.nameHint")}</Hint>
+                <Input
+                  type="text"
+                  id="name"
+                  name="name"
+                  placeholder={t("contact.namePlaceholder")}
+                  required
+                  aria-describedby="hint-name"
+                />
+              </Field>
+              <Field>
+                <Label htmlFor="email">{t("contact.email")}</Label>
+                <Hint id="hint-email">{t("contact.emailHint")}</Hint>
+                <Input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder={t("contact.emailPlaceholder")}
+                  pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$"
+                  required
+                  aria-describedby="hint-email"
+                />
+              </Field>
+              <Field>
+                <Label htmlFor="phone">
+                  {t("contact.phone")} <span>{t("contact.required")}</span>
+                </Label>
+                <Hint id="hint-phone">{t("contact.phoneHint")}</Hint>
+                <Input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  placeholder={t("contact.phonePlaceholder")}
+                  pattern="^\d{10}$"
+                  required
+                  aria-describedby="hint-phone"
+                />
+              </Field>
+              <Field>
+                <Label htmlFor="company">{t("contact.company")}</Label>
+                <Input
+                  type="text"
+                  id="company"
+                  name="company"
+                  placeholder={t("contact.companyPlaceholder")}
+                />
+              </Field>
+              <Field>
+                <Label htmlFor="content">
+                  {t("contact.content")} <span>{t("contact.required")}</span>
+                </Label>
+                <Hint id="hint-content">{t("contact.contentHint")}</Hint>
+                <Textarea
+                  id="content"
+                  name="content"
+                  placeholder={t("contact.contentPlaceholder")}
+                  required
+                  aria-describedby="hint-content"
+                />
+              </Field>
 
               <Button type="submit">{t("contact.send")}</Button>
             </ContactForm>

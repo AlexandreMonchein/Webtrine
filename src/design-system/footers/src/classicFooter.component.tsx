@@ -21,7 +21,7 @@ import {
   TopSection,
 } from "./classicFooter.styled";
 
-const ClassicFooter = ({ template }) => {
+const ClassicFooter = (props) => {
   const [components, setComponents] = useState<React.ReactNode[]>([]);
   const { name: clientName } = useSelector(getClient);
   const socials = useSelector(getSocials);
@@ -29,12 +29,10 @@ const ClassicFooter = ({ template }) => {
     (template) => template.type === "legals"
   );
 
-  const { images } = template || {};
+  const { images } = props || {};
 
-  // Use import.meta.glob to load all components ahead of time
-  // @ts-expect-error TODO: fix vite errors
   const componentFiles = import.meta.glob(
-    "../../components/**/**/*.component.tsx"
+    "../../../assets/**/**/*.component.tsx"
   );
 
   useEffect(() => {
@@ -44,28 +42,25 @@ const ClassicFooter = ({ template }) => {
       for (const [name, link] of Object.entries(socials)) {
         try {
           if (link) {
-            const componentPath = `../../../components/icons/${name}.component`;
-
-            // Check if the path matches a valid component file
+            const componentPath = `../../../assets/icons/${name}.component.tsx`;
             const module = componentFiles[componentPath];
 
             if (module) {
               const resolvedModule = await module();
+              // @ts-expect-error TODO: to fix
               const Component = resolvedModule.default;
 
               loadedComponents.push(
                 <li key={name}>
                   <SocialLogo>
                     {/* @ts-ignore TODO: fix this type error */}
-                    <a href={link}>
+                    <a aria-label={name} href={link}>
                       <Component />
                     </a>
                   </SocialLogo>
                 </li>
               );
             }
-          } else {
-            console.error(`Component not found: ${link}`);
           }
         } catch (error) {
           console.error(`Error loading component: ${name}`, error);
@@ -84,10 +79,9 @@ const ClassicFooter = ({ template }) => {
         {images &&
           images.map((image) => {
             return (
-              <a href="/" key={image.name}>
+              <a href={image.link} key={image.name}>
                 <Logo
                   alt={image.alt}
-                  // @ts-expect-error TODO: fix vite errors
                   src={`${import.meta.env.BASE_URL}assets/${clientName}/icons/${image.name}.png`}
                 />
               </a>
@@ -96,13 +90,7 @@ const ClassicFooter = ({ template }) => {
       </LeftSection>
       <MiddleSection>
         <TopSection>
-          <p tabIndex={0}>
-            © 2024 Webtrine, tous droits réservés. Réalisé par{" "}
-            <SiteRef tabIndex={-1} href="/">
-              Webtrine
-            </SiteRef>
-            .
-          </p>
+          <p tabIndex={0}>Webtrine 2025 - tous droits réservés.</p>
         </TopSection>
         <BottomSection>
           {legals.map((legal, index) => (

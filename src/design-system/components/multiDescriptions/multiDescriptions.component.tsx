@@ -3,6 +3,7 @@ import { Suspense, useEffect, useState } from "react";
 import { getTemplate } from "../../../App";
 import { useSelector } from "react-redux";
 import { getTemplates } from "../../../store/state.selector";
+import { Container } from "./multiDescriptions.styled";
 
 const regex = /-[0-9]/i;
 
@@ -24,17 +25,20 @@ const MultiDescription = ({ templateName = null }) => {
   useEffect(() => {
     const loadComponents = async () => {
       const loadedComponents: React.ReactNode[] = [];
-      // @ts-expect-error TODO: fix vite errors
       const modules = import.meta.glob("../**/*.component.tsx");
 
-      for (const [index, datas] of Object.entries(content)) {
+      for (const [index, datas] of Object.entries(
+        content as Record<string, { type: string }>
+      )) {
+        const { type } = datas;
         const moduleName = index.replace(regex, "");
 
         try {
-          if (moduleName) {
-            const modulePath = `../${moduleName}/${moduleName}.component.tsx`;
+          if (moduleName && type) {
+            const modulePath = `../${moduleName}/${type}.component.tsx`;
             if (modules[modulePath]) {
               const module = await modules[modulePath]();
+              // @ts-expect-error TODO: to fix
               const Component = module.default;
 
               // @ts-ignore
@@ -54,7 +58,11 @@ const MultiDescription = ({ templateName = null }) => {
     return null;
   }
 
-  return <Suspense fallback={<div>Loading...</div>}>{components}</Suspense>;
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <Container>{components}</Container>
+    </Suspense>
+  );
 };
 
 export default MultiDescription;

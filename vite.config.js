@@ -13,7 +13,9 @@ export default defineConfig({
   },
   build: {
     target: "esnext", // Use modern JS
-    outDir: "build", // Output directory for production build
+    outDir: process.env.VITE_CUSTOMER
+      ? `./build/${process.env.VITE_CUSTOMER}`
+      : "build", // Output directory for production build
     assetsDir: "assets", // Folder for static assets like images
   },
   server: {

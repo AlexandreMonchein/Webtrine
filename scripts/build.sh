@@ -13,7 +13,7 @@ if [ -d "./build" ]; then
 fi
 
 # Set environment variable and run build command
-VITE_CUSTOMER=$CUSTOMER pnpm react-scripts build
+VITE_CUSTOMER=$CUSTOMER pnpm vite build --mode build/$CUSTOMER
 
 # Create customer-specific build directory if it doesn't exist
 mkdir -p ./build/$CUSTOMER

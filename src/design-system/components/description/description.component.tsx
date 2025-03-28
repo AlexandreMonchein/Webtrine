@@ -39,10 +39,9 @@ const Description = (datas) => {
               })}
             >
               <Image
-                tabIndex={0}
-                // @ts-expect-error TODO: fix vite errors
-                src={`${import.meta.env.BASE_URL}assets/${customer}/${image}.jpg`}
-                alt=""
+                tabIndex={image.focusable ? 0 : -1}
+                src={`${import.meta.env.BASE_URL}assets/${customer}/${image.name}.jpg`}
+                alt={image.alt}
               />
             </ImageContainer>
           ) : null}

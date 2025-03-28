@@ -39,7 +39,7 @@ export const MapLeaflet = (datas): ReactElement | null => {
   }
 
   const onClickMarker = (e) => {
-    console.warn(">>> onClickMarker", e);
+    // TODO: handle click on marker
   };
   const zoom = 13;
 

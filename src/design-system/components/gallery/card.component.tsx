@@ -15,7 +15,6 @@ export const Card = ({ data, type }) => {
       <Image
         tabIndex={0}
         alt={imageSrc}
-        // @ts-expect-error TODO: fix vite errors
         src={`${import.meta.env.BASE_URL}assets/${customer}/${imageSrc}.jpg`}
       />
     </Wrapper>

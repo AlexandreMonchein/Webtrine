@@ -1,21 +1,15 @@
-import { useSelector } from "react-redux";
-
-import { getTemplates } from "../../../store/state.selector";
-
 import AllInOne from "./allInOne.component";
 import MultiplePrices from "./multiplePrices.component";
 
-const Prices = () => {
-  const template = useSelector(getTemplates).find(
-    (template) => template.type === "prices"
-  );
+const Prices = (props) => {
+  const { type } = props;
 
-  switch (template.id) {
+  switch (type) {
     case "multiplePrices":
-      return <MultiplePrices {...template.datas} />;
+      return <MultiplePrices {...props} />;
 
     case "allInOne":
-      return <AllInOne {...template.datas} />;
+      return <AllInOne {...props} />;
 
     default:
       return null;

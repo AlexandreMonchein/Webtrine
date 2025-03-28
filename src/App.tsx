@@ -7,16 +7,15 @@ import Gallery from "./design-system/components/gallery/gallery.component";
 import Product from "./design-system/components/gallery/product.component";
 import Legals from "./design-system/components/legals/legals.component";
 import MultiDescription from "./design-system/components/multiDescriptions/multiDescriptions.component";
-import Prices from "./design-system/components/prices/prices.component";
 import { PageNotFound } from "./design-system/error/src/pageNotFound.component";
-import DisplayFooter from "./design-system/footers/src/displayFooter.component";
-import { Home } from "./design-system/home/src/home.component";
-import DisplayNavbar from "./design-system/navbars/src/displayNavbar.component";
+import DisplayFooter from "./design-system/utils/displayer/displayFooter.component";
+import DisplayNavbar from "./design-system/utils/displayer/displayNavbar.component";
 import { setConfig } from "./store/state.action";
 import { getClient, getStyle, getTemplates } from "./store/state.selector";
 import GlobalStyle from "./theme/customer/default/globalStyled";
 import { getCustomer } from "./customer.utils";
 import ScrollToTop from "./scrollToTop.utils";
+import KeyboardShortcuts from "./design-system/components/shortcut/keyboardShortcuts.component";
 
 export const templatesTypesBlackList = [
   "navbars",
@@ -24,6 +23,7 @@ export const templatesTypesBlackList = [
   "error",
   "gallery",
   "legals",
+  "prices",
 ];
 export const templatesIdsBlackList = ["multiDescriptions"];
 export const templatesNamesBlackList = ["Contact"];
@@ -102,7 +102,6 @@ function App(props) {
 
     const iconLink = document.createElement("link");
     iconLink.rel = "icon";
-    // @ts-expect-error TODO: fix vite errors
     iconLink.href = `${import.meta.env.BASE_URL}assets/${customer}/icons/${logo}.png`;
     document.head.appendChild(iconLink);
   }, [customer, logo, title]);
@@ -113,6 +112,7 @@ function App(props) {
       <GlobalStyle />
       {RootStyle && <RootStyle globalStyle={{ ...globalStyle }} />}
       <div data-theme={theme}>
+        <KeyboardShortcuts />
         {navbarTemplate && (
           <DisplayNavbar
             template={navbarTemplate}
@@ -121,7 +121,7 @@ function App(props) {
           />
         )}
         <Routes>
-          <Route path="/" element={<Home templates={templates} />} />
+          <Route path="/" element={<MultiDescription templateName="Home" />} />
           <Route
             path="/presentation"
             element={<MultiDescription templateName="Presentation" />}
@@ -131,8 +131,20 @@ function App(props) {
             element={<MultiDescription templateName="Description" />}
           />
           <Route
+            path="/hebergement"
+            element={<MultiDescription templateName="Hebergement" />}
+          />
+          <Route
+            path="/accessibilite"
+            element={<MultiDescription templateName="Accessibilite" />}
+          />
+          <Route
             path="/flux"
             element={<MultiDescription templateName="Flux" />}
+          />
+          <Route
+            path="/prestation"
+            element={<MultiDescription templateName="Prestation" />}
           />
 
           {galleryTemplate && (
@@ -142,7 +154,6 @@ function App(props) {
             />
           )}
           <Route path="/contact" element={<ExtendedContact />} />
-          <Route path="/prestation" element={<Prices />} />
           <Route path="/display/:item" element={<Product />} />
 
           <Route path="/cgu-cgv" element={<Legals type="cgu-cgv" />} />

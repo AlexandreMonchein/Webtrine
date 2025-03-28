@@ -20,12 +20,15 @@ export const PricesContainer = styled.section`
   )}
 `;
 
-export const Title = styled.h2`
+export const Title = styled.h1`
   text-align: center;
+  color: var(--title-color-2);
 `;
 
 export const Description = styled.p`
-  margin: 0;
+  &.topDesc {
+    padding-bottom: 20px;
+  }
 `;
 
 export const FeaturesCard = styled.div`
@@ -64,7 +67,6 @@ export const FeatureImage = styled.img`
 `;
 
 export const FeatureText = styled.p`
-  font-size: 16px;
   padding-left: 12px;
   color: var(--text-color-secondary);
 `;

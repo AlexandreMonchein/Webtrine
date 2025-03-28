@@ -15,6 +15,6 @@ if [ ! -d "./build/$CUSTOMER" ]; then
 fi
 
 echo "Serving build for customer: $CUSTOMER"
-serve -s build/$CUSTOMER
+vite preview --mode build/$CUSTOMER
 
 echo "Serving completed for customer: $CUSTOMER"

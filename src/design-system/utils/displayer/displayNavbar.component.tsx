@@ -8,7 +8,7 @@ const DisplayNavbar = ({ template, toggleTheme, theme }) => {
       const { type, id, datas } = template;
 
       try {
-        const Module = await import(`./${id}.component`);
+        const Module = await import(`../../navbars/src/${id}.component.tsx`);
         const Component = Module.default;
 
         const props = { ...datas, toggleTheme, theme };

@@ -32,7 +32,7 @@ export const RootStyle = createGlobalStyle<{ globalStyle }>`
     --price-color: var(--blue);
 
     --title-color-1: var(--white);
-    --title-color-2: var(--blue);
+    --title-color-2: var(--gold);
     --text-color: var(--black);
 
     --border-colors: var(--black);

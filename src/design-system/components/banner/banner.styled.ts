@@ -34,7 +34,7 @@ export const BackgroundContainer = styled.div`
     height: 100%;
     display: block;
     position: absolute;
-    opacity: 0.6;
+    opacity: 0.4;
   }
 `;
 
@@ -60,7 +60,7 @@ export const RedirectLink = styled.a`
   padding: 12px;
   bottom: 0;
   text-decoration: none;
-  color: var(--color-primary);
+  color: var(--text-color-primary);
 `;
 
 export const Overlay = styled.div`
@@ -196,11 +196,13 @@ export const TextContainer = styled.div`
 export const Title = styled.h1`
   z-index: var(--z-index-text);
   color: var(--title-color-1);
+  padding: 0px 48px;
 `;
 
 export const SubTitle = styled.h2`
   z-index: var(--z-index-text);
   color: var(--title-color-1);
+  padding: 0px 48px;
 `;
 
 export const SelectorsContainer = styled.div`

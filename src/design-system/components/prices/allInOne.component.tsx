@@ -46,6 +46,8 @@ const AllInOne = (datas: AllInOneProps) => {
     content,
   } = datas;
 
+  const componentFiles = import.meta.glob("../../../assets/**/*.component.tsx");
+
   useEffect(() => {
     const loadComponents = async (content: Content[]) => {
       const loadedComponents: React.ReactNode[] = [];
@@ -55,17 +57,30 @@ const AllInOne = (datas: AllInOneProps) => {
           const { imgSrc, text } = data;
 
           if (imgSrc) {
-            const module = await import(
-              `../../../../assets/icons/${imgSrc}.component`
-            );
-            const Component = module.default;
+            const componentPath = `../../../assets/icons/${imgSrc}.component.tsx`;
+            const module = componentFiles[componentPath];
 
-            loadedComponents.push(
-              <FeatureItem key={index}>
-                <Component key={`${imgSrc}-${index}`} size={32} />
-                <FeatureText key={`text-${index}`}>{text}</FeatureText>
-              </FeatureItem>
-            );
+            if (module) {
+              const resolvedModule = await module();
+              // @ts-expect-error TODO: to fix
+              const Component = resolvedModule.default;
+
+              loadedComponents.push(
+                <FeatureItem key={index} tabIndex={0}>
+                  <Component
+                    key={`${imgSrc}-${index}`}
+                    size={32}
+                    aria-hidden="true" // Ensures that the icon is not read by screen readers
+                  />
+                  <FeatureText
+                    id={`feature-text-${index}`}
+                    aria-describedby={`feature-text-${index}`}
+                  >
+                    {text}
+                  </FeatureText>
+                </FeatureItem>
+              );
+            }
           }
         } catch (error) {
           console.error(`Error loading prices component`, error);
@@ -80,28 +95,51 @@ const AllInOne = (datas: AllInOneProps) => {
 
   return (
     <PricesContainer>
-      <Title>{title}</Title>
-      {descriptionTop ? <Description>{descriptionTop}</Description> : null}
-      <FeaturesCard>
+      {title ? (
+        <Title id="all-in-one-title" tabIndex={0}>
+          {title}
+        </Title>
+      ) : null}
+      {descriptionTop ? (
+        <Description
+          className="topDesc"
+          aria-labelledby="all-in-one-title"
+          tabIndex={0}
+        >
+          {descriptionTop}
+        </Description>
+      ) : null}
+      <FeaturesCard aria-labelledby="all-in-one-title">
         <FeaturesGrid>{components}</FeaturesGrid>
       </FeaturesCard>
       {!_.isEmpty(descriptionBottom)
         ? descriptionBottom.map((content, index) => (
-            <Description key={index}>{content.text}</Description>
+            <Description
+              key={index}
+              aria-labelledby="all-in-one-title"
+              tabIndex={0}
+            >
+              {content.text}
+            </Description>
           ))
         : null}
       <PriceContainer>
-        <Price>{price}</Price>
-        {per ? <Per> / {per}</Per> : null}
+        <Price tabIndex={0}>{price}</Price>
+        {per ? <Per tabIndex={0}> / {per}</Per> : null}
       </PriceContainer>
       <ActionButton
         to={{ pathname: "/contact" }}
         state={{ plan: { ...datas, title: "All In One" } }}
+        aria-label={t("prices.selectPlan")} // Adding an aria-label for the button to improve accessibility
+        role="button"
+        tabIndex={0} // Make sure the button is focusable by keyboard navigation
       >
         {t("prices.selectPlan")}
       </ActionButton>
       {additionalDescription ? (
-        <Description>{additionalDescription}</Description>
+        <Description aria-labelledby="all-in-one-title" tabIndex={0}>
+          {additionalDescription}
+        </Description>
       ) : null}
     </PricesContainer>
   );

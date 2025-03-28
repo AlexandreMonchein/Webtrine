@@ -45,13 +45,6 @@ export const FormContainer = styled.form`
   flex-direction: column;
   gap: 20px;
   text-align: left;
-
-  ${bp.max(
-    breakpointNames.large,
-    css`
-      display: block;
-    `
-  )};
 `;
 
 export const FormDisplay = styled.div`
@@ -69,15 +62,8 @@ export const FormDisplay = styled.div`
 export const ContactForm = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 20px;
   flex: 2;
-
-  ${bp.min(
-    breakpointNames.large,
-    css`
-      padding: 40px 20px;
-    `
-  )};
 `;
 
 export const ClientInfo = styled.div`
@@ -86,7 +72,7 @@ export const ClientInfo = styled.div`
 
   p {
     font-size: var(--text-font-size);
-    color: var(--text-colo);
+    color: var(--text-color);
     display: flex;
     flex-direction: column;
     gap: 6px;
@@ -99,6 +85,23 @@ export const ClientInfo = styled.div`
       padding: 0;
     `
   )};
+`;
+
+export const Field = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+`;
+
+export const Label = styled.label`
+  font-size: var(--label-font-size);
+  color: var(--label-color);
+`;
+
+export const Hint = styled.div`
+  font-size: var(--hint-font-size);
+  color: var(--hint-color);
+  margin-top: 4px;
 `;
 
 export const Input = styled.input`

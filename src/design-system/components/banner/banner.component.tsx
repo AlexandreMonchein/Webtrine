@@ -84,10 +84,10 @@ const Banner = (datas) => {
           const { url, title } = copyright || {};
 
           return (
-            <div key={index}>
+            <div key={name}>
               <Background
-                key={index}
-                alt={`Background ${index + 1}`}
+                key={name}
+                alt={`Background ${name}`}
                 src={`/assets/${customer}/${name}.jpg`}
                 className={classNames({ active: index === currentIndex })}
               />
@@ -102,9 +102,9 @@ const Banner = (datas) => {
       </BackgroundContainer>
       {multi ? (
         <SelectorsContainer>
-          {images.map((_, index) => (
+          {images.map((image, index) => (
             <Selector
-              key={`image-${index}`}
+              key={`image-${image.name}`}
               className={classNames({ active: index === currentIndex })}
               onClick={() => handleSelectorClick(index)}
             />

@@ -1,17 +1,17 @@
 import { Suspense, useEffect, useState } from "react";
 
 const DisplayFooter = ({ template }) => {
-  const [navbar, setNavbar] = useState<React.ReactNode>();
+  const [footer, setFooter] = useState<React.ReactNode>();
 
   useEffect(() => {
     const loadComponent = async () => {
       const { type, id, datas } = template;
 
       try {
-        const module = await import(`./${id}.component`);
-        const Component = module.default;
+        const Module = await import(`../../footers/src/${id}.component.tsx`);
+        const Component = Module.default;
 
-        setNavbar(
+        setFooter(
           <Component
             key={`${type}-${id}-${Math.floor(Math.random() * 1000)}`}
             {...datas}
@@ -25,7 +25,7 @@ const DisplayFooter = ({ template }) => {
     loadComponent();
   }, [template]);
 
-  return <Suspense fallback={<div>Loading...</div>}>{navbar}</Suspense>;
+  return <Suspense fallback={<div>Loading...</div>}>{footer}</Suspense>;
 };
 
 export default DisplayFooter;

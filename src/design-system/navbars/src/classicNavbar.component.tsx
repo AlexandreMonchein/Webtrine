@@ -42,9 +42,7 @@ const ClassicNavbar = (props) => {
   const socials = useSelector(getSocials);
   const modal = useSelector(getModalState);
 
-  // Use import.meta.glob to load all components ahead of time
-  // @ts-expect-error TODO: fix vite errors
-  const componentFiles = import.meta.glob("../../assets/**/*.component.tsx");
+  const componentFiles = import.meta.glob("../../../assets/**/*.component.tsx");
 
   useEffect(() => {
     const loadComponents = async () => {
@@ -53,11 +51,12 @@ const ClassicNavbar = (props) => {
       for (const [name, link] of Object.entries(socials)) {
         try {
           if (link) {
-            const componentPath = `../../../assets/icons/${name}.component`;
+            const componentPath = `../../../assets/icons/${name}.component.tsx`;
             const module = componentFiles[componentPath];
 
             if (module) {
               const resolvedModule = await module();
+              // @ts-expect-error TODO: to fix
               const Component = resolvedModule.default;
 
               loadedComponents.push(
@@ -189,7 +188,6 @@ const ClassicNavbar = (props) => {
           <a href="/">
             <img
               alt={name}
-              // @ts-expect-error TODO: fix vite errors
               src={`${import.meta.env.BASE_URL}assets/${clientName}/icons/${name}.png`}
             />
           </a>

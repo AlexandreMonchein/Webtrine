@@ -79,81 +79,82 @@
         }
       },
       {
-        "type": "banner",
-        "id": "banner",
-        "datas": {
-          "features": { "multi": false, "medium": true },
-          "title": "Laboratoire DI PAOLO",
-          "subTitle": "Créateur de prothèses dentaires de précision",
-          "images": [
-            {
-              "name": "accueil_banner_1"
-            }
-          ],
-          "textPosition": "center-right"
-        }
-      },
-      {
         "type": "description",
-        "id": "description",
+        "id": "multiDescriptions",
+        "name": "Home",
         "datas": {
-          "features": { "isReversed": false, "isCentered": false },
-          "title": "Un laboratoire au service de vos patients",
-          "content": [
-            {
-              "text": "Nous sommes spécialisés dans la conception et la fabrication de prothèses dentaires, avec une forte intégration des technologies numériques."
+          "content": {
+            "banner-1": {
+              "type": "banner",
+              "features": { "multi": false, "medium": true },
+              "title": "Laboratoire DI PAOLO",
+              "subTitle": "Créateur de prothèses dentaires de précision",
+              "images": [
+                {
+                  "name": "accueil_banner_1"
+                }
+              ],
+              "textPosition": "center-right"
             },
-            {
-              "text": "Nous utilisons la conception et l’impression 3D pour offrir des solutions adaptées aux besoins spécifiques de nos clients."
+            "description-1": {
+              "type": "description",
+              "features": { "isReversed": false, "isCentered": false },
+              "title": "Un laboratoire au service de vos patients",
+              "content": [
+                {
+                  "text": "Nous sommes spécialisés dans la conception et la fabrication de prothèses dentaires, avec une forte intégration des technologies numériques."
+                },
+                {
+                  "text": "Nous utilisons la conception et l’impression 3D pour offrir des solutions adaptées aux besoins spécifiques de nos clients."
+                },
+                {
+                  "text": "Nous collaborons étroitement avec les dentistes et les chirurgiens-dentistes de la région Auvergne-Rhône-Alpes pour garantir la proximité et la disponibilité."
+                },
+                {
+                  "text": "Nous sommes spécialisés dans la fabrication de prothèses complexes, qu’il s’agisse de prothèses sur implants, de prothèses amovibles, ou d’autres types de solutions personnalisées."
+                }
+              ],
+              "image": {
+                "name": "accueil_1",
+                "alt": "",
+                "focusable": false
+              }
             },
-            {
-              "text": "Nous collaborons étroitement avec les dentistes et les chirurgiens-dentistes de la région Auvergne-Rhône-Alpes pour garantir la proximité et la disponibilité."
+            "display-1": {
+              "type": "display",
+              "features": {},
+              "title": "Confiez-nous le sourire de vos patients",
+              "content": [
+                {
+                  "name": "franceColored",
+                  "text": "100% français"
+                },
+                {
+                  "name": "quality",
+                  "text": "Qualité"
+                }
+              ]
             },
-            {
-              "text": "Nous sommes spécialisés dans la fabrication de prothèses complexes, qu’il s’agisse de prothèses sur implants, de prothèses amovibles, ou d’autres types de solutions personnalisées."
+            "banner-2": {
+              "type": "banner",
+              "features": { "multi": false, "medium": true },
+              "title": "Contactez-nous pour plus de renseignement",
+              "subTitle": "Ouvert du Lundi au Vendredi de 8h à 18h",
+              "images": [
+                {
+                  "name": "accueil_banner_2"
+                }
+              ],
+              "textPosition": "center-left",
+              "contact": [
+                {
+                  "type": "redirect",
+                  "to": "contact",
+                  "displayedText": "Aller au formulaire de contact"
+                }
+              ]
             }
-          ],
-          "image": "accueil_1"
-        }
-      },
-      {
-        "type": "display",
-        "id": "qualityDisplay",
-        "datas": {
-          "features": {},
-          "title": "Confiez-nous le sourire de vos patients",
-          "content": [
-            {
-              "name": "franceColored",
-              "text": "100% français"
-            },
-            {
-              "name": "quality",
-              "text": "Qualité"
-            }
-          ]
-        }
-      },
-      {
-        "type": "banner",
-        "id": "banner",
-        "datas": {
-          "features": { "multi": false, "medium": true },
-          "title": "Contactez-nous pour plus de renseignement",
-          "subTitle": "Ouvert du Lundi au Vendredi de 8h à 18h",
-          "images": [
-            {
-              "name": "accueil_banner_2"
-            }
-          ],
-          "textPosition": "center-left",
-          "contact": [
-            {
-              "type": "redirect",
-              "to": "contact",
-              "displayedText": "Aller au formulaire de contact"
-            }
-          ]
+          }
         }
       },
       {
@@ -163,6 +164,7 @@
         "datas": {
           "content": {
             "banner-1": {
+              "type": "banner",
               "features": { "medium": true },
               "title": "L'histoire du Laboratoire",
               "subTitle": null,
@@ -174,6 +176,7 @@
               "textPosition": "center"
             },
             "description-1": {
+              "type": "description",
               "title": "Depuis plus de 50 ans à vos côtés",
               "features": { "isReversed": false, "isCentered": false },
               "content": [
@@ -190,9 +193,14 @@
                   "text": "Julien Di Paolo a su anticiper cette tendance et moderniser son entreprise, faisant du Laboratoire Di Paolo un acteur important dans la région Auvergne-Rhône-Alpes."
                 }
               ],
-              "image": "accueil"
+              "image": {
+                "name": "accueil",
+                "alt": "",
+                "focusable": false
+              }
             },
             "gallery-1": {
+              "type": "gallery",
               "template": {
                 "features": { "shouldRedirect": false },
                 "inventory": [
@@ -224,6 +232,7 @@
               }
             },
             "banner-2": {
+              "type": "banner",
               "features": { "medium": true },
               "title": "Contactez-nous pour plus de renseignement ",
               "subTitle": null,
@@ -251,6 +260,7 @@
         "datas": {
           "content": {
             "banner-1": {
+              "type": "banner",
               "features": { "medium": true },
               "title": "Nos Prothèses",
               "subTitle": null,
@@ -262,6 +272,7 @@
               "textPosition": "center"
             },
             "description-1": {
+              "type": "description",
               "title": "Des prothèses les plus simples au plus complexes",
               "features": { "isReversed": false, "isCentered": false },
               "content": [
@@ -274,6 +285,7 @@
               ]
             },
             "gallery-1": {
+              "type": "gallery",
               "template": {
                 "features": { "shouldRedirect": false },
                 "inventory": [
@@ -307,6 +319,7 @@
               }
             },
             "banner-2": {
+              "type": "banner",
               "features": { "medium": true },
               "title": "Contactez-nous pour plus de renseignement ",
               "subTitle": null,
@@ -334,6 +347,7 @@
         "datas": {
           "content": {
             "banner-1": {
+              "type": "banner",
               "features": { "medium": true },
               "title": "Un flux numérique complet !",
               "subTitle": null,
@@ -345,6 +359,7 @@
               "textPosition": "center"
             },
             "description-1": {
+              "type": "description",
               "title": "Nos équipements",
               "features": { "isReversed": false, "isContinious": false },
               "content": [
@@ -354,6 +369,7 @@
               ]
             },
             "gallery-1": {
+              "type": "gallery",
               "template": {
                 "features": { "shouldRedirect": false },
                 "type": "logo",
@@ -386,6 +402,7 @@
               }
             },
             "description-2": {
+              "type": "description",
               "title": null,
               "features": { "isReversed": false, "isContinious": false },
               "content": [
@@ -395,6 +412,7 @@
               ]
             },
             "gallery-2": {
+              "type": "gallery",
               "template": {
                 "features": { "shouldRedirect": false },
                 "inventory": [
@@ -422,6 +440,7 @@
               }
             },
             "banner-2": {
+              "type": "banner",
               "features": { "medium": true },
               "title": "Contactez-nous pour plus de renseignement ",
               "subTitle": null,

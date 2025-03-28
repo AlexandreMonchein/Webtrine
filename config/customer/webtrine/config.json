@@ -5,7 +5,8 @@
     "contact": {
       "name": "Alexandre Monschein",
       "phone": "+33614612295",
-      "email": "webtrine.pro@gmail.com"
+      "email": "webtrine.pro@gmail.com",
+      "mailTemplate": "TODO"
     },
     "socials": {
       "linkedin": "https://www.linkedin.com/in/alexandre-monschein-34984a161"
@@ -30,11 +31,23 @@
           },
           "categories": [
             {
-              "name": "Webtrine",
+              "name": "Accueil",
               "link": "/"
             },
             {
-              "name": "prestation",
+              "name": "Webtrine",
+              "link": "/presentation"
+            },
+            {
+              "name": "Hébergement",
+              "link": "/hebergement"
+            },
+            {
+              "name": "L'accessibilité",
+              "link": "/accessibilite"
+            },
+            {
+              "name": "Nos services",
               "link": "/prestation"
             },
             {
@@ -59,100 +72,488 @@
         }
       },
       {
-        "type": "banner",
-        "id": "banner",
+        "type": "description",
+        "id": "multiDescriptions",
+        "name": "Home",
         "datas": {
-          "features": { "multi": false },
-          "title": "Webtrine",
-          "subTitle": "Il n'a jamais été aussi simple d'avoir un site vitrine",
-          "images": [
-            {
-              "name": "banner",
-              "copyright": {
-                "url": "http://fr.freepik.com",
-                "title": "Designed by Yael_Fazy / Freepik"
+          "content": {
+            "banner-1": {
+              "type": "banner",
+              "features": { "multi": false, "medium": true },
+              "title": "Webtrine",
+              "subTitle": "Il n'a jamais été aussi simple de confectionner un site",
+              "images": [
+                {
+                  "name": "accueil_banner_2"
+                }
+              ],
+              "textPosition": "center-right"
+            },
+            "description-1": {
+              "type": "description",
+              "features": { "isReversed": false, "isContinious": false },
+              "title": "Qui se cache derrière Webtrine",
+              "content": [
+                {
+                  "text": "Bonjour et bienvenue !"
+                },
+                {
+                  "text": "Je m'appelle Alexandre, j'ai 24 ans et je suis développeur web."
+                },
+                {
+                  "text": "Ma passion ? Concevoir des sites à la fois esthétiques et intuitifs, pour offrir la meilleure expérience utilisateur possible."
+                },
+                {
+                  "text": "C'est cette passion qui m'a conduit à créer mon propre projet, ma propre entreprise. Un espace où je peux exprimer ma créativité tout en développant des solutions web efficaces."
+                },
+                {
+                  "text": "C'est ainsi qu'est née Webtrine : une solution pensée pour concevoir des sites vitrines de qualité, basés sur des templates que je conçois et améliore en permanence. Grâce à cette approche, nous pouvons mettre en place rapidement et efficacement votre site web."
+                },
+                {
+                  "text": "J’ai hâte de collaborer avec vous et de donner vie à votre projet web !"
+                }
+              ],
+              "image": {
+                "name": "accueil_image_1",
+                "alt": "",
+                "focusable": false
               }
+            },
+            "description-2": {
+              "type": "description",
+              "features": { "isReversed": true, "isContinious": false },
+              "title": "Pourquoi choisir Webtrine",
+              "content": [
+                {
+                  "text": "1) Adapté aux différents écrans: "
+                },
+                {
+                  "text": "Ordinateur, mobile, tablette... Peut importe le support utilisé, votre site sera toujours adapté à la taille de votre écran."
+                },
+                {
+                  "text": "2) Toujours à jour: "
+                },
+                {
+                  "text": "Nous mettons constamment à jour notre solution avec les dernières technologies afin de vous garantir un site toujours plus performant, moderne et sécurisé."
+                },
+                {
+                  "text": "3) Utilisable par tous: "
+                },
+                {
+                  "text": "Notre solution est conçu pour être accessible à tous, garantissant une navigation fluide et une expérience optimale, quel que soit le profil de l'utilisateur."
+                },
+                {
+                  "text": "4) Sans (mauvaise) surprise: "
+                },
+                {
+                  "text": "Notre formule tout-en-un vous offre dès le départ tout ce dont vous avez besoin pour un site complet et performant, sans avoir à ajouts différentes options au fur et à mesure."
+                }
+              ],
+              "image": {
+                "name": "accueil_image_2",
+                "alt": "",
+                "focusable": false
+              }
+            },
+            "banner-2": {
+              "type": "banner",
+              "features": { "multi": false, "medium": true },
+              "title": "Contactez-nous pour plus de renseignement",
+              "subTitle": null,
+              "images": [
+                {
+                  "name": "banner_2"
+                }
+              ],
+              "textPosition": "center-left",
+              "contact": [
+                {
+                  "type": "redirect",
+                  "to": "contact",
+                  "displayedText": "Aller au formulaire de contact"
+                }
+              ]
             }
-          ],
-          "textPosition": "center-right"
+          }
         }
       },
       {
         "type": "description",
-        "id": "description",
+        "id": "multiDescriptions",
+        "name": "Presentation",
         "datas": {
-          "features": { "isReversed": false, "isContinious": false },
-          "title": "Une petite présentation s'impose !",
-          "content": [
-            {
-              "text": "Bonjour et bienvenue !"
+          "content": {
+            "banner-1": {
+              "type": "banner",
+              "features": { "medium": true },
+              "title": "Qu'est-ce que Webtrine ?",
+              "subTitle": null,
+              "images": [
+                {
+                  "name": "presentation_banner_1"
+                }
+              ],
+              "textPosition": "center"
             },
-            {
-              "text": "Je m'appelle Alexandre, j'ai 24 ans et je suis développeur web. Ma passion dans ce domaine, c'est de créer des sites esthétiques et faciles à utiliser."
+            "description-1": {
+              "type": "description",
+              "title": "Un site à votre image",
+              "features": { "isReversed": false, "isCentered": false },
+              "content": [
+                {
+                  "text": "Avec Webtrine, concevez votre site web de A à Z en toute simplicité. Grâce à des templates modernes et entièrement personnalisables, créez rapidement un site qui vous ressemble."
+                },
+                {
+                  "text": "Nous mettons à votre disposition une sélection de templates prêts à l'emploi pour poser les bases de votre site. Et si aucun ne correspond parfaitement à vos attentes, pas de souci : nous en créerons un sur mesure, ensemble !"
+                }
+              ],
+              "image": {
+                "name": "description_image_1",
+                "alt": "",
+                "focusable": false
+              }
             },
-            {
-              "text": "C'est cette passion qui m'a poussé à lancer mon propre projet, afin d'exprimer ma créativité et mon amour pour le développement web."
+            "list-1": {
+              "type": "numberedList",
+              "features": null,
+              "title": "Un processus de création simple et efficace",
+              "content": [
+                {
+                  "title": "Définition du projet & Conseils",
+                  "description": "Dès notre premier contact, nous échangeons pour comprendre votre secteur d’activité et définir le cadre de votre projet. L'approche est adaptée à vos besoins spécifiques."
+                },
+                {
+                  "title": "Conception graphique UX/UI",
+                  "description": "Deux options s’offrent à vous : soit vous choisissez des templates existants, soit nous travaillerons ensemble pour créer ou modifier des templates spécifiques à vos besoins."
+                },
+                {
+                  "title": "Devis détaillé",
+                  "description": "Un devis précis est établi en fonction de vos besoins et des options choisies."
+                },
+                {
+                  "title": "Collecte des éléments",
+                  "description": "Vous fournissez les contenus (textes, images, architecture souhaitée) et nous optimisons ensemble la structure de votre site."
+                },
+                {
+                  "title": "Développement Frontend",
+                  "description": "Une première maquette est créée, ajustée selon vos retours, avec possibilité de modifications en direct pour plus d’efficacité."
+                },
+                {
+                  "title": "Back and Fourth",
+                  "description": "Tout au long du projet, nous adoptons une approche collaborative où chaque étape de travail est suivie de retours clients, permettant ainsi d’ajuster les éléments au fur et à mesure. Ce va-et-vient constant entre le développement et vos retours nous assure de parvenir à un résultat parfaitement adapté à vos attentes, jusqu'à totale satisfaction."
+                },
+                {
+                  "title": "Optimisation SEO, Sécurisation & Mise en ligne",
+                  "description": "SEO optimisé pour améliorer la visibilité, sécurisation du site et mise en ligne finale."
+                },
+                {
+                  "title": "Suivi & évolutions",
+                  "description": "Des options complémentaires sont proposées pour la maintenance, l’ajout de contenu ou de nouvelles fonctionnalités."
+                }
+              ]
             },
-            {
-              "text": "C'est ainsi qu'est née Webtrine. Webtrine c'est une solution que j'ai développée pour concevoir des sites vitrines à partir de templates que je crée et améliore continuellement. Ensemble, nous pourrons rapidement mettre en place VOTRE site en utilisant ces templates."
+            "cards-1": {
+              "type": "cardsList",
+              "features": null,
+              "title": "Pourquoi avoir un site vitrine ?",
+              "content": [
+                {
+                  "title": "Une vitrine numérique à votre image",
+                  "description": "Les réseaux sociaux c'est bien, mais un site web, c'est votre vitrine personnalisée, disponible 24/7. Vous bénéficiez d'une totale liberté de création pour montrer au monde votre entreprise."
+                },
+                {
+                  "title": "Amélioration du référencement",
+                  "description": "Je préfère être transparent : un site web ne garantit pas de figurer en première page de Google. Cependant, un SEO bien travaillé et un site bien développé améliore grandement votre visibilité sur les moteurs de recherche."
+                },
+                {
+                  "title": "Un investissement accessible",
+                  "description": "À partir de 350€ HT, un site vitrine représente un investissement abordable pour accroître votre présence en ligne et attirer de nouveaux clients."
+                }
+              ]
             },
-            {
-              "text": "Mon objectif est de simplifier la création de votre présence en ligne. J'ai donc conçu une offre unique pour vous permettre d'obtenir facilement et rapidement votre identité web."
-            },
-            {
-              "text": "Le processus est simple : lors d'un premier rendez-vous, nous choisirons ensemble les templates et définirons les aspects graphiques ainsi que les formalités (comme le nom de domaine). Ensuite, vous me fournirez les informations nécessaires pour remplir votre site. En quelques jours seulement, votre site sera opérationnel et en ligne."
-            },
-            {
-              "text": "Avec Webtrine, la création de votre site vitrine n'a jamais été aussi simple."
-            },
-            {
-              "text": "Au plaisir de collaborer avec vous !"
+            "banner-2": {
+              "type": "banner",
+              "features": { "multi": false, "medium": true },
+              "title": "Contactez-nous pour plus de renseignement",
+              "subTitle": null,
+              "images": [
+                {
+                  "name": "banner_2"
+                }
+              ],
+              "textPosition": "center-left",
+              "contact": [
+                {
+                  "type": "redirect",
+                  "to": "contact",
+                  "displayedText": "Aller au formulaire de contact"
+                }
+              ]
             }
-          ],
-          "image": "me"
+          }
         }
       },
       {
-        "type": "prices",
-        "id": "allInOne",
+        "type": "description",
+        "id": "multiDescriptions",
+        "name": "Hebergement",
         "datas": {
-          "features": {},
-          "content": [
-            {
-              "imgSrc": "colorPalette",
-              "text": "Création de votre charte graphique"
+          "content": {
+            "banner-1": {
+              "type": "banner",
+              "features": { "medium": true },
+              "title": "Comment et ou sont hébergé les sites vitrines ?",
+              "subTitle": null,
+              "images": [
+                {
+                  "name": "hosting_banner_1"
+                }
+              ],
+              "textPosition": "center"
             },
-            {
-              "imgSrc": "domain",
-              "text": "Création de votre nom de domaine"
+            "description-1": {
+              "type": "description",
+              "title": "Le leader du marché",
+              "features": { "isReversed": false, "isCentered": false },
+              "content": [
+                {
+                  "text": "Pour garantir la performance, la sécurité et la fiabilité des sites vitrines que nous créons, nous nous appuyons sur une infrastructure robuste hébergée chez OVH, un leader européen de l’hébergement web et des services cloud."
+                },
+                {
+                  "text": "1) Hébergement sur VPS OVH (Serveur Privé Virtuel): "
+                },
+                {
+                  "text": "Nous utilisons des VPS pour héberger nos sites web. Contrairement à un hébergement mutualisé, un VPS offre des ressources dédiées (processeur, mémoire RAM, stockage), garantissant ainsi de meilleures performances et une plus grande stabilité. OVH nous permet également une personnalisation avancée des serveurs en fonction des besoins spécifiques de chaque projet."
+                },
+                {
+                  "text": "2) Nom de Domaine: "
+                },
+                {
+                  "text": "Chaque site web est accessible via un nom de domaine unique, que nous gérons pour nos clients via OVH. Nous nous occupons de l’enregistrement, de la configuration DNS et du renouvellement des noms de domaine afin d’assurer une accessibilité continue et une gestion simplifiée."
+                },
+                {
+                  "text": "3) Certificat SSL pour la Sécurité: "
+                },
+                {
+                  "text": "Tous nos sites sont sécurisés avec un certificat SSL, essentiel pour chiffrer les échanges entre le site et ses visiteurs. Chez OVH, nous mettons en place des certificats SSL Let’s Encrypt ou premium selon les besoins, garantissant ainsi un accès en HTTPS sécurisé, renforçant la confiance des utilisateurs et améliorant le référencement."
+                },
+                {
+                  "text": "Grâce à cette infrastructure hébergée chez OVH, nous assurons à nos clients des sites performants, sécurisés et accessibles en permanence."
+                }
+              ],
+              "image": {
+                "name": "hosting_image_1",
+                "alt": "",
+                "focusable": false
+              }
             },
-            {
-              "imgSrc": "lodging",
-              "text": "Hébergement de votre site vitrine *"
-            },
-            {
-              "imgSrc": "support",
-              "text": "Maintenance / Support de votre site **"
-            },
-            {
-              "imgSrc": "websiteCreation",
-              "text": "Création de votre site vitrine"
-            },
-            {
-              "imgSrc": "pencil",
-              "text": "Modification à la demande (1 fois / mois) ***"
+            "banner-2": {
+              "type": "banner",
+              "features": { "multi": false, "medium": true },
+              "title": "Contactez-nous pour plus de renseignement",
+              "subTitle": null,
+              "images": [
+                {
+                  "name": "banner_2"
+                }
+              ],
+              "textPosition": "center-left",
+              "contact": [
+                {
+                  "type": "redirect",
+                  "to": "contact",
+                  "displayedText": "Aller au formulaire de contact"
+                }
+              ]
             }
-          ],
-          "title": "L'offre Webtrine All Inclusive",
-          "descriptionTop": null,
-          "descriptionBottom": [
-            { "text": "* Pour un supplément de 150€/an" },
-            { "text": "** Sur les 6 mois suivant le déploiement du site" },
-            { "text": "*** Sur les 6 mois suivant le déploiement du site" }
-          ],
-          "price": "350,00€",
-          "per": null,
-          "additionalDescription": null
+          }
+        }
+      },
+      {
+        "type": "description",
+        "id": "multiDescriptions",
+        "name": "Accessibilite",
+        "datas": {
+          "content": {
+            "banner-1": {
+              "type": "banner",
+              "features": { "medium": true },
+              "title": "L'Accessibilité: Une Expérience pour Tous",
+              "subTitle": null,
+              "images": [
+                {
+                  "name": "accessibility_banner_1"
+                }
+              ],
+              "textPosition": "center"
+            },
+            "description-1": {
+              "type": "description",
+              "features": { "isReversed": false, "isCentered": false },
+              "content": [
+                {
+                  "text": "Nous croyons fermement que le web doit être accessible à tous, quelles que soient leurs capacités. C’est pourquoi nous intégrons dès la conception de nos templates des pratiques visant à garantir une navigation fluide et inclusive pour tous les utilisateurs, y compris les personnes en situation de handicap."
+                },
+                {
+                  "text": "1) Respect des Normes d’Accessibilité (WCAG & RGAA): "
+                },
+                {
+                  "text": "Nos sites sont développés en suivant les recommandations des Web Content Accessibility Guidelines (WCAG) et du Référentiel Général d’Amélioration de l’Accessibilité (RGAA). Ces standards garantissent une meilleure lisibilité, une navigation intuitive et une compatibilité avec les technologies d’assistance."
+                },
+                {
+                  "text": "2) Compatibilité avec les Technologies d’Assistance: "
+                },
+                {
+                  "text": "Nous optimisons nos sites pour qu’ils soient compatibles avec les lecteurs d’écran (comme NVDA, JAWS ou VoiceOver), les commandes vocales et les navigateurs spécialisés. Cela permet aux personnes malvoyantes ou ayant des troubles moteurs d’interagir facilement avec le contenu."
+                },
+                {
+                  "text": "3) Navigation Facile et Intuitive: "
+                },
+                {
+                  "text": "   - Une hiérarchie claire des contenus et une structure bien définie (titres, paragraphes, listes)."
+                },
+                {
+                  "text": "   - Une navigation au clavier fluide pour les utilisateurs ne pouvant pas utiliser une souris."
+                },
+                {
+                  "text": "   - Des couleurs et contrastes adaptés pour assurer une bonne lisibilité aux personnes malvoyantes ou atteintes de daltonisme."
+                },
+                {
+                  "text": "4) Formulaires et Interactions Accessibles: "
+                },
+                {
+                  "text": "   - Des libellés clairs et visibles pour les champs de formulaire."
+                },
+                {
+                  "text": "   - Des messages d’erreur compréhensibles pour guider l’utilisateur en cas de saisie incorrecte."
+                },
+                {
+                  "text": "   - Une gestion optimisée du focus pour que les utilisateurs naviguant au clavier puissent facilement interagir avec les éléments du site."
+                },
+                {
+                  "text": "5) Tests et Améliorations Continues: "
+                },
+                {
+                  "text": "Nous effectuons régulièrement des tests d’accessibilité avec des outils comme Pa11y, Axe ou Wave et intégrons les retours des utilisateurs pour améliorer constamment l’expérience."
+                },
+                {
+                  "text": "En intégrant ces bonnes pratiques, nous nous assurons que nos sites sont utilisables par tous, sans exclusion, garantissant ainsi une meilleure accessibilité et une expérience utilisateur optimisée."
+                }
+              ],
+              "image": {
+                "name": "accessibility_image_1",
+                "alt": "",
+                "focusable": false
+              }
+            },
+            "banner-2": {
+              "type": "banner",
+              "features": { "multi": false, "medium": true },
+              "title": "Contactez-nous pour plus de renseignement",
+              "subTitle": null,
+              "images": [
+                {
+                  "name": "banner_2"
+                }
+              ],
+              "textPosition": "center-left",
+              "contact": [
+                {
+                  "type": "redirect",
+                  "to": "contact",
+                  "displayedText": "Aller au formulaire de contact"
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "type": "description",
+        "id": "multiDescriptions",
+        "name": "Prestation",
+        "datas": {
+          "content": {
+            "banner-1": {
+              "type": "banner",
+              "features": { "medium": true },
+              "title": "L'offre Webtrine All-In-One",
+              "subTitle": null,
+              "images": [
+                {
+                  "name": "prestation_banner_1"
+                }
+              ],
+              "textPosition": "center"
+            },
+            "prices-1": {
+              "type": "allInOne",
+              "features": {},
+              "content": [
+                {
+                  "imgSrc": "colorPalette",
+                  "text": "Création de votre charte graphique"
+                },
+                {
+                  "imgSrc": "websiteCreation",
+                  "text": "Création de votre site vitrine"
+                },
+                {
+                  "imgSrc": "domain",
+                  "text": "Création de votre nom de domaine *"
+                },
+                {
+                  "imgSrc": "lodging",
+                  "text": "Hébergement de votre site vitrine **"
+                },
+                {
+                  "imgSrc": "support",
+                  "text": "Maintenance / Support de votre site"
+                },
+                {
+                  "imgSrc": "pencil",
+                  "text": "Modification à la demande (1 fois / mois) ***"
+                }
+              ],
+              "title": null,
+              "descriptionTop": "Webtrine, c’est une offre tout-en-un : un package complet pour créer et lancer votre site sans prise de tête.",
+              "descriptionBottom": [
+                { "text": "* Si vous le faites héberger chez nous" },
+                { "text": "** Pour un supplément de 250€/an HT" },
+                { "text": "*** Sur les 6 mois suivant le déploiement du site" }
+              ],
+              "price": "450,00€ HT",
+              "per": null,
+              "additionalDescription": null
+            },
+            "banner-2": {
+              "type": "banner",
+              "features": { "multi": false, "medium": true },
+              "title": "Contactez-nous pour plus de renseignement",
+              "subTitle": null,
+              "images": [
+                {
+                  "name": "banner_2"
+                }
+              ],
+              "textPosition": "center-left",
+              "contact": [
+                {
+                  "type": "redirect",
+                  "to": "contact",
+                  "displayedText": "Aller au formulaire de contact"
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "type": "contact",
+        "id": "extendedContact",
+        "name": "Contact",
+        "datas": {
+          "features": {}
         }
       },
       {
