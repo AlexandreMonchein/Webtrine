@@ -52,12 +52,12 @@ export const ImageWrapper = styled.div`
   overflow: hidden;
   transition: transform 0.3s ease-in-out;
 
-  &:hover {
+  &:hover,
+  &:focus-within {
     transform: scale(1.1);
   }
 
-  &:hover,
-  &:focus-within ${Overlay} {
+  &:hover ${Overlay}, &:focus-within ${Overlay} {
     opacity: 1;
   }
 `;
