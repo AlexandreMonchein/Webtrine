@@ -1,23 +1,24 @@
-import React, { useEffect, useRef, useState } from "react";
-import { useSelector } from "react-redux";
-
-import { getCustomer } from "../../../customer.utils";
-import { SectionTitle } from "../description/description.styled";
-
+import { useEffect, useRef, useState } from "react";
 import {
   Container,
   ImageItem,
   ImageList,
   ScrollButton,
   Section,
+  SubTitle,
+  Title,
+  ImageWrapper,
+  Overlay,
+  ConsultButton,
 } from "./imageList.styled";
+import { getCustomer } from "../../../customer.utils";
 
 const List = (datas) => {
-  const customer = useSelector(getCustomer);
-  const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const customer = getCustomer();
+  const scrollContainerRef = useRef(null);
   const [showButtons, setShowButtons] = useState(false);
 
-  const scroll = (direction: "left" | "right") => {
+  const scroll = (direction) => {
     if (scrollContainerRef.current) {
       const { scrollLeft, clientWidth } = scrollContainerRef.current;
       const scrollAmount = direction === "left" ? -clientWidth : clientWidth;
@@ -44,28 +45,34 @@ const List = (datas) => {
     };
   }, []);
 
-  const { title, images } = datas;
+  const { title, subtitle, images } = datas;
+
+  if (!images || images.length === 0) {
+    return null;
+  }
 
   return (
     <Section>
-      {title ? <SectionTitle>{title}</SectionTitle> : null}
+      {title ? <Title tabIndex={0}>{title}</Title> : null}
+      {subtitle ? <SubTitle tabIndex={0}>{subtitle}</SubTitle> : null}
       <Container>
         {showButtons && (
           <ScrollButton onClick={() => scroll("left")}>‹</ScrollButton>
         )}
         <ImageList ref={scrollContainerRef} $imagecount={images.length}>
           {images.map((image, index) => (
-            <a
-              key={index}
-              href={image.link}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <ImageWrapper>
               <ImageItem
-                src={`${import.meta.env.BASE_URL}/assets/${customer}/clients/${image.src}.jpeg`}
-                alt={`Trust Image ${index + 1}`}
+                src={`${import.meta.env.BASE_URL}assets/${customer}/clients/${image.src}.jpg`}
+                alt={image.alt}
+                tabIndex={-1}
               />
-            </a>
+              <Overlay>
+                <a tabIndex={-1} key={index} href={image.link}>
+                  <ConsultButton>Consulter</ConsultButton>
+                </a>
+              </Overlay>
+            </ImageWrapper>
           ))}
         </ImageList>
         {showButtons && (

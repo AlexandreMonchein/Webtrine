@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { SectionTitle } from "../description/description.styled";
 
 export const Section = styled.section`
   padding: 40px 0px;
@@ -30,19 +31,58 @@ export const ImageList = styled.div<{ $imagecount: number }>`
     props.$imagecount < 5 ? "center" : "flex-start"};
 `;
 
-export const ImageItem = styled.img`
-  flex: 0 0 auto;
-  width: 200px;
-  height: 200px;
+export const Overlay = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+`;
+
+export const ImageWrapper = styled.div`
+  position: relative;
+  display: inline-block;
   border-radius: 50%;
-  margin: 0 10px;
-  object-fit: cover;
-  cursor: pointer;
+  overflow: hidden;
   transition: transform 0.3s ease-in-out;
 
   &:hover {
     transform: scale(1.1);
   }
+
+  &:hover,
+  &:focus-within ${Overlay} {
+    opacity: 1;
+  }
+`;
+
+export const ConsultButton = styled.button`
+  background-color: white;
+  color: black;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  transition: background 0.3s ease-in-out;
+
+  &:hover {
+    background-color: lightgray;
+  }
+`;
+
+export const ImageItem = styled.img`
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
 `;
 
 export const ScrollButton = styled.button`
@@ -71,4 +111,13 @@ export const ScrollButton = styled.button`
   &:last-of-type {
     right: 0;
   }
+`;
+
+export const Title = styled(SectionTitle)`
+  padding-bottom: 0px;
+`;
+
+export const SubTitle = styled.p`
+  text-align: center;
+  padding-bottom: 24px;
 `;

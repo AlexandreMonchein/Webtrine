@@ -35,10 +35,6 @@
               "link": "/"
             },
             {
-              "name": "Webtrine",
-              "link": "/presentation"
-            },
-            {
               "name": "Hébergement",
               "link": "/hebergement"
             },
@@ -49,6 +45,10 @@
             {
               "name": "Nos services",
               "link": "/prestation"
+            },
+            {
+              "name": "A propos",
+              "link": "/presentation"
             },
             {
               "name": "Contact",
@@ -91,30 +91,18 @@
             },
             "description-1": {
               "type": "description",
-              "features": { "isReversed": false, "isContinious": false },
-              "title": "Qui se cache derrière Webtrine",
+              "title": "Un site à votre image",
+              "features": { "isReversed": false, "isCentered": false },
               "content": [
                 {
-                  "text": "Bonjour et bienvenue !"
+                  "text": "Avec Webtrine, concevez votre site web de A à Z en toute simplicité. Grâce à des templates modernes et entièrement personnalisables, créez rapidement un site qui vous ressemble."
                 },
                 {
-                  "text": "Je m'appelle Alexandre, j'ai 24 ans et je suis développeur web."
-                },
-                {
-                  "text": "Ma passion ? Concevoir des sites à la fois esthétiques et intuitifs, pour offrir la meilleure expérience utilisateur possible."
-                },
-                {
-                  "text": "C'est cette passion qui m'a conduit à créer mon propre projet, ma propre entreprise. Un espace où je peux exprimer ma créativité tout en développant des solutions web efficaces."
-                },
-                {
-                  "text": "C'est ainsi qu'est née Webtrine : une solution pensée pour concevoir des sites vitrines de qualité, basés sur des templates que je conçois et améliore en permanence. Grâce à cette approche, nous pouvons mettre en place rapidement et efficacement votre site web."
-                },
-                {
-                  "text": "J’ai hâte de collaborer avec vous et de donner vie à votre projet web !"
+                  "text": "Nous mettons à votre disposition une sélection de templates prêts à l'emploi pour poser les bases de votre site. Et si aucun ne correspond parfaitement à vos attentes, pas de souci : nous en créerons un sur mesure, ensemble !"
                 }
               ],
               "image": {
-                "name": "accueil_image_1",
+                "name": "description_image_1",
                 "alt": "",
                 "focusable": false
               }
@@ -155,6 +143,38 @@
                 "focusable": false
               }
             },
+            "list-1": {
+              "type": "imageList",
+              "features": null,
+              "title": "Ils nous ont fait confiance",
+              "subtitle": "cliquez pour visiter leur site",
+              "images": [
+                {
+                  "alt": "Logo entreprise cliente: Di Paolo",
+                  "link": "https://www.labodipaolo.com",
+                  "src": "dipaolo"
+                }
+              ]
+            },
+            "cards-1": {
+              "type": "cardsList",
+              "features": null,
+              "title": "Pourquoi avoir un site vitrine ?",
+              "content": [
+                {
+                  "title": "Une vitrine numérique à votre image",
+                  "description": "Les réseaux sociaux c'est bien, mais un site web, c'est votre vitrine personnalisée, disponible 24/7. Vous bénéficiez d'une totale liberté de création pour montrer au monde votre entreprise."
+                },
+                {
+                  "title": "Amélioration du référencement",
+                  "description": "Je préfère être transparent : un site web ne garantit pas de figurer en première page de Google. Cependant, un SEO bien travaillé et un site bien développé améliore grandement votre visibilité sur les moteurs de recherche."
+                },
+                {
+                  "title": "Un investissement accessible",
+                  "description": "À partir de 450€ HT, un site vitrine représente un investissement abordable pour accroître votre présence en ligne et attirer de nouveaux clients."
+                }
+              ]
+            },
             "banner-2": {
               "type": "banner",
               "features": { "multi": false, "medium": true },
@@ -186,7 +206,7 @@
             "banner-1": {
               "type": "banner",
               "features": { "medium": true },
-              "title": "Qu'est-ce que Webtrine ?",
+              "title": "Qui se cache derrière Webtrine",
               "subTitle": null,
               "images": [
                 {
@@ -197,79 +217,33 @@
             },
             "description-1": {
               "type": "description",
-              "title": "Un site à votre image",
-              "features": { "isReversed": false, "isCentered": false },
+              "features": { "isReversed": false, "isContinious": false },
+              "title": null,
               "content": [
                 {
-                  "text": "Avec Webtrine, concevez votre site web de A à Z en toute simplicité. Grâce à des templates modernes et entièrement personnalisables, créez rapidement un site qui vous ressemble."
+                  "text": "Bonjour et bienvenue !"
                 },
                 {
-                  "text": "Nous mettons à votre disposition une sélection de templates prêts à l'emploi pour poser les bases de votre site. Et si aucun ne correspond parfaitement à vos attentes, pas de souci : nous en créerons un sur mesure, ensemble !"
+                  "text": "Je m'appelle Alexandre, j'ai 24 ans et je suis développeur web."
+                },
+                {
+                  "text": "Ma passion ? Concevoir des sites à la fois esthétiques et intuitifs, pour offrir la meilleure expérience utilisateur possible."
+                },
+                {
+                  "text": "C'est cette passion qui m'a conduit à créer mon propre projet, ma propre entreprise. Un espace où je peux exprimer ma créativité tout en développant des solutions web efficaces."
+                },
+                {
+                  "text": "C'est ainsi qu'est née Webtrine : une solution pensée pour concevoir des sites vitrines de qualité, basés sur des templates que je conçois et améliore en permanence. Grâce à cette approche, nous pouvons mettre en place rapidement et efficacement votre site web."
+                },
+                {
+                  "text": "J’ai hâte de collaborer avec vous et de donner vie à votre projet web !"
                 }
               ],
               "image": {
-                "name": "description_image_1",
+                "name": "accueil_image_1",
                 "alt": "",
                 "focusable": false
               }
-            },
-            "list-1": {
-              "type": "numberedList",
-              "features": null,
-              "title": "Un processus de création simple et efficace",
-              "content": [
-                {
-                  "title": "Définition du projet & Conseils",
-                  "description": "Dès notre premier contact, nous échangeons pour comprendre votre secteur d’activité et définir le cadre de votre projet. L'approche est adaptée à vos besoins spécifiques."
-                },
-                {
-                  "title": "Conception graphique UX/UI",
-                  "description": "Deux options s’offrent à vous : soit vous choisissez des templates existants, soit nous travaillerons ensemble pour créer ou modifier des templates spécifiques à vos besoins."
-                },
-                {
-                  "title": "Devis détaillé",
-                  "description": "Un devis précis est établi en fonction de vos besoins et des options choisies."
-                },
-                {
-                  "title": "Collecte des éléments",
-                  "description": "Vous fournissez les contenus (textes, images, architecture souhaitée) et nous optimisons ensemble la structure de votre site."
-                },
-                {
-                  "title": "Développement Frontend",
-                  "description": "Une première maquette est créée, ajustée selon vos retours, avec possibilité de modifications en direct pour plus d’efficacité."
-                },
-                {
-                  "title": "Back and Fourth",
-                  "description": "Tout au long du projet, nous adoptons une approche collaborative où chaque étape de travail est suivie de retours clients, permettant ainsi d’ajuster les éléments au fur et à mesure. Ce va-et-vient constant entre le développement et vos retours nous assure de parvenir à un résultat parfaitement adapté à vos attentes, jusqu'à totale satisfaction."
-                },
-                {
-                  "title": "Optimisation SEO, Sécurisation & Mise en ligne",
-                  "description": "SEO optimisé pour améliorer la visibilité, sécurisation du site et mise en ligne finale."
-                },
-                {
-                  "title": "Suivi & évolutions",
-                  "description": "Des options complémentaires sont proposées pour la maintenance, l’ajout de contenu ou de nouvelles fonctionnalités."
-                }
-              ]
-            },
-            "cards-1": {
-              "type": "cardsList",
-              "features": null,
-              "title": "Pourquoi avoir un site vitrine ?",
-              "content": [
-                {
-                  "title": "Une vitrine numérique à votre image",
-                  "description": "Les réseaux sociaux c'est bien, mais un site web, c'est votre vitrine personnalisée, disponible 24/7. Vous bénéficiez d'une totale liberté de création pour montrer au monde votre entreprise."
-                },
-                {
-                  "title": "Amélioration du référencement",
-                  "description": "Je préfère être transparent : un site web ne garantit pas de figurer en première page de Google. Cependant, un SEO bien travaillé et un site bien développé améliore grandement votre visibilité sur les moteurs de recherche."
-                },
-                {
-                  "title": "Un investissement accessible",
-                  "description": "À partir de 350€ HT, un site vitrine représente un investissement abordable pour accroître votre présence en ligne et attirer de nouveaux clients."
-                }
-              ]
             },
             "banner-2": {
               "type": "banner",
@@ -481,10 +455,49 @@
               "subTitle": null,
               "images": [
                 {
-                  "name": "prestation_banner_1"
+                  "name": "prestation_banner_2"
                 }
               ],
               "textPosition": "center"
+            },
+            "list-1": {
+              "type": "numberedList",
+              "features": null,
+              "title": "Un processus de création simple et efficace",
+              "content": [
+                {
+                  "title": "Définition du projet & Conseils",
+                  "description": "Dès notre premier contact, nous échangeons pour comprendre votre secteur d’activité et définir le cadre de votre projet. L'approche est adaptée à vos besoins spécifiques."
+                },
+                {
+                  "title": "Conception graphique UX/UI",
+                  "description": "Deux options s’offrent à vous : soit vous choisissez des templates existants, soit nous travaillerons ensemble pour créer ou modifier des templates spécifiques à vos besoins."
+                },
+                {
+                  "title": "Devis détaillé",
+                  "description": "Un devis précis est établi en fonction de vos besoins et des options choisies."
+                },
+                {
+                  "title": "Collecte des éléments",
+                  "description": "Vous fournissez les contenus (textes, images, architecture souhaitée) et nous optimisons ensemble la structure de votre site."
+                },
+                {
+                  "title": "Développement Frontend",
+                  "description": "Une première maquette est créée, ajustée selon vos retours, avec possibilité de modifications en direct pour plus d’efficacité."
+                },
+                {
+                  "title": "Back and Fourth",
+                  "description": "Tout au long du projet, nous adoptons une approche collaborative où chaque étape de travail est suivie de retours clients, permettant ainsi d’ajuster les éléments au fur et à mesure. Ce va-et-vient constant entre le développement et vos retours nous assure de parvenir à un résultat parfaitement adapté à vos attentes, jusqu'à totale satisfaction."
+                },
+                {
+                  "title": "Optimisation SEO, Sécurisation & Mise en ligne",
+                  "description": "SEO optimisé pour améliorer la visibilité, sécurisation du site et mise en ligne finale."
+                },
+                {
+                  "title": "Suivi & évolutions",
+                  "description": "Des options complémentaires sont proposées pour la maintenance, l’ajout de contenu ou de nouvelles fonctionnalités."
+                }
+              ]
             },
             "prices-1": {
               "type": "allInOne",
@@ -515,7 +528,7 @@
                   "text": "Modification à la demande (1 fois / mois) ***"
                 }
               ],
-              "title": null,
+              "title": "L'offre Webtrine:",
               "descriptionTop": "Webtrine, c’est une offre tout-en-un : un package complet pour créer et lancer votre site sans prise de tête.",
               "descriptionBottom": [
                 { "text": "* Si vous le faites héberger chez nous" },
@@ -548,12 +561,32 @@
           }
         }
       },
+
       {
-        "type": "contact",
-        "id": "extendedContact",
+        "type": "description",
+        "id": "multiDescriptions",
         "name": "Contact",
         "datas": {
-          "features": {}
+          "content": {
+            "banner-1": {
+              "type": "banner",
+              "features": { "medium": true },
+              "title": null,
+              "subTitle": null,
+              "images": [
+                {
+                  "name": "contact_banner_1"
+                }
+              ],
+              "textPosition": "center"
+            },
+            "contact-1": {
+              "type": "extendedContact",
+              "datas": {
+                "features": {}
+              }
+            }
+          }
         }
       },
       {

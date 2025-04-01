@@ -2,7 +2,6 @@ import { useCallback, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
-import ExtendedContact from "./design-system/components/contact/src/extendedContact.component";
 import Gallery from "./design-system/components/gallery/gallery.component";
 import Product from "./design-system/components/gallery/product.component";
 import Legals from "./design-system/components/legals/legals.component";
@@ -153,7 +152,10 @@ function App(props) {
               element={<Gallery template={galleryTemplate.datas} />}
             />
           )}
-          <Route path="/contact" element={<ExtendedContact />} />
+          <Route
+            path="/contact"
+            element={<MultiDescription templateName="Contact" />}
+          />
           <Route path="/display/:item" element={<Product />} />
 
           <Route path="/cgu-cgv" element={<Legals type="cgu-cgv" />} />
