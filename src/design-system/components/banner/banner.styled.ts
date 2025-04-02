@@ -85,7 +85,7 @@ export const Overlay = styled.div`
     breakpointNames.wide,
     css`
       gap: 128px;
-      padding: 0px 480px;
+      padding: 0px 240px;
     `
   )};
 `;
