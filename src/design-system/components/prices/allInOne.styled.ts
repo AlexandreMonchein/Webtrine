@@ -18,6 +18,13 @@ export const PricesContainer = styled.section`
       padding: 20px 40px;
     `
   )}
+
+  ${bp.min(
+    breakpointNames.wide,
+    css`
+      padding: 40px 480px;
+    `
+  )}
 `;
 
 export const Title = styled.h1`

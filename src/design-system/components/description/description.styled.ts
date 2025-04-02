@@ -23,6 +23,13 @@ export const Section = styled.section`
       }
     `
   )}
+
+  ${bp.min(
+    breakpointNames.wide,
+    css`
+      padding: 40px 480px;
+    `
+  )}
 `;
 
 export const Container = styled.div`

@@ -12,6 +12,13 @@ export const GalleryRoot = styled.section`
 
   &.isLogo {
     padding: 24px 120px;
+
+    ${bp.min(
+      breakpointNames.wide,
+      css`
+        padding: 40px 360px;
+      `
+    )}
   }
 
   ${bp.min(
