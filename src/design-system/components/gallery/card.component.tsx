@@ -6,7 +6,7 @@ import { Image } from "./card.styled";
 import { Wrapper } from "./gallery.styled";
 
 export const Card = ({ data, type }) => {
-  const { imageSrc } = data;
+  const { imageSrc, alt } = data;
 
   const customer = getCustomer();
 
@@ -14,7 +14,7 @@ export const Card = ({ data, type }) => {
     <Wrapper className={classNames({ isLogo: type === "logo" })}>
       <Image
         tabIndex={0}
-        alt={imageSrc}
+        alt={alt}
         src={`${import.meta.env.BASE_URL}assets/${customer}/${imageSrc}.jpg`}
       />
     </Wrapper>

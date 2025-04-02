@@ -19,7 +19,7 @@ const Gallery = (datas) => {
         <Wrapper className={classNames({ isLogo: type === "logo" })}>
           {datas.template.inventory.map((data) => (
             <CardWrapper
-              key={data.slug}
+              key={data.imageSrc}
               className={classNames({ isLogo: type === "logo" })}
             >
               <Card data={data} type={type} />

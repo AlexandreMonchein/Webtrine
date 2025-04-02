@@ -205,27 +205,27 @@
                 "features": { "shouldRedirect": false },
                 "inventory": [
                   {
-                    "slug": "salle_arrive",
+                    "alt": "image de la salle ou se trouvent les boites de prothèses",
                     "imageSrc": "salle_arrive"
                   },
                   {
-                    "slug": "salle_ceram",
+                    "alt": "image de la salle de céramique du laboratoire",
                     "imageSrc": "salle_ceram"
                   },
                   {
-                    "slug": "salle_platre",
+                    "alt": "image de la salle de plâtre du laboratoire",
                     "imageSrc": "salle_platre"
                   },
                   {
-                    "slug": "salle_prise_de_teinte",
+                    "alt": "image de la salle de prise de teinte du laboratoire",
                     "imageSrc": "salle_prise_de_teinte"
                   },
                   {
-                    "slug": "salle_scan",
+                    "alt": "image de la salle de scan du laboratoire",
                     "imageSrc": "salle_scan"
                   },
                   {
-                    "slug": "accueil_2",
+                    "alt": "image de la salle d'accueil du laboratoire",
                     "imageSrc": "accueil_2"
                   }
                 ]
@@ -290,28 +290,28 @@
                 "features": { "shouldRedirect": false },
                 "inventory": [
                   {
-                    "slug": "implant",
+                    "alt": "image d'un implant",
                     "name": "Implant",
                     "imageSrc": "implant"
                   },
                   {
-                    "slug": "emax",
+                    "alt": "image d'un emax",
                     "name": "Emax",
                     "imageSrc": "emax"
                   },
                   {
-                    "slug": "chassis_metallique",
+                    "alt": "image d'un chassis métallique",
                     "name": "Chassis métallique",
                     "imageSrc": "chassis_metallique"
                   },
                   {
-                    "slug": "amovible",
+                    "alt": "image d'une prothèse amovible",
                     "name": "Amovible",
                     "imageSrc": "amovible"
                   },
 
                   {
-                    "slug": "zircone",
+                    "alt": "image d'un zircone",
                     "name": "Zircone",
                     "imageSrc": "zircone"
                   }
@@ -375,27 +375,27 @@
                 "type": "logo",
                 "inventory": [
                   {
-                    "slug": "medit",
+                    "alt": "logo entreprise medit",
                     "imageSrc": "medit"
                   },
                   {
-                    "slug": "3shape",
+                    "alt": "logo logiciel 3shape",
                     "imageSrc": "3shape"
                   },
                   {
-                    "slug": "dentsply_sirona",
+                    "alt": "logo entreprise dentsply_sirona",
                     "imageSrc": "dentsply_sirona"
                   },
                   {
-                    "slug": "itero",
+                    "alt": "logo logiciel itero",
                     "imageSrc": "itero"
                   },
                   {
-                    "slug": "shining_3d",
+                    "alt": "logo logiciel shining_3d",
                     "imageSrc": "shining_3d"
                   },
                   {
-                    "slug": "exocad",
+                    "alt": "logo logiciel exocad",
                     "imageSrc": "exocad"
                   }
                 ]
@@ -417,23 +417,23 @@
                 "features": { "shouldRedirect": false },
                 "inventory": [
                   {
-                    "slug": "4",
+                    "alt": "image fabrication d'une prothèse sur ordinateur",
                     "imageSrc": "4"
                   },
                   {
-                    "slug": "guide_3",
+                    "alt": "image d'une prothèse en cours de fabrication 1",
                     "imageSrc": "guide_3"
                   },
                   {
-                    "slug": "guide_2",
+                    "alt": "image d'une prothèse en cours de fabrication 1",
                     "imageSrc": "guide_2"
                   },
                   {
-                    "slug": "IMG_3326",
+                    "alt": "image imprimantes 3D",
                     "imageSrc": "IMG_3326"
                   },
                   {
-                    "slug": "usinage",
+                    "alt": "image de l'usinage des prothèses",
                     "imageSrc": "usinage"
                   }
                 ]
@@ -468,47 +468,47 @@
           "features": { "shouldRedirect": false },
           "inventory": [
             {
-              "slug": "img_1",
+              "alt": "fabrication d'une prothèse (phase de poncage à la main)",
               "imageSrc": "IMG_4801"
             },
             {
-              "slug": "img_2",
+              "alt": "fabrication d'une prothèse (phase de poncage à la machine)",
               "imageSrc": "IMG_4818"
             },
             {
-              "slug": "img_3",
+              "alt": "image machine du labo",
               "imageSrc": "IMG_4890"
             },
             {
-              "slug": "img_4",
+              "alt": "image coullage en résine d'une prothèse",
               "imageSrc": "IMG_4900"
             },
             {
-              "slug": "img_5",
+              "alt": "image taillage d'une prothèse avec une fraise 1",
               "imageSrc": "IMG_4946"
             },
             {
-              "slug": "img_6",
+              "alt": "image taillage d'une prothèse avec une fraise 2",
               "imageSrc": "IMG_4952"
             },
             {
-              "slug": "img_7",
+              "alt": "image d'une prothèse en cours de fabrication 1",
               "imageSrc": "guide_3"
             },
             {
-              "slug": "img_8",
+              "alt": "image d'une prothèse en cours de fabrication 2",
               "imageSrc": "PICT0003"
             },
             {
-              "slug": "img_9",
+              "alt": "image d'une prothèse en cours de fabrication 3",
               "imageSrc": "PICT0017"
             },
             {
-              "slug": "img_10",
+              "alt": "image d'une prothèse en cours de fabrication 4",
               "imageSrc": "emax"
             },
             {
-              "slug": "img_11",
+              "alt": "image d'une prothèse en cours de fabrication 5",
               "imageSrc": "zircone"
             }
           ]

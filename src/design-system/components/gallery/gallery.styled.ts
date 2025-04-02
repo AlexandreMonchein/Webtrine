@@ -11,7 +11,7 @@ export const GalleryRoot = styled.section`
   padding: 40px 120px;
 
   &.isLogo {
-    padding: 0px 120px;
+    padding: 24px 120px;
   }
 
   ${bp.min(
