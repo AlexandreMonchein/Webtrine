@@ -1,12 +1,13 @@
 {
   "client": {
     "title": "Webtrine - Création de site vitrine",
+    "logo": "logo-webtrine-white",
     "name": "webtrine",
     "contact": {
       "name": "Alexandre Monschein",
       "phone": "+33614612295",
       "email": "webtrine.pro@gmail.com",
-      "mailTemplate": "TODO"
+      "mailTemplate": "template_8b4j0fm"
     },
     "socials": {
       "linkedin": "https://www.linkedin.com/in/alexandre-monschein-34984a161"
