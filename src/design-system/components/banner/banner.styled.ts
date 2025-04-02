@@ -75,6 +75,9 @@ export const Overlay = styled.div`
     breakpointNames.medium,
     css`
       flex-direction: column;
+
+      padding: 20px 40px;
+      gap: 32px;
     `
   )};
 

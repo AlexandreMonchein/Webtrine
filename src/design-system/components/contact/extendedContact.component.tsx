@@ -28,7 +28,7 @@ import {
   Hint,
 } from "./extendedContact.styled";
 
-const ExtendedContact = (datas) => {
+const ExtendedContact = ({ datas }) => {
   let template;
   const dispatch = useDispatch();
   const { t } = useTranslation();

@@ -13,6 +13,13 @@ export const Section = styled.section`
 
 export const BigTitle = styled.h2`
   color: var(--title-color-2);
+
+  ${bp.max(
+    breakpointNames.medium,
+    css`
+      display: none;
+    `
+  )}
 `;
 
 export const Container = styled.div`

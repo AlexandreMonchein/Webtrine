@@ -24,6 +24,7 @@ export const FooterContainer = styled.footer`
     css`
       flex-direction: column;
       padding: 24px 16px;
+      gap: 16px;
     `
   )}
 `;
