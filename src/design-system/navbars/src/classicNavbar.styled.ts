@@ -34,7 +34,8 @@ export const Links = styled.a`
   border-bottom: 2px solid transparent;
   padding: 10px 0px;
 
-  &:hover, &:focus-visible {
+  &:hover,
+  &:focus-visible {
     color: var(--hover-color);
     border-bottom: 2px solid var(--hover-color);
   }
@@ -71,7 +72,8 @@ export const SubCategoryContainer = styled.ul`
     padding: 10px;
     border-bottom: none;
 
-    &:hover, &:focus-visible {
+    &:hover,
+    &:focus-visible {
       border-bottom: none;
       color: var(--hover-color);
     }
@@ -107,7 +109,7 @@ export const Sidebar = styled.div`
   background-color: var(--background-color);
   overflow-x: hidden;
   transition: 0.5s;
-  padding-top: 60px;
+  padding-top: 80px;
   border-right: 1px solid rgba(255, 255, 255, 0.3);
 
   z-index: var(--z-index-navbars);
@@ -156,7 +158,8 @@ export const Sidebar = styled.div`
     transition: 0.5s;
     text-align: left;
 
-    &:hover, &:focus-visible {
+    &:hover,
+    &:focus-visible {
       color: var(--hover-color);
     }
   }

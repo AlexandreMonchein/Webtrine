@@ -60,15 +60,15 @@ const List = (datas) => {
           <ScrollButton onClick={() => scroll("left")}>‹</ScrollButton>
         )}
         <ImageList ref={scrollContainerRef} $imagecount={images.length}>
-          {images.map((image, index) => (
-            <ImageWrapper>
+          {images.map((image) => (
+            <ImageWrapper key={image.src}>
               <ImageItem
                 src={`${import.meta.env.BASE_URL}assets/${customer}/clients/${image.src}.jpg`}
                 alt={image.alt}
                 tabIndex={-1}
               />
               <Overlay>
-                <a tabIndex={-1} key={index} href={image.link}>
+                <a tabIndex={-1} key={image.src} href={image.link}>
                   <ConsultButton>Consulter</ConsultButton>
                 </a>
               </Overlay>
