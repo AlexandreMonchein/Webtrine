@@ -50,6 +50,7 @@ export const FormContainer = styled.form`
 export const FormDisplay = styled.div`
   display: flex;
   flex-direction: row;
+  gap: 48px;
 
   ${bp.max(
     breakpointNames.large,
@@ -67,7 +68,7 @@ export const ContactForm = styled.div`
 `;
 
 export const ClientInfo = styled.div`
-  padding: 40px 20px;
+  padding: 40px 0px;
   flex: 1;
 
   p {

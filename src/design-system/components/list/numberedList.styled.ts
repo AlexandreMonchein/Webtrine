@@ -43,6 +43,7 @@ export const ListContainer = styled.ul`
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  padding: 24px 0px;
 `;
 
 export const ListItem = styled.li`

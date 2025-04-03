@@ -123,6 +123,7 @@ const ExtendedContact = ({ datas }) => {
                 <strong>{t("contact.email")}:</strong> {email}
               </p>
             </ClientInfo>
+            <hr />
             <ContactForm>
               <Field>
                 <Label htmlFor="name">
