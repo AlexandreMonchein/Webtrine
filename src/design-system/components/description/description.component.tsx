@@ -1,3 +1,4 @@
+import DOMPurify from "dompurify";
 import classNames from "classnames";
 
 import { getCustomer } from "../../../customer.utils";
@@ -48,9 +49,11 @@ const Description = (datas) => {
           {content &&
             content.map(({ text }, index) => {
               return (
-                <Text tabIndex={0} key={index}>
-                  {text}
-                </Text>
+                <Text
+                  tabIndex={0}
+                  key={index}
+                  dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(text) }}
+                />
               );
             })}
         </Content>

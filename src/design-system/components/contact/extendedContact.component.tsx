@@ -139,7 +139,9 @@ const ExtendedContact = ({ datas }) => {
                 />
               </Field>
               <Field>
-                <Label htmlFor="email">{t("contact.email")}</Label>
+                <Label htmlFor="email">
+                  {t("contact.email")} <span>{t("contact.required")}</span>
+                </Label>
                 <Hint id="hint-email">{t("contact.emailHint")}</Hint>
                 <Input
                   type="email"

@@ -94,6 +94,38 @@ export const TextContent = styled.div`
 
 export const Text = styled.p`
   padding-bottom: 16px;
+  width: 100%;
+
+  a {
+    background: linear-gradient(
+        var(--link-hover-color),
+        var(--link-hover-color)
+      )
+      center bottom / 100% 1px no-repeat;
+    border-bottom: none;
+    color: var(--link-hover-color);
+    text-decoration: none;
+    transition:
+      background 300ms ease-in-out,
+      color 300ms ease-in-out;
+
+    &:hover,
+    &:focus {
+      background: linear-gradient(
+          var(--link-hover-color),
+          var(--link-hover-color)
+        )
+        center bottom / 100% 100% no-repeat;
+      color: var(--text-color-primary);
+    }
+
+    ${bp.min(
+      breakpointNames.large,
+      css`
+        font-size: x-large;
+      `
+    )}
+  }
 `;
 
 export const DescriptionContentWrapper = styled.ul`

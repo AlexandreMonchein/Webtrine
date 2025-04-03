@@ -17,7 +17,8 @@ export const RootStyle = createGlobalStyle<{ globalStyle }>`
     --black: ${(props) => _.get(props, "globalStyle.black")};
     --gold: ${(props) => _.get(props, "globalStyle.gold")};
 
-    --hover-color: var(--gold);
+    --nav-hover-color: var(--gold);
+    --link-hover-color: var(--blue);
     
     --navigation-text-color: var(--white);
 

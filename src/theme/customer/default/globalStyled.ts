@@ -99,7 +99,7 @@ const GlobalStyle = createGlobalStyle`
     ${bp.min(
       breakpointNames.medium,
       css`
-        font-size: larger;
+        font-size: large;
       `
     )}
 
@@ -147,7 +147,7 @@ const GlobalStyle = createGlobalStyle`
     ${bp.min(
       breakpointNames.medium,
       css`
-        font-size: larger;
+        font-size: large;
       `
     )}
 
