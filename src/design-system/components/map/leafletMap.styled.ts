@@ -41,8 +41,6 @@ export const Container = styled.div`
 export const List = styled.div`
   width: 50%;
   display: flex;
-  overflow-y: scroll;
-  overflow-x: scroll;
   align-content: center;
   flex-wrap: wrap;
 
@@ -73,7 +71,6 @@ export const ListSection = styled.div`
   ${bp.min(
     breakpointNames.large,
     css`
-      overflow-y: scroll;
       align-content: center;
     `
   )}

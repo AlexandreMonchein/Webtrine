@@ -16,10 +16,6 @@ export default defineConfig({
       webp: {
         quality: 75, // génère les versions WebP compressées
       },
-      // facultatif : AVIF si besoin
-      avif: {
-        quality: 50,
-      },
     }),
   ],
   resolve: {

@@ -20,7 +20,7 @@ import "leaflet/dist/leaflet.css";
 import "leaflet-gesture-handling/dist/leaflet-gesture-handling.css";
 
 const ICON = icon({
-  iconUrl: "./marker_icon.webp",
+  iconUrl: "./assets/marker_icon.webp",
   iconSize: [32, 32],
 });
 
@@ -110,7 +110,7 @@ export const MapLeaflet = (datas): ReactElement | null => {
           whenReady={() => console.log("Map Ready")}
         >
           <TileLayer
-            url="https://{s}.tile.osm.org/{z}/{x}/{y}.webp"
+            url="https://{s}.tile.osm.org/{z}/{x}/{y}.png"
             noWrap={true}
           />
           {places.map((place, index) => (

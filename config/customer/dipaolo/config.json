@@ -83,6 +83,8 @@
         "id": "multiDescriptions",
         "name": "Home",
         "datas": {
+          "title": "Accueil",
+          "description": "Labo di paolo, créateur de prothèses dentaires",
           "content": {
             "banner-1": {
               "type": "banner",
@@ -162,6 +164,8 @@
         "id": "multiDescriptions",
         "name": "Presentation",
         "datas": {
+          "title": "Le laboratoire",
+          "description": "L'histoire du laboratoire",
           "content": {
             "banner-1": {
               "type": "banner",
@@ -258,6 +262,8 @@
         "id": "multiDescriptions",
         "name": "Description",
         "datas": {
+          "title": "Nos prothèses",
+          "description": "Nos prothèses dentaires",
           "content": {
             "banner-1": {
               "type": "banner",
@@ -345,6 +351,8 @@
         "id": "multiDescriptions",
         "name": "Flux",
         "datas": {
+          "title": "Flux numérique",
+          "description": "Le numérique au service de la prothèse dentaire",
           "content": {
             "banner-1": {
               "type": "banner",
@@ -465,6 +473,8 @@
         "type": "gallery",
         "id": "gallery",
         "datas": {
+          "title": "Galerie photo",
+          "description": "Le laboratoire en image",
           "features": { "shouldRedirect": false },
           "inventory": [
             {
@@ -519,6 +529,8 @@
         "id": "multiDescriptions",
         "name": "Contact",
         "datas": {
+          "title": "Contact",
+          "description": "Nous contacter",
           "content": {
             "contact-1": {
               "type": "extendedContact",
@@ -567,6 +579,7 @@
         "datas": {
           "type": "mentions-legals",
           "title": "Mentions légales",
+          "description": "Mentions légales du site: Di Paolo",
           "subTitle": "En vigueur au 01/09/2024",
           "disclaimer": "Conformément aux dispositions des Articles 6-III et 19 de la Loi n°2004-575 du 21 juin 2004 pour la Confiance dans l’économie numérique, dite L.C.E.N., il est porté à la connaissance des utilisateurs et visiteurs, ci-après l'Utilisateur, du site https://www.dipaolo.fr, les présentes mentions légales. La navigation sur le Site par l’Utilisateur implique acceptation intégrale et sans réserve des présentes mentions légales. Ces dernières sont accessibles sur le Site à la rubrique « Mentions légales ».",
           "content": [
@@ -604,6 +617,7 @@
         "datas": {
           "type": "confidentialite",
           "title": "Politique de confidentialité du site: Di Paolo",
+          "description": "Politique de confidentialité du site: Di Paolo",
           "subTitle": "En vigueur au 01/09/2024",
           "disclaimer": null,
           "content": [
