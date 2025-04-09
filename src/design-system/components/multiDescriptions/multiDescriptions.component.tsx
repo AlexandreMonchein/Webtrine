@@ -1,8 +1,9 @@
 import { Suspense, useEffect, useState } from "react";
+import { Helmet } from "react-helmet";
 
 import { getTemplate } from "../../../App";
 import { useSelector } from "react-redux";
-import { getTemplates } from "../../../store/state.selector";
+import { getClient, getTemplates } from "../../../store/state.selector";
 import { Container } from "./multiDescriptions.styled";
 
 const regex = /-[0-9]/i;
@@ -10,6 +11,7 @@ const regex = /-[0-9]/i;
 const MultiDescription = ({ templateName = null }) => {
   const [components, setComponents] = useState<React.ReactNode[]>([]);
   const templates = useSelector(getTemplates);
+  const { fullName } = useSelector(getClient);
 
   const template = getTemplate(
     templates,
@@ -19,7 +21,7 @@ const MultiDescription = ({ templateName = null }) => {
   );
 
   const {
-    datas: { content },
+    datas: { content, title, description },
   } = template || {};
 
   useEffect(() => {
@@ -60,6 +62,12 @@ const MultiDescription = ({ templateName = null }) => {
 
   return (
     <Suspense fallback={<div>Loading...</div>}>
+      <Helmet>
+        <title>
+          {fullName} - {title}
+        </title>
+        <meta name="description" content={description} />
+      </Helmet>
       <Container>{components}</Container>
     </Suspense>
   );

@@ -1,0 +1,7 @@
+User-agent: *
+Disallow: /private/
+Allow: /public/
+
+# Block specific bot
+User-agent: BadBot
+Disallow: /

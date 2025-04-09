@@ -71,7 +71,7 @@ function App(props) {
   dispatch(setConfig(props));
 
   const templates = useSelector(getTemplates);
-  const { title = "", logo = "" } = useSelector(getClient);
+  const { logo = "" } = useSelector(getClient);
   const customer = useSelector(getCustomer);
 
   useEffect(() => {
@@ -97,13 +97,20 @@ function App(props) {
   const footerTemplate = getTemplate(templates, "footers");
 
   useEffect(() => {
-    document.title = title;
+    const clientName = import.meta.env.VITE_CUSTOMER;
+    const faviconPath = `/assets/${clientName}/icons/${logo}.webp`;
 
-    const iconLink = document.createElement("link");
-    iconLink.rel = "icon";
-    iconLink.href = `${import.meta.env.BASE_URL}assets/${customer}/icons/${logo}.png`;
-    document.head.appendChild(iconLink);
-  }, [customer, logo, title]);
+    const favicon = document.createElement("link");
+    favicon.type = "image/webp";
+    favicon.rel = "icon";
+    favicon.href = faviconPath;
+
+    if (!favicon.parentElement) {
+      document.head.appendChild(favicon);
+    }
+
+    console.log(`Favicon set for client: ${clientName}`);
+  }, [customer, logo]);
 
   return (
     <Router>

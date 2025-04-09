@@ -88,7 +88,7 @@ const Banner = (datas) => {
               <Background
                 key={name}
                 alt={`Background ${name}`}
-                src={`/assets/${customer}/${name}.jpg`}
+                src={`/assets/${customer}/${name}.webp`}
                 className={classNames({ active: index === currentIndex })}
               />
               {url && title ? (

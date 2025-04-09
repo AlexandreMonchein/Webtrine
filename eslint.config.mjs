@@ -7,7 +7,6 @@ import stylistic from "@stylistic/eslint-plugin";
 import jsxA11y from "eslint-plugin-jsx-a11y";
 import pluginEslintPluginPrettierRecommended from "eslint-plugin-prettier/recommended";
 import reactPlugin from "eslint-plugin-react";
-import reactCompiler from "eslint-plugin-react-compiler";
 import reactHooks from "eslint-plugin-react-hooks";
 import tseslint from "typescript-eslint";
 

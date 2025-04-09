@@ -178,7 +178,7 @@ const ClassicNavbar = (props) => {
           tabIndex={isSidebarOpen ? -1 : 0}
           id="burgerMenuNavbarIcon"
           onClick={toggleSidebar}
-          aria-label="Menu"
+          aria-label="Ouvrir le menu déroulant"
         >
           <div></div>
           <div></div>
@@ -188,7 +188,7 @@ const ClassicNavbar = (props) => {
           <a href="/">
             <img
               alt={name}
-              src={`${import.meta.env.BASE_URL}assets/${clientName}/icons/${name}.png`}
+              src={`${import.meta.env.BASE_URL}assets/${clientName}/icons/${name}.webp`}
             />
           </a>
         </Logo>
@@ -260,6 +260,7 @@ const ClassicNavbar = (props) => {
           tabIndex={isSidebarOpen ? 0 : -1}
           id="burgerMenuSidebarIcon"
           onClick={toggleSidebar}
+          aria-label="Fermer le menu déroulant"
         >
           <div></div>
           <div></div>

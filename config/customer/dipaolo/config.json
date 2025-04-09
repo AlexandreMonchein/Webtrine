@@ -1,8 +1,8 @@
 {
   "client": {
-    "title": "Laboratoire Di Paolo - Prothésiste dentaire sur Saint-Etienne",
     "logo": "logo-dipaolo",
     "name": "dipaolo",
+    "fullName": "Labo DiPaolo",
     "contact": {
       "name": "Di Paolo",
       "phone": "+33477415913",

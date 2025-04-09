@@ -1,10 +1,26 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
+import viteImagemin from "vite-plugin-imagemin";
+import Inspect from "vite-plugin-inspect";
+
 import path from "path";
 
 export default defineConfig({
   plugins: [
     react(), // React plugin for fast refresh, JSX support
+    Inspect(), // Optional: Inspect plugin for debugging Vite config
+    viteImagemin({
+      mozjpeg: {
+        quality: 75, // compresse les JPG
+      },
+      webp: {
+        quality: 75, // génère les versions WebP compressées
+      },
+      // facultatif : AVIF si besoin
+      avif: {
+        quality: 50,
+      },
+    }),
   ],
   resolve: {
     alias: {
@@ -16,7 +32,16 @@ export default defineConfig({
     outDir: process.env.VITE_CUSTOMER
       ? `./build/${process.env.VITE_CUSTOMER}`
       : "build", // Output directory for production build
-    assetsDir: "assets", // Folder for static assets like images
+    assetsDir: "assets", // Folder for static assets like images$
+    minify: "esbuild", // Terser is the default minifier in Vite
+    terserOptions: {
+      compress: {
+        drop_console: true, // Remove console logs in production
+      },
+      mangle: {
+        toplevel: true, // Mangle top-level variables (may break things, use with caution)
+      },
+    },
   },
   server: {
     port: 3000, // Dev server port

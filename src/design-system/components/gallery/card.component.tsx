@@ -15,7 +15,7 @@ export const Card = ({ data, type }) => {
       <Image
         tabIndex={0}
         alt={alt}
-        src={`${import.meta.env.BASE_URL}assets/${customer}/${imageSrc}.jpg`}
+        src={`${import.meta.env.BASE_URL}assets/${customer}/${imageSrc}.webp`}
       />
     </Wrapper>
   );

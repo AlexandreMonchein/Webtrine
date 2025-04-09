@@ -41,7 +41,7 @@ const Description = (datas) => {
             >
               <Image
                 tabIndex={image.focusable ? 0 : -1}
-                src={`${import.meta.env.BASE_URL}assets/${customer}/${image.name}.jpg`}
+                src={`${import.meta.env.BASE_URL}assets/${customer}/${image.name}.webp`}
                 alt={image.alt}
               />
             </ImageContainer>

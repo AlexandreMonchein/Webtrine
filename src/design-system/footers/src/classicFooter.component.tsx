@@ -82,7 +82,7 @@ const ClassicFooter = (props) => {
               <a href={image.link} key={image.name}>
                 <Logo
                   alt={image.alt}
-                  src={`${import.meta.env.BASE_URL}assets/${clientName}/icons/${image.name}.png`}
+                  src={`${import.meta.env.BASE_URL}assets/${clientName}/icons/${image.name}.webp`}
                 />
               </a>
             );

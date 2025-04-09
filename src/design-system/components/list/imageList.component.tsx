@@ -63,7 +63,7 @@ const List = (datas) => {
           {images.map((image) => (
             <ImageWrapper key={image.src}>
               <ImageItem
-                src={`${import.meta.env.BASE_URL}assets/${customer}/clients/${image.src}.jpg`}
+                src={`${import.meta.env.BASE_URL}assets/${customer}/clients/${image.src}.webp`}
                 alt={image.alt}
                 tabIndex={-1}
               />
