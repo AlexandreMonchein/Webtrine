@@ -20,6 +20,7 @@ import {
   Socials,
   TopSection,
 } from "./classicFooter.styled";
+import { getLogoDimensions } from "../../utils/dimensions.utils";
 
 const ClassicFooter = (props) => {
   const [components, setComponents] = useState<React.ReactNode[]>([]);
@@ -29,7 +30,11 @@ const ClassicFooter = (props) => {
     (template) => template.type === "legals"
   );
 
-  const { images } = props || {};
+  const { logo } = props || {};
+  const { name, alt, link, shape } = logo || {};
+  const { width, height } = getLogoDimensions(shape);
+
+  console.warn(">>> images", props);
 
   const componentFiles = import.meta.glob(
     "../../../assets/**/**/*.component.tsx"
@@ -76,17 +81,16 @@ const ClassicFooter = (props) => {
   return (
     <FooterContainer>
       <LeftSection>
-        {images &&
-          images.map((image) => {
-            return (
-              <a href={image.link} key={image.name}>
-                <Logo
-                  alt={image.alt}
-                  src={`${import.meta.env.BASE_URL}assets/${clientName}/icons/${image.name}.webp`}
-                />
-              </a>
-            );
-          })}
+        {logo && (
+          <a href={link} key={name}>
+            <Logo
+              alt={alt}
+              src={`${import.meta.env.BASE_URL}assets/${clientName}/icons/${name}.webp`}
+              width={width}
+              height={height}
+            />
+          </a>
+        )}
       </LeftSection>
       <MiddleSection>
         <TopSection>

@@ -28,7 +28,8 @@
           },
           "content": {
             "logo": {
-              "name": "logo-dipaolo"
+              "name": "logo-dipaolo",
+              "shape": "large-square"
             }
           },
           "categories": [
@@ -69,13 +70,12 @@
         "id": "classicFooter",
         "datas": {
           "features": {},
-          "images": [
-            {
-              "name": "logo-dipaolo",
-              "alt": "logo-dipaolo",
-              "link": "/"
-            }
-          ]
+          "logo": {
+            "name": "logo-dipaolo",
+            "shape": "large-square",
+            "alt": "logo-dipaolo",
+            "link": "/"
+          }
         }
       },
       {

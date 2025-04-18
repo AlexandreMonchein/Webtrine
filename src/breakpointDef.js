@@ -1,6 +1,7 @@
 import _ from "lodash";
 
 export const breakpointNames = {
+  xsmall: "xsmall",
   small: "small",
   medium: "medium",
   large: "large",
@@ -8,6 +9,7 @@ export const breakpointNames = {
 };
 
 export const breakpoints = {
+  [breakpointNames.xsmall]: 240,
   [breakpointNames.small]: 480,
   [breakpointNames.medium]: 768,
   [breakpointNames.large]: 1024,
@@ -16,6 +18,7 @@ export const breakpoints = {
 };
 
 export const breakpointsOrder = [
+  breakpointNames.xsmall,
   breakpointNames.small,
   breakpointNames.medium,
   breakpointNames.large,

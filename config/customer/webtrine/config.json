@@ -27,7 +27,8 @@
           },
           "content": {
             "logo": {
-              "name": "logo-webtrine-white"
+              "name": "logo-webtrine-white",
+              "shape": "horizontal"
             }
           },
           "categories": [
@@ -63,13 +64,12 @@
         "id": "classicFooter",
         "datas": {
           "features": {},
-          "images": [
-            {
-              "name": "logo-webtrine-white",
-              "alt": "logo-webtrine",
-              "link": "/"
-            }
-          ]
+          "logo": {
+            "name": "logo-webtrine-white",
+            "shape": "horizontal",
+            "alt": "logo-webtrine",
+            "link": "/"
+          }
         }
       },
       {

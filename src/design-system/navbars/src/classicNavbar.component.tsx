@@ -26,6 +26,7 @@ import {
   Content,
   Languages,
   Links,
+  LogoContainer,
   Logo,
   MainNavigation,
   Settings,
@@ -33,6 +34,7 @@ import {
   SubCategory,
   SubCategoryContainer,
 } from "./classicNavbar.styled";
+import { getLogoDimensions } from "../../utils/dimensions.utils";
 
 const ClassicNavbar = (props) => {
   const { i18n } = useTranslation();
@@ -87,11 +89,13 @@ const ClassicNavbar = (props) => {
     categories,
     actionButton,
     content: {
-      logo: { name },
+      logo: { name, shape },
     },
     toggleTheme,
     theme,
   } = props;
+
+  const { width, height } = getLogoDimensions(shape);
 
   const [prevScrollPos, setPrevScrollPos] = useState(window.scrollY);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -184,14 +188,16 @@ const ClassicNavbar = (props) => {
           <div></div>
           <div></div>
         </BurgerMenuIcon>
-        <Logo>
+        <LogoContainer>
           <a href="/">
-            <img
+            <Logo
               alt={name}
               src={`${import.meta.env.BASE_URL}assets/${clientName}/icons/${name}.webp`}
+              width={width}
+              height={height}
             />
           </a>
-        </Logo>
+        </LogoContainer>
         <MainNavigation>
           <Content>
             {categories.map((category) => {

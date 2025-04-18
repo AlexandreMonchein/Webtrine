@@ -9,11 +9,10 @@ export const Button = styled.button`
   border-radius: 50px;
   border-width: 0px;
   padding: 15px 30px;
-  font-size: 16px;
-  white-space: nowrap; /* Ensure text stays on one line */
+  white-space: nowrap;
   transition: background-color 0.3s ease;
 
-  &:hover {
+  &:hover, &:focus {
     opacity: 0.8;
     transition: opacity 0.25s ease-in-out;
   }

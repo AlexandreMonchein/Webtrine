@@ -129,7 +129,6 @@ export const Sidebar = styled.div`
 
   .deroulant > a::after {
     content: "▼";
-    font-size: 15px;
     padding-left: 5px;
   }
 
@@ -174,20 +173,17 @@ export const Container = styled.header`
   justify-content: space-between;
   align-items: center;
   padding: 16px 32px;
-  position: relative;
-  z-index: var(--z-index-navbars);
   font-size: var(--navbar-font-size);
   background-color: var(--background-color);
   color: var(--text-color);
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-
-  top: 0;
 
   &.isFixed {
     position: fixed;
     top: 0px;
     left: 0;
     right: 0;
+    z-index: var(--z-index-navbars);
 
     &.hideOnScroll {
       &.show {
@@ -203,14 +199,9 @@ export const Container = styled.header`
   }
 `;
 
-export const Logo = styled.div`
+export const LogoContainer = styled.div`
   display: flex;
   align-items: center;
-
-  img {
-    display: block;
-    width: 96px;
-  }
 
   ${bp.max(
     breakpointNames.small,
@@ -225,6 +216,11 @@ export const Logo = styled.div`
       position: relative;
     `
   )};
+`;
+
+export const Logo = styled.img`
+  display: block;
+  max-width: none;
 `;
 
 export const MainNavigation = styled.nav`
@@ -247,7 +243,6 @@ export const MainNavigation = styled.nav`
 
   .deroulant > a::after {
     content: "▼";
-    font-size: 15px;
     padding-left: 5px;
   }
 `;

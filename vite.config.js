@@ -1,14 +1,12 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import viteImagemin from "vite-plugin-imagemin";
-import Inspect from "vite-plugin-inspect";
 
 import path from "path";
 
 export default defineConfig({
   plugins: [
     react(), // React plugin for fast refresh, JSX support
-    Inspect(), // Optional: Inspect plugin for debugging Vite config
     viteImagemin({
       mozjpeg: {
         quality: 75, // compresse les JPG

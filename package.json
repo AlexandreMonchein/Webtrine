@@ -3,11 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "engines": {
-    "node": "22.4.1",
-    "pnpm": "9.5.0"
+    "node": "^22",
+    "pnpm": "^10"
   },
   "type": "module",
-  "packageManager": "pnpm@9.0.6",
   "dependencies": {
     "@babel/preset-typescript": "7.24.7",
     "@emailjs/browser": "4.3.3",
@@ -86,7 +85,6 @@
     "typescript-eslint": "8.24.1",
     "vite": "6.2.0",
     "vite-plugin-imagemin": "^0.6.1",
-    "vite-plugin-inspect": "^11.0.0",
     "vitest": "3.0.9"
   },
   "resolutions": {
