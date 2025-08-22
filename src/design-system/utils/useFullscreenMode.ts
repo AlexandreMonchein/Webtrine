@@ -1,11 +1,11 @@
 import { useState, useCallback } from 'react';
 
-export interface FullscreenGalleryState {
+export interface FullscreenModeState {
   currentIndex: number | null;
   isOpen: boolean;
 }
 
-export interface FullscreenGalleryActions {
+export interface FullscreenModeActions {
   openFullscreen: (index: number) => void;
   closeFullscreen: () => void;
   nextImage: () => void;
@@ -13,12 +13,12 @@ export interface FullscreenGalleryActions {
   goToImage: (index: number) => void;
 }
 
-export interface UseFullscreenGalleryResult extends FullscreenGalleryActions {
+export interface UseFullscreenModeResult extends FullscreenModeActions {
   currentIndex: number | null;
   isOpen: boolean;
 }
 
-export const useFullscreenGallery = (totalImages: number): UseFullscreenGalleryResult => {
+export const useFullscreenMode = (totalImages: number): UseFullscreenModeResult => {
   const [currentIndex, setCurrentIndex] = useState<number | null>(null);
 
   const openFullscreen = useCallback((index: number) => {

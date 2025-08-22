@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import React, { useState } from "react";
-import FullscreenGallery from "./fullscreenGallery.component";
-import { useFullscreenGallery } from "../../utils/useFullscreenGallery";
+import FullscreenMode from "./fullscreenMode.component";
+import { useFullscreenMode } from "../../utils/useFullscreenMode";
 
-const meta: Meta<typeof FullscreenGallery> = {
-  title: "Design System/Components/FullscreenGallery",
-  component: FullscreenGallery,
+const meta: Meta<typeof FullscreenMode> = {
+  title: "Design System/Components/FullscreenMode",
+  component: FullscreenMode,
   parameters: {
     layout: "fullscreen",
     docs: {
@@ -40,16 +40,16 @@ const meta: Meta<typeof FullscreenGallery> = {
 };
 
 export default meta;
-type Story = StoryObj<typeof FullscreenGallery>;
+type Story = StoryObj<typeof FullscreenMode>;
 
 // Composant wrapper pour gérer l'état avec le hook
-const FullscreenGalleryDemo: React.FC<{
+const FullscreenModeDemo: React.FC<{
   images: string[];
   showCounter?: boolean;
   showNavigation?: boolean;
   altTextPrefix?: string;
 }> = ({ images, showCounter, showNavigation, altTextPrefix }) => {
-  const fullscreenGallery = useFullscreenGallery(images.length);
+  const fullscreenMode = useFullscreenMode(images.length);
 
   return (
     <div style={{ padding: "2rem" }}>
@@ -71,7 +71,7 @@ const FullscreenGalleryDemo: React.FC<{
               border: "2px solid transparent",
               transition: "border-color 0.2s ease",
             }}
-            onClick={() => fullscreenGallery.openFullscreen(index)}
+            onClick={() => fullscreenMode.openFullscreen(index)}
             onMouseEnter={(e) => {
               e.currentTarget.style.borderColor = "#007bff";
             }}
@@ -93,13 +93,13 @@ const FullscreenGalleryDemo: React.FC<{
         </ul>
       </div>
 
-      <FullscreenGallery
+      <FullscreenMode
         images={images}
-        currentIndex={fullscreenGallery.currentIndex ?? 0}
-        isOpen={fullscreenGallery.isOpen}
-        onClose={fullscreenGallery.closeFullscreen}
-        onNext={fullscreenGallery.nextImage}
-        onPrev={fullscreenGallery.prevImage}
+        currentIndex={fullscreenMode.currentIndex ?? 0}
+        isOpen={fullscreenMode.isOpen}
+        onClose={fullscreenMode.closeFullscreen}
+        onNext={fullscreenMode.nextImage}
+        onPrev={fullscreenMode.prevImage}
         showCounter={showCounter}
         showNavigation={showNavigation}
         altTextPrefix={altTextPrefix}
@@ -119,7 +119,7 @@ const sampleImages = [
 
 export const Default: Story = {
   render: (args) => (
-    <FullscreenGalleryDemo
+    <FullscreenModeDemo
       images={sampleImages}
       showCounter={args.showCounter}
       showNavigation={args.showNavigation}
@@ -138,7 +138,7 @@ export const Default: Story = {
 
 export const WithoutCounter: Story = {
   render: (args) => (
-    <FullscreenGalleryDemo
+    <FullscreenModeDemo
       images={sampleImages}
       showCounter={false}
       showNavigation={args.showNavigation}
@@ -153,7 +153,7 @@ export const WithoutCounter: Story = {
 
 export const WithoutNavigation: Story = {
   render: (args) => (
-    <FullscreenGalleryDemo
+    <FullscreenModeDemo
       images={sampleImages}
       showCounter={args.showCounter}
       showNavigation={false}
@@ -168,7 +168,7 @@ export const WithoutNavigation: Story = {
 
 export const SingleImage: Story = {
   render: (args) => (
-    <FullscreenGalleryDemo
+    <FullscreenModeDemo
       images={[sampleImages[0]]}
       showCounter={args.showCounter}
       showNavigation={args.showNavigation}

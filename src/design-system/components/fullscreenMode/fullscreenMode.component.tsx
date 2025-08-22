@@ -6,9 +6,9 @@ import {
   NavButton,
   ImageContainer,
   ImageCounter,
-} from "./fullscreenGallery.styled";
+} from "./fullscreenMode.styled";
 
-export interface FullscreenGalleryProps {
+export interface FullscreenModeProps {
   images: string[];
   currentIndex: number;
   isOpen: boolean;
@@ -20,7 +20,7 @@ export interface FullscreenGalleryProps {
   altTextPrefix?: string;
 }
 
-const FullscreenGallery: React.FC<FullscreenGalleryProps> = ({
+const FullscreenMode: React.FC<FullscreenModeProps> = ({
   images,
   currentIndex,
   isOpen,
@@ -115,4 +115,4 @@ const FullscreenGallery: React.FC<FullscreenGalleryProps> = ({
   );
 };
 
-export default FullscreenGallery;
+export default FullscreenMode;

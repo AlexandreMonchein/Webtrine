@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { useFullscreenGallery } from "../../utils/useFullscreenGallery";
-import FullscreenGallery from "../fullscreenGallery/fullscreenGallery.component";
+import { useFullscreenMode } from "../../utils/useFullscreenMode";
+import FullscreenMode from "../fullscreenMode/fullscreenMode.component";
 import {
   Container,
   InfoSection,
@@ -41,7 +41,7 @@ const ArtistDescription: React.FC<ArtistDescriptionProps> = ({
   const [instagramIcon, setInstagramIcon] = useState<React.ReactNode>(null);
 
   // Utilisation du hook fullscreen
-  const fullscreenGallery = useFullscreenGallery(images.length);
+  const fullscreenMode = useFullscreenMode(images.length);
 
   const componentFiles = import.meta.glob(
     "../../../assets/**/**/*.component.tsx"
@@ -85,7 +85,7 @@ const ArtistDescription: React.FC<ArtistDescriptionProps> = ({
             src={src}
             alt={`${name} tattoo ${index + 1}`}
             active={index === currentIndex}
-            onClick={() => fullscreenGallery.openFullscreen(index)}
+            onClick={() => fullscreenMode.openFullscreen(index)}
           />
         ))}
         <ImageCounter>
@@ -112,13 +112,13 @@ const ArtistDescription: React.FC<ArtistDescriptionProps> = ({
         <Button href={contactUrl}>PRENDRE RDV</Button>
       </InfoSection>
 
-      <FullscreenGallery
+      <FullscreenMode
         images={images}
-        currentIndex={fullscreenGallery.currentIndex ?? 0}
-        isOpen={fullscreenGallery.isOpen}
-        onClose={fullscreenGallery.closeFullscreen}
-        onNext={fullscreenGallery.nextImage}
-        onPrev={fullscreenGallery.prevImage}
+        currentIndex={fullscreenMode.currentIndex ?? 0}
+        isOpen={fullscreenMode.isOpen}
+        onClose={fullscreenMode.closeFullscreen}
+        onNext={fullscreenMode.nextImage}
+        onPrev={fullscreenMode.prevImage}
         altTextPrefix={name}
       />
     </Container>
