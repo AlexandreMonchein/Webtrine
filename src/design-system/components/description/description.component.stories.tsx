@@ -3,7 +3,7 @@ import DescriptionComponent from "./description.component";
 
 const meta: Meta<typeof DescriptionComponent> = {
   component: DescriptionComponent,
-  title: 'Design System/Components/Description',
+  title: 'Design System/Components/Description/TextDescription',
   parameters: {
     layout: 'padded',
     docs: {
