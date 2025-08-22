@@ -18,6 +18,20 @@ export const CarouselWrapper = styled.div`
   height: 300px; /* force square */
   overflow: hidden;
   border-radius: 12px;
+  cursor: pointer;
+`;
+
+export const ImageCounter = styled.div`
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  z-index: 2;
 `;
 
 export const CarouselImage = styled.img<{ active: boolean }>`
@@ -143,41 +157,4 @@ export const Button = styled.a`
   }
 `;
 
-export const FullscreenOverlay = styled.div`
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.95);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 2000;
-`;
 
-export const FullscreenImage = styled.img`
-  max-width: 90%;
-  max-height: 80%;
-  border-radius: 12px;
-`;
-
-export const CloseButton = styled.button`
-  position: absolute;
-  top: 20px;
-  right: 30px;
-  font-size: 2rem;
-  color: white;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-`;
-
-export const NavButton = styled.button<{ left?: boolean }>`
-  position: absolute;
-  top: 50%;
-  ${({ left }) => (left ? "left: 30px;" : "right: 30px;")}
-  transform: translateY(-50%);
-  font-size: 3rem;
-  color: white;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-`;

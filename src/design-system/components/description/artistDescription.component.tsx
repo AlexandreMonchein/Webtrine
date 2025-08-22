@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import { useFullscreenGallery } from "../../utils/useFullscreenGallery";
+import FullscreenGallery from "../fullscreenGallery/fullscreenGallery.component";
 import {
   Container,
   InfoSection,
@@ -10,11 +12,8 @@ import {
   Button,
   CarouselWrapper,
   CarouselImage,
-  FullscreenOverlay,
-  FullscreenImage,
-  CloseButton,
-  NavButton,
   TagLine,
+  ImageCounter,
 } from "./artistDescription.styled";
 
 interface ArtistDescriptionProps {
@@ -39,8 +38,10 @@ const ArtistDescription: React.FC<ArtistDescriptionProps> = ({
   contactUrl = "#contact",
 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [fullscreenIndex, setFullscreenIndex] = useState<number | null>(null);
   const [instagramIcon, setInstagramIcon] = useState<React.ReactNode>(null);
+
+  // Utilisation du hook fullscreen
+  const fullscreenGallery = useFullscreenGallery(images.length);
 
   const componentFiles = import.meta.glob(
     "../../../assets/**/**/*.component.tsx"
@@ -68,36 +69,12 @@ const ArtistDescription: React.FC<ArtistDescriptionProps> = ({
           setInstagramIcon(<Component color="black" />);
         }
       } catch (error) {
-        console.error('Error loading Instagram icon:', error);
+        console.error("Error loading Instagram icon:", error);
       }
     };
 
     loadInstagramIcon();
   }, []);
-
-  const openFullscreen = (index: number) => {
-    setFullscreenIndex(index);
-  };
-
-  const closeFullscreen = () => {
-    setFullscreenIndex(null);
-  };
-
-  const nextImage = () => {
-    if (fullscreenIndex !== null) {
-      setFullscreenIndex((prev) =>
-        prev === images.length - 1 ? 0 : (prev ?? 0) + 1
-      );
-    }
-  };
-
-  const prevImage = () => {
-    if (fullscreenIndex !== null) {
-      setFullscreenIndex((prev) =>
-        prev === 0 ? images.length - 1 : (prev ?? 0) - 1
-      );
-    }
-  };
 
   return (
     <Container>
@@ -108,44 +85,42 @@ const ArtistDescription: React.FC<ArtistDescriptionProps> = ({
             src={src}
             alt={`${name} tattoo ${index + 1}`}
             active={index === currentIndex}
-            onClick={() => openFullscreen(index)}
+            onClick={() => fullscreenGallery.openFullscreen(index)}
           />
         ))}
+        <ImageCounter>
+          {currentIndex + 1}/{images.length}
+        </ImageCounter>
       </CarouselWrapper>
 
       <InfoSection>
         <Title>{name}</Title>
         <Separator />
         <Subtitle
-          href={instagramUrl || `https://instagram.com/${instagram.replace('@', '')}`}
+          href={
+            instagramUrl ||
+            `https://instagram.com/${instagram.replace("@", "")}`
+          }
           target="_blank"
           rel="noopener noreferrer"
         >
-          {instagramIcon && (
-            <InstagramIcon>
-              {instagramIcon}
-            </InstagramIcon>
-          )}
-          @{instagram}
+          {instagramIcon && <InstagramIcon>{instagramIcon}</InstagramIcon>}@
+          {instagram}
         </Subtitle>
         <TagLine>{tagline}</TagLine>
         <Description>{description}</Description>
         <Button href={contactUrl}>PRENDRE RDV</Button>
       </InfoSection>
 
-      {fullscreenIndex !== null && (
-        <FullscreenOverlay>
-          <CloseButton onClick={closeFullscreen}>×</CloseButton>
-          <NavButton left onClick={prevImage}>
-            ‹
-          </NavButton>
-          <FullscreenImage
-            src={images[fullscreenIndex]}
-            alt={`fullscreen ${fullscreenIndex + 1}`}
-          />
-          <NavButton onClick={nextImage}>›</NavButton>
-        </FullscreenOverlay>
-      )}
+      <FullscreenGallery
+        images={images}
+        currentIndex={fullscreenGallery.currentIndex ?? 0}
+        isOpen={fullscreenGallery.isOpen}
+        onClose={fullscreenGallery.closeFullscreen}
+        onNext={fullscreenGallery.nextImage}
+        onPrev={fullscreenGallery.prevImage}
+        altTextPrefix={name}
+      />
     </Container>
   );
 };
