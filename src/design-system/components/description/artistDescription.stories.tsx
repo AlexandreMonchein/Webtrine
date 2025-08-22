@@ -18,9 +18,8 @@ Composant pour afficher le profil d'un artiste avec carrousel d'images, informat
 Copiez et adaptez cette configuration dans votre config.json :
 
 \`\`\`json
-{
-  "type": "description",
-  "id": "artistDescription",
+"description-1":{
+  "type": "artistDescription",
   "datas": {
     "name": "Nom de l'artiste",
     "instagram": "handle_instagram",

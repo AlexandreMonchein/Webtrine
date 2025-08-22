@@ -32,35 +32,38 @@ Le composant Contact utilise les informations client du \`config.json\` :
 
 ### Pour une page dédiée contact :
 \`\`\`json
-{
-  "type": "description",
-  "id": "multiDescriptions",
-  "name": "Contact",
+"contact-1": {
+  "type": "extendedContact",
   "datas": {
-    "title": "Contact",
-    "description": "Nous contacter",
-    "content": {
-      "contact-1": {
-        "type": "extendedContact",
-        "datas": {
-          "map": {
-            "type": "map",
-            "id": "leafletMap",
-            "datas": {
-              "bigTitle": "Vous pouvez nous trouver ici",
-              "title": "Ou nous trouver: ",
-              "openTimesTitle": "Horaires d'ouverture:",
-              "openTimes": [
-                {
-                  "days": "Lun - Ven",
-                  "hours": "8h - 18h"
-                }
-              ]
-            }
+    "map": {
+      "type": "map",
+      "id": "leafletMap",
+      "datas": {
+        "bigTitle": "Vous pouvez nous trouver ici",
+        "title": "Ou nous trouver: ",
+        "openTimesTitle": "Horaires d'ouverture:",
+        "openTimes": [
+          {
+            "days": "Lun - Ven",
+            "hours": "8h - 18h"
+          },
+          {
+            "days": "Sam - Dim",
+            "hours": "Fermé"
           }
-        }
+        ],
+        "features": { "isSmall": true },
+        "places": [
+          {
+            "id": 1,
+            "address": "6 Rue de Molina, 42000 Saint-Étienne",
+            "phone": "04 77 41 59 13",
+            "position": [45.466, 4.395]
+          }
+        ]
       }
-    }
+    },
+    "features": {}
   }
 }
 \`\`\`

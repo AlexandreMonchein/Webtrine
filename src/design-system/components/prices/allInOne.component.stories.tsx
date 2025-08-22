@@ -26,7 +26,7 @@ Composant pour afficher une offre tout-en-un avec prix, fonctionnalités et desc
 Copiez et adaptez cette configuration dans votre \`config.json\` :
 
 \`\`\`json
-{
+"prices-1": {
   "type": "allInOne",
   "features": {},
   "title": "L'offre complète :",

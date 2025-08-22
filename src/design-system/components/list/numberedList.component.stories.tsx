@@ -18,33 +18,32 @@ Composant pour afficher une liste numérotée avec titres et descriptions. Chaqu
 Copiez et adaptez cette configuration dans votre \`config.json\` :
 
 \`\`\`json
-{
-    "type": "numberedList",
-    "features": null,
-    "title": "Un processus de création simple et efficace",
-    "content": [
-      {
-        "title": "Définition du projet & Conseils",
-        "description": "Dès notre premier contact, nous échangeons pour comprendre votre secteur d'activité et définir le cadre de votre projet."
-      },
-      {
-        "title": "Conception graphique UX/UI",
-        "description": "Deux options s'offrent à vous : soit vous choisissez des templates existants, soit nous travaillerons ensemble sur un design personnalisé."
-      },
-      {
-        "title": "Devis détaillé",
-        "description": "Un devis précis est établi en fonction de vos besoins et des options choisies pour votre projet."
-      },
-      {
-        "title": "Développement & Tests",
-        "description": "Nous développons votre site en suivant les meilleures pratiques et effectuons des tests complets avant la mise en ligne."
-      },
-      {
-        "title": "Mise en ligne & Formation",
-        "description": "Nous mettons votre site en ligne et vous formons à son utilisation pour une autonomie complète."
-      }
-    ]
-  }
+"list-1": {
+  "type": "numberedList",
+  "features": null,
+  "title": "Un processus de création simple et efficace",
+  "content": [
+    {
+      "title": "Définition du projet & Conseils",
+      "description": "Dès notre premier contact, nous échangeons pour comprendre votre secteur d'activité et définir le cadre de votre projet."
+    },
+    {
+      "title": "Conception graphique UX/UI",
+      "description": "Deux options s'offrent à vous : soit vous choisissez des templates existants, soit nous travaillerons ensemble sur un design personnalisé."
+    },
+    {
+      "title": "Devis détaillé",
+      "description": "Un devis précis est établi en fonction de vos besoins et des options choisies pour votre projet."
+    },
+    {
+      "title": "Développement & Tests",
+      "description": "Nous développons votre site en suivant les meilleures pratiques et effectuons des tests complets avant la mise en ligne."
+    },
+    {
+      "title": "Mise en ligne & Formation",
+      "description": "Nous mettons votre site en ligne et vous formons à son utilisation pour une autonomie complète."
+    }
+  ]
 }
 \`\`\`
 

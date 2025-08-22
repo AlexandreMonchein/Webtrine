@@ -18,7 +18,7 @@ Composant pour afficher une liste de cartes avec titre et description.
 Copiez et adaptez cette configuration dans votre \`config.json\` :
 
 \`\`\`json
-{
+"cards-1": {
   "type": "cardsList",
   "features": null,
   "title": "Titre de votre section",

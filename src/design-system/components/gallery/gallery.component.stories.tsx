@@ -18,29 +18,26 @@ Composant Gallery pour afficher une collection d'images avec différents types d
 Copiez et adaptez cette configuration dans votre \`config.json\` :
 
 \`\`\`json
-{
+"gallery-1": {
   "type": "gallery",
-  "id": "gallery",
-  "datas": {
-    "title": "Titre de votre galerie",
-    "description": "Description de votre galerie",
-    "template": {
-      "type": "gallery",
-      "features": {
-        "canFullScreen": true,
-        "shouldRedirect": false
+  "title": "Titre de votre galerie",
+  "description": "Description de votre galerie",
+  "template": {
+    "type": "gallery",
+    "features": {
+      "canFullScreen": true,
+      "shouldRedirect": false
+    },
+    "inventory": [
+      {
+        "alt": "Description de l'image 1",
+        "imageSrc": "nom_image_1"
       },
-      "inventory": [
-        {
-          "alt": "Description de l'image 1",
-          "imageSrc": "nom_image_1"
-        },
-        {
-          "alt": "Description de l'image 2",
-          "imageSrc": "nom_image_2"
-        }
-      ]
-    }
+      {
+        "alt": "Description de l'image 2",
+        "imageSrc": "nom_image_2"
+      }
+    ]
   }
 }
 \`\`\`

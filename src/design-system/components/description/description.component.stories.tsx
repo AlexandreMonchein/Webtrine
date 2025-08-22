@@ -18,7 +18,7 @@ Composant pour afficher une section de description avec du texte et une image op
 Copiez et adaptez cette configuration dans votre \`config.json\` :
 
 \`\`\`json
-{
+"description-1":{
   "type": "description",
   "features": {
     "isReversed": false,

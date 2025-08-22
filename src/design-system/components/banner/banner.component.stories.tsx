@@ -18,7 +18,8 @@ Composant de bannière hero avec image(s) de fond et texte positionnable.
 Copiez et adaptez cette configuration dans votre \`config.json\` :
 
 \`\`\`json
-{
+
+"banner-1": {
   "type": "banner",
   "features": {
     "multi": false,

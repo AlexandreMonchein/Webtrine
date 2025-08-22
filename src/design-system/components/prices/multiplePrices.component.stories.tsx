@@ -26,60 +26,57 @@ Composant pour afficher plusieurs plans tarifaires avec fonctionnalités détail
 Copiez et adaptez cette configuration dans votre \`config.json\` :
 
 \`\`\`json
-{
-  "type": "prices",
-  "id": "multiplePrices",
-  "datas": {
-    "title": "Nos offres",
-    "subtitle": "Choisissez l'offre qui vous correspond",
-    "plans": [
-      {
-        "title": "Plan Starter",
-        "price": "99€",
-        "per": "mois",
-        "description": "Parfait pour commencer",
-        "features": [
-          {
-            "text": "Fonctionnalité 1",
-            "included": true
-          },
-          {
-            "text": "Fonctionnalité 2",
-            "included": true
-          },
-          {
-            "text": "Fonctionnalité premium",
-            "included": false
-          }
-        ],
-        "cta": {
-          "text": "Choisir cette offre",
-          "type": "primary"
+"prices-1": {
+  "type": "multiplePrices",
+  "title": "Nos offres",
+  "subtitle": "Choisissez l'offre qui vous correspond",
+  "plans": [
+    {
+      "title": "Plan Starter",
+      "price": "99€",
+      "per": "mois",
+      "description": "Parfait pour commencer",
+      "features": [
+        {
+          "text": "Fonctionnalité 1",
+          "included": true
+        },
+        {
+          "text": "Fonctionnalité 2",
+          "included": true
+        },
+        {
+          "text": "Fonctionnalité premium",
+          "included": false
         }
-      },
-      {
-        "title": "Plan Pro",
-        "price": "199€",
-        "per": "mois",
-        "description": "Pour les professionnels",
-        "isHighlighted": true,
-        "features": [
-          {
-            "text": "Toutes les fonctionnalités Starter",
-            "included": true
-          },
-          {
-            "text": "Fonctionnalités avancées",
-            "included": true
-          }
-        ],
-        "cta": {
-          "text": "Choisir cette offre",
-          "type": "primary"
-        }
+      ],
+      "cta": {
+        "text": "Choisir cette offre",
+        "type": "primary"
       }
-    ]
-  }
+    },
+    {
+      "title": "Plan Pro",
+      "price": "199€",
+      "per": "mois",
+      "description": "Pour les professionnels",
+      "isHighlighted": true,
+      "features": [
+        {
+          "text": "Toutes les fonctionnalités Starter",
+          "included": true
+        },
+        {
+          "text": "Fonctionnalités avancées",
+          "included": true
+        }
+      ],
+      "cta": {
+        "text": "Choisir cette offre",
+        "type": "primary"
+      }
+    }
+  ]
 }
 \`\`\`
 

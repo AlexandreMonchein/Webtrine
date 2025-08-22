@@ -18,7 +18,8 @@ Composant pour afficher une liste horizontale d'images avec défilement automati
 Copiez et adaptez cette configuration dans votre \`config.json\` :
 
 \`\`\`json
-{
+"list-1": {
+  "type": "imageList",
   "title": "Ils nous ont fait confiance",
   "subtitle": null,
   "images": [

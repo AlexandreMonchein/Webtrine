@@ -18,26 +18,24 @@ Composant pour afficher une grille de fonctionnalités avec icônes SVG et texte
 Copiez et adaptez cette configuration dans votre \`config.json\` :
 
 \`\`\`json
-{
+"display-1": {
   "type": "display",
-  "id": "services-display",
-  "datas": {
-    "title": "Nos services",
-    "content": [
-      {
-        "name": "websiteCreation",
-        "text": "Création de sites web modernes et responsifs"
-      },
-      {
-        "name": "quality",
-        "text": "Qualité et excellence dans chaque projet"
-      },
-      {
-        "name": "support",
-        "text": "Support technique continu et réactif"
-      }
-    ]
-  }
+  "features": null,
+  "title": "Nos services",
+  "content": [
+    {
+      "name": "websiteCreation",
+      "text": "Création de sites web modernes et responsifs"
+    },
+    {
+      "name": "quality",
+      "text": "Qualité et excellence dans chaque projet"
+    },
+    {
+      "name": "support",
+      "text": "Support technique continu et réactif"
+    }
+  ]
 }
 \`\`\`
 
