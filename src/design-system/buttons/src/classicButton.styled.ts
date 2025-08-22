@@ -2,6 +2,20 @@ import styled from "styled-components";
 
 export const ButtonContainer = styled.div`
   display: inline-block;
+  position: relative;
+`;
+
+export const OffscreenContentContainer = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  visibility: hidden;
+  pointer-events: none;
+  white-space: nowrap;
+  opacity: 0;
+  z-index: -1;
+  overflow: hidden;
+  max-width: 100vw;
 `;
 
 export const Button = styled.button`

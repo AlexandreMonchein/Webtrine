@@ -200,12 +200,28 @@ export const Title = styled.h1`
   z-index: var(--z-index-text);
   color: var(--title-color-1);
   padding: 0px 48px;
+
+  ${bp.max(
+    breakpointNames.medium,
+    css`
+      display: flex;
+      justify-content: center;
+    `
+  )};
 `;
 
 export const SubTitle = styled.h2`
   z-index: var(--z-index-text);
   color: var(--title-color-1);
   padding: 0px 48px;
+
+  ${bp.max(
+    breakpointNames.medium,
+    css`
+      display: flex;
+      justify-content: center;
+    `
+  )};
 `;
 
 export const SelectorsContainer = styled.div`

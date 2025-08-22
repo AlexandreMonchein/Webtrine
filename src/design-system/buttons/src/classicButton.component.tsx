@@ -1,6 +1,6 @@
 import { useLayoutEffect, useRef, useState } from "react";
 
-import { Button, ButtonContainer, Text } from "./classicButton.styled";
+import { Button, ButtonContainer, Text, OffscreenContentContainer } from "./classicButton.styled";
 
 export const ToggleButton = ({ type, displayedText, hiddenText }) => {
   const [isHidden, setIsHidden] = useState(false);
@@ -36,26 +36,14 @@ export const ToggleButton = ({ type, displayedText, hiddenText }) => {
         </Text>
       </Button>
 
-      <span
-        ref={displayedRef}
-        style={{
-          visibility: "hidden",
-          position: "absolute",
-          whiteSpace: "nowrap",
-        }}
-      >
-        {displayedText}
-      </span>
-      <span
-        ref={hiddenRef}
-        style={{
-          visibility: "hidden",
-          position: "absolute",
-          whiteSpace: "nowrap",
-        }}
-      >
-        {hiddenText}
-      </span>
+      <OffscreenContentContainer>
+        <span ref={displayedRef}>
+          {displayedText}
+        </span>
+        <span ref={hiddenRef}>
+          {hiddenText}
+        </span>
+      </OffscreenContentContainer>
     </ButtonContainer>
   );
 };
