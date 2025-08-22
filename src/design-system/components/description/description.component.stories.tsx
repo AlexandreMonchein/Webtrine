@@ -1,36 +1,80 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from "@storybook/react";
 import DescriptionComponent from "./description.component";
 
 const meta: Meta<typeof DescriptionComponent> = {
   component: DescriptionComponent,
-  title: 'Design System/Components/Description/TextDescription',
+  title: "Design System/Components/Description/TextDescription",
   parameters: {
-    layout: 'padded',
+    layout: "padded",
     docs: {
       description: {
-        component: 'Composant pour afficher une section de description avec du texte et une image optionnelle. Supporte différents modes d\'affichage : inversé, continu, et avec gestion des images. Idéal pour les sections "À propos", présentation de services ou contenu éditorial.'
-      }
-    }
+        component: `
+# Description Component
+
+Composant pour afficher une section de description avec du texte et une image optionnelle.
+
+## Configuration JSON pour intégration
+
+Copiez et adaptez cette configuration dans votre \`config.json\` :
+
+\`\`\`json
+{
+  "type": "description",
+  "features": {
+    "isReversed": false,
+    "isContinuous": false
   },
-  tags: ['autodocs'],
+  "title": "Titre de votre section",
+  "content": [
+    {
+      "text": "Premier paragraphe de contenu. Supporte le HTML basique."
+    },
+    {
+      "text": "Deuxième paragraphe avec <strong>mise en forme</strong> si nécessaire."
+    }
+  ],
+  "image": {
+    "name": "nom_de_votre_image",
+    "alt": "Description alternative de l'image",
+    "focusable": false
+  }
+}
+\`\`\`
+
+### Options de \`features\` :
+- \`isReversed: true\` : Place l'image à droite du texte
+- \`isContinuous: true\` : Affichage continu sans espacement supplémentaire
+
+### Structure de l'image :
+- \`name\` : Nom du fichier image (sans extension, .webp sera ajouté)
+- \`alt\` : Texte alternatif pour l'accessibilité
+- \`focusable\` : Si l'image peut recevoir le focus (navigation clavier)
+        `,
+      },
+    },
+  },
+  tags: ["autodocs"],
   argTypes: {
     title: {
-      control: 'text',
-      description: 'Titre principal de la section (optionnel)'
+      control: "text",
+      description: "Titre principal de la section (optionnel)",
     },
     features: {
-      control: 'object',
-      description: 'Configuration du comportement : isReversed (image à droite), isContinuous (affichage continu)'
+      control: "object",
+      description:
+        "Configuration du comportement : isReversed (image à droite), isContinuous (affichage continu)",
     },
     content: {
-      control: 'object',
-      description: 'Tableau d\'objets contenant le texte à afficher. Supporte le HTML (sanitisé avec DOMPurify)'
+      control: "object",
+      description:
+        "Tableau d'objets contenant le texte à afficher. Supporte le HTML (sanitisé avec DOMPurify)",
     },
     image: {
-      control: 'object',
-      description: 'Configuration de l\'image : name (nom du fichier), alt (texte alternatif), focusable (accessible au clavier)'
-    }
-  }
+      control: "object",
+      description:
+        "Configuration de l'image : name (nom du fichier), alt (texte alternatif), focusable (accessible au clavier)",
+    },
+  },
 };
 
 export default meta;
@@ -38,7 +82,7 @@ export default meta;
 type Story = StoryObj<typeof DescriptionComponent>;
 
 export const Default: Story = {
-  name: 'Configuration par défaut',
+  name: "Configuration par défaut",
   args: {
     type: "description",
     features: { isReversed: false, isContinious: false },
@@ -78,14 +122,15 @@ export const Default: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Configuration standard avec texte à gauche et image à droite. Idéal pour les sections de présentation ou d\'introduction.'
-      }
-    }
-  }
+        story:
+          "Configuration standard avec texte à gauche et image à droite. Idéal pour les sections de présentation ou d'introduction.",
+      },
+    },
+  },
 };
 
 export const Reversed: Story = {
-  name: 'Image inversée (à gauche)',
+  name: "Image inversée (à gauche)",
   args: {
     features: {
       isReversed: true,
@@ -104,7 +149,7 @@ export const Reversed: Story = {
       },
       {
         text: "Chaque projet bénéficie d'une architecture pensée pour la scalabilité et la maintenabilité à long terme.",
-      }
+      },
     ],
     image: {
       name: "description_image_1",
@@ -115,15 +160,16 @@ export const Reversed: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'Configuration avec image à gauche et texte à droite (isReversed: true). Permet de varier l\'affichage sur une page.'
-      }
-    }
-  }
+        story:
+          "Configuration avec image à gauche et texte à droite (isReversed: true). Permet de varier l'affichage sur une page.",
+      },
+    },
+  },
 };
 
 // Nouvelles stories pour couvrir plus de cas d'usage
 export const WithoutImage: Story = {
-  name: 'Sans image',
+  name: "Sans image",
   args: {
     features: {
       isReversed: false,
@@ -148,14 +194,15 @@ export const WithoutImage: Story = {
       },
       {
         text: "Nous restons à la pointe des technologies pour vous offrir les meilleures solutions du marché.",
-      }
+      },
     ],
   },
   parameters: {
     docs: {
       description: {
-        story: 'Configuration sans image pour les sections purement textuelles. Le contenu prend toute la largeur disponible.'
-      }
-    }
-  }
+        story:
+          "Configuration sans image pour les sections purement textuelles. Le contenu prend toute la largeur disponible.",
+      },
+    },
+  },
 };

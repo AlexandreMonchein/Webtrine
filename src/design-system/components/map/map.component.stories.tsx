@@ -8,7 +8,125 @@ const meta: Meta<typeof MapLeaflet> = {
     layout: 'padded',
     docs: {
       description: {
-        component: 'Composant de carte interactive utilisant Leaflet avec gestion des marqueurs, informations de contact et horaires d\'ouverture. Supporte la géolocalisation, le zoom et la navigation tactile. Idéal pour afficher des localisations d\'entreprise, points de vente ou événements.'
+        component: `
+# Map Component
+
+Composant de carte interactive utilisant Leaflet avec gestion des marqueurs, informations de contact et horaires d'ouverture. Supporte la géolocalisation, le zoom et la navigation tactile. Idéal pour afficher des localisations d'entreprise, points de vente ou événements.
+
+## Configuration JSON pour intégration
+
+### Utilisation dans un contact étendu :
+\`\`\`json
+{
+  "type": "extendedContact",
+  "datas": {
+    "map": {
+      "type": "map",
+      "id": "leafletMap",
+      "datas": {
+        "bigTitle": "Vous pouvez nous trouver ici",
+        "title": "Où nous trouver:",
+        "openTimesTitle": "Horaires d'ouverture:",
+        "openTimes": [
+          {
+            "days": "Lun - Ven",
+            "hours": "8h - 18h"
+          },
+          {
+            "days": "Sam - Dim",
+            "hours": "Fermé"
+          }
+        ],
+        "features": { "isSmall": true },
+        "places": [
+          {
+            "id": 1,
+            "address": "6 Rue de Molina, 42000 Saint-Étienne",
+            "phone": "04 77 41 59 13",
+            "position": [45.466, 4.395]
+          }
+        ]
+      }
+    },
+    "features": {}
+  }
+}
+\`\`\`
+
+### Utilisation autonome :
+\`\`\`json
+{
+  "type": "map",
+  "id": "map-section",
+  "datas": {
+    "bigTitle": "Notre localisation",
+    "title": "Venez nous rendre visite",
+    "openTimesTitle": "Nos horaires",
+    "openTimes": [
+      {
+        "days": "Lundi - Vendredi",
+        "hours": "9h00 - 18h00"
+      },
+      {
+        "days": "Samedi",
+        "hours": "9h00 - 12h00"
+      },
+      {
+        "days": "Dimanche",
+        "hours": "Fermé"
+      }
+    ],
+    "places": [
+      {
+        "id": "bureau-principal",
+        "address": "123 Avenue de la République, 75011 Paris",
+        "phone": "01 23 45 67 89",
+        "position": [48.8566, 2.3522]
+      }
+    ],
+    "features": {
+      "isSmall": false,
+      "showZoomControls": true,
+      "enableGeolocation": true
+    }
+  }
+}
+\`\`\`
+
+### Exemple avec plusieurs lieux :
+\`\`\`json
+{
+  "places": [
+    {
+      "id": "paris",
+      "address": "Bureau Paris - 123 Rue de Rivoli, 75001 Paris",
+      "phone": "01 23 45 67 89",
+      "position": [48.8566, 2.3522]
+    },
+    {
+      "id": "lyon",
+      "address": "Bureau Lyon - 456 Place Bellecour, 69002 Lyon",
+      "phone": "04 78 90 12 34",
+      "position": [45.7640, 4.8357]
+    }
+  ]
+}
+\`\`\`
+
+### Coordonnées de référence :
+- **Paris** : [48.8566, 2.3522]
+- **Lyon** : [45.7640, 4.8357]
+- **Marseille** : [43.2965, 5.3698]
+- **Saint-Étienne** : [45.466, 4.395]
+
+### Options de configuration :
+- **bigTitle** : Titre principal de la section (optionnel)
+- **title** : Titre de la localisation (optionnel)
+- **openTimesTitle** : Titre de la section horaires (optionnel)
+- **openTimes** : Tableau des horaires d'ouverture (optionnel)
+- **places** : Tableau des lieux à afficher (obligatoire)
+- **features** : Options de configuration (optionnel)
+        `
       }
     }
   },

@@ -1,10 +1,10 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import { MemoryRouter } from 'react-router-dom';
+import type { Meta, StoryObj } from "@storybook/react";
+import { MemoryRouter } from "react-router-dom";
 import MultiplePricesComponent from "./multiplePrices.component";
 
 const meta: Meta<typeof MultiplePricesComponent> = {
   component: MultiplePricesComponent,
-  title: 'Design System/Components/Prices/MultiplePrices',
+  title: "Design System/Components/Prices/MultiplePrices",
   decorators: [
     (Story) => (
       <MemoryRouter>
@@ -13,28 +13,100 @@ const meta: Meta<typeof MultiplePricesComponent> = {
     ),
   ],
   parameters: {
-    layout: 'padded',
+    layout: "padded",
     docs: {
       description: {
-        component: 'Composant pour afficher plusieurs plans tarifaires avec fonctionnalités détaillées et boutons d\'action. Utilise le système de traduction i18n pour les textes du bouton. Idéal pour présenter des offres commerciales, abonnements ou forfaits avec comparaison claire des caractéristiques.'
+        component: `
+# Multiple Prices Component
+
+Composant pour afficher plusieurs plans tarifaires avec fonctionnalités détaillées et boutons d'action.
+
+## Configuration JSON pour intégration
+
+Copiez et adaptez cette configuration dans votre \`config.json\` :
+
+\`\`\`json
+{
+  "type": "prices",
+  "id": "multiplePrices",
+  "datas": {
+    "title": "Nos offres",
+    "subtitle": "Choisissez l'offre qui vous correspond",
+    "plans": [
+      {
+        "title": "Plan Starter",
+        "price": "99€",
+        "per": "mois",
+        "description": "Parfait pour commencer",
+        "features": [
+          {
+            "text": "Fonctionnalité 1",
+            "included": true
+          },
+          {
+            "text": "Fonctionnalité 2",
+            "included": true
+          },
+          {
+            "text": "Fonctionnalité premium",
+            "included": false
+          }
+        ],
+        "cta": {
+          "text": "Choisir cette offre",
+          "type": "primary"
+        }
+      },
+      {
+        "title": "Plan Pro",
+        "price": "199€",
+        "per": "mois",
+        "description": "Pour les professionnels",
+        "isHighlighted": true,
+        "features": [
+          {
+            "text": "Toutes les fonctionnalités Starter",
+            "included": true
+          },
+          {
+            "text": "Fonctionnalités avancées",
+            "included": true
+          }
+        ],
+        "cta": {
+          "text": "Choisir cette offre",
+          "type": "primary"
+        }
       }
-    }
+    ]
+  }
+}
+\`\`\`
+
+### Options des plans :
+- \`isHighlighted: true\` : Met en avant un plan (recommandé)
+- \`features[].included\` : \`true\` (inclus) ou \`false\` (non inclus/barré)
+- \`cta.type\` : \`"primary"\` ou \`"secondary"\` pour le style du bouton
+        `,
+      },
+    },
   },
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   argTypes: {
     title: {
-      control: 'text',
-      description: 'Titre principal de la section tarifaire'
+      control: "text",
+      description: "Titre principal de la section tarifaire",
     },
     subtitle: {
-      control: 'text',
-      description: 'Sous-titre explicatif'
+      control: "text",
+      description: "Sous-titre explicatif",
     },
     plans: {
-      control: 'object',
-      description: 'Tableau des plans avec title (nom), price (tarif), et features (liste des fonctionnalités)'
-    }
-  }
+      control: "object",
+      description:
+        "Tableau des plans avec title (nom), price (tarif), et features (liste des fonctionnalités)",
+    },
+  },
 };
 
 export default meta;
@@ -42,7 +114,7 @@ export default meta;
 type Story = StoryObj<typeof MultiplePricesComponent>;
 
 export const Default: Story = {
-  name: 'Plans tarifaires standard',
+  name: "Plans tarifaires standard",
   args: {
     title: "Nos offres",
     subtitle: "Choisissez le plan qui correspond à vos besoins",
@@ -55,8 +127,8 @@ export const Default: Story = {
           "Design responsive",
           "Optimisation SEO de base",
           "Hébergement 1 an inclus",
-          "Support par email"
-        ]
+          "Support par email",
+        ],
       },
       {
         title: "Professionnel",
@@ -68,8 +140,8 @@ export const Default: Story = {
           "Hébergement 1 an inclus",
           "Certificat SSL",
           "Support prioritaire",
-          "Formation à l'administration"
-        ]
+          "Formation à l'administration",
+        ],
       },
       {
         title: "Premium",
@@ -83,22 +155,23 @@ export const Default: Story = {
           "Support téléphonique",
           "Formation complète",
           "Maintenance 3 mois",
-          "Analytiques avancées"
-        ]
-      }
-    ]
+          "Analytiques avancées",
+        ],
+      },
+    ],
   },
   parameters: {
     docs: {
       description: {
-        story: 'Configuration standard avec 3 plans tarifaires couvrant différents niveaux de service, du basique au premium.'
-      }
-    }
-  }
+        story:
+          "Configuration standard avec 3 plans tarifaires couvrant différents niveaux de service, du basique au premium.",
+      },
+    },
+  },
 };
 
 export const TwoPlans: Story = {
-  name: 'Deux plans (comparaison simple)',
+  name: "Deux plans (comparaison simple)",
   args: {
     title: "Nos forfaits",
     subtitle: "Deux options adaptées à votre budget",
@@ -110,8 +183,8 @@ export const TwoPlans: Story = {
           "Site one-page",
           "Design responsive",
           "Hébergement 6 mois",
-          "Support email"
-        ]
+          "Support email",
+        ],
       },
       {
         title: "Business",
@@ -122,22 +195,23 @@ export const TwoPlans: Story = {
           "Hébergement 1 an",
           "SEO optimisé",
           "Support prioritaire",
-          "Formation incluse"
-        ]
-      }
-    ]
+          "Formation incluse",
+        ],
+      },
+    ],
   },
   parameters: {
     docs: {
       description: {
-        story: 'Version simplifiée avec seulement 2 plans pour une comparaison directe et une prise de décision facilitée.'
-      }
-    }
-  }
+        story:
+          "Version simplifiée avec seulement 2 plans pour une comparaison directe et une prise de décision facilitée.",
+      },
+    },
+  },
 };
 
 export const SinglePlan: Story = {
-  name: 'Plan unique',
+  name: "Plan unique",
   args: {
     title: "Offre spéciale",
     subtitle: "Une solution complète à prix exceptionnel",
@@ -155,34 +229,32 @@ export const SinglePlan: Story = {
           "Support technique 6 mois",
           "Formation à l'utilisation",
           "3 révisions incluses",
-          "Analytics et statistiques"
-        ]
-      }
-    ]
+          "Analytics et statistiques",
+        ],
+      },
+    ],
   },
   parameters: {
     docs: {
       description: {
-        story: 'Présentation d\'un plan unique avec toutes les fonctionnalités détaillées. Idéal pour une offre promotionnelle ou un package all-inclusive.'
-      }
-    }
-  }
+        story:
+          "Présentation d'un plan unique avec toutes les fonctionnalités détaillées. Idéal pour une offre promotionnelle ou un package all-inclusive.",
+      },
+    },
+  },
 };
 
 export const ManyPlans: Story = {
-  name: 'Plusieurs plans (4 options)',
+  name: "Plusieurs plans (4 options)",
   args: {
     title: "Toutes nos offres",
-    subtitle: "Du plan de base au service premium, trouvez votre solution idéale",
+    subtitle:
+      "Du plan de base au service premium, trouvez votre solution idéale",
     plans: [
       {
         title: "Basic",
         price: "250€ HT",
-        features: [
-          "Landing page",
-          "Design standard",
-          "Responsive mobile"
-        ]
+        features: ["Landing page", "Design standard", "Responsive mobile"],
       },
       {
         title: "Standard",
@@ -191,8 +263,8 @@ export const ManyPlans: Story = {
           "Site 5 pages",
           "Design personnalisé",
           "SEO de base",
-          "Hébergement 1 an"
-        ]
+          "Hébergement 1 an",
+        ],
       },
       {
         title: "Pro",
@@ -202,8 +274,8 @@ export const ManyPlans: Story = {
           "Design sur mesure",
           "SEO avancé",
           "Hébergement premium",
-          "Support prioritaire"
-        ]
+          "Support prioritaire",
+        ],
       },
       {
         title: "Enterprise",
@@ -214,22 +286,23 @@ export const ManyPlans: Story = {
           "SEO expert",
           "Infrastructure dédiée",
           "Support 24/7",
-          "Maintenance incluse"
-        ]
-      }
-    ]
+          "Maintenance incluse",
+        ],
+      },
+    ],
   },
   parameters: {
     docs: {
       description: {
-        story: 'Gamme complète avec 4 plans pour couvrir tous les besoins, du simple au complexe. Test de l\'affichage avec plus d\'options.'
-      }
-    }
-  }
+        story:
+          "Gamme complète avec 4 plans pour couvrir tous les besoins, du simple au complexe. Test de l'affichage avec plus d'options.",
+      },
+    },
+  },
 };
 
 export const FreemiumModel: Story = {
-  name: 'Modèle Freemium',
+  name: "Modèle Freemium",
   args: {
     title: "Nos solutions",
     subtitle: "Commencez gratuitement, évoluez selon vos besoins",
@@ -241,8 +314,8 @@ export const FreemiumModel: Story = {
           "Sous-domaine webtrine.fr",
           "Template standard",
           "3 pages maximum",
-          "Support communauté"
-        ]
+          "Support communauté",
+        ],
       },
       {
         title: "Démarrage",
@@ -252,8 +325,8 @@ export const FreemiumModel: Story = {
           "Templates premium",
           "10 pages",
           "Support email",
-          "SSL inclus"
-        ]
+          "SSL inclus",
+        ],
       },
       {
         title: "Croissance",
@@ -264,16 +337,17 @@ export const FreemiumModel: Story = {
           "SEO avancé",
           "Support prioritaire",
           "Analytics détaillées",
-          "Intégrations tiers"
-        ]
-      }
-    ]
+          "Intégrations tiers",
+        ],
+      },
+    ],
   },
   parameters: {
     docs: {
       description: {
-        story: 'Modèle de tarification freemium avec plan gratuit et abonnements mensuels. Adapté pour les services SaaS ou plateformes.'
-      }
-    }
-  }
+        story:
+          "Modèle de tarification freemium avec plan gratuit et abonnements mensuels. Adapté pour les services SaaS ou plateformes.",
+      },
+    },
+  },
 };

@@ -49,7 +49,6 @@ export const ImageWrapper = styled.div`
   position: relative;
   display: inline-block;
   border-radius: 50%;
-  overflow: hidden;
   transition: transform 0.3s ease-in-out;
 
   &:hover,

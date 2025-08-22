@@ -4,6 +4,77 @@ import ArtistDescription from "./artistDescription.component";
 const meta: Meta<typeof ArtistDescription> = {
   title: "Design System/Components/Description/ArtistDescription",
   component: ArtistDescription,
+  tags: ["autodocs"],
+  parameters: {
+    docs: {
+      description: {
+        component: `
+# Artist Description Component
+
+Composant pour afficher le profil d'un artiste avec carrousel d'images, informations et mode fullscreen.
+
+## Configuration JSON pour intégration
+
+Copiez et adaptez cette configuration dans votre config.json :
+
+\`\`\`json
+{
+  "type": "description",
+  "id": "artistDescription",
+  "datas": {
+    "name": "Nom de l'artiste",
+    "instagram": "handle_instagram",
+    "tagline": "STYLE / THÈME / SPÉCIALITÉ",
+    "description": "Description complète de l'artiste, son parcours, ses influences et son style artistique. Cette description peut être longue et détaillée.",
+    "images": [
+      "/assets/customer/image1.webp",
+      "/assets/customer/image2.webp",
+      "/assets/customer/image3.webp"
+    ],
+    "intervalBetweenImages": 5000,
+    "instagramUrl": "https://www.instagram.com/handle_instagram",
+    "contactUrl": "#contact-form"
+  }
+}
+\`\`\`
+
+### Structure des données :
+- **name** : Nom de l'artiste (obligatoire)
+- **instagram** : Handle Instagram sans @ (obligatoire)
+- **tagline** : Slogan ou spécialité en majuscules (obligatoire)
+- **description** : Description détaillée de l'artiste (obligatoire)
+- **images** : Tableau de chemins d'images (obligatoire)
+- **intervalBetweenImages** : Délai entre les images du carrousel en ms (optionnel, défaut: 5000)
+- **instagramUrl** : URL complète Instagram (optionnel, construit automatiquement si absent)
+- **contactUrl** : URL du formulaire de contact (optionnel, défaut: "#contact")
+
+### Exemple avec plusieurs images :
+\`\`\`json
+{
+  "images": [
+    "/assets/customer/tattoo1.webp",
+    "/assets/customer/tattoo2.webp",
+    "/assets/customer/tattoo3.webp",
+    "/assets/customer/tattoo4.webp"
+  ]
+}
+\`\`\`
+
+### Notes importantes :
+- Les images doivent être au format WebP pour de meilleures performances
+- Le mode fullscreen est automatiquement activé pour ce composant
+- Le lien Instagram est généré automatiquement : instagram.com/[handle]
+- Le carrousel change d'image automatiquement selon l'intervalle défini
+        `,
+      },
+    },
+  },
+  argTypes: {
+    datas: {
+      control: "object",
+      description: "Données de l'artiste avec nom, description, images et liens",
+    },
+  },
 };
 
 export default meta;
