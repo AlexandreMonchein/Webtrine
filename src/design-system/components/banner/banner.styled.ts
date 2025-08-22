@@ -204,6 +204,7 @@ export const Title = styled.h1`
   ${bp.max(
     breakpointNames.medium,
     css`
+      padding: 0px 24px;
       display: flex;
       justify-content: center;
     `
@@ -218,6 +219,7 @@ export const SubTitle = styled.h2`
   ${bp.max(
     breakpointNames.medium,
     css`
+      padding: 0px 24px;
       display: flex;
       justify-content: center;
     `

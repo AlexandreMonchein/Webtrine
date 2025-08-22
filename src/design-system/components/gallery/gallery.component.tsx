@@ -14,7 +14,8 @@ import {
 
 const Gallery = (datas) => {
   const {
-    template: { type, inventory },
+    template: { type, inventory, features: { canFullScreen } },
+
   } = datas;
 
   const customer = getCustomer();
@@ -25,7 +26,9 @@ const Gallery = (datas) => {
   const fullscreenMode = useFullscreenMode(images.length);
 
   const handleCardClick = (index) => {
-    fullscreenMode.openFullscreen(index);
+    if (canFullScreen) {
+      fullscreenMode.openFullscreen(index);
+    }
   };
 
   return (
@@ -38,7 +41,7 @@ const Gallery = (datas) => {
                 key={data.imageSrc}
                 className={classNames({ isLogo: type === "logo" })}
                 onClick={() => handleCardClick(index)}
-                style={{ cursor: "pointer" }}
+                style={{ cursor: canFullScreen ? "pointer" : "default" }}
               >
                 <Card data={data} type={type} />
               </CardWrapper>
@@ -47,15 +50,17 @@ const Gallery = (datas) => {
         </MainColumn>
       </GalleryRoot>
 
-      <FullscreenMode
-        images={images}
-        currentIndex={fullscreenMode.currentIndex ?? 0}
-        isOpen={fullscreenMode.isOpen}
-        onClose={fullscreenMode.closeFullscreen}
-        onNext={fullscreenMode.nextImage}
-        onPrev={fullscreenMode.prevImage}
-        altTextPrefix="Gallery image"
-      />
+      {canFullScreen && (
+        <FullscreenMode
+          images={images}
+          currentIndex={fullscreenMode.currentIndex ?? 0}
+          isOpen={fullscreenMode.isOpen}
+          onClose={fullscreenMode.closeFullscreen}
+          onNext={fullscreenMode.nextImage}
+          onPrev={fullscreenMode.prevImage}
+          altTextPrefix="Gallery image"
+        />
+      )}
     </>
   );
 };

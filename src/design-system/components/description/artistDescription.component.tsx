@@ -16,27 +16,28 @@ import {
   ImageCounter,
 } from "./artistDescription.styled";
 
-interface ArtistDescriptionProps {
+interface ArtistDescriptionData {
   name: string;
   instagram: string;
   tagline: string;
   description: string;
   images: string[];
-  interval?: number; // in ms
+  intervalBetweenImages?: number; // in ms
   instagramUrl?: string;
   contactUrl?: string;
 }
 
-const ArtistDescription: React.FC<ArtistDescriptionProps> = ({
-  name,
-  instagram,
-  tagline,
-  description,
-  images,
-  interval = 5000,
-  instagramUrl,
-  contactUrl = "#contact",
-}) => {
+const ArtistDescription: React.FC<{ datas: ArtistDescriptionData }> = ({ datas }) => {
+  const {
+    name,
+    instagram,
+    tagline,
+    description,
+    images,
+    intervalBetweenImages = 5000,
+    instagramUrl,
+    contactUrl = "#contact",
+  } = datas;
   const [currentIndex, setCurrentIndex] = useState(0);
   const [instagramIcon, setInstagramIcon] = useState<React.ReactNode>(null);
 
@@ -50,10 +51,10 @@ const ArtistDescription: React.FC<ArtistDescriptionProps> = ({
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % images.length);
-    }, interval);
+    }, intervalBetweenImages);
 
     return () => clearInterval(timer);
-  }, [images.length, interval]);
+  }, [images.length, intervalBetweenImages]);
 
   useEffect(() => {
     const loadInstagramIcon = async () => {

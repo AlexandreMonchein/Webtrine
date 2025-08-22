@@ -34,8 +34,6 @@ const ClassicFooter = (props) => {
   const { name, alt, link, shape } = logo || {};
   const { width, height } = getLogoDimensions(shape);
 
-  console.warn(">>> images", props);
-
   const componentFiles = import.meta.glob(
     "../../../assets/**/**/*.component.tsx"
   );

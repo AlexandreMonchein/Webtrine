@@ -206,7 +206,7 @@
             "gallery-1": {
               "type": "gallery",
               "template": {
-                "features": { "shouldRedirect": false },
+                "features": { "canFullScreen": true, "shouldRedirect": false },
                 "inventory": [
                   {
                     "alt": "image de la salle ou se trouvent les boites de prothèses",
@@ -293,7 +293,7 @@
             "gallery-1": {
               "type": "gallery",
               "template": {
-                "features": { "shouldRedirect": false },
+                "features": { "canFullScreen": true, "shouldRedirect": false },
                 "inventory": [
                   {
                     "alt": "image d'un implant",
@@ -422,7 +422,7 @@
             "gallery-2": {
               "type": "gallery",
               "template": {
-                "features": { "shouldRedirect": false },
+                "features": { "canFullScreen": true, "shouldRedirect": false },
                 "inventory": [
                   {
                     "alt": "image fabrication d'une prothèse sur ordinateur",
@@ -475,7 +475,7 @@
         "datas": {
           "title": "Galerie photo",
           "description": "Le laboratoire en image",
-          "features": { "shouldRedirect": false },
+          "features": { "canFullScreen": true, "shouldRedirect": false },
           "inventory": [
             {
               "alt": "fabrication d'une prothèse (phase de poncage à la main)",
