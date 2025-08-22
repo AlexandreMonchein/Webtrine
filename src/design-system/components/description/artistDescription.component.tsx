@@ -4,6 +4,8 @@ import {
   InfoSection,
   Title,
   Subtitle,
+  InstagramIcon,
+  Separator,
   Description,
   Button,
   CarouselWrapper,
@@ -21,7 +23,9 @@ interface ArtistDescriptionProps {
   tagline: string;
   description: string;
   images: string[];
-  interval?: number; // in ms, default 5000
+  interval?: number; // in ms
+  instagramUrl?: string;
+  contactUrl?: string;
 }
 
 const ArtistDescription: React.FC<ArtistDescriptionProps> = ({
@@ -31,11 +35,17 @@ const ArtistDescription: React.FC<ArtistDescriptionProps> = ({
   description,
   images,
   interval = 5000,
+  instagramUrl,
+  contactUrl = "#contact",
 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [fullscreenIndex, setFullscreenIndex] = useState<number | null>(null);
+  const [instagramIcon, setInstagramIcon] = useState<React.ReactNode>(null);
 
-  // auto-rotate images
+  const componentFiles = import.meta.glob(
+    "../../../assets/**/**/*.component.tsx"
+  );
+
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % images.length);
@@ -43,6 +53,27 @@ const ArtistDescription: React.FC<ArtistDescriptionProps> = ({
 
     return () => clearInterval(timer);
   }, [images.length, interval]);
+
+  useEffect(() => {
+    const loadInstagramIcon = async () => {
+      try {
+        const componentPath = `../../../assets/icons/instagram.component.tsx`;
+        const module = componentFiles[componentPath];
+
+        if (module) {
+          const resolvedModule = await module();
+          // @ts-expect-error TODO: to fix
+          const Component = resolvedModule.default;
+
+          setInstagramIcon(<Component color="black" />);
+        }
+      } catch (error) {
+        console.error('Error loading Instagram icon:', error);
+      }
+    };
+
+    loadInstagramIcon();
+  }, []);
 
   const openFullscreen = (index: number) => {
     setFullscreenIndex(index);
@@ -84,10 +115,22 @@ const ArtistDescription: React.FC<ArtistDescriptionProps> = ({
 
       <InfoSection>
         <Title>{name}</Title>
-        <Subtitle>@{instagram}</Subtitle>
+        <Separator />
+        <Subtitle
+          href={instagramUrl || `https://instagram.com/${instagram.replace('@', '')}`}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {instagramIcon && (
+            <InstagramIcon>
+              {instagramIcon}
+            </InstagramIcon>
+          )}
+          @{instagram}
+        </Subtitle>
         <TagLine>{tagline}</TagLine>
         <Description>{description}</Description>
-        <Button>PRENDRE RDV</Button>
+        <Button href={contactUrl}>PRENDRE RDV</Button>
       </InfoSection>
 
       {fullscreenIndex !== null && (

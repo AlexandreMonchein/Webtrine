@@ -1,6 +1,5 @@
 import styled, { css, keyframes } from "styled-components";
 
-// fade animation
 const fadeIn = keyframes`
   from { opacity: 0; }
   to { opacity: 1; }
@@ -25,7 +24,7 @@ export const CarouselImage = styled.img<{ active: boolean }>`
   position: absolute;
   width: 100%;
   height: 100%;
-  object-fit: cover; /* crop to square nicely */
+  object-fit: cover;
   top: 0;
   left: 0;
   opacity: 0;
@@ -50,10 +49,41 @@ export const Title = styled.h2`
   margin: 0;
 `;
 
-export const Subtitle = styled.p`
+export const Subtitle = styled.a`
   font-size: 1rem;
   color: #666;
   margin: 0.5rem 0;
+  text-decoration: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  &:hover {
+    color: #007bff;
+    text-decoration: underline;
+  }
+`;
+
+export const InstagramIcon = styled.div`
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+`;
+
+export const Separator = styled.hr`
+  width: 50px;
+  height: 1px;
+  background-color: #333;
+  border: none;
+  margin: 1rem 0;
 `;
 
 export const TagLine = styled.p`
@@ -63,6 +93,9 @@ export const TagLine = styled.p`
   overflow: hidden;
   text-overflow: ellipsis;
   position: relative;
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin: 0.5rem 0;
 `;
 
 export const ExpandButton = styled.button`
@@ -86,13 +119,13 @@ export const Description = styled.p`
   line-height: 1.5;
 
   display: -webkit-box;
-  -webkit-line-clamp: 5; /* limit to 5 lines */
+  -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
 `;
 
-export const Button = styled.button`
+export const Button = styled.a`
   background: black;
   color: white;
   border: none;
@@ -101,13 +134,15 @@ export const Button = styled.button`
   border-radius: 6px;
   cursor: pointer;
   transition: background 0.2s ease;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
 
   &:hover {
     background: #333;
   }
 `;
 
-// Fullscreen modal
 export const FullscreenOverlay = styled.div`
   position: fixed;
   inset: 0;
