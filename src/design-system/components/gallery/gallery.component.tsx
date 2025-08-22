@@ -14,7 +14,7 @@ import {
 
 const Gallery = (datas) => {
   const {
-    template: { type, inventory, features: { canFullScreen } },
+    template: { type, inventory, features: { canFullScreen = false } },
 
   } = datas;
 
