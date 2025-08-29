@@ -598,6 +598,52 @@
               "per": null,
               "additionalDescription": null
             },
+
+            "dataTable-1": {
+              "type": "dataTable",
+              "features": { "centeredTitles": true },
+              "title": "Tarifs des prestations complémentaires",
+              "subTitle": null,
+              "content": {
+                "columns": [
+                  { "header": "Type de prestation", "key": "type" },
+                  { "header": "Détail", "key": "detail" },
+                  { "header": "Tarif HT", "key": "price" }
+                ],
+                "data": [
+                  {
+                    "type": "Suppression / modification simple",
+                    "detail": "Texte, bouton, image, élément isolé. Prix par page et selon la quantité (hors éléments globaux reliés type menu, footer)",
+                    "price": "15 – 30 €"
+                  },
+                  {
+                    "type": "Ajout",
+                    "detail": "Ajouter une image, un bouton, une section simple",
+                    "price": "40 €"
+                  },
+                  {
+                    "type": "Création / modification de style",
+                    "detail": "Ajustements de style, responsive",
+                    "price": "50 – 100 €"
+                  },
+                  {
+                    "type": "Nouveau composant au sein d'une section/page",
+                    "detail": "Nouveau composant",
+                    "price": "100 – 200 €"
+                  },
+                  {
+                    "type": "Nouvelle section",
+                    "detail": "Ex : \"À propos\", \"Contact\" avec formulaire simple...",
+                    "price": "150 – 300 €"
+                  },
+                  {
+                    "type": "Nouvelle page complète",
+                    "detail": "Nouvelle page avec structure, contenu et responsive",
+                    "price": "250 – 500 €"
+                  }
+                ]
+              }
+            },
             "banner-2": {
               "type": "banner",
               "features": { "multi": false, "medium": true },

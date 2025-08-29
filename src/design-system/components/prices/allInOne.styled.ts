@@ -27,7 +27,7 @@ export const PricesContainer = styled.section`
   )}
 `;
 
-export const Title = styled.h1`
+export const Title = styled.h2`
   text-align: center;
   color: var(--title-color-2);
 `;

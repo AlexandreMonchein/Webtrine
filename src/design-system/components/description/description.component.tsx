@@ -25,7 +25,6 @@ const Description = (datas) => {
 
   return (
     <Section
-      data-testid="WhoWeAre"
       className={classNames({
         isContinious: isContinious,
       })}

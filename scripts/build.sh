@@ -5,6 +5,24 @@ CUSTOMER=$(printenv VITE_CUSTOMER)
 
 echo "Building for customer: $CUSTOMER"
 
+# Double check confirmation before proceeding
+echo "⚠️  You are about to build for customer: $CUSTOMER"
+echo "This will create/overwrite the build content for this customer."
+echo ""
+read -p "Are you sure you want to proceed? (y/N): " confirm
+
+case $confirm in
+    [yY]|[yY][eE][sS])
+        echo "✅ Confirmed. Proceeding with build for $CUSTOMER..."
+        ;;
+    *)
+        echo "❌ Build cancelled."
+        exit 1
+        ;;
+esac
+
+echo ""
+
 # Create a temporary directory to store the current build if it exists
 TEMP_DIR="./temp_build"
 if [ -d "./build" ]; then
