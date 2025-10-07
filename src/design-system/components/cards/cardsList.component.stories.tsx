@@ -3,7 +3,7 @@ import Cards from "./cardsList.component";
 
 const meta: Meta<typeof Cards> = {
   component: Cards,
-  title: "Design System/Components/Cards/CardsList",
+  title: "Design System/Components/CardsList",
   parameters: {
     layout: "padded",
     docs: {

@@ -3,7 +3,7 @@ import GalleryComponent from "./gallery.component";
 
 const meta: Meta<typeof GalleryComponent> = {
   component: GalleryComponent,
-  title: "Design System/Components/Gallery/Gallery",
+  title: "Design System/Components/Gallery",
   tags: ["autodocs"],
   parameters: {
     docs: {

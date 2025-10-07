@@ -221,21 +221,3 @@ export const MultipleImages: Story = {
     },
   },
 };
-
-export const EmptyState: Story = {
-  name: "État vide",
-  args: {
-    title: "Nos clients",
-    subtitle: "Bientôt de nouvelles références",
-    images: [],
-    features: null,
-  },
-  parameters: {
-    docs: {
-      description: {
-        story:
-          "Test du comportement avec un tableau d'images vide. Le composant ne s'affiche pas (return null) dans ce cas.",
-      },
-    },
-  },
-};

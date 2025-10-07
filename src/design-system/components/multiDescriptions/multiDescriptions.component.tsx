@@ -20,6 +20,8 @@ const MultiDescription = ({ templateName = null }) => {
     templateName
   );
 
+  console.warn('>>> template', template);
+
   const {
     datas: { content, title, description },
   } = template || {};

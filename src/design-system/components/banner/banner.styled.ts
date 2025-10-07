@@ -252,8 +252,9 @@ export const Selector = styled.div`
 
 export const ContactContainer = styled.div`
   position: relative;
-  z-index: calc(var(--z-index-backgrounds) + 2);
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 8px;
+  z-index: calc(var(--z-index-backgrounds) + 2);
 `;

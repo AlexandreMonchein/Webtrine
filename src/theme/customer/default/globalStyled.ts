@@ -140,7 +140,7 @@ const GlobalStyle = createGlobalStyle`
     )}
   }
 
-  p {
+  p, span, button > span, li {
     word-break: break-word;
     overflow-wrap: break-word;
 

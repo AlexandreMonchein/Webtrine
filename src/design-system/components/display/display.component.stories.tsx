@@ -3,7 +3,7 @@ import DisplayComponent from "./display.component";
 
 const meta: Meta<typeof DisplayComponent> = {
   component: DisplayComponent,
-  title: 'Design System/Components/Display/Display',
+  title: 'Design System/Components/Display',
   parameters: {
     layout: 'padded',
     docs: {

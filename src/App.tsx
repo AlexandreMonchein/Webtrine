@@ -145,6 +145,10 @@ function App(props) {
             element={<MultiDescription templateName="Accessibilite" />}
           />
           <Route
+            path="/faq"
+            element={<MultiDescription templateName="Faq" />}
+          />
+          <Route
             path="/flux"
             element={<MultiDescription templateName="Flux" />}
           />
