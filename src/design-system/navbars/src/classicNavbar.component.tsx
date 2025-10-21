@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import classNames from "classnames";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
@@ -7,15 +7,10 @@ import { toggleModal } from "../../../store/state.action";
 import {
   getClient,
   getModalState,
-  getSocials,
 } from "../../../store/state.selector";
 import { ToggleButton } from "../../buttons/src/classicButton.component";
 import { ToggleThemeMode } from "../../buttons/src/modeTheme.component";
-import {
-  SocialContent,
-  SocialLogo,
-  Socials,
-} from "../../footers/src/classicFooter.styled";
+
 import { FocusTrapProvider } from "../../utils/focusTrap/focusTrap.provider";
 import { MODAL_TYPES } from "../../utils/focusTrap/type";
 
@@ -35,54 +30,13 @@ import {
   SubCategoryContainer,
 } from "./classicNavbar.styled";
 import { getLogoDimensions } from "../../utils/dimensions.utils";
+import Calendly from "../../calendly/calendlyButton.component";
 
 const ClassicNavbar = (props) => {
   const { i18n } = useTranslation();
   const dispatch = useDispatch();
-  const [components, setComponents] = useState<React.ReactNode[]>([]);
   const { name: clientName } = useSelector(getClient);
-  const socials = useSelector(getSocials);
   const modal = useSelector(getModalState);
-
-  const componentFiles = import.meta.glob("../../../assets/**/*.component.tsx");
-
-  useEffect(() => {
-    const loadComponents = async () => {
-      const loadedComponents: React.ReactNode[] = [];
-
-      for (const [name, link] of Object.entries(socials)) {
-        try {
-          if (link) {
-            const componentPath = `../../../assets/icons/${name}.component.tsx`;
-            const module = componentFiles[componentPath];
-
-            if (module) {
-              const resolvedModule = await module();
-              // @ts-expect-error TODO: to fix
-              const Component = resolvedModule.default;
-
-              loadedComponents.push(
-                <li key={name}>
-                  <SocialLogo>
-                    {/* @ts-ignore */}
-                    <a aria-label={name} href={link}>
-                      <Component key={name} />
-                    </a>
-                  </SocialLogo>
-                </li>
-              );
-            }
-          }
-        } catch (error) {
-          console.error(`Error loading component: ${name}`, error);
-        }
-      }
-
-      setComponents(loadedComponents);
-    };
-
-    loadComponents();
-  }, [socials]);
 
   const {
     features: { isFixed, hasHideOnScroll, trad, darkMode },
@@ -90,6 +44,7 @@ const ClassicNavbar = (props) => {
     actionButton,
     content: {
       logo: { name, shape },
+      calendly: { url: calendlyUrl }
     },
     toggleTheme,
     theme,
@@ -239,10 +194,8 @@ const ClassicNavbar = (props) => {
           {darkMode ? (
             <ToggleThemeMode toggleTheme={toggleTheme} theme={theme} />
           ) : null}
-          {components ? (
-            <Socials>
-              <SocialContent>{components}</SocialContent>
-            </Socials>
+          {calendlyUrl ? (
+            <Calendly url={calendlyUrl} />
           ) : null}
           {actionButton ? (
             actionButton.type === "call" ? (

@@ -156,20 +156,10 @@ function App(props) {
             path="/prestation"
             element={<MultiDescription templateName="Prestation" />}
           />
-
-          {galleryTemplate && (
-            <Route
-              path="/gallerie"
-              element={<Gallery template={galleryTemplate.datas} />}
-            />
-          )}
           <Route
             path="/contact"
             element={<MultiDescription templateName="Contact" />}
           />
-          <Route path="/display/:item" element={<Product />} />
-
-          <Route path="/cgu-cgv" element={<Legals type="cgu-cgv" />} />
           <Route
             path="/mentions-legals"
             element={<Legals type="mentions-legals" />}
@@ -178,6 +168,15 @@ function App(props) {
             path="/confidentialite"
             element={<Legals type="confidentialite" />}
           />
+          <Route path="/cgu-cgv" element={<Legals type="cgu-cgv" />} />
+          <Route path="/display/:item" element={<Product />} />
+
+          {galleryTemplate && (
+            <Route
+              path="/gallerie"
+              element={<Gallery template={galleryTemplate.datas} />}
+            />
+          )}
 
           <Route path="/*" element={<PageNotFound />} />
         </Routes>

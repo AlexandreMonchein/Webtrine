@@ -1,4 +1,7 @@
 {
+  "calendly": {
+    "buttonText": "Prendre rendez-vous"
+  },
   "banner": {
     "title": "Webtrine",
     "subTitle": "Il n'as jamais été aussi simple de se faire connaître"
