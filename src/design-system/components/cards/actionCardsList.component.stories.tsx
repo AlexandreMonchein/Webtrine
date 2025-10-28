@@ -1,10 +1,18 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import { MemoryRouter } from "react-router-dom";
 import { ActionCardsList } from "./actionCardsList.component";
 import { ActionCardsListProps } from "./actionCardsList.types";
 
 const meta: Meta<typeof ActionCardsList> = {
   title: "Design System/Components/Cards/ActionCardsList",
   component: ActionCardsList,
+  decorators: [
+    (Story) => (
+      <MemoryRouter>
+        <Story />
+      </MemoryRouter>
+    ),
+  ],
   parameters: {
     docs: {
       description: {
@@ -50,7 +58,7 @@ export const Default: Story = {
         title: "Garde d'animaux en famille",
         description:
           "Plus de 250 000 pet sitters attentionnés partout en France. La meilleure alternative à la pension pour chien et à la pension pour chat.",
-        imageSrc: "action_card_image_1",
+        imageSrc: "vertical_image",
         buttons: [
           { label: "Garde d'animaux", route: "/animaux" },
           { label: "Garde de chien", route: "/chien" },
@@ -62,7 +70,7 @@ export const Default: Story = {
         title: "Promenade de chien",
         description:
           "Vous n'avez pas le temps de promener votre toutou ? Nos promeneurs s'en occupent !",
-        imageSrc: "action_card_image_2",
+        imageSrc: "vertical_image",
         buttons: [{ label: "Promenade de chien", route: "/promenade" }],
       },
       {
@@ -70,7 +78,7 @@ export const Default: Story = {
         title: "Visite de chat",
         description:
           "Pendant votre absence, un cat sitter rend visite à votre chat pour le nourrir et entretenir sa litière.",
-        imageSrc: "action_card_image_3",
+        imageSrc: "vertical_image",
         buttons: [{ label: "Visite de chat", route: "/visite" }],
       },
       {
@@ -78,7 +86,7 @@ export const Default: Story = {
         title: "Garde de NAC",
         description:
           "Lapin, furet, oiseau... nos pet sitters s'adaptent à leurs besoins spécifiquement.",
-        imageSrc: "action_card_image_4",
+        imageSrc: "vertical_image",
         buttons: [{ label: "Garde de NAC", route: "/nac" }],
       },
     ],

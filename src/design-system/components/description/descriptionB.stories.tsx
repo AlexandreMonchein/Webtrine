@@ -31,13 +31,13 @@ export const Default: Story = {
     subTitle: "",
     content: {
       leftImage: {
-        src: "https://picsum.photos/id/1025/1200/1600",
+        src: "vertical_image",
         alt: "Carte de visite posée sur un bureau",
         width: 1200,
         height: 1600,
       },
       rightImage: {
-        src: "https://picsum.photos/id/1040/1200/1600",
+        src: "vertical_image",
         alt: "Chaise de tatouage dans un studio",
         width: 1200,
         height: 1600,

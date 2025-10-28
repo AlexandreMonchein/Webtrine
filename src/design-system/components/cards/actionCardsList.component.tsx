@@ -7,6 +7,7 @@ import {
   CardImageWrapper,
   CardContent,
   ButtonsWrapper,
+  ActionCardButton,
 } from "./actionCardsList.styled";
 import { ActionCardsListProps } from "./actionCardsList.types";
 import { getCustomer } from "../../../customer.utils";
@@ -34,14 +35,20 @@ export const ActionCardsList: React.FC<ActionCardsListProps> = ({
                 />
               ) : null}
               <CardContent>
-                {card.title ? <h3>{card.title}</h3> : null}
+                {card.title ? <h3 tabIndex={0}>{card.title}</h3> : null}
                 <ButtonsWrapper>
-                  {card.description ? <p>{card.description}</p> : null}
+                  {card.description ? <p tabIndex={0}>{card.description}</p> : null}
                   {card.buttons
                     ? card.buttons.map((btn, index) => (
-                        <button key={index} type="button" onClick={() => {}}>
+                        <ActionCardButton
+                          to={{ pathname: "/contact" }}
+                          state={{ title: btn.label }}
+                          key={index}
+                          tabIndex={0}
+                          type="button"
+                        >
                           {btn.label}
-                        </button>
+                        </ActionCardButton>
                       ))
                     : null}
                 </ButtonsWrapper>

@@ -110,11 +110,9 @@ const FullscreenModeDemo: React.FC<{
 
 // Images d'exemple du projet
 const sampleImages = [
-  "/assets/webtrine/portfolio/tattoo1.webp",
-  "/assets/webtrine/portfolio/tattoo2.webp",
-  "/assets/webtrine/portfolio/tattoo3.webp",
-  "/assets/webtrine/portfolio/tattoo4.webp",
-  "/assets/webtrine/portfolio/tattoo5.webp",
+  "/assets/showcase/square_image.webp",
+  "/assets/showcase/square_image_2.webp",
+  "/assets/showcase/square_image_3.webp",
 ];
 
 export const Default: Story = {

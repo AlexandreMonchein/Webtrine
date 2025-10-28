@@ -1,0 +1,17 @@
+{
+  "navbar-font-size": "16px",
+  "subtitle-font-size": "32px",
+  "text-font-size": "24px",
+  "description-font-size": "16px",
+
+  "z-index-navbars": 3,
+  "z-index-text": 2,
+  "z-index-backgrounds": 1,
+
+  "white": "#ffffff",
+  "light-grey": "#E8EEF1",
+  "blue": "#007bff",
+  "dark-blue": "#1E3D58",
+  "gold": "#f5a320",
+  "black": "#000000"
+}

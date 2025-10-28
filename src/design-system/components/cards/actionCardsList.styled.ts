@@ -1,6 +1,7 @@
 import styled, { css } from "styled-components";
 import { bp } from "../../../breakpoint";
 import { breakpointNames } from "../../../breakpointDef";
+import { Link } from "react-router-dom";
 
 export const Section = styled.section`
   padding: 40px 120px;
@@ -29,8 +30,26 @@ export const SectionTitle = styled.h2`
 
 export const CardsGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 24px;
+
+  /* Mobile: 1 colonne */
+  grid-template-columns: 1fr;
+
+  /* Tablette: 2 colonnes */
+  ${bp.min(
+    breakpointNames.medium,
+    css`
+      grid-template-columns: repeat(2, 1fr);
+    `
+  )}
+
+  /* Très grand écran: 4 colonnes si vraiment beaucoup de place */
+  ${bp.min(
+    breakpointNames.wide,
+    css`
+      grid-template-columns: repeat(4, 1fr);
+    `
+  )}
 `;
 
 export const Card = styled.article`
@@ -41,8 +60,20 @@ export const Card = styled.article`
   overflow: hidden;
   background-color: var(--back-color-1);
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  min-height: 400px;
   position: relative;
+  width: 100%;
+
+  /* Mobile: cartes plus hautes */
+  min-height: 500px;
+  min-width: 280px;
+
+  /* Desktop large: cartes plus compactes pour 4 colonnes */
+  ${bp.min(
+    breakpointNames.xlarge,
+    css`
+      min-width: 300px;
+    `
+  )}
 `;
 
 export const CardImageWrapper = styled.div`
@@ -91,22 +122,24 @@ export const ButtonsWrapper = styled.div`
   flex-direction: column;
   gap: 8px;
   margin-top: auto;
+`;
 
-  button {
-    background-color: var(--button-background-color);
-    color: var(--button-text-color);
-    font-size: var(--description-font-size);
-    border: none;
-    border-radius: 8px;
-    padding: 10px 16px;
-    cursor: pointer;
-    transition: background-color 0.2s ease;
-    text-align: center;
+export const ActionCardButton = styled(Link)`
+  background-color: var(--button-background-color);
+  color: var(--button-text-color);
+  font-size: var(--description-font-size);
+  border: none;
+  max-width: 250px;
+  border-radius: 8px;
+  padding: 10px 16px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  text-align: center;
+  text-decoration: none;
 
-    &:hover,
-    &:focus {
-      background-color: var(--nav-hover-color);
-      outline: none;
-    }
+  &:hover,
+  &:focus {
+    background-color: var(--nav-hover-color);
+    outline: none;
   }
 `;

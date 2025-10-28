@@ -1,0 +1,57 @@
+{
+  "calendly": {
+    "buttonText": "Prendre rendez-vous"
+  },
+  "banner": {
+    "title": "Webtrine",
+    "subTitle": "Il n'as jamais été aussi simple de se faire connaître"
+  },
+  "description": {
+    "title": "Enim ex aliquip reprehenderit ad excepteur",
+    "content": "Enim ex aliquip reprehenderit ad excepteur aliqua excepteur amet proident duis qui exercitation. Exercitation laboris duis elit mollit ut incididunt adipisicing voluptate irure adipisicing minim culpa proident. Proident nostrud cillum sint Lorem excepteur. Laboris non exercitation sint do quis id deserunt exercitation sunt sunt pariatur ullamco esse."
+  },
+  "showcase": {
+    "title": "Enim ex aliquip reprehenderit ad excepteur"
+  },
+  "gallery": {
+    "sale": "En Solde!",
+    "newRelease": "Nouveaux!",
+    "price": "Prix",
+    "selectSize": "Choisir une taille",
+    "selectColor": "Choisir une couleur",
+    "selectedSize": "Taille sélectionnée",
+    "selectedColor": "Couleur sélectionnée",
+    "productName": "Nom du produit",
+    "description": "Description",
+    "reservationTitle": "Details de la reservation"
+  },
+  "contact": {
+    "title": "Contact & Devis",
+    "description": "Vous souhaitez un renseignement, faire un devis ou une demande de faisabilité de votre projet ? Contactez-nous dès maintenant par téléphone, e-mail ou via le formulaire ci-dessous.",
+    "infoTitle": "Informations du contact",
+    "phone": "Téléphone",
+    "email": "E-mail",
+    "name": "Nom",
+    "namePlaceholder": "Entrez votre nom",
+    "nameHint": "Exemple : John Doe",
+    "emailPlaceholder": "Entrez votre e-mail",
+    "emailHint": "Exemple : john.doe@example.com",
+    "phonePlaceholder": "Entrez votre numéro de téléphone",
+    "phoneHint": "Exemple : 0123456789",
+    "company": "Entreprise",
+    "companyPlaceholder": "Entrez le nom de votre entreprise",
+    "content": "Contenu du message",
+    "contentHint": "Rédigez votre message ici",
+    "contentPlaceholder": "Décrivez votre message",
+    "send": "Envoyer",
+    "required": "(Obligatoire)",
+    "emailSentSuccess": "E-mail envoyé avec succès !",
+    "emailSentError": "Erreur : L'e-mail n'a pas pu être envoyé."
+  },
+  "prices": {
+    "selectPlan": "Prendre contact",
+    "planTitle": "Details du plan",
+    "title": "Plan",
+    "price": "Prix"
+  }
+}

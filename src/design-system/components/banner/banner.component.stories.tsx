@@ -121,7 +121,7 @@ export const Default: Story = {
   args: {
     title: "Webtrine",
     subTitle: "Il n'a jamais été aussi simple de confectionner un site",
-    images: [{ name: "accueil_banner_2" }],
+    images: [{ name: "banner" }],
     textPosition: "center-right",
     features: { multi: false, medium: true },
   },
@@ -140,7 +140,7 @@ export const WithContact: Story = {
   args: {
     title: "Contactez-nous pour plus de renseignements",
     subTitle: "Notre équipe vous accompagne dans votre projet web",
-    images: [{ name: "contact_banner_1" }],
+    images: [{ name: "banner" }],
     textPosition: "center-left",
     features: { multi: false, medium: true },
     contact: [
@@ -167,9 +167,9 @@ export const MultipleImages: Story = {
     title: "Notre portfolio",
     subTitle: "Découvrez nos réalisations à travers différents projets",
     images: [
-      { name: "accueil_banner_1" },
-      { name: "accueil_banner_2" },
-      { name: "prestation_banner_2" },
+      { name: "banner" },
+      { name: "banner_2" },
+      { name: "banner_3" },
     ],
     textPosition: "center",
     features: { multi: true, medium: true },
@@ -189,7 +189,7 @@ export const MultipleContactButtons: Story = {
   args: {
     title: "Prêt à commencer votre projet ?",
     subTitle: "Contactez-nous ou découvrez nos tarifs",
-    images: [{ name: "contact_banner_2" }],
+    images: [{ name: "banner" }],
     textPosition: "center",
     features: { multi: false, medium: true },
     contact: [

@@ -1,7 +1,9 @@
 import DOMPurify from "dompurify";
 import classNames from "classnames";
+import { Link } from "react-router-dom";
 
 import { getCustomer } from "../../../customer.utils";
+import { DescriptionProps, DescriptionContentItem } from "./description.types";
 
 import {
   Container,
@@ -11,9 +13,10 @@ import {
   Section,
   SectionTitle,
   Text,
+  ButtonLink,
 } from "./description.styled";
 
-const Description = (datas) => {
+const Description: React.FC<DescriptionProps> = (datas) => {
   const customer = getCustomer();
 
   const {
@@ -22,6 +25,32 @@ const Description = (datas) => {
     title,
     content,
   } = datas;
+
+  const renderContentItem = (item: DescriptionContentItem, index: number) => {
+    // Vérifier si c'est un bouton
+    if ('button' in item) {
+      return (
+        <ButtonLink key={index}>
+          <Link to={item.button.to} tabIndex={0}>
+            {item.button.label}
+          </Link>
+        </ButtonLink>
+      );
+    }
+
+    // Sinon c'est un texte
+    if ('text' in item) {
+      return (
+        <Text
+          tabIndex={0}
+          key={index}
+          dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(item.text) }}
+        />
+      );
+    }
+
+    return null;
+  };
 
   return (
     <Section
@@ -45,16 +74,7 @@ const Description = (datas) => {
               />
             </ImageContainer>
           ) : null}
-          {content &&
-            content.map(({ text }, index) => {
-              return (
-                <Text
-                  tabIndex={0}
-                  key={index}
-                  dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(text) }}
-                />
-              );
-            })}
+          {content && content.map((item, index) => renderContentItem(item, index))}
         </Content>
       </Container>
     </Section>

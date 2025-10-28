@@ -43,6 +43,7 @@ export const SectionTitle = styled.h2`
 `;
 
 export const Content = styled.div`
+  width: 100%;
   ${bp.max(
     breakpointNames.medium,
     css`
@@ -93,7 +94,6 @@ export const TextContent = styled.div`
 `;
 
 export const Text = styled.p`
-  padding-bottom: 16px;
   width: 100%;
 
   a {
@@ -140,3 +140,31 @@ export const DescriptionContentWrapper = styled.ul`
 export const DescriptionContentContainer = styled.li``;
 
 export const DescriptionContentWithBullet = styled.p``;
+
+export const ButtonLink = styled.div`
+  padding-bottom: 16px;
+
+  a {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: var(--button-background-color);
+    color: var(--button-text-color);
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border: 2px solid var(--button-background-color);
+
+    &:hover,
+    &:focus {
+      background-color: var(--nav-hover-color);
+      border-color: var(--nav-hover-color);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+  }
+`;

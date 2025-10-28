@@ -1,9 +1,17 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import { MemoryRouter } from "react-router-dom";
 import DescriptionComponent from "./description.component";
 
 const meta: Meta<typeof DescriptionComponent> = {
   component: DescriptionComponent,
   title: "Design System/Components/Description/TextDescription",
+  decorators: [
+    (Story) => (
+      <MemoryRouter>
+        <Story />
+      </MemoryRouter>
+    ),
+  ],
   parameters: {
     layout: "padded",
     docs: {
@@ -11,7 +19,7 @@ const meta: Meta<typeof DescriptionComponent> = {
         component: `
 # Description Component
 
-Composant pour afficher une section de description avec du texte et une image optionnelle.
+Composant pour afficher une section de description avec du texte, des boutons et une image optionnelle.
 
 ## Configuration JSON pour intégration
 
@@ -31,6 +39,12 @@ Copiez et adaptez cette configuration dans votre \`config.json\` :
     },
     {
       "text": "Deuxième paragraphe avec <strong>mise en forme</strong> si nécessaire."
+    },
+    {
+      "button": {
+        "label": "Nos services",
+        "to": "/nos-services"
+      }
     }
   ],
   "image": {
@@ -40,6 +54,10 @@ Copiez et adaptez cette configuration dans votre \`config.json\` :
   }
 }
 \`\`\`
+
+### Types de contenu supportés :
+- **Texte** : \`{ "text": "Votre contenu texte avec HTML" }\`
+- **Bouton** : \`{ "button": { "label": "Texte du bouton", "to": "/lien" } }\`
 
 ### Options de \`features\` :
 - \`isReversed: true\` : Place l'image à droite du texte
@@ -67,7 +85,7 @@ Copiez et adaptez cette configuration dans votre \`config.json\` :
     content: {
       control: "object",
       description:
-        "Tableau d'objets contenant le texte à afficher. Supporte le HTML (sanitisé avec DOMPurify)",
+        "Tableau d'objets contenant le texte à afficher ou des boutons. Le texte supporte le HTML (sanitisé avec DOMPurify). Les boutons utilisent React Router Link.",
     },
     image: {
       control: "object",
@@ -114,7 +132,7 @@ export const Default: Story = {
       },
     ],
     image: {
-      name: "accueil_image_1",
+      name: "square_image",
       alt: "Présentation de l'équipe Webtrine",
       focusable: false,
     },
@@ -152,7 +170,7 @@ export const Reversed: Story = {
       },
     ],
     image: {
-      name: "description_image_1",
+      name: "square_image",
       alt: "Illustration des technologies modernes",
       focusable: false,
     },
@@ -202,6 +220,53 @@ export const WithoutImage: Story = {
       description: {
         story:
           "Configuration sans image pour les sections purement textuelles. Le contenu prend toute la largeur disponible.",
+      },
+    },
+  },
+};
+
+export const WithButtons: Story = {
+  name: "Avec boutons d'action",
+  args: {
+    features: {
+      isReversed: false,
+      isContinious: false,
+    },
+    title: "Prêt à commencer ?",
+    content: [
+      {
+        text: "Découvrez nos services",
+      },
+      {
+        text: "Nous proposons une gamme complète de solutions pour répondre à tous vos besoins digitaux.",
+      },
+      {
+        button: {
+          label: "Voir nos services",
+          to: "/services"
+        }
+      },
+      {
+        text: "Vous avez un projet en tête ? N'hésitez pas à nous contacter pour en discuter.",
+      },
+      {
+        button: {
+          label: "Nous contacter",
+          to: "/contact"
+        }
+      },
+    ],
+    image: {
+      name: "vertical_image",
+      alt: "Illustration des services proposés",
+      focusable: false,
+    },
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "Exemple avec des boutons d'action intégrés dans le contenu. Les boutons utilisent React Router pour la navigation.",
       },
     },
   },

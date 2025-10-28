@@ -1,0 +1,999 @@
+{
+  "client": {
+    "logo": "webtrine_logo_2_blanc_noTitle",
+    "name": "showcase",
+    "fullName": "Webtrine",
+    "contact": {
+      "name": "Alexandre Monschein",
+      "phone": "+33614612295",
+      "email": "webtrine.pro@gmail.com",
+      "mailTemplate": "template_8b4j0fm"
+    },
+    "socials": {
+      "linkedin": "https://www.linkedin.com/in/alexandre-monschein-34984a161"
+    }
+  },
+  "layout": {
+    "templates": [
+      {
+        "type": "navbars",
+        "id": "classicNavbar",
+        "datas": {
+          "features": {
+            "isFixed": false,
+            "hasHideOnScroll": false,
+            "trad": false,
+            "darkMode": false
+          },
+          "content": {
+            "logo": {
+              "name": "webtrine_logo_2_blanc_noTitle",
+              "shape": "square"
+            }
+          },
+          "categories": [
+            {
+              "name": "Accueil",
+              "link": "/"
+            },
+            {
+              "name": "Hébergement",
+              "link": "/hebergement"
+            },
+            {
+              "name": "L'accessibilité",
+              "link": "/accessibilite"
+            },
+            {
+              "name": "Nos services",
+              "link": "/prestation"
+            },
+            {
+              "name": "A propos",
+              "link": "/presentation"
+            },
+            {
+              "name": "FAQ",
+              "link": "/faq"
+            },
+            {
+              "name": "Contact",
+              "link": "/contact"
+            }
+          ]
+        }
+      },
+      {
+        "type": "footers",
+        "id": "classicFooter",
+        "datas": {
+          "features": {},
+          "logo": {
+            "name": "webtrine_logo_2_blanc_noTitle",
+            "shape": "square",
+            "alt": "logo-webtrine",
+            "link": "/"
+          }
+        }
+      },
+      {
+        "type": "description",
+        "id": "multiDescriptions",
+        "name": "Home",
+        "datas": {
+          "title": "Accueil",
+          "description": "Webtrine - Création de site vitrine",
+          "content": {
+            "banner-1": {
+              "type": "banner",
+              "features": { "multi": false, "medium": true },
+              "title": "Webtrine",
+              "subTitle": "Il n'a jamais été aussi simple de confectionner un site",
+              "images": [
+                {
+                  "name": "accueil_banner_2"
+                }
+              ],
+              "textPosition": "center-right"
+            },
+            "description-1": {
+              "type": "description",
+              "title": "Un site à votre image",
+              "features": { "isReversed": false, "isCentered": false },
+              "content": [
+                {
+                  "text": "Avec Webtrine, concevez votre site web de A à Z en toute simplicité. Grâce à des templates modernes et entièrement personnalisables, créez rapidement un site qui vous ressemble."
+                },
+                {
+                  "text": "Nous mettons à votre disposition une sélection de templates prêts à l'emploi pour poser les bases de votre site. Et si aucun ne correspond parfaitement à vos attentes, pas de souci : nous en créerons un sur mesure, ensemble !"
+                }
+              ],
+              "image": {
+                "name": "description_image_1",
+                "alt": "",
+                "focusable": false
+              }
+            },
+            "description-2": {
+              "type": "description",
+              "features": { "isReversed": true, "isContinious": false },
+              "title": "Pourquoi choisir Webtrine",
+              "content": [
+                {
+                  "text": "1) Adapté aux différents écrans: "
+                },
+                {
+                  "text": "Ordinateur, mobile, tablette... Peut importe le support utilisé, votre site sera toujours adapté à la taille de votre écran."
+                },
+                {
+                  "text": "2) Toujours à jour: "
+                },
+                {
+                  "text": "Nous mettons constamment à jour notre solution avec les dernières technologies afin de vous garantir un site toujours plus performant, moderne et sécurisé."
+                },
+                {
+                  "text": "3) Utilisable par tous: "
+                },
+                {
+                  "text": "Notre solution est conçu pour être accessible à tous, garantissant une navigation fluide et une expérience optimale, quel que soit le profil de l'utilisateur."
+                },
+                {
+                  "text": "4) Sans (mauvaise) surprise: "
+                },
+                {
+                  "text": "Notre formule tout-en-un vous offre dès le départ tout ce dont vous avez besoin pour un site complet et performant, sans avoir à ajouts différentes options au fur et à mesure."
+                }
+              ],
+              "image": {
+                "name": "accueil_image_2",
+                "alt": "",
+                "focusable": false
+              }
+            },
+            "list-1": {
+              "type": "imageList",
+              "features": null,
+              "title": "Ils nous ont fait confiance",
+              "subtitle": null,
+              "images": [
+                {
+                  "alt": "Logo entreprise cliente: Di Paolo",
+                  "link": "https://www.labodipaolo.com",
+                  "src": "dipaolo"
+                }
+              ]
+            },
+            "cards-1": {
+              "type": "cardsList",
+              "features": null,
+              "title": "Pourquoi avoir un site vitrine ?",
+              "content": [
+                {
+                  "title": "Une vitrine numérique à votre image",
+                  "description": "Les réseaux sociaux c'est bien, mais un site web, c'est votre vitrine personnalisée, disponible 24/7. Vous bénéficiez d'une totale liberté de création pour montrer au monde votre entreprise."
+                },
+                {
+                  "title": "Amélioration du référencement",
+                  "description": "Je préfère être transparent : un site web ne garantit pas de figurer en première page de Google. Cependant, un SEO bien travaillé et un site bien développé et accessible améliore grandement votre visibilité sur les moteurs de recherche."
+                },
+                {
+                  "title": "Un investissement accessible",
+                  "description": "À partir de 450€ HT, un site vitrine représente un investissement abordable pour accroître votre présence en ligne et attirer de nouveaux clients."
+                }
+              ]
+            },
+            "banner-2": {
+              "type": "banner",
+              "features": { "multi": false, "medium": true },
+              "title": "Contactez-nous pour plus de renseignement",
+              "subTitle": null,
+              "images": [
+                {
+                  "name": "banner_2"
+                }
+              ],
+              "textPosition": "center-left",
+              "contact": [
+                {
+                  "type": "redirect",
+                  "to": "contact",
+                  "displayedText": "Aller au formulaire de contact"
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "type": "description",
+        "id": "multiDescriptions",
+        "name": "Presentation",
+        "datas": {
+          "title": "Présentation",
+          "description": "Qui se cache derrière Webtrine ?",
+          "content": {
+            "banner-1": {
+              "type": "banner",
+              "features": { "medium": true },
+              "title": "Qui se cache derrière Webtrine",
+              "subTitle": null,
+              "images": [
+                {
+                  "name": "presentation_banner_1"
+                }
+              ],
+              "textPosition": "center"
+            },
+            "description-1": {
+              "type": "description",
+              "features": { "isReversed": false, "isContinious": false },
+              "title": null,
+              "content": [
+                {
+                  "text": "Bonjour et bienvenue !"
+                },
+                {
+                  "text": "Je m'appelle Alexandre, j'ai 24 ans et je suis développeur web."
+                },
+                {
+                  "text": "Ma passion ? Concevoir des sites à la fois esthétiques et intuitifs, pour offrir la meilleure expérience utilisateur possible."
+                },
+                {
+                  "text": "C'est cette passion qui m'a conduit à créer mon propre projet, ma propre entreprise. Un espace où je peux exprimer ma créativité tout en développant des solutions web efficaces."
+                },
+                {
+                  "text": "C'est ainsi qu'est née Webtrine : une solution pensée pour concevoir des sites vitrines de qualité, basés sur des templates que je conçois et améliore en permanence. Grâce à cette approche, nous pouvons mettre en place rapidement et efficacement votre site web."
+                },
+                {
+                  "text": "C'est en parallèle de mon activité principale que je consacre mon temps libre à ce projet qui me tient à cœur."
+                },
+                {
+                  "text": "L'accessibilité est au cœur de mon approche. J’ai suivi une formation dédiée pour concevoir des sites inclusifs et accessibles à tous. Vous trouverez plus d'information à ce sujet dans <a href=\"/accessibilite\">la section dédiée à l'accessibilité.</a>"
+                },
+                {
+                  "text": "Je veille à maintenir Webtrine à jour et à l'améliorer en continu, en intégrant les meilleures pratiques du web, ainsi qu'en utilisant les dernières technologies disponibles pour assurer une rapidité et une qualité constante."
+                },
+                {
+                  "text": "J’ai hâte de collaborer avec vous et de donner vie à votre projet web !"
+                }
+              ],
+              "image": {
+                "name": "accueil_image_1",
+                "alt": "",
+                "focusable": false
+              }
+            },
+            "banner-2": {
+              "type": "banner",
+              "features": { "multi": false, "medium": true },
+              "title": "Contactez-nous pour plus de renseignement",
+              "subTitle": null,
+              "images": [
+                {
+                  "name": "banner_2"
+                }
+              ],
+              "textPosition": "center-left",
+              "contact": [
+                {
+                  "type": "redirect",
+                  "to": "contact",
+                  "displayedText": "Aller au formulaire de contact"
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "type": "description",
+        "id": "multiDescriptions",
+        "name": "Hebergement",
+        "datas": {
+          "title": "Hébergement",
+          "description": "Hébergement de votre site vitrine",
+          "content": {
+            "banner-1": {
+              "type": "banner",
+              "features": { "medium": true },
+              "title": "Comment et ou sont hébergé les sites vitrines ?",
+              "subTitle": null,
+              "images": [
+                {
+                  "name": "hosting_banner_1"
+                }
+              ],
+              "textPosition": "center"
+            },
+            "description-1": {
+              "type": "description",
+              "title": "Le leader du marché",
+              "features": { "isReversed": false, "isCentered": false },
+              "content": [
+                {
+                  "text": "Pour garantir la performance, la sécurité et la fiabilité des sites vitrines que nous créons, nous nous appuyons sur une infrastructure robuste hébergée chez OVH, un leader européen de l’hébergement web et des services cloud."
+                },
+                {
+                  "text": "1) Hébergement sur VPS OVH (Serveur Privé Virtuel): "
+                },
+                {
+                  "text": "Nous utilisons des VPS pour héberger nos sites web. Contrairement à un hébergement mutualisé, un VPS offre des ressources dédiées (processeur, mémoire RAM, stockage), garantissant ainsi de meilleures performances et une plus grande stabilité. OVH nous permet également une personnalisation avancée des serveurs en fonction des besoins spécifiques de chaque projet."
+                },
+                {
+                  "text": "2) Nom de Domaine: "
+                },
+                {
+                  "text": "Chaque site web est accessible via un nom de domaine unique, que nous gérons pour nos clients via OVH. Nous nous occupons de l’enregistrement, de la configuration DNS et du renouvellement des noms de domaine afin d’assurer une accessibilité continue et une gestion simplifiée."
+                },
+                {
+                  "text": "3) Certificat SSL pour la Sécurité: "
+                },
+                {
+                  "text": "Tous nos sites sont sécurisés avec un certificat SSL, essentiel pour chiffrer les échanges entre le site et ses visiteurs. Chez OVH, nous mettons en place des certificats SSL Let’s Encrypt ou premium selon les besoins, garantissant ainsi un accès en HTTPS sécurisé, renforçant la confiance des utilisateurs et améliorant le référencement."
+                },
+                {
+                  "text": "Grâce à cette infrastructure hébergée chez OVH, nous assurons à nos clients des sites performants, sécurisés et accessibles en permanence."
+                }
+              ],
+              "image": {
+                "name": "hosting_image_1",
+                "alt": "",
+                "focusable": false
+              }
+            },
+            "banner-2": {
+              "type": "banner",
+              "features": { "multi": false, "medium": true },
+              "title": "Contactez-nous pour plus de renseignement",
+              "subTitle": null,
+              "images": [
+                {
+                  "name": "banner_2"
+                }
+              ],
+              "textPosition": "center-left",
+              "contact": [
+                {
+                  "type": "redirect",
+                  "to": "contact",
+                  "displayedText": "Aller au formulaire de contact"
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "type": "description",
+        "id": "multiDescriptions",
+        "name": "Accessibilite",
+        "datas": {
+          "title": "L'accessibilité",
+          "description": "L'accessibilité: Une expérience pour tous",
+          "content": {
+            "banner-1": {
+              "type": "banner",
+              "features": { "medium": true },
+              "title": "L'Accessibilité: Une Expérience pour Tous",
+              "subTitle": null,
+              "images": [
+                {
+                  "name": "accessibility_banner_1"
+                }
+              ],
+              "textPosition": "center"
+            },
+            "description-1": {
+              "type": "description",
+              "features": { "isReversed": false, "isCentered": false },
+              "content": [
+                {
+                  "text": "12 millions de personnes. C’est le nombre de personnes porteuses d'un handicap en France. C’est plus d'1 milliard dans le monde."
+                },
+                {
+                  "text": "Cela comporte des handicaps visibles comme les handicaps moteurs ou sensoriels, mais aussi des handicaps invisibles comme les troubles psychiques, les troubles cognitifs tels que le TDAH ou les troubles dys (dyslexie, dyspraxie, dyscalculie...)."
+                },
+                {
+                  "text": "Nous croyons fermement que le web doit être accessible à tous, quelles que soient leurs capacités. C’est pourquoi nous intégrons dès la conception de nos templates des pratiques visant à garantir une navigation fluide et inclusive pour tous les utilisateurs, y compris les personnes en situation de handicap."
+                },
+                {
+                  "text": "Permettre à toute ces personnes d'accéder à l'information et de naviguer sur le web est essentiel. C'est un droit fondamental qui doit être respecté. En intégrant des pratiques d'accessibilité dans nos sites, nous contribuons à créer un web plus inclusif et équitable."
+                }
+              ],
+              "image": {
+                "name": "accessibility_image_1",
+                "alt": "",
+                "focusable": false
+              }
+            },
+            "description-2": {
+              "type": "description",
+              "features": { "isReversed": false, "isCentered": false },
+              "content": [
+                {
+                  "text": "1) Respect des Normes d’Accessibilité (WCAG & RGAA): "
+                },
+                {
+                  "text": "Nos sites sont développés en suivant les recommandations des Web Content Accessibility Guidelines (WCAG) et du Référentiel Général d’Amélioration de l’Accessibilité (RGAA). Ces standards garantissent une meilleure lisibilité, une navigation intuitive et une compatibilité avec les technologies d’assistance."
+                },
+                {
+                  "text": "2) Compatibilité avec les Technologies d’Assistance: "
+                },
+                {
+                  "text": "Nous optimisons nos sites pour qu’ils soient compatibles avec les lecteurs d’écran (comme NVDA, JAWS ou VoiceOver), les commandes vocales et les navigateurs spécialisés. Cela permet aux personnes malvoyantes ou ayant des troubles moteurs d’interagir facilement avec le contenu."
+                },
+                {
+                  "text": "3) Navigation Facile et Intuitive: "
+                },
+                {
+                  "text": "   - Une hiérarchie claire des contenus et une structure bien définie (titres, paragraphes, listes)."
+                },
+                {
+                  "text": "   - Une navigation au clavier fluide pour les utilisateurs ne pouvant pas utiliser une souris."
+                },
+                {
+                  "text": "   - Des couleurs et contrastes adaptés pour assurer une bonne lisibilité aux personnes malvoyantes ou atteintes de daltonisme."
+                },
+                {
+                  "text": "4) Formulaires et Interactions Accessibles: "
+                },
+                {
+                  "text": "   - Des libellés clairs et visibles pour les champs de formulaire."
+                },
+                {
+                  "text": "   - Des messages d’erreur compréhensibles pour guider l’utilisateur en cas de saisie incorrecte."
+                },
+                {
+                  "text": "   - Une gestion optimisée du focus pour que les utilisateurs naviguant au clavier puissent facilement interagir avec les éléments du site."
+                },
+                {
+                  "text": "5) Tests et Améliorations Continues: "
+                },
+                {
+                  "text": "Nous effectuons régulièrement des tests d’accessibilité avec des outils comme Pa11y, Axe ou Wave et intégrons les retours des utilisateurs pour améliorer constamment l’expérience."
+                },
+                {
+                  "text": "En intégrant ces bonnes pratiques, nous nous assurons que nos sites sont utilisables par tous, sans exclusion, garantissant ainsi une meilleure accessibilité et une expérience utilisateur optimisée."
+                }
+              ],
+              "image": null
+            },
+            "description-3": {
+              "type": "description",
+              "features": { "isReversed": true, "isCentered": false },
+              "content": [
+                {
+                  "text": "Nous apportons notre expertise dès la réalisation de votre site, en intégrant des éléments d’accessibilité dès la conception. Nous vous accompagnons également dans l’optimisation de vos contenus pour garantir une expérience fluide et agréable pour tous vos utilisateurs."
+                },
+                {
+                  "text": "Par exemple, nous recommendons l'utilisation de la typographie Luciole: "
+                },
+                {
+                  "text": "\"Le caractère typographique Luciole a été conçu spécifiquement pour les personnes malvoyantes. Ce projet est le résultat de plus de deux années de collaboration entre le Centre Technique Régional pour la Déficience Visuelle et le studio typographies.fr. Le projet a bénéficié d'une bourse de la Fondation suisse Ceres et de l'appui du laboratoire DIPHE de l'Université Lumière Lyon 2.\""
+                },
+                {
+                  "text": "Pour plus de renseignement, vous pouvez consulter le site de l'éditeur: <a href=\"https://luciole-vision.com/\">luciole-vision.com</a>"
+                }
+              ],
+              "image": {
+                "name": "accessibility_image_2",
+                "alt": "",
+                "focusable": false
+              }
+            },
+            "banner-2": {
+              "type": "banner",
+              "features": { "multi": false, "medium": true },
+              "title": "Contactez-nous pour plus de renseignement",
+              "subTitle": null,
+              "images": [
+                {
+                  "name": "banner_2"
+                }
+              ],
+              "textPosition": "center-left",
+              "contact": [
+                {
+                  "type": "redirect",
+                  "to": "contact",
+                  "displayedText": "Aller au formulaire de contact"
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "type": "description",
+        "id": "multiDescriptions",
+        "name": "Faq",
+        "datas": {
+          "title": "FAQ",
+          "description": "Trouvez les réponses à vos questions",
+          "content": {
+            "banner-1": {
+              "type": "banner",
+              "features": { "medium": true },
+              "title": "Foire aux questions",
+              "subTitle": null,
+              "images": [
+                {
+                  "name": "hosting_banner_1"
+                }
+              ],
+              "textPosition": "center"
+            },
+            "q&a-1": {
+              "type": "q&a",
+              "features": {
+                "hasCategories": true,
+                "allowMultipleOpen": false
+              },
+              "title": "Les questions fréquentes qui nous sont demandées:",
+              "subtitle": null,
+              "content": {
+                "categories": [
+                  {
+                    "id": "general",
+                    "label": "Général",
+                    "items": [
+                      {
+                        "id": "gen-1",
+                        "question": "Qu'est-ce que l'offre Webtrine All-In-One ?",
+                        "answer": "<p>Webtrine propose une <strong>offre tout-en-un</strong> pour créer votre site vitrine sans prise de tête :</p><ul><li>Création de votre charte graphique</li><li>Création de votre site vitrine</li><li>Nom de domaine inclus</li><li>Hébergement sur serveur VPS OVH</li><li>Maintenance et support</li><li>1 modification gratuite par mois (6 premiers mois)</li></ul><p>Tout est inclus dans un seul prix : <strong>450€ HT</strong></p>"
+                      },
+                      {
+                        "id": "gen-2",
+                        "question": "Combien de temps faut-il pour créer mon site ?",
+                        "answer": "<p>Notre processus se déroule en <strong>5 étapes</strong> :</p><ol><li><strong>Consultation gratuite</strong> : analyse de vos besoins</li><li><strong>Devis personnalisé</strong> : proposition détaillée</li><li><strong>Conception</strong> : maquettes et validation</li><li><strong>Développement</strong> : création de votre site</li><li><strong>Livraison</strong> : formation et mise en ligne</li></ol><p>Le délai global est généralement de <strong>2 à 4 semaines</strong> selon la complexité de votre projet.</p>"
+                      },
+                      {
+                        "id": "gen-3",
+                        "question": "Comment me contacter ?",
+                        "answer": "<p>Vous pouvez joindre <strong>Alexandre Monschein</strong> :</p><ul><li><strong>Téléphone</strong> : +33 6 14 61 22 95</li><li><strong>Email</strong> : webtrine.pro@gmail.com</li><li><strong>LinkedIn</strong> : alexandre-monschein</li><li><strong>Formulaire de contact</strong> sur le site</li></ul><p>Je vous réponds rapidement pour discuter de votre projet !</p>"
+                      }
+                    ]
+                  },
+                  {
+                    "id": "pricing",
+                    "label": "Tarifs",
+                    "items": [
+                      {
+                        "id": "price-1",
+                        "question": "Combien coûte un site vitrine avec Webtrine ?",
+                        "answer": "<p>L'offre Webtrine All-In-One est à <strong>450€ HT</strong> et comprend :</p><ul><li>Création complète de votre site vitrine</li><li>Charte graphique personnalisée</li><li>Nom de domaine (si hébergé chez nous)</li><li>Hébergement sur VPS OVH</li><li>Maintenance et support</li><li>1 modification gratuite par mois (6 premiers mois)</li></ul><p>C'est un investissement <em>accessible</em> pour une présence web professionnelle !</p>"
+                      },
+                      {
+                        "id": "price-2",
+                        "question": "Quels sont les coûts récurrents ?",
+                        "answer": "<p>Après la création, les seuls frais récurrents sont :</p><ul><li><strong>Hébergement</strong> : 250€/an HT sur nos serveurs VPS OVH</li><li><strong>Nom de domaine</strong> : inclus si hébergé chez nous</li><li><strong>Maintenance</strong> : incluse dans l'hébergement</li></ul><p><strong>Pas de frais cachés</strong> ! Tout est transparent dès le devis.</p>"
+                      },
+                      {
+                        "id": "price-3",
+                        "question": "Combien coûtent les modifications après livraison ?",
+                        "answer": "<p>Tarifs des prestations complémentaires :</p><ul><li><strong>Modification simple</strong> (texte, image) : 15-30€ HT</li><li><strong>Ajout d'élément</strong> : 40€ HT</li><li><strong>Modification de style</strong> : 50-100€ HT</li><li><strong>Nouveau composant</strong> : 100-200€ HT</li><li><strong>Nouvelle section</strong> : 150-300€ HT</li><li><strong>Nouvelle page</strong> : 250-500€ HT</li></ul><p>Rappel : <em>1 modification gratuite par mois</em> les 6 premiers mois !</p>"
+                      }
+                    ]
+                  },
+                  {
+                    "id": "technical",
+                    "label": "Technique",
+                    "items": [
+                      {
+                        "id": "tech-1",
+                        "question": "Où sont hébergés les sites Webtrine ?",
+                        "answer": "<p>Vos sites sont hébergés chez <strong>OVH</strong>, leader européen :</p><ul><li><strong>VPS dédiés</strong> (Serveur Privé Virtuel)</li><li><strong>Ressources garanties</strong> (CPU, RAM, stockage)</li><li><strong>Certificats SSL</strong> Let's Encrypt automatiques</li><li><strong>Nom de domaine</strong> géré par OVH</li><li><strong>Sauvegardes</strong> et monitoring inclus</li></ul><p>Performances, sécurité et fiabilité garanties !</p>"
+                      },
+                      {
+                        "id": "tech-2",
+                        "question": "Mes sites sont-ils adaptés aux mobiles ?",
+                        "answer": "<p><strong>Absolument !</strong> Tous nos sites sont :</p><ul><li><strong>Responsive</strong> : adaptation automatique à tous les écrans</li><li><strong>Mobile-first</strong> : conçus d'abord pour mobile</li><li><strong>Optimisés</strong> : temps de chargement rapides</li><li><strong>Testés</strong> sur ordinateur, mobile et tablette</li></ul><p>Votre site sera parfait quel que soit le support utilisé !</p>"
+                      },
+                      {
+                        "id": "tech-3",
+                        "question": "Qu'est-ce que l'accessibilité web ?",
+                        "answer": "<p>L'accessibilité permet à <strong>tous</strong> d'utiliser votre site, y compris les 12 millions de personnes en situation de handicap en France :</p><ul><li><strong>Navigation clavier</strong> pour les handicaps moteurs</li><li><strong>Contrastes élevés</strong> pour les malvoyants</li><li><strong>Lecteurs d'écran</strong> compatibles</li><li><strong>Textes clairs</strong> pour les troubles cognitifs</li></ul><p>C'est un <em>droit fondamental</em> que nous respectons dans tous nos sites.</p>"
+                      }
+                    ]
+                  },
+                  {
+                    "id": "process",
+                    "label": "Processus",
+                    "items": [
+                      {
+                        "id": "process-1",
+                        "question": "Comment travaillez-vous avec vos templates ?",
+                        "answer": "<p>Nous proposons <strong>deux approches</strong> :</p><ul><li><strong>Templates existants</strong> : sélection de designs prêts à personnaliser</li><li><strong>Création sur mesure</strong> : si aucun template ne convient</li></ul><p>Dans tous les cas, nous adaptons entièrement le design à <em>votre image</em> et vos besoins spécifiques.</p>"
+                      },
+                      {
+                        "id": "process-2",
+                        "question": "Que dois-je préparer pour commencer ?",
+                        "answer": "<p>Pour optimiser la création de votre site :</p><ul><li><strong>Contenus textuels</strong> : présentation, services, coordonnées</li><li><strong>Images</strong> : photos, logos en haute qualité</li><li><strong>Objectifs</strong> : ce que vous attendez de votre site</li><li><strong>Inspirations</strong> : sites que vous appréciez (optionnel)</li></ul><p>Pas d'inquiétude, je vous accompagne dans cette préparation !</p>"
+                      },
+                      {
+                        "id": "process-3",
+                        "question": "Pourrai-je modifier mon site moi-même ?",
+                        "answer": "<p>Nos sites sont construits avec des technologies modernes mais ne disposent pas d'interface d'administration classique.</p><p><strong>Cependant</strong> :</p><ul><li>1 modification <strong>gratuite par mois</strong> les 6 premiers mois</li><li><strong>Tarifs préférentiels</strong> pour les modifications ultérieures</li><li><strong>Réactivité</strong> pour vos demandes de changements</li><li><strong>Conseils</strong> pour optimiser votre contenu</li></ul><p>Vous gardez le contrôle sans les contraintes techniques !</p>"
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          }
+        }
+      },
+      {
+        "type": "description",
+        "id": "multiDescriptions",
+        "name": "Prestation",
+        "datas": {
+          "title": "Nos prestations",
+          "description": "Les prestations Webtrine",
+          "content": {
+            "banner-1": {
+              "type": "banner",
+              "features": { "medium": true },
+              "title": "L'offre Webtrine All-In-One",
+              "subTitle": null,
+              "images": [
+                {
+                  "name": "prestation_banner_2"
+                }
+              ],
+              "textPosition": "center"
+            },
+            "list-1": {
+              "type": "numberedList",
+              "features": null,
+              "title": "Un processus de création simple et efficace",
+              "content": [
+                {
+                  "title": "Définition du projet & Conseils",
+                  "description": "Dès notre premier contact, nous échangeons pour comprendre votre secteur d’activité et définir le cadre de votre projet. L'approche est adaptée à vos besoins spécifiques."
+                },
+                {
+                  "title": "Conception graphique UX/UI",
+                  "description": "Deux options s’offrent à vous : soit vous choisissez des templates existants, soit nous travaillerons ensemble pour créer ou modifier des templates spécifiques à vos besoins."
+                },
+                {
+                  "title": "Devis détaillé",
+                  "description": "Un devis précis est établi en fonction de vos besoins et des options choisies."
+                },
+                {
+                  "title": "Collecte des éléments",
+                  "description": "Vous fournissez les contenus (textes, images, architecture souhaitée) et nous optimisons ensemble la structure de votre site."
+                },
+                {
+                  "title": "Développement",
+                  "description": "Une première maquette est créée, ajustée selon vos retours, avec possibilité de modifications en direct pour plus d’efficacité."
+                },
+                {
+                  "title": "Back and Fourth",
+                  "description": "Tout au long du projet, nous adoptons une approche collaborative où chaque étape de travail est suivie de retours clients, permettant ainsi d’ajuster les éléments au fur et à mesure. Ce va-et-vient constant entre le développement et vos retours nous assure de parvenir à un résultat parfaitement adapté à vos attentes, jusqu'à totale satisfaction."
+                },
+                {
+                  "title": "Optimisation SEO, Sécurisation & Mise en ligne",
+                  "description": "SEO optimisé pour améliorer la visibilité, sécurisation du site et mise en ligne finale."
+                },
+                {
+                  "title": "Suivi & évolutions",
+                  "description": "Des options complémentaires sont proposées pour la maintenance, l’ajout de contenu ou de nouvelles fonctionnalités."
+                }
+              ]
+            },
+            "prices-1": {
+              "type": "allInOne",
+              "features": {},
+              "content": [
+                {
+                  "imgSrc": "colorPalette",
+                  "text": "Création de votre charte graphique"
+                },
+                {
+                  "imgSrc": "websiteCreation",
+                  "text": "Création de votre site vitrine"
+                },
+                {
+                  "imgSrc": "domain",
+                  "text": "Création de votre nom de domaine *"
+                },
+                {
+                  "imgSrc": "lodging",
+                  "text": "Hébergement de votre site vitrine **"
+                },
+                {
+                  "imgSrc": "support",
+                  "text": "Maintenance / Support de votre site"
+                },
+                {
+                  "imgSrc": "pencil",
+                  "text": "Modification à la demande (1 fois / mois) ***"
+                }
+              ],
+              "title": "L'offre Webtrine:",
+              "descriptionTop": "Webtrine, c’est une offre tout-en-un : un package complet pour créer et lancer votre site sans prise de tête.",
+              "descriptionBottom": [
+                { "text": "* Si vous le faites héberger chez nous" },
+                { "text": "** Pour un supplément de 250€/an HT" },
+                { "text": "*** Sur les 6 mois suivant le déploiement du site" }
+              ],
+              "price": "450,00€ HT",
+              "per": null,
+              "additionalDescription": null
+            },
+
+            "dataTable-1": {
+              "type": "dataTable",
+              "features": { "centeredTitles": true },
+              "title": "Tarifs des prestations complémentaires",
+              "subTitle": null,
+              "content": {
+                "columns": [
+                  { "header": "Type de prestation", "key": "type" },
+                  { "header": "Détail", "key": "detail" },
+                  { "header": "Tarif HT", "key": "price" }
+                ],
+                "data": [
+                  {
+                    "type": "Suppression / modification simple",
+                    "detail": "Texte, bouton, image, élément isolé. Prix par page et selon la quantité (hors éléments globaux reliés type menu, footer)",
+                    "price": "15 – 30 €"
+                  },
+                  {
+                    "type": "Ajout",
+                    "detail": "Ajouter une image, un bouton, une section simple",
+                    "price": "40 €"
+                  },
+                  {
+                    "type": "Création / modification de style",
+                    "detail": "Ajustements de style, responsive",
+                    "price": "50 – 100 €"
+                  },
+                  {
+                    "type": "Nouveau composant au sein d'une section/page",
+                    "detail": "Nouveau composant",
+                    "price": "100 – 200 €"
+                  },
+                  {
+                    "type": "Nouvelle section",
+                    "detail": "Ex : \"À propos\", \"Contact\" avec formulaire simple...",
+                    "price": "150 – 300 €"
+                  },
+                  {
+                    "type": "Nouvelle page complète",
+                    "detail": "Nouvelle page avec structure, contenu et responsive",
+                    "price": "250 – 500 €"
+                  }
+                ]
+              }
+            },
+            "banner-2": {
+              "type": "banner",
+              "features": { "multi": false, "medium": true },
+              "title": "Contactez-nous pour plus de renseignement",
+              "subTitle": null,
+              "images": [
+                {
+                  "name": "banner_2"
+                }
+              ],
+              "textPosition": "center-left",
+              "contact": [
+                {
+                  "type": "redirect",
+                  "to": "contact",
+                  "displayedText": "Aller au formulaire de contact"
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "type": "description",
+        "id": "multiDescriptions",
+        "name": "Contact",
+        "datas": {
+          "title": "Contact",
+          "description": "Contactez-nous",
+          "content": {
+            "banner-1": {
+              "type": "banner",
+              "features": { "medium": true },
+              "title": null,
+              "subTitle": null,
+              "images": [
+                {
+                  "name": "contact_banner_1"
+                }
+              ],
+              "textPosition": "center"
+            },
+            "contact-1": {
+              "type": "extendedContact",
+              "datas": {
+                "features": {}
+              }
+            }
+          }
+        }
+      },
+      {
+        "type": "error",
+        "id": "error"
+      },
+      {
+        "type": "legals",
+        "id": "legals",
+        "datas": {
+          "type": "cgu-cgv",
+          "title": "CGV (Conditions Générales de Vente)",
+          "description": "CGV de Webtrine",
+          "subTitle": "En vigueur au 01/09/2024",
+          "disclaimer": null,
+          "content": [
+            {
+              "title": "Article 1: Objet",
+              "texts": [
+                "Les présentes Conditions Générales d'Utilisation et de Vente (CGU/CGV) ont pour objet de définir les conditions d'utilisation du site Webtrine et de régir les ventes de prestations de services proposées par Webtrine. En accédant et en utilisant ce site, ainsi qu'en passant commande, vous acceptez pleinement et sans réserve les présentes CGU/CGV."
+              ]
+            },
+            {
+              "title": "Article 2: Accès au site",
+              "texts": [
+                "Le site Webtrine est accessible gratuitement à tout utilisateur disposant d'un accès à Internet. Tous les coûts liés à l'accès au site, tels que les frais matériels, logiciels ou d'accès à Internet, sont exclusivement à la charge de l'utilisateur."
+              ]
+            },
+            {
+              "title": "Article 3: Prestations et Tarifs",
+              "texts": [
+                "Webtrine propose des services de création de sites vitrines. Les prestations offertes incluent :",
+                "- Création de site vitrine : 450€ incluant la mise en place de l'application et une assistance pour la réalisation.",
+                "- Options:",
+                "- Hébergement : 250€/an.",
+                "- Assistance : Incluse pour les 6 mois suivant le déploiement du site.",
+                "- Modifications à la demande : 1 fois par mois durant les 6 mois suivant le déploiement du site. Un abonnement avec un tarif annuel peut etre mis en place avec le client en fonction de ses besoins"
+              ]
+            },
+            {
+              "title": "Article 4: Commande et Paiement",
+              "texts": [
+                "Toute commande est validée dès réception du paiement. Le paiement est dû en intégralité au moment de la commande et peut être effectué par Paypal/virement bancaire. Un devis détaillant la prestation sera envoyé pour accord avant toute exécution."
+              ]
+            },
+            {
+              "title": "Article 5: Livraison",
+              "texts": [
+                "Le délai de livraison est variable en fonction de la demande cliente. Le client sera informé en cas de retard éventuel. La livraison correspond à la mise en ligne du site commandé."
+              ]
+            },
+            {
+              "title": "Article 6: Droit de Rétractation",
+              "texts": [
+                "Conformément à la loi, le client dispose d'un délai de 14 jours à compter de la validation de la commande pour exercer son droit de rétractation. Ce droit ne s'applique pas si la prestation a été entièrement exécutée avec l'accord du client."
+              ]
+            },
+            {
+              "title": "Article 7: Propriété Intellectuelle",
+              "texts": [
+                "Le site Webtrine ainsi que l'ensemble des contenus (textes, images, logos, etc.) sont protégés par les lois relatives à la propriété intellectuelle. Toute reproduction ou représentation, partielle ou totale, est interdite sans l'autorisation préalable de Webtrine."
+              ]
+            },
+            {
+              "title": "Article 8: Responsabilité",
+              "texts": [
+                "Webtrine ne saurait être tenu responsable des dommages directs ou indirects résultant de l'accès au site ou de son utilisation, ni des préjudices indirects subis par le client, tels que la perte de clientèle ou de chiffre d'affaires."
+              ]
+            },
+            {
+              "title": "Article 9: Assistance et Modifications",
+              "texts": [
+                "L'assistance et les modifications sont fournies selon les termes de la prestation choisie, soit durant les 6 mois suivant le déploiement du site. Les modifications à la demande sont limitées à une intervention par mois pendant cette période ou plus en fonction en fonction d'un abonnement annuel discuté avec le client et stipulé dans le devis fournis au client lors de l'achat de la prestation."
+              ]
+            },
+            {
+              "title": "Article 10: Résiliation",
+              "texts": [
+                "En cas de non-respect par le client de l'une de ses obligations, Webtrine se réserve le droit de suspendre ou de résilier la prestation sans indemnité."
+              ]
+            },
+            {
+              "title": "Article 11: Données Personnelles et Confidentialité ",
+              "texts": [
+                "Webtrine s'engage à respecter la vie privée de ses utilisateurs et clients. Les données personnelles collectées sont utilisées uniquement pour les besoins des services proposés. Elles sont traitées conformément à la réglementation en vigueur. Les utilisateurs disposent d'un droit d'accès, de rectification, d'opposition et de suppression de leurs données personnelles. Plus d'informations sur: webtrine.fr/confidentialite"
+              ]
+            },
+            {
+              "title": "Article 12: Modifications des CGU/CGV",
+              "texts": [
+                "Webtrine se réserve le droit de modifier à tout moment les présentes CGU/CGV. Les modifications entrent en vigueur dès leur mise en ligne. Il est conseillé de consulter régulièrement cette page pour prendre connaissance des éventuelles modifications."
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "type": "legals",
+        "id": "legals",
+        "datas": {
+          "type": "mentions-legals",
+          "title": "Mentions légales",
+          "description": "Mentions légales de Webtrine",
+          "subTitle": "En vigueur au 01/09/2024",
+          "disclaimer": "Conformément aux dispositions des Articles 6-III et 19 de la Loi n°2004-575 du 21 juin 2004 pour la Confiance dans l’économie numérique, dite L.C.E.N., il est porté à la connaissance des utilisateurs et visiteurs, ci-après l'Utilisateur, du site https://www.webtrine.fr, les présentes mentions légales. La navigation sur le Site par l’Utilisateur implique acceptation intégrale et sans réserve des présentes mentions légales. Ces dernières sont accessibles sur le Site à la rubrique « Mentions légales ».",
+          "content": [
+            {
+              "title": "Article 1 - L'editeur",
+              "texts": [
+                "L’édition et la direction de la publication du Site est assurée par Mr. Alexandre Monschein, domiciliée en France, dont le numéro de téléphone est 0614612295, et l’adresse e-mail est webtrine.pro@gmail.com"
+              ]
+            },
+            {
+              "title": "Article 2 - L'hébergeur",
+              "texts": [
+                "L’hébergeur du Site est la société OVHcloud, dont le siège social est situé au 2 rue Kellermann, 59100 Roubaix, avec le numéro de téléphone: 1007."
+              ]
+            },
+            {
+              "title": "Article 3 - Accès au site",
+              "texts": [
+                "Le Site est accessible en tout endroit, 7j/7, 24h/24 sauf cas de force majeure, interruption programmée ou non et pouvant découler d’une nécessité de maintenance. En cas de modification, interruption ou suspension du Site, le Gérant ne saurait être tenu responsable."
+              ]
+            },
+            {
+              "title": "Article 4 - Collecte des données",
+              "texts": [
+                "Le site est exempté de déclaration à la Commission Nationale Informatique et Libertés (CNIL) dans la mesure où il ne collecte aucune donnée concernant les utilisateurs.",
+                "Toute utilisation, reproduction, diffusion, commercialisation, modification de toute ou partie du Site, sans autorisation du Gérant est prohibée et pourra entraînée des actions et poursuites judiciaires telles que prévues par le Code de la propriété intellectuelle et le Code civil. Pour plus d’informations, se reporter aux CGV du site accessible à la rubrique << CGU-CGV >>."
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "type": "legals",
+        "id": "legals",
+        "datas": {
+          "type": "confidentialite",
+          "title": "Politique de confidentialité du site: Webtrine",
+          "description": "Politique de confidentialité de Webtrine",
+          "subTitle": "En vigueur au 01/09/2024",
+          "disclaimer": null,
+          "content": [
+            {
+              "title": "Article 1 - Collecte des données personnelles :",
+              "texts": [
+                "Webtrine s'engage à respecter la vie privée de ses utilisateurs. Les données personnelles collectées via le site (nom, prénom, adresse e-mail, etc.) sont strictement confidentielles et utilisées uniquement pour les besoins des services proposés par Webtrine."
+              ]
+            },
+            {
+              "title": "Article 2 - Utilisation des données :",
+              "texts": [
+                "Les données collectées sont utilisées pour la gestion des commandes, la communication avec les clients, et l'amélioration des services. Elles ne sont en aucun cas cédées ou vendues à des tiers sans le consentement préalable des utilisateurs."
+              ]
+            },
+            {
+              "title": "Article 3 - Données à caractère personnel collectées et traitées dans le cadre de la navigation sur le site",
+              "texts": [
+                "Webtrine met en œuvre toutes les mesures techniques et organisationnelles nécessaires pour garantir la sécurité des données personnelles de ses utilisateurs."
+              ]
+            },
+            {
+              "title": "Article 4 - Responsable du traitement des données",
+              "texts": [
+                "Conformément à la réglementation en vigueur, les utilisateurs disposent d'un droit d'accès, de rectification, d'opposition et de suppression de leurs données personnelles. Pour exercer ce droit, il suffit de contacter Webtrine à l'adresse suivante : webtrine.pro@gmail.com"
+              ]
+            },
+            {
+              "title": "Article 5 - Modifications de la politique de confidentialité :",
+              "texts": [
+                "Webtrine se réserve le droit de modifier à tout moment la présente politique de confidentialité. Les utilisateurs seront informés de toute modification substantielle via le site."
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

@@ -79,10 +79,10 @@ export const Default: Story = {
     template: {
       type: "gallery",
       inventory: [
-        { imageSrc: "accueil_image_1", alt: "Image d'accueil 1" },
-        { imageSrc: "accueil_image_2", alt: "Image d'accueil 2" },
-        { imageSrc: "description_image_1", alt: "Image de description 1" },
-        { imageSrc: "description_image_2", alt: "Image de description 2" },
+        { imageSrc: "square_image", alt: "Image d'accueil 1" },
+        { imageSrc: "square_image", alt: "Image d'accueil 2" },
+        { imageSrc: "square_image", alt: "Image de description 1" },
+        { imageSrc: "square_image", alt: "Image de description 2" },
       ],
       features: {
         canFullScreen: false,
@@ -105,7 +105,8 @@ export const LogoGallery: Story = {
       type: "logo",
       inventory: [
         { imageSrc: "clients/dipaolo", alt: "Client DiPaolo" },
-        { imageSrc: "webtrine_storybook", alt: "Logo Webtrine" },
+        { imageSrc: "clients/chillpaws", alt: "Client DiPaolo" },
+        { imageSrc: "icons/webtrine_logo_2_blanc_noTitle", alt: "Logo Webtrine" },
       ],
       features: {
         canFullScreen: false,
@@ -117,100 +118,6 @@ export const LogoGallery: Story = {
       description: {
         story:
           "Galerie spécialisée pour l'affichage de logos clients avec un style adapté, sans fullscreen.",
-      },
-    },
-  },
-};
-
-export const SmallGallery: Story = {
-  args: {
-    template: {
-      type: "gallery",
-      inventory: [
-        { imageSrc: "accessibility_image_1", alt: "Image accessibilité 1" },
-        { imageSrc: "accessibility_image_2", alt: "Image accessibilité 2" },
-      ],
-      features: {
-        canFullScreen: false,
-      },
-    },
-  },
-  parameters: {
-    docs: {
-      description: {
-        story:
-          "Petite galerie avec seulement quelques images, sans fullscreen.",
-      },
-    },
-  },
-};
-
-export const FullscreenGallery: Story = {
-  args: {
-    template: {
-      type: "gallery",
-      inventory: [
-        { imageSrc: "accueil_image_1", alt: "Image d'accueil 1" },
-        { imageSrc: "accueil_image_2", alt: "Image d'accueil 2" },
-        { imageSrc: "description_image_1", alt: "Image de description 1" },
-        { imageSrc: "description_image_2", alt: "Image de description 2" },
-      ],
-      features: {
-        canFullScreen: true,
-      },
-    },
-  },
-  parameters: {
-    docs: {
-      description: {
-        story:
-          "Galerie avec mode fullscreen activé. Cliquez sur une image pour l'ouvrir en plein écran.",
-      },
-    },
-  },
-};
-
-export const SingleImage: Story = {
-  args: {
-    template: {
-      type: "gallery",
-      inventory: [{ imageSrc: "hosting_image_1", alt: "Image d'hébergement" }],
-      features: {
-        canFullScreen: false,
-      },
-    },
-  },
-  parameters: {
-    docs: {
-      description: {
-        story:
-          "Galerie avec une seule image pour la présentation, sans fullscreen.",
-      },
-    },
-  },
-};
-
-export const BannerGallery: Story = {
-  args: {
-    template: {
-      type: "gallery",
-      inventory: [
-        { imageSrc: "accueil_banner_1", alt: "Bannière d'accueil 1" },
-        { imageSrc: "contact_banner_1", alt: "Bannière de contact 1" },
-        { imageSrc: "contact_banner_2", alt: "Bannière de contact 2" },
-        { imageSrc: "prestation_banner_1", alt: "Bannière prestations 1" },
-        { imageSrc: "prestation_banner_2", alt: "Bannière prestations 2" },
-      ],
-      features: {
-        canFullScreen: true,
-      },
-    },
-  },
-  parameters: {
-    docs: {
-      description: {
-        story:
-          "Galerie avec les bannières du site pour différentes sections, avec fullscreen activé.",
       },
     },
   },

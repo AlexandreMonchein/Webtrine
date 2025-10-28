@@ -10,7 +10,7 @@ const Wrapper = styled.div`
 `;
 
 export default {
-  title: "Error/PageNotFound",
+  title: "Design System/Error/PageNotFound",
   component: PageNotFound,
   args: {},
   argTypes: {},
