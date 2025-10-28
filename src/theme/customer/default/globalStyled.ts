@@ -140,7 +140,7 @@ const GlobalStyle = createGlobalStyle`
     )}
   }
 
-  p, span, button > span, li {
+  p, li {
     word-break: break-word;
     overflow-wrap: break-word;
 
@@ -162,6 +162,18 @@ const GlobalStyle = createGlobalStyle`
       breakpointNames.wide,
       css`
         font-size: x-large;
+      `
+    )}
+  }
+
+  span {
+    word-break: break-word;
+    overflow-wrap: break-word;
+
+    ${bp.min(
+      breakpointNames.medium,
+      css`
+        font-size: large;
       `
     )}
   }

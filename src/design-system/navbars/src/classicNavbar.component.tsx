@@ -44,7 +44,7 @@ const ClassicNavbar = (props) => {
     actionButton,
     content: {
       logo: { name, shape },
-      calendly: { url: calendlyUrl }
+      calendly: { url: calendlyUrl } = { url: null },
     },
     toggleTheme,
     theme,

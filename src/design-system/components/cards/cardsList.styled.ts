@@ -26,7 +26,6 @@ export const Section = styled.section`
 export const Title = styled.h2`
   color: var(--title-color-2);
   text-align: center;
-  ext-shadow: 2px 2px 1px rgba(0, 0, 0, 0.7);
 `;
 
 export const CardContainer = styled.div`

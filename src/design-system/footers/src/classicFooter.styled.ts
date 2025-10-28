@@ -76,7 +76,6 @@ export const SocialIcon = styled.a`
 
 export const Logo = styled.img`
   display: block;
-  width: 96px;
 `;
 
 export const Socials = styled.div`

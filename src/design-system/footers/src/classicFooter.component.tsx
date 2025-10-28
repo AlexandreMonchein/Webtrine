@@ -42,31 +42,33 @@ const ClassicFooter = (props) => {
     const loadComponents = async () => {
       const loadedComponents: React.ReactNode[] = [];
 
-      for (const [name, link] of Object.entries(socials)) {
-        try {
-          if (link) {
-            const componentPath = `../../../assets/icons/${name}.component.tsx`;
-            const module = componentFiles[componentPath];
+      if (socials) {
+        for (const [name, link] of Object.entries(socials)) {
+          try {
+            if (link) {
+              const componentPath = `../../../assets/icons/${name}.component.tsx`;
+              const module = componentFiles[componentPath];
 
-            if (module) {
-              const resolvedModule = await module();
-              // @ts-expect-error TODO: to fix
-              const Component = resolvedModule.default;
+              if (module) {
+                const resolvedModule = await module();
+                // @ts-expect-error TODO: to fix
+                const Component = resolvedModule.default;
 
-              loadedComponents.push(
-                <li key={name}>
-                  <SocialLogo>
-                    {/* @ts-ignore TODO: fix this type error */}
-                    <a aria-label={name} href={link}>
-                      <Component />
-                    </a>
-                  </SocialLogo>
-                </li>
-              );
+                loadedComponents.push(
+                  <li key={name}>
+                    <SocialLogo>
+                      {/* @ts-ignore TODO: fix this type error */}
+                      <a aria-label={name} href={link}>
+                        <Component />
+                      </a>
+                    </SocialLogo>
+                  </li>
+                );
+              }
             }
+          } catch (error) {
+            console.error(`Error loading component: ${name}`, error);
           }
-        } catch (error) {
-          console.error(`Error loading component: ${name}`, error);
         }
       }
 

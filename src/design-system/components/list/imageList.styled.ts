@@ -37,7 +37,6 @@ export const Overlay = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -88,7 +87,6 @@ export const ScrollButton = styled.button`
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background-color: rgba(0, 0, 0, 0.5);
   border: none;
   color: white;
   padding: 10px;
@@ -97,10 +95,6 @@ export const ScrollButton = styled.button`
 
   &:focus {
     outline: none;
-  }
-
-  &:hover {
-    background-color: rgba(0, 0, 0, 0.8);
   }
 
   &:first-of-type {

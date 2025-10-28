@@ -25,6 +25,7 @@ const Banner = (datas) => {
     features: { multi, textPositionFeature, medium = false },
     title,
     subTitle,
+    subTitle2,
     images,
     textPosition = "bottom-left", // default position
     contact,
@@ -46,6 +47,8 @@ const Banner = (datas) => {
     setCurrentIndex(index);
   };
 
+  console.warn('>>> subTitle2', subTitle2);
+
   return (
     <Content className={classNames(textPosition, { medium: medium })}>
       {contact ? (
@@ -59,6 +62,7 @@ const Banner = (datas) => {
           >
             {title ? <Title tabIndex={0}>{title}</Title> : null}
             {subTitle ? <SubTitle tabIndex={0}>{subTitle}</SubTitle> : null}
+            {subTitle2 ? <SubTitle tabIndex={0}>{subTitle2}</SubTitle> : null}
           </TextContainer>
           <ContactContainer>
             {contact.map((info) => (
@@ -76,6 +80,7 @@ const Banner = (datas) => {
         >
           {title ? <Title tabIndex={0}>{title}</Title> : null}
           {subTitle ? <SubTitle tabIndex={0}>{subTitle}</SubTitle> : null}
+          {subTitle2 ? <SubTitle tabIndex={0}>{subTitle2}</SubTitle> : null}
         </TextContainer>
       )}
       <BackgroundContainer>

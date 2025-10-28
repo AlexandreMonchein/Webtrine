@@ -8,6 +8,8 @@ export const getLogoDimensions = (shape) => {
       return { width: 64, height: 64 }; // Square logo
     case "large-square":
       return { width: 96, height: 96 }; // Square logo
+    case "xlarge-square":
+      return { width: 128, height: 128 }; // Square logo
     default:
       return { width: 64, height: 64 }; // Default
   }

@@ -1,6 +1,6 @@
 {
   "client": {
-    "logo": "logo-webtrine-white",
+    "logo": "webtrine_logo_2_blanc_noTitle",
     "name": "webtrine",
     "fullName": "Webtrine",
     "contact": {
@@ -27,8 +27,8 @@
           },
           "content": {
             "logo": {
-              "name": "logo-webtrine-white",
-              "shape": "horizontal"
+              "name": "webtrine_logo_2_blanc_noTitle",
+              "shape": "square"
             }
           },
           "categories": [
@@ -69,8 +69,8 @@
         "datas": {
           "features": {},
           "logo": {
-            "name": "logo-webtrine-white",
-            "shape": "horizontal",
+            "name": "webtrine_logo_2_blanc_noTitle",
+            "shape": "square",
             "alt": "logo-webtrine",
             "link": "/"
           }
@@ -388,7 +388,7 @@
               "features": { "isReversed": false, "isCentered": false },
               "content": [
                 {
-                  "text": "12 millions de personnes. C’est le nombre de personnes porteur·ses de handicap en France. Et c’est 1 milliard dans le monde."
+                  "text": "12 millions de personnes. C’est le nombre de personnes porteuses d'un handicap en France. C’est plus d'1 milliard dans le monde."
                 },
                 {
                   "text": "Cela comporte des handicaps visibles comme les handicaps moteurs ou sensoriels, mais aussi des handicaps invisibles comme les troubles psychiques, les troubles cognitifs tels que le TDAH ou les troubles dys (dyslexie, dyspraxie, dyscalculie...)."

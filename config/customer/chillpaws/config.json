@@ -1,0 +1,304 @@
+{
+  "client": {
+    "logo": "logo_chillpaws_color_2",
+    "name": "chillpaws",
+    "fullName": "Chill Paws",
+    "contact": {
+      "name": "Oceane Michel",
+      "phone": "TODO",
+      "email": "oceanemic.petsitting@gmail.com",
+      "mailTemplate": "template_8b4j0fm"
+    },
+    "socials": null
+  },
+  "layout": {
+    "templates": [
+      {
+        "type": "navbars",
+        "id": "classicNavbar",
+        "datas": {
+          "features": {
+            "isFixed": false,
+            "hasHideOnScroll": false,
+            "trad": false,
+            "darkMode": false
+          },
+          "content": {
+            "logo": {
+              "name": "logo_chillpaws_color_2",
+              "shape": "xlarge-square"
+            }
+          },
+          "categories": [
+            {
+              "name": "Accueil",
+              "link": "/"
+            },
+            {
+              "name": "Qui suis-je",
+              "link": "/presentation"
+            },
+            {
+              "name": "Mes services",
+              "link": "/prestation"
+            },
+            {
+              "name": "FAQ",
+              "link": "/faq"
+            },
+            {
+              "name": "Contact",
+              "link": "/contact"
+            }
+          ]
+        }
+      },
+      {
+        "type": "footers",
+        "id": "classicFooter",
+        "datas": {
+          "features": {},
+          "logo": {
+            "name": "logo_chillpaws_color_2",
+            "shape": "square",
+            "alt": "logo-chillpaws",
+            "link": "/"
+          }
+        }
+      },
+      {
+        "type": "description",
+        "id": "multiDescriptions",
+        "name": "Home",
+        "datas": {
+          "title": "Accueil",
+          "description": "Chillpaws, pet sitting à Lyon - Saint-Etienne",
+          "content": {
+            "banner-1": {
+              "type": "banner",
+              "features": { "multi": false, "medium": true },
+              "title": "Chill paws",
+              "subTitle": "Votre pet-sitter professionnel à domicile",
+              "subTitle2": "Lyon - Saint-Etienne",
+              "images": [
+                {
+                  "name": "accueil_banner_1"
+                }
+              ],
+              "textPosition": "center-right"
+            },
+            "description-1": {
+              "type": "description",
+              "title": "Pourquoi faire appel à moi ?",
+              "features": { "isReversed": false, "isCentered": false },
+              "content": [
+                {
+                  "text": "Vous partez en vacances ou manquez de temps pour promener votre chien ? Un déplacement professionnel, une hospitalisation ou un imprévu ?"
+                },
+                {
+                  "text": "Je suis là pour m’occuper de votre animal en toute confiance et vous garantir un départ serein et sans stress. "
+                },
+                {
+                  "text": "Faire appel à un pet-sitter labelisé et certifié lors de vos absences garantit les meilleurs soins pour vos compagnons. Les chats et les chiens n’aiment pas être sortis de leur environnement, ils tiennent à leur territoire et s’y sentent en sécurité. Grâce aux visites quotidiennes, ils ne souffrent pas de déplacements stressants, ni de solitude, et je leur offre toute mon attention !"
+                },
+                {
+                  "text": "Prenez soin de lui comme il prend soin de vous !"
+                }
+              ],
+              "image": {
+                "name": "description_image_1",
+                "alt": "",
+                "focusable": false
+              }
+            },
+            "description-2": {
+              "type": "description",
+              "features": { "isReversed": true, "isContinious": false },
+              "title": "Pourquoi choisir un pet-sitter professionnel à Lyon ?",
+              "content": [
+                {
+                  "text": "Chaque animal a des besoins spéciaux et des limites différentes, un professionnel formé à la garde d’animaux sait s’adapter au caractère de chacun et est autorisé à procurer des soins simples en cas de problème de santé."
+                },
+                {
+                  "text": "Le cat-sitter ou dog-sitter sait que certains petits amis à truffe ont besoin de calme et de douceur, quand d’autres meurent d’envie de courir et se défouler en promenade !"
+                },
+                {
+                  "text": "Enfin, une présence quotidienne à votre domicile garde la maison agréable grâce au petit “coup de propre” inclus dans mes prestations, et dissuade les cambrioleurs !"
+                }
+              ],
+              "image": {
+                "name": "description_image_2",
+                "alt": "",
+                "focusable": false
+              }
+            },
+            "cards-1": {
+              "type": "cardsList",
+              "features": null,
+              "title": "Les avantages d'une pet sitter à lyon",
+              "content": [
+                {
+                  "title": "Réponse rapide 7j/7",
+                  "description": "Je me déplace tous les jours de l'année, même les week-ends et les jours fériés !"
+                },
+                {
+                  "title": "Tarifs degressifs et devis personnalisés",
+                  "description": "Vous me faites confiance, je récompense la vôtre !"
+                },
+                {
+                  "title": "Nouvelles quotidiennes",
+                  "description": "Photos et vidéos de votre animal et de votre logement à chaque visite."
+                },
+                {
+                  "title": "Jeux fournis",
+                  "description": "Le bien-être de votre animal est ma priorité, je lui amène toujours de nouveaux jouets lors de mon passage."
+                },
+                {
+                  "title": "Coup de chiffon !",
+                  "description": "Je m'occupe de l'entretien de son lieu de son vie (litière, aération, nettoyage en cas de bêtises...)"
+                },
+                {
+                  "title": "Sécurité de la maison",
+                  "description": "Ma présence régulière dissuade les cambrioleurs et les personnes mal intentionnées pendant vos absences"
+                }
+              ]
+            },
+            "banner-2": {
+              "type": "banner",
+              "features": { "multi": false, "medium": true },
+              "title": "Contactez-nous pour plus de renseignement",
+              "subTitle": null,
+              "images": [
+                {
+                  "name": "banner_2"
+                }
+              ],
+              "textPosition": "center-left",
+              "contact": [
+                {
+                  "type": "redirect",
+                  "to": "contact",
+                  "displayedText": "Aller au formulaire de contact"
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "type": "description",
+        "id": "multiDescriptions",
+        "name": "Contact",
+        "datas": {
+          "title": "Contact",
+          "description": "Contactez-nous",
+          "content": {
+            "banner-1": {
+              "type": "banner",
+              "features": { "medium": true },
+              "title": null,
+              "subTitle": null,
+              "images": [
+                {
+                  "name": "contact_banner_1"
+                }
+              ],
+              "textPosition": "center"
+            },
+            "contact-1": {
+              "type": "extendedContact",
+              "datas": {
+                "features": {}
+              }
+            }
+          }
+        }
+      },
+      {
+        "type": "error",
+        "id": "error"
+      },
+      {
+        "type": "legals",
+        "id": "legals",
+        "datas": {
+          "type": "mentions-legals",
+          "title": "Mentions légales",
+          "description": "Mentions légales de Webtrine",
+          "subTitle": "En vigueur au 01/09/2024",
+          "disclaimer": "Conformément aux dispositions des Articles 6-III et 19 de la Loi n°2004-575 du 21 juin 2004 pour la Confiance dans l’économie numérique, dite L.C.E.N., il est porté à la connaissance des utilisateurs et visiteurs, ci-après l'Utilisateur, du site https://www.webtrine.fr, les présentes mentions légales. La navigation sur le Site par l’Utilisateur implique acceptation intégrale et sans réserve des présentes mentions légales. Ces dernières sont accessibles sur le Site à la rubrique « Mentions légales ».",
+          "content": [
+            {
+              "title": "Article 1 - L'editeur",
+              "texts": [
+                "L’édition et la direction de la publication du Site est assurée par Mr. Alexandre Monschein, domiciliée en France, dont le numéro de téléphone est 0614612295, et l’adresse e-mail est webtrine.pro@gmail.com"
+              ]
+            },
+            {
+              "title": "Article 2 - L'hébergeur",
+              "texts": [
+                "L’hébergeur du Site est la société OVHcloud, dont le siège social est situé au 2 rue Kellermann, 59100 Roubaix, avec le numéro de téléphone: 1007."
+              ]
+            },
+            {
+              "title": "Article 3 - Accès au site",
+              "texts": [
+                "Le Site est accessible en tout endroit, 7j/7, 24h/24 sauf cas de force majeure, interruption programmée ou non et pouvant découler d’une nécessité de maintenance. En cas de modification, interruption ou suspension du Site, le Gérant ne saurait être tenu responsable."
+              ]
+            },
+            {
+              "title": "Article 4 - Collecte des données",
+              "texts": [
+                "Le site est exempté de déclaration à la Commission Nationale Informatique et Libertés (CNIL) dans la mesure où il ne collecte aucune donnée concernant les utilisateurs.",
+                "Toute utilisation, reproduction, diffusion, commercialisation, modification de toute ou partie du Site, sans autorisation du Gérant est prohibée et pourra entraînée des actions et poursuites judiciaires telles que prévues par le Code de la propriété intellectuelle et le Code civil. Pour plus d’informations, se reporter aux CGV du site accessible à la rubrique << CGU-CGV >>."
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "type": "legals",
+        "id": "legals",
+        "datas": {
+          "type": "confidentialite",
+          "title": "Politique de confidentialité du site: Webtrine",
+          "description": "Politique de confidentialité de Webtrine",
+          "subTitle": "En vigueur au 01/09/2024",
+          "disclaimer": null,
+          "content": [
+            {
+              "title": "Article 1 - Collecte des données personnelles :",
+              "texts": [
+                "Webtrine s'engage à respecter la vie privée de ses utilisateurs. Les données personnelles collectées via le site (nom, prénom, adresse e-mail, etc.) sont strictement confidentielles et utilisées uniquement pour les besoins des services proposés par Webtrine."
+              ]
+            },
+            {
+              "title": "Article 2 - Utilisation des données :",
+              "texts": [
+                "Les données collectées sont utilisées pour la gestion des commandes, la communication avec les clients, et l'amélioration des services. Elles ne sont en aucun cas cédées ou vendues à des tiers sans le consentement préalable des utilisateurs."
+              ]
+            },
+            {
+              "title": "Article 3 - Données à caractère personnel collectées et traitées dans le cadre de la navigation sur le site",
+              "texts": [
+                "Webtrine met en œuvre toutes les mesures techniques et organisationnelles nécessaires pour garantir la sécurité des données personnelles de ses utilisateurs."
+              ]
+            },
+            {
+              "title": "Article 4 - Responsable du traitement des données",
+              "texts": [
+                "Conformément à la réglementation en vigueur, les utilisateurs disposent d'un droit d'accès, de rectification, d'opposition et de suppression de leurs données personnelles. Pour exercer ce droit, il suffit de contacter Webtrine à l'adresse suivante : webtrine.pro@gmail.com"
+              ]
+            },
+            {
+              "title": "Article 5 - Modifications de la politique de confidentialité :",
+              "texts": [
+                "Webtrine se réserve le droit de modifier à tout moment la présente politique de confidentialité. Les utilisateurs seront informés de toute modification substantielle via le site."
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  }
+}
