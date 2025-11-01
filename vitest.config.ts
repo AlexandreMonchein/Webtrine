@@ -21,6 +21,7 @@ export default mergeConfig(
     ],
     test: {
       globals: true, // Added globals option (sometimes required for Storybook/Vitest)
+      environment: 'jsdom', // Add jsdom environment for DOM testing
       browser: {
         enabled: true,
         name: "chromium",
