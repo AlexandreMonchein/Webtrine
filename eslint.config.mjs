@@ -61,15 +61,6 @@ export default tseslint.config([
     rules: reactHooks.configs.recommended.rules,
     name: "plugin/react-hook",
   },
-  {
-    name: "plugin/react-compiler",
-    plugins: {
-      "react-compiler": reactCompiler,
-    },
-    rules: {
-      "react-compiler/react-compiler": "warn",
-    },
-  },
   ...importConfigs,
   {
     ...jsxA11y.flatConfigs.strict,
@@ -84,13 +75,6 @@ export default tseslint.config([
     },
   },
   ...configConfigs,
-  {
-    name: "config/storybook",
-    files: ["apps/app-storybook/**/*"],
-    rules: {
-      "jstools/no-nullish-coalescing-operator": "off",
-    },
-  },
   {
     ...pluginEslintPluginPrettierRecommended,
     name: "plugin/prettier",

@@ -33,27 +33,6 @@ export const baseConfig = {
     "react-hooks/rules-of-hooks": "error",
 
     /**
-     * i18n rules
-     */
-    "@m6web/i18n/no-unknown-key": "error",
-    "@m6web/i18n/no-unknown-key-secondary-langs": "off",
-    "@m6web/i18n/no-text-as-attribute": [
-      "error",
-      { attributes: ["alt", "title"] },
-    ],
-    "@m6web/i18n/no-text-as-children": [
-      "error",
-      { ignorePattern: "^\\s?[/.]\\s?$" },
-    ],
-    "@m6web/i18n/interpolation-data": [
-      "error",
-      {
-        interpolationPattern:
-          "%\\((?!appDisplayName|companyName|companyShortName|companyLegalName).+\\)[sdj]",
-      },
-    ],
-
-    /**
      * Typescript rules
      */
     "@typescript-eslint/no-unsafe-function-type": "off",
@@ -124,7 +103,6 @@ export const baseConfig = {
     "no-useless-concat": "error",
     "prefer-template": "error",
     "no-constant-binary-expression": "error",
-    "jstools/no-nullish-coalescing-operator": "error",
     "no-restricted-syntax": [
       "error",
       {
