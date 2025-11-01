@@ -12,16 +12,14 @@ import {
 import { ActionCardsListProps } from "./actionCardsList.types";
 import { getCustomer } from "../../../customer.utils";
 
-export const ActionCardsList: React.FC<ActionCardsListProps> = ({
-  sectionTitle,
-  cards,
-}) => {
+const ActionCardsList: React.FC<ActionCardsListProps> = (props) => {
   const customer = getCustomer();
+  const { title, cards } = props;
 
   return (
     <Section aria-labelledby="action-cards-list-title">
-      {sectionTitle ? (
-        <SectionTitle id="action-cards-list-title">{sectionTitle}</SectionTitle>
+      {title ? (
+        <SectionTitle id="action-cards-list-title">{title}</SectionTitle>
       ) : null}
 
       <CardsGrid>
@@ -37,12 +35,14 @@ export const ActionCardsList: React.FC<ActionCardsListProps> = ({
               <CardContent>
                 {card.title ? <h3 tabIndex={0}>{card.title}</h3> : null}
                 <ButtonsWrapper>
-                  {card.description ? <p tabIndex={0}>{card.description}</p> : null}
+                  {card.description ? (
+                    <p tabIndex={0}>{card.description}</p>
+                  ) : null}
                   {card.buttons
                     ? card.buttons.map((btn, index) => (
                         <ActionCardButton
-                          to={{ pathname: "/contact" }}
-                          state={{ title: btn.label }}
+                          to={{ pathname: "/information" }}
+                          state={{ type: btn.type }}
                           key={index}
                           tabIndex={0}
                           type="button"
@@ -60,3 +60,5 @@ export const ActionCardsList: React.FC<ActionCardsListProps> = ({
     </Section>
   );
 };
+
+export default ActionCardsList;

@@ -20,7 +20,7 @@ export const RootStyle = createGlobalStyle<{ globalStyle }>`
     --beige: ${(props) => _.get(props, "globalStyle.beige")};
     --light-beige: ${(props) => _.get(props, "globalStyle.light-beige")};
 
-    --nav-hover-color: var(--white);
+    --nav-hover-color: var(--beige);
     --link-hover-color: var(--brown);
 
     --navigation-text-color: var(--white);

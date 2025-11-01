@@ -24,12 +24,13 @@ export const Section = styled.section`
 export const SectionTitle = styled.h2`
   text-align: center;
   font-size: var(--subtitle-font-size);
-  color: var(--title-color-1);
+  color: var(--title-color-2);
   margin-bottom: 40px;
 `;
 
 export const CardsGrid = styled.div`
   display: grid;
+  justify-content: center;
   gap: 24px;
 
   /* Mobile: 1 colonne */
@@ -79,7 +80,7 @@ export const Card = styled.article`
 export const CardImageWrapper = styled.div`
   width: 100%;
   height: 100%;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 9 / 16;
   overflow: hidden;
   position: relative;
   flex-shrink: 0;
@@ -139,6 +140,7 @@ export const ActionCardButton = styled(Link)`
 
   &:hover,
   &:focus {
+    color: var(--black);
     background-color: var(--nav-hover-color);
     outline: none;
   }

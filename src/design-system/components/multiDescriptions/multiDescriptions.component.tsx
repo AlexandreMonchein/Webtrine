@@ -5,10 +5,12 @@ import { getTemplate } from "../../../App";
 import { useSelector } from "react-redux";
 import { getClient, getTemplates } from "../../../store/state.selector";
 import { Container } from "./multiDescriptions.styled";
+import { useLocation } from "react-router-dom";
 
 const regex = /-[0-9]/i;
 
 const MultiDescription = ({ templateName = null }) => {
+  const location = useLocation();
   const [components, setComponents] = useState<React.ReactNode[]>([]);
   const templates = useSelector(getTemplates);
   const { fullName } = useSelector(getClient);
@@ -20,8 +22,6 @@ const MultiDescription = ({ templateName = null }) => {
     templateName
   );
 
-  console.warn('>>> template', template);
-
   const {
     datas: { content, title, description },
   } = template || {};
@@ -32,7 +32,7 @@ const MultiDescription = ({ templateName = null }) => {
       const modules = import.meta.glob("../**/*.component.tsx");
 
       for (const [index, datas] of Object.entries(
-        content as Record<string, { type: string }>
+        content as Record<string, { type: string; id: string }>
       )) {
         const { type } = datas;
         const moduleName = index.replace(regex, "");
@@ -45,8 +45,23 @@ const MultiDescription = ({ templateName = null }) => {
               // @ts-expect-error TODO: to fix
               const Component = module.default;
 
-              // @ts-ignore
-              loadedComponents.push(<Component key={index} {...datas} />);
+              if (location.state) {
+                const { type } = location.state;
+                console.warn('>>>>> has locationState', type, datas);
+
+                if (datas.id === type) {
+                  console.warn(
+                    ">>> id match type, pushing component",
+                    datas.id,
+                    type
+                  );
+                  loadedComponents.push(<Component key={index} {...datas} />);
+                }
+              } else {
+                console.warn(`>>> no state`, datas.id, type);
+                // @ts-ignore
+                loadedComponents.push(<Component key={index} {...datas} />);
+              }
             }
           }
         } catch (error) {

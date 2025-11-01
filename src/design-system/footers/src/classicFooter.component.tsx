@@ -94,7 +94,7 @@ const ClassicFooter = (props) => {
       </LeftSection>
       <MiddleSection>
         <TopSection>
-          <p tabIndex={0}>Webtrine 2025 - tous droits réservés.</p>
+          <SiteRef tabIndex={0} href="https://www.webtrine.fr">Webtrine 2025 - tous droits réservés.</SiteRef>
         </TopSection>
         <BottomSection>
           {legals.map((legal, index) => (

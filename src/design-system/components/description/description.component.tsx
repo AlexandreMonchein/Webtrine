@@ -1,6 +1,6 @@
 import DOMPurify from "dompurify";
 import classNames from "classnames";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 import { getCustomer } from "../../../customer.utils";
 import { DescriptionProps, DescriptionContentItem } from "./description.types";
@@ -18,6 +18,7 @@ import {
 
 const Description: React.FC<DescriptionProps> = (datas) => {
   const customer = getCustomer();
+  const { state: locationState } = useLocation();
 
   const {
     features: { isReversed = false, isContinious = false },
@@ -28,7 +29,7 @@ const Description: React.FC<DescriptionProps> = (datas) => {
 
   const renderContentItem = (item: DescriptionContentItem, index: number) => {
     // Vérifier si c'est un bouton
-    if ('button' in item) {
+    if ("button" in item) {
       return (
         <ButtonLink key={index}>
           <Link to={item.button.to} tabIndex={0}>
@@ -39,7 +40,7 @@ const Description: React.FC<DescriptionProps> = (datas) => {
     }
 
     // Sinon c'est un texte
-    if ('text' in item) {
+    if ("text" in item) {
       return (
         <Text
           tabIndex={0}
@@ -74,7 +75,9 @@ const Description: React.FC<DescriptionProps> = (datas) => {
               />
             </ImageContainer>
           ) : null}
-          {content && content.map((item, index) => renderContentItem(item, index))}
+          {content
+            ? content.map((item, index) => renderContentItem(item, index))
+            : null}
         </Content>
       </Container>
     </Section>

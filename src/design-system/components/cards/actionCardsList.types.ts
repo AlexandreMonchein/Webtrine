@@ -5,11 +5,13 @@ export interface ActionCard {
   imageSrc?: string | null;
   buttons?: {
     label: string;
+    type: string;
     route: string;
   }[];
 }
 
 export interface ActionCardsListProps {
-  sectionTitle?: string | null;
+  features?: {};
+  title?: string | null;
   cards: ActionCard[];
 }

@@ -11,7 +11,7 @@ const meta: Meta<typeof Cards> = {
         component: `
 # Cards List Component
 
-Composant pour afficher une liste de cartes avec titre et description.
+Composant pour afficher une liste de cartes avec titre, description et image optionnelle.
 
 ## Configuration JSON pour intégration
 
@@ -20,12 +20,15 @@ Copiez et adaptez cette configuration dans votre \`config.json\` :
 \`\`\`json
 "cards-1": {
   "type": "cardsList",
-  "features": null,
+  "features": {
+    "displayInline": true
+  },
   "title": "Titre de votre section",
   "content": [
     {
       "title": "Titre de la première carte",
-      "description": "Description détaillée de la première carte. Peut contenir plusieurs phrases pour expliquer le concept ou service."
+      "description": "Description détaillée de la première carte. Peut contenir plusieurs phrases pour expliquer le concept ou service.",
+      "imageSrc": "nom_de_votre_image"
     },
     {
       "title": "Titre de la deuxième carte",
@@ -33,7 +36,8 @@ Copiez et adaptez cette configuration dans votre \`config.json\` :
     },
     {
       "title": "Titre de la troisième carte",
-      "description": "Description de la troisième carte pour compléter votre présentation."
+      "description": "Description de la troisième carte pour compléter votre présentation.",
+      "imageSrc": "autre_image"
     }
   ]
 }
@@ -42,14 +46,32 @@ Copiez et adaptez cette configuration dans votre \`config.json\` :
 ### Structure des cartes :
 - \`title\` : Titre principal de chaque carte
 - \`description\` : Texte descriptif détaillé
-- \`features\` : Configuration optionnelle (généralement \`null\`)
+- \`imageSrc\` : (Optionnel) Nom de l'image carrée à afficher au-dessus du titre
+
+### Options de \`features\` :
+- \`displayInline: true\` : Active l'affichage côte à côte avec logique intelligente
+- \`displayInline: false\` ou \`null\` : Affichage en pile (par défaut)
+
+### Logique d'affichage intelligent (mode inline) :
+- **1 carte** : Toujours en mode stack (pleine largeur)
+- **Nombre pair de cartes** :
+  - **Mobile** (< 768px) : 1 colonne
+  - **Tablette** (768px - 1239px) : 2 colonnes
+  - **Desktop large** (≥ 1240px) : 4 colonnes
+- **Nombre impair de cartes** :
+  - **Mobile** (< 768px) : 1 colonne
+  - **Tablette** (768px - 1239px) : 3 colonnes
+  - **Desktop large** (≥ 1240px) : 3 colonnes (maintient la symétrie)
+
+### Images :
+- Les images sont automatiquement rendues carrées (aspect-ratio: 1)
+- Format attendu : \`.webp\`
+- Chemin : \`assets/{customer}/{imageSrc}.webp\`
+- Si \`imageSrc\` n'est pas fourni, aucune image n'est affichée
 
 ### Cas d'usage typiques :
-- **Services** : Présentation des prestations
-- **Avantages** : Points forts de votre offre
-- **Processus** : Étapes d'un workflow
-- **FAQ** : Questions fréquentes
-- **Témoignages** : Retours clients
+- **Mode stack** : FAQ, témoignages détaillés, descriptions longues
+- **Mode inline** : Services, avantages, processus, équipe avec descriptions courtes
         `,
       },
     },
@@ -63,7 +85,12 @@ Copiez et adaptez cette configuration dans votre \`config.json\` :
     content: {
       control: "object",
       description:
-        "Tableau d'objets contenant les données des cartes (title, description)",
+        "Tableau d'objets contenant les données des cartes (title, description, imageSrc optionnel)",
+    },
+    features: {
+      control: "object",
+      description:
+        "Configuration des fonctionnalités : displayInline (true/false) pour l'affichage côte à côte",
     },
   },
 };
@@ -73,7 +100,7 @@ export default meta;
 type Story = StoryObj<typeof Cards>;
 
 export const Default: Story = {
-  name: "Par défaut (3 cartes)",
+  name: "Par défaut",
   args: {
     title: "Pourquoi avoir un site vitrine ?",
     content: [
@@ -98,26 +125,34 @@ export const Default: Story = {
     docs: {
       description: {
         story:
-          "Exemple avec 3 cartes, cas d'usage le plus courant pour présenter des avantages ou des services.",
+          "Exemple avec 3 cartes en mode stack (affichage par défaut), cas d'usage le plus courant pour les descriptions longues.",
       },
     },
   },
 };
 
-export const TwoCards: Story = {
-  name: "Deux cartes",
+export const WithImages: Story = {
+  name: "Avec images",
   args: {
-    title: "Nos avantages principaux",
+    title: "Nos services web",
     content: [
       {
-        title: "Rapidité de développement",
+        title: "Développement sur mesure",
         description:
-          "Grâce à notre système de templates, votre site est prêt en quelques jours seulement.",
+          "Création de sites web personnalisés selon vos besoins spécifiques. Nous utilisons les dernières technologies pour garantir performance et évolutivité.",
+        imageSrc: "square_image",
       },
       {
-        title: "Support continu",
+        title: "Design & UX/UI",
         description:
-          "Nous vous accompagnons même après la mise en ligne de votre site.",
+          "Conception d'interfaces modernes et intuitives. Nos designs sont pensés pour offrir la meilleure expérience utilisateur possible.",
+        imageSrc: "square_image",
+      },
+      {
+        title: "Maintenance & Support",
+        description:
+          "Accompagnement post-lancement avec maintenance technique, mises à jour de sécurité et support client réactif.",
+        imageSrc: "square_image",
       },
     ],
   },
@@ -125,87 +160,43 @@ export const TwoCards: Story = {
     docs: {
       description: {
         story:
-          "Exemple avec 2 cartes pour tester l'affichage en ligne ou en grille selon la configuration CSS.",
+          "Exemple avec des images carrées au-dessus de chaque titre. Idéal pour présenter des services avec des visuels explicites.",
       },
     },
   },
 };
 
-export const SingleCard: Story = {
-  name: "Carte unique",
+export const InlineDisplay: Story = {
+  name: "Affichage côte à côte",
   args: {
-    title: "Notre engagement",
-    content: [
-      {
-        title: "Qualité garantie",
-        description:
-          "Nous nous engageons à livrer un site web de qualité professionnelle, optimisé pour tous les appareils et respectant les standards d'accessibilité.",
-      },
-    ],
-  },
-  parameters: {
-    docs: {
-      description: {
-        story:
-          "Exemple avec une seule carte pour tester l'affichage minimal du composant.",
-      },
+    title: "Nos services",
+    features: {
+      displayInline: true,
     },
-  },
-};
-
-export const LongContent: Story = {
-  name: "Contenu long",
-  args: {
-    title: "Processus détaillé",
     content: [
       {
-        title: "Analyse approfondie de vos besoins",
+        title: "Développement",
         description:
-          "Nous commençons par une phase d'analyse complète de vos besoins, de votre secteur d'activité et de vos objectifs. Cette étape nous permet de comprendre parfaitement votre projet et de vous proposer la solution la plus adaptée à votre situation.",
-      },
-      {
-        title: "Conception et développement personnalisé",
-        description:
-          "Ensuite, nous procédons à la conception graphique et au développement de votre site. Chaque élément est pensé pour offrir la meilleure expérience utilisateur possible tout en reflétant l'identité de votre entreprise.",
-      },
-    ],
-  },
-  parameters: {
-    docs: {
-      description: {
-        story:
-          "Exemple avec du contenu long pour tester le comportement responsive et l'affichage de textes étendus.",
-      },
-    },
-  },
-};
-
-// Story supplémentaire pour tester les cas limites
-export const ManyCards: Story = {
-  name: "Nombreuses cartes (5)",
-  args: {
-    title: "Notre gamme complète de services",
-    content: [
-      {
-        title: "Développement Web",
-        description:
-          "Sites vitrines, e-commerce et applications web sur mesure.",
+          "Sites web modernes et performants adaptés à vos besoins.",
+        imageSrc: "service_dev",
       },
       {
         title: "Design UX/UI",
-        description: "Conception d'interfaces modernes et intuitives.",
+        description:
+          "Interfaces intuitives et esthétiques pour vos utilisateurs.",
+        imageSrc: "service_design",
       },
       {
-        title: "Référencement SEO",
-        description: "Optimisation pour les moteurs de recherche.",
-      },
-      {
-        title: "Hébergement",
-        description: "Solutions d'hébergement sécurisées et performantes.",
+        title: "SEO",
+        description:
+          "Optimisation pour les moteurs de recherche.",
+        imageSrc: "service_seo",
       },
       {
         title: "Maintenance",
-        description: "Support technique et mises à jour régulières.",
+        description:
+          "Support technique et mises à jour régulières.",
+        imageSrc: "service_support",
       },
     ],
   },
@@ -213,29 +204,49 @@ export const ManyCards: Story = {
     docs: {
       description: {
         story:
-          "Exemple avec 5 cartes pour tester l'affichage en grille avec plus d'éléments.",
+          "Exemple avec affichage côte à côte activé (displayInline: true). Responsive : 1 colonne sur mobile, 2 sur tablette, 4 sur desktop.",
       },
     },
   },
 };
 
-export const ShortTitles: Story = {
-  name: "Titres courts",
+export const EvenCount: Story = {
+  name: "Nombre pair (6 cartes)",
   args: {
-    title: "Avantages",
+    title: "Nos 6 services principaux",
+    features: {
+      displayInline: true,
+    },
     content: [
       {
-        title: "Rapide",
-        description:
-          "Développement et mise en ligne en quelques jours seulement.",
+        title: "Développement web",
+        description: "Sites sur mesure avec les dernières technologies.",
+        imageSrc: "service_dev",
       },
       {
-        title: "Moderne",
-        description: "Design contemporain et technologies de pointe.",
+        title: "Design UX/UI",
+        description: "Interfaces modernes et intuitives.",
+        imageSrc: "service_design",
       },
       {
-        title: "Accessible",
-        description: "Respect des standards d'accessibilité web.",
+        title: "SEO",
+        description: "Optimisation pour les moteurs de recherche.",
+        imageSrc: "service_seo",
+      },
+      {
+        title: "E-commerce",
+        description: "Boutiques en ligne performantes.",
+        imageSrc: "service_ecommerce",
+      },
+      {
+        title: "Maintenance",
+        description: "Support technique continu.",
+        imageSrc: "service_support",
+      },
+      {
+        title: "Formation",
+        description: "Accompagnement et formation des équipes.",
+        imageSrc: "service_formation",
       },
     ],
   },
@@ -243,7 +254,52 @@ export const ShortTitles: Story = {
     docs: {
       description: {
         story:
-          "Exemple avec des titres courts pour tester l'équilibrage visuel des cartes.",
+          "6 cartes (nombre pair) : 2 colonnes sur tablette, 4 colonnes sur desktop. Affichage symétrique optimisé.",
+      },
+    },
+  },
+};
+
+export const OddCount: Story = {
+  name: "Nombre impair (5 cartes)",
+  args: {
+    title: "Nos 5 expertises clés",
+    features: {
+      displayInline: true,
+    },
+    content: [
+      {
+        title: "Stratégie digitale",
+        description: "Conseil et accompagnement dans votre transformation.",
+        imageSrc: "expertise_strategy",
+      },
+      {
+        title: "Développement",
+        description: "Solutions techniques sur mesure et évolutives.",
+        imageSrc: "expertise_dev",
+      },
+      {
+        title: "Design",
+        description: "Création d'identité visuelle et interfaces.",
+        imageSrc: "expertise_design",
+      },
+      {
+        title: "Marketing digital",
+        description: "Campagnes et optimisation de la visibilité.",
+        imageSrc: "expertise_marketing",
+      },
+      {
+        title: "Analytics",
+        description: "Mesure et analyse des performances.",
+        imageSrc: "expertise_analytics",
+      },
+    ],
+  },
+  parameters: {
+    docs: {
+      description: {
+        story:
+          "5 cartes (nombre impair) : 3 colonnes sur tablette et desktop. Évite les déséquilibres visuels.",
       },
     },
   },

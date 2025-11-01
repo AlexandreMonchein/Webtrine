@@ -69,6 +69,138 @@
       {
         "type": "description",
         "id": "multiDescriptions",
+        "name": "Information",
+        "datas": {
+          "title": "Informations",
+          "description": "Toutes les informations sur les prestations de Chillpaws",
+          "content": {
+            "description-1": {
+              "id": "pet_care",
+              "type": "description",
+              "title": "Garde d'animaux",
+              "features": { "isReversed": false, "isCentered": false },
+              "content": [
+                {
+                  "text": "Vous partez en vacances ou manquez de temps pour promener votre chien ? Un déplacement professionnel, une hospitalisation ou un imprévu ?"
+                },
+                {
+                  "text": "Je suis là pour m’occuper de votre animal en toute confiance et vous garantir un départ serein et sans stress. "
+                },
+                {
+                  "text": "Faire appel à un pet-sitter labelisé et certifié lors de vos absences garantit les meilleurs soins pour vos compagnons. Les chats et les chiens n’aiment pas être sortis de leur environnement, ils tiennent à leur territoire et s’y sentent en sécurité. Grâce aux visites quotidiennes, ils ne souffrent pas de déplacements stressants, ni de solitude, et je leur offre toute mon attention !"
+                },
+                {
+                  "text": "Prenez soin de lui comme il prend soin de vous !"
+                }
+              ]
+            },
+            "dataTable-1": {
+              "id": "pet_care",
+              "type": "dataTable",
+              "features": { "centeredTitles": true },
+              "title": "Tarifs des prestations complémentaires",
+              "subTitle": null,
+              "content": {
+                "columns": [
+                  { "header": "Type de prestation", "key": "type" },
+                  { "header": "Détail", "key": "detail" },
+                  { "header": "Tarif HT", "key": "price" }
+                ],
+                "data": [
+                  {
+                    "type": "Suppression / modification simple",
+                    "detail": "Texte, bouton, image, élément isolé. Prix par page et selon la quantité (hors éléments globaux reliés type menu, footer)",
+                    "price": "15 – 30 €"
+                  },
+                  {
+                    "type": "Ajout",
+                    "detail": "Ajouter une image, un bouton, une section simple",
+                    "price": "40 €"
+                  },
+                  {
+                    "type": "Création / modification de style",
+                    "detail": "Ajustements de style, responsive",
+                    "price": "50 – 100 €"
+                  },
+                  {
+                    "type": "Nouveau composant au sein d'une section/page",
+                    "detail": "Nouveau composant",
+                    "price": "100 – 200 €"
+                  },
+                  {
+                    "type": "Nouvelle section",
+                    "detail": "Ex : \"À propos\", \"Contact\" avec formulaire simple...",
+                    "price": "150 – 300 €"
+                  },
+                  {
+                    "type": "Nouvelle page complète",
+                    "detail": "Nouvelle page avec structure, contenu et responsive",
+                    "price": "250 – 500 €"
+                  }
+                ]
+              }
+            },
+            "description-2": {
+              "type": "description",
+              "title": "Garde de chien",
+              "features": { "isReversed": false, "isCentered": false }
+            },
+            "dataTable-2": {
+              "type": "dataTable",
+              "features": { "centeredTitles": true },
+              "title": "Tarifs des prestations complémentaires",
+              "subTitle": null,
+              "content": {
+                "columns": [
+                  { "header": "Type de prestation", "key": "type" },
+                  { "header": "Détail", "key": "detail" },
+                  { "header": "Tarif HT", "key": "price" }
+                ],
+                "data": [
+                  {
+                    "type": "Suppression / modification simple",
+                    "detail": "Texte, bouton, image, élément isolé. Prix par page et selon la quantité (hors éléments globaux reliés type menu, footer)",
+                    "price": "15 – 30 €"
+                  },
+                  {
+                    "type": "Ajout",
+                    "detail": "Ajouter une image, un bouton, une section simple",
+                    "price": "40 €"
+                  },
+                  {
+                    "type": "Création / modification de style",
+                    "detail": "Ajustements de style, responsive",
+                    "price": "50 – 100 €"
+                  },
+                  {
+                    "type": "Nouveau composant au sein d'une section/page",
+                    "detail": "Nouveau composant",
+                    "price": "100 – 200 €"
+                  },
+                  {
+                    "type": "Nouvelle section",
+                    "detail": "Ex : \"À propos\", \"Contact\" avec formulaire simple...",
+                    "price": "150 – 300 €"
+                  },
+                  {
+                    "type": "Nouvelle page complète",
+                    "detail": "Nouvelle page avec structure, contenu et responsive",
+                    "price": "250 – 500 €"
+                  }
+                ]
+              }
+            },
+            "description-3": {
+              "type": "description",
+              "title": "Garde de chat",
+              "features": { "isReversed": false, "isCentered": false }
+            }
+          }
+        }
+      },
+      {
+        "type": "description",
+        "id": "multiDescriptions",
         "name": "Home",
         "datas": {
           "title": "Accueil",
@@ -133,8 +265,77 @@
               }
             },
             "cards-1": {
+              "type": "actionCardsList",
+              "features": {},
+              "title": "Les Prestations de Chill Paws",
+              "cards": [
+                {
+                  "id": "1",
+                  "title": "Garde d'animaux en famille",
+                  "description": "Plus de 250 000 pet sitters attentionnés partout en France. La meilleure alternative à la pension pour chien et à la pension pour chat.",
+                  "imageSrc": "action_card_image_1",
+                  "buttons": [
+                    {
+                      "label": "Garde d'animaux",
+                      "type": "pet_care",
+                      "route": "/information"
+                    },
+                    {
+                      "label": "Garde de chien",
+                      "type": "dog_care",
+                      "route": "/information"
+                    },
+                    {
+                      "label": "Garde de chat",
+                      "type": "cat_care",
+                      "route": "/information"
+                    }
+                  ]
+                },
+                {
+                  "id": "2",
+                  "title": "Promenade de chien",
+                  "description": "Vous n'avez pas le temps de promener votre toutou ? Nos promeneurs s'en occupent !",
+                  "imageSrc": "action_card_image_2",
+                  "buttons": [
+                    {
+                      "label": "Promenade de chien",
+                      "type": "dog_walking",
+                      "route": "/information"
+                    }
+                  ]
+                },
+                {
+                  "id": "3",
+                  "title": "Visite de chat",
+                  "description": "Pendant votre absence, un cat sitter rend visite à votre chat pour le nourrir et entretenir sa litière.",
+                  "imageSrc": "action_card_image_3",
+                  "buttons": [
+                    {
+                      "label": "Visite de chat",
+                      "type": "cat_visits",
+                      "route": "/information"
+                    }
+                  ]
+                },
+                {
+                  "id": "4",
+                  "title": "Garde de NAC",
+                  "description": "Lapin, furet, oiseau... nos pet sitters s'adaptent à leurs besoins spécifiquement.",
+                  "imageSrc": "action_card_image_4",
+                  "buttons": [
+                    {
+                      "label": "Garde de NAC",
+                      "type": "nac_care",
+                      "route": "/information"
+                    }
+                  ]
+                }
+              ]
+            },
+            "cards-2": {
               "type": "cardsList",
-              "features": null,
+              "features": {},
               "title": "Les avantages d'une pet sitter à lyon",
               "content": [
                 {
@@ -162,25 +363,236 @@
                   "description": "Ma présence régulière dissuade les cambrioleurs et les personnes mal intentionnées pendant vos absences"
                 }
               ]
-            },
-            "banner-2": {
-              "type": "banner",
-              "features": { "multi": false, "medium": true },
-              "title": "Contactez-nous pour plus de renseignement",
-              "subTitle": null,
-              "images": [
+            }
+          }
+        }
+      },
+      {
+        "type": "description",
+        "id": "multiDescriptions",
+        "name": "Presentation",
+        "datas": {
+          "title": "Qui suis-je ?",
+          "description": null,
+          "content": {
+            "description-1": {
+              "type": "description",
+              "title": "Qui suis-je ?",
+              "features": { "isReversed": false, "isCentered": false },
+              "content": [
                 {
-                  "name": "banner_2"
+                  "text": "Je suis Océane et j'ai un beau sourire ! Voila merci et à bientôt !"
                 }
               ],
-              "textPosition": "center-left",
-              "contact": [
+              "image": {
+                "name": "ogee",
+                "alt": "",
+                "focusable": false
+              }
+            }
+          }
+        }
+      },
+      {
+        "type": "description",
+        "id": "multiDescriptions",
+        "name": "Prestation",
+        "datas": {
+          "title": "Mes services",
+          "description": null,
+          "content": {
+            "description-1": {
+              "type": "description",
+              "title": "Visite pour chats",
+              "features": { "isReversed": false, "isCentered": false },
+              "content": [
                 {
-                  "type": "redirect",
-                  "to": "contact",
-                  "displayedText": "Aller au formulaire de contact"
+                  "text": "Durée : de 40 minutes à 1 heure."
+                },
+                {
+                  "text": "30 minutes minimum sont entièrement dédiées à l’animal : nourriture, médicaments, eau fraîche, ainsi que des photos et vidéos envoyées chaque jour."
+                },
+                {
+                  "text": "Pour les longs séjours, il est possible d’effectuer un petit entretien du logement."
+                }
+              ],
+              "image": {
+                "name": "prestation_image_1",
+                "alt": "",
+                "focusable": false
+              }
+            },
+            "description-2": {
+              "type": "description",
+              "title": "Promenade de chiens",
+              "features": { "isReversed": true, "isCentered": false },
+              "content": [
+                {
+                  "text": "Je viens chercher votre chien à votre domicile (Laisse et harnais à fournir)."
+                },
+                {
+                  "text": "Durée : de 30 minutes à 1 heure."
+                },
+                {
+                  "text": "Une gamelle d’eau est disponible pendant toute la balade."
+                }
+              ],
+              "image": {
+                "name": "prestation_image_2",
+                "alt": "",
+                "focusable": false
+              }
+            },
+            "description-3": {
+              "type": "description",
+              "title": "Transport animalier",
+              "features": { "isReversed": false, "isCentered": false },
+              "content": [
+                {
+                  "text": "Pour les petits trajets (vétérinaire, toilettage, etc.), je propose un service de transport pouvant être réalisé avant votre retour de vacances."
+                },
+                {
+                  "text": "Le trajet est adapté selon l’animal, sans stress, grâce à l’utilisation de phéromones apaisantes."
+                },
+                {
+                  "text": "Je m’adapte à tous les types d’animaux."
+                }
+              ],
+              "image": {
+                "name": "prestation_image_3",
+                "alt": "",
+                "focusable": false
+              }
+            },
+            "description-4": {
+              "type": "description",
+              "title": "Déroulement",
+              "features": { "isReversed": false, "isCentered": false },
+              "content": [
+                {
+                  "text": "Après m’avoir contacté via le formulaire ou par téléphone, je vous recontacte sous 24 heures afin de convenir d’une pré-visite."
+                },
+                {
+                  "text": "Cette rencontre me permet de recueillir toutes les informations nécessaires au bon déroulement de mes services."
+                },
+                {
+                  "text": "La pré-visite nous permet de faire connaissance, d’observer votre animal et de prendre note de vos habitudes (nourriture, litière, soins, comportement, etc.)."
+                },
+                {
+                  "text": "C’est également le moment de valider la prestation choisie et de procéder à la remise des clés de votre logement."
+                },
+                {
+                  "text": "La pré-visite est obligatoire, afin de bien comprendre vos besoins et ceux de votre animal (elle peut être réalisée le jour même de votre départ)."
                 }
               ]
+            }
+          }
+        }
+      },
+      {
+        "type": "description",
+        "id": "multiDescriptions",
+        "name": "Faq",
+        "datas": {
+          "title": "FAQ",
+          "description": "Trouvez les réponses à vos questions",
+          "content": {
+            "q&a-1": {
+              "type": "q&a",
+              "features": {
+                "hasCategories": true,
+                "allowMultipleOpen": false
+              },
+              "title": "Les questions fréquentes qui nous sont demandées:",
+              "subtitle": null,
+              "content": {
+                "categories": [
+                  {
+                    "id": "general",
+                    "label": "Général",
+                    "items": [
+                      {
+                        "id": "gen-1",
+                        "question": "Qu'est-ce que l'offre Webtrine All-In-One ?",
+                        "answer": "<p>Webtrine propose une <strong>offre tout-en-un</strong> pour créer votre site vitrine sans prise de tête :</p><ul><li>Création de votre charte graphique</li><li>Création de votre site vitrine</li><li>Nom de domaine inclus</li><li>Hébergement sur serveur VPS OVH</li><li>Maintenance et support</li><li>1 modification gratuite par mois (6 premiers mois)</li></ul><p>Tout est inclus dans un seul prix : <strong>450€ HT</strong></p>"
+                      },
+                      {
+                        "id": "gen-2",
+                        "question": "Combien de temps faut-il pour créer mon site ?",
+                        "answer": "<p>Notre processus se déroule en <strong>5 étapes</strong> :</p><ol><li><strong>Consultation gratuite</strong> : analyse de vos besoins</li><li><strong>Devis personnalisé</strong> : proposition détaillée</li><li><strong>Conception</strong> : maquettes et validation</li><li><strong>Développement</strong> : création de votre site</li><li><strong>Livraison</strong> : formation et mise en ligne</li></ol><p>Le délai global est généralement de <strong>2 à 4 semaines</strong> selon la complexité de votre projet.</p>"
+                      },
+                      {
+                        "id": "gen-3",
+                        "question": "Comment me contacter ?",
+                        "answer": "<p>Vous pouvez joindre <strong>Alexandre Monschein</strong> :</p><ul><li><strong>Téléphone</strong> : +33 6 14 61 22 95</li><li><strong>Email</strong> : webtrine.pro@gmail.com</li><li><strong>LinkedIn</strong> : alexandre-monschein</li><li><strong>Formulaire de contact</strong> sur le site</li></ul><p>Je vous réponds rapidement pour discuter de votre projet !</p>"
+                      }
+                    ]
+                  },
+                  {
+                    "id": "pricing",
+                    "label": "Tarifs",
+                    "items": [
+                      {
+                        "id": "price-1",
+                        "question": "Combien coûte un site vitrine avec Webtrine ?",
+                        "answer": "<p>L'offre Webtrine All-In-One est à <strong>450€ HT</strong> et comprend :</p><ul><li>Création complète de votre site vitrine</li><li>Charte graphique personnalisée</li><li>Nom de domaine (si hébergé chez nous)</li><li>Hébergement sur VPS OVH</li><li>Maintenance et support</li><li>1 modification gratuite par mois (6 premiers mois)</li></ul><p>C'est un investissement <em>accessible</em> pour une présence web professionnelle !</p>"
+                      },
+                      {
+                        "id": "price-2",
+                        "question": "Quels sont les coûts récurrents ?",
+                        "answer": "<p>Après la création, les seuls frais récurrents sont :</p><ul><li><strong>Hébergement</strong> : 250€/an HT sur nos serveurs VPS OVH</li><li><strong>Nom de domaine</strong> : inclus si hébergé chez nous</li><li><strong>Maintenance</strong> : incluse dans l'hébergement</li></ul><p><strong>Pas de frais cachés</strong> ! Tout est transparent dès le devis.</p>"
+                      },
+                      {
+                        "id": "price-3",
+                        "question": "Combien coûtent les modifications après livraison ?",
+                        "answer": "<p>Tarifs des prestations complémentaires :</p><ul><li><strong>Modification simple</strong> (texte, image) : 15-30€ HT</li><li><strong>Ajout d'élément</strong> : 40€ HT</li><li><strong>Modification de style</strong> : 50-100€ HT</li><li><strong>Nouveau composant</strong> : 100-200€ HT</li><li><strong>Nouvelle section</strong> : 150-300€ HT</li><li><strong>Nouvelle page</strong> : 250-500€ HT</li></ul><p>Rappel : <em>1 modification gratuite par mois</em> les 6 premiers mois !</p>"
+                      }
+                    ]
+                  },
+                  {
+                    "id": "technical",
+                    "label": "Technique",
+                    "items": [
+                      {
+                        "id": "tech-1",
+                        "question": "Où sont hébergés les sites Webtrine ?",
+                        "answer": "<p>Vos sites sont hébergés chez <strong>OVH</strong>, leader européen :</p><ul><li><strong>VPS dédiés</strong> (Serveur Privé Virtuel)</li><li><strong>Ressources garanties</strong> (CPU, RAM, stockage)</li><li><strong>Certificats SSL</strong> Let's Encrypt automatiques</li><li><strong>Nom de domaine</strong> géré par OVH</li><li><strong>Sauvegardes</strong> et monitoring inclus</li></ul><p>Performances, sécurité et fiabilité garanties !</p>"
+                      },
+                      {
+                        "id": "tech-2",
+                        "question": "Mes sites sont-ils adaptés aux mobiles ?",
+                        "answer": "<p><strong>Absolument !</strong> Tous nos sites sont :</p><ul><li><strong>Responsive</strong> : adaptation automatique à tous les écrans</li><li><strong>Mobile-first</strong> : conçus d'abord pour mobile</li><li><strong>Optimisés</strong> : temps de chargement rapides</li><li><strong>Testés</strong> sur ordinateur, mobile et tablette</li></ul><p>Votre site sera parfait quel que soit le support utilisé !</p>"
+                      },
+                      {
+                        "id": "tech-3",
+                        "question": "Qu'est-ce que l'accessibilité web ?",
+                        "answer": "<p>L'accessibilité permet à <strong>tous</strong> d'utiliser votre site, y compris les 12 millions de personnes en situation de handicap en France :</p><ul><li><strong>Navigation clavier</strong> pour les handicaps moteurs</li><li><strong>Contrastes élevés</strong> pour les malvoyants</li><li><strong>Lecteurs d'écran</strong> compatibles</li><li><strong>Textes clairs</strong> pour les troubles cognitifs</li></ul><p>C'est un <em>droit fondamental</em> que nous respectons dans tous nos sites.</p>"
+                      }
+                    ]
+                  },
+                  {
+                    "id": "process",
+                    "label": "Processus",
+                    "items": [
+                      {
+                        "id": "process-1",
+                        "question": "Comment travaillez-vous avec vos templates ?",
+                        "answer": "<p>Nous proposons <strong>deux approches</strong> :</p><ul><li><strong>Templates existants</strong> : sélection de designs prêts à personnaliser</li><li><strong>Création sur mesure</strong> : si aucun template ne convient</li></ul><p>Dans tous les cas, nous adaptons entièrement le design à <em>votre image</em> et vos besoins spécifiques.</p>"
+                      },
+                      {
+                        "id": "process-2",
+                        "question": "Que dois-je préparer pour commencer ?",
+                        "answer": "<p>Pour optimiser la création de votre site :</p><ul><li><strong>Contenus textuels</strong> : présentation, services, coordonnées</li><li><strong>Images</strong> : photos, logos en haute qualité</li><li><strong>Objectifs</strong> : ce que vous attendez de votre site</li><li><strong>Inspirations</strong> : sites que vous appréciez (optionnel)</li></ul><p>Pas d'inquiétude, je vous accompagne dans cette préparation !</p>"
+                      },
+                      {
+                        "id": "process-3",
+                        "question": "Pourrai-je modifier mon site moi-même ?",
+                        "answer": "<p>Nos sites sont construits avec des technologies modernes mais ne disposent pas d'interface d'administration classique.</p><p><strong>Cependant</strong> :</p><ul><li>1 modification <strong>gratuite par mois</strong> les 6 premiers mois</li><li><strong>Tarifs préférentiels</strong> pour les modifications ultérieures</li><li><strong>Réactivité</strong> pour vos demandes de changements</li><li><strong>Conseils</strong> pour optimiser votre contenu</li></ul><p>Vous gardez le contrôle sans les contraintes techniques !</p>"
+                      }
+                    ]
+                  }
+                ]
+              }
             }
           }
         }

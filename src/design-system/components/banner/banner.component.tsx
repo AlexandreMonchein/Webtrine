@@ -47,8 +47,6 @@ const Banner = (datas) => {
     setCurrentIndex(index);
   };
 
-  console.warn('>>> subTitle2', subTitle2);
-
   return (
     <Content className={classNames(textPosition, { medium: medium })}>
       {contact ? (

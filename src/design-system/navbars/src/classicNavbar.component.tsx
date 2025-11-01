@@ -30,7 +30,7 @@ import {
   SubCategoryContainer,
 } from "./classicNavbar.styled";
 import { getLogoDimensions } from "../../utils/dimensions.utils";
-import Calendly from "../../calendly/calendlyButton.component";
+import CalendlyButton from "../../components/calendly/calendlyButton.component";
 
 const ClassicNavbar = (props) => {
   const { i18n } = useTranslation();
@@ -195,7 +195,7 @@ const ClassicNavbar = (props) => {
             <ToggleThemeMode toggleTheme={toggleTheme} theme={theme} />
           ) : null}
           {calendlyUrl ? (
-            <Calendly url={calendlyUrl} />
+            <CalendlyButton url={calendlyUrl} />
           ) : null}
           {actionButton ? (
             actionButton.type === "call" ? (

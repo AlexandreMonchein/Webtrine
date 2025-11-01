@@ -722,7 +722,6 @@
               "per": null,
               "additionalDescription": null
             },
-
             "dataTable-1": {
               "type": "dataTable",
               "features": { "centeredTitles": true },

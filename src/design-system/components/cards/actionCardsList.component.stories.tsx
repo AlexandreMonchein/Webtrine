@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { MemoryRouter } from "react-router-dom";
-import { ActionCardsList } from "./actionCardsList.component";
+import ActionCardsList from "./actionCardsList.component";
 import { ActionCardsListProps } from "./actionCardsList.types";
 
 const meta: Meta<typeof ActionCardsList> = {
@@ -51,7 +51,7 @@ type Story = StoryObj<ActionCardsListProps>;
 
 export const Default: Story = {
   args: {
-    sectionTitle: "Les Prestations Animaute",
+    title: "Les Prestations Animaute",
     cards: [
       {
         id: "1",
@@ -60,9 +60,9 @@ export const Default: Story = {
           "Plus de 250 000 pet sitters attentionnés partout en France. La meilleure alternative à la pension pour chien et à la pension pour chat.",
         imageSrc: "vertical_image",
         buttons: [
-          { label: "Garde d'animaux", route: "/animaux" },
-          { label: "Garde de chien", route: "/chien" },
-          { label: "Garde de chat", route: "/chat" },
+          { label: "Garde d'animaux", type: "pet_care", route: "/animaux" },
+          { label: "Garde de chien", type: "dog_care", route: "/chien" },
+          { label: "Garde de chat", type: "cat_care", route: "/chat" },
         ],
       },
       {
@@ -71,7 +71,7 @@ export const Default: Story = {
         description:
           "Vous n'avez pas le temps de promener votre toutou ? Nos promeneurs s'en occupent !",
         imageSrc: "vertical_image",
-        buttons: [{ label: "Promenade de chien", route: "/promenade" }],
+        buttons: [{ label: "Promenade de chien", type: "dog_walking", route: "/promenade" }],
       },
       {
         id: "3",
@@ -79,7 +79,7 @@ export const Default: Story = {
         description:
           "Pendant votre absence, un cat sitter rend visite à votre chat pour le nourrir et entretenir sa litière.",
         imageSrc: "vertical_image",
-        buttons: [{ label: "Visite de chat", route: "/visite" }],
+        buttons: [{ label: "Visite de chat", type: "cat_visits", route: "/visite" }],
       },
       {
         id: "4",
@@ -87,7 +87,7 @@ export const Default: Story = {
         description:
           "Lapin, furet, oiseau... nos pet sitters s'adaptent à leurs besoins spécifiquement.",
         imageSrc: "vertical_image",
-        buttons: [{ label: "Garde de NAC", route: "/nac" }],
+        buttons: [{ label: "Garde de NAC", type: "nac_care", route: "/nac" }],
       },
     ],
   },

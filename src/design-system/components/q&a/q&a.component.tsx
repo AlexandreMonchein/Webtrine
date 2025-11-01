@@ -78,7 +78,11 @@ const AccordionItemComponent: React.FC<{
           <ChevronDownIcon />
         </ChevronIcon>
       </AccordionHeader>
-      <AccordionContent $isExpanded={isExpanded} $maxHeight={maxHeight}>
+      <AccordionContent
+        $isExpanded={isExpanded}
+        $maxHeight={maxHeight}
+        tabIndex={isExpanded ? 0 : -1}
+      >
         <AccordionBody
           ref={contentRef}
           id={`accordion-content-${item.id}`}
