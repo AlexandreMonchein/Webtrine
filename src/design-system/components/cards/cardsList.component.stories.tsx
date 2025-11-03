@@ -24,19 +24,32 @@ Copiez et adaptez cette configuration dans votre \`config.json\` :
     "displayInline": true
   },
   "title": "Titre de votre section",
+  "description": "Description de votre section",
   "content": [
     {
       "title": "Titre de la première carte",
-      "description": "Description détaillée de la première carte. Peut contenir plusieurs phrases pour expliquer le concept ou service.",
+      "description": [
+        {
+          "text": "Description détaillée de la première carte. Peut contenir plusieurs phrases pour expliquer le concept ou service."
+        }
+      ],
       "imageSrc": "nom_de_votre_image"
     },
     {
       "title": "Titre de la deuxième carte",
-      "description": "Description de la deuxième carte avec des informations pertinentes pour vos visiteurs."
+      "description": [
+        {
+          "text": "Description de la deuxième carte avec des informations pertinentes pour vos visiteurs."
+        }
+      ]
     },
     {
       "title": "Titre de la troisième carte",
-      "description": "Description de la troisième carte pour compléter votre présentation.",
+      "description": [
+        {
+          "text": "Description de la troisième carte pour compléter votre présentation."
+        }
+      ],
       "imageSrc": "autre_image"
     }
   ]
@@ -82,6 +95,10 @@ Copiez et adaptez cette configuration dans votre \`config.json\` :
       control: "text",
       description: "Titre principal affiché au-dessus des cartes",
     },
+    description: {
+      control: "text",
+      description: "Description affichée au-dessus des cartes",
+    },
     content: {
       control: "object",
       description:
@@ -103,21 +120,32 @@ export const Default: Story = {
   name: "Par défaut",
   args: {
     title: "Pourquoi avoir un site vitrine ?",
+    description:
+      "Découvrez les avantages clés d'un site vitrine pour votre entreprise.",
     content: [
       {
         title: "Une vitrine numérique à votre image",
-        description:
-          "Les réseaux sociaux c'est bien, mais un site web, c'est votre vitrine personnalisée, disponible 24/7. Vous bénéficiez d'une totale liberté de création pour montrer au monde votre entreprise.",
+        description: [
+          {
+            text: "Les réseaux sociaux c'est bien, mais un site web, c'est votre vitrine personnalisée, disponible 24/7. Vous bénéficiez d'une totale liberté de création pour montrer au monde votre entreprise.",
+          },
+        ],
       },
       {
         title: "Amélioration du référencement",
-        description:
-          "Je préfère être transparent : un site web ne garantit pas de figurer en première page de Google. Cependant, un SEO bien travaillé et un site bien développé et accessible améliore grandement votre visibilité sur les moteurs de recherche.",
+        description: [
+          {
+            text: "Je préfère être transparent : un site web ne garantit pas de figurer en première page de Google. Cependant, un SEO bien travaillé et un site bien développé et accessible améliore grandement votre visibilité sur les moteurs de recherche.",
+          },
+        ],
       },
       {
         title: "Un investissement accessible",
-        description:
-          "À partir de 450€ HT, un site vitrine représente un investissement abordable pour accroître votre présence en ligne et attirer de nouveaux clients.",
+        description: [
+          {
+            text: "À partir de 450€ HT, un site vitrine représente un investissement abordable pour accroître votre présence en ligne et attirer de nouveaux clients.",
+          },
+        ],
       },
     ],
   },
@@ -138,20 +166,29 @@ export const WithImages: Story = {
     content: [
       {
         title: "Développement sur mesure",
-        description:
-          "Création de sites web personnalisés selon vos besoins spécifiques. Nous utilisons les dernières technologies pour garantir performance et évolutivité.",
+        description: [
+          {
+            text: "Création de sites web personnalisés selon vos besoins spécifiques. Nous utilisons les dernières technologies pour garantir performance et évolutivité.",
+          },
+        ],
         imageSrc: "square_image",
       },
       {
         title: "Design & UX/UI",
-        description:
-          "Conception d'interfaces modernes et intuitives. Nos designs sont pensés pour offrir la meilleure expérience utilisateur possible.",
+        description: [
+          {
+            text: "Conception d'interfaces modernes et intuitives. Nos designs sont pensés pour offrir la meilleure expérience utilisateur possible.",
+          },
+        ],
         imageSrc: "square_image",
       },
       {
         title: "Maintenance & Support",
-        description:
-          "Accompagnement post-lancement avec maintenance technique, mises à jour de sécurité et support client réactif.",
+        description: [
+          {
+            text: "Accompagnement post-lancement avec maintenance technique, mises à jour de sécurité et support client réactif.",
+          },
+        ],
         imageSrc: "square_image",
       },
     ],
@@ -176,26 +213,24 @@ export const InlineDisplay: Story = {
     content: [
       {
         title: "Développement",
-        description:
-          "Sites web modernes et performants adaptés à vos besoins.",
+        description: [{ text: "Sites web modernes et performants adaptés à vos besoins." }],
         imageSrc: "service_dev",
       },
       {
         title: "Design UX/UI",
-        description:
-          "Interfaces intuitives et esthétiques pour vos utilisateurs.",
+        description: [
+          { text: "Interfaces intuitives et esthétiques pour vos utilisateurs." },
+        ],
         imageSrc: "service_design",
       },
       {
         title: "SEO",
-        description:
-          "Optimisation pour les moteurs de recherche.",
+        description: [{ text: "Optimisation pour les moteurs de recherche." }],
         imageSrc: "service_seo",
       },
       {
         title: "Maintenance",
-        description:
-          "Support technique et mises à jour régulières.",
+        description: [{ text: "Support technique et mises à jour régulières." }],
         imageSrc: "service_support",
       },
     ],
@@ -220,32 +255,32 @@ export const EvenCount: Story = {
     content: [
       {
         title: "Développement web",
-        description: "Sites sur mesure avec les dernières technologies.",
+        description: [{ text: "Sites sur mesure avec les dernières technologies." }],
         imageSrc: "service_dev",
       },
       {
         title: "Design UX/UI",
-        description: "Interfaces modernes et intuitives.",
+        description: [{ text: "Interfaces modernes et intuitives." }],
         imageSrc: "service_design",
       },
       {
         title: "SEO",
-        description: "Optimisation pour les moteurs de recherche.",
+        description: [{ text: "Optimisation pour les moteurs de recherche." }],
         imageSrc: "service_seo",
       },
       {
         title: "E-commerce",
-        description: "Boutiques en ligne performantes.",
+        description: [{ text: "Boutiques en ligne performantes." }],
         imageSrc: "service_ecommerce",
       },
       {
         title: "Maintenance",
-        description: "Support technique continu.",
+        description: [{ text: "Support technique continu." }],
         imageSrc: "service_support",
       },
       {
         title: "Formation",
-        description: "Accompagnement et formation des équipes.",
+        description: [{ text: "Accompagnement et formation des équipes." }],
         imageSrc: "service_formation",
       },
     ],
@@ -270,27 +305,27 @@ export const OddCount: Story = {
     content: [
       {
         title: "Stratégie digitale",
-        description: "Conseil et accompagnement dans votre transformation.",
+        description: [{ text: "Conseil et accompagnement dans votre transformation." }],
         imageSrc: "expertise_strategy",
       },
       {
         title: "Développement",
-        description: "Solutions techniques sur mesure et évolutives.",
+        description: [{ text: "Solutions techniques sur mesure et évolutives." }],
         imageSrc: "expertise_dev",
       },
       {
         title: "Design",
-        description: "Création d'identité visuelle et interfaces.",
+        description: [{ text: "Création d'identité visuelle et interfaces." }],
         imageSrc: "expertise_design",
       },
       {
         title: "Marketing digital",
-        description: "Campagnes et optimisation de la visibilité.",
+        description: [{ text: "Campagnes et optimisation de la visibilité." }],
         imageSrc: "expertise_marketing",
       },
       {
         title: "Analytics",
-        description: "Mesure et analyse des performances.",
+        description: [{ text: "Mesure et analyse des performances." }],
         imageSrc: "expertise_analytics",
       },
     ],

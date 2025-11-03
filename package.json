@@ -97,14 +97,12 @@
   },
   "scripts": {
     "start": "VITE_CUSTOMER=${VITE_CUSTOMER:=webtrine} vite",
-    "storybook": "storybook dev -p 6006",
+    "storybook": "VITE_CUSTOMER=${VITE_CUSTOMER:=showcase} storybook dev -p 6006",
     "build": "VITE_CUSTOMER=${VITE_CUSTOMER:=webtrine} ./scripts/build.sh",
     "build:storybook": "storybook build",
     "serve": "VITE_CUSTOMER=${VITE_CUSTOMER:=webtrine} ./scripts/serve.sh",
-    "test": "VITE_CUSTOMER=${VITE_CUSTOMER:=webtrine} react-scripts test",
-    "test:components": "VITE_CUSTOMER=${VITE_CUSTOMER:=webtrine} vitest --config vitest.component.config.ts",
-    "test:components:run": "VITE_CUSTOMER=${VITE_CUSTOMER:=webtrine} vitest --config vitest.component.config.ts --run",
-    "test-storybook": "vitest --project=storybook",
+    "test": "VITE_CUSTOMER=${VITE_CUSTOMER:=webtrine} vitest --config vitest.component.config.ts",
+    "test:run": "VITE_CUSTOMER=${VITE_CUSTOMER:=webtrine} vitest --config vitest.component.config.ts --run",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx",
     "convert:webp": "node ./scripts/convert-to-webp.js"
   },

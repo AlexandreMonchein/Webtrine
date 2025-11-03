@@ -15,11 +15,13 @@ import GlobalStyle from "./theme/customer/default/globalStyled";
 import { getCustomer } from "./customer.utils";
 import ScrollToTop from "./scrollToTop.utils";
 import KeyboardShortcuts from "./design-system/components/shortcut/keyboardShortcuts.component";
+import FloatingSocials from "./design-system/components/floatingUI/floatingSocials.component";
 
 export const templatesTypesBlackList = [
   "navbars",
   "footers",
   "error",
+  "flotingUI",
   "gallery",
   "legals",
   "prices",
@@ -92,9 +94,11 @@ function App(props) {
 
   const globalStyle = useSelector(getStyle);
 
+
   const navbarTemplate = getTemplate(templates, "navbars");
-  const galleryTemplate = getTemplate(templates, "gallery");
   const footerTemplate = getTemplate(templates, "footers");
+  const galleryTemplate = getTemplate(templates, "gallery");
+  const flaotingUI = getTemplate(templates, "floatingUI");
 
   useEffect(() => {
     const clientName = import.meta.env.VITE_CUSTOMER;
@@ -119,13 +123,14 @@ function App(props) {
       {RootStyle && <RootStyle globalStyle={{ ...globalStyle }} />}
       <div data-theme={theme}>
         <KeyboardShortcuts />
-        {navbarTemplate && (
+        {flaotingUI ? <FloatingSocials /> : null}
+        {navbarTemplate ? (
           <DisplayNavbar
             template={navbarTemplate}
             toggleTheme={toggleTheme}
             theme={theme}
           />
-        )}
+        ) : null}
         <Routes>
           <Route path="/" element={<MultiDescription templateName="Home" />} />
           <Route

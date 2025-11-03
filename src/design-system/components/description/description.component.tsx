@@ -14,6 +14,7 @@ import {
   SectionTitle,
   Text,
   ButtonLink,
+  ButtonWrapper,
 } from "./description.styled";
 
 const Description: React.FC<DescriptionProps> = (datas) => {
@@ -31,11 +32,13 @@ const Description: React.FC<DescriptionProps> = (datas) => {
     // Vérifier si c'est un bouton
     if ("button" in item) {
       return (
-        <ButtonLink key={index}>
-          <Link to={item.button.to} tabIndex={0}>
-            {item.button.label}
-          </Link>
-        </ButtonLink>
+        <ButtonWrapper key={`${item.button.label}-${index}`}>
+          <ButtonLink>
+            <Link to={item.button.to} tabIndex={0}>
+              {item.button.label}
+            </Link>
+          </ButtonLink>
+        </ButtonWrapper>
       );
     }
 

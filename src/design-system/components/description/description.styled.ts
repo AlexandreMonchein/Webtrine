@@ -95,6 +95,7 @@ export const TextContent = styled.div`
 
 export const Text = styled.p`
   width: 100%;
+  padding-bottom: 16px;
 
   a {
     background: linear-gradient(
@@ -118,13 +119,6 @@ export const Text = styled.p`
         center bottom / 100% 100% no-repeat;
       color: var(--text-color-primary);
     }
-
-    ${bp.min(
-      breakpointNames.large,
-      css`
-        font-size: x-large;
-      `
-    )}
   }
 `;
 
@@ -141,17 +135,22 @@ export const DescriptionContentContainer = styled.li``;
 
 export const DescriptionContentWithBullet = styled.p``;
 
-export const ButtonLink = styled.div`
-  padding-bottom: 16px;
+export const ButtonWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+`;
+
+export const ButtonLink = styled.button`
+  border-radius: 64px;
 
   a {
     display: inline-block;
-    padding: 12px 24px;
+    font-size: x-large;
+    padding: 24px 64px;
     background-color: var(--button-background-color);
     color: var(--button-text-color);
     text-decoration: none;
-    border-radius: 8px;
-    font-weight: 500;
+    border-radius: 64px;
     transition: all 0.3s ease;
     border: 2px solid var(--button-background-color);
 

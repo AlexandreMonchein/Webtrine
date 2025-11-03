@@ -28,12 +28,19 @@ export const Title = styled.h2`
   text-align: center;
 `;
 
+export const Description = styled.p`
+  text-align: center;
+  padding-bottom: 24px;
+`;
+
 export const CardContainer = styled.div<{
   $displayInline?: boolean;
   $isEvenCount?: boolean;
+  $cardCount?: number;
 }>`
   display: grid;
   gap: 1rem;
+  justify-items: center; /* Centre les cartes dans leurs colonnes */
 
   /* Mode stack par défaut (si displayInline = false) */
   ${({ $displayInline }) =>
@@ -43,40 +50,44 @@ export const CardContainer = styled.div<{
     `}
 
   /* Mode inline (côte à côte) si displayInline = true */
-  ${({ $displayInline, $isEvenCount }) =>
+  ${({ $displayInline, $isEvenCount, $cardCount = 0 }) =>
     $displayInline &&
     css`
       /* Mobile: toujours 1 colonne */
       grid-template-columns: 1fr;
 
-      /* Tablette et plus: logique pair/impair */
+      /* Tablette et plus: logique adaptative */
       ${bp.min(
         breakpointNames.medium,
         css`
           ${$isEvenCount
             ? css`
-                /* Nombre pair: 2 colonnes */
-                grid-template-columns: repeat(2, 1fr);
+                /* Nombre pair: 2 colonnes max */
+                grid-template-columns: repeat(${Math.min($cardCount, 2)}, 1fr);
+                justify-content: center;
               `
             : css`
-                /* Nombre impair: 3 colonnes */
-                grid-template-columns: repeat(3, 1fr);
+                /* Nombre impair: 3 colonnes max */
+                grid-template-columns: repeat(${Math.min($cardCount, 3)}, 1fr);
+                justify-content: center;
               `}
         `
       )}
 
-      /* Desktop large: adaptation selon pair/impair */
+      /* Desktop large: adaptation selon le nombre de cartes */
       ${bp.min(
         breakpointNames.xlarge,
         css`
           ${$isEvenCount
             ? css`
-                /* Nombre pair: 4 colonnes si plus de 2 cartes */
-                grid-template-columns: repeat(4, 1fr);
+                /* Nombre pair: 4 colonnes max, mais pas plus que le nombre de cartes */
+                grid-template-columns: repeat(${Math.min($cardCount, 4)}, 1fr);
+                justify-content: center;
               `
             : css`
-                /* Nombre impair: reste à 3 colonnes */
-                grid-template-columns: repeat(3, 1fr);
+                /* Nombre impair: 3 colonnes max, mais pas plus que le nombre de cartes */
+                grid-template-columns: repeat(${Math.min($cardCount, 3)}, 1fr);
+                justify-content: center;
               `}
         `
       )}
@@ -88,6 +99,7 @@ export const Card = styled.div`
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
   padding: 1rem;
+  width: -webkit-fill-available;
   transition: box-shadow 0.3s ease-in-out;
   display: flex;
   flex-direction: column;

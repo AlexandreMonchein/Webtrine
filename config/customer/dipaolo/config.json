@@ -10,8 +10,14 @@
       "mailTemplate": "template_u67t0nr"
     },
     "socials": {
-      "facebook": "https://www.facebook.com/laboratoire.dipaolo",
-      "instagram": "https://www.instagram.com/laboratoiredipaolo"
+      "facebook": {
+        "link": "https://www.facebook.com/laboratoire.dipaolo",
+        "color": "white"
+      },
+      "instagram": {
+        "link": "https://www.instagram.com/laboratoiredipaolo",
+        "color": "white"
+      }
     }
   },
   "layout": {

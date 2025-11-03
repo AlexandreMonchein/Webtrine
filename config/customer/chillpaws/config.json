@@ -9,7 +9,16 @@
       "email": "oceanemic.petsitting@gmail.com",
       "mailTemplate": "template_8b4j0fm"
     },
-    "socials": null
+    "socials": {
+      "facebook": {
+        "link": "https://www.facebook.com/chillpaws",
+        "color": "white"
+      },
+      "instagram": {
+        "link": "https://www.instagram.com/chillpaws/",
+        "color": "white"
+      }
+    }
   },
   "layout": {
     "templates": [
@@ -141,11 +150,13 @@
               }
             },
             "description-2": {
+              "id": "dog_care",
               "type": "description",
               "title": "Garde de chien",
               "features": { "isReversed": false, "isCentered": false }
             },
             "dataTable-2": {
+              "id": "dog_care",
               "type": "dataTable",
               "features": { "centeredTitles": true },
               "title": "Tarifs des prestations complémentaires",
@@ -191,11 +202,19 @@
               }
             },
             "description-3": {
+              "id": "cat_care",
               "type": "description",
               "title": "Garde de chat",
               "features": { "isReversed": false, "isCentered": false }
             }
           }
+        }
+      },
+      {
+        "type": "floatingUI",
+        "id": "floatingSocials",
+        "datas": {
+          "features": null
         }
       },
       {
@@ -221,20 +240,29 @@
             },
             "description-1": {
               "type": "description",
-              "title": "Pourquoi faire appel à moi ?",
+              "title": "Pourquoi faire appel à Chill Paws ?",
               "features": { "isReversed": false, "isCentered": false },
               "content": [
                 {
-                  "text": "Vous partez en vacances ou manquez de temps pour promener votre chien ? Un déplacement professionnel, une hospitalisation ou un imprévu ?"
+                  "text": "Vous partez en vacances ou en déplacement professionnel ? Vous devez faire face à une hospitalisation ou à un imprévu ? Ou bien vous manquez simplement de temps pour promener votre compagnon, ou l’emmener chez le vétérinaire ou le toiletteur ?"
                 },
                 {
-                  "text": "Je suis là pour m’occuper de votre animal en toute confiance et vous garantir un départ serein et sans stress. "
+                  "text": "Chill Paws est là pour s’occuper de votre animal avec bienveillance et professionnalisme. Partez l’esprit tranquille et sans stress, avec des nouvelles régulières (photos et vidéos) de votre compagnon. Je suis pet sitter à domicile, légalement déclarée et certifiée, afin de vous offrir, à vous et à votre animal, des soins de qualité et un service fiable."
                 },
                 {
-                  "text": "Faire appel à un pet-sitter labelisé et certifié lors de vos absences garantit les meilleurs soins pour vos compagnons. Les chats et les chiens n’aiment pas être sortis de leur environnement, ils tiennent à leur territoire et s’y sentent en sécurité. Grâce aux visites quotidiennes, ils ne souffrent pas de déplacements stressants, ni de solitude, et je leur offre toute mon attention !"
+                  "text": "Les animaux de compagnie tels que les chats, furets, petits mammifères et lagomorphes (lapins, etc.) sont très sensibles au stress lorsqu’ils sont sortis de leur environnement habituel."
                 },
                 {
-                  "text": "Prenez soin de lui comme il prend soin de vous !"
+                  "text": "C’est pourquoi je me déplace directement à votre domicile pour prendre soin d’eux, en respectant leurs repères et leur bien-être pendant votre absence."
+                },
+                {
+                  "text": "Durant votre absence, je veille également sur votre logement : aération, nettoyage des éventuelles salissures, et surveillance générale. Une présence régulière contribue aussi à réduire les risques de cambriolage."
+                },
+                {
+                  "button": {
+                    "label": "Découvrez mes services",
+                    "to": "/prestation"
+                  }
                 }
               ],
               "image": {
@@ -246,16 +274,31 @@
             "description-2": {
               "type": "description",
               "features": { "isReversed": true, "isContinious": false },
-              "title": "Pourquoi choisir un pet-sitter professionnel à Lyon ?",
+              "title": "Pourquoi choisir un pet sitter professionnel ?",
               "content": [
                 {
-                  "text": "Chaque animal a des besoins spéciaux et des limites différentes, un professionnel formé à la garde d’animaux sait s’adapter au caractère de chacun et est autorisé à procurer des soins simples en cas de problème de santé."
+                  "text": "De nombreuses plateformes proposent des services de garde d’animaux, mais la plupart des personnes inscrites ne sont ni formées, ni certifiées. Or, la formation est OBLIGATOIRE pour les professionnels."
                 },
                 {
-                  "text": "Le cat-sitter ou dog-sitter sait que certains petits amis à truffe ont besoin de calme et de douceur, quand d’autres meurent d’envie de courir et se défouler en promenade !"
+                  "text": "Les pet sitters professionnels sont déclarés à la Direction Départementale de la Protection des Populations (DDPP) et possèdent une attestation de connaissances des animaux de compagnie d’espèces domestiques (ACACED)."
                 },
                 {
-                  "text": "Enfin, une présence quotidienne à votre domicile garde la maison agréable grâce au petit “coup de propre” inclus dans mes prestations, et dissuade les cambrioleurs !"
+                  "text": "Grâce à cette formation, nous connaissons les besoins spécifiques et les précautions à prendre pour chaque espèce :"
+                },
+                {
+                  "text": "- Carnivores : chats, chiens, furets"
+                },
+                {
+                  "text": "- Petits mammifères : hamsters, rats, chinchillas…"
+                },
+                {
+                  "text": "- Lagomorphes : lapins de compagnie"
+                },
+                {
+                  "text": "- Poissons et oiseaux d’ornement"
+                },
+                {
+                  "text": "Ce métier de passion contribue à limiter les abandons et la maltraitance animale, en offrant aux propriétaires la possibilité de confier leurs compagnons à des personnes de confiance, tout en évitant une séparation douloureuse."
                 }
               ],
               "image": {
@@ -340,27 +383,27 @@
               "content": [
                 {
                   "title": "Réponse rapide 7j/7",
-                  "description": "Je me déplace tous les jours de l'année, même les week-ends et les jours fériés !"
+                  "description": [{ "text": "Je me déplace tous les jours de l'année, même les week-ends et les jours fériés !" }]
                 },
                 {
                   "title": "Tarifs degressifs et devis personnalisés",
-                  "description": "Vous me faites confiance, je récompense la vôtre !"
+                  "description": [{ "text": "Vous me faites confiance, je récompense la vôtre !" }]
                 },
                 {
                   "title": "Nouvelles quotidiennes",
-                  "description": "Photos et vidéos de votre animal et de votre logement à chaque visite."
+                  "description": [{ "text": "Photos et vidéos de votre animal et de votre logement à chaque visite." }]
                 },
                 {
                   "title": "Jeux fournis",
-                  "description": "Le bien-être de votre animal est ma priorité, je lui amène toujours de nouveaux jouets lors de mon passage."
+                  "description": [{ "text": "Le bien-être de votre animal est ma priorité, je lui amène toujours de nouveaux jouets lors de mon passage." }]
                 },
                 {
                   "title": "Coup de chiffon !",
-                  "description": "Je m'occupe de l'entretien de son lieu de son vie (litière, aération, nettoyage en cas de bêtises...)"
+                  "description": [{ "text": "Je m'occupe de l'entretien de son lieu de son vie (litière, aération, nettoyage en cas de bêtises...)" }]
                 },
                 {
                   "title": "Sécurité de la maison",
-                  "description": "Ma présence régulière dissuade les cambrioleurs et les personnes mal intentionnées pendant vos absences"
+                  "description": [{ "text": "Ma présence régulière dissuade les cambrioleurs et les personnes mal intentionnées pendant vos absences" }]
                 }
               ]
             }
@@ -381,7 +424,19 @@
               "features": { "isReversed": false, "isCentered": false },
               "content": [
                 {
-                  "text": "Je suis Océane et j'ai un beau sourire ! Voila merci et à bientôt !"
+                  "text": "Je m’appelle Océane. Ma profession principale est la réalisation de prothèses dentaires au sein d’un laboratoire. J’aime travailler de mes mains pour créer des appareils qui redonnent le sourire."
+                },
+                {
+                  "text": "Pendant mon temps libre, j’aime m’occuper des animaux et leur offrir toute l’attention dont ils ont besoin. Je suis une personne sérieuse, avec un grand sens du détail, et aussi énergique que certains animaux domestiques — ce qui ravira sans doute le vôtre !"
+                },
+                {
+                  "text": "J’ai choisi le nom Chill Paws, qui se traduit par « Patoune tranquille » en français. À travers ce nom, je souhaite transmettre la sérénité et le bien-être des animaux lorsque leurs maîtres ne peuvent pas être présents."
+                },
+                {
+                  "text": "J’ai décidé de devenir pet-sitter professionnelle afin de combiner ma passion pour les animaux avec mon envie d’aider les propriétaires à prendre soin de leurs compagnons pendant leurs absences."
+                },
+                {
+                  "text": "Sous ma garde, vos compagnons seront eux aussi en vacances : choyés, câlinés et entourés, selon leurs besoins."
                 }
               ],
               "image": {
@@ -389,6 +444,53 @@
                 "alt": "",
                 "focusable": false
               }
+            },
+            "cards-1": {
+              "type": "cardsList",
+              "features": { "displayInline": true },
+              "title": "Mes potits chats 🐱",
+              "description": "Mon conjoint et moi partageons un amour réciproque pour les chats, c’est pourquoi nous avons deux magnifiques compagnons à quatre pattes.",
+              "content": [
+                {
+                  "title": "🐾 Tigrou – 3 ans",
+                  "description": [
+                    {
+                      "text": "Je suis un chat calme, mais un peu bruyant quand le chat du voisin s’approche trop près de mon territoire !"
+                    },
+                    {
+                      "text": "Mes endroits préférés sont les hamacs et les jambes de maman, parfaits pour dormir paisiblement."
+                    },
+                    {
+                      "text": "Mon jouet favori est un doudou à l’herbe à chat."
+                    },
+                    {
+                      "text": "J’aime beaucoup mes parents et je leur montre en leur faisant plein de bisous !"
+                    }
+                  ],
+                  "imageSrc": "tigrou_2"
+                },
+                {
+                  "title": "🐾 Luna – 2 ans",
+                  "description": [
+                    {
+                      "text": "Je suis très énergique et un peu dominante : j’ai besoin de beaucoup me dépenser ! Quand j’ai envie de jouer, j’apporte mon jouet dans la bouche à mes parents pour le leur faire comprendre."
+                    },
+                    {
+                      "text": "J’adore l’eau et je préfère boire directement au robinet."
+                    },
+                    {
+                      "text": "Je suis tellement mignonne que les vétérinaires veulent toujours me garder un peu plus longtemps !"
+                    },
+                    {
+                      "text": "J’aime beaucoup embêter mon frère et lui courir après, mais surtout dormir avec lui et lui faire sa toilette."
+                    },
+                    {
+                      "text": "Mon jouet préféré est mon doudou marmotte, et mes endroits favoris sont le PC de mon papa et sous la couette."
+                    }
+                  ],
+                  "imageSrc": "luna_2"
+                }
+              ]
             }
           }
         }

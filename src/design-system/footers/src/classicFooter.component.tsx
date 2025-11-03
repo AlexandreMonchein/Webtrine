@@ -25,7 +25,7 @@ import { getLogoDimensions } from "../../utils/dimensions.utils";
 const ClassicFooter = (props) => {
   const [components, setComponents] = useState<React.ReactNode[]>([]);
   const { name: clientName } = useSelector(getClient);
-  const socials = useSelector(getSocials);
+  const socials: { [key: string]: { link: string; color: string } } = useSelector(getSocials);
   const legals = useSelector(getTemplates).filter(
     (template) => template.type === "legals"
   );
@@ -43,7 +43,7 @@ const ClassicFooter = (props) => {
       const loadedComponents: React.ReactNode[] = [];
 
       if (socials) {
-        for (const [name, link] of Object.entries(socials)) {
+        for (const [name, { link, color }] of Object.entries(socials)) {
           try {
             if (link) {
               const componentPath = `../../../assets/icons/${name}.component.tsx`;
@@ -59,7 +59,7 @@ const ClassicFooter = (props) => {
                     <SocialLogo>
                       {/* @ts-ignore TODO: fix this type error */}
                       <a aria-label={name} href={link}>
-                        <Component />
+                        <Component color={color} />
                       </a>
                     </SocialLogo>
                   </li>

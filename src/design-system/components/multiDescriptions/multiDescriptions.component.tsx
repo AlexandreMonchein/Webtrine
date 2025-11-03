@@ -47,18 +47,18 @@ const MultiDescription = ({ templateName = null }) => {
 
               if (location.state) {
                 const { type } = location.state;
-                console.warn('>>>>> has locationState', type, datas);
+                console.warn('>> has locationState', type, datas);
 
                 if (datas.id === type) {
                   console.warn(
-                    ">>> id match type, pushing component",
+                    ">> id match type, pushing component",
                     datas.id,
                     type
                   );
                   loadedComponents.push(<Component key={index} {...datas} />);
                 }
               } else {
-                console.warn(`>>> no state`, datas.id, type);
+                console.warn(`>> no state`, datas.id, type);
                 // @ts-ignore
                 loadedComponents.push(<Component key={index} {...datas} />);
               }

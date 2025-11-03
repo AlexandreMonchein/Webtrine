@@ -6,18 +6,20 @@ import {
   CardTitle,
   CardDescription,
   Title,
+  Description,
   CardImage,
 } from "./cardsList.styled";
 import { getCustomer } from "../../../customer.utils";
 
 interface CardData {
   title: string;
-  description: string;
+  description: [{ text: string }];
   imageSrc?: string; // Image optionnelle
 }
 
 interface CardsProps {
   title: string;
+  description: string;
   content: CardData[];
   features?: {
     displayInline?: boolean; // Active l'affichage côte à côte
@@ -25,7 +27,7 @@ interface CardsProps {
 }
 
 const Cards: React.FC<CardsProps> = (props) => {
-  const { title, content, features } = props;
+  const { title, description, content, features } = props;
   const customer = getCustomer();
 
   // Calculer la logique d'affichage
@@ -37,10 +39,12 @@ const Cards: React.FC<CardsProps> = (props) => {
 
   return (
     <Section>
-      <Title tabIndex={0}>{title}</Title>
+      {title ? <Title tabIndex={0}>{title}</Title> : null}
+      {description ? <Description tabIndex={0}>{description}</Description> : null}
       <CardContainer
         $displayInline={!shouldUseStack}
         $isEvenCount={isEvenCount}
+        $cardCount={content.length}
       >
         {content.map((card, index) => (
           <Card key={index} tabIndex={0}>
@@ -51,7 +55,9 @@ const Cards: React.FC<CardsProps> = (props) => {
               />
             )}
             <CardTitle>{card.title}</CardTitle>
-            <CardDescription>{card.description}</CardDescription>
+            {card.description.map((desc, idx) => (
+              <CardDescription key={idx}>{desc.text}</CardDescription>
+            ))}
           </Card>
         ))}
       </CardContainer>

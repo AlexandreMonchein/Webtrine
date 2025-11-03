@@ -10,7 +10,10 @@
       "mailTemplate": "template_8b4j0fm"
     },
     "socials": {
-      "linkedin": "https://www.linkedin.com/in/alexandre-monschein-34984a161"
+      "linkedin": {
+        "link": "https://www.linkedin.com/in/alexandre-monschein-34984a161",
+        "color": "white"
+      }
     }
   },
   "layout": {
@@ -170,15 +173,15 @@
               "content": [
                 {
                   "title": "Une vitrine numérique à votre image",
-                  "description": "Les réseaux sociaux c'est bien, mais un site web, c'est votre vitrine personnalisée, disponible 24/7. Vous bénéficiez d'une totale liberté de création pour montrer au monde votre entreprise."
+                  "description": [{ "text": "Les réseaux sociaux c'est bien, mais un site web, c'est votre vitrine personnalisée, disponible 24/7. Vous bénéficiez d'une totale liberté de création pour montrer au monde votre entreprise." }]
                 },
                 {
                   "title": "Amélioration du référencement",
-                  "description": "Je préfère être transparent : un site web ne garantit pas de figurer en première page de Google. Cependant, un SEO bien travaillé et un site bien développé et accessible améliore grandement votre visibilité sur les moteurs de recherche."
+                  "description": [{ "text": "Je préfère être transparent : un site web ne garantit pas de figurer en première page de Google. Cependant, un SEO bien travaillé et un site bien développé et accessible améliore grandement votre visibilité sur les moteurs de recherche." }]
                 },
                 {
                   "title": "Un investissement accessible",
-                  "description": "À partir de 450€ HT, un site vitrine représente un investissement abordable pour accroître votre présence en ligne et attirer de nouveaux clients."
+                  "description": [{ "text": "À partir de 450€ HT, un site vitrine représente un investissement abordable pour accroître votre présence en ligne et attirer de nouveaux clients." }]
                 }
               ]
             },
