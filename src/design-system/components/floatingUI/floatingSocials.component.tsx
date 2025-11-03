@@ -6,7 +6,7 @@ import { getSocials } from "../../../store/state.selector";
 
 const FloatingSocials: React.FC<FloatingSocialsProps> = () => {
   const [components, setComponents] = useState<React.ReactNode[]>([]);
-  const socials = useSelector(getSocials);
+  const socials: { [key: string]: { link: string; color: string } } = useSelector(getSocials);
 
   const componentFiles = import.meta.glob(
     "../../../assets/**/**/*.component.tsx"
@@ -17,7 +17,7 @@ const FloatingSocials: React.FC<FloatingSocialsProps> = () => {
       const loadedComponents: React.ReactNode[] = [];
 
       if (socials) {
-        for (const [name, link] of Object.entries(socials)) {
+        for (const [name, { link }] of Object.entries(socials)) {
           try {
             if (link) {
               const componentPath = `../../../assets/icons/${name}.component.tsx`;
