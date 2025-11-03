@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { FloatingContainer, SocialLogo } from "./floatingSocials.styled";
-import { FloatingSocialsProps } from "./floatingSocials.types";
 import { useSelector } from "react-redux";
 import { getSocials } from "../../../store/state.selector";
 
-const FloatingSocials: React.FC<FloatingSocialsProps> = () => {
+const FloatingSocials: React.FC = () => {
   const [components, setComponents] = useState<React.ReactNode[]>([]);
   const socials: { [key: string]: { link: string; color: string } } = useSelector(getSocials);
 
