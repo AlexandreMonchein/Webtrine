@@ -123,6 +123,19 @@ const GlobalStyle = createGlobalStyle`
     list-style: none;
   }
 
+  blockquote {
+    margin: 0;
+    padding: 0;
+    border: none;
+    quotes: none;
+  }
+
+  blockquote:before,
+  blockquote:after {
+    content: '';
+    content: none;
+  }
+
   h1 {
     font-size: xxx-large;
   }
