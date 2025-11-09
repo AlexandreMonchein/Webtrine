@@ -56,8 +56,10 @@ export const getTemplate = (
         );
       }
     }
-    return template || undefined;
+    return template;
   }
+
+  return null;
 };
 
 function App(props) {

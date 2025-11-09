@@ -18,7 +18,6 @@ import { DescriptionContentItem, DescriptionProps } from "./description.types";
 
 const Description: React.FC<DescriptionProps> = (datas) => {
   const customer = getCustomer();
-  const { state: locationState } = useLocation();
 
   const {
     features: { isReversed = false, isContinious = false },

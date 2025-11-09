@@ -54,7 +54,7 @@ const Contact = () => {
               name="content"
               placeholder={t("contact.contentPlaceholder")}
               required
-            ></Textarea>
+            />
 
             <Button type="submit">{t("contact.send")}</Button>
           </ContactForm>

@@ -2,6 +2,7 @@ const Domain = ({ size = 24, color = "white", alternateColor = "black" }) => (
   <svg
     width={size}
     height={size}
+    color={color}
     xmlns="http://www.w3.org/2000/svg"
     shapeRendering="geometricPrecision"
     textRendering="geometricPrecision"

@@ -70,7 +70,7 @@ const ClassicNavbar = (props) => {
     i18n.changeLanguage(lang);
   };
 
-  const toggleSidebar = (e) => {
+  const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
     dispatch(
       toggleModal({ type: MODAL_TYPES.SIDE_NAV, active: isSidebarOpen }),
@@ -190,14 +190,12 @@ const ClassicNavbar = (props) => {
             <ToggleThemeMode toggleTheme={toggleTheme} theme={theme} />
           ) : null}
           {calendlyUrl ? <CalendlyButton url={calendlyUrl} /> : null}
-          {actionButton ? (
-            actionButton.type === "call" ? (
-              <ToggleButton
-                type="call"
-                displayedText={actionButton.displayedText}
-                hiddenText={actionButton.hiddenText}
-              />
-            ) : null
+          {actionButton && actionButton.type === "call" ? (
+            <ToggleButton
+              type="call"
+              displayedText={actionButton.displayedText}
+              hiddenText={actionButton.hiddenText}
+            />
           ) : null}
         </Settings>
       </Container>

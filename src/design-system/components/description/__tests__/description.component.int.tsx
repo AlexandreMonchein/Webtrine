@@ -124,7 +124,6 @@ describe("Description Component", () => {
   });
 
   it("is accessible via keyboard navigation", async () => {
-    const user = userEvent.setup();
     const props = createDescriptionProps({
       content: [
         { text: "Text content." },

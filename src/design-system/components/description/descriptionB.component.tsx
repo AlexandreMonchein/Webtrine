@@ -12,7 +12,6 @@ import {
   Img,
   RightFigure,
   Section,
-  VisuallyHidden,
 } from "./descriptionB.styled";
 import { DescriptionBProps } from "./descriptionB.types";
 
@@ -46,9 +45,8 @@ export const DescriptionB: React.FC<DescriptionBProps> = ({
   return (
     <Section id={id} aria-labelledby={sectionLabelId} className={className}>
       <Container>
-        {title ? (
-          <h2 id={sectionLabelId}>{title}</h2>
-        ) : subTitle ? (
+        {title ? <h2 id={sectionLabelId}>{title}</h2> : null}
+        {subTitle ? (
           <p id={sectionLabelId} className="sr-only">
             {subTitle}
           </p>
