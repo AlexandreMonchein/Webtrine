@@ -1,7 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import React, { useState } from "react";
-import FullscreenMode from "./fullscreenMode.component";
+
 import { useFullscreenMode } from "../../utils/useFullscreenMode";
+import FullscreenMode from "./fullscreenMode.component";
 
 const meta: Meta<typeof FullscreenMode> = {
   title: "Design System/Components/FullscreenMode",

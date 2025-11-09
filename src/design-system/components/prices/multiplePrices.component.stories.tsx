@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { MemoryRouter } from "react-router-dom";
+
 import MultiplePricesComponent from "./multiplePrices.component";
 
 const meta: Meta<typeof MultiplePricesComponent> = {

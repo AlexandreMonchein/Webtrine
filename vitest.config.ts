@@ -1,6 +1,7 @@
-import { storybookTest } from "@storybook/experimental-addon-test/vitest-plugin";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+
+import { storybookTest } from "@storybook/experimental-addon-test/vitest-plugin";
 import { defineConfig, mergeConfig } from "vitest/config";
 
 import viteConfig from "./vite.config";
@@ -21,7 +22,7 @@ export default mergeConfig(
     ],
     test: {
       globals: true, // Added globals option (sometimes required for Storybook/Vitest)
-      environment: 'jsdom', // Add jsdom environment for DOM testing
+      environment: "jsdom", // Add jsdom environment for DOM testing
       browser: {
         enabled: true,
         name: "chromium",

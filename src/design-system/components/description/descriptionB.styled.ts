@@ -1,5 +1,6 @@
 // DescriptionB.styled.ts
 import styled, { css } from "styled-components";
+
 import { bp } from "../../../breakpoint";
 import { breakpointNames } from "../../../breakpointDef";
 
@@ -10,14 +11,14 @@ export const Section = styled.section`
     breakpointNames.medium,
     css`
       padding: 20px 40px;
-    `
+    `,
   )}
 
   ${bp.min(
     (breakpointNames as any).wide || ("wide" as any),
     css`
       padding: 40px 480px;
-    `
+    `,
   )}
 `;
 
@@ -35,7 +36,7 @@ export const Grid = styled.div`
     css`
       grid-template-columns: 1fr 1fr;
       gap: 12px;
-    `
+    `,
   )}
 `;
 
@@ -50,7 +51,7 @@ export const Figure = styled.figure<{ $bleedTop?: boolean }>`
     breakpointNames.medium,
     css`
       transform: ${(p) => (p.$bleedTop ? "translateY(32px)" : "none")};
-    `
+    `,
   )}
 `;
 
@@ -64,7 +65,7 @@ export const Img = styled.img`
     breakpointNames.medium,
     css`
       width: 480px;
-    `
+    `,
   )}
 `;
 
@@ -78,7 +79,7 @@ export const Box = styled.div<{ $anchor: "top-left" | "bottom-right" }>`
     breakpointNames.medium,
     css`
       margin-top: -64px;
-    `
+    `,
   )}
 
   ${bp.min(
@@ -98,7 +99,7 @@ export const Box = styled.div<{ $anchor: "top-left" | "bottom-right" }>`
               bottom: -24px;
               transform: translate(-10%, 12%);
             `}
-    `
+    `,
   )}
 `;
 
@@ -140,6 +141,6 @@ export const RightFigure = styled(Figure)`
     breakpointNames.medium,
     css`
       transform: translateY(-32px);
-    `
+    `,
   )}
 `;

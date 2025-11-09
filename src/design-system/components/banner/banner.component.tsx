@@ -1,9 +1,8 @@
-import { useEffect, useState } from "react";
 import classNames from "classnames";
+import { useEffect, useState } from "react";
 
 import { getCustomer } from "../../../customer.utils";
 import { ToggleButton } from "../../buttons/src/classicButton.component";
-
 import {
   Background,
   BackgroundContainer,

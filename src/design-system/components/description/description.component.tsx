@@ -1,11 +1,11 @@
-import DOMPurify from "dompurify";
 import classNames from "classnames";
+import DOMPurify from "dompurify";
 import { Link, useLocation } from "react-router-dom";
 
 import { getCustomer } from "../../../customer.utils";
-import { DescriptionProps, DescriptionContentItem } from "./description.types";
-
 import {
+  ButtonLink,
+  ButtonWrapper,
   Container,
   Content,
   Image,
@@ -13,9 +13,8 @@ import {
   Section,
   SectionTitle,
   Text,
-  ButtonLink,
-  ButtonWrapper,
 } from "./description.styled";
+import { DescriptionContentItem, DescriptionProps } from "./description.types";
 
 const Description: React.FC<DescriptionProps> = (datas) => {
   const customer = getCustomer();

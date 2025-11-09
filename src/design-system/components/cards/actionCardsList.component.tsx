@@ -1,16 +1,17 @@
 import React from "react";
+
+import { getCustomer } from "../../../customer.utils";
 import {
+  ActionCardButton,
+  ButtonsWrapper,
+  Card,
+  CardContent,
+  CardImageWrapper,
+  CardsGrid,
   Section,
   SectionTitle,
-  CardsGrid,
-  Card,
-  CardImageWrapper,
-  CardContent,
-  ButtonsWrapper,
-  ActionCardButton,
 } from "./actionCardsList.styled";
 import { ActionCardsListProps } from "./actionCardsList.types";
-import { getCustomer } from "../../../customer.utils";
 
 const ActionCardsList: React.FC<ActionCardsListProps> = (props) => {
   const customer = getCustomer();

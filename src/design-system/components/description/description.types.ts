@@ -9,7 +9,9 @@ export interface DescriptionContentButton {
   };
 }
 
-export type DescriptionContentItem = DescriptionContentText | DescriptionContentButton;
+export type DescriptionContentItem =
+  | DescriptionContentText
+  | DescriptionContentButton;
 
 export interface DescriptionImage {
   name: string;

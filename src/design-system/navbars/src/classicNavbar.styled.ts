@@ -22,7 +22,7 @@ export const BurgerMenuIcon = styled.button`
     breakpointNames.medium,
     css`
       display: flex;
-    `
+    `,
   )};
 `;
 
@@ -58,7 +58,7 @@ export const SubCategoryContainer = styled.ul`
       display: contents;
       align-items: flex-start;
       word-break: break-word;
-    `
+    `,
   )};
 
   ${SubCategory} {
@@ -96,7 +96,7 @@ export const Content = styled(DefaultContent)`
     breakpointNames.large,
     css`
       gap: 24px;
-    `
+    `,
   )}
 `;
 
@@ -124,7 +124,7 @@ export const Sidebar = styled.div`
     breakpointNames.large,
     css`
       display: none;
-    `
+    `,
   )};
 
   .deroulant > a::after {
@@ -207,14 +207,14 @@ export const LogoContainer = styled.div`
     breakpointNames.small,
     css`
       display: none;
-    `
+    `,
   )};
 
   ${bp.max(
     breakpointNames.medium,
     css`
       position: relative;
-    `
+    `,
   )};
 `;
 
@@ -233,7 +233,7 @@ export const MainNavigation = styled.nav`
     breakpointNames.medium,
     css`
       display: none;
-    `
+    `,
   )};
 
   ul li:hover .sous {
@@ -262,7 +262,7 @@ export const Category = styled.li`
     breakpointNames.medium,
     css`
       width: 100%;
-    `
+    `,
   )};
 `;
 

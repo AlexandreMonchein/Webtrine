@@ -1,7 +1,8 @@
+import { Link } from "react-router-dom";
 import styled, { css } from "styled-components";
+
 import { bp } from "../../../breakpoint";
 import { breakpointNames } from "../../../breakpointDef";
-import { Link } from "react-router-dom";
 
 export const Section = styled.section`
   padding: 40px 120px;
@@ -10,14 +11,14 @@ export const Section = styled.section`
     breakpointNames.medium,
     css`
       padding: 20px 40px;
-    `
+    `,
   )}
 
   ${bp.min(
     breakpointNames.wide,
     css`
       padding: 40px 480px;
-    `
+    `,
   )}
 `;
 
@@ -41,7 +42,7 @@ export const CardsGrid = styled.div`
     breakpointNames.medium,
     css`
       grid-template-columns: repeat(2, 1fr);
-    `
+    `,
   )}
 
   /* Très grand écran: 4 colonnes si vraiment beaucoup de place */
@@ -49,7 +50,7 @@ export const CardsGrid = styled.div`
     breakpointNames.wide,
     css`
       grid-template-columns: repeat(4, 1fr);
-    `
+    `,
   )}
 `;
 
@@ -73,7 +74,7 @@ export const Card = styled.article`
     breakpointNames.xlarge,
     css`
       min-width: 300px;
-    `
+    `,
   )}
 `;
 

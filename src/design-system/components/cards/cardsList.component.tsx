@@ -1,15 +1,16 @@
 import React from "react";
-import {
-  Section,
-  CardContainer,
-  Card,
-  CardTitle,
-  CardDescription,
-  Title,
-  Description,
-  CardImage,
-} from "./cardsList.styled";
+
 import { getCustomer } from "../../../customer.utils";
+import {
+  Card,
+  CardContainer,
+  CardDescription,
+  CardImage,
+  CardTitle,
+  Description,
+  Section,
+  Title,
+} from "./cardsList.styled";
 
 interface CardData {
   title: string;
@@ -40,7 +41,9 @@ const Cards: React.FC<CardsProps> = (props) => {
   return (
     <Section>
       {title ? <Title tabIndex={0}>{title}</Title> : null}
-      {description ? <Description tabIndex={0}>{description}</Description> : null}
+      {description ? (
+        <Description tabIndex={0}>{description}</Description>
+      ) : null}
       <CardContainer
         $displayInline={!shouldUseStack}
         $isEvenCount={isEvenCount}

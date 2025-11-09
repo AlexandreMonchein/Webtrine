@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
+
 import ImageListComponent from "./imageList.component";
 
 const meta: Meta<typeof ImageListComponent> = {

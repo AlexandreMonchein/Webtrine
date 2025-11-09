@@ -1,10 +1,12 @@
-import { describe, it, expect, vi, beforeEach } from "vitest";
+import "@testing-library/jest-dom";
+
+import { configureStore } from "@reduxjs/toolkit";
 import { render, screen, waitFor } from "@testing-library/react";
 import { Provider } from "react-redux";
-import { configureStore } from "@reduxjs/toolkit";
-import "@testing-library/jest-dom";
-import FloatingSocials from "../floatingSocials.component";
+import { beforeEach, describe, expect, it, vi } from "vitest";
+
 import { getSocials } from "../../../../store/state.selector";
+import FloatingSocials from "../floatingSocials.component";
 
 // Mock des icônes
 const MockIcon = ({ color }: { color?: string }) => (
@@ -51,7 +53,7 @@ const renderWithProvider = () => {
   return render(
     <Provider store={store}>
       <FloatingSocials />
-    </Provider>
+    </Provider>,
   );
 };
 
@@ -87,7 +89,7 @@ describe("FloatingSocials Component", () => {
     expect(screen.getByRole("complementary")).toBeInTheDocument();
     expect(screen.getByRole("complementary")).toHaveAttribute(
       "aria-label",
-      "Liens vers les réseaux sociaux"
+      "Liens vers les réseaux sociaux",
     );
 
     // Attendre que les icônes se chargent - chercher les SVG directement
@@ -106,7 +108,7 @@ describe("FloatingSocials Component", () => {
       expect(facebookLink).toHaveAttribute("href", "https://facebook.com/test");
       expect(instagramLink).toHaveAttribute(
         "href",
-        "https://instagram.com/test"
+        "https://instagram.com/test",
       );
     });
   });

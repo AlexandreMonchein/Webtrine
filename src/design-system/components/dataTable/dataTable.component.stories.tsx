@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
+
 import DataTable from "./dataTable.component";
 
 const meta: Meta<typeof DataTable> = {
@@ -229,7 +230,8 @@ export const FullyCentered: Story = {
 export const PricingTable: Story = {
   args: {
     title: "Tarifs des prestations complémentaires",
-    subTitle: "Détail des tarifs pour les modifications et ajouts sur votre site vitrine",
+    subTitle:
+      "Détail des tarifs pour les modifications et ajouts sur votre site vitrine",
     content: {
       columns: pricingColumns,
       data: pricingData,
@@ -238,7 +240,8 @@ export const PricingTable: Story = {
   parameters: {
     docs: {
       description: {
-        story: "Exemple de tableau de tarifs avec titre, sous-titre et contenu détaillé",
+        story:
+          "Exemple de tableau de tarifs avec titre, sous-titre et contenu détaillé",
       },
     },
   },

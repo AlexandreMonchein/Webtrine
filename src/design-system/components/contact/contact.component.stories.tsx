@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
+
 import ContactComponent from "./contact.component";
 
 const meta: Meta<typeof ContactComponent> = {

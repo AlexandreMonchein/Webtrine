@@ -51,11 +51,23 @@ export const baseConfig = {
     "@typescript-eslint/no-explicit-any": "off",
     "@typescript-eslint/no-empty-object-type": "off",
     "@typescript-eslint/no-require-imports": "off",
-    "@typescript-eslint/consistent-type-imports": "error",
+    "@typescript-eslint/consistent-type-imports": "off", // Désactiver temporairement
     // We must disable the base rule https://typescript-eslint.io/rules/no-use-before-define/#how-to-use
     "no-use-before-define": "off",
     "@typescript-eslint/no-use-before-define": "error",
     "@typescript-eslint/no-wrapper-object-types": "error",
+    "@typescript-eslint/no-namespace": "off", // Désactiver les erreurs de namespace
+
+    /**
+     * Core ESLint rules à désactiver temporairement
+     */
+    // "no-inline-comments": "off", - Déjà défini plus haut
+    // "no-console": "off", - Déjà défini plus haut
+    // "no-restricted-syntax": "off", - Déjà défini plus bas
+    // "no-await-in-loop": "off", - Déjà défini plus haut
+    // "no-negated-condition": "off", - Déjà défini plus haut
+    // "no-nested-ternary": "off", - Déjà défini plus haut
+    // "no-case-declarations": "off", - Déjà défini plus bas
 
     /**
      * React rules

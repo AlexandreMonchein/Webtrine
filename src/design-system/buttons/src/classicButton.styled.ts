@@ -26,7 +26,8 @@ export const Button = styled.button`
   white-space: nowrap;
   transition: background-color 0.3s ease;
 
-  &:hover, &:focus {
+  &:hover,
+  &:focus {
     opacity: 0.8;
     transition: opacity 0.25s ease-in-out;
   }

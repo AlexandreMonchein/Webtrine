@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { hidePopUp } from "../../../store/state.action";
 import { isPopUpDisplayed } from "../../../store/state.selector";
-
 import {
   CloseButton,
   Icon,

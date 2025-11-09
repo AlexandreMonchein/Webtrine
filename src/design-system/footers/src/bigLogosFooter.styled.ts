@@ -13,14 +13,14 @@ export const FooterContainer = styled.footer`
     breakpointNames.medium,
     css`
       padding: 20px 40px;
-    `
+    `,
   )}
 
   ${bp.min(
     breakpointNames.wide,
     css`
       padding: 40px 240px;
-    `
+    `,
   )}
 `;
 
@@ -38,7 +38,7 @@ export const FooterGrid = styled.div`
     css`
       grid-template-columns: 1fr 1fr 1fr;
       gap: 3rem;
-    `
+    `,
   )}
 `;
 
@@ -49,7 +49,7 @@ export const MenuSection = styled.div`
     breakpointNames.medium,
     css`
       grid-column: 2;
-    `
+    `,
   )}
 `;
 
@@ -92,14 +92,14 @@ export const BrandSection = styled.div`
     breakpointNames.medium,
     css`
       grid-column: 1;
-    `
+    `,
   )}
 
   ${bp.min(
     breakpointNames.medium,
     css`
       grid-column: 3;
-    `
+    `,
   )}
 `;
 
@@ -180,7 +180,7 @@ export const LogosSection = styled.div`
     breakpointNames.medium,
     css`
       grid-column: 1;
-    `
+    `,
   )}
 `;
 

@@ -17,19 +17,19 @@ export const Section = styled.section`
       &.isContinious {
         padding: 0px 40px;
       }
-    `
+    `,
   )}
 
   ${bp.min(
     breakpointNames.wide,
     css`
       padding: 40px 480px;
-    `
+    `,
   )}
 `;
 
 export const TableTitle = styled.h2.withConfig({
-  shouldForwardProp: (prop) => !['centered'].includes(prop),
+  shouldForwardProp: (prop) => !["centered"].includes(prop),
 })<{ centered?: boolean }>`
   text-align: center;
   color: var(--title-color-2);
@@ -37,7 +37,7 @@ export const TableTitle = styled.h2.withConfig({
 `;
 
 export const TableSubTitle = styled.p.withConfig({
-  shouldForwardProp: (prop) => !['centered'].includes(prop),
+  shouldForwardProp: (prop) => !["centered"].includes(prop),
 })<{ centered?: boolean }>`
   text-align: ${({ centered }) => (centered ? "center" : "left")};
 `;
@@ -57,7 +57,7 @@ export const TableContainer = styled.div`
     css`
       border-radius: 8px;
       box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.1);
-    `
+    `,
   )};
 `;
 
@@ -92,7 +92,7 @@ export const Table = styled.table`
     breakpointNames.medium,
     css`
       table-layout: fixed;
-    `
+    `,
   )};
 
   ${bp.max(
@@ -100,7 +100,7 @@ export const Table = styled.table`
     css`
       table-layout: auto;
       min-width: 100%;
-    `
+    `,
   )};
 `;
 
@@ -110,7 +110,8 @@ export const TableHeader = styled.thead`
 `;
 
 export const TableHeaderCell = styled.th.withConfig({
-  shouldForwardProp: (prop) => !['isFirst', 'isLast', 'centered'].includes(prop),
+  shouldForwardProp: (prop) =>
+    !["isFirst", "isLast", "centered"].includes(prop),
 })<{
   isFirst?: boolean;
   isLast?: boolean;
@@ -161,7 +162,7 @@ export const TableHeaderCell = styled.th.withConfig({
     css`
       padding: 12px 16px;
       white-space: normal;
-    `
+    `,
   )};
 
   ${bp.max(
@@ -170,7 +171,7 @@ export const TableHeaderCell = styled.th.withConfig({
       padding: 10px 12px;
       white-space: normal;
       font-size: calc(var(--description-font-size) * 0.9);
-    `
+    `,
   )};
 `;
 
@@ -190,7 +191,8 @@ export const TableRow = styled.tr`
 `;
 
 export const TableCell = styled.td.withConfig({
-  shouldForwardProp: (prop) => !['isFirst', 'isLast', 'centered'].includes(prop),
+  shouldForwardProp: (prop) =>
+    !["isFirst", "isLast", "centered"].includes(prop),
 })<{
   isFirst?: boolean;
   isLast?: boolean;
@@ -227,7 +229,7 @@ export const TableCell = styled.td.withConfig({
     breakpointNames.medium,
     css`
       padding: 12px 16px;
-    `
+    `,
   )};
 
   ${bp.max(
@@ -235,6 +237,6 @@ export const TableCell = styled.td.withConfig({
     css`
       padding: 10px 12px;
       font-size: calc(var(--description-font-size) * 0.9);
-    `
+    `,
   )};
 `;

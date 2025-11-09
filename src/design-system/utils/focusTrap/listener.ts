@@ -16,7 +16,7 @@ const FOCUSABLE_ELEMENTS = TORNADO_FOCUSABLE_ELEMENTS
       ...TORNADO_FOCUSABLE_ELEMENTS.filter(
         (element) =>
           element !==
-          'input:not([disabled]):not([type="hidden"]):not([aria-hidden])'
+          'input:not([disabled]):not([type="hidden"]):not([aria-hidden])',
       ),
       'label:first-of-type input[type="radio"]',
     ]
@@ -31,14 +31,14 @@ const FOCUSABLE_ELEMENTS = TORNADO_FOCUSABLE_ELEMENTS
 
 export const tabKeyListener = (
   e: KeyboardEvent,
-  wrapper: HTMLElement | null
+  wrapper: HTMLElement | null,
 ) => {
   if (e.key !== "Tab" || !wrapper) {
     return;
   }
 
   const focusableElements = wrapper.querySelectorAll(
-    FOCUSABLE_ELEMENTS.join(",")
+    FOCUSABLE_ELEMENTS.join(","),
   );
 
   if (focusableElements.length === 0) {

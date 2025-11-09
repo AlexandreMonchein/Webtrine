@@ -7,12 +7,11 @@ import { getCustomer } from "./customer.utils";
 
 const customer = getCustomer();
 
-// eslint-disable-next-line import/no-named-as-default-member
 i18n
   .use(
     resourcesToBackend(
-      (language) => import(`../lang/customer/${customer}/${language}.json`)
-    )
+      (language) => import(`../lang/customer/${customer}/${language}.json`),
+    ),
   )
   .use(LanguageDetector)
   .use(initReactI18next)

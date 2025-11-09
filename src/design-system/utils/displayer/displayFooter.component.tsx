@@ -15,7 +15,7 @@ const DisplayFooter = ({ template }) => {
           <Component
             key={`${type}-${id}-${Math.floor(Math.random() * 1000)}`}
             {...datas}
-          />
+          />,
         );
       } catch (error) {
         console.error(`Error loading component: ${type}/${id}`, error);

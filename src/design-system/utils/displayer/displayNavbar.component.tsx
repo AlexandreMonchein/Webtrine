@@ -17,7 +17,7 @@ const DisplayNavbar = ({ template, toggleTheme, theme }) => {
           <Component
             key={`${type}-${id}-${Math.floor(Math.random() * 1000)}`}
             {...props}
-          />
+          />,
         );
       } catch (error) {
         console.error(`Error loading component: ${type}/${id}`, error);

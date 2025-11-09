@@ -2,20 +2,20 @@ import { useCallback, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
+import { getCustomer } from "./customer.utils";
+import FloatingSocials from "./design-system/components/floatingUI/floatingSocials.component";
 import Gallery from "./design-system/components/gallery/gallery.component";
 import Product from "./design-system/components/gallery/product.component";
 import Legals from "./design-system/components/legals/legals.component";
 import MultiDescription from "./design-system/components/multiDescriptions/multiDescriptions.component";
+import KeyboardShortcuts from "./design-system/components/shortcut/keyboardShortcuts.component";
 import { PageNotFound } from "./design-system/error/src/pageNotFound.component";
 import DisplayFooter from "./design-system/utils/displayer/displayFooter.component";
 import DisplayNavbar from "./design-system/utils/displayer/displayNavbar.component";
+import ScrollToTop from "./scrollToTop.utils";
 import { setConfig } from "./store/state.action";
 import { getClient, getStyle, getTemplates } from "./store/state.selector";
 import GlobalStyle from "./theme/customer/default/globalStyled";
-import { getCustomer } from "./customer.utils";
-import ScrollToTop from "./scrollToTop.utils";
-import KeyboardShortcuts from "./design-system/components/shortcut/keyboardShortcuts.component";
-import FloatingSocials from "./design-system/components/floatingUI/floatingSocials.component";
 
 export const templatesTypesBlackList = [
   "navbars",
@@ -33,7 +33,7 @@ export const getTemplate = (
   templates,
   templateType,
   templateId = null,
-  templateName = null
+  templateName = null,
 ) => {
   let template;
 
@@ -45,7 +45,7 @@ export const getTemplate = (
     if (templateId) {
       template = templates.find(
         (template) =>
-          template.type === templateType && template.id === templateId
+          template.type === templateType && template.id === templateId,
       );
 
       if (templateName) {
@@ -53,7 +53,7 @@ export const getTemplate = (
           (template) =>
             template.type === templateType &&
             template.id === templateId &&
-            template.name === templateName
+            template.name === templateName,
         );
       }
     }
@@ -93,7 +93,6 @@ function App(props) {
   }, [customer]); // Trigger re-load when `customer` changes
 
   const globalStyle = useSelector(getStyle);
-
 
   const navbarTemplate = getTemplate(templates, "navbars");
   const footerTemplate = getTemplate(templates, "footers");

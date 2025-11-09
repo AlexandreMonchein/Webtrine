@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
+
 import Cards from "./cardsList.component";
 
 const meta: Meta<typeof Cards> = {
@@ -213,13 +214,17 @@ export const InlineDisplay: Story = {
     content: [
       {
         title: "Développement",
-        description: [{ text: "Sites web modernes et performants adaptés à vos besoins." }],
+        description: [
+          { text: "Sites web modernes et performants adaptés à vos besoins." },
+        ],
         imageSrc: "service_dev",
       },
       {
         title: "Design UX/UI",
         description: [
-          { text: "Interfaces intuitives et esthétiques pour vos utilisateurs." },
+          {
+            text: "Interfaces intuitives et esthétiques pour vos utilisateurs.",
+          },
         ],
         imageSrc: "service_design",
       },
@@ -230,7 +235,9 @@ export const InlineDisplay: Story = {
       },
       {
         title: "Maintenance",
-        description: [{ text: "Support technique et mises à jour régulières." }],
+        description: [
+          { text: "Support technique et mises à jour régulières." },
+        ],
         imageSrc: "service_support",
       },
     ],
@@ -255,7 +262,9 @@ export const EvenCount: Story = {
     content: [
       {
         title: "Développement web",
-        description: [{ text: "Sites sur mesure avec les dernières technologies." }],
+        description: [
+          { text: "Sites sur mesure avec les dernières technologies." },
+        ],
         imageSrc: "service_dev",
       },
       {
@@ -305,12 +314,16 @@ export const OddCount: Story = {
     content: [
       {
         title: "Stratégie digitale",
-        description: [{ text: "Conseil et accompagnement dans votre transformation." }],
+        description: [
+          { text: "Conseil et accompagnement dans votre transformation." },
+        ],
         imageSrc: "expertise_strategy",
       },
       {
         title: "Développement",
-        description: [{ text: "Solutions techniques sur mesure et évolutives." }],
+        description: [
+          { text: "Solutions techniques sur mesure et évolutives." },
+        ],
         imageSrc: "expertise_dev",
       },
       {

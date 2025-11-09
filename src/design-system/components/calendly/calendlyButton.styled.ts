@@ -6,7 +6,9 @@ export const CalendlyButton = styled(PopupButton)`
   padding: 15px 30px;
   white-space: nowrap;
   position: relative;
-  transition: transform 0.2s ease, color 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    color 0.2s ease;
 
   &:hover,
   &:focus-visible {

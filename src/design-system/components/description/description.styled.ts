@@ -21,14 +21,14 @@ export const Section = styled.section`
       &.isContinious {
         padding: 0px 40px;
       }
-    `
+    `,
   )}
 
   ${bp.min(
     breakpointNames.wide,
     css`
       padding: 40px 480px;
-    `
+    `,
   )}
 `;
 
@@ -52,7 +52,7 @@ export const Content = styled.div`
       flex-direction: column;
       align-items: center;
       gap: 0px;
-    `
+    `,
   )};
 `;
 
@@ -66,7 +66,7 @@ export const ImageContainer = styled.div`
     breakpointNames.medium,
     css`
       padding: 0 0 12px 0;
-    `
+    `,
   )};
 
   &.isReversed {
@@ -77,7 +77,7 @@ export const ImageContainer = styled.div`
       breakpointNames.medium,
       css`
         padding: 0 0 12px 0;
-      `
+      `,
     )};
   }
 `;

@@ -1,38 +1,37 @@
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 
-import { getSocials, getClient } from "../../../store/state.selector";
-import { BigLogosFooterProps } from "./bigLogosFooter.types";
-
+import { getClient, getSocials } from "../../../store/state.selector";
 import {
+  AdditionalText,
+  BrandDescription,
+  BrandSection,
+  BrandTitle,
   FooterContainer,
   FooterContent,
   FooterGrid,
-  MenuSection,
-  MenuTitle,
-  MenuList,
-  MenuListItem,
-  MenuLink,
-  BrandSection,
-  BrandTitle,
-  BrandDescription,
-  AdditionalText,
-  SocialSection,
-  SocialList,
-  SocialListItem,
-  SocialLink,
-  VisuallyHidden,
-  LogosSection,
-  LogosGrid,
+  LogoImage,
   LogoItem,
   LogoLink,
-  LogoImage,
+  LogosGrid,
+  LogosSection,
+  MenuLink,
+  MenuList,
+  MenuListItem,
+  MenuSection,
+  MenuTitle,
   SiteRef,
+  SocialLink,
+  SocialList,
+  SocialListItem,
+  SocialSection,
+  VisuallyHidden,
 } from "./bigLogosFooter.styled";
+import { BigLogosFooterProps } from "./bigLogosFooter.types";
 
 const BigLogosFooter: React.FC<BigLogosFooterProps> = (datas) => {
   const [socialComponents, setSocialComponents] = useState<React.ReactNode[]>(
-    []
+    [],
   );
   const socials: { [key: string]: { link: string; color: string } } =
     useSelector(getSocials);
@@ -41,7 +40,7 @@ const BigLogosFooter: React.FC<BigLogosFooterProps> = (datas) => {
   const { menuSection, brandInfo, logos } = datas;
 
   const componentFiles = import.meta.glob(
-    "../../../assets/**/**/*.component.tsx"
+    "../../../assets/**/**/*.component.tsx",
   );
 
   useEffect(() => {
@@ -71,7 +70,7 @@ const BigLogosFooter: React.FC<BigLogosFooterProps> = (datas) => {
                       <Component />
                       <VisuallyHidden>{name}</VisuallyHidden>
                     </SocialLink>
-                  </SocialListItem>
+                  </SocialListItem>,
                 );
               }
             }

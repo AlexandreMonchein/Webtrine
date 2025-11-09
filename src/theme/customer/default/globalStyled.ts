@@ -100,21 +100,21 @@ const GlobalStyle = createGlobalStyle`
       breakpointNames.medium,
       css`
         font-size: large;
-      `
+      `,
     )}
 
     ${bp.min(
       breakpointNames.large,
       css`
         font-size: large;
-      `
+      `,
     )}
 
     ${bp.min(
       breakpointNames.wide,
       css`
         font-size: x-large;
-      `
+      `,
     )}
   }
 
@@ -136,7 +136,7 @@ const GlobalStyle = createGlobalStyle`
       breakpointNames.wide,
       css`
         font-size: xxx-large;
-      `
+      `,
     )}
   }
 
@@ -148,21 +148,21 @@ const GlobalStyle = createGlobalStyle`
       breakpointNames.medium,
       css`
         font-size: large;
-      `
+      `,
     )}
 
     ${bp.min(
       breakpointNames.large,
       css`
         font-size: x-large;
-      `
+      `,
     )}
 
     ${bp.min(
       breakpointNames.wide,
       css`
         font-size: x-large;
-      `
+      `,
     )}
   }
 
@@ -174,7 +174,7 @@ const GlobalStyle = createGlobalStyle`
       breakpointNames.medium,
       css`
         font-size: large;
-      `
+      `,
     )}
   }
 `;

@@ -24,7 +24,7 @@ const loadConfig = async () => {
         <I18nextProvider i18n={i18n}>
           <App config={config.default} style={style.default} />
         </I18nextProvider>
-      </Provider>
+      </Provider>,
     );
   } catch (error) {
     console.error("Error loading configuration files:", error);

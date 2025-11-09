@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from "react";
-import { FloatingContainer, SocialLogo } from "./floatingSocials.styled";
 import { useSelector } from "react-redux";
+
 import { getSocials } from "../../../store/state.selector";
+import { FloatingContainer, SocialLogo } from "./floatingSocials.styled";
 
 const FloatingSocials: React.FC = () => {
   const [components, setComponents] = useState<React.ReactNode[]>([]);
-  const socials: { [key: string]: { link: string; color: string } } = useSelector(getSocials);
+  const socials: { [key: string]: { link: string; color: string } } =
+    useSelector(getSocials);
 
   const componentFiles = import.meta.glob(
-    "../../../assets/**/**/*.component.tsx"
+    "../../../assets/**/**/*.component.tsx",
   );
 
   useEffect(() => {
@@ -33,7 +35,7 @@ const FloatingSocials: React.FC = () => {
                     <a aria-label={name} href={link}>
                       <Component color="full" />
                     </a>
-                  </SocialLogo>
+                  </SocialLogo>,
                 );
               }
             }

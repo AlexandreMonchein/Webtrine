@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { MemoryRouter } from "react-router-dom";
+
 import DescriptionComponent from "./description.component";
 
 const meta: Meta<typeof DescriptionComponent> = {
@@ -243,8 +244,8 @@ export const WithButtons: Story = {
       {
         button: {
           label: "Voir nos services",
-          to: "/services"
-        }
+          to: "/services",
+        },
       },
       {
         text: "Vous avez un projet en tête ? N'hésitez pas à nous contacter pour en discuter.",
@@ -252,8 +253,8 @@ export const WithButtons: Story = {
       {
         button: {
           label: "Nous contacter",
-          to: "/contact"
-        }
+          to: "/contact",
+        },
       },
     ],
     image: {

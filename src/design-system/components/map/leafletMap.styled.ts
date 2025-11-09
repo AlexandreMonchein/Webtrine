@@ -18,7 +18,7 @@ export const BigTitle = styled.h2`
     breakpointNames.medium,
     css`
       display: none;
-    `
+    `,
   )}
 `;
 
@@ -34,7 +34,7 @@ export const Container = styled.div`
       width: 100%;
       height: 100vh;
       gap: 32px;
-    `
+    `,
   )}
 `;
 
@@ -52,7 +52,7 @@ export const List = styled.div`
       height: 50%;
       flex-direction: row;
       flex-wrap: nowrap;
-    `
+    `,
   )}
 
   ${bp.max(
@@ -60,7 +60,7 @@ export const List = styled.div`
     css`
       flex-direction: column;
       height: 80%;
-    `
+    `,
   )}
 `;
 
@@ -72,7 +72,7 @@ export const ListSection = styled.div`
     breakpointNames.large,
     css`
       align-content: center;
-    `
+    `,
   )}
 `;
 

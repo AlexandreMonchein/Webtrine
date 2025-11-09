@@ -13,7 +13,7 @@ export const ContactSection = styled.section`
     breakpointNames.medium,
     css`
       padding: 20px 40px;
-    `
+    `,
   )}
 `;
 
@@ -40,7 +40,7 @@ export const FormContainer = styled.div`
     breakpointNames.medium,
     css`
       width: 100%;
-    `
+    `,
   )};
 `;
 

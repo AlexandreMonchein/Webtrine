@@ -13,7 +13,7 @@ import { Datas } from "./display.types";
 const FeatureSection = (datas: Datas) => {
   const [components, setComponents] = useState<React.ReactNode[]>([]);
   const componentFiles = import.meta.glob(
-    "../../../assets/**/**/*.component.tsx"
+    "../../../assets/**/**/*.component.tsx",
   );
 
   const { title, content } = datas || {};
@@ -40,7 +40,7 @@ const FeatureSection = (datas: Datas) => {
                     <Component key={name} color="orange" size={64} />
                   </SvgIcon>
                   <Text>{text}</Text>
-                </ContentItem>
+                </ContentItem>,
               );
             }
           }

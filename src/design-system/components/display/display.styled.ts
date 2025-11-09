@@ -10,14 +10,14 @@ export const Section = styled.section`
     breakpointNames.medium,
     css`
       padding: 20px 40px;
-    `
+    `,
   )}
 
   ${bp.min(
     breakpointNames.wide,
     css`
       padding: 40px 480px;
-    `
+    `,
   )}
 `;
 

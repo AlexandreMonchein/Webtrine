@@ -1,6 +1,9 @@
-import { ReactElement, useState } from "react";
+import "leaflet/dist/leaflet.css";
+import "leaflet-gesture-handling/dist/leaflet-gesture-handling.css";
+
 import { icon } from "leaflet";
 import { GestureHandling } from "leaflet-gesture-handling";
+import { ReactElement, useState } from "react";
 import { Marker, TileLayer, useMap, useMapEvents } from "react-leaflet";
 
 import {
@@ -15,9 +18,6 @@ import {
   Section,
   Title,
 } from "./leafletMap.styled";
-
-import "leaflet/dist/leaflet.css";
-import "leaflet-gesture-handling/dist/leaflet-gesture-handling.css";
 
 const ICON = icon({
   iconUrl: "./assets/marker_icon.webp",

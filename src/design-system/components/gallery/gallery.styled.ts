@@ -14,7 +14,7 @@ export const GalleryRoot = styled.section`
     breakpointNames.medium,
     css`
       padding: 40px 40px;
-    `
+    `,
   )}
 
   &.isLogo {
@@ -24,7 +24,7 @@ export const GalleryRoot = styled.section`
       breakpointNames.wide,
       css`
         padding: 40px 360px;
-      `
+      `,
     )}
   }
 
@@ -32,7 +32,7 @@ export const GalleryRoot = styled.section`
     breakpointNames.wide,
     css`
       padding: 40px 360px;
-    `
+    `,
   )}
 `;
 
@@ -62,7 +62,7 @@ export const CardWrapper = styled.div`
     css`
       min-width: 500px;
       max-width: 500px;
-    `
+    `,
   )};
 
   &.isLogo {
@@ -77,7 +77,7 @@ export const CardWrapper = styled.div`
         css`
           min-width: auto;
           max-width: 256px;
-        `
+        `,
       )};
     }
   }

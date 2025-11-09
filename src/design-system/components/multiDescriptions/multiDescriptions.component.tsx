@@ -1,11 +1,11 @@
 import { Suspense, useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
+import { useSelector } from "react-redux";
+import { useLocation } from "react-router-dom";
 
 import { getTemplate } from "../../../App";
-import { useSelector } from "react-redux";
 import { getClient, getTemplates } from "../../../store/state.selector";
 import { Container } from "./multiDescriptions.styled";
-import { useLocation } from "react-router-dom";
 
 const regex = /-[0-9]/i;
 
@@ -19,7 +19,7 @@ const MultiDescription = ({ templateName = null }) => {
     templates,
     "description",
     "multiDescriptions",
-    templateName
+    templateName,
   );
 
   const {
@@ -32,7 +32,7 @@ const MultiDescription = ({ templateName = null }) => {
       const modules = import.meta.glob("../**/*.component.tsx");
 
       for (const [index, datas] of Object.entries(
-        content as Record<string, { type: string; id: string }>
+        content as Record<string, { type: string; id: string }>,
       )) {
         const { type } = datas;
         const moduleName = index.replace(regex, "");
@@ -47,13 +47,13 @@ const MultiDescription = ({ templateName = null }) => {
 
               if (location.state) {
                 const { type } = location.state;
-                console.warn('>> has locationState', type, datas);
+                console.warn(">> has locationState", type, datas);
 
                 if (datas.id === type) {
                   console.warn(
                     ">> id match type, pushing component",
                     datas.id,
-                    type
+                    type,
                   );
                   loadedComponents.push(<Component key={index} {...datas} />);
                 }

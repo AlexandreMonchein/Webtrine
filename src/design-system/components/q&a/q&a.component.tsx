@@ -1,26 +1,26 @@
-import React, { useState, useRef, useEffect } from "react";
 import DOMPurify from "dompurify";
+import React, { useEffect, useRef, useState } from "react";
 
-import { QAProps, QAItem, QACategory } from "./q&a.types";
 import {
-  Section,
+  AccordionBody,
+  AccordionContainer,
+  AccordionContent,
+  AccordionHeader,
+  AccordionItem,
+  ChevronIcon,
   Container,
+  EmptyState,
   Header,
-  Title,
+  QuestionText,
+  Section,
   Subtitle,
-  TabsContainer,
-  TabsList,
   Tab,
   TabPanel,
-  AccordionContainer,
-  AccordionItem,
-  AccordionHeader,
-  QuestionText,
-  ChevronIcon,
-  AccordionContent,
-  AccordionBody,
-  EmptyState,
+  TabsContainer,
+  TabsList,
+  Title,
 } from "./q&a.styled";
+import { QACategory, QAItem, QAProps } from "./q&a.types";
 
 const ChevronDownIcon = () => (
   <path

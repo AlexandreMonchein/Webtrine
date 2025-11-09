@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
+
 import BannerComponent from "./banner.component";
 
 const meta: Meta<typeof BannerComponent> = {
@@ -166,11 +167,7 @@ export const MultipleImages: Story = {
   args: {
     title: "Notre portfolio",
     subTitle: "Découvrez nos réalisations à travers différents projets",
-    images: [
-      { name: "banner" },
-      { name: "banner_2" },
-      { name: "banner_3" },
-    ],
+    images: [{ name: "banner" }, { name: "banner_2" }, { name: "banner_3" }],
     textPosition: "center",
     features: { multi: true, medium: true },
   },

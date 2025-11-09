@@ -6,7 +6,7 @@ import {
   getSocials,
   getTemplates,
 } from "../../../store/state.selector";
-
+import { getLogoDimensions } from "../../utils/dimensions.utils";
 import {
   BottomSection,
   FooterContainer,
@@ -20,14 +20,14 @@ import {
   Socials,
   TopSection,
 } from "./classicFooter.styled";
-import { getLogoDimensions } from "../../utils/dimensions.utils";
 
 const ClassicFooter = (props) => {
   const [components, setComponents] = useState<React.ReactNode[]>([]);
   const { name: clientName } = useSelector(getClient);
-  const socials: { [key: string]: { link: string; color: string } } = useSelector(getSocials);
+  const socials: { [key: string]: { link: string; color: string } } =
+    useSelector(getSocials);
   const legals = useSelector(getTemplates).filter(
-    (template) => template.type === "legals"
+    (template) => template.type === "legals",
   );
 
   const { logo } = props || {};
@@ -35,7 +35,7 @@ const ClassicFooter = (props) => {
   const { width, height } = getLogoDimensions(shape);
 
   const componentFiles = import.meta.glob(
-    "../../../assets/**/**/*.component.tsx"
+    "../../../assets/**/**/*.component.tsx",
   );
 
   useEffect(() => {
@@ -62,7 +62,7 @@ const ClassicFooter = (props) => {
                         <Component color={color} />
                       </a>
                     </SocialLogo>
-                  </li>
+                  </li>,
                 );
               }
             }
@@ -94,7 +94,9 @@ const ClassicFooter = (props) => {
       </LeftSection>
       <MiddleSection>
         <TopSection>
-          <SiteRef tabIndex={0} href="https://www.webtrine.fr">Webtrine 2025 - tous droits réservés.</SiteRef>
+          <SiteRef tabIndex={0} href="https://www.webtrine.fr">
+            Webtrine 2025 - tous droits réservés.
+          </SiteRef>
         </TopSection>
         <BottomSection>
           {legals.map((legal, index) => (

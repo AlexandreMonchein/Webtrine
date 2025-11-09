@@ -1,5 +1,6 @@
 import { useCalendlyEventListener } from "react-calendly";
 import { useTranslation } from "react-i18next";
+
 import { CalendlyButton as CalendlyButtonStyle } from "./calendlyButton.styled";
 
 const CalendlyButton = ({ url }) => {

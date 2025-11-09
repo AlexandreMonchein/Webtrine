@@ -1,15 +1,13 @@
+import emailjs from "@emailjs/browser";
 import { useCallback, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
-
-import emailjs from "@emailjs/browser";
 
 import { getTemplate } from "../../../App";
 import { showPopUp } from "../../../store/state.action";
 import { getClient, getTemplates } from "../../../store/state.selector";
 import { MapLeaflet } from "../map/moduleLeafletMap.component";
 import PopUp from "../popup/popUp.component";
-
 import {
   Button,
   ClientInfo,
@@ -17,15 +15,15 @@ import {
   ContactSection,
   Content,
   Description,
+  Field,
   FormContainer,
   FormDisplay,
+  Hint,
   Input,
+  Label,
   Spacer,
   Textarea,
   Title,
-  Field,
-  Label,
-  Hint,
 } from "./extendedContact.styled";
 
 const ExtendedContact = ({ datas }) => {
@@ -43,7 +41,7 @@ const ExtendedContact = ({ datas }) => {
       templates,
       "contact",
       "extendedContact",
-      "Contact"
+      "Contact",
     ).datas;
   }
 
@@ -78,18 +76,18 @@ const ExtendedContact = ({ datas }) => {
           ...datas,
         });
         dispatch(
-          showPopUp({ type: "success", message: "Email envoyé avec succès !" })
+          showPopUp({ type: "success", message: "Email envoyé avec succès !" }),
         );
       } catch (error) {
         dispatch(
           showPopUp({
             type: "error",
             message: "Erreur : L'email n'a pas pu être envoyé.",
-          })
+          }),
         );
       }
     },
-    [dispatch, templateId]
+    [dispatch, templateId],
   );
 
   return (

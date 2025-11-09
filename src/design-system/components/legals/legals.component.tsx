@@ -1,7 +1,6 @@
 import { useSelector } from "react-redux";
 
 import { getTemplates } from "../../../store/state.selector";
-
 import {
   Container,
   Content,
@@ -17,7 +16,7 @@ import {
 const Legals = ({ type = null }) => {
   const templates = useSelector(getTemplates);
   const legalsTemplates = templates.filter(
-    (template) => template.type === "legals"
+    (template) => template.type === "legals",
   );
 
   const {

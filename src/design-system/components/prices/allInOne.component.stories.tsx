@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { MemoryRouter } from "react-router-dom";
+
 import AllInOneComponent from "./allInOne.component";
 
 const meta: Meta<typeof AllInOneComponent> = {

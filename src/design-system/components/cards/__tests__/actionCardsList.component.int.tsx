@@ -1,13 +1,13 @@
-import { render, screen } from '@testing-library/react';
-import { userEvent } from '@testing-library/user-event';
-import { MemoryRouter } from 'react-router-dom';
-import { describe, it, expect, vi } from 'vitest';
+import { render, screen } from "@testing-library/react";
+import { userEvent } from "@testing-library/user-event";
+import { MemoryRouter } from "react-router-dom";
+import { describe, expect, it, vi } from "vitest";
 
-import ActionCardsList from '../actionCardsList.component';
+import ActionCardsList from "../actionCardsList.component";
 
 // Mock du module customer.utils
-vi.mock('../../../../customer.utils', () => ({
-  getCustomer: () => 'test-customer'
+vi.mock("../../../../customer.utils", () => ({
+  getCustomer: () => "test-customer",
 }));
 
 const mockCardsData = [
@@ -18,185 +18,154 @@ const mockCardsData = [
     imageSrc: "service_1",
     buttons: [
       { label: "Learn More", type: "link", route: "/service-1" },
-      { label: "Contact", type: "link", route: "/contact" }
-    ]
+      { label: "Contact", type: "link", route: "/contact" },
+    ],
   },
   {
     id: "2",
     title: "Service 2",
     description: "Description for service 2",
     imageSrc: "service_2",
-    buttons: [
-      { label: "Get Started", type: "link", route: "/get-started" }
-    ]
+    buttons: [{ label: "Get Started", type: "link", route: "/get-started" }],
   },
   {
     id: "3",
     title: "Service 3",
     description: "Description for service 3",
     // Pas d'image ni de boutons pour tester les cas optionnels
-  }
+  },
 ];
 
 const renderWithRouter = (component: React.ReactNode) => {
-  return render(
-    <MemoryRouter>
-      {component}
-    </MemoryRouter>
-  );
+  return render(<MemoryRouter>{component}</MemoryRouter>);
 };
 
-describe('ActionCardsList Component', () => {
-  it('renders section title and cards correctly', () => {
+describe("ActionCardsList Component", () => {
+  it("renders section title and cards correctly", () => {
     renderWithRouter(
-      <ActionCardsList
-        title="Our Services"
-        cards={mockCardsData}
-      />
+      <ActionCardsList title="Our Services" cards={mockCardsData} />,
     );
 
-    expect(screen.getByText('Our Services')).toBeInTheDocument();
-    expect(screen.getByText('Service 1')).toBeInTheDocument();
-    expect(screen.getByText('Service 2')).toBeInTheDocument();
-    expect(screen.getByText('Service 3')).toBeInTheDocument();
+    expect(screen.getByText("Our Services")).toBeInTheDocument();
+    expect(screen.getByText("Service 1")).toBeInTheDocument();
+    expect(screen.getByText("Service 2")).toBeInTheDocument();
+    expect(screen.getByText("Service 3")).toBeInTheDocument();
   });
 
-  it('renders card descriptions', () => {
+  it("renders card descriptions", () => {
     renderWithRouter(
-      <ActionCardsList
-        title="Test Section"
-        cards={mockCardsData}
-      />
+      <ActionCardsList title="Test Section" cards={mockCardsData} />,
     );
 
-    expect(screen.getByText('Description for service 1')).toBeInTheDocument();
-    expect(screen.getByText('Description for service 2')).toBeInTheDocument();
-    expect(screen.getByText('Description for service 3')).toBeInTheDocument();
+    expect(screen.getByText("Description for service 1")).toBeInTheDocument();
+    expect(screen.getByText("Description for service 2")).toBeInTheDocument();
+    expect(screen.getByText("Description for service 3")).toBeInTheDocument();
   });
 
-  it('renders images when imageSrc is provided', () => {
+  it("renders images when imageSrc is provided", () => {
     renderWithRouter(
-      <ActionCardsList
-        title="Test Section"
-        cards={mockCardsData}
-      />
+      <ActionCardsList title="Test Section" cards={mockCardsData} />,
     );
 
     // Vérifie que les images sont rendues pour les cartes qui en ont
-    const image1 = screen.getByAltText('Service 1');
-    const image2 = screen.getByAltText('Service 2');
+    const image1 = screen.getByAltText("Service 1");
+    const image2 = screen.getByAltText("Service 2");
 
     expect(image1).toBeInTheDocument();
-    expect(image1).toHaveAttribute('src', expect.stringContaining('service_1.webp'));
+    expect(image1).toHaveAttribute(
+      "src",
+      expect.stringContaining("service_1.webp"),
+    );
 
     expect(image2).toBeInTheDocument();
-    expect(image2).toHaveAttribute('src', expect.stringContaining('service_2.webp'));
+    expect(image2).toHaveAttribute(
+      "src",
+      expect.stringContaining("service_2.webp"),
+    );
   });
 
-  it('does not render image when imageSrc is not provided', () => {
+  it("does not render image when imageSrc is not provided", () => {
     const cardsWithoutImage = [mockCardsData[2]]; // Service 3 n'a pas d'image
 
     renderWithRouter(
-      <ActionCardsList
-        title="Test Section"
-        cards={cardsWithoutImage}
-      />
+      <ActionCardsList title="Test Section" cards={cardsWithoutImage} />,
     );
 
-    expect(screen.queryByAltText('Service 3')).not.toBeInTheDocument();
+    expect(screen.queryByAltText("Service 3")).not.toBeInTheDocument();
   });
 
-  it('renders action buttons with correct links', () => {
+  it("renders action buttons with correct links", () => {
     renderWithRouter(
-      <ActionCardsList
-        title="Test Section"
-        cards={mockCardsData}
-      />
+      <ActionCardsList title="Test Section" cards={mockCardsData} />,
     );
 
     // Teste les boutons de la première carte
-    const learnMoreButton = screen.getByRole('link', { name: 'Learn More' });
-    const contactButton = screen.getByRole('link', { name: 'Contact' });
+    const learnMoreButton = screen.getByRole("link", { name: "Learn More" });
+    const contactButton = screen.getByRole("link", { name: "Contact" });
 
     // Tous les boutons pointent vers /information avec un état différent
-    expect(learnMoreButton).toHaveAttribute('href', '/information');
-    expect(contactButton).toHaveAttribute('href', '/information');
+    expect(learnMoreButton).toHaveAttribute("href", "/information");
+    expect(contactButton).toHaveAttribute("href", "/information");
 
     // Teste le bouton de la deuxième carte
-    const getStartedButton = screen.getByRole('link', { name: 'Get Started' });
-    expect(getStartedButton).toHaveAttribute('href', '/information');
+    const getStartedButton = screen.getByRole("link", { name: "Get Started" });
+    expect(getStartedButton).toHaveAttribute("href", "/information");
   });
 
-  it('does not render buttons when not provided', () => {
+  it("does not render buttons when not provided", () => {
     const cardsWithoutButtons = [mockCardsData[2]]; // Service 3 n'a pas de boutons
 
     renderWithRouter(
-      <ActionCardsList
-        title="Test Section"
-        cards={cardsWithoutButtons}
-      />
+      <ActionCardsList title="Test Section" cards={cardsWithoutButtons} />,
     );
 
     // La carte 3 ne devrait pas avoir de boutons
-    expect(screen.queryByRole('link')).not.toBeInTheDocument();
+    expect(screen.queryByRole("link")).not.toBeInTheDocument();
   });
 
-  it('works without section title', () => {
-    renderWithRouter(
-      <ActionCardsList
-        cards={[mockCardsData[0]]}
-      />
-    );
+  it("works without section title", () => {
+    renderWithRouter(<ActionCardsList cards={[mockCardsData[0]]} />);
 
-    expect(screen.getByText('Service 1')).toBeInTheDocument();
-    expect(screen.queryByRole('heading', { level: 2 })).not.toBeInTheDocument();
+    expect(screen.getByText("Service 1")).toBeInTheDocument();
+    expect(screen.queryByRole("heading", { level: 2 })).not.toBeInTheDocument();
   });
 
-  it('works with different configurations', () => {
+  it("works with different configurations", () => {
     const { rerender } = renderWithRouter(
-      <ActionCardsList
-        title="Test Section"
-        cards={mockCardsData}
-      />
+      <ActionCardsList title="Test Section" cards={mockCardsData} />,
     );
 
     // Vérifie que le composant se rend sans erreur
-    expect(screen.getByText('Test Section')).toBeInTheDocument();
+    expect(screen.getByText("Test Section")).toBeInTheDocument();
 
     // Test avec des cartes différentes
     rerender(
       <MemoryRouter>
-        <ActionCardsList
-          title="Updated Section"
-          cards={[mockCardsData[0]]}
-        />
-      </MemoryRouter>
+        <ActionCardsList title="Updated Section" cards={[mockCardsData[0]]} />
+      </MemoryRouter>,
     );
 
-    expect(screen.getByText('Updated Section')).toBeInTheDocument();
+    expect(screen.getByText("Updated Section")).toBeInTheDocument();
   });
 
-  it('is accessible via keyboard navigation', async () => {
+  it("is accessible via keyboard navigation", async () => {
     const user = userEvent.setup();
 
     renderWithRouter(
-      <ActionCardsList
-        title="Accessible Section"
-        cards={[mockCardsData[0]]}
-      />
+      <ActionCardsList title="Accessible Section" cards={[mockCardsData[0]]} />,
     );
 
     // Teste la navigation clavier
-    const title = screen.getByRole('heading', { name: 'Service 1' });
-    const description = screen.getByText('Description for service 1');
-    const learnMoreButton = screen.getByRole('link', { name: 'Learn More' });
-    const contactButton = screen.getByRole('link', { name: 'Contact' });
+    const title = screen.getByRole("heading", { name: "Service 1" });
+    const description = screen.getByText("Description for service 1");
+    const learnMoreButton = screen.getByRole("link", { name: "Learn More" });
+    const contactButton = screen.getByRole("link", { name: "Contact" });
 
     // Vérifier que les éléments sont focusables
-    expect(title).toHaveAttribute('tabindex', '0');
-    expect(description).toHaveAttribute('tabindex', '0');
-    expect(learnMoreButton).toHaveAttribute('tabindex', '0');
-    expect(contactButton).toHaveAttribute('tabindex', '0');
+    expect(title).toHaveAttribute("tabindex", "0");
+    expect(description).toHaveAttribute("tabindex", "0");
+    expect(learnMoreButton).toHaveAttribute("tabindex", "0");
+    expect(contactButton).toHaveAttribute("tabindex", "0");
 
     // Navigation avec Tab - le titre devrait être focusé en premier
     await user.tab();
@@ -214,66 +183,61 @@ describe('ActionCardsList Component', () => {
     expect(contactButton).toHaveFocus();
   });
 
-  it('handles empty cards array', () => {
-    renderWithRouter(
-      <ActionCardsList
-        title="Empty Section"
-        cards={[]}
-      />
-    );
+  it("handles empty cards array", () => {
+    renderWithRouter(<ActionCardsList title="Empty Section" cards={[]} />);
 
-    expect(screen.getByText('Empty Section')).toBeInTheDocument();
-    expect(screen.queryByRole('article')).not.toBeInTheDocument();
+    expect(screen.getByText("Empty Section")).toBeInTheDocument();
+    expect(screen.queryByRole("article")).not.toBeInTheDocument();
   });
 
-  it('uses correct aria labels for accessibility', () => {
+  it("uses correct aria labels for accessibility", () => {
     renderWithRouter(
       <ActionCardsList
         title="Accessible Services"
         cards={[mockCardsData[0]]}
-      />
+      />,
     );
 
-    const section = screen.getByRole('region', { name: /accessible services/i });
-    expect(section).toHaveAttribute('aria-labelledby', 'action-cards-list-title');
+    const section = screen.getByRole("region", {
+      name: /accessible services/i,
+    });
+    expect(section).toHaveAttribute(
+      "aria-labelledby",
+      "action-cards-list-title",
+    );
 
-    const title = screen.getByText('Accessible Services');
-    expect(title).toHaveAttribute('id', 'action-cards-list-title');
+    const title = screen.getByText("Accessible Services");
+    expect(title).toHaveAttribute("id", "action-cards-list-title");
   });
 
-  it('handles cards with only some optional properties', () => {
+  it("handles cards with only some optional properties", () => {
     const partialCard = {
       id: "partial",
       title: "Partial Card",
       description: null,
       imageSrc: null,
-      buttons: undefined
+      buttons: undefined,
     };
 
     renderWithRouter(
-      <ActionCardsList
-        title="Test Section"
-        cards={[partialCard]}
-      />
+      <ActionCardsList title="Test Section" cards={[partialCard]} />,
     );
 
-    expect(screen.getByText('Partial Card')).toBeInTheDocument();
-    expect(screen.queryByRole('img')).not.toBeInTheDocument();
-    expect(screen.queryByRole('link')).not.toBeInTheDocument();
+    expect(screen.getByText("Partial Card")).toBeInTheDocument();
+    expect(screen.queryByRole("img")).not.toBeInTheDocument();
+    expect(screen.queryByRole("link")).not.toBeInTheDocument();
   });
 
-  it('applies responsive grid layout correctly', () => {
+  it("applies responsive grid layout correctly", () => {
     const { container } = renderWithRouter(
-      <ActionCardsList
-        title="Grid Test"
-        cards={mockCardsData}
-      />
+      <ActionCardsList title="Grid Test" cards={mockCardsData} />,
     );
 
     // Vérifie que le container de grille est présent
-    const gridContainer = container.querySelector('[data-testid="cards-grid"]')
-      || container.querySelector('div[style*="grid"]')
-      || container.querySelector('div > div:nth-child(2)');
+    const gridContainer =
+      container.querySelector('[data-testid="cards-grid"]') ||
+      container.querySelector('div[style*="grid"]') ||
+      container.querySelector("div > div:nth-child(2)");
 
     expect(gridContainer).toBeInTheDocument();
   });

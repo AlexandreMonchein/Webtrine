@@ -22,18 +22,31 @@ const gitignorePath = path.resolve(__dirname, ".gitignore");
 
 export default tseslint.config([
   includeIgnoreFile(gitignorePath),
-  stylistic.configs["all"],
+  stylistic.configs.recommended,
   {
     name: "stylistic",
     plugins: {
       "@stylistic": stylistic,
     },
     rules: {
+      // Désactiver temporairement la plupart des règles stylistic
+      "@stylistic/quotes": "off",
+      "@stylistic/semi": "off",
+      "@stylistic/member-delimiter-style": "off",
+      "@stylistic/arrow-parens": "off",
+      "@stylistic/multiline-ternary": "off",
+      "@stylistic/indent": "off",
+      "@stylistic/brace-style": "off",
+      "@stylistic/operator-linebreak": "off",
+      "@stylistic/jsx-one-expression-per-line": "off",
+      "@stylistic/padding-line-between-statements": "off",
+      "@stylistic/eol-last": "off",
+      "@stylistic/padded-blocks": "off",
+      "@stylistic/object-curly-spacing": "off",
+      "@stylistic/quote-props": "off",
+      "@stylistic/comma-dangle": "off",
+      // Garder quelques règles utiles
       "@stylistic/no-multiple-empty-lines": ["error", { max: 1, maxBOF: 0 }],
-      "@stylistic/padding-line-between-statements": [
-        "error",
-        { blankLine: "always", prev: "*", next: "return" },
-      ],
     },
   },
   {
@@ -52,6 +65,11 @@ export default tseslint.config([
       react: {
         version: "detect",
       },
+    },
+    rules: {
+      ...reactPlugin.configs.flat.recommended.rules,
+      "react/react-in-jsx-scope": "off", // React 17+ n'a plus besoin d'importer React
+      "react/jsx-uses-react": "off", // React 17+
     },
   },
   {

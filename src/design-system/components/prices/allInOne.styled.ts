@@ -16,14 +16,14 @@ export const PricesContainer = styled.section`
     breakpointNames.medium,
     css`
       padding: 20px 40px;
-    `
+    `,
   )}
 
   ${bp.min(
     breakpointNames.wide,
     css`
       padding: 40px 480px;
-    `
+    `,
   )}
 `;
 
@@ -57,7 +57,7 @@ export const FeaturesGrid = styled.div`
     css`
       grid-template-columns: 1fr;
       justify-items: center;
-    `
+    `,
   )}
 `;
 

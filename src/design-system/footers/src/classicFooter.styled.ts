@@ -25,7 +25,7 @@ export const FooterContainer = styled.footer`
       flex-direction: column;
       padding: 24px 16px;
       gap: 16px;
-    `
+    `,
   )}
 `;
 
@@ -48,7 +48,7 @@ export const MiddleSection = styled.div`
     breakpointNames.small,
     css`
       padding: 0px;
-    `
+    `,
   )}
 `;
 
@@ -64,7 +64,7 @@ export const BottomSection = styled.div`
     breakpointNames.small,
     css`
       flex-direction: row;
-    `
+    `,
   )}
 `;
 

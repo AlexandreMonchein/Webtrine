@@ -1,4 +1,5 @@
 import styled, { css } from "styled-components";
+
 import { bp } from "../../../breakpoint";
 import { breakpointNames } from "../../../breakpointDef";
 
@@ -12,14 +13,14 @@ export const Section = styled.section`
     breakpointNames.medium,
     css`
       padding: 20px 40px;
-    `
+    `,
   )}
 
   ${bp.min(
     breakpointNames.wide,
     css`
       padding: 40px 480px;
-    `
+    `,
   )}
 `;
 
@@ -71,7 +72,7 @@ export const CardContainer = styled.div<{
                 grid-template-columns: repeat(${Math.min($cardCount, 3)}, 1fr);
                 justify-content: center;
               `}
-        `
+        `,
       )}
 
       /* Desktop large: adaptation selon le nombre de cartes */
@@ -89,7 +90,7 @@ export const CardContainer = styled.div<{
                 grid-template-columns: repeat(${Math.min($cardCount, 3)}, 1fr);
                 justify-content: center;
               `}
-        `
+        `,
       )}
     `}
 `;

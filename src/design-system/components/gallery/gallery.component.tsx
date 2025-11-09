@@ -1,9 +1,9 @@
 import classNames from "classnames";
 import React from "react";
+
+import { getCustomer } from "../../../customer.utils";
 import { useFullscreenMode } from "../../utils/useFullscreenMode";
 import FullscreenMode from "../fullscreenMode/fullscreenMode.component";
-import { getCustomer } from "../../../customer.utils";
-
 import { Card } from "./card.component";
 import {
   CardWrapper,
@@ -14,8 +14,11 @@ import {
 
 const Gallery = (datas) => {
   const {
-    template: { type, inventory, features: { canFullScreen = false } },
-
+    template: {
+      type,
+      inventory,
+      features: { canFullScreen = false },
+    },
   } = datas;
 
   const customer = getCustomer();

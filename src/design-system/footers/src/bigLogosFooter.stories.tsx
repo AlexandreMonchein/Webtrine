@@ -1,7 +1,7 @@
-import type { Meta, StoryObj } from "@storybook/react";
-
-import { Provider } from "react-redux";
 import { configureStore } from "@reduxjs/toolkit";
+import type { Meta, StoryObj } from "@storybook/react";
+import { Provider } from "react-redux";
+
 import BigLogosFooter from "./bigLogosFooter.component";
 import { BigLogosFooterProps } from "./bigLogosFooter.types";
 
@@ -97,8 +97,7 @@ Pour utiliser ce composant dans votre configuration JSON :
       control: "object",
     },
     logos: {
-      description:
-        "Liste des logos partenaires à afficher dans le footer.",
+      description: "Liste des logos partenaires à afficher dans le footer.",
       control: "object",
     },
   },

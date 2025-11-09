@@ -1,1 +1,1 @@
-export const getCustomer = () => import.meta.env.VITE_CUSTOMER || 'webtrine';
+export const getCustomer = () => import.meta.env.VITE_CUSTOMER || "webtrine";

@@ -1,8 +1,8 @@
+import { configureStore } from "@reduxjs/toolkit";
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
-import { configureStore } from "@reduxjs/toolkit";
 
-import { stateReducer, initialState } from "../../../store/state.reducer";
+import { initialState, stateReducer } from "../../../store/state.reducer";
 import ClassicNavbar from "../src/classicNavbar.component";
 
 // Store mocké pour Storybook avec les données client

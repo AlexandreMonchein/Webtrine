@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
 import _ from "lodash";
+import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 
 import {
@@ -78,7 +78,7 @@ const AllInOne = (datas: AllInOneProps) => {
                   >
                     {text}
                   </FeatureText>
-                </FeatureItem>
+                </FeatureItem>,
               );
             }
           }

@@ -15,7 +15,6 @@ export const FloatingContainer = styled.div`
   border: 1px solid black;
 `;
 
-
 export const SocialLogo = styled.div`
   width: 24px;
   height: 24px;

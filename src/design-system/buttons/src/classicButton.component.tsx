@@ -1,6 +1,11 @@
 import { useLayoutEffect, useRef, useState } from "react";
 
-import { Button, ButtonContainer, Text, OffscreenContentContainer } from "./classicButton.styled";
+import {
+  Button,
+  ButtonContainer,
+  OffscreenContentContainer,
+  Text,
+} from "./classicButton.styled";
 
 export const ToggleButton = ({ type, displayedText, hiddenText }) => {
   const [isHidden, setIsHidden] = useState(false);
@@ -37,12 +42,8 @@ export const ToggleButton = ({ type, displayedText, hiddenText }) => {
       </Button>
 
       <OffscreenContentContainer>
-        <span ref={displayedRef}>
-          {displayedText}
-        </span>
-        <span ref={hiddenRef}>
-          {hiddenText}
-        </span>
+        <span ref={displayedRef}>{displayedText}</span>
+        <span ref={hiddenRef}>{hiddenText}</span>
       </OffscreenContentContainer>
     </ButtonContainer>
   );

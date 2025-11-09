@@ -78,7 +78,7 @@ export const Overlay = styled.div`
 
       padding: 20px 40px;
       gap: 32px;
-    `
+    `,
   )};
 
   ${bp.min(
@@ -86,7 +86,7 @@ export const Overlay = styled.div`
     css`
       gap: 128px;
       padding: 0px 240px;
-    `
+    `,
   )};
 `;
 
@@ -105,7 +105,7 @@ export const TextContainer = styled.div`
       width: 100% !important;
       padding: 0 !important;
       text-align: center !important;
-    `
+    `,
   )};
 
   &.isSplit {
@@ -207,7 +207,7 @@ export const Title = styled.h1`
       padding: 0px 24px;
       display: flex;
       justify-content: center;
-    `
+    `,
   )};
 `;
 
@@ -222,7 +222,7 @@ export const SubTitle = styled.h2`
       padding: 0px 24px;
       display: flex;
       justify-content: center;
-    `
+    `,
   )};
 `;
 

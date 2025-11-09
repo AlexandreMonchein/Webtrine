@@ -17,7 +17,7 @@ export const Container = styled.section`
     breakpointNames.medium,
     css`
       padding: 20px 40px;
-    `
+    `,
   )}
 `;
 

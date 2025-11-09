@@ -1,6 +1,7 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import { Provider } from 'react-redux';
-import { configureStore } from '@reduxjs/toolkit';
+import { configureStore } from "@reduxjs/toolkit";
+import type { Meta, StoryObj } from "@storybook/react";
+import { Provider } from "react-redux";
+
 import LegalsComponent from "./legals.component";
 
 interface StoryArgs {
@@ -24,14 +25,14 @@ interface StoryArgs {
 const createMockStore = (templates = []) => {
   return configureStore({
     reducer: {
-      layout: (state = { templates }, action) => state
-    }
+      layout: (state = { templates }, action) => state,
+    },
   });
 };
 
 const meta: Meta<StoryArgs> = {
   component: LegalsComponent,
-  title: 'Design System/Components/Legals',
+  title: "Design System/Components/Legals",
   tags: ["autodocs"],
   decorators: [
     (Story, context) => {
@@ -139,10 +140,10 @@ Copiez et adaptez cette configuration dans votre \`config.json\` :
 - **subTitle** : Sous-titre ou date d'entrée en vigueur (optionnel)
 - **disclaimer** : Avertissement ou note importante (optionnel)
 - **content** : Tableau d'articles avec titre et textes (obligatoire)
-        `
-      }
-    }
-  }
+        `,
+      },
+    },
+  },
 };
 
 export default meta;
@@ -164,35 +165,35 @@ export const CGV: Story = {
               title: "Article 1: Objet",
               texts: [
                 "Les présentes Conditions Générales d'Utilisation et de Vente (CGU/CGV) ont pour objet de définir les conditions d'utilisation du site Webtrine.",
-                "Elles régissent les relations contractuelles entre Webtrine et ses clients."
-              ]
+                "Elles régissent les relations contractuelles entre Webtrine et ses clients.",
+              ],
             },
             {
               title: "Article 2: Accès au site",
               texts: [
                 "Le site Webtrine est accessible gratuitement à tout utilisateur disposant d'un accès à Internet.",
-                "Les frais d'accès au service en ligne sont à la charge de l'utilisateur."
-              ]
+                "Les frais d'accès au service en ligne sont à la charge de l'utilisateur.",
+              ],
             },
             {
               title: "Article 3: Services proposés",
               texts: [
                 "Webtrine propose des services de création de sites web, d'hébergement et de maintenance.",
-                "Les prestations sont détaillées dans les devis personnalisés."
-              ]
-            }
-          ]
-        }
-      }
-    ]
+                "Les prestations sont détaillées dans les devis personnalisés.",
+              ],
+            },
+          ],
+        },
+      },
+    ],
   },
   parameters: {
     docs: {
       description: {
-        story: 'Conditions Générales de Vente avec articles détaillés.'
-      }
-    }
-  }
+        story: "Conditions Générales de Vente avec articles détaillés.",
+      },
+    },
+  },
 };
 
 export const MentionsLegales: Story = {
@@ -205,41 +206,42 @@ export const MentionsLegales: Story = {
           type: "mentions-legals",
           title: "Mentions légales",
           subTitle: "En vigueur au 01/09/2024",
-          disclaimer: "Conformément aux dispositions des Articles 6-III et 19 de la Loi n°2004-575 du 21 juin 2004.",
+          disclaimer:
+            "Conformément aux dispositions des Articles 6-III et 19 de la Loi n°2004-575 du 21 juin 2004.",
           content: [
             {
               title: "Article 1 - L'éditeur",
               texts: [
                 "L'édition et la direction de la publication du Site est assurée par Mr. Alexandre Monschein.",
-                "Adresse e-mail : contact@webtrine.fr"
-              ]
+                "Adresse e-mail : contact@webtrine.fr",
+              ],
             },
             {
               title: "Article 2 - L'hébergeur",
               texts: [
                 "L'hébergeur du Site est la société OVHcloud.",
-                "Adresse : 2 rue Kellermann - 59100 Roubaix - France"
-              ]
+                "Adresse : 2 rue Kellermann - 59100 Roubaix - France",
+              ],
             },
             {
               title: "Article 3 - Accès au site",
               texts: [
                 "Le site est accessible gratuitement en tout lieu à tout utilisateur ayant accès à Internet.",
-                "Tous les frais supportés par l'utilisateur pour accéder au service sont à sa charge."
-              ]
-            }
-          ]
-        }
-      }
-    ]
+                "Tous les frais supportés par l'utilisateur pour accéder au service sont à sa charge.",
+              ],
+            },
+          ],
+        },
+      },
+    ],
   },
   parameters: {
     docs: {
       description: {
-        story: 'Mentions légales conformes à la législation française.'
-      }
-    }
-  }
+        story: "Mentions légales conformes à la législation française.",
+      },
+    },
+  },
 };
 
 export const Confidentialite: Story = {
@@ -258,33 +260,33 @@ export const Confidentialite: Story = {
               title: "Article 1 - Collecte des données personnelles",
               texts: [
                 "Webtrine s'engage à respecter la vie privée de ses utilisateurs.",
-                "Les données personnelles collectées sont limitées au strict nécessaire."
-              ]
+                "Les données personnelles collectées sont limitées au strict nécessaire.",
+              ],
             },
             {
               title: "Article 2 - Utilisation des données",
               texts: [
                 "Les données collectées sont utilisées uniquement dans le cadre des services proposés.",
-                "Aucune donnée n'est transmise à des tiers sans consentement explicite."
-              ]
+                "Aucune donnée n'est transmise à des tiers sans consentement explicite.",
+              ],
             },
             {
               title: "Article 3 - Vos droits",
               texts: [
                 "Vous disposez d'un droit d'accès, de rectification et de suppression de vos données.",
-                "Pour exercer ces droits, contactez-nous à : contact@webtrine.fr"
-              ]
-            }
-          ]
-        }
-      }
-    ]
+                "Pour exercer ces droits, contactez-nous à : contact@webtrine.fr",
+              ],
+            },
+          ],
+        },
+      },
+    ],
   },
   parameters: {
     docs: {
       description: {
-        story: 'Politique de confidentialité conforme au RGPD.'
-      }
-    }
-  }
+        story: "Politique de confidentialité conforme au RGPD.",
+      },
+    },
+  },
 };

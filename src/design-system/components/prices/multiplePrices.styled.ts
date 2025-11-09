@@ -18,7 +18,7 @@ export const PricesContainer = styled.section`
     breakpointNames.medium,
     css`
       padding: 20px 40px;
-    `
+    `,
   )}
 `;
 

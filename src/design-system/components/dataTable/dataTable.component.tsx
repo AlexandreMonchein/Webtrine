@@ -2,15 +2,15 @@ import React, { useId } from "react";
 
 import {
   Section,
-  TableTitle,
-  TableSubTitle,
-  TableContainer,
   Table,
+  TableBody,
+  TableCell,
+  TableContainer,
   TableHeader,
   TableHeaderCell,
-  TableBody,
   TableRow,
-  TableCell,
+  TableSubTitle,
+  TableTitle,
 } from "./dataTable.styled";
 
 export interface TableColumn {

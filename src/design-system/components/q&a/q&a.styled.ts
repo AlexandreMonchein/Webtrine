@@ -10,14 +10,14 @@ export const Section = styled.section`
     breakpointNames.medium,
     css`
       padding: 20px 40px;
-    `
+    `,
   )}
 
   ${bp.min(
     breakpointNames.wide,
     css`
       padding: 40px 480px;
-    `
+    `,
   )}
 `;
 
@@ -34,7 +34,7 @@ export const Header = styled.div`
     breakpointNames.medium,
     css`
       margin-bottom: 24px;
-    `
+    `,
   )}
 `;
 
@@ -46,7 +46,7 @@ export const Title = styled.h2`
     breakpointNames.medium,
     css`
       margin-bottom: 12px;
-    `
+    `,
   )}
 `;
 
@@ -64,7 +64,7 @@ export const TabsContainer = styled.div`
     breakpointNames.medium,
     css`
       margin-bottom: 24px;
-    `
+    `,
   )}
 `;
 
@@ -82,7 +82,7 @@ export const TabsList = styled.div`
     breakpointNames.medium,
     css`
       gap: 8px;
-    `
+    `,
   )}
 `;
 
@@ -123,7 +123,7 @@ export const Tab = styled.button<{ $isActive: boolean }>`
     breakpointNames.medium,
     css`
       padding: 12px 16px;
-    `
+    `,
   )}
 `;
 
@@ -151,7 +151,7 @@ export const AccordionContainer = styled.div`
     breakpointNames.medium,
     css`
       gap: 12px;
-    `
+    `,
   )}
 `;
 
@@ -202,7 +202,7 @@ export const AccordionHeader = styled.button<{ $isExpanded: boolean }>`
     breakpointNames.medium,
     css`
       padding: 16px 20px;
-    `
+    `,
   )}
 `;
 
@@ -234,7 +234,7 @@ export const ChevronIcon = styled.svg<{ $isExpanded: boolean }>`
     css`
       width: 20px;
       height: 20px;
-    `
+    `,
   )}
 `;
 
@@ -294,7 +294,7 @@ export const AccordionBody = styled.div`
     breakpointNames.medium,
     css`
       padding: 0 20px 16px 20px;
-    `
+    `,
   )}
 `;
 
@@ -308,6 +308,6 @@ export const EmptyState = styled.div`
     breakpointNames.medium,
     css`
       padding: 24px 16px;
-    `
+    `,
   )}
 `;

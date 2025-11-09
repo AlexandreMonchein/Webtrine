@@ -1,11 +1,12 @@
 import React, { useEffect } from "react";
+
 import {
-  FullscreenOverlay,
-  FullscreenImage,
   CloseButton,
-  NavButton,
+  FullscreenImage,
+  FullscreenOverlay,
   ImageContainer,
   ImageCounter,
+  NavButton,
 } from "./fullscreenMode.styled";
 
 export interface FullscreenModeProps {

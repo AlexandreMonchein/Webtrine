@@ -1,19 +1,16 @@
-import { useCallback, useEffect, useState } from "react";
 import classNames from "classnames";
+import { useCallback, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 
 import { toggleModal } from "../../../store/state.action";
-import {
-  getClient,
-  getModalState,
-} from "../../../store/state.selector";
+import { getClient, getModalState } from "../../../store/state.selector";
 import { ToggleButton } from "../../buttons/src/classicButton.component";
 import { ToggleThemeMode } from "../../buttons/src/modeTheme.component";
-
+import CalendlyButton from "../../components/calendly/calendlyButton.component";
+import { getLogoDimensions } from "../../utils/dimensions.utils";
 import { FocusTrapProvider } from "../../utils/focusTrap/focusTrap.provider";
 import { MODAL_TYPES } from "../../utils/focusTrap/type";
-
 import {
   BurgerMenuIcon,
   Category,
@@ -21,16 +18,14 @@ import {
   Content,
   Languages,
   Links,
-  LogoContainer,
   Logo,
+  LogoContainer,
   MainNavigation,
   Settings,
   Sidebar,
   SubCategory,
   SubCategoryContainer,
 } from "./classicNavbar.styled";
-import { getLogoDimensions } from "../../utils/dimensions.utils";
-import CalendlyButton from "../../components/calendly/calendlyButton.component";
 
 const ClassicNavbar = (props) => {
   const { i18n } = useTranslation();
@@ -78,7 +73,7 @@ const ClassicNavbar = (props) => {
   const toggleSidebar = (e) => {
     setIsSidebarOpen(!isSidebarOpen);
     dispatch(
-      toggleModal({ type: MODAL_TYPES.SIDE_NAV, active: isSidebarOpen })
+      toggleModal({ type: MODAL_TYPES.SIDE_NAV, active: isSidebarOpen }),
     );
   };
 
@@ -102,7 +97,7 @@ const ClassicNavbar = (props) => {
         setIsSidebarOpen(false);
       }
     },
-    [isSidebarOpen]
+    [isSidebarOpen],
   );
 
   useEffect(() => {
@@ -194,9 +189,7 @@ const ClassicNavbar = (props) => {
           {darkMode ? (
             <ToggleThemeMode toggleTheme={toggleTheme} theme={theme} />
           ) : null}
-          {calendlyUrl ? (
-            <CalendlyButton url={calendlyUrl} />
-          ) : null}
+          {calendlyUrl ? <CalendlyButton url={calendlyUrl} /> : null}
           {actionButton ? (
             actionButton.type === "call" ? (
               <ToggleButton

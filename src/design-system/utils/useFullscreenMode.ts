@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react';
+import { useCallback, useState } from "react";
 
 export interface FullscreenModeState {
   currentIndex: number | null;
@@ -18,7 +18,9 @@ export interface UseFullscreenModeResult extends FullscreenModeActions {
   isOpen: boolean;
 }
 
-export const useFullscreenMode = (totalImages: number): UseFullscreenModeResult => {
+export const useFullscreenMode = (
+  totalImages: number,
+): UseFullscreenModeResult => {
   const [currentIndex, setCurrentIndex] = useState<number | null>(null);
 
   const openFullscreen = useCallback((index: number) => {
@@ -32,7 +34,7 @@ export const useFullscreenMode = (totalImages: number): UseFullscreenModeResult 
   const nextImage = useCallback(() => {
     if (currentIndex !== null && totalImages > 0) {
       setCurrentIndex((prev) =>
-        prev === totalImages - 1 ? 0 : (prev ?? 0) + 1
+        prev === totalImages - 1 ? 0 : (prev ?? 0) + 1,
       );
     }
   }, [currentIndex, totalImages]);
@@ -40,16 +42,19 @@ export const useFullscreenMode = (totalImages: number): UseFullscreenModeResult 
   const prevImage = useCallback(() => {
     if (currentIndex !== null && totalImages > 0) {
       setCurrentIndex((prev) =>
-        prev === 0 ? totalImages - 1 : (prev ?? 0) - 1
+        prev === 0 ? totalImages - 1 : (prev ?? 0) - 1,
       );
     }
   }, [currentIndex, totalImages]);
 
-  const goToImage = useCallback((index: number) => {
-    if (index >= 0 && index < totalImages) {
-      setCurrentIndex(index);
-    }
-  }, [totalImages]);
+  const goToImage = useCallback(
+    (index: number) => {
+      if (index >= 0 && index < totalImages) {
+        setCurrentIndex(index);
+      }
+    },
+    [totalImages],
+  );
 
   return {
     currentIndex,

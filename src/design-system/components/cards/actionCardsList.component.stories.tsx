@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { MemoryRouter } from "react-router-dom";
+
 import ActionCardsList from "./actionCardsList.component";
 import { ActionCardsListProps } from "./actionCardsList.types";
 
@@ -71,7 +72,13 @@ export const Default: Story = {
         description:
           "Vous n'avez pas le temps de promener votre toutou ? Nos promeneurs s'en occupent !",
         imageSrc: "vertical_image",
-        buttons: [{ label: "Promenade de chien", type: "dog_walking", route: "/promenade" }],
+        buttons: [
+          {
+            label: "Promenade de chien",
+            type: "dog_walking",
+            route: "/promenade",
+          },
+        ],
       },
       {
         id: "3",
@@ -79,7 +86,9 @@ export const Default: Story = {
         description:
           "Pendant votre absence, un cat sitter rend visite à votre chat pour le nourrir et entretenir sa litière.",
         imageSrc: "vertical_image",
-        buttons: [{ label: "Visite de chat", type: "cat_visits", route: "/visite" }],
+        buttons: [
+          { label: "Visite de chat", type: "cat_visits", route: "/visite" },
+        ],
       },
       {
         id: "4",

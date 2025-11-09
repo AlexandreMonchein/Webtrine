@@ -44,7 +44,7 @@ const only = (breakpointName, styles) => {
   if (minConditionValue && maxConditionValue) {
     return atRule(
       `@media (${minConditionValue}) and (${maxConditionValue})`,
-      styles
+      styles,
     );
   }
 

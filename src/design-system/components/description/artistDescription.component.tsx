@@ -1,19 +1,20 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
+
 import { useFullscreenMode } from "../../utils/useFullscreenMode";
 import FullscreenMode from "../fullscreenMode/fullscreenMode.component";
 import {
+  Button,
+  CarouselImage,
+  CarouselWrapper,
   Container,
+  Description,
+  ImageCounter,
   InfoSection,
-  Title,
-  Subtitle,
   InstagramIcon,
   Separator,
-  Description,
-  Button,
-  CarouselWrapper,
-  CarouselImage,
+  Subtitle,
   TagLine,
-  ImageCounter,
+  Title,
 } from "./artistDescription.styled";
 
 interface ArtistDescriptionData {
@@ -27,7 +28,9 @@ interface ArtistDescriptionData {
   contactUrl?: string;
 }
 
-const ArtistDescription: React.FC<{ datas: ArtistDescriptionData }> = ({ datas }) => {
+const ArtistDescription: React.FC<{ datas: ArtistDescriptionData }> = ({
+  datas,
+}) => {
   const {
     name,
     instagram,
@@ -45,7 +48,7 @@ const ArtistDescription: React.FC<{ datas: ArtistDescriptionData }> = ({ datas }
   const fullscreenMode = useFullscreenMode(images.length);
 
   const componentFiles = import.meta.glob(
-    "../../../assets/**/**/*.component.tsx"
+    "../../../assets/**/**/*.component.tsx",
   );
 
   useEffect(() => {

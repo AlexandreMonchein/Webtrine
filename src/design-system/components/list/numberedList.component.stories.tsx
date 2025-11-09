@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
+
 import NumberedListComponent from "./numberedList.component";
 
 const meta: Meta<typeof NumberedListComponent> = {

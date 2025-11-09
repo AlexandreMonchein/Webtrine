@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
+
 import ArtistDescription from "./artistDescription.component";
 
 const meta: Meta<typeof ArtistDescription> = {
@@ -71,7 +72,8 @@ Copiez et adaptez cette configuration dans votre config.json :
   argTypes: {
     datas: {
       control: "object",
-      description: "Données de l'artiste avec nom, description, images et liens",
+      description:
+        "Données de l'artiste avec nom, description, images et liens",
     },
   },
 };

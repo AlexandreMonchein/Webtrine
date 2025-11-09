@@ -1,5 +1,7 @@
 // DescriptionB.component.tsx
 import React from "react";
+
+import { getCustomer } from "../../../customer.utils";
 import {
   Box,
   Container,
@@ -13,7 +15,6 @@ import {
   VisuallyHidden,
 } from "./descriptionB.styled";
 import { DescriptionBProps } from "./descriptionB.types";
-import { getCustomer } from "../../../customer.utils";
 
 const Arrow = () => (
   <svg

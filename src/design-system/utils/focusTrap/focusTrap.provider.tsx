@@ -33,7 +33,7 @@ export const FocusTrapProvider = ({ isVisible, type, children }) => {
 
   const listener = useCallback(
     (e: KeyboardEvent) => tabKeyListener(e, wrapperElement.current),
-    [wrapperElement]
+    [wrapperElement],
   );
 
   const resetStates = useCallback(() => {
@@ -78,7 +78,7 @@ export const FocusTrapProvider = ({ isVisible, type, children }) => {
         document.addEventListener("keydown", listener);
       }
     },
-    [listener]
+    [listener],
   );
 
   const releaseFocus = useCallback(() => {

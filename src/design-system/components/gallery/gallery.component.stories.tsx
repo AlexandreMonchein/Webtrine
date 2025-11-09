@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
+
 import GalleryComponent from "./gallery.component";
 
 const meta: Meta<typeof GalleryComponent> = {
@@ -106,7 +107,10 @@ export const LogoGallery: Story = {
       inventory: [
         { imageSrc: "clients/dipaolo", alt: "Client DiPaolo" },
         { imageSrc: "clients/chillpaws", alt: "Client DiPaolo" },
-        { imageSrc: "icons/webtrine_logo_2_blanc_noTitle", alt: "Logo Webtrine" },
+        {
+          imageSrc: "icons/webtrine_logo_2_blanc_noTitle",
+          alt: "Logo Webtrine",
+        },
       ],
       features: {
         canFullScreen: false,

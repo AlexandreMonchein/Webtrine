@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 import ConditionalLink from "../link/link.component";
-
 import { COLORS, WEIGHTS } from "./constants";
 
 export const StyledLink = styled(ConditionalLink)`

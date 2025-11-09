@@ -48,12 +48,12 @@ const breakpointMax = (name) => {
 
 export const breakpointMinSizes = _.mapValues(
   breakpoints,
-  (size, breakpointName) => breakpointMin(breakpointName)
+  (size, breakpointName) => breakpointMin(breakpointName),
 );
 
 export const breakpointMaxSizes = _.mapValues(
   breakpoints,
-  (size, breakpointName) => breakpointMax(breakpointName)
+  (size, breakpointName) => breakpointMax(breakpointName),
 );
 
 export const breakpointRanges = _.reduce(
@@ -62,5 +62,5 @@ export const breakpointRanges = _.reduce(
     ...acc,
     [name]: [breakpointMinSizes[name], breakpointMaxSizes[name]],
   }),
-  {}
+  {},
 );

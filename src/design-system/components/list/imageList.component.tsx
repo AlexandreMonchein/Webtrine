@@ -1,17 +1,18 @@
 import { useEffect, useRef, useState } from "react";
+
+import { getCustomer } from "../../../customer.utils";
 import {
+  ConsultButton,
   Container,
   ImageItem,
   ImageList,
+  ImageWrapper,
+  Overlay,
   ScrollButton,
   Section,
   SubTitle,
   Title,
-  ImageWrapper,
-  Overlay,
-  ConsultButton,
 } from "./imageList.styled";
-import { getCustomer } from "../../../customer.utils";
 
 const List = (datas) => {
   const customer = getCustomer();

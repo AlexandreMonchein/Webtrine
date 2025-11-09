@@ -13,14 +13,14 @@ export const ContactSection = styled.section`
     breakpointNames.medium,
     css`
       padding: 20px 40px;
-    `
+    `,
   )}
 
   ${bp.min(
     breakpointNames.wide,
     css`
       padding: 20px 480px;
-    `
+    `,
   )}
 `;
 
@@ -56,7 +56,7 @@ export const FormDisplay = styled.div`
     breakpointNames.large,
     css`
       flex-direction: column;
-    `
+    `,
   )};
 `;
 
@@ -84,7 +84,7 @@ export const ClientInfo = styled.div`
     css`
       text-align: center;
       padding: 0;
-    `
+    `,
   )};
 `;
 

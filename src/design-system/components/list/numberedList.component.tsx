@@ -1,13 +1,14 @@
 import React from "react";
+
 import {
+  BigTitle,
+  Content,
+  Description,
   ListContainer,
   ListItem,
   NumberCircle,
-  Content,
-  Title,
-  Description,
   Section,
-  BigTitle,
+  Title,
 } from "./numberedList.styled";
 
 export interface ListItemProps {
