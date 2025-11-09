@@ -20,7 +20,7 @@ import {
   TabsList,
   Title,
 } from "./q&a.styled";
-import { QACategory, QAItem, QAProps } from "./q&a.types";
+import { QAItem, QAProps } from "./q&a.types";
 
 const ChevronDownIcon = () => (
   <path
@@ -186,7 +186,7 @@ const QAComponent: React.FC<QAProps> = ({
         {hasCategories && categories.length > 0 && (
           <TabsContainer>
             <TabsList role="tablist" aria-label="FAQ Categories">
-              {categories.map((category, index) => (
+              {categories.map((category) => (
                 <Tab
                   key={category.id}
                   $isActive={activeTab === category.id}

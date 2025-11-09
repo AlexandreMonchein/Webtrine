@@ -1,14 +1,6 @@
-import path from "node:path";
-import { fileURLToPath } from "node:url";
-
 import { defineConfig, mergeConfig } from "vitest/config";
 
 import viteConfig from "./vite.config";
-
-const dirname =
-  typeof __dirname === "undefined"
-    ? path.dirname(fileURLToPath(import.meta.url))
-    : __dirname;
 
 export default mergeConfig(
   viteConfig,

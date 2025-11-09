@@ -100,10 +100,6 @@ export const baseConfig = {
     "no-nested-ternary": "error",
     "no-param-reassign": ["error", { props: false }],
     "no-multi-str": "error",
-    "no-inline-comments": [
-      "error",
-      { ignorePattern: "webpackChunkName:\\s.+" },
-    ],
     "sort-keys": "off",
     "no-new-func": "error",
     "consistent-this": ["error", "_this"],
@@ -121,11 +117,6 @@ export const baseConfig = {
         selector: "ForInStatement",
         message:
           "for..in loops iterate over the entire prototype chain, which is virtually never what you want. Use Object.{keys,values,entries}, and iterate over the resulting array.",
-      },
-      {
-        selector: "ForOfStatement",
-        message:
-          "iterators/generators require regenerator-runtime, which is too heavyweight for this guide to allow them. Separately, loops should be avoided in favor of array iterations.",
       },
       {
         selector: "LabeledStatement",

@@ -5,7 +5,6 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { getCustomer } from "./customer.utils";
 import FloatingSocials from "./design-system/components/floatingUI/floatingSocials.component";
 import Gallery from "./design-system/components/gallery/gallery.component";
-import Product from "./design-system/components/gallery/product.component";
 import Legals from "./design-system/components/legals/legals.component";
 import MultiDescription from "./design-system/components/multiDescriptions/multiDescriptions.component";
 import KeyboardShortcuts from "./design-system/components/shortcut/keyboardShortcuts.component";
@@ -177,7 +176,6 @@ function App(props) {
             element={<Legals type="confidentialite" />}
           />
           <Route path="/cgu-cgv" element={<Legals type="cgu-cgv" />} />
-          <Route path="/display/:item" element={<Product />} />
 
           {galleryTemplate && (
             <Route
