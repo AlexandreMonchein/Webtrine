@@ -10,8 +10,8 @@ const createMockStore = (socials = {}) => {
   return configureStore({
     reducer: {
       client: (state = { socials, name: "showcase" }, action) => state,
-      layout: (state = {}, action) => state
-    }
+      layout: (state = {}, action) => state,
+    },
   });
 };
 
@@ -54,33 +54,24 @@ Pour utiliser ce composant dans votre configuration JSON :
 
 \`\`\`json
 "footer-1": {
-  "type": "bigLogosFooter",
-  "features": {
-    "showSocialLinks": true,
-    "showBrandInfo": true,
-    "showMenuSection": true,
-    "showLogos": true
-  },
-  "content": {
-    "menuSection": {
-      "title": "Besoin de réponses ? Faites un tour sur la foire aux questions !",
-      "links": [
-        { "label": "FAQ", "url": "/pages/faq" },
-        { "label": "Mentions légales", "url": "/policies/legal-notice" },
-        { "label": "Conditions générales", "url": "/policies/terms-of-service" }
-      ]
-    },
-    "brandInfo": {
-      "title": "GÉNA ET COMPAGNIE - PET SITTER CERTIFIÉE - LYON ET ALENTOURS",
-      "description": "<p><strong>06.29.92.58.40 ou genaetcompagnie@gmail.com</strong></p>",
-      "contact": "06.29.92.58.40 ou genaetcompagnie@gmail.com",
-      "additionalText": "Suivez-moi sur les réseaux pour découvrir mes petits protégés !"
-    },
-    "logos": [
-      { "name": "partner1", "alt": "Partenaire 1", "url": "https://partner1.com" },
-      { "name": "partner2", "alt": "Partenaire 2" }
+  "menuSection": {
+    "title": "Besoin de réponses ? Faites un tour sur la foire aux questions !",
+    "links": [
+      { "label": "FAQ", "url": "/pages/faq" },
+      { "label": "Mentions légales", "url": "/policies/legal-notice" },
+      { "label": "Conditions générales", "url": "/policies/terms-of-service" }
     ]
-  }
+  },
+  "brandInfo": {
+    "title": "GÉNA ET COMPAGNIE - PET SITTER CERTIFIÉE - LYON ET ALENTOURS",
+    "description": "<p><strong>06.29.92.58.40 ou genaetcompagnie@gmail.com</strong></p>",
+    "contact": "06.29.92.58.40 ou genaetcompagnie@gmail.com",
+    "additionalText": "Suivez-moi sur les réseaux pour découvrir mes petits protégés !"
+  },
+  "logos": [
+    { "name": "partner1", "alt": "Partenaire 1", "url": "https://partner1.com" },
+    { "name": "partner2", "alt": "Partenaire 2" }
+  ]
 }
 \`\`\`
 
@@ -97,16 +88,17 @@ Pour utiliser ce composant dans votre configuration JSON :
     },
   },
   argTypes: {
-    type: {
-      control: false,
-      description: 'Type du composant (toujours "bigLogosFooter")',
-    },
-    features: {
-      description: "Configuration des fonctionnalités du footer",
+    menuSection: {
+      description: "Section des liens de navigation dans le footer.",
       control: "object",
     },
-    content: {
-      description: "Contenu du footer (sections menu et brand)",
+    brandInfo: {
+      description: "Informations de la marque affichées dans le footer.",
+      control: "object",
+    },
+    logos: {
+      description:
+        "Liste des logos partenaires à afficher dans le footer.",
       control: "object",
     },
   },
@@ -117,101 +109,32 @@ export default meta;
 type Story = StoryObj<typeof BigLogosFooter>;
 
 const defaultArgs: BigLogosFooterProps = {
-  type: "bigLogosFooter",
-  features: {
-    showSocialLinks: true,
-    showBrandInfo: true,
-    showMenuSection: true,
+  menuSection: {
+    title: "Besoin de réponses ? Faites un tour sur la foire aux questions !",
+    links: [
+      { label: "FAQ", url: "/pages/faq" },
+      { label: "Mentions légales", url: "/policies/legal-notice" },
+      { label: "Conditions générales", url: "/policies/terms-of-service" },
+    ],
   },
-  content: {
-    menuSection: {
-      title: "Besoin de réponses ? Faites un tour sur la foire aux questions !",
-      links: [
-        { label: "FAQ", url: "/pages/faq" },
-        { label: "Mentions légales", url: "/policies/legal-notice" },
-        { label: "Conditions générales", url: "/policies/terms-of-service" },
-      ],
-    },
-    brandInfo: {
-      title: "GÉNA ET COMPAGNIE - PET SITTER CERTIFIÉE - LYON ET ALENTOURS",
-      description:
-        "<p><strong>06.29.92.58.40 ou genaetcompagnie@gmail.com</strong></p>",
-      contact: "06.29.92.58.40 ou genaetcompagnie@gmail.com",
-      additionalText:
-        "Suivez-moi sur les réseaux pour découvrir mes petits protégés !",
-    },
+  brandInfo: {
+    title: "GÉNA ET COMPAGNIE - PET SITTER CERTIFIÉE - LYON ET ALENTOURS",
+    description:
+      "<p><strong>06.29.92.58.40 ou genaetcompagnie@gmail.com</strong></p>",
+    additionalText:
+      "Suivez-moi sur les réseaux pour découvrir mes petits protégés !",
   },
+  logos: [
+    {
+      name: "label_france_petsitters",
+      alt: "Partenaire",
+    },
+  ],
 };
 
-export const WithoutSocialLinks: Story = {
+export const Default: Story = {
   args: {
     ...defaultArgs,
-    features: {
-      ...defaultArgs.features,
-      showSocialLinks: false,
-    },
   },
-  name: "Sans réseaux sociaux",
-};
-
-export const MinimalFooter: Story = {
-  args: {
-    type: "bigLogosFooter",
-    features: {
-      showSocialLinks: true,
-      showBrandInfo: true,
-      showMenuSection: true,
-    },
-    content: {
-      menuSection: {
-        title: "Liens utiles",
-        links: [
-          { label: "Contact", url: "/contact" },
-          { label: "Mentions légales", url: "/legal" },
-        ],
-      },
-      brandInfo: {
-        title: "Mon Entreprise",
-        description: "<p>Description courte de l'entreprise</p>",
-        contact: "contact@monentreprise.fr",
-      },
-    },
-  },
-  name: "Footer minimal",
-};
-
-export const WithLogos: Story = {
-  args: {
-    type: "bigLogosFooter",
-    features: {
-      showSocialLinks: true,
-      showBrandInfo: true,
-      showMenuSection: true,
-      showLogos: true,
-    },
-    content: {
-      menuSection: {
-        title: "Besoin de réponses ? Faites un tour sur la foire aux questions !",
-        links: [
-          { label: "FAQ", url: "/pages/faq" },
-          { label: "Mentions légales", url: "/policies/legal-notice" },
-          { label: "Conditions générales", url: "/policies/terms-of-service" },
-        ],
-      },
-      brandInfo: {
-        title: "GÉNA ET COMPAGNIE - PET SITTER CERTIFIÉE - LYON ET ALENTOURS",
-        description:
-          "<p><strong>06.29.92.58.40 ou genaetcompagnie@gmail.com</strong></p>",
-        contact: "06.29.92.58.40 ou genaetcompagnie@gmail.com",
-        additionalText:
-          "Suivez-moi sur les réseaux pour découvrir mes petits protégés !",
-      },
-      logos: [
-        { name: "logo_dipaolo", alt: "Partenaire 1", url: "https://partner1.com" },
-        { name: "webtrine_logo_2_blanc_noTitle", alt: "Partenaire 2", url: "https://partner2.com" },
-        { name: "logo_chillpaws_color_2", alt: "Partenaire 3", url: "https://partner3.com" },
-      ],
-    },
-  },
-  name: "Avec logos partenaires",
+  name: "Default",
 };

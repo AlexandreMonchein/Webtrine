@@ -16,7 +16,6 @@ import {
   BrandSection,
   BrandTitle,
   BrandDescription,
-  ContactInfo,
   AdditionalText,
   SocialSection,
   SocialList,
@@ -28,6 +27,7 @@ import {
   LogoItem,
   LogoLink,
   LogoImage,
+  SiteRef,
 } from "./bigLogosFooter.styled";
 
 const BigLogosFooter: React.FC<BigLogosFooterProps> = (datas) => {
@@ -38,15 +38,7 @@ const BigLogosFooter: React.FC<BigLogosFooterProps> = (datas) => {
     useSelector(getSocials);
   const { name: clientName } = useSelector(getClient);
 
-  const {
-    features: {
-      showSocialLinks = true,
-      showBrandInfo = true,
-      showMenuSection = true,
-      showLogos = false,
-    },
-    content: { menuSection, brandInfo, logos },
-  } = datas;
+  const { menuSection, brandInfo, logos } = datas;
 
   const componentFiles = import.meta.glob(
     "../../../assets/**/**/*.component.tsx"
@@ -56,7 +48,7 @@ const BigLogosFooter: React.FC<BigLogosFooterProps> = (datas) => {
     const loadSocialComponents = async () => {
       const loadedComponents: React.ReactNode[] = [];
 
-      if (socials && showSocialLinks) {
+      if (socials) {
         for (const [name, { link, color }] of Object.entries(socials)) {
           try {
             if (link) {
@@ -76,7 +68,7 @@ const BigLogosFooter: React.FC<BigLogosFooterProps> = (datas) => {
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      <Component color={color} />
+                      <Component />
                       <VisuallyHidden>{name}</VisuallyHidden>
                     </SocialLink>
                   </SocialListItem>
@@ -93,13 +85,13 @@ const BigLogosFooter: React.FC<BigLogosFooterProps> = (datas) => {
     };
 
     loadSocialComponents();
-  }, [socials, showSocialLinks]);
+  }, [socials]);
 
   return (
     <FooterContainer role="contentinfo">
       <FooterContent>
         <FooterGrid>
-          {showLogos && logos && logos.length > 0 && (
+          {logos && logos.length > 0 && (
             <LogosSection>
               <LogosGrid>
                 {logos.map((logo, index) => (
@@ -134,7 +126,7 @@ const BigLogosFooter: React.FC<BigLogosFooterProps> = (datas) => {
             </LogosSection>
           )}
 
-          {showMenuSection && menuSection && (
+          {menuSection && (
             <MenuSection>
               <MenuTitle>{menuSection.title}</MenuTitle>
               <nav aria-label="Liens du footer">
@@ -154,7 +146,7 @@ const BigLogosFooter: React.FC<BigLogosFooterProps> = (datas) => {
             </MenuSection>
           )}
 
-          {showBrandInfo && brandInfo && (
+          {brandInfo && (
             <BrandSection>
               <BrandTitle>{brandInfo.title}</BrandTitle>
               <BrandDescription
@@ -162,7 +154,6 @@ const BigLogosFooter: React.FC<BigLogosFooterProps> = (datas) => {
                   __html: brandInfo.description,
                 }}
               />
-              <ContactInfo>{brandInfo.contact}</ContactInfo>
               {brandInfo.additionalText && (
                 <AdditionalText>{brandInfo.additionalText}</AdditionalText>
               )}
@@ -170,10 +161,15 @@ const BigLogosFooter: React.FC<BigLogosFooterProps> = (datas) => {
           )}
         </FooterGrid>
 
-        {showSocialLinks && socialComponents.length > 0 && (
+        {socialComponents.length > 0 && (
           <SocialSection>
             <nav aria-label="Liens vers les réseaux sociaux">
               <SocialList role="list">{socialComponents}</SocialList>
+            </nav>
+            <nav aria-label="© Réalisé par Webtrine 2025 - tout droit réservé">
+              <SiteRef tabIndex={0} href="https://www.webtrine.fr">
+                Webtrine 2025 - tous droits réservés.
+              </SiteRef>
             </nav>
           </SocialSection>
         )}

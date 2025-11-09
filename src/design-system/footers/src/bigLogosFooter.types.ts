@@ -12,7 +12,6 @@ export interface BigLogosFooterLogo {
 export interface BigLogosFooterBrandInfo {
   title: string;
   description: string;
-  contact: string;
   additionalText?: string;
 }
 
@@ -21,19 +20,8 @@ export interface BigLogosFooterMenuSection {
   links: BigLogosFooterLink[];
 }
 
-export interface BigLogosFooterFeatures {
-  showSocialLinks?: boolean;
-  showBrandInfo?: boolean;
-  showMenuSection?: boolean;
-  showLogos?: boolean;
-}
-
 export interface BigLogosFooterProps {
-  type: "bigLogosFooter";
-  features: BigLogosFooterFeatures;
-  content: {
-    menuSection?: BigLogosFooterMenuSection;
-    brandInfo?: BigLogosFooterBrandInfo;
-    logos?: BigLogosFooterLogo[];
-  };
+  menuSection?: BigLogosFooterMenuSection;
+  brandInfo?: BigLogosFooterBrandInfo;
+  logos?: BigLogosFooterLogo[];
 }

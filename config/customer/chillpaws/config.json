@@ -64,15 +64,30 @@
       },
       {
         "type": "footers",
-        "id": "classicFooter",
+        "id": "bigLogosFooter",
         "datas": {
-          "features": {},
-          "logo": {
-            "name": "logo_chillpaws_color_2",
-            "shape": "square",
-            "alt": "logo-chillpaws",
-            "link": "/"
-          }
+          "menuSection": {
+            "title": "Besoin de réponses ? Faites un tour sur la foire aux questions !",
+            "links": [
+              { "label": "FAQ", "url": "/pages/faq" },
+              { "label": "Mentions légales", "url": "/policies/legal-notice" },
+              {
+                "label": "Conditions générales",
+                "url": "/policies/terms-of-service"
+              }
+            ]
+          },
+          "brandInfo": {
+            "title": "GÉNA ET COMPAGNIE - PET SITTER CERTIFIÉE - LYON ET ALENTOURS",
+            "description": "<p><strong>06.29.92.58.40 ou genaetcompagnie@gmail.com</strong></p>",
+            "additionalText": "Suivez-moi sur les réseaux pour découvrir mes petits protégés !"
+          },
+          "logos": [
+            {
+              "name": "label_france_petsitters",
+              "alt": "Partenaire"
+            }
+          ]
         }
       },
       {
@@ -383,27 +398,51 @@
               "content": [
                 {
                   "title": "Réponse rapide 7j/7",
-                  "description": [{ "text": "Je me déplace tous les jours de l'année, même les week-ends et les jours fériés !" }]
+                  "description": [
+                    {
+                      "text": "Je me déplace tous les jours de l'année, même les week-ends et les jours fériés !"
+                    }
+                  ]
                 },
                 {
                   "title": "Tarifs degressifs et devis personnalisés",
-                  "description": [{ "text": "Vous me faites confiance, je récompense la vôtre !" }]
+                  "description": [
+                    {
+                      "text": "Vous me faites confiance, je récompense la vôtre !"
+                    }
+                  ]
                 },
                 {
                   "title": "Nouvelles quotidiennes",
-                  "description": [{ "text": "Photos et vidéos de votre animal et de votre logement à chaque visite." }]
+                  "description": [
+                    {
+                      "text": "Photos et vidéos de votre animal et de votre logement à chaque visite."
+                    }
+                  ]
                 },
                 {
                   "title": "Jeux fournis",
-                  "description": [{ "text": "Le bien-être de votre animal est ma priorité, je lui amène toujours de nouveaux jouets lors de mon passage." }]
+                  "description": [
+                    {
+                      "text": "Le bien-être de votre animal est ma priorité, je lui amène toujours de nouveaux jouets lors de mon passage."
+                    }
+                  ]
                 },
                 {
                   "title": "Coup de chiffon !",
-                  "description": [{ "text": "Je m'occupe de l'entretien de son lieu de son vie (litière, aération, nettoyage en cas de bêtises...)" }]
+                  "description": [
+                    {
+                      "text": "Je m'occupe de l'entretien de son lieu de son vie (litière, aération, nettoyage en cas de bêtises...)"
+                    }
+                  ]
                 },
                 {
                   "title": "Sécurité de la maison",
-                  "description": [{ "text": "Ma présence régulière dissuade les cambrioleurs et les personnes mal intentionnées pendant vos absences" }]
+                  "description": [
+                    {
+                      "text": "Ma présence régulière dissuade les cambrioleurs et les personnes mal intentionnées pendant vos absences"
+                    }
+                  ]
                 }
               ]
             }

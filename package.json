@@ -96,7 +96,7 @@
     "jackspeak": "2.1.1"
   },
   "scripts": {
-    "start": "VITE_CUSTOMER=${VITE_CUSTOMER:=webtrine} vite",
+    "dev": "VITE_CUSTOMER=${VITE_CUSTOMER:=webtrine} vite",
     "storybook": "VITE_CUSTOMER=${VITE_CUSTOMER:=showcase} storybook dev -p 6006",
     "build": "VITE_CUSTOMER=${VITE_CUSTOMER:=webtrine} ./scripts/build.sh",
     "build:storybook": "storybook build",
