@@ -116,12 +116,14 @@ Pour utiliser ce composant dans votre configuration JSON :
 
 \`\`\`json
 {
-  "header": {
+  "type": "navbars",
+  "id": "modernNavbar",
+  "datas": {
     "logo": {
       "name": "logo-principal",
       "alt": "Logo de l'entreprise"
     },
-    "navigation": [
+    "navigationItems": [
       {
         "label": "Accueil",
         "href": "/"
@@ -138,8 +140,32 @@ Pour utiliser ce composant dans votre configuration JSON :
             "label": "Design UX/UI",
             "href": "/services/design",
             "description": "Interface utilisateur et expérience client"
+          },
+          {
+            "label": "SEO & Marketing",
+            "href": "/services/seo",
+            "description": "Référencement et stratégie digitale"
           }
         ]
+      },
+      {
+        "label": "Solutions",
+        "subItems": [
+          {
+            "label": "Pour les Startups",
+            "href": "/solutions/startups",
+            "description": "Solutions adaptées aux jeunes entreprises"
+          },
+          {
+            "label": "Pour les PME",
+            "href": "/solutions/pme",
+            "description": "Accompagnement des entreprises établies"
+          }
+        ]
+      },
+      {
+        "label": "Portfolio",
+        "href": "/portfolio"
       },
       {
         "label": "Contact",

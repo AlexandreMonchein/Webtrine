@@ -14,11 +14,6 @@ const ModernNavbar: React.FC<ModernNavbarProps> = (props) => {
 
   const { logo, navigationItems } = props;
 
-  console.warn(">>> nav", {
-    logo,
-    navigationItems,
-  });
-
   const { name: clientName } = useSelector(getClient);
 
   // Handle click outside to close mobile menu
