@@ -11,7 +11,7 @@ const mockStore = configureStore({
   preloadedState: {
     ...initialState,
     client: {
-      name: "webtrine", // Nom du client pour les assets
+      name: "showcase",
     },
   },
 });
