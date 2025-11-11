@@ -1,9 +1,8 @@
-const defaultValue = {};
 export const getState = (state) => state;
 
 export const getStyle = (state) => state.style;
 
-export const getClient = (state) => state.client || defaultValue;
+export const getClient = (state) => state.client;
 
 export const getSocials = (state) => getClient(state).socials;
 

@@ -211,8 +211,8 @@ export const LogoLink = styled.a`
 `;
 
 export const LogoImage = styled.img`
-  max-width: 152px;
-  max-height: 152px;
+  max-width: 256px;
+  max-height: 256px;
   width: auto;
   height: auto;
   object-fit: contain;
