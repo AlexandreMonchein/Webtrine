@@ -38,7 +38,7 @@ const meta: Meta<typeof TestimonialQuoteComponent> = {
   title: 'Design System/Components/Testimonial/TestimonialQuote',
   component: TestimonialQuoteComponent,
   parameters: {
-    layout: 'centered',
+    layout: 'fullscreen',
     docs: {
       description: {
         component: `
@@ -78,10 +78,6 @@ Une variante du composant testimonial avec le message en grand en haut et les in
       description: 'Délai entre les slides en millisecondes',
       control: { type: 'number', min: 1000, max: 10000, step: 500 }
     },
-    showNavigation: {
-      description: 'Affiche les boutons de navigation',
-      control: { type: 'boolean' }
-    },
     showPagination: {
       description: 'Affiche la pagination par points',
       control: { type: 'boolean' }
@@ -99,7 +95,6 @@ export const Default: Story = {
     testimonials: mockTestimonialsQuote,
     autoplay: false,
     autoplayDelay: 5000,
-    showNavigation: true,
     showPagination: true
   }
 };
@@ -110,7 +105,6 @@ export const WithAutoplay: Story = {
     testimonials: mockTestimonialsQuote,
     autoplay: true,
     autoplayDelay: 4000,
-    showNavigation: true,
     showPagination: true
   }
 };
@@ -121,7 +115,6 @@ export const SingleTestimonial: Story = {
     testimonials: [mockTestimonialsQuote[0]],
     autoplay: false,
     autoplayDelay: 5000,
-    showNavigation: false,
     showPagination: false
   }
 };

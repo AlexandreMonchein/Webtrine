@@ -1,22 +1,21 @@
-import React, { useState, useEffect, useCallback, useRef } from 'react';
-import type { TestimonialComponentProps, TestimonialCardProps } from './testimonial.types';
-import * as S from './testimonial.styled';
+import React, { useState, useEffect, useCallback, useRef } from "react";
+import type {
+  TestimonialComponentProps,
+  TestimonialCardProps,
+} from "./testimonial.types";
+import * as S from "./testimonial.styled";
 
-const TestimonialCard: React.FC<TestimonialCardProps> = ({
-  testimonial,
-  variant = 'default',
-  className
-}) => {
-  const { name, position, company, rating, content, avatar, date } = testimonial;
+const TestimonialCard: React.FC<TestimonialCardProps> = ({ testimonial }) => {
+  const { name, position, company, rating, content, avatar, date } =
+    testimonial;
 
-  const displayPosition = position && company
-    ? `${position} chez ${company}`
-    : position || company;
+  const displayPosition =
+    position && company ? `${position} chez ${company}` : position || company;
 
   const initials = name
-    .split(' ')
-    .map(word => word[0])
-    .join('')
+    .split(" ")
+    .map((word) => word[0])
+    .join("")
     .toUpperCase()
     .slice(0, 2);
 
@@ -29,7 +28,7 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
   };
 
   return (
-    <S.TestimonialCard $variant={variant} className={className}>
+    <S.TestimonialCard>
       <S.TestimonialHeader>
         <S.AvatarContainer>
           {avatar ? (
@@ -39,10 +38,10 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
               loading="lazy"
               onError={(e) => {
                 const target = e.target as HTMLImageElement;
-                target.style.display = 'none';
+                target.style.display = "none";
                 if (target.parentNode) {
-                  const fallback = document.createElement('div');
-                  fallback.className = 'avatar-fallback';
+                  const fallback = document.createElement("div");
+                  fallback.className = "avatar-fallback";
                   fallback.textContent = initials;
                   fallback.style.cssText = `
                     width: 100%;
@@ -77,17 +76,18 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
         </S.TestimonialInfo>
       </S.TestimonialHeader>
 
-      <S.TestimonialContent cite={name}>
-        {content}
-      </S.TestimonialContent>
+      <S.TestimonialContent cite={name}>{content}</S.TestimonialContent>
 
       {date && (
         <S.TestimonialFooter>
-          <time dateTime={date} aria-label={`Témoignage publié le ${new Date(date).toLocaleDateString('fr-FR')}`}>
-            {new Date(date).toLocaleDateString('fr-FR', {
-              year: 'numeric',
-              month: 'long',
-              day: 'numeric'
+          <time
+            dateTime={date}
+            aria-label={`Témoignage publié le ${new Date(date).toLocaleDateString("fr-FR")}`}
+          >
+            {new Date(date).toLocaleDateString("fr-FR", {
+              year: "numeric",
+              month: "long",
+              day: "numeric",
             })}
           </time>
         </S.TestimonialFooter>
@@ -100,10 +100,9 @@ const TestimonialComponent: React.FC<TestimonialComponentProps> = ({
   testimonials,
   autoplay = false,
   autoplayDelay = 5000,
-  showNavigation = true,
   showPagination = true,
-  variant = 'default',
-  className
+  variant = "default",
+  className,
 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
@@ -124,10 +123,13 @@ const TestimonialComponent: React.FC<TestimonialComponentProps> = ({
     setCurrentIndex((prev) => (prev - 1 + totalItems) % totalItems);
   }, [canNavigate, totalItems]);
 
-  const goToSlide = useCallback((index: number) => {
-    if (!canNavigate || index < 0 || index >= totalItems) return;
-    setCurrentIndex(index);
-  }, [canNavigate, totalItems]);
+  const goToSlide = useCallback(
+    (index: number) => {
+      if (!canNavigate || index < 0 || index >= totalItems) return;
+      setCurrentIndex(index);
+    },
+    [canNavigate, totalItems]
+  );
 
   // Autoplay logic
   useEffect(() => {
@@ -148,19 +150,19 @@ const TestimonialComponent: React.FC<TestimonialComponentProps> = ({
       if (!canNavigate) return;
 
       switch (event.key) {
-        case 'ArrowLeft':
+        case "ArrowLeft":
           event.preventDefault();
           goToPrevious();
           break;
-        case 'ArrowRight':
+        case "ArrowRight":
           event.preventDefault();
           goToNext();
           break;
-        case 'Home':
+        case "Home":
           event.preventDefault();
           goToSlide(0);
           break;
-        case 'End':
+        case "End":
           event.preventDefault();
           goToSlide(totalItems - 1);
           break;
@@ -169,12 +171,12 @@ const TestimonialComponent: React.FC<TestimonialComponentProps> = ({
 
     const container = containerRef.current;
     if (container) {
-      container.addEventListener('keydown', handleKeyDown);
+      container.addEventListener("keydown", handleKeyDown);
     }
 
     return () => {
       if (container) {
-        container.removeEventListener('keydown', handleKeyDown);
+        container.removeEventListener("keydown", handleKeyDown);
       }
     };
   }, [canNavigate, goToPrevious, goToNext, goToSlide, totalItems]);
@@ -206,11 +208,7 @@ const TestimonialComponent: React.FC<TestimonialComponentProps> = ({
       tabIndex={0}
     >
       {/* Screen reader announcements */}
-      <S.AccessibleContent
-        role="status"
-        aria-live="polite"
-        aria-atomic="true"
-      >
+      <S.AccessibleContent role="status" aria-live="polite" aria-atomic="true">
         Témoignage {currentIndex + 1} sur {totalItems}
       </S.AccessibleContent>
 
@@ -227,37 +225,17 @@ const TestimonialComponent: React.FC<TestimonialComponentProps> = ({
             role="tabpanel"
             aria-labelledby={`testimonial-tab-${index}`}
           >
-            <TestimonialCard
-              testimonial={testimonial}
-              variant={variant}
-            />
+            <TestimonialCard testimonial={testimonial} />
           </S.TestimonialSlide>
         ))}
       </S.TestimonialWrapper>
 
-      {/* Navigation Controls */}
-      {canNavigate && showNavigation && (
-        <S.NavigationContainer>
-          <S.NavigationButton
-            onClick={goToPrevious}
-            aria-label="Témoignage précédent"
-            type="button"
-          >
-            ‹
-          </S.NavigationButton>
-          <S.NavigationButton
-            onClick={goToNext}
-            aria-label="Témoignage suivant"
-            type="button"
-          >
-            ›
-          </S.NavigationButton>
-        </S.NavigationContainer>
-      )}
-
       {/* Pagination Dots */}
-      {canNavigate && showPagination && (
-        <S.PaginationContainer role="tablist" aria-label="Sélection de témoignage">
+      {showPagination && (
+        <S.PaginationContainer
+          role="tablist"
+          aria-label="Sélection de témoignage"
+        >
           {testimonials.map((_, index) => (
             <S.PaginationDot
               key={index}
@@ -277,7 +255,9 @@ const TestimonialComponent: React.FC<TestimonialComponentProps> = ({
       {autoplay && canNavigate && (
         <S.AccessibleContent>
           Carrousel en lecture automatique.
-          {isPaused ? 'En pause.' : `Changement automatique toutes les ${autoplayDelay / 1000} secondes.`}
+          {isPaused
+            ? "En pause."
+            : `Changement automatique toutes les ${autoplayDelay / 1000} secondes.`}
           Utilisez les flèches du clavier ou survolez pour contrôler.
         </S.AccessibleContent>
       )}
