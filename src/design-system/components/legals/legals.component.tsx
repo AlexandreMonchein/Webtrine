@@ -31,11 +31,11 @@ const Legals = ({ type = null }) => {
         <Disclaimer>{disclaimer}</Disclaimer>
       </Main>
       <Content>
-        {content.map(({ title, texts }, index) => (
-          <ContentWrapper key={index}>
+        {content.map(({ title, texts }) => (
+          <ContentWrapper key={title}>
             <ContentTitle>{title}</ContentTitle>
-            {texts.map((text) => (
-              <ContentText>{text}</ContentText>
+            {texts.map((text, index) => (
+              <ContentText key={index}>{text}</ContentText>
             ))}
           </ContentWrapper>
         ))}

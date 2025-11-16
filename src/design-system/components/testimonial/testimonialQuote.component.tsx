@@ -1,20 +1,24 @@
-import React, { useState, useEffect, useCallback, useRef } from 'react';
-import type { TestimonialQuoteComponentProps, TestimonialQuoteCardProps } from './testimonialQuote.types';
-import * as S from './testimonialQuote.styled';
+import React, { useCallback, useEffect, useRef, useState } from "react";
+
+import * as S from "./testimonialQuote.styled";
+import type {
+  TestimonialQuoteCardProps,
+  TestimonialQuoteComponentProps,
+} from "./testimonialQuote.types";
 
 const TestimonialQuoteCard: React.FC<TestimonialQuoteCardProps> = ({
   testimonial,
 }) => {
-  const { name, position, company, rating, content, avatar, date } = testimonial;
+  const { name, position, company, rating, content, avatar, date } =
+    testimonial;
 
-  const displayPosition = position && company
-    ? `${position} chez ${company}`
-    : position || company;
+  const displayPosition =
+    position && company ? `${position} chez ${company}` : position || company;
 
   const initials = name
-    .split(' ')
-    .map(word => word[0])
-    .join('')
+    .split(" ")
+    .map((word) => word[0])
+    .join("")
     .toUpperCase()
     .slice(0, 2);
 
@@ -27,7 +31,7 @@ const TestimonialQuoteCard: React.FC<TestimonialQuoteCardProps> = ({
   };
 
   return (
-    <S.TestimonialQuoteCard >
+    <S.TestimonialQuoteCard>
       <S.TestimonialQuoteContent cite={name}>
         {content}
       </S.TestimonialQuoteContent>
@@ -37,14 +41,14 @@ const TestimonialQuoteCard: React.FC<TestimonialQuoteCardProps> = ({
           {avatar ? (
             <img
               src={avatar}
-              alt={`Photo de profil de ${name}`}
+              alt={`Profil de ${name}`}
               loading="lazy"
               onError={(e) => {
                 const target = e.target as HTMLImageElement;
-                target.style.display = 'none';
+                target.style.display = "none";
                 if (target.parentNode) {
-                  const fallback = document.createElement('div');
-                  fallback.className = 'avatar-fallback';
+                  const fallback = document.createElement("div");
+                  fallback.className = "avatar-fallback";
                   fallback.textContent = initials;
                   fallback.style.cssText = `
                     width: 100%;
@@ -71,7 +75,9 @@ const TestimonialQuoteCard: React.FC<TestimonialQuoteCardProps> = ({
         <S.TestimonialQuoteInfo>
           <S.TestimonialQuoteName>{name}</S.TestimonialQuoteName>
           {displayPosition && (
-            <S.TestimonialQuotePosition>{displayPosition}</S.TestimonialQuotePosition>
+            <S.TestimonialQuotePosition>
+              {displayPosition}
+            </S.TestimonialQuotePosition>
           )}
           <S.StarRating role="img" aria-label={`${rating} étoiles sur 5`}>
             {renderStars()}
@@ -80,17 +86,22 @@ const TestimonialQuoteCard: React.FC<TestimonialQuoteCardProps> = ({
       </S.TestimonialQuoteFrom>
 
       {date && (
-        <div style={{
-          marginTop: 'var(--spacing-md, 16px)',
-          fontSize: '0.875rem',
-          color: 'var(--color-on-surface-variant, #666666)',
-          textAlign: 'center'
-        }}>
-          <time dateTime={date} aria-label={`Témoignage publié le ${new Date(date).toLocaleDateString('fr-FR')}`}>
-            {new Date(date).toLocaleDateString('fr-FR', {
-              year: 'numeric',
-              month: 'long',
-              day: 'numeric'
+        <div
+          style={{
+            marginTop: "var(--spacing-md, 16px)",
+            fontSize: "0.875rem",
+            color: "var(--color-on-surface-variant, #666666)",
+            textAlign: "center",
+          }}
+        >
+          <time
+            dateTime={date}
+            aria-label={`Témoignage publié le ${new Date(date).toLocaleDateString("fr-FR")}`}
+          >
+            {new Date(date).toLocaleDateString("fr-FR", {
+              year: "numeric",
+              month: "long",
+              day: "numeric",
             })}
           </time>
         </div>
@@ -104,7 +115,7 @@ const TestimonialQuoteComponent: React.FC<TestimonialQuoteComponentProps> = ({
   autoplay = false,
   autoplayDelay = 5000,
   showPagination = true,
-  className
+  className,
 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
@@ -125,10 +136,13 @@ const TestimonialQuoteComponent: React.FC<TestimonialQuoteComponentProps> = ({
     setCurrentIndex((prev) => (prev - 1 + totalItems) % totalItems);
   }, [canNavigate, totalItems]);
 
-  const goToSlide = useCallback((index: number) => {
-    if (!canNavigate || index < 0 || index >= totalItems) return;
-    setCurrentIndex(index);
-  }, [canNavigate, totalItems]);
+  const goToSlide = useCallback(
+    (index: number) => {
+      if (!canNavigate || index < 0 || index >= totalItems) return;
+      setCurrentIndex(index);
+    },
+    [canNavigate, totalItems],
+  );
 
   // Autoplay logic
   useEffect(() => {
@@ -149,19 +163,19 @@ const TestimonialQuoteComponent: React.FC<TestimonialQuoteComponentProps> = ({
       if (!canNavigate) return;
 
       switch (event.key) {
-        case 'ArrowLeft':
+        case "ArrowLeft":
           event.preventDefault();
           goToPrevious();
           break;
-        case 'ArrowRight':
+        case "ArrowRight":
           event.preventDefault();
           goToNext();
           break;
-        case 'Home':
+        case "Home":
           event.preventDefault();
           goToSlide(0);
           break;
-        case 'End':
+        case "End":
           event.preventDefault();
           goToSlide(totalItems - 1);
           break;
@@ -170,12 +184,12 @@ const TestimonialQuoteComponent: React.FC<TestimonialQuoteComponentProps> = ({
 
     const container = containerRef.current;
     if (container) {
-      container.addEventListener('keydown', handleKeyDown);
+      container.addEventListener("keydown", handleKeyDown);
     }
 
     return () => {
       if (container) {
-        container.removeEventListener('keydown', handleKeyDown);
+        container.removeEventListener("keydown", handleKeyDown);
       }
     };
   }, [canNavigate, goToPrevious, goToNext, goToSlide, totalItems]);
@@ -189,7 +203,7 @@ const TestimonialQuoteComponent: React.FC<TestimonialQuoteComponentProps> = ({
   if (!testimonials.length) {
     return (
       <S.TestimonialQuoteContainer className={className}>
-        <p style={{ textAlign: 'center' }}>Aucun témoignage disponible.</p>
+        <p style={{ textAlign: "center" }}>Aucun témoignage disponible.</p>
       </S.TestimonialQuoteContainer>
     );
   }
@@ -207,11 +221,7 @@ const TestimonialQuoteComponent: React.FC<TestimonialQuoteComponentProps> = ({
       tabIndex={0}
     >
       {/* Screen reader announcements */}
-      <S.AccessibleContent
-        role="status"
-        aria-live="polite"
-        aria-atomic="true"
-      >
+      <S.AccessibleContent role="status" aria-live="polite" aria-atomic="true">
         Témoignage {currentIndex + 1} sur {totalItems}
       </S.AccessibleContent>
 
@@ -228,16 +238,17 @@ const TestimonialQuoteComponent: React.FC<TestimonialQuoteComponentProps> = ({
             role="tabpanel"
             aria-labelledby={`testimonial-quote-tab-${index}`}
           >
-            <TestimonialQuoteCard
-              testimonial={testimonial}
-            />
+            <TestimonialQuoteCard testimonial={testimonial} />
           </S.TestimonialQuoteSlide>
         ))}
       </S.TestimonialQuoteWrapper>
 
       {/* Pagination Dots */}
       {canNavigate && showPagination && (
-        <S.PaginationContainer role="tablist" aria-label="Sélection de témoignage">
+        <S.PaginationContainer
+          role="tablist"
+          aria-label="Sélection de témoignage"
+        >
           {testimonials.map((_, index) => (
             <S.PaginationDot
               key={index}
@@ -257,7 +268,9 @@ const TestimonialQuoteComponent: React.FC<TestimonialQuoteComponentProps> = ({
       {autoplay && canNavigate && (
         <S.AccessibleContent>
           Carrousel en lecture automatique.
-          {isPaused ? 'En pause.' : `Changement automatique toutes les ${autoplayDelay / 1000} secondes.`}
+          {isPaused
+            ? "En pause."
+            : `Changement automatique toutes les ${autoplayDelay / 1000} secondes.`}
           Utilisez les flèches du clavier ou survolez pour contrôler.
         </S.AccessibleContent>
       )}

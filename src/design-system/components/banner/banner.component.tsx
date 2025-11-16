@@ -33,13 +33,17 @@ const Banner = (datas) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
+    let interval;
+
     if (multi) {
-      const interval = setInterval(() => {
+      interval = setInterval(() => {
         setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
       }, 5000); // Change image every 5 seconds
 
       return () => clearInterval(interval);
     }
+
+    return () => clearInterval(interval);
   }, [images.length, multi]);
 
   const handleSelectorClick = (index: number) => {
@@ -94,7 +98,7 @@ const Banner = (datas) => {
                 className={classNames({ active: index === currentIndex })}
               />
               {url && title ? (
-                <RedirectLink tabIndex={0} key={`link-${index}`} href={url}>
+                <RedirectLink tabIndex={0} key={`link-${url}`} href={url}>
                   {title}
                 </RedirectLink>
               ) : null}

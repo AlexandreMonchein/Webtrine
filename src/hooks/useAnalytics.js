@@ -1,6 +1,7 @@
-import { useSelector } from 'react-redux';
-import { getClient } from '../store/state.selector';
-import { trackEvent, getGtagId } from './analytics.utils';
+import { useSelector } from "react-redux";
+
+import { getClient } from "../store/state.selector";
+import { getGtagId, trackEvent } from "./analytics.utils";
 
 /**
  * Hook pour utiliser Google Analytics
@@ -11,7 +12,7 @@ export const useAnalytics = () => {
   const track = (action, parameters = {}) => {
     trackEvent(action, {
       ...parameters,
-      client_name: client?.name
+      client_name: client?.name,
     });
   };
 
@@ -22,6 +23,6 @@ export const useAnalytics = () => {
   return {
     track,
     getClientGtagId,
-    clientName: client?.name
+    clientName: client?.name,
   };
 };

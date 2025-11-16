@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
 import QAComponent from "./q&a.component";
-import { QACategory, QAItem, QAProps } from "./q&a.types";
+import { QACategory, QAItem } from "./q&a.types";
 
 const meta: Meta<typeof QAComponent> = {
   title: "Design System/Components/Q&A",

@@ -38,9 +38,9 @@ export const MapLeaflet = (datas): ReactElement | null => {
     return null;
   }
 
-  const onClickMarker = (e) => {
-    // TODO: handle click on marker
-  };
+  // const onClickMarker = (id) => {
+  //   // TODO: handle click on marker
+  // };
   const zoom = 13;
 
   const LocationMarker = () => {
@@ -106,23 +106,23 @@ export const MapLeaflet = (datas): ReactElement | null => {
           doubleClickZoom={true}
           minZoom={2}
           preferCanvas={false}
-          whenCreated={() => console.log("Map Created")}
-          whenReady={() => console.log("Map Ready")}
+          whenCreated={() => console.warn(">>> Map Created")}
+          whenReady={() => console.warn(">>> Map Ready")}
         >
           <TileLayer
             url="https://{s}.tile.osm.org/{z}/{x}/{y}.png"
             noWrap={true}
           />
-          {places.map((place, index) => (
+          {places.map((place) => (
             <Marker
-              key={`marker_contact_list_${index}`}
+              key={`marker_contact_list_${place.id}`}
               position={place.position}
               icon={ICON}
-              eventHandlers={{
-                click: () => {
-                  onClickMarker && onClickMarker(place.id);
-                },
-              }}
+              // eventHandlers={{
+              //   click: () => {
+              //     onClickMarker(place.id);
+              //   },
+              // }}
             />
           ))}
           <LocationMarker />

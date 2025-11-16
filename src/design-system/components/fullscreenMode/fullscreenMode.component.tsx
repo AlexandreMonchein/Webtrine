@@ -79,7 +79,6 @@ const FullscreenMode: React.FC<FullscreenModeProps> = ({
       {showNavigation && images.length > 1 && (
         <>
           <NavButton
-            left={true}
             onClick={(e) => {
               e.stopPropagation();
               onPrev();

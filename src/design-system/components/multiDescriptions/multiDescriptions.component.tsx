@@ -71,7 +71,7 @@ const MultiDescription = ({ templateName = null }) => {
       setComponents(loadedComponents);
     };
     loadComponents();
-  }, [content]);
+  }, [content, location.state]);
 
   if (!template) {
     return null;

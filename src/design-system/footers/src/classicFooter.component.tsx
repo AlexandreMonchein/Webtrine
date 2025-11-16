@@ -76,7 +76,7 @@ const ClassicFooter = (props) => {
     };
 
     loadComponents();
-  }, [socials]);
+  }, [componentFiles, socials]);
 
   return (
     <FooterContainer>

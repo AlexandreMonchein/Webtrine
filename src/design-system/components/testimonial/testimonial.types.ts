@@ -15,12 +15,12 @@ export interface TestimonialComponentProps {
   autoplayDelay?: number;
   showNavigation?: boolean;
   showPagination?: boolean;
-  variant?: 'default' | 'compact' | 'featured';
+  variant?: "default" | "compact" | "featured";
   className?: string;
 }
 
 export interface TestimonialCardProps {
   testimonial: Testimonial;
-  variant?: 'default' | 'compact' | 'featured';
+  variant?: "default" | "compact" | "featured";
   className?: string;
 }

@@ -13,18 +13,20 @@ export const initializeGoogleAnalytics = (customerName) => {
   const gtag_id = GTAG_CONFIG[customerName];
 
   if (!gtag_id) {
-    console.warn(`No Google Analytics ID configured for customer: ${customerName}`);
+    console.warn(
+      `>>> No Google Analytics ID configured for customer: ${customerName}`,
+    );
     return;
   }
 
   // Vérifier si gtag est déjà chargé
   if (window.gtag) {
-    console.log(`Google Analytics already initialized`);
+    console.warn(`>>> Google Analytics already initialized`);
     return;
   }
 
   // Créer et ajouter le script gtag.js
-  const script = document.createElement('script');
+  const script = document.createElement("script");
   script.async = true;
   script.src = `https://www.googletagmanager.com/gtag/js?id=${gtag_id}`;
   document.head.appendChild(script);
@@ -39,14 +41,16 @@ export const initializeGoogleAnalytics = (customerName) => {
   window.gtag = gtag;
 
   // Configuration
-  gtag('js', new Date());
-  gtag('config', gtag_id, {
+  gtag("js", new Date());
+  gtag("config", gtag_id, {
     // Vous pouvez ajouter des options spécifiques par client ici
     send_page_view: true,
     anonymize_ip: true,
   });
 
-  console.log(`Google Analytics initialized for ${customerName} with ID: ${gtag_id}`);
+  console.warn(
+    `>>> Google Analytics initialized for ${customerName} with ID: ${gtag_id}`,
+  );
 };
 
 /**
@@ -56,7 +60,7 @@ export const initializeGoogleAnalytics = (customerName) => {
  */
 export const trackEvent = (action, parameters = {}) => {
   if (window.gtag) {
-    window.gtag('event', action, parameters);
+    window.gtag("event", action, parameters);
   }
 };
 

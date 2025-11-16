@@ -1,7 +1,8 @@
-import { useEffect } from 'react';
-import { useSelector } from 'react-redux';
-import { getClient } from '../../../store/state.selector';
-import { initializeGoogleAnalytics } from '../../../utils/analytics.utils';
+import { useEffect } from "react";
+import { useSelector } from "react-redux";
+
+import { getClient } from "../../../store/state.selector";
+import { initializeGoogleAnalytics } from "../../../utils/analytics.utils";
 
 /**
  * Composant pour initialiser Google Analytics basé sur le client du store Redux

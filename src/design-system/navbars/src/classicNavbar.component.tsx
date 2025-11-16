@@ -153,7 +153,7 @@ const ClassicNavbar = (props) => {
             {categories.map((category) => {
               if (category.sub) {
                 return (
-                  <Category className="deroulant">
+                  <Category key={category.name} className="deroulant">
                     <Links onClick={handleOnClick}>{category.name}</Links>
                     <SubCategoryContainer className="sous">
                       {category.sub.map((sub) => (
@@ -179,9 +179,19 @@ const ClassicNavbar = (props) => {
             <Languages>
               <div>
                 {i18n.language === "fr" ? (
-                  <button onClick={() => handleChangeLanguage("en")}>EN</button>
+                  <button
+                    type="button"
+                    onClick={() => handleChangeLanguage("en")}
+                  >
+                    EN
+                  </button>
                 ) : (
-                  <button onClick={() => handleChangeLanguage("fr")}>FR</button>
+                  <button
+                    type="button"
+                    onClick={() => handleChangeLanguage("fr")}
+                  >
+                    FR
+                  </button>
                 )}
               </div>
             </Languages>

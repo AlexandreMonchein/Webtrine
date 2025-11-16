@@ -48,7 +48,7 @@ const BigLogosFooter: React.FC<BigLogosFooterProps> = (datas) => {
       const loadedComponents: React.ReactNode[] = [];
 
       if (socials) {
-        for (const [name, { link, color }] of Object.entries(socials)) {
+        for (const [name, { link }] of Object.entries(socials)) {
           try {
             if (link) {
               const componentPath = `../../../assets/icons/${name}.component.tsx`;
@@ -84,7 +84,7 @@ const BigLogosFooter: React.FC<BigLogosFooterProps> = (datas) => {
     };
 
     loadSocialComponents();
-  }, [socials]);
+  }, [componentFiles, socials]);
 
   return (
     <FooterContainer role="contentinfo">
@@ -93,8 +93,8 @@ const BigLogosFooter: React.FC<BigLogosFooterProps> = (datas) => {
           {logos && logos.length > 0 && (
             <LogosSection>
               <LogosGrid>
-                {logos.map((logo, index) => (
-                  <LogoItem key={`${logo.name}-${index}`}>
+                {logos.map((logo) => (
+                  <LogoItem key={`${logo.name}`}>
                     {logo.url ? (
                       <LogoLink
                         href={logo.url}

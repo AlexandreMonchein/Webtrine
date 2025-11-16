@@ -102,14 +102,14 @@ const ExtendedContact = ({ datas }) => {
       <Content>
         {title ? (
           <Title tabIndex={0}>{title}</Title>
-        ) : t(titleKey) !== titleKey ? (
+        ) : (
           <Title tabIndex={0}>{t(titleKey)}</Title>
-        ) : null}
+        )}
         {subTitle ? (
           <Description tabIndex={0}>{subTitle}</Description>
-        ) : t(descriptionKey) !== descriptionKey ? (
+        ) : (
           <Description tabIndex={0}>{t(descriptionKey)}</Description>
-        ) : null}
+        )}
         <FormContainer onSubmit={handleSubmit}>
           <FormDisplay>
             <ClientInfo>

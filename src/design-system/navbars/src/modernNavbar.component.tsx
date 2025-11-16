@@ -1,14 +1,15 @@
-import React, { useState, useEffect, useRef, useCallback } from "react";
-import type { ModernNavbarProps, NavItem } from "./modernNavbar.types";
-import * as S from "./modernNavbar.styled";
-import { getClient } from "../../../store/state.selector";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
+
+import { getClient } from "../../../store/state.selector";
+import * as S from "./modernNavbar.styled";
+import type { ModernNavbarProps, NavItem } from "./modernNavbar.types";
 
 const ModernNavbar: React.FC<ModernNavbarProps> = (props) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [openSubMenu, setOpenSubMenu] = useState<string | null>(null);
   const [openMobileSubMenu, setOpenMobileSubMenu] = useState<string | null>(
-    null
+    null,
   );
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 

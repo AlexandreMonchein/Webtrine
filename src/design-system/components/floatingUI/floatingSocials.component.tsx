@@ -49,7 +49,7 @@ const FloatingSocials: React.FC = () => {
     };
 
     loadComponents();
-  }, [socials]);
+  }, [componentFiles, socials]);
 
   if (!socials) {
     return null;

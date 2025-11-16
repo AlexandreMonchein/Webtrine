@@ -1,5 +1,7 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+
 import { bp } from "../../../breakpoint";
+import { breakpointNames } from "../../../breakpointDef";
 
 export const TestimonialCardsContainer = styled.div`
   position: relative;
@@ -8,9 +10,12 @@ export const TestimonialCardsContainer = styled.div`
   overflow: hidden;
   padding: 24px 0;
 
-  ${bp.min("medium")} {
-    padding: 32px 0;
-  }
+  ${bp.min(
+    breakpointNames.medium,
+    css`
+      padding: 32px 0;
+    `,
+  )}
 `;
 
 export const TestimonialCardsWrapper = styled.div<{ $currentIndex: number }>`
@@ -18,24 +23,30 @@ export const TestimonialCardsWrapper = styled.div<{ $currentIndex: number }>`
   transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   transform: translateX(-${(props) => props.$currentIndex * 100}%);
   will-change: transform;
-  gap: 16px;
-  padding: 0 16px;
-
-  ${bp.min("medium")} {
-    gap: 20px;
-    padding: 0 24px;
-  }
-
-  ${bp.min("large")} {
-    gap: 24px;
-  }
 `;
 
 export const TestimonialCardsSlide = styled.div`
   min-width: 100%;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  display: flex;
   gap: 16px;
+  padding: 0 16px; /* Padding à l'intérieur de chaque slide */
+  box-sizing: border-box; /* Important pour le calcul de la largeur */
+
+  /* Responsive gap et padding */
+  ${bp.min(
+    breakpointNames.medium,
+    css`
+      gap: 20px;
+      padding: 0 24px;
+    `,
+  )}
+
+  ${bp.min(
+    breakpointNames.large,
+    css`
+      gap: 24px;
+    `,
+  )}
 `;
 
 export const TestimonialCard = styled.div`
@@ -47,12 +58,12 @@ export const TestimonialCard = styled.div`
     0 2px 4px rgba(0, 0, 0, 0.05),
     0 1px 2px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
-  min-height: 180px;
-  max-height: 220px;
+
   display: flex;
   flex-direction: column;
   position: relative;
   border: 1px solid rgba(0, 0, 0, 0.05);
+  flex: 1; /* Prend la largeur disponible dans le slide */
 
   &:hover {
     transform: translateY(-2px);
@@ -61,11 +72,12 @@ export const TestimonialCard = styled.div`
       0 2px 4px rgba(0, 0, 0, 0.15);
   }
 
-  ${bp.min("medium")} {
-    padding: 18px;
-    min-height: 200px;
-    max-height: 240px;
-  }
+  ${bp.min(
+    breakpointNames.medium,
+    css`
+      padding: 18px;
+    `,
+  )}
 `;
 
 export const CardHeader = styled.div`
@@ -92,10 +104,13 @@ export const AvatarContainer = styled.div`
     object-fit: cover;
   }
 
-  ${bp.min("medium")} {
-    width: 44px;
-    height: 44px;
-  }
+  ${bp.min(
+    breakpointNames.medium,
+    css`
+      width: 44px;
+      height: 44px;
+    `,
+  )}
 `;
 
 export const AvatarFallback = styled.div`
@@ -109,9 +124,12 @@ export const AvatarFallback = styled.div`
   color: var(--white);
   background-color: var(--gold);
 
-  ${bp.min("medium")} {
-    font-size: 16px;
-  }
+  ${bp.min(
+    breakpointNames.medium,
+    css`
+      font-size: 16px;
+    `,
+  )}
 `;
 
 export const UserInfo = styled.div`
@@ -126,9 +144,12 @@ export const UserName = styled.div`
   margin-bottom: 2px;
   line-height: 1.2;
 
-  ${bp.min("medium")} {
-    font-size: 15px;
-  }
+  ${bp.min(
+    breakpointNames.medium,
+    css`
+      font-size: 15px;
+    `,
+  )}
 `;
 
 export const UserPosition = styled.div`
@@ -137,9 +158,12 @@ export const UserPosition = styled.div`
   opacity: 0.8;
   line-height: 1.2;
 
-  ${bp.min("medium")} {
-    font-size: 13px;
-  }
+  ${bp.min(
+    breakpointNames.medium,
+    css`
+      font-size: 13px;
+    `,
+  )}
 `;
 
 export const PublicationDate = styled.div`
@@ -149,9 +173,12 @@ export const PublicationDate = styled.div`
   margin-top: 3px;
   line-height: 1.2;
 
-  ${bp.min("medium")} {
-    font-size: 12px;
-  }
+  ${bp.min(
+    breakpointNames.medium,
+    css`
+      font-size: 12px;
+    `,
+  )}
 `;
 
 export const GoogleBadge = styled.div`
@@ -176,10 +203,13 @@ export const GoogleBadge = styled.div`
       height: 16px;
       filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.1));
 
-      ${bp.min("medium")} {
-        width: 18px;
-        height: 18px;
-      }
+      ${bp.min(
+        breakpointNames.medium,
+        css`
+          width: 18px;
+          height: 18px;
+        `,
+      )}
     }
   }
 `;
@@ -189,10 +219,13 @@ export const StarsContainer = styled.div`
   gap: 1px;
   margin-bottom: 8px;
 
-  ${bp.min("medium")} {
-    gap: 2px;
-    margin-bottom: 10px;
-  }
+  ${bp.min(
+    breakpointNames.medium,
+    css`
+      gap: 2px;
+      margin-bottom: 10px;
+    `,
+  )}
 `;
 
 export const Star = styled.span<{ $filled: boolean }>`
@@ -200,16 +233,18 @@ export const Star = styled.span<{ $filled: boolean }>`
   color: ${(props) => (props.$filled ? "#fe8403" : "#e0e0e0")};
   line-height: 1;
 
-  ${bp.min("medium")} {
-    font-size: 16px;
-  }
+  ${bp.min(
+    breakpointNames.medium,
+    css`
+      font-size: 16px;
+    `,
+  )}
 `;
 
 export const TestimonialContent = styled.div`
   font-size: 12px;
   line-height: 1.4;
   color: inherit;
-  flex: 1;
 
   /* Limiter à 3 lignes maximum */
   display: -webkit-box;
@@ -218,14 +253,20 @@ export const TestimonialContent = styled.div`
   overflow: hidden;
   text-overflow: ellipsis;
 
-  ${bp.min("medium")} {
-    font-size: 13px;
-    line-height: 1.4;
-  }
+  ${bp.min(
+    breakpointNames.medium,
+    css`
+      font-size: 13px;
+      line-height: 1.4;
+    `,
+  )}
 
-  ${bp.min("large")} {
-    font-size: 14px;
-  }
+  ${bp.min(
+    breakpointNames.large,
+    css`
+      font-size: 14px;
+    `,
+  )}
 `;
 
 /* Navigation et pagination */
@@ -237,10 +278,13 @@ export const NavigationContainer = styled.div`
   margin-top: 24px;
   padding: 0 16px;
 
-  ${bp.min("medium")} {
-    margin-top: 32px;
-    padding: 0 24px;
-  }
+  ${bp.min(
+    breakpointNames.medium,
+    css`
+      margin-top: 32px;
+      padding: 0 24px;
+    `,
+  )}
 `;
 
 export const NavButton = styled.button<{ $disabled?: boolean }>`
@@ -280,18 +324,22 @@ export const PaginationDot = styled.button<{ $active?: boolean }>`
   height: 8px;
   border: none;
   border-radius: 50%;
-  background-color: ${(props) => (props.$active ? "var(--nav-hover-color)" : "#e0e0e0")};
+  background-color: ${(props) =>
+    props.$active ? "var(--nav-hover-color)" : "#e0e0e0"};
   cursor: pointer;
   transition: all 0.3s ease;
   padding: 0;
 
   &:hover {
-  background-color: var(--nav-hover-color);
+    background-color: var(--nav-hover-color);
     transform: scale(1.2);
   }
 
-  ${bp.min("medium")} {
-    width: 10px;
-    height: 10px;
-  }
+  ${bp.min(
+    breakpointNames.medium,
+    css`
+      width: 10px;
+      height: 10px;
+    `,
+  )}
 `;

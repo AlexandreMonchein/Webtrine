@@ -1,10 +1,11 @@
-import type { Meta, StoryObj } from "@storybook/react";
-import ModernNavbar from "../src/modernNavbar.component";
-import type { ModernNavbarProps, NavItem } from "../src/modernNavbar.types";
-import { initialState, stateReducer } from "../../../store/state.reducer";
 import { configureStore } from "@reduxjs/toolkit";
+import type { Meta, StoryObj } from "@storybook/react";
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
+
+import { initialState, stateReducer } from "../../../store/state.reducer";
+import ModernNavbar from "../src/modernNavbar.component";
+import type { ModernNavbarProps, NavItem } from "../src/modernNavbar.types";
 
 // Store mocké pour Storybook avec les données client
 const mockStore = configureStore({
@@ -225,7 +226,7 @@ export const Default: Story = {
   args: {
     logo: {
       name: "logo_chillpaws_color_2",
-      alt: "Logo de l'entreprise"
+      alt: "Logo de l'entreprise",
     },
     navigationItems: mockNavigationItems,
   },

@@ -39,7 +39,7 @@ export interface DataTableProps {
   features?: DataTableFeature;
 }
 
-const DataTable: React.FC<DataTableProps> = (datas) => {
+const DataTable = (datas: DataTableProps) => {
   const { title, subTitle, features, content } = datas;
   const { columns, data } = content;
   const { centeredTitles = false, centerContent = false } = features || {};

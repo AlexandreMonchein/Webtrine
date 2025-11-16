@@ -53,7 +53,7 @@ const FeatureSection = (datas: Datas) => {
     };
 
     loadComponents();
-  }, [content]);
+  }, [componentFiles, content]);
 
   return (
     <Section>

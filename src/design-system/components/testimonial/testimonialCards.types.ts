@@ -1,11 +1,11 @@
-import { Testimonial } from './testimonial.types';
+import { Testimonial } from "./testimonial.types";
 
 export interface TestimonialCardsProps {
   testimonials: Testimonial[];
   className?: string;
   autoplay?: boolean; // Autoplay activé/désactivé
   autoplayDelay?: number; // Délai entre les slides en ms (défaut: 5000)
-  cardsPerSlide?: number; // Nombre de cartes par slide (défaut: 3)
+  // cardsPerSlide est géré automatiquement selon la taille d'écran (1/2/3)
 }
 
 export interface TestimonialCardsItemProps {

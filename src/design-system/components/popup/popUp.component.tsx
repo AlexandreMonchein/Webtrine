@@ -40,8 +40,6 @@ const PopUp: React.FC = () => {
         return prev + 2;
       });
     }, 100);
-
-    return () => clearInterval(interval);
   }, [handlePopUpClose, showPopUp]);
 
   return showPopUp ? (

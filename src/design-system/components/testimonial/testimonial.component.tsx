@@ -1,9 +1,10 @@
-import React, { useState, useEffect, useCallback, useRef } from "react";
-import type {
-  TestimonialComponentProps,
-  TestimonialCardProps,
-} from "./testimonial.types";
+import React, { useCallback, useEffect, useRef, useState } from "react";
+
 import * as S from "./testimonial.styled";
+import type {
+  TestimonialCardProps,
+  TestimonialComponentProps,
+} from "./testimonial.types";
 
 const TestimonialCard: React.FC<TestimonialCardProps> = ({ testimonial }) => {
   const { name, position, company, rating, content, avatar, date } =
@@ -34,7 +35,7 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({ testimonial }) => {
           {avatar ? (
             <img
               src={avatar}
-              alt={`Photo de profil de ${name}`}
+              alt={`Profil de ${name}`}
               loading="lazy"
               onError={(e) => {
                 const target = e.target as HTMLImageElement;
@@ -101,7 +102,6 @@ const TestimonialComponent: React.FC<TestimonialComponentProps> = ({
   autoplay = false,
   autoplayDelay = 5000,
   showPagination = true,
-  variant = "default",
   className,
 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -128,7 +128,7 @@ const TestimonialComponent: React.FC<TestimonialComponentProps> = ({
       if (!canNavigate || index < 0 || index >= totalItems) return;
       setCurrentIndex(index);
     },
-    [canNavigate, totalItems]
+    [canNavigate, totalItems],
   );
 
   // Autoplay logic

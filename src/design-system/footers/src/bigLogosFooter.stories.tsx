@@ -9,8 +9,8 @@ import { BigLogosFooterProps } from "./bigLogosFooter.types";
 const createMockStore = (socials = {}) => {
   return configureStore({
     reducer: {
-      client: (state = { socials, name: "showcase" }, action) => state,
-      layout: (state = {}, action) => state,
+      client: (state = { socials, name: "showcase" }) => state,
+      layout: (state = {}) => state,
     },
   });
 };

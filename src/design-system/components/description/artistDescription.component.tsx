@@ -78,14 +78,14 @@ const ArtistDescription: React.FC<{ datas: ArtistDescriptionData }> = ({
     };
 
     loadInstagramIcon();
-  }, []);
+  }, [componentFiles]);
 
   return (
     <Container>
       <CarouselWrapper>
         {images.map((src, index) => (
           <CarouselImage
-            key={index}
+            key={src}
             src={src}
             alt={`${name} tattoo ${index + 1}`}
             active={index === currentIndex}

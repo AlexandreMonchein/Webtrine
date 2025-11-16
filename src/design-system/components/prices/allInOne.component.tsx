@@ -91,7 +91,7 @@ const AllInOne = (datas: AllInOneProps) => {
     };
 
     loadComponents(content);
-  }, [content]);
+  }, [componentFiles, content]);
 
   return (
     <PricesContainer>
@@ -112,7 +112,7 @@ const AllInOne = (datas: AllInOneProps) => {
       <FeaturesCard aria-labelledby="all-in-one-title">
         <FeaturesGrid>{components}</FeaturesGrid>
       </FeaturesCard>
-      {!_.isEmpty(descriptionBottom)
+      {descriptionBottom && !_.isEmpty(descriptionBottom)
         ? descriptionBottom.map((content, index) => (
             <Description
               key={index}

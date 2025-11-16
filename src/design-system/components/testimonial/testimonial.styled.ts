@@ -1,5 +1,6 @@
-import styled, { css } from 'styled-components';
-import { breakpoints } from '../../../breakpointDef';
+import styled from "styled-components";
+
+import { breakpoints } from "../../../breakpointDef";
 
 export const TestimonialContainer = styled.div`
   position: relative;
@@ -8,10 +9,13 @@ export const TestimonialContainer = styled.div`
   overflow: hidden;
 `;
 
-export const TestimonialWrapper = styled.div<{ $currentIndex: number; $totalItems: number }>`
+export const TestimonialWrapper = styled.div<{
+  $currentIndex: number;
+  $totalItems: number;
+}>`
   display: flex;
   transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  transform: translateX(-${props => (props.$currentIndex * 100)}%);
+  transform: translateX(-${(props) => props.$currentIndex * 100}%);
   will-change: transform;
 `;
 
@@ -27,7 +31,9 @@ export const TestimonialCard = styled.article`
   border-radius: 12px;
   padding: 24px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  transition:
+    box-shadow 0.3s ease,
+    transform 0.3s ease;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -66,7 +72,7 @@ export const AvatarContainer = styled.div`
   }
 
   &::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
@@ -133,7 +139,7 @@ export const StarRating = styled.div`
 `;
 
 export const Star = styled.span<{ $filled: boolean }>`
-  color: ${props => props.$filled ? 'var(--gold, #ffc107)' : '#e0e0e0'};
+  color: ${(props) => (props.$filled ? "var(--gold, #ffc107)" : "#e0e0e0")};
   font-size: 1rem;
   line-height: 1;
   transition: color 0.3s ease;
@@ -240,11 +246,8 @@ export const PaginationDot = styled.button<{ $active: boolean }>`
   height: 12px;
   border: none;
   border-radius: 50%;
-  background: ${props =>
-    props.$active
-      ? 'var(--blue, #007bff)'
-      : '#e0e0e0'
-  };
+  background: ${(props) =>
+    props.$active ? "var(--blue, #007bff)" : "#e0e0e0"};
   cursor: pointer;
   transition: all 0.3s ease;
 

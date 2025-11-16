@@ -43,7 +43,7 @@ Object.defineProperty(import.meta, "glob", {
 const createStore = () => {
   return configureStore({
     reducer: {
-      app: (state = {}, action) => state,
+      app: (state = {}) => state,
     },
   });
 };

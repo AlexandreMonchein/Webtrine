@@ -68,23 +68,29 @@ export const DescriptionB: React.FC<DescriptionBProps> = ({
               <h3 id={`${id}-left-title`}>{content.leftBox.title}</h3>
               <Divider />
               <p>{content.leftBox.description}</p>
-              {content.leftBox.ctaHref ? (
-                <Cta
-                  href={content.leftBox.ctaHref}
-                  aria-label={
-                    content.leftBox.ariaLabelCta
-                      ? content.leftBox.ariaLabelCta
-                      : content.leftBox.ctaLabel
-                        ? content.leftBox.ctaLabel
-                        : null
-                  }
-                >
-                  <span>
-                    {content.leftBox.ctaLabel ? content.leftBox.ctaLabel : ""}
-                  </span>
-                  <Arrow />
-                </Cta>
-              ) : null}
+              {content.leftBox.ctaHref
+                ? (() => {
+                    let ariaLabel = null;
+                    if (content.leftBox.ariaLabelCta) {
+                      ariaLabel = content.leftBox.ariaLabelCta;
+                    } else if (content.leftBox.ctaLabel) {
+                      ariaLabel = content.leftBox.ctaLabel;
+                    }
+                    return (
+                      <Cta
+                        href={content.leftBox.ctaHref}
+                        aria-label={ariaLabel}
+                      >
+                        <span>
+                          {content.leftBox.ctaLabel
+                            ? content.leftBox.ctaLabel
+                            : ""}
+                        </span>
+                        <Arrow />
+                      </Cta>
+                    );
+                  })()
+                : null}
             </Box>
           </Figure>
 
@@ -104,23 +110,29 @@ export const DescriptionB: React.FC<DescriptionBProps> = ({
               <h3 id={`${id}-right-title`}>{content.rightBox.title}</h3>
               <Divider />
               <p>{content.rightBox.description}</p>
-              {content.rightBox.ctaHref ? (
-                <Cta
-                  href={content.rightBox.ctaHref}
-                  aria-label={
-                    content.rightBox.ariaLabelCta
-                      ? content.rightBox.ariaLabelCta
-                      : content.rightBox.ctaLabel
-                        ? content.rightBox.ctaLabel
-                        : null
-                  }
-                >
-                  <span>
-                    {content.rightBox.ctaLabel ? content.rightBox.ctaLabel : ""}
-                  </span>
-                  <Arrow />
-                </Cta>
-              ) : null}
+              {content.rightBox.ctaHref
+                ? (() => {
+                    let ariaLabel = null;
+                    if (content.rightBox.ariaLabelCta) {
+                      ariaLabel = content.rightBox.ariaLabelCta;
+                    } else if (content.rightBox.ctaLabel) {
+                      ariaLabel = content.rightBox.ctaLabel;
+                    }
+                    return (
+                      <Cta
+                        href={content.rightBox.ctaHref}
+                        aria-label={ariaLabel}
+                      >
+                        <span>
+                          {content.rightBox.ctaLabel
+                            ? content.rightBox.ctaLabel
+                            : ""}
+                        </span>
+                        <Arrow />
+                      </Cta>
+                    );
+                  })()
+                : null}
             </Box>
           </RightFigure>
         </Grid>

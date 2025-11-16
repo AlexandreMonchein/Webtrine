@@ -103,7 +103,7 @@ export const baseConfig = {
     "sort-keys": "off",
     "no-new-func": "error",
     "consistent-this": ["error", "_this"],
-    "no-console": "error",
+    "no-console": "off",
     "max-classes-per-file": ["error", 1],
     "no-extend-native": "error",
     "no-await-in-loop": "error",

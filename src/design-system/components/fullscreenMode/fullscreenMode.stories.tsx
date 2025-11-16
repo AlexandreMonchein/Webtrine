@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import React, { useState } from "react";
+import React from "react";
 
 import { useFullscreenMode } from "../../utils/useFullscreenMode";
 import FullscreenMode from "./fullscreenMode.component";
@@ -59,27 +59,42 @@ const FullscreenModeDemo: React.FC<{
 
       <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap" }}>
         {images.map((src, index) => (
-          <img
-            key={index}
-            src={src}
-            alt={`Image ${index + 1}`}
+          <button
+            key={src}
+            type="button"
             style={{
-              width: "150px",
-              height: "150px",
-              objectFit: "cover",
+              padding: 0,
+              border: "none",
+              background: "none",
               borderRadius: "8px",
               cursor: "pointer",
-              border: "2px solid transparent",
-              transition: "border-color 0.2s ease",
+              outline: "none",
             }}
             onClick={() => fullscreenMode.openFullscreen(index)}
             onMouseEnter={(e) => {
-              e.currentTarget.style.borderColor = "#007bff";
+              const img = e.currentTarget.querySelector("img");
+              if (img) img.style.borderColor = "#007bff";
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.borderColor = "transparent";
+              const img = e.currentTarget.querySelector("img");
+              if (img) img.style.borderColor = "transparent";
             }}
-          />
+            aria-label={`Ouvrir l'image ${index + 1} en plein écran`}
+          >
+            <img
+              src={src}
+              alt={src}
+              style={{
+                width: "150px",
+                height: "150px",
+                objectFit: "cover",
+                borderRadius: "8px",
+                border: "2px solid transparent",
+                transition: "border-color 0.2s ease",
+                display: "block",
+              }}
+            />
+          </button>
         ))}
       </div>
 

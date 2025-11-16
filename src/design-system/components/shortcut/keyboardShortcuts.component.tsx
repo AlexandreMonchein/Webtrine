@@ -52,6 +52,7 @@ const FocusButton = () => {
     <div>
       <button
         id="focusButton"
+        type="button"
         onFocus={handleFocus}
         onClick={handleClick}
         style={{

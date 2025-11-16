@@ -1,4 +1,5 @@
 import styled, { css } from "styled-components";
+
 import { bp } from "../../../breakpoint";
 import { breakpointNames } from "../../../breakpointDef";
 
@@ -116,22 +117,24 @@ export const NavLink = styled.a<{ $hasSubItems?: boolean }>`
     outline-offset: 2px;
   }
 
-  ${props => props.$hasSubItems && css`
-    &::after {
-      content: '';
-      width: 0;
-      height: 0;
-      border-left: 4px solid transparent;
-      border-right: 4px solid transparent;
-      border-top: 4px solid currentColor;
-      margin-left: 4px;
-      transition: transform 0.3s ease;
-    }
+  ${(props) =>
+    props.$hasSubItems &&
+    css`
+      &::after {
+        content: "";
+        width: 0;
+        height: 0;
+        border-left: 4px solid transparent;
+        border-right: 4px solid transparent;
+        border-top: 4px solid currentColor;
+        margin-left: 4px;
+        transition: transform 0.3s ease;
+      }
 
-    &:hover::after {
-      transform: rotate(180deg);
-    }
-  `}
+      &:hover::after {
+        transform: rotate(180deg);
+      }
+    `}
 `;
 
 export const SubMenu = styled.div<{ $isOpen: boolean }>`
@@ -145,11 +148,12 @@ export const SubMenu = styled.div<{ $isOpen: boolean }>`
   border: 1px solid #e5e7eb;
   padding: 8px;
   z-index: 50;
-  opacity: ${props => props.$isOpen ? 1 : 0};
-  visibility: ${props => props.$isOpen ? 'visible' : 'hidden'};
-  transform: ${props => props.$isOpen ? 'translateY(0)' : 'translateY(-10px)'};
+  opacity: ${(props) => (props.$isOpen ? 1 : 0)};
+  visibility: ${(props) => (props.$isOpen ? "visible" : "hidden")};
+  transform: ${(props) =>
+    props.$isOpen ? "translateY(0)" : "translateY(-10px)"};
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  pointer-events: ${props => props.$isOpen ? 'auto' : 'none'};
+  pointer-events: ${(props) => (props.$isOpen ? "auto" : "none")};
 `;
 
 export const SubMenuItem = styled.a`
@@ -230,25 +234,31 @@ export const HamburgerIcon = styled.div<{ $isOpen: boolean }>`
 
     &:nth-child(1) {
       top: 0;
-      ${props => props.$isOpen && css`
-        transform: rotate(45deg);
-        top: 8px;
-      `}
+      ${(props) =>
+        props.$isOpen &&
+        css`
+          transform: rotate(45deg);
+          top: 8px;
+        `}
     }
 
     &:nth-child(2) {
       top: 8px;
-      ${props => props.$isOpen && css`
-        opacity: 0;
-      `}
+      ${(props) =>
+        props.$isOpen &&
+        css`
+          opacity: 0;
+        `}
     }
 
     &:nth-child(3) {
       top: 16px;
-      ${props => props.$isOpen && css`
-        transform: rotate(-45deg);
-        top: 8px;
-      `}
+      ${(props) =>
+        props.$isOpen &&
+        css`
+          transform: rotate(-45deg);
+          top: 8px;
+        `}
     }
   }
 `;
@@ -263,9 +273,10 @@ export const MobileMenu = styled.div<{ $isOpen: boolean }>`
   max-height: calc(100vh - 72px);
   overflow-y: auto;
   z-index: 40;
-  transform: ${props => props.$isOpen ? 'translateY(0)' : 'translateY(-100%)'};
-  opacity: ${props => props.$isOpen ? 1 : 0};
-  visibility: ${props => props.$isOpen ? 'visible' : 'hidden'};
+  transform: ${(props) =>
+    props.$isOpen ? "translateY(0)" : "translateY(-100%)"};
+  opacity: ${(props) => (props.$isOpen ? 1 : 0)};
+  visibility: ${(props) => (props.$isOpen ? "visible" : "hidden")};
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
   ${bp.min(
@@ -318,7 +329,7 @@ export const MobileNavLink = styled.a<{ $hasSubItems?: boolean }>`
 `;
 
 export const MobileSubMenu = styled.div<{ $isOpen: boolean }>`
-  max-height: ${props => props.$isOpen ? '500px' : '0'};
+  max-height: ${(props) => (props.$isOpen ? "500px" : "0")};
   overflow: hidden;
   transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   background-color: #f8fafc;
@@ -354,10 +365,10 @@ export const MobileExpandIcon = styled.div<{ $isExpanded: boolean }>`
   align-items: center;
   justify-content: center;
   transition: transform 0.3s ease;
-  transform: ${props => props.$isExpanded ? 'rotate(180deg)' : 'rotate(0)'};
+  transform: ${(props) => (props.$isExpanded ? "rotate(180deg)" : "rotate(0)")};
 
   &::after {
-    content: '';
+    content: "";
     width: 0;
     height: 0;
     border-left: 5px solid transparent;
@@ -374,8 +385,8 @@ export const Backdrop = styled.div<{ $isOpen: boolean }>`
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.3);
   z-index: 30;
-  opacity: ${props => props.$isOpen ? 1 : 0};
-  visibility: ${props => props.$isOpen ? 'visible' : 'hidden'};
+  opacity: ${(props) => (props.$isOpen ? 1 : 0)};
+  visibility: ${(props) => (props.$isOpen ? "visible" : "hidden")};
   transition: all 0.3s ease;
 
   ${bp.min(

@@ -1,9 +1,41 @@
-import React, { useState, useEffect, useCallback, useRef } from "react";
-import type {
-  TestimonialCardsProps,
-  TestimonialCardsItemProps,
-} from "./testimonialCards.types";
+import React, { useCallback, useEffect, useRef, useState } from "react";
+
 import * as S from "./testimonialCards.styled";
+import type {
+  TestimonialCardsItemProps,
+  TestimonialCardsProps,
+} from "./testimonialCards.types";
+
+// Hook pour détecter la taille d'écran et déterminer le nombre de cartes par slide
+const useResponsiveCardsPerSlide = () => {
+  const [cardsPerSlide, setCardsPerSlide] = useState(1);
+
+  useEffect(() => {
+    const updateCardsPerSlide = () => {
+      const width = window.innerWidth;
+      // Utiliser les mêmes breakpoints que votre système
+      if (width >= 1024) {
+        // large
+        setCardsPerSlide(3);
+      } else if (width >= 768) {
+        // medium
+        setCardsPerSlide(2);
+      } else {
+        // small
+        setCardsPerSlide(1);
+      }
+    };
+
+    updateCardsPerSlide();
+    window.addEventListener("resize", updateCardsPerSlide);
+
+    return () => {
+      window.removeEventListener("resize", updateCardsPerSlide);
+    };
+  }, []);
+
+  return cardsPerSlide;
+};
 
 const TestimonialCardsItem: React.FC<TestimonialCardsItemProps> = ({
   testimonial,
@@ -52,13 +84,13 @@ const TestimonialCardsItem: React.FC<TestimonialCardsItemProps> = ({
             <>
               <img
                 src={avatar}
-                alt={`Photo de profil de ${name}`}
+                alt={`profil de ${name}`}
                 loading="lazy"
                 onError={(e) => {
                   const target = e.target as HTMLImageElement;
                   target.style.display = "none";
                   const fallback = target.parentNode?.querySelector(
-                    "[data-fallback]"
+                    "[data-fallback]",
                   ) as HTMLElement;
                   if (fallback) {
                     fallback.style.display = "flex";
@@ -94,16 +126,16 @@ const TestimonialCards: React.FC<TestimonialCardsProps> = ({
   testimonials,
   autoplay = false,
   autoplayDelay = 5000,
-  cardsPerSlide = 3,
 }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
+  const responsiveCardsPerSlide = useResponsiveCardsPerSlide();
 
-  // Créer les slides avec cardsPerSlide témoignages par slide
+  // Créer les slides avec le nombre responsive de cartes par slide
   const createSlides = () => {
     const slides = [];
-    for (let i = 0; i < testimonials.length; i += cardsPerSlide) {
-      slides.push(testimonials.slice(i, i + cardsPerSlide));
+    for (let i = 0; i < testimonials.length; i += responsiveCardsPerSlide) {
+      slides.push(testimonials.slice(i, i + responsiveCardsPerSlide));
     }
     return slides;
   };
@@ -111,19 +143,22 @@ const TestimonialCards: React.FC<TestimonialCardsProps> = ({
   const slides = createSlides();
   const totalSlides = slides.length;
 
+  // Reset currentIndex si nécessaire quand cardsPerSlide change
+  useEffect(() => {
+    if (currentIndex >= totalSlides) {
+      setCurrentIndex(0);
+    }
+  }, [responsiveCardsPerSlide, currentIndex, totalSlides]);
+
   const goToSlide = useCallback(
     (index: number) => {
       setCurrentIndex(Math.max(0, Math.min(index, totalSlides - 1)));
     },
-    [totalSlides]
+    [totalSlides],
   );
 
   const nextSlide = useCallback(() => {
     setCurrentIndex((prev) => (prev + 1) % totalSlides);
-  }, [totalSlides]);
-
-  const prevSlide = useCallback(() => {
-    setCurrentIndex((prev) => (prev === 0 ? totalSlides - 1 : prev - 1));
   }, [totalSlides]);
 
   // Gestion de l'autoplay
@@ -136,6 +171,8 @@ const TestimonialCards: React.FC<TestimonialCardsProps> = ({
         }
       };
     }
+
+    return () => clearInterval(intervalRef.current!);
   }, [autoplay, autoplayDelay, nextSlide, totalSlides]);
 
   // Cleanup de l'interval

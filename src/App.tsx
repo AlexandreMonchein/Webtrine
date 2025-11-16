@@ -116,8 +116,6 @@ function App(props) {
 
     // Initialiser Google Analytics pour ce client
     initializeGoogleAnalytics(clientName);
-
-    console.log(`Favicon set for client: ${clientName}`);
   }, [customer, logo]);
 
   return (
