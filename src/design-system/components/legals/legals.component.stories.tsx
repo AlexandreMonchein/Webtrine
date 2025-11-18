@@ -25,7 +25,7 @@ interface StoryArgs {
 const createMockStore = (templates = []) => {
   return configureStore({
     reducer: {
-      layout: (state = { templates }, action) => state,
+      layout: (state = { templates }) => state,
     },
   });
 };

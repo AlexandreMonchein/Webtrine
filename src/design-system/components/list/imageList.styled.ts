@@ -78,8 +78,8 @@ export const ConsultButton = styled.button`
 `;
 
 export const ImageItem = styled.img`
-  width: 200px;
-  height: 200px;
+  min-width: 200px;
+  min-height: 200px;
   border-radius: 50%;
   object-fit: cover;
 `;

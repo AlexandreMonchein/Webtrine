@@ -18,31 +18,39 @@ const FloatingSocials: React.FC = () => {
       const loadedComponents: React.ReactNode[] = [];
 
       if (socials) {
-        for (const [name, { link }] of Object.entries(socials)) {
-          try {
-            if (link) {
-              const componentPath = `../../../assets/icons/${name}.component.tsx`;
-              const module = componentFiles[componentPath];
+        const socialEntries = Object.entries(socials);
+        const componentPromises = socialEntries.map(
+          async ([name, { link }]) => {
+            try {
+              if (link) {
+                const componentPath = `../../../assets/icons/${name}.component.tsx`;
+                const module = componentFiles[componentPath];
 
-              if (module) {
-                const resolvedModule = await module();
-                // @ts-expect-error TODO: to fix
-                const Component = resolvedModule.default;
+                if (module) {
+                  const resolvedModule = await module();
+                  // @ts-expect-error TODO: to fix
+                  const Component = resolvedModule.default;
 
-                loadedComponents.push(
-                  <SocialLogo key={name}>
-                    {/* @ts-ignore TODO: fix this type error */}
-                    <a aria-label={name} href={link}>
-                      <Component color="full" />
-                    </a>
-                  </SocialLogo>,
-                );
+                  return (
+                    <SocialLogo key={name}>
+                      {/* @ts-ignore TODO: fix this type error */}
+                      <a aria-label={name} href={link}>
+                        <Component color="full" />
+                      </a>
+                    </SocialLogo>
+                  );
+                }
               }
+              return null;
+            } catch (error) {
+              console.error(`Error loading component: ${name}`, error);
+              return null;
             }
-          } catch (error) {
-            console.error(`Error loading component: ${name}`, error);
-          }
-        }
+          },
+        );
+
+        const resolvedComponents = await Promise.all(componentPromises);
+        loadedComponents.push(...resolvedComponents.filter(Boolean));
       }
 
       setComponents(loadedComponents);

@@ -205,8 +205,8 @@ const TestimonialCards: React.FC<TestimonialCardsProps> = ({
     <div onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
       <S.TestimonialCardsContainer>
         <S.TestimonialCardsWrapper $currentIndex={currentIndex}>
-          {slides.map((slide, slideIndex) => (
-            <S.TestimonialCardsSlide key={slideIndex}>
+          {slides.map((slide) => (
+            <S.TestimonialCardsSlide key={slide.map((t) => t.id).join("-")}>
               {slide.map((testimonial) => (
                 <TestimonialCardsItem
                   key={testimonial.id}
@@ -220,9 +220,9 @@ const TestimonialCards: React.FC<TestimonialCardsProps> = ({
         {totalSlides > 1 && (
           <S.NavigationContainer>
             <S.PaginationContainer>
-              {slides.map((_, index) => (
+              {slides.map((slide, index) => (
                 <S.PaginationDot
-                  key={index}
+                  key={slide.map((t) => t.id).join("-")}
                   $active={index === currentIndex}
                   onClick={() => goToSlide(index)}
                   aria-label={`Aller au slide ${index + 1}`}

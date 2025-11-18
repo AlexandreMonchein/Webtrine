@@ -49,8 +49,8 @@ const Cards: React.FC<CardsProps> = (props) => {
         $isEvenCount={isEvenCount}
         $cardCount={content.length}
       >
-        {content.map((card, index) => (
-          <Card key={index} tabIndex={0}>
+        {content.map((card) => (
+          <Card key={card.title} tabIndex={0}>
             {card.imageSrc && (
               <CardImage
                 src={`${import.meta.env.BASE_URL}assets/${customer}/${card.imageSrc}.webp`}
@@ -58,8 +58,8 @@ const Cards: React.FC<CardsProps> = (props) => {
               />
             )}
             <CardTitle>{card.title}</CardTitle>
-            {card.description.map((desc, idx) => (
-              <CardDescription key={idx}>{desc.text}</CardDescription>
+            {card.description.map((desc) => (
+              <CardDescription key={desc.text}>{desc.text}</CardDescription>
             ))}
           </Card>
         ))}

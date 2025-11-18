@@ -87,9 +87,10 @@ const GlobalStyle = createGlobalStyle`
   button {
     color: inherit;
     border: none;
-    padding: 0;
     cursor: pointer;
     outline: inherit;
+    padding: 0;
+    border: none;
   }
 
   a {

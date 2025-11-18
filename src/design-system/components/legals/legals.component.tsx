@@ -34,8 +34,8 @@ const Legals = ({ type = null }) => {
         {content.map(({ title, texts }) => (
           <ContentWrapper key={title}>
             <ContentTitle>{title}</ContentTitle>
-            {texts.map((text, index) => (
-              <ContentText key={index}>{text}</ContentText>
+            {texts.map((text) => (
+              <ContentText key={text}>{text}</ContentText>
             ))}
           </ContentWrapper>
         ))}

@@ -30,7 +30,7 @@ const NumberedList: React.FC<ListProps> = (props) => {
       <ListContainer>
         {content.map((item, index) => (
           <ListItem
-            key={index}
+            key={item.title}
             tabIndex={0}
             aria-labelledby={`title-${index}`}
             aria-describedby={`description-${index}`}

@@ -35,13 +35,13 @@ const MultiplePrices = (datas: MultiplePricesProps) => {
       <Title>{title}</Title>
       <SubTitle>{subtitle}</SubTitle>
       <PriceCardsContainer>
-        {plans.map((plan, index) => (
-          <PriceCard key={index}>
+        {plans.map((plan) => (
+          <PriceCard key={plan.title}>
             <CardTitle>{plan.title}</CardTitle>
             <CardPrice>{plan.price}</CardPrice>
             <FeaturesList>
-              {plan.features.map((feature, idx) => (
-                <FeatureItem key={idx}>{feature}</FeatureItem>
+              {plan.features.map((feature) => (
+                <FeatureItem key={feature}>{feature}</FeatureItem>
               ))}
             </FeaturesList>
             <ActionButton to={{ pathname: "/contact" }} state={{ plan }}>

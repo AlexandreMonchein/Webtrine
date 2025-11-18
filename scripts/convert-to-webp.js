@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
@@ -12,12 +13,12 @@ const baseDir = path.join(__dirname, "../public/assets");
 async function convertImagesInFolder(folder) {
   const files = await fs.promises.readdir(folder);
 
-  for (const file of files) {
+  const promises = files.map(async (file) => {
     const filePath = path.join(folder, file);
     const stat = await fs.promises.stat(filePath);
 
     if (stat.isDirectory()) {
-      await convertImagesInFolder(filePath); // Recursively process subdirectories
+      return convertImagesInFolder(filePath); // Recursively process subdirectories
     } else if (/\.(jpe?g|png)$/i.test(file)) {
       // Check for both .jpg and .png
       const webpPath = filePath.replace(/\.(jpe?g|png)$/i, ".webp");
@@ -29,11 +30,16 @@ async function convertImagesInFolder(folder) {
         await fs.promises.unlink(filePath);
 
         console.log(`✅ Converted and deleted: ${filePath} → ${webpPath}`);
+        return { success: true, file: filePath };
       } catch (err) {
         console.error(`❌ Error converting or deleting ${filePath}:`, err);
+        return { success: false, file: filePath, error: err };
       }
     }
-  }
+    return { success: true, file: filePath, skipped: true };
+  });
+
+  await Promise.all(promises);
 }
 
 convertImagesInFolder(baseDir);

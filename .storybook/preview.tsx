@@ -2,6 +2,8 @@ import "./global.style.css";
 
 import type { Preview } from "@storybook/react";
 
+import GlobalStyle from "../src/theme/customer/default/globalStyled";
+
 const preview: Preview = {
   parameters: {
     controls: {
@@ -20,6 +22,14 @@ const preview: Preview = {
       test: "todo",
     },
   },
+  decorators: [
+    (Story) => (
+      <>
+        <GlobalStyle />
+        <Story />
+      </>
+    ),
+  ],
 };
 
 export default preview;

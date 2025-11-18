@@ -48,36 +48,44 @@ const BigLogosFooter: React.FC<BigLogosFooterProps> = (datas) => {
       const loadedComponents: React.ReactNode[] = [];
 
       if (socials) {
-        for (const [name, { link }] of Object.entries(socials)) {
-          try {
-            if (link) {
-              const componentPath = `../../../assets/icons/${name}.component.tsx`;
-              const module = componentFiles[componentPath];
+        const socialEntries = Object.entries(socials);
+        const componentPromises = socialEntries.map(
+          async ([name, { link }]) => {
+            try {
+              if (link) {
+                const componentPath = `../../../assets/icons/${name}.component.tsx`;
+                const module = componentFiles[componentPath];
 
-              if (module) {
-                const resolvedModule = await module();
-                // @ts-expect-error TODO: to fix
-                const Component = resolvedModule.default;
+                if (module) {
+                  const resolvedModule = await module();
+                  // @ts-expect-error TODO: to fix
+                  const Component = resolvedModule.default;
 
-                loadedComponents.push(
-                  <SocialListItem key={name}>
-                    <SocialLink
-                      href={link}
-                      aria-label={`Suivre sur ${name}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <Component />
-                      <VisuallyHidden>{name}</VisuallyHidden>
-                    </SocialLink>
-                  </SocialListItem>,
-                );
+                  return (
+                    <SocialListItem key={name}>
+                      <SocialLink
+                        href={link}
+                        aria-label={`Suivre sur ${name}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <Component />
+                        <VisuallyHidden>{name}</VisuallyHidden>
+                      </SocialLink>
+                    </SocialListItem>
+                  );
+                }
               }
+              return null;
+            } catch (error) {
+              console.error(`Error loading social component: ${name}`, error);
+              return null;
             }
-          } catch (error) {
-            console.error(`Error loading social component: ${name}`, error);
-          }
-        }
+          },
+        );
+
+        const resolvedComponents = await Promise.all(componentPromises);
+        loadedComponents.push(...resolvedComponents.filter(Boolean));
       }
 
       setSocialComponents(loadedComponents);
@@ -130,8 +138,8 @@ const BigLogosFooter: React.FC<BigLogosFooterProps> = (datas) => {
               <MenuTitle>{menuSection.title}</MenuTitle>
               <nav aria-label="Liens du footer">
                 <MenuList>
-                  {menuSection.links.map((link, index) => (
-                    <MenuListItem key={`${link.label}-${index}`}>
+                  {menuSection.links.map((link) => (
+                    <MenuListItem key={link.label}>
                       <MenuLink
                         href={link.url}
                         aria-label={`Aller vers ${link.label}`}

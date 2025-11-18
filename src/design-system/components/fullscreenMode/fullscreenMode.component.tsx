@@ -33,7 +33,7 @@ const FullscreenMode: React.FC<FullscreenModeProps> = ({
   altTextPrefix = "Image",
 }) => {
   useEffect(() => {
-    if (!isOpen) return;
+    if (!isOpen) return null;
 
     const handleKeyPress = (event: KeyboardEvent) => {
       switch (event.key) {
@@ -50,7 +50,9 @@ const FullscreenMode: React.FC<FullscreenModeProps> = ({
     };
 
     document.addEventListener("keydown", handleKeyPress);
-    return () => document.removeEventListener("keydown", handleKeyPress);
+    return () => {
+      document.removeEventListener("keydown", handleKeyPress);
+    };
   }, [isOpen, onClose, onNext, onPrev]);
 
   // Prévenir le scroll de la page quand le fullscreen est ouvert

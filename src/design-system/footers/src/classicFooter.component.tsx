@@ -43,33 +43,41 @@ const ClassicFooter = (props) => {
       const loadedComponents: React.ReactNode[] = [];
 
       if (socials) {
-        for (const [name, { link, color }] of Object.entries(socials)) {
-          try {
-            if (link) {
-              const componentPath = `../../../assets/icons/${name}.component.tsx`;
-              const module = componentFiles[componentPath];
+        const socialEntries = Object.entries(socials);
+        const componentPromises = socialEntries.map(
+          async ([name, { link, color }]) => {
+            try {
+              if (link) {
+                const componentPath = `../../../assets/icons/${name}.component.tsx`;
+                const module = componentFiles[componentPath];
 
-              if (module) {
-                const resolvedModule = await module();
-                // @ts-expect-error TODO: to fix
-                const Component = resolvedModule.default;
+                if (module) {
+                  const resolvedModule = await module();
+                  // @ts-expect-error TODO: to fix
+                  const Component = resolvedModule.default;
 
-                loadedComponents.push(
-                  <li key={name}>
-                    <SocialLogo>
-                      {/* @ts-ignore TODO: fix this type error */}
-                      <a aria-label={name} href={link}>
-                        <Component color={color} />
-                      </a>
-                    </SocialLogo>
-                  </li>,
-                );
+                  return (
+                    <li key={name}>
+                      <SocialLogo>
+                        {/* @ts-ignore TODO: fix this type error */}
+                        <a aria-label={name} href={link}>
+                          <Component color={color} />
+                        </a>
+                      </SocialLogo>
+                    </li>
+                  );
+                }
               }
+              return null;
+            } catch (error) {
+              console.error(`Error loading component: ${name}`, error);
+              return null;
             }
-          } catch (error) {
-            console.error(`Error loading component: ${name}`, error);
-          }
-        }
+          },
+        );
+
+        const resolvedComponents = await Promise.all(componentPromises);
+        loadedComponents.push(...resolvedComponents.filter(Boolean));
       }
 
       setComponents(loadedComponents);
@@ -99,8 +107,8 @@ const ClassicFooter = (props) => {
           </SiteRef>
         </TopSection>
         <BottomSection>
-          {legals.map((legal, index) => (
-            <SiteRef key={index} href={legal.datas.type}>
+          {legals.map((legal) => (
+            <SiteRef key={legal.datas.type} href={legal.datas.type}>
               {legal.datas.type}
             </SiteRef>
           ))}

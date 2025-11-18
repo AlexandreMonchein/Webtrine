@@ -34,18 +34,15 @@ const ActionCardsList: React.FC<ActionCardsListProps> = (props) => {
                 />
               ) : null}
               <CardContent>
-                {card.title ? <h3 tabIndex={0}>{card.title}</h3> : null}
+                {card.title ? <h3>{card.title}</h3> : null}
                 <ButtonsWrapper>
-                  {card.description ? (
-                    <p tabIndex={0}>{card.description}</p>
-                  ) : null}
+                  {card.description ? <p>{card.description}</p> : null}
                   {card.buttons
-                    ? card.buttons.map((btn, index) => (
+                    ? card.buttons.map((btn) => (
                         <ActionCardButton
                           to={{ pathname: "/information" }}
                           state={{ type: btn.type }}
-                          key={index}
-                          tabIndex={0}
+                          key={btn.label}
                           type="button"
                         >
                           {btn.label}

@@ -65,7 +65,7 @@ const DataTable = (datas: DataTableProps) => {
           id={tableId}
           role="table"
           aria-labelledby={title ? captionId : undefined}
-          aria-label={!title ? "Data table" : undefined}
+          aria-label={title ? title : "Data table"}
         >
           {title && <caption className="sr-only">{title}</caption>}
           <TableHeader role="rowgroup">
@@ -98,22 +98,26 @@ const DataTable = (datas: DataTableProps) => {
                 </TableCell>
               </TableRow>
             ) : (
-              data.map((row, rowIndex) => (
-                <TableRow key={rowIndex} role="row">
-                  {columns.map((column, colIndex) => (
-                    <TableCell
-                      key={`${rowIndex}-${column.key}`}
-                      role="cell"
-                      tabIndex={0}
-                      isFirst={colIndex === 0}
-                      isLast={colIndex === columns.length - 1}
-                      centered={centerContent}
-                    >
-                      {row[column.key]}
-                    </TableCell>
-                  ))}
-                </TableRow>
-              ))
+              data.map((row, rowIndex) => {
+                const rowKey =
+                  Object.values(row).join("-") || `row-${rowIndex}`;
+                return (
+                  <TableRow key={rowKey} role="row">
+                    {columns.map((column) => (
+                      <TableCell
+                        key={`${rowKey}-${column.key}`}
+                        role="cell"
+                        tabIndex={0}
+                        isFirst={columns.indexOf(column) === 0}
+                        isLast={columns.indexOf(column) === columns.length - 1}
+                        centered={centerContent}
+                      >
+                        {row[column.key]}
+                      </TableCell>
+                    ))}
+                  </TableRow>
+                );
+              })
             )}
           </TableBody>
         </Table>

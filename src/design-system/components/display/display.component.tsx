@@ -20,11 +20,11 @@ const FeatureSection = (datas: Datas) => {
 
   useEffect(() => {
     const loadComponents = async () => {
-      const loadedComponents: React.ReactNode[] = [];
+      const componentPromises = Object.entries(content).map(
+        async ([_, data]) => {
+          if (!data) return null;
 
-      for (const [_, data] of Object.entries(content)) {
-        try {
-          if (data) {
+          try {
             const { name, text } = data;
             const componentPath = `../../../assets/icons/${name}.component.tsx`;
             const module = componentFiles[componentPath];
@@ -34,22 +34,24 @@ const FeatureSection = (datas: Datas) => {
               // @ts-expect-error TODO: to fix
               const Component = resolvedModule.default;
 
-              loadedComponents.push(
+              return (
                 <ContentItem tabIndex={0} key={name}>
                   <SvgIcon key={name}>
                     <Component key={name} color="orange" size={64} />
                   </SvgIcon>
                   <Text>{text}</Text>
-                </ContentItem>,
+                </ContentItem>
               );
             }
+          } catch (error) {
+            console.error(`Error loading component: ${data?.name}`, error);
           }
-        } catch (error) {
-          const { name } = data;
-          console.error(`Error loading component: ${name}`, error);
-        }
-      }
-      setComponents(loadedComponents);
+          return null;
+        },
+      );
+
+      const loadedComponents = await Promise.all(componentPromises);
+      setComponents(loadedComponents.filter(Boolean));
     };
 
     loadComponents();

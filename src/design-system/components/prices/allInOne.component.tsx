@@ -52,7 +52,8 @@ const AllInOne = (datas: AllInOneProps) => {
     const loadComponents = async (content: Content[]) => {
       const loadedComponents: React.ReactNode[] = [];
 
-      for (const [index, data] of Object.entries(content)) {
+      const contentEntries = Object.entries(content);
+      const componentPromises = contentEntries.map(async ([index, data]) => {
         try {
           const { imgSrc, text } = data;
 
@@ -65,7 +66,7 @@ const AllInOne = (datas: AllInOneProps) => {
               // @ts-expect-error TODO: to fix
               const Component = resolvedModule.default;
 
-              loadedComponents.push(
+              return (
                 <FeatureItem key={index} tabIndex={0}>
                   <Component
                     key={`${imgSrc}-${index}`}
@@ -78,14 +79,19 @@ const AllInOne = (datas: AllInOneProps) => {
                   >
                     {text}
                   </FeatureText>
-                </FeatureItem>,
+                </FeatureItem>
               );
             }
           }
+          return null;
         } catch (error) {
           console.error(`Error loading prices component`, error);
+          return null;
         }
-      }
+      });
+
+      const resolvedComponents = await Promise.all(componentPromises);
+      loadedComponents.push(...resolvedComponents.filter(Boolean));
 
       setComponents(loadedComponents);
     };
@@ -113,9 +119,9 @@ const AllInOne = (datas: AllInOneProps) => {
         <FeaturesGrid>{components}</FeaturesGrid>
       </FeaturesCard>
       {descriptionBottom && !_.isEmpty(descriptionBottom)
-        ? descriptionBottom.map((content, index) => (
+        ? descriptionBottom.map((content) => (
             <Description
-              key={index}
+              key={content.text}
               aria-labelledby="all-in-one-title"
               tabIndex={0}
             >

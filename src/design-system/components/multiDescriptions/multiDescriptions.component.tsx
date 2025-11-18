@@ -31,9 +31,11 @@ const MultiDescription = ({ templateName = null }) => {
       const loadedComponents: React.ReactNode[] = [];
       const modules = import.meta.glob("../**/*.component.tsx");
 
-      for (const [index, datas] of Object.entries(
+      const contentEntries = Object.entries(
         content as Record<string, { type: string; id: string }>,
-      )) {
+      );
+
+      const componentPromises = contentEntries.map(async ([index, datas]) => {
         const { type } = datas;
         const moduleName = index.replace(regex, "");
 
@@ -55,19 +57,24 @@ const MultiDescription = ({ templateName = null }) => {
                     datas.id,
                     type,
                   );
-                  loadedComponents.push(<Component key={index} {...datas} />);
+                  return <Component key={index} {...datas} />;
                 }
               } else {
                 console.warn(`>> no state`, datas.id, type);
                 // @ts-ignore
-                loadedComponents.push(<Component key={index} {...datas} />);
+                return <Component key={index} {...datas} />;
               }
             }
           }
+          return null;
         } catch (error) {
           console.error(`Error loading component: ${moduleName}`, error);
+          return null;
         }
-      }
+      });
+
+      const resolvedComponents = await Promise.all(componentPromises);
+      loadedComponents.push(...resolvedComponents.filter(Boolean));
       setComponents(loadedComponents);
     };
     loadComponents();

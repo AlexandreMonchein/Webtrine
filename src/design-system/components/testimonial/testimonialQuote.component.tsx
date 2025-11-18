@@ -249,9 +249,9 @@ const TestimonialQuoteComponent: React.FC<TestimonialQuoteComponentProps> = ({
           role="tablist"
           aria-label="Sélection de témoignage"
         >
-          {testimonials.map((_, index) => (
+          {testimonials.map((testimonial, index) => (
             <S.PaginationDot
-              key={index}
+              key={testimonial.id}
               $active={index === currentIndex}
               onClick={() => goToSlide(index)}
               aria-label={`Aller au témoignage ${index + 1}`}
