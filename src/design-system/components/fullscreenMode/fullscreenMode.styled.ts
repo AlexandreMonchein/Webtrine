@@ -32,10 +32,10 @@ export const CloseButton = styled.button`
   }
 `;
 
-export const NavButton = styled.button`
+export const NavButton = styled.button<{ $left?: boolean }>`
   position: absolute;
   top: 50%;
-  left: 30px;
+  ${({ $left }) => ($left ? "left: 30px;" : "right: 30px;")}
   transform: translateY(-50%);
   font-size: 3rem;
   color: white;
@@ -50,7 +50,7 @@ export const NavButton = styled.button`
 
   @media (max-width: 768px) {
     font-size: 2rem;
-    left: 15px;
+    ${({ $left }) => ($left ? "left: 15px;" : "right: 15px;")}
   }
 `;
 

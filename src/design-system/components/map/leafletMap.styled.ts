@@ -49,7 +49,6 @@ export const List = styled.div`
     css`
       display: flex;
       width: auto;
-      height: 50%;
       flex-direction: row;
       flex-wrap: nowrap;
     `,
@@ -59,7 +58,6 @@ export const List = styled.div`
     breakpointNames.small,
     css`
       flex-direction: column;
-      height: 80%;
     `,
   )}
 `;

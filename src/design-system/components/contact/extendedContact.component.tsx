@@ -33,9 +33,6 @@ const ExtendedContact = ({ datas }) => {
   const client = useSelector(getClient).contact;
   const templates = useSelector(getTemplates);
 
-  const titleKey = "contact.title";
-  const descriptionKey = "contact.description";
-
   if (!datas || Object.keys(datas).length === 0) {
     template = getTemplate(
       templates,
@@ -45,7 +42,7 @@ const ExtendedContact = ({ datas }) => {
     ).datas;
   }
 
-  const { title, subTitle, map } = template ? template : datas;
+  const { map } = template ? template : datas;
 
   const { phone, email, mailTemplate: templateId } = client;
 
@@ -60,6 +57,7 @@ const ExtendedContact = ({ datas }) => {
       const emailFrom = e.target.email.value || null;
       const number = e.target.phone.value || null;
       const content = e.target.content.value || null;
+      const reply_to = e.target.email.value || null;
 
       const datas = {
         name,
@@ -67,6 +65,7 @@ const ExtendedContact = ({ datas }) => {
         emailFrom,
         number,
         content,
+        reply_to,
       };
 
       const serviceId = "service_4fc2bmb";
@@ -90,6 +89,9 @@ const ExtendedContact = ({ datas }) => {
     [dispatch, templateId],
   );
 
+  const title = t("contact.title");
+  const subTitle = t("contact.description");
+
   return (
     <ContactSection>
       <PopUp />
@@ -100,12 +102,8 @@ const ExtendedContact = ({ datas }) => {
         </>
       ) : null}
       <Content>
-        {title ? <Title>{title}</Title> : <Title>{t(titleKey)}</Title>}
-        {subTitle ? (
-          <Description>{subTitle}</Description>
-        ) : (
-          <Description>{t(descriptionKey)}</Description>
-        )}
+        {title ? <Title>{title}</Title> : null}
+        {subTitle ? <Description>{subTitle}</Description> : null}
         <FormContainer onSubmit={handleSubmit}>
           <FormDisplay>
             <ClientInfo>
