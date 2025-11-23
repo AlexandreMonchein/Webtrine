@@ -26,12 +26,11 @@ const NumberedList: React.FC<ListProps> = (props) => {
 
   return (
     <Section>
-      {title && <BigTitle tabIndex={0}>{title}</BigTitle>}
+      {title && <BigTitle>{title}</BigTitle>}
       <ListContainer>
         {content.map((item, index) => (
           <ListItem
             key={item.title}
-            tabIndex={0}
             aria-labelledby={`title-${index}`}
             aria-describedby={`description-${index}`}
           >

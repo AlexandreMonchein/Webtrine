@@ -100,24 +100,20 @@ const ExtendedContact = ({ datas }) => {
         </>
       ) : null}
       <Content>
-        {title ? (
-          <Title tabIndex={0}>{title}</Title>
-        ) : (
-          <Title tabIndex={0}>{t(titleKey)}</Title>
-        )}
+        {title ? <Title>{title}</Title> : <Title>{t(titleKey)}</Title>}
         {subTitle ? (
-          <Description tabIndex={0}>{subTitle}</Description>
+          <Description>{subTitle}</Description>
         ) : (
-          <Description tabIndex={0}>{t(descriptionKey)}</Description>
+          <Description>{t(descriptionKey)}</Description>
         )}
         <FormContainer onSubmit={handleSubmit}>
           <FormDisplay>
             <ClientInfo>
-              <h2 tabIndex={0}>{t("contact.infoTitle")}</h2>
-              <p tabIndex={0}>
+              <h2>{t("contact.infoTitle")}</h2>
+              <p>
                 <strong>{t("contact.phone")}:</strong> {phone}
               </p>
-              <p tabIndex={0}>
+              <p>
                 <strong>{t("contact.email")}:</strong> {email}
               </p>
             </ClientInfo>

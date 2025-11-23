@@ -40,17 +40,15 @@ const Cards: React.FC<CardsProps> = (props) => {
 
   return (
     <Section>
-      {title ? <Title tabIndex={0}>{title}</Title> : null}
-      {description ? (
-        <Description tabIndex={0}>{description}</Description>
-      ) : null}
+      {title ? <Title>{title}</Title> : null}
+      {description ? <Description>{description}</Description> : null}
       <CardContainer
         $displayInline={!shouldUseStack}
         $isEvenCount={isEvenCount}
         $cardCount={content.length}
       >
         {content.map((card) => (
-          <Card key={card.title} tabIndex={0}>
+          <Card key={card.title}>
             {card.imageSrc && (
               <CardImage
                 src={`${import.meta.env.BASE_URL}assets/${customer}/${card.imageSrc}.webp`}

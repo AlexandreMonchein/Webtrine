@@ -12,7 +12,6 @@ export const Card = ({ data, type }) => {
   return (
     <Wrapper className={classNames({ isLogo: type === "logo" })}>
       <Image
-        tabIndex={0}
         alt={alt}
         src={`${import.meta.env.BASE_URL}assets/${customer}/${imageSrc}.webp`}
       />

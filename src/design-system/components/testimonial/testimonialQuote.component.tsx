@@ -218,7 +218,6 @@ const TestimonialQuoteComponent: React.FC<TestimonialQuoteComponentProps> = ({
       onBlur={handleBlur}
       role="region"
       aria-label="Carrousel de témoignages en citation"
-      tabIndex={0}
     >
       {/* Screen reader announcements */}
       <S.AccessibleContent role="status" aria-live="polite" aria-atomic="true">

@@ -174,7 +174,7 @@ const BigLogosFooter: React.FC<BigLogosFooterProps> = (datas) => {
               <SocialList role="list">{socialComponents}</SocialList>
             </nav>
             <nav aria-label="© Réalisé par Webtrine 2025 - tout droit réservé">
-              <SiteRef tabIndex={0} href="https://www.webtrine.fr">
+              <SiteRef href="https://www.webtrine.fr">
                 Webtrine 2025 - tous droits réservés.
               </SiteRef>
             </nav>

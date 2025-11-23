@@ -32,9 +32,7 @@ const Description: React.FC<DescriptionProps> = (datas) => {
       return (
         <ButtonWrapper key={`${item.button.label}-${index}`}>
           <ButtonLink>
-            <Link to={item.button.to} tabIndex={0}>
-              {item.button.label}
-            </Link>
+            <Link to={item.button.to}>{item.button.label}</Link>
           </ButtonLink>
         </ButtonWrapper>
       );
@@ -44,7 +42,6 @@ const Description: React.FC<DescriptionProps> = (datas) => {
     if ("text" in item) {
       return (
         <Text
-          tabIndex={0}
           key={index}
           dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(item.text) }}
         />
@@ -60,7 +57,7 @@ const Description: React.FC<DescriptionProps> = (datas) => {
         isContinious: isContinious,
       })}
     >
-      {title ? <SectionTitle tabIndex={0}>{title}</SectionTitle> : null}
+      {title ? <SectionTitle>{title}</SectionTitle> : null}
       <Container>
         <Content>
           {image ? (

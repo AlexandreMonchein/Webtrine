@@ -62,11 +62,11 @@ export const MapLeaflet = (datas): ReactElement | null => {
 
   return (
     <Section>
-      {bigTitle ? <BigTitle tabIndex={0}>{bigTitle}</BigTitle> : null}
+      {bigTitle ? <BigTitle>{bigTitle}</BigTitle> : null}
       <Container>
         <List>
           <ListSection>
-            <Title tabIndex={0}>{title}</Title>
+            <Title>{title}</Title>
             <ListItem
               key={places[0].id}
               onClick={() => {
@@ -77,22 +77,19 @@ export const MapLeaflet = (datas): ReactElement | null => {
               }}
             >
               {places[0].address ? (
-                <ListItemText tabIndex={0}>{places[0].address}</ListItemText>
+                <ListItemText>{places[0].address}</ListItemText>
               ) : null}
               {places[0].phone ? (
-                <ListItemText tabIndex={0}>{places[0].phone}</ListItemText>
+                <ListItemText>{places[0].phone}</ListItemText>
               ) : null}
             </ListItem>
           </ListSection>
           {openTimes ? (
             <ListSection>
-              <Title tabIndex={0}>{openTimesTitle}</Title>
+              <Title>{openTimesTitle}</Title>
               <ListContainer>
                 {openTimes.map((openTime) => (
-                  <ListItem
-                    tabIndex={0}
-                    key={`${openTime.days}-${openTime.hours}`}
-                  >
+                  <ListItem key={`${openTime.days}-${openTime.hours}`}>
                     <ListItemText>{openTime.days}</ListItemText>
                     <ListItemText>{openTime.hours}</ListItemText>
                   </ListItem>

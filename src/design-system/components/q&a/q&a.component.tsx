@@ -65,7 +65,6 @@ const AccordionItemComponent: React.FC<{
         aria-expanded={isExpanded}
         aria-controls={`accordion-content-${item.id}`}
         id={`accordion-header-${item.id}`}
-        tabIndex={0}
         role="button"
       >
         <QuestionText>{item.question}</QuestionText>
@@ -178,8 +177,8 @@ const QAComponent: React.FC<QAProps> = ({
       <Container>
         {(title || subtitle) && (
           <Header>
-            {title && <Title tabIndex={0}>{title}</Title>}
-            {subtitle && <Subtitle tabIndex={0}>{subtitle}</Subtitle>}
+            {title && <Title>{title}</Title>}
+            {subtitle && <Subtitle>{subtitle}</Subtitle>}
           </Header>
         )}
 

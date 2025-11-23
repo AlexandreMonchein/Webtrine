@@ -51,14 +51,12 @@ const DataTable = (datas: DataTableProps) => {
   return (
     <Section>
       {title && (
-        <TableTitle tabIndex={0} id={captionId} centered={centeredTitles}>
+        <TableTitle id={captionId} centered={centeredTitles}>
           {title}
         </TableTitle>
       )}
       {subTitle && (
-        <TableSubTitle tabIndex={0} centered={centeredTitles}>
-          {subTitle}
-        </TableSubTitle>
+        <TableSubTitle centered={centeredTitles}>{subTitle}</TableSubTitle>
       )}
       <TableContainer>
         <Table
@@ -75,7 +73,6 @@ const DataTable = (datas: DataTableProps) => {
                   key={column.key}
                   role="columnheader"
                   scope="col"
-                  tabIndex={0}
                   isFirst={index === 0}
                   isLast={index === columns.length - 1}
                   centered={centerContent}
@@ -92,7 +89,6 @@ const DataTable = (datas: DataTableProps) => {
                   role="cell"
                   colSpan={columns.length}
                   style={{ textAlign: "center", fontStyle: "italic" }}
-                  tabIndex={0}
                 >
                   Aucune donnée disponible
                 </TableCell>
@@ -107,7 +103,6 @@ const DataTable = (datas: DataTableProps) => {
                       <TableCell
                         key={`${rowKey}-${column.key}`}
                         role="cell"
-                        tabIndex={0}
                         isFirst={columns.indexOf(column) === 0}
                         isLast={columns.indexOf(column) === columns.length - 1}
                         centered={centerContent}

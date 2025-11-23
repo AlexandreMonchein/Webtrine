@@ -67,7 +67,7 @@ const AllInOne = (datas: AllInOneProps) => {
               const Component = resolvedModule.default;
 
               return (
-                <FeatureItem key={index} tabIndex={0}>
+                <FeatureItem key={index}>
                   <Component
                     key={`${imgSrc}-${index}`}
                     size={32}
@@ -101,17 +101,9 @@ const AllInOne = (datas: AllInOneProps) => {
 
   return (
     <PricesContainer>
-      {title ? (
-        <Title id="all-in-one-title" tabIndex={0}>
-          {title}
-        </Title>
-      ) : null}
+      {title ? <Title id="all-in-one-title">{title}</Title> : null}
       {descriptionTop ? (
-        <Description
-          className="topDesc"
-          aria-labelledby="all-in-one-title"
-          tabIndex={0}
-        >
+        <Description className="topDesc" aria-labelledby="all-in-one-title">
           {descriptionTop}
         </Description>
       ) : null}
@@ -120,30 +112,26 @@ const AllInOne = (datas: AllInOneProps) => {
       </FeaturesCard>
       {descriptionBottom && !_.isEmpty(descriptionBottom)
         ? descriptionBottom.map((content) => (
-            <Description
-              key={content.text}
-              aria-labelledby="all-in-one-title"
-              tabIndex={0}
-            >
+            <Description key={content.text} aria-labelledby="all-in-one-title">
               {content.text}
             </Description>
           ))
         : null}
       <PriceContainer>
-        <Price tabIndex={0}>{price}</Price>
-        {per ? <Per tabIndex={0}> / {per}</Per> : null}
+        <Price>{price}</Price>
+        {per ? <Per> / {per}</Per> : null}
       </PriceContainer>
       <ActionButton
         to={{ pathname: "/contact" }}
         state={{ plan: { ...datas, title: "All In One" } }}
         aria-label={t("prices.selectPlan")} // Adding an aria-label for the button to improve accessibility
         role="button"
-        tabIndex={0} // Make sure the button is focusable by keyboard navigation
+        // Make sure the button is focusable by keyboard navigation
       >
         {t("prices.selectPlan")}
       </ActionButton>
       {additionalDescription ? (
-        <Description aria-labelledby="all-in-one-title" tabIndex={0}>
+        <Description aria-labelledby="all-in-one-title">
           {additionalDescription}
         </Description>
       ) : null}

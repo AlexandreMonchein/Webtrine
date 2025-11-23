@@ -102,7 +102,7 @@ const ClassicFooter = (props) => {
       </LeftSection>
       <MiddleSection>
         <TopSection>
-          <SiteRef tabIndex={0} href="https://www.webtrine.fr">
+          <SiteRef href="https://www.webtrine.fr">
             Webtrine 2025 - tous droits réservés.
           </SiteRef>
         </TopSection>

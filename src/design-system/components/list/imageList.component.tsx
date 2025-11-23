@@ -54,8 +54,8 @@ const List = (datas) => {
 
   return (
     <Section>
-      {title ? <Title tabIndex={0}>{title}</Title> : null}
-      {subtitle ? <SubTitle tabIndex={0}>{subtitle}</SubTitle> : null}
+      {title ? <Title>{title}</Title> : null}
+      {subtitle ? <SubTitle>{subtitle}</SubTitle> : null}
       <Container>
         {showButtons && (
           <ScrollButton onClick={() => scroll("left")}>‹</ScrollButton>
