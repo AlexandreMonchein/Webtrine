@@ -56,10 +56,6 @@
               "link": "/presentation"
             },
             {
-              "name": "FAQ",
-              "link": "/faq"
-            },
-            {
               "name": "Contact",
               "link": "/contact"
             }
@@ -168,7 +164,7 @@
             },
             "cards-1": {
               "type": "cardsList",
-              "features": null,
+              "features": { "displayInline": true },
               "title": "Pourquoi avoir un site vitrine ?",
               "content": [
                 {
@@ -475,7 +471,7 @@
                   "text": "\"Le caractère typographique Luciole a été conçu spécifiquement pour les personnes malvoyantes. Ce projet est le résultat de plus de deux années de collaboration entre le Centre Technique Régional pour la Déficience Visuelle et le studio typographies.fr. Le projet a bénéficié d'une bourse de la Fondation suisse Ceres et de l'appui du laboratoire DIPHE de l'Université Lumière Lyon 2.\""
                 },
                 {
-                  "text": "Pour plus de renseignement, vous pouvez consulter le site de l'éditeur: <a href=\"https://luciole-vision.com/\">luciole-vision.com</a>"
+                  "text": "Pour plus de renseignement, vous pouvez consulter le site de l'éditeur: <a style='font-size: inherit;' href=\"https://luciole-vision.com/\">luciole-vision.com</a>"
                 }
               ],
               "image": {
@@ -502,126 +498,6 @@
                   "displayedText": "Aller au formulaire de contact"
                 }
               ]
-            }
-          }
-        }
-      },
-      {
-        "type": "description",
-        "id": "multiDescriptions",
-        "name": "Faq",
-        "datas": {
-          "title": "FAQ",
-          "description": "Trouvez les réponses à vos questions",
-          "content": {
-            "banner-1": {
-              "type": "banner",
-              "features": { "medium": true },
-              "title": "Foire aux questions",
-              "subTitle": null,
-              "images": [
-                {
-                  "name": "hosting_banner_1"
-                }
-              ],
-              "textPosition": "center"
-            },
-            "q&a-1": {
-              "type": "q&a",
-              "features": {
-                "hasCategories": true,
-                "allowMultipleOpen": false
-              },
-              "title": "Les questions fréquentes qui nous sont demandées:",
-              "subtitle": null,
-              "content": {
-                "categories": [
-                  {
-                    "id": "general",
-                    "label": "Général",
-                    "items": [
-                      {
-                        "id": "gen-1",
-                        "question": "Qu'est-ce que l'offre Webtrine All-In-One ?",
-                        "answer": "<p>Webtrine propose une <strong>offre tout-en-un</strong> pour créer votre site vitrine sans prise de tête :</p><ul><li>Création de votre charte graphique</li><li>Création de votre site vitrine</li><li>Nom de domaine inclus</li><li>Hébergement sur serveur VPS OVH</li><li>Maintenance et support</li><li>1 modification gratuite par mois (6 premiers mois)</li></ul><p>Tout est inclus dans un seul prix : <strong>450€ HT</strong></p>"
-                      },
-                      {
-                        "id": "gen-2",
-                        "question": "Combien de temps faut-il pour créer mon site ?",
-                        "answer": "<p>Notre processus se déroule en <strong>5 étapes</strong> :</p><ol><li><strong>Consultation gratuite</strong> : analyse de vos besoins</li><li><strong>Devis personnalisé</strong> : proposition détaillée</li><li><strong>Conception</strong> : maquettes et validation</li><li><strong>Développement</strong> : création de votre site</li><li><strong>Livraison</strong> : formation et mise en ligne</li></ol><p>Le délai global est généralement de <strong>2 à 4 semaines</strong> selon la complexité de votre projet.</p>"
-                      },
-                      {
-                        "id": "gen-3",
-                        "question": "Comment me contacter ?",
-                        "answer": "<p>Vous pouvez joindre <strong>Alexandre Monschein</strong> :</p><ul><li><strong>Téléphone</strong> : +33 6 14 61 22 95</li><li><strong>Email</strong> : webtrine.pro@gmail.com</li><li><strong>LinkedIn</strong> : alexandre-monschein</li><li><strong>Formulaire de contact</strong> sur le site</li></ul><p>Je vous réponds rapidement pour discuter de votre projet !</p>"
-                      }
-                    ]
-                  },
-                  {
-                    "id": "pricing",
-                    "label": "Tarifs",
-                    "items": [
-                      {
-                        "id": "price-1",
-                        "question": "Combien coûte un site vitrine avec Webtrine ?",
-                        "answer": "<p>L'offre Webtrine All-In-One est à <strong>450€ HT</strong> et comprend :</p><ul><li>Création complète de votre site vitrine</li><li>Charte graphique personnalisée</li><li>Nom de domaine (si hébergé chez nous)</li><li>Hébergement sur VPS OVH</li><li>Maintenance et support</li><li>1 modification gratuite par mois (6 premiers mois)</li></ul><p>C'est un investissement <em>accessible</em> pour une présence web professionnelle !</p>"
-                      },
-                      {
-                        "id": "price-2",
-                        "question": "Quels sont les coûts récurrents ?",
-                        "answer": "<p>Après la création, les seuls frais récurrents sont :</p><ul><li><strong>Hébergement</strong> : 250€/an HT sur nos serveurs VPS OVH</li><li><strong>Nom de domaine</strong> : inclus si hébergé chez nous</li><li><strong>Maintenance</strong> : incluse dans l'hébergement</li></ul><p><strong>Pas de frais cachés</strong> ! Tout est transparent dès le devis.</p>"
-                      },
-                      {
-                        "id": "price-3",
-                        "question": "Combien coûtent les modifications après livraison ?",
-                        "answer": "<p>Tarifs des prestations complémentaires :</p><ul><li><strong>Modification simple</strong> (texte, image) : 15-30€ HT</li><li><strong>Ajout d'élément</strong> : 40€ HT</li><li><strong>Modification de style</strong> : 50-100€ HT</li><li><strong>Nouveau composant</strong> : 100-200€ HT</li><li><strong>Nouvelle section</strong> : 150-300€ HT</li><li><strong>Nouvelle page</strong> : 250-500€ HT</li></ul><p>Rappel : <em>1 modification gratuite par mois</em> les 6 premiers mois !</p>"
-                      }
-                    ]
-                  },
-                  {
-                    "id": "technical",
-                    "label": "Technique",
-                    "items": [
-                      {
-                        "id": "tech-1",
-                        "question": "Où sont hébergés les sites Webtrine ?",
-                        "answer": "<p>Vos sites sont hébergés chez <strong>OVH</strong>, leader européen :</p><ul><li><strong>VPS dédiés</strong> (Serveur Privé Virtuel)</li><li><strong>Ressources garanties</strong> (CPU, RAM, stockage)</li><li><strong>Certificats SSL</strong> Let's Encrypt automatiques</li><li><strong>Nom de domaine</strong> géré par OVH</li><li><strong>Sauvegardes</strong> et monitoring inclus</li></ul><p>Performances, sécurité et fiabilité garanties !</p>"
-                      },
-                      {
-                        "id": "tech-2",
-                        "question": "Mes sites sont-ils adaptés aux mobiles ?",
-                        "answer": "<p><strong>Absolument !</strong> Tous nos sites sont :</p><ul><li><strong>Responsive</strong> : adaptation automatique à tous les écrans</li><li><strong>Mobile-first</strong> : conçus d'abord pour mobile</li><li><strong>Optimisés</strong> : temps de chargement rapides</li><li><strong>Testés</strong> sur ordinateur, mobile et tablette</li></ul><p>Votre site sera parfait quel que soit le support utilisé !</p>"
-                      },
-                      {
-                        "id": "tech-3",
-                        "question": "Qu'est-ce que l'accessibilité web ?",
-                        "answer": "<p>L'accessibilité permet à <strong>tous</strong> d'utiliser votre site, y compris les 12 millions de personnes en situation de handicap en France :</p><ul><li><strong>Navigation clavier</strong> pour les handicaps moteurs</li><li><strong>Contrastes élevés</strong> pour les malvoyants</li><li><strong>Lecteurs d'écran</strong> compatibles</li><li><strong>Textes clairs</strong> pour les troubles cognitifs</li></ul><p>C'est un <em>droit fondamental</em> que nous respectons dans tous nos sites.</p>"
-                      }
-                    ]
-                  },
-                  {
-                    "id": "process",
-                    "label": "Processus",
-                    "items": [
-                      {
-                        "id": "process-1",
-                        "question": "Comment travaillez-vous avec vos templates ?",
-                        "answer": "<p>Nous proposons <strong>deux approches</strong> :</p><ul><li><strong>Templates existants</strong> : sélection de designs prêts à personnaliser</li><li><strong>Création sur mesure</strong> : si aucun template ne convient</li></ul><p>Dans tous les cas, nous adaptons entièrement le design à <em>votre image</em> et vos besoins spécifiques.</p>"
-                      },
-                      {
-                        "id": "process-2",
-                        "question": "Que dois-je préparer pour commencer ?",
-                        "answer": "<p>Pour optimiser la création de votre site :</p><ul><li><strong>Contenus textuels</strong> : présentation, services, coordonnées</li><li><strong>Images</strong> : photos, logos en haute qualité</li><li><strong>Objectifs</strong> : ce que vous attendez de votre site</li><li><strong>Inspirations</strong> : sites que vous appréciez (optionnel)</li></ul><p>Pas d'inquiétude, je vous accompagne dans cette préparation !</p>"
-                      },
-                      {
-                        "id": "process-3",
-                        "question": "Pourrai-je modifier mon site moi-même ?",
-                        "answer": "<p>Nos sites sont construits avec des technologies modernes mais ne disposent pas d'interface d'administration classique.</p><p><strong>Cependant</strong> :</p><ul><li>1 modification <strong>gratuite par mois</strong> les 6 premiers mois</li><li><strong>Tarifs préférentiels</strong> pour les modifications ultérieures</li><li><strong>Réactivité</strong> pour vos demandes de changements</li><li><strong>Conseils</strong> pour optimiser votre contenu</li></ul><p>Vous gardez le contrôle sans les contraintes techniques !</p>"
-                      }
-                    ]
-                  }
-                ]
-              }
             }
           }
         }
