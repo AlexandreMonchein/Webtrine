@@ -247,7 +247,7 @@
                   "text": "C'est en parallèle de mon activité principale que je consacre mon temps libre à ce projet qui me tient à cœur."
                 },
                 {
-                  "text": "L'accessibilité est au cœur de mon approche. J’ai suivi une formation dédiée pour concevoir des sites inclusifs et accessibles à tous. Vous trouverez plus d'information à ce sujet dans <a href=\"/accessibilite\">la section dédiée à l'accessibilité.</a>"
+                  "text": "L'accessibilité est au cœur de mon approche. J’ai suivi une formation dédiée pour concevoir des sites inclusifs et accessibles à tous. Vous trouverez plus d'information à ce sujet dans <a style='font-size: inherit;' href=\"/accessibilite\">la section dédiée à l'accessibilité.</a>"
                 },
                 {
                   "text": "Je veille à maintenir Webtrine à jour et à l'améliorer en continu, en intégrant les meilleures pratiques du web, ainsi qu'en utilisant les dernières technologies disponibles pour assurer une rapidité et une qualité constante."

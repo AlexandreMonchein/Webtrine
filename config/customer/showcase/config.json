@@ -251,7 +251,7 @@
                   "text": "C'est en parallèle de mon activité principale que je consacre mon temps libre à ce projet qui me tient à cœur."
                 },
                 {
-                  "text": "L'accessibilité est au cœur de mon approche. J’ai suivi une formation dédiée pour concevoir des sites inclusifs et accessibles à tous. Vous trouverez plus d'information à ce sujet dans <a href=\"/accessibilite\">la section dédiée à l'accessibilité.</a>"
+                  "text": "L'accessibilité est au cœur de mon approche. J’ai suivi une formation dédiée pour concevoir des sites inclusifs et accessibles à tous. Vous trouverez plus d'information à ce sujet dans <a style='font-size: inherit;' href=\"/accessibilite\">la section dédiée à l'accessibilité.</a>"
                 },
                 {
                   "text": "Je veille à maintenir Webtrine à jour et à l'améliorer en continu, en intégrant les meilleures pratiques du web, ainsi qu'en utilisant les dernières technologies disponibles pour assurer une rapidité et une qualité constante."
@@ -475,7 +475,7 @@
                   "text": "\"Le caractère typographique Luciole a été conçu spécifiquement pour les personnes malvoyantes. Ce projet est le résultat de plus de deux années de collaboration entre le Centre Technique Régional pour la Déficience Visuelle et le studio typographies.fr. Le projet a bénéficié d'une bourse de la Fondation suisse Ceres et de l'appui du laboratoire DIPHE de l'Université Lumière Lyon 2.\""
                 },
                 {
-                  "text": "Pour plus de renseignement, vous pouvez consulter le site de l'éditeur: <a href=\"https://luciole-vision.com/\">luciole-vision.com</a>"
+                  "text": "Pour plus de renseignement, vous pouvez consulter le site de l'éditeur: <a style='font-size: inherit;' href=\"https://luciole-vision.com/\">luciole-vision.com</a>"
                 }
               ],
               "image": {
