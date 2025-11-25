@@ -53,9 +53,11 @@ export const initializeGoogleAnalytics = (customerName) => {
     anonymize_ip: true,
   });
 
-  console.warn(
-    `>>> Google Analytics initialized for ${customerName} with ID: ${gtag_id}`,
-  );
+  console.warn(`>>> Google Analytics initialized for ${customerName}`);
+
+  if (import.meta.env.DEV) {
+    console.warn(`>>> GA dev mode info: with ID: ${gtag_id}`);
+  }
 };
 
 /**
