@@ -25,25 +25,30 @@ export const initializeGoogleAnalytics = (customerName) => {
     return;
   }
 
-  // Créer et ajouter le script gtag.js
+  // --- Load GA script dynamically ---
   const script = document.createElement("script");
   script.async = true;
   script.src = `https://www.googletagmanager.com/gtag/js?id=${gtag_id}`;
   document.head.appendChild(script);
 
-  // Initialiser dataLayer et gtag
+  // Initialise dataLayer + gtag
   window.dataLayer = window.dataLayer || [];
   function gtag() {
     window.dataLayer.push(arguments);
   }
-
-  // Exposer gtag globalement
   window.gtag = gtag;
 
-  // Configuration
+  // Required: GA initialization
   gtag("js", new Date());
+
+  // 👉 Add traffic_type = "internal" in development only
+  if (import.meta.env.DEV) {
+    console.warn(">>> GA dev mode: marking traffic as internal");
+    gtag("set", { traffic_type: "internal" });
+  }
+
+  // GA config
   gtag("config", gtag_id, {
-    // Vous pouvez ajouter des options spécifiques par client ici
     send_page_view: true,
     anonymize_ip: true,
   });
@@ -56,7 +61,6 @@ export const initializeGoogleAnalytics = (customerName) => {
 /**
  * Envoie un événement personnalisé à Google Analytics
  * @param {string} action - Action de l'événement
- * @param {object} parameters - Paramètres de l'événement
  */
 export const trackEvent = (action, parameters = {}) => {
   if (window.gtag) {
@@ -66,8 +70,6 @@ export const trackEvent = (action, parameters = {}) => {
 
 /**
  * Récupère l'ID Google Analytics pour un client
- * @param {string} customerName - Nom du client
- * @returns {string|null} - ID Google Analytics ou null
  */
 export const getGtagId = (customerName) => {
   return GTAG_CONFIG[customerName] || null;
