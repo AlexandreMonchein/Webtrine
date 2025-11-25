@@ -96,13 +96,13 @@
     "jackspeak": "2.1.1"
   },
   "scripts": {
-    "dev": "VITE_CUSTOMER=${VITE_CUSTOMER:=webtrine} vite",
+    "dev": "VITE_CUSTOMER=${VITE_CUSTOMER:=showcase} vite",
     "storybook": "VITE_CUSTOMER=${VITE_CUSTOMER:=showcase} storybook dev -p 6006",
-    "build": "VITE_CUSTOMER=${VITE_CUSTOMER:=webtrine} ./scripts/build.sh",
+    "build": "VITE_CUSTOMER=${VITE_CUSTOMER:=showcase} ./scripts/build.sh",
     "build:storybook": "storybook build",
-    "serve": "VITE_CUSTOMER=${VITE_CUSTOMER:=webtrine} ./scripts/serve.sh",
-    "test": "VITE_CUSTOMER=${VITE_CUSTOMER:=webtrine} vitest --config vitest.component.config.ts",
-    "test:run": "VITE_CUSTOMER=${VITE_CUSTOMER:=webtrine} vitest --config vitest.component.config.ts --run",
+    "serve": "VITE_CUSTOMER=${VITE_CUSTOMER:=showcase} ./scripts/serve.sh",
+    "test": "VITE_CUSTOMER=${VITE_CUSTOMER:=showcase} vitest --config vitest.component.config.ts",
+    "test:run": "VITE_CUSTOMER=${VITE_CUSTOMER:=showcase} vitest --config vitest.component.config.ts --run",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx",
     "convert:webp": "node ./scripts/convert-to-webp.js"
   },
