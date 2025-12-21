@@ -24,7 +24,6 @@ export const Section = styled.section`
 
 export const SectionTitle = styled.h2`
   text-align: center;
-  font-size: var(--subtitle-font-size);
   color: var(--title-color-2);
   margin-bottom: 40px;
 `;

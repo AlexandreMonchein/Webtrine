@@ -1,5 +1,5 @@
 import emailjs from "@emailjs/browser";
-import { useCallback, useEffect } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -32,6 +32,7 @@ const ExtendedContact = ({ datas }) => {
   const { t } = useTranslation();
   const client = useSelector(getClient).contact;
   const templates = useSelector(getTemplates);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   if (!datas || Object.keys(datas).length === 0) {
     template = getTemplate(
@@ -51,6 +52,11 @@ const ExtendedContact = ({ datas }) => {
   const handleSubmit = useCallback(
     async (e) => {
       e.preventDefault();
+
+      // Empêcher les soumissions multiples
+      if (isSubmitting) return;
+
+      setIsSubmitting(true);
 
       const name = e.target.name.value || null;
       const company = e.target.company.value || null;
@@ -77,6 +83,8 @@ const ExtendedContact = ({ datas }) => {
         dispatch(
           showPopUp({ type: "success", message: "Email envoyé avec succès !" }),
         );
+
+        e.target.reset();
       } catch (error) {
         dispatch(
           showPopUp({
@@ -84,9 +92,11 @@ const ExtendedContact = ({ datas }) => {
             message: "Erreur : L'email n'a pas pu être envoyé.",
           }),
         );
+      } finally {
+        setIsSubmitting(false);
       }
     },
-    [dispatch, templateId],
+    [dispatch, templateId, isSubmitting],
   );
 
   const title = t("contact.title");
@@ -184,7 +194,9 @@ const ExtendedContact = ({ datas }) => {
                 />
               </Field>
 
-              <Button type="submit">{t("contact.send")}</Button>
+              <Button type="submit" disabled={isSubmitting}>
+                {isSubmitting ? t("contact.sending") : t("contact.send")}
+              </Button>
             </ContactForm>
           </FormDisplay>
         </FormContainer>

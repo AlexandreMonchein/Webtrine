@@ -11,6 +11,8 @@
     "@babel/preset-typescript": "7.24.7",
     "@emailjs/browser": "4.3.3",
     "@reduxjs/toolkit": "2.2.4",
+    "@turf/concave": "^7.3.1",
+    "@turf/turf": "^7.3.1",
     "@types/leaflet": "1.9.12",
     "@types/react": "18.3.2",
     "@types/react-dom": "18.3.0",

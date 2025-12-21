@@ -3,10 +3,44 @@ import styled, { css } from "styled-components";
 import { bp } from "../../../breakpoint";
 import { breakpointNames } from "../../../breakpointDef";
 
+export const GalleryTitle = styled.h1`
+  color: var(--title-color-2);
+  text-align: center;
+`;
+export const GalleryDescription = styled.p`
+  text-align: center;
+  width: 100%;
+  padding-bottom: 16px;
+
+  a {
+    background: linear-gradient(
+        var(--link-hover-color),
+        var(--link-hover-color)
+      )
+      center bottom / 100% 1px no-repeat;
+    border-bottom: none;
+    color: var(--link-hover-color);
+    text-decoration: none;
+    transition:
+      background 300ms ease-in-out,
+      color 300ms ease-in-out;
+
+    &:hover,
+    &:focus {
+      background: linear-gradient(
+          var(--link-hover-color),
+          var(--link-hover-color)
+        )
+        center bottom / 100% 100% no-repeat;
+      color: var(--text-color-primary);
+    }
+  }
+`;
+
 export const GalleryRoot = styled.section`
   display: flex;
-  flex-direction: row-reverse;
-  align-items: baseline;
+  flex-direction: column;
+  align-items: center;
   gap: 32px;
   padding: 40px 120px;
 
@@ -45,7 +79,6 @@ export const Wrapper = styled.div`
   flex-wrap: wrap;
   justify-content: space-around;
   column-gap: 32px;
-  padding-bottom: 32px;
 
   &.isLogo {
     padding-bottom: 0px;
@@ -56,6 +89,7 @@ export const CardWrapper = styled.div`
   min-width: 261px;
   max-width: 261px;
   flex: 1;
+  padding-bottom: 32px;
 
   ${bp.min(
     breakpointNames.wide,
@@ -82,3 +116,5 @@ export const CardWrapper = styled.div`
     }
   }
 `;
+
+export const CardDescription = styled.p``;

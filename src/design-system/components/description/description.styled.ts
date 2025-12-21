@@ -85,7 +85,7 @@ export const ImageContainer = styled.div`
 export const Image = styled.img`
   width: 100%;
   max-width: 416px;
-  border-radius: 8px;
+  border-radius: 24px;
 `;
 
 export const TextContent = styled.div`

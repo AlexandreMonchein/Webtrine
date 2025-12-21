@@ -1,13 +1,17 @@
 import classNames from "classnames";
+import DOMPurify from "dompurify";
 import React from "react";
 
 import { getCustomer } from "../../../customer.utils";
 import { useFullscreenMode } from "../../utils/useFullscreenMode";
+import { CardDescription } from "../cards/cardsList.styled";
 import FullscreenMode from "../fullscreenMode/fullscreenMode.component";
 import { Card } from "./card.component";
 import {
   CardWrapper,
+  GalleryDescription,
   GalleryRoot,
+  GalleryTitle,
   MainColumn,
   Wrapper,
 } from "./gallery.styled";
@@ -15,6 +19,8 @@ import {
 const Gallery = (datas) => {
   const {
     template: {
+      title,
+      description,
       type,
       inventory,
       features: { canFullScreen = false },
@@ -36,7 +42,12 @@ const Gallery = (datas) => {
 
   return (
     <>
+      {" "}
       <GalleryRoot className={classNames({ isLogo: type === "logo" })}>
+        <GalleryTitle>{title}</GalleryTitle>
+        <GalleryDescription
+          dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(description) }}
+        />
         <MainColumn>
           <Wrapper className={classNames({ isLogo: type === "logo" })}>
             {inventory.map((data, index) => (
@@ -47,12 +58,12 @@ const Gallery = (datas) => {
                 style={{ cursor: canFullScreen ? "pointer" : "default" }}
               >
                 <Card data={data} type={type} />
+                <CardDescription>{data.description}</CardDescription>
               </CardWrapper>
             ))}
           </Wrapper>
         </MainColumn>
       </GalleryRoot>
-
       {canFullScreen && (
         <FullscreenMode
           images={images}

@@ -64,7 +64,7 @@ const ClassicNavbar = (props) => {
                   <li key={name}>
                     <SocialLogo>
                       {/* @ts-ignore */}
-                      <a aria-label={name} href={link}>
+                      <a aria-label={name} href={link.link}>
                         <Component key={name} />
                       </a>
                     </SocialLogo>
