@@ -5,8 +5,9 @@ export interface ActionCard {
   imageSrc?: string | null;
   buttons?: {
     label: string;
-    type: string;
+    type?: string;
     route: string;
+    hash?: string;
   }[];
 }
 

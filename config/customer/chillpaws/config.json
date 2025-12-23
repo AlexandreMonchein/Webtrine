@@ -5,7 +5,7 @@
     "fullName": "Chill Paws",
     "contact": {
       "name": "Oceane Michel",
-      "phone": "TODO",
+      "phone": "06.24.78.74.42",
       "email": "oceanemic.petsitting@gmail.com",
       "mailTemplate": "template_8b4j0fm"
     },
@@ -50,6 +50,10 @@
             {
               "name": "Mes services",
               "link": "/prestation"
+            },
+            {
+              "name": "Tarifs",
+              "link": "/tarifs"
             },
             {
               "name": "Albums photos",
@@ -287,49 +291,64 @@
               "cards": [
                 {
                   "id": "1",
-                  "title": "Garde d'animaux",
-                  "description": "Plus de 250 000 pet sitters attentionnés partout en France. La meilleure alternative à la pension pour chien et à la pension pour chat.",
+                  "title": "Pré-visite",
+                  "description": "La pré-visite est une rencontre obligatoire avant toute garde d'animal, elle permet de faire connaissance et de recueillir les informations nécessaires au bon déroulement de la prestation.",
                   "imageSrc": "IMG_7558",
                   "buttons": [
                     {
-                      "label": "Garde de chien",
-                      "type": "dog_care",
-                      "route": "/information"
-                    },
-                    {
-                      "label": "Garde de chat",
-                      "type": "cat_care",
-                      "route": "/information"
-                    },
-                    {
-                      "label": "Garde de NAC",
-                      "type": "nac_care",
-                      "route": "/information"
+                      "label": "Déroulement",
+                      "route": "/prestation",
+                      "hash": "#previsite"
                     }
                   ]
                 },
                 {
                   "id": "2",
-                  "title": "Promenade de chien",
-                  "description": "Vous n'avez pas le temps de promener votre toutou ? Nos promeneurs s'en occupent !",
+                  "title": "Déroulement d’une visite",
+                  "hash": "visites",
+                  "description": "Lors de chaque visite, je consacre un temps privilégié à votre animal, en respectant ses besoins spécifiques et vos consignes.",
                   "imageSrc": "IMG_0533",
                   "buttons": [
                     {
-                      "label": "Promenade de chien",
-                      "type": "dog_walking",
-                      "route": "/information"
+                      "label": "Déroulement",
+                      "route": "/prestation",
+                      "hash": "#visites"
                     }
                   ]
                 },
                 {
                   "id": "3",
                   "title": "Programme de fidélité",
-                  "description": "Pendant votre absence, un cat sitter rend visite à votre chat pour le nourrir et entretenir sa litière.",
+                  "description": "Pour récompenser votre confiance et votre fidélité, après 10 visites, bénéficiez d'une visite offerte ainsi qu'un jouet ou une friandise pour votre animal !",
                   "imageSrc": "IMG_7591",
                   "buttons": [
                     {
-                      "label": "Visite de chat",
-                      "route": "/fidélite"
+                      "label": "Programme de fidélité",
+                      "route": "/prestation",
+                      "hash": "#fidelite"
+                    }
+                  ]
+                },
+                {
+                  "id": "4",
+                  "title": "Tarifs",
+                  "description": "Consultez les tarifs de mes prestations de garde d'animaux, adaptés à vos besoins et à ceux de votre compagnon.",
+                  "imageSrc": "IMG_7591",
+                  "buttons": [
+                    {
+                      "label": "Visites chien/chat",
+                      "route": "/tarifs",
+                      "hash": "#visite-chien-chat"
+                    },
+                    {
+                      "label": "Visites NAC",
+                      "route": "/tarifs",
+                      "hash": "#visite-nac"
+                    },
+                    {
+                      "label": "Promenade de chien",
+                      "route": "/tarifs",
+                      "hash": "#promenades"
                     }
                   ]
                 }
@@ -373,7 +392,7 @@
             },
             "cards-2": {
               "type": "cardsList",
-              "features": {},
+              "features": { "displayInline": true },
               "title": "Les avantages de Chillpaws",
               "content": [
                 {
@@ -567,59 +586,250 @@
           "content": {
             "description-1": {
               "type": "description",
-              "title": "Visite pour chats",
+              "title": "Pré-visite",
+              "hash": "previsite",
               "features": { "isReversed": false, "isCentered": false },
               "content": [
                 {
-                  "text": "Durée : de 40 minutes à 1 heure."
+                  "text": "Une fois le formulaire de contacts rempli, je vous recontacte en moins de 24 heures pour établir d’une pré-visite, qui me permettra de récolter toutes les informations nécessaires au bon déroulement de mes services."
                 },
                 {
-                  "text": "30 minutes minimum sont entièrement dédiées à l’animal : nourriture, médicaments, eau fraîche, ainsi que des photos et vidéos envoyées chaque jour."
+                  "text": "Cette pré-visite nous permet d’apprendre à se connaître ainsi que votre animal et de recueillir vos habitudes. Avec votre lui ( nourriture, litière, habitude de l’animal) c’est aussi le moment de valider la prestation demandée ainsi que la remise des clefs de votre logement."
                 },
                 {
-                  "text": "Pour les longs séjours, il est possible d’effectuer un petit entretien du logement."
+                  "text": "La pré visite est obligatoire afin de comprendre vos besoins ainsi que celle de votre animal."
                 }
-              ],
-              "image": {
-                "name": "prestation_image_1",
-                "alt": "",
-                "focusable": false
-              }
+              ]
             },
             "description-2": {
               "type": "description",
-              "title": "Promenade de chiens",
+              "title": "Comment se déroule une visite ?",
+              "hash": "visites",
+              "features": { "isReversed": false, "isCentered": false },
+              "content": [
+                {
+                  "text": "Lors de chaque visite à votre domicile, je veille avant tout au bien-être de vos animaux et au bon entretien de votre habitat."
+                },
+                {
+                  "text": "🏡 Entretien de l’habitat"
+                },
+                {
+                  "text": "À mon arrivée, j’aère le logement et je m’assure que tout est en ordre. Si vous le souhaitez, je peux également récupérer votre courrier."
+                },
+                {
+                  "text": "Je nettoie soigneusement :"
+                },
+                {
+                  "text": "- les gamelles et/ou fontaines à eau,"
+                },
+                {
+                  "text": "- les éventuelles salissures,"
+                },
+                {
+                  "text": "- les litières, qui sont nettoyées quotidiennement"
+                },
+                {
+                  "text": "les déchets sont évacués par mes soins afin d’éviter toute odeur à votre retour."
+                },
+                {
+                  "text": "Le changement complet de la litière est effectué selon vos consignes (toutes les 1 à 2 semaines, par exemple)."
+                }
+              ]
+            },
+            "description-3": {
+              "type": "description",
+              "title": null,
               "features": { "isReversed": true, "isCentered": false },
               "content": [
                 {
-                  "text": "Je viens chercher votre chien à votre domicile (Laisse et harnais à fournir)."
+                  "text": "🍽️ Nourrissage & soins"
                 },
                 {
-                  "text": "Durée : de 30 minutes à 1 heure."
+                  "text": "Les repas sont donnés strictement selon vos instructions :"
                 },
                 {
-                  "text": "Une gamelle d’eau est disponible pendant toute la balade."
+                  "text": "- grammages précis"
+                },
+                {
+                  "text": "- alimentation séparée si plusieurs animaux cohabitent"
+                },
+                {
+                  "text": "- croquettes et/ou pâtée"
+                },
+                {
+                  "text": "Pour les animaux nécessitant des soins particulier (médicaments oraux, crèmes, sirops, soins vétérinaires), j’applique scrupuleusement les consignes du vétérinaire. Chaque soin administré est mentionné dans le rapport de visite."
+                }
+              ]
+            },
+            "description-4": {
+              "type": "description",
+              "title": null,
+              "features": { "isReversed": false, "isCentered": false },
+              "content": [
+                {
+                  "text": "❤️ Temps dédié à votre animal"
+                },
+                {
+                  "text": "Une fois les tâches essentielles effectuées, je consacre tout le reste de la visite à votre compagnon :"
+                },
+                {
+                  "text": "- caresses"
+                },
+                {
+                  "text": "- jeux"
+                },
+                {
+                  "text": "- moments de présence"
+                },
+                {
+                  "text": "- brossage si nécessaire"
+                },
+                {
+                  "text": "- photos et vidéos"
+                },
+                {
+                  "text": "Pour les animaux craintifs, je prends le temps de créer un lien en douceur, visite après visite. Si un animal n’est pas réceptif, je respecte son espace et ne le force jamais, tout en vérifiant qu’il va bien avant mon départ."
+                }
+              ]
+            },
+            "description-5": {
+              "type": "description",
+              "title": null,
+              "features": { "isReversed": true, "isCentered": false },
+              "content": [
+                {
+                  "text": "📸 Compte rendu quotidien"
+                },
+                {
+                  "text": "À la fin de chaque journée, vous recevez un rapport détaillé comprenant :"
+                },
+                {
+                  "text": "- des nouvelles de votre animal"
+                },
+                {
+                  "text": "- des photos et/ou vidéos"
+                },
+                {
+                  "text": "*toute information importante concernant son comportement ou son environnement."
+                },
+                {
+                  "text": "Ainsi, vous partez l’esprit tranquille, en sachant que votre animal est entre de bonnes mains."
+                }
+              ]
+            },
+            "description-6": {
+              "type": "description",
+              "title": null,
+              "features": { "isReversed": false, "isCentered": false },
+              "content": [
+                {
+                  "text": "🧹 Dernière visite"
+                },
+                {
+                  "text": "Lors de ma dernière visite, je m’occupe d’un entretien complet de votre domicile pour vous assurer un retour agréable :"
+                },
+                {
+                  "text": "- passage de l’aspirateur"
+                },
+                {
+                  "text": "- nettoyage du sol si nécessaire"
+                },
+                {
+                  "text": "- vérification finale que tout est en ordre pour vos animaux et votre habitat."
+                },
+                {
+                  "text": "Cette visite permet de laisser votre maison propre et accueillante, tout en assurant que vos compagnons ont été parfaitement pris en charge."
+                }
+              ]
+            },
+            "description-7": {
+              "type": "description",
+              "title": "Programme de fidélité",
+              "hash": "fidelite",
+              "features": { "isReversed": false, "isCentered": false },
+              "content": [
+                {
+                  "text": "Chill Paws souhaite récompenser votre soutien avec son programme de fidélité. Toute les 10 visites,  1 visites vous est offerte aisin qu’un jouet pour votre animal."
+                },
+                {
+                  "text": "Le cadeaux sera vue avec vous entre plusieurs choix. Si votre animal n’est pas jouer des friandises seront sûrement le ravire "
                 }
               ],
               "image": {
-                "name": "prestation_image_2",
+                "name": "prestation_image_3",
+                "alt": "",
+                "focusable": false
+              }
+            }
+          }
+        }
+      },
+      {
+        "type": "description",
+        "id": "multiDescriptions",
+        "name": "Tarifs",
+        "datas": {
+          "title": "Tarifs",
+          "description": null,
+          "content": {
+            "description-1": {
+              "type": "description",
+              "title": "Pet sitting",
+              "features": { "isReversed": false, "isCentered": false },
+              "content": [
+                {
+                  "text": "J’ai fait le choix de proposer des visites d’une heure chacune. Prendre le temps nécessaire pour le bien-être de vos animaux est ma priorité."
+                },
+                {
+                  "text": "Une visite de 30 minutes ne permet pas de réaliser toutes les tâches essentielles tout en offrant à vos compagnons l’attention et les soins qu’ils méritent. Le temps de jeux est souvent trop court c’est donc pour ses raison que je préfère prendre le temps de jouer et de les chouchouter en votre absence"
+                }
+              ]
+            },
+            "description-2": {
+              "type": "description",
+              "title": "Visite chien et chat",
+              "hash": "visite-chien-chat",
+              "features": { "isReversed": false, "isCentered": false },
+              "content": [
+                {
+                  "text": "1h: 16€ par jours"
+                },
+                {
+                  "text": "Forfait 2 jours: 30 €"
+                },
+                {
+                  "text": "Forfait une semaine (7 jours): 100 €"
+                },
+                {
+                  "text": "* Supplément de 5€ par animaux en plus par semaine"
+                },
+                {
+                  "text": "** Deuxième visite le même jour 5€ supplémentaires par semaine (3 semaine = 15€ supplémentaire)"
+                }
+              ],
+              "image": {
+                "name": "prestation_image_3",
                 "alt": "",
                 "focusable": false
               }
             },
             "description-3": {
               "type": "description",
-              "title": "Transport animalier",
-              "features": { "isReversed": false, "isCentered": false },
+              "title": "Visite NAC",
+              "hash": "visite-nac",
+              "features": { "isReversed": true, "isCentered": false },
               "content": [
                 {
-                  "text": "Pour les petits trajets (vétérinaire, toilettage, etc.), je propose un service de transport pouvant être réalisé avant votre retour de vacances."
+                  "text": "1h: 12€ par jours"
                 },
                 {
-                  "text": "Le trajet est adapté selon l’animal, sans stress, grâce à l’utilisation de phéromones apaisantes."
+                  "text": "Forfait 2 jours: 20€"
                 },
                 {
-                  "text": "Je m’adapte à tous les types d’animaux."
+                  "text": "Forfait 5 visites: 55 €"
+                },
+                {
+                  "text": "Forfait une semaine (sept jours): 80 €"
                 }
               ],
               "image": {
@@ -630,23 +840,39 @@
             },
             "description-4": {
               "type": "description",
-              "title": "Déroulement",
+              "title": "Promenade chien / chat ",
+              "hash": "promenades",
               "features": { "isReversed": false, "isCentered": false },
               "content": [
                 {
-                  "text": "Après m’avoir contacté via le formulaire ou par téléphone, je vous recontacte sous 24 heures afin de convenir d’une pré-visite."
+                  "text": "Promenades: 30min: 12€ / 45min: 15€ / 1h: 20€"
                 },
                 {
-                  "text": "Cette rencontre me permet de recueillir toutes les informations nécessaires au bon déroulement de mes services."
+                  "text": "La dépose des clés sera facturé 5€ par trajets. Pour éviter cette facturation. Vous pouvez remettre les clés à la pré-visite ou le premier jour de garde ou directement le déposer chez moi en main propre ou dans ma boîte aux lettres."
+                }
+              ],
+              "image": {
+                "name": "prestation_image_3",
+                "alt": "",
+                "focusable": false
+              }
+            },
+            "description-5": {
+              "type": "description",
+              "title": "Paiements",
+              "features": { "isReversed": false, "isCentered": false },
+              "content": [
+                {
+                  "text": "Devis gratuit"
                 },
                 {
-                  "text": "La pré-visite nous permet de faire connaissance, d’observer votre animal et de prendre note de vos habitudes (nourriture, litière, soins, comportement, etc.)."
+                  "text": "Conditions de payement : un acompte de 50 % sera effectué à la pré-visite lors de la signature du contrat puis le restera à régler lors du premier jour de garde"
                 },
                 {
-                  "text": "C’est également le moment de valider la prestation choisie et de procéder à la remise des clés de votre logement."
+                  "text": "Virement et espèces acceptés"
                 },
                 {
-                  "text": "La pré-visite est obligatoire, afin de bien comprendre vos besoins et ceux de votre animal (elle peut être réalisée le jour même de votre départ)."
+                  "text": "Il n’y a aucun supplément pour les jours fériés, ni les week-ends, ainsi que pour les frais kilométriques."
                 }
               ]
             }
@@ -658,7 +884,7 @@
         "id": "gallery",
         "datas": {
           "title": "Album photo",
-          "description": "Lors de chaque visite, je réalise des photos et des vidéos des animaux que je garde, avec l’accord de leurs maîtres. Je les immortalise dans cet album photo ainsi que sur mes réseaux sociaux. </br>Suivez les aussi sur mon <a style='font-size: inherit;' href=\"https://www.facebook.com/chill_paws_off/\">Facebook</a> et mon <a style='font-size: inherit;' href=\"https://www.instagram.com/chill_paws_off/\">Instagram</a> !",
+          "description": "L’album photo permet d’immortaliser vos animaux pendant leur garde. Une garde est un moment convivial avec votre animal de ce fait je l’Immortale pour vous.  Avec votre autorisation, je partage ces photos sur les réseaux sociaux afin de montrer mon travail et la joie des animaux que je garde. </br> Ils nous ont fait confiance, suivez leurs avantures sur <a style='font-size: inherit;' href=\"https://www.facebook.com/chill_paws_off/\">Facebook</a> et <a style='font-size: inherit;' href=\"https://www.instagram.com/chill_paws_off/\">Instagram</a> !",
           "features": { "canFullScreen": true, "shouldRedirect": false },
           "inventory": [
             {
@@ -810,18 +1036,6 @@
           "title": "Contact",
           "description": "Contactez-nous",
           "content": {
-            "banner-1": {
-              "type": "banner",
-              "features": { "medium": true },
-              "title": null,
-              "subTitle": null,
-              "images": [
-                {
-                  "name": "contact_banner_1"
-                }
-              ],
-              "textPosition": "center"
-            },
             "contact-1": {
               "type": "extendedContact",
               "datas": {

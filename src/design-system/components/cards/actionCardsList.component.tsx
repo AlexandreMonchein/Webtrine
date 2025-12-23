@@ -40,7 +40,7 @@ const ActionCardsList: React.FC<ActionCardsListProps> = (props) => {
                   {card.buttons
                     ? card.buttons.map((btn) => (
                         <ActionCardButton
-                          to={{ pathname: "/information" }}
+                          to={{ pathname: btn.route, hash: btn.hash || "" }}
                           state={{ type: btn.type }}
                           key={btn.label}
                           type="button"

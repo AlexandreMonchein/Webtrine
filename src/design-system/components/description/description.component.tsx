@@ -23,6 +23,7 @@ const Description: React.FC<DescriptionProps> = (datas) => {
     features: { isReversed = false, isContinious = false },
     image,
     title,
+    hash,
     content,
   } = datas;
 
@@ -57,7 +58,7 @@ const Description: React.FC<DescriptionProps> = (datas) => {
         isContinious: isContinious,
       })}
     >
-      {title ? <SectionTitle>{title}</SectionTitle> : null}
+      {title ? <SectionTitle id={hash}>{title}</SectionTitle> : null}
       <Container>
         <Content>
           {image ? (

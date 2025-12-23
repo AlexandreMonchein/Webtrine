@@ -29,10 +29,10 @@ interface CardsProps {
 
 const Cards: React.FC<CardsProps> = (props) => {
   const { title, description, content, features } = props;
+  const { displayInline = false } = features || {};
   const customer = getCustomer();
 
   // Calculer la logique d'affichage
-  const displayInline = features?.displayInline || false;
   const isEvenCount = content.length % 2 === 0;
 
   // Si une seule carte, forcer l'affichage stack même en mode inline

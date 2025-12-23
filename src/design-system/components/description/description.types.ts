@@ -28,6 +28,7 @@ export interface DescriptionProps {
   type: "description";
   features: DescriptionFeatures;
   title?: string;
+  hash?: string;
   content: DescriptionContentItem[];
   image?: DescriptionImage;
 }
