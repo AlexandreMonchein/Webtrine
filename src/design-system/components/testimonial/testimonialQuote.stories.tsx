@@ -68,6 +68,78 @@ Une variante du composant testimonial avec le message en grand en haut et les in
 2. Avatar plus grand (80px → 96px sur desktop)
 3. Informations auteur centrées en flex
 4. Notation par étoiles
+
+## How to Implement
+
+Pour utiliser ce composant dans votre configuration client, ajoutez-le dans votre fichier \`config/customer/[customer-name]/config.json\` :
+
+\`\`\`json
+{
+  "type": "testimonialQuote",
+  "id": "customerTestimonialQuote",
+  "name": "Testimonial Quote",
+  "datas": {
+    "features": {
+      "autoplay": true,
+      "autoplayDelay": 5000,
+      "showPagination": true
+    },
+    "testimonials": [
+      {
+        "id": "1",
+        "name": "Marie Dubois",
+        "position": "Directrice Marketing",
+        "company": "TechCorp",
+        "rating": 5,
+        "content": "Une expérience exceptionnelle ! L'équipe a su comprendre nos besoins et livrer un produit de qualité supérieure...",
+        "avatar": "https://i.pravatar.cc/150?img=1",
+        "date": "2024-01-15"
+      },
+      {
+        "id": "2",
+        "name": "Pierre Martin",
+        "rating": 5,
+        "content": "Professionnel, réactif et créatif. Ils ont transformé notre vision en réalité...",
+        "avatar": "https://i.pravatar.cc/150?img=2",
+        "date": "2024-01-10"
+      },
+      {
+        "id": "3",
+        "name": "Sophie Laurent",
+        "position": "Product Manager",
+        "company": "DigitalFlow",
+        "rating": 4,
+        "content": "Très satisfaite du résultat final. L'équipe a fait preuve d'une grande expertise...",
+        "avatar": "https://i.pravatar.cc/150?img=3",
+        "date": "2024-01-05"
+      }
+    ]
+  }
+}
+\`\`\`
+
+### Props disponibles
+
+- **testimonials** (required): Tableau d'objets contenant les témoignages
+  - \`id\`: Identifiant unique
+  - \`name\`: Nom de la personne
+  - \`position\`: Poste (optionnel)
+  - \`company\`: Entreprise (optionnel)
+  - \`rating\`: Note sur 5 étoiles (1-5)
+  - \`content\`: Contenu du témoignage (affiché en grand format quote)
+  - \`avatar\`: URL de l'image (optionnel, affiche les initiales si absent)
+  - \`date\`: Date au format ISO (optionnel)
+
+- **features** (optional):
+  - \`autoplay\`: Active le défilement automatique (default: false)
+  - \`autoplayDelay\`: Délai en ms entre les slides (default: 5000)
+  - \`showPagination\`: Affiche les points de pagination (default: true)
+
+### Design Characteristics
+
+- **Avatar plus grand**: 80px sur mobile, 96px sur desktop
+- **Citation mise en avant**: Texte du témoignage en grand format avec guillemets stylisés
+- **Layout centré**: Toutes les informations sont centrées pour une présentation élégante
         `,
       },
     },

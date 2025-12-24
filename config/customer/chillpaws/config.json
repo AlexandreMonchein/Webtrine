@@ -392,7 +392,7 @@
             },
             "cards-2": {
               "type": "cardsList",
-              "features": { "displayInline": true },
+              "features": { "displayInline": false },
               "title": "Les avantages de Chillpaws",
               "content": [
                 {
@@ -434,7 +434,7 @@
                   "title": "Programme de fidélité",
                   "description": [
                     {
-                      "text": "Après 10 visites, bénéficiez d'une visite offerte pour récompenser votre confiance et fidélité, ainsi qu'un jouet ou une friandise pour votre animal !"
+                      "text": "Afin de récompenser votre fidélité, une surprise vous attend tous les 10 visites effectuées !"
                     }
                   ]
                 },
@@ -548,7 +548,16 @@
                       "text": "Mon jouet favori est une fraise fourrée d’herbe à chat."
                     }
                   ],
-                  "imageSrc": "IMG_0003"
+                  "imageSrc": "IMG_6932"
+                },
+                {
+                  "title": "TODO",
+                  "description": [
+                    {
+                      "text": "TODO"
+                    }
+                  ],
+                  "imageSrc": "IMG_7387"
                 },
                 {
                   "title": "🐾 Luna – 2 ans",
@@ -569,7 +578,7 @@
                       "text": "Mon jouet préféré est mon doudou marmotte, à qui j’ai fait la misère !"
                     }
                   ],
-                  "imageSrc": "IMG_6756"
+                  "imageSrc": "IMG_7553"
                 }
               ]
             }
@@ -1037,7 +1046,7 @@
           "description": "Contactez-nous",
           "content": {
             "contact-1": {
-              "type": "extendedContact",
+              "type": "petSittingContact",
               "datas": {
                 "features": {}
               }
@@ -1055,33 +1064,53 @@
         "datas": {
           "type": "mentions-legals",
           "title": "Mentions légales",
-          "description": "Mentions légales de Webtrine",
-          "subTitle": "En vigueur au 01/09/2024",
-          "disclaimer": "Conformément aux dispositions des Articles 6-III et 19 de la Loi n°2004-575 du 21 juin 2004 pour la Confiance dans l’économie numérique, dite L.C.E.N., il est porté à la connaissance des utilisateurs et visiteurs, ci-après l'Utilisateur, du site https://www.webtrine.fr, les présentes mentions légales. La navigation sur le Site par l’Utilisateur implique acceptation intégrale et sans réserve des présentes mentions légales. Ces dernières sont accessibles sur le Site à la rubrique « Mentions légales ».",
+          "description": "Mentions légales de Chillpaws",
+          "subTitle": "En vigueur au 01/01/2025",
+          "disclaimer": "Conformément aux dispositions des Articles 6-III et 19 de la Loi n°2004-575 du 21 juin 2004 pour la Confiance dans l’économie numérique, dite L.C.E.N., il est porté à la connaissance des utilisateurs et visiteurs, ci-après l'Utilisateur, du site TODO: URL du site (ex: https://www.chillpaws.fr), les présentes mentions légales. La navigation sur le Site par l’Utilisateur implique acceptation intégrale et sans réserve des présentes mentions légales. Ces dernières sont accessibles sur le Site à la rubrique « Mentions légales ».",
           "content": [
             {
-              "title": "Article 1 - L'editeur",
+              "title": "Article 1 - L'éditeur",
               "texts": [
-                "L’édition et la direction de la publication du Site est assurée par Mr. Alexandre Monschein, domiciliée en France, dont le numéro de téléphone est 0614612295, et l’adresse e-mail est webtrine.pro@gmail.com"
+                "L’édition et la direction de la publication du Site est assurée par Chillpaws (TODO: raison sociale exacte), (TODO: forme juridique), immatriculée sous le numéro SIRET : TODO: SIRET, dont le siège social est situé TODO: adresse complète.",
+                "Contact : TODO: téléphone – TODO: email.",
+                "Le responsable de la publication est TODO: Nom et prénom du responsable."
               ]
             },
             {
-              "title": "Article 2 - L'hébergeur",
+              "title": "Article 2 - Réalisation & maintenance",
               "texts": [
-                "L’hébergeur du Site est la société OVHcloud, dont le siège social est situé au 2 rue Kellermann, 59100 Roubaix, avec le numéro de téléphone: 1007."
+                "Le Site a été conçu, réalisé et est maintenu par Webtrine (Alexandre Monschein).",
+                "Contact : webtrine.pro@gmail.com"
               ]
             },
             {
-              "title": "Article 3 - Accès au site",
+              "title": "Article 3 - L'hébergeur",
               "texts": [
-                "Le Site est accessible en tout endroit, 7j/7, 24h/24 sauf cas de force majeure, interruption programmée ou non et pouvant découler d’une nécessité de maintenance. En cas de modification, interruption ou suspension du Site, le Gérant ne saurait être tenu responsable."
+                "Le Site est hébergé par TODO: nom de l’hébergeur.",
+                "TODO: Adresse du siège de l’hébergeur – TODO: Téléphone de l’hébergeur.",
+                "La gestion technique et l’administration de l’hébergement sont assurées par Webtrine."
               ]
             },
             {
-              "title": "Article 4 - Collecte des données",
+              "title": "Article 4 - Accès au site",
               "texts": [
-                "Le site est exempté de déclaration à la Commission Nationale Informatique et Libertés (CNIL) dans la mesure où il ne collecte aucune donnée concernant les utilisateurs.",
-                "Toute utilisation, reproduction, diffusion, commercialisation, modification de toute ou partie du Site, sans autorisation du Gérant est prohibée et pourra entraînée des actions et poursuites judiciaires telles que prévues par le Code de la propriété intellectuelle et le Code civil. Pour plus d’informations, se reporter aux CGV du site accessible à la rubrique << CGU-CGV >>."
+                "Le Site est accessible en tout endroit, 7j/7, 24h/24 sauf cas de force majeure, interruption programmée ou non et pouvant découler d’une nécessité de maintenance. En cas de modification, interruption ou suspension du Site, l’Éditeur ne saurait être tenu responsable."
+              ]
+            },
+            {
+              "title": "Article 5 - Collecte des données",
+              "texts": [
+                "Dans le cadre de son fonctionnement, le Site peut collecter des données personnelles via le formulaire de contact (ex : nom, prénom, adresse e-mail, numéro de téléphone, message). Ces données sont strictement utilisées pour répondre aux demandes de l’Utilisateur et assurer le suivi des échanges liés aux prestations de petsitting (garde, visites, promenades, etc.).",
+                "Le Site ne réalise aucune vente en ligne et ne propose pas de paiement sur le Site.",
+                "Le Site ne dépose pas de cookies publicitaires. Une mesure d’audience peut toutefois être effectuée afin d’analyser la fréquentation et améliorer l’expérience utilisateur. Les informations collectées à cette fin sont traitées de manière anonymisée (ou agrégée) et ne visent pas à identifier l’Utilisateur.",
+                "Conformément au Règlement Général sur la Protection des Données (RGPD) et à la loi Informatique et Libertés, l’Utilisateur dispose d’un droit d’accès, de rectification, d’opposition, de limitation et de suppression des données le concernant. Ces droits peuvent être exercés en contactant l’Éditeur à l’adresse : TODO: email RGPD (peut être le même que l’email de contact).",
+                "Les données issues du formulaire de contact sont conservées pendant une durée n’excédant pas celle nécessaire au traitement de la demande et à la gestion de la relation, sauf obligation légale contraire."
+              ]
+            },
+            {
+              "title": "Article 6 - Propriété intellectuelle",
+              "texts": [
+                "Toute utilisation, reproduction, diffusion, commercialisation, modification de tout ou partie du Site, sans autorisation préalable de l’Éditeur est prohibée et pourra entraîner des actions et poursuites judiciaires telles que prévues par le Code de la propriété intellectuelle et le Code civil."
               ]
             }
           ]
@@ -1092,39 +1121,50 @@
         "id": "legals",
         "datas": {
           "type": "confidentialite",
-          "title": "Politique de confidentialité du site: Webtrine",
-          "description": "Politique de confidentialité de Webtrine",
-          "subTitle": "En vigueur au 01/09/2024",
+          "title": "Politique de confidentialité du site: Chillpaws",
+          "description": "Politique de confidentialité de Chillpaws",
+          "subTitle": "En vigueur au TODO: date d’entrée en vigueur (ex: 01/01/2025)",
           "disclaimer": null,
           "content": [
             {
               "title": "Article 1 - Collecte des données personnelles :",
               "texts": [
-                "Webtrine s'engage à respecter la vie privée de ses utilisateurs. Les données personnelles collectées via le site (nom, prénom, adresse e-mail, etc.) sont strictement confidentielles et utilisées uniquement pour les besoins des services proposés par Webtrine."
+                "Chillpaws s'engage à respecter la vie privée de ses utilisateurs. Des données personnelles peuvent être collectées via le site, notamment via le formulaire de contact (ex : nom, prénom, adresse e-mail, numéro de téléphone, message). Ces informations sont strictement confidentielles et utilisées uniquement pour répondre aux demandes, assurer le suivi des échanges et organiser les prestations de petsitting (garde, visites, promenades, etc.)."
               ]
             },
             {
               "title": "Article 2 - Utilisation des données :",
               "texts": [
-                "Les données collectées sont utilisées pour la gestion des commandes, la communication avec les clients, et l'amélioration des services. Elles ne sont en aucun cas cédées ou vendues à des tiers sans le consentement préalable des utilisateurs."
+                "Les données collectées via le formulaire de contact sont utilisées exclusivement pour la communication avec les utilisateurs, la gestion des demandes et l’amélioration du service. Le site ne propose pas d’achat en ligne et ne réalise pas de gestion de commandes via le site.",
+                "Les données ne sont en aucun cas cédées ou vendues à des tiers sans le consentement préalable des utilisateurs, sauf obligation légale."
               ]
             },
             {
-              "title": "Article 3 - Données à caractère personnel collectées et traitées dans le cadre de la navigation sur le site",
+              "title": "Article 3 - Données de navigation / mesure d’audience :",
               "texts": [
-                "Webtrine met en œuvre toutes les mesures techniques et organisationnelles nécessaires pour garantir la sécurité des données personnelles de ses utilisateurs."
+                "Le site ne dépose pas de cookies publicitaires.",
+                "Une mesure d’audience peut être réalisée afin de comprendre la fréquentation du site et d’en améliorer le fonctionnement. Les informations utilisées à cette fin sont traitées de manière anonymisée (ou agrégée) et ne visent pas à identifier personnellement l’utilisateur.",
+                "TODO: préciser l’outil de mesure d’audience utilisé (ex: Matomo / Google Analytics / autre) et, si applicable, si l’anonymisation IP est activée."
               ]
             },
             {
               "title": "Article 4 - Responsable du traitement des données",
               "texts": [
-                "Conformément à la réglementation en vigueur, les utilisateurs disposent d'un droit d'accès, de rectification, d'opposition et de suppression de leurs données personnelles. Pour exercer ce droit, il suffit de contacter Webtrine à l'adresse suivante : webtrine.pro@gmail.com"
+                "Le responsable du traitement des données est Chillpaws (TODO: raison sociale exacte) – TODO: adresse complète.",
+                "Conformément à la réglementation en vigueur (RGPD et loi Informatique et Libertés), les utilisateurs disposent d'un droit d'accès, de rectification, d'opposition, de limitation et de suppression de leurs données personnelles. Pour exercer ces droits, il suffit de contacter Chillpaws à l'adresse suivante : TODO: email de contact RGPD.",
+                "TODO: ajouter, si souhaité, une durée de conservation (ex: “Les données issues du formulaire de contact sont conservées pendant TODO: durée, puis supprimées.”)."
               ]
             },
             {
-              "title": "Article 5 - Modifications de la politique de confidentialité :",
+              "title": "Article 5 - Sécurité des données :",
               "texts": [
-                "Webtrine se réserve le droit de modifier à tout moment la présente politique de confidentialité. Les utilisateurs seront informés de toute modification substantielle via le site."
+                "Chillpaws met en œuvre toutes les mesures techniques et organisationnelles raisonnables nécessaires pour garantir la sécurité et la confidentialité des données personnelles et empêcher leur accès non autorisé, leur divulgation, leur altération ou leur destruction."
+              ]
+            },
+            {
+              "title": "Article 6 - Modifications de la politique de confidentialité :",
+              "texts": [
+                "Chillpaws se réserve le droit de modifier à tout moment la présente politique de confidentialité. Les utilisateurs seront informés de toute modification substantielle via le site."
               ]
             }
           ]

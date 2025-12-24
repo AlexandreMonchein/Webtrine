@@ -91,6 +91,68 @@ Un composant carrousel responsive pour afficher les témoignages clients.
 - Annonces ARIA pour les lecteurs d'écran
 - Support du focus et des états
 - Pause automatique au survol/focus
+
+## How to Implement
+
+Pour utiliser ce composant dans votre configuration client, ajoutez-le dans votre fichier \`config/customer/[customer-name]/config.json\` :
+
+\`\`\`json
+{
+  "type": "testimonial",
+  "id": "customerTestimonials",
+  "name": "Testimonials",
+  "datas": {
+    "features": {
+      "autoplay": true,
+      "autoplayDelay": 5000,
+      "showNavigation": true,
+      "showPagination": true,
+      "variant": "default"
+    },
+    "testimonials": [
+      {
+        "id": "1",
+        "name": "Marie Dubois",
+        "position": "Directrice Marketing",
+        "company": "TechCorp",
+        "rating": 5,
+        "content": "Une expérience exceptionnelle ! L'équipe a su comprendre nos besoins...",
+        "avatar": "https://i.pravatar.cc/150?img=1",
+        "date": "2024-01-15"
+      },
+      {
+        "id": "2",
+        "name": "Pierre Martin",
+        "position": "CEO",
+        "company": "StartupXYZ",
+        "rating": 5,
+        "content": "Professionnel, réactif et créatif...",
+        "avatar": "https://i.pravatar.cc/150?img=2",
+        "date": "2024-01-10"
+      }
+    ]
+  }
+}
+\`\`\`
+
+### Props disponibles
+
+- **testimonials** (required): Tableau d'objets contenant les témoignages
+  - \`id\`: Identifiant unique
+  - \`name\`: Nom de la personne
+  - \`position\`: Poste (optionnel)
+  - \`company\`: Entreprise (optionnel)
+  - \`rating\`: Note sur 5 étoiles (1-5)
+  - \`content\`: Contenu du témoignage
+  - \`avatar\`: URL de l'image (optionnel)
+  - \`date\`: Date au format ISO (optionnel)
+
+- **features** (optional):
+  - \`autoplay\`: Active la lecture automatique (default: false)
+  - \`autoplayDelay\`: Délai en ms entre les slides (default: 5000)
+  - \`showNavigation\`: Affiche les flèches de navigation (default: true)
+  - \`showPagination\`: Affiche les points de pagination (default: true)
+  - \`variant\`: Style du composant - "default", "compact" ou "featured" (default: "default")
         `,
       },
     },

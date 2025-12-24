@@ -132,6 +132,78 @@ Un composant pour afficher des témoignages clients sous forme de cartes dans un
 - **autoplay**: Active le défilement automatique (défaut: false)
 - **autoplayDelay**: Délai entre les slides en ms (défaut: 5000)
 - **Responsive**: Le nombre de cartes par slide s'adapte automatiquement (1 sur mobile, 2 sur tablette, 3 sur desktop)
+
+## How to Implement
+
+Pour utiliser ce composant dans votre configuration client, ajoutez-le dans votre fichier \`config/customer/[customer-name]/config.json\` :
+
+\`\`\`json
+{
+  "type": "testimonialCards",
+  "id": "customerTestimonialCards",
+  "name": "Testimonial Cards",
+  "datas": {
+    "features": {
+      "autoplay": true,
+      "autoplayDelay": 4000
+    },
+    "testimonials": [
+      {
+        "id": "1",
+        "name": "Lucie R",
+        "position": "Propriétaire d'animaux",
+        "company": "",
+        "rating": 5,
+        "content": "Je fais appel à Géna pour s'occuper de mon chat et de mon chien depuis 3 ans...",
+        "avatar": "https://example.com/avatar1.jpg",
+        "date": "2025-03-19"
+      },
+      {
+        "id": "2",
+        "name": "Marie D",
+        "position": "Directrice Marketing",
+        "company": "Tech Corp",
+        "rating": 5,
+        "content": "Service exceptionnel ! L'équipe est très professionnelle et réactive...",
+        "avatar": "https://example.com/avatar2.jpg",
+        "date": "2025-02-15"
+      },
+      {
+        "id": "3",
+        "name": "Thomas L",
+        "position": "Entrepreneur",
+        "company": "",
+        "rating": 4,
+        "content": "Très satisfait du service rendu. L'accompagnement personnalisé...",
+        "avatar": "https://example.com/avatar3.jpg",
+        "date": "2025-01-28"
+      }
+    ]
+  }
+}
+\`\`\`
+
+### Props disponibles
+
+- **testimonials** (required): Tableau d'objets contenant les témoignages
+  - \`id\`: Identifiant unique
+  - \`name\`: Nom de la personne
+  - \`position\`: Poste (optionnel)
+  - \`company\`: Entreprise (optionnel)
+  - \`rating\`: Note sur 5 étoiles (1-5)
+  - \`content\`: Contenu du témoignage (limité à 3 lignes)
+  - \`avatar\`: URL de l'image (optionnel, affiche les initiales si absent)
+  - \`date\`: Date au format ISO (optionnel)
+
+- **features** (optional):
+  - \`autoplay\`: Active le défilement automatique (default: false)
+  - \`autoplayDelay\`: Délai en ms entre les slides (default: 5000)
+
+### Responsive Behavior
+
+- **Mobile**: 1 carte par slide
+- **Tablette**: 2 cartes par slide
+- **Desktop**: 3 cartes par slide
         `,
       },
     },

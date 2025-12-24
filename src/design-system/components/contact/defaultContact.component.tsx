@@ -3,9 +3,8 @@ import { useCallback, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 
-import { getTemplate } from "../../../App";
 import { showPopUp } from "../../../store/state.action";
-import { getClient, getTemplates } from "../../../store/state.selector";
+import { getClient } from "../../../store/state.selector";
 import { MapLeaflet } from "../map/moduleLeafletMap.component";
 import PopUp from "../popup/popUp.component";
 import {
@@ -24,26 +23,15 @@ import {
   Spacer,
   Textarea,
   Title,
-} from "./extendedContact.styled";
+} from "./defaultContact.styled";
 
-const ExtendedContact = ({ datas }) => {
-  let template;
+const DefaultContact = ({ datas }) => {
   const dispatch = useDispatch();
   const { t } = useTranslation();
   const client = useSelector(getClient).contact;
-  const templates = useSelector(getTemplates);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  if (!datas || Object.keys(datas).length === 0) {
-    template = getTemplate(
-      templates,
-      "contact",
-      "extendedContact",
-      "Contact",
-    ).datas;
-  }
-
-  const { map } = template ? template : datas;
+  const { map } = datas || {};
 
   const { phone, email, mailTemplate: templateId } = client;
 
@@ -205,4 +193,4 @@ const ExtendedContact = ({ datas }) => {
   );
 };
 
-export default ExtendedContact;
+export default DefaultContact;

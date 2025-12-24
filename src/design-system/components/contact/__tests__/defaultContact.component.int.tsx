@@ -5,7 +5,7 @@ import { MemoryRouter } from "react-router-dom";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
 import { stateReducer } from "../../../../store/state.reducer";
-import ExtendedContact from "../extendedContact.component";
+import DefaultContact from "../defaultContact.component";
 
 // Mock d'emailjs - utiliser directement vi.fn() dans le mock
 vi.mock("@emailjs/browser", () => ({
@@ -108,14 +108,14 @@ const renderWithProviders = (
   );
 };
 
-describe("ExtendedContact Component", () => {
+describe("DefaultContact Component", () => {
   beforeEach(() => {
     vi.clearAllMocks();
   });
 
   it("renders contact form with all fields", () => {
     const props = createContactProps();
-    renderWithProviders(<ExtendedContact {...props} />);
+    renderWithProviders(<DefaultContact {...props} />);
 
     // Vérifie que tous les champs de formulaire sont présents
     expect(screen.getByLabelText(/Nom/)).toBeInTheDocument();
@@ -128,7 +128,7 @@ describe("ExtendedContact Component", () => {
 
   it("renders map when map data is provided", () => {
     const props = createContactProps();
-    renderWithProviders(<ExtendedContact {...props} />);
+    renderWithProviders(<DefaultContact {...props} />);
 
     // Vérifie que le composant de carte est rendu
     expect(screen.getByTestId("map-leaflet")).toBeInTheDocument();
@@ -136,7 +136,7 @@ describe("ExtendedContact Component", () => {
 
   it("does not render map when map data is not provided", () => {
     const props = createContactProps({ datas: {} });
-    renderWithProviders(<ExtendedContact {...props} />);
+    renderWithProviders(<DefaultContact {...props} />);
 
     // Vérifie que le composant de carte n'est pas rendu
     expect(screen.queryByTestId("map-leaflet")).not.toBeInTheDocument();
@@ -144,7 +144,7 @@ describe("ExtendedContact Component", () => {
 
   it("shows all required field indicators", () => {
     const props = createContactProps();
-    renderWithProviders(<ExtendedContact {...props} />);
+    renderWithProviders(<DefaultContact {...props} />);
 
     // Vérifie les indicateurs de champs obligatoires
     const requiredIndicators = screen.getAllByText("(Obligatoire)");
@@ -153,7 +153,7 @@ describe("ExtendedContact Component", () => {
 
   it("renders PopUp component", () => {
     const props = createContactProps();
-    renderWithProviders(<ExtendedContact {...props} />);
+    renderWithProviders(<DefaultContact {...props} />);
 
     // Vérifie que le composant PopUp est rendu
     expect(screen.getByTestId("popup")).toBeInTheDocument();
@@ -162,7 +162,7 @@ describe("ExtendedContact Component", () => {
   it("renders contact information", () => {
     const props = createContactProps();
     const store = createMockStore();
-    renderWithProviders(<ExtendedContact {...props} />, store);
+    renderWithProviders(<DefaultContact {...props} />, store);
 
     // Vérifie que les informations de contact sont affichées
     expect(screen.getByText("0123456789")).toBeInTheDocument();
