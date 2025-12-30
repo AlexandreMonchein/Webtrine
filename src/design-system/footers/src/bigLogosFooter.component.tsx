@@ -1,3 +1,4 @@
+import classNames from "classnames";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 
@@ -29,6 +30,10 @@ import {
 } from "./bigLogosFooter.styled";
 import { BigLogosFooterProps } from "./bigLogosFooter.types";
 
+const componentFiles = import.meta.glob(
+  "../../../assets/**/**/*.component.tsx",
+);
+
 const BigLogosFooter: React.FC<BigLogosFooterProps> = (datas) => {
   const [socialComponents, setSocialComponents] = useState<React.ReactNode[]>(
     [],
@@ -38,10 +43,6 @@ const BigLogosFooter: React.FC<BigLogosFooterProps> = (datas) => {
   const { name: clientName } = useSelector(getClient);
 
   const { menuSection, brandInfo, logos } = datas;
-
-  const componentFiles = import.meta.glob(
-    "../../../assets/**/**/*.component.tsx",
-  );
 
   useEffect(() => {
     const loadSocialComponents = async () => {
@@ -92,13 +93,15 @@ const BigLogosFooter: React.FC<BigLogosFooterProps> = (datas) => {
     };
 
     loadSocialComponents();
-  }, [componentFiles, socials]);
+  }, [socials]);
 
   return (
     <FooterContainer role="contentinfo">
       <FooterContent>
-        <FooterGrid>
-          {logos && logos.length > 0 && (
+        <FooterGrid
+          className={classNames({ isLogo: logos && logos.length > 0 })}
+        >
+          {logos && logos.length > 0 ? (
             <LogosSection>
               <LogosGrid>
                 {logos.map((logo) => (
@@ -131,9 +134,9 @@ const BigLogosFooter: React.FC<BigLogosFooterProps> = (datas) => {
                 ))}
               </LogosGrid>
             </LogosSection>
-          )}
+          ) : null}
 
-          {menuSection && (
+          {menuSection ? (
             <MenuSection>
               <MenuTitle>{menuSection.title}</MenuTitle>
               <nav aria-label="Liens du footer">
@@ -151,9 +154,9 @@ const BigLogosFooter: React.FC<BigLogosFooterProps> = (datas) => {
                 </MenuList>
               </nav>
             </MenuSection>
-          )}
+          ) : null}
 
-          {brandInfo && (
+          {brandInfo ? (
             <BrandSection>
               <BrandTitle>{brandInfo.title}</BrandTitle>
               <BrandDescription
@@ -165,7 +168,7 @@ const BigLogosFooter: React.FC<BigLogosFooterProps> = (datas) => {
                 <AdditionalText>{brandInfo.additionalText}</AdditionalText>
               )}
             </BrandSection>
-          )}
+          ) : null}
         </FooterGrid>
 
         {socialComponents.length > 0 && (

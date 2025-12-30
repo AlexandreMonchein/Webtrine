@@ -18,6 +18,7 @@ export const RootStyle = createGlobalStyle<{ globalStyle }>`
     --light-grey: ${(props) => _.get(props, "globalStyle.light-grey")};
     --black: ${(props) => _.get(props, "globalStyle.black")};
     --beige: ${(props) => _.get(props, "globalStyle.beige")};
+    --dark-beige: ${(props) => _.get(props, "globalStyle.beige")};
     --light-beige: ${(props) => _.get(props, "globalStyle.light-beige")};
 
     --nav-hover-color: var(--beige);
@@ -27,6 +28,7 @@ export const RootStyle = createGlobalStyle<{ globalStyle }>`
 
     --back-color-1: var(--beige);
     --back-color-2: var(--light-beige);
+    --back-color-3: var(--dark-beige);
     --background-color: var(--dark-brown);
 
     --button-background-color: var(--brown);

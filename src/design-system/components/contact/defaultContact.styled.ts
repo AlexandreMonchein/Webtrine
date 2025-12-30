@@ -24,6 +24,25 @@ export const ContactSection = styled.section`
   )}
 `;
 
+export const SocialLogos = styled.div`
+  display: flex;
+  justify-content: start;
+
+  gap: 12px;
+
+  svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  ${bp.max(
+    breakpointNames.large,
+    css`
+      justify-content: center;
+    `,
+  )};
+`;
+
 export const Spacer = styled.hr`
   margin: 24px 0;
 `;
@@ -67,16 +86,22 @@ export const ContactForm = styled.div`
   flex: 2;
 `;
 
+export const Logo = styled.img`
+  max-width: 150px;
+  margin-bottom: 20px;
+  align-self: center;
+`;
+
 export const ClientInfo = styled.div`
   padding: 40px 0px;
   flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
 
   p {
     font-size: var(--text-font-size);
     color: var(--text-color);
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
   }
 
   ${bp.max(

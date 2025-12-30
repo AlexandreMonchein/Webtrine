@@ -172,6 +172,10 @@ function App(props) {
             element={<MultiDescription templateName="Information" />}
           />
           <Route
+            path="/private-map"
+            element={<MultiDescription templateName="PrivateMap" />}
+          />
+          <Route
             path="/contact"
             element={<MultiDescription templateName="Contact" />}
           />

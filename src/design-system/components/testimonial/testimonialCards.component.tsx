@@ -1,6 +1,27 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
 
-import * as S from "./testimonialCards.styled";
+import { Title } from "../cards/cardsList.styled";
+import {
+  AvatarContainer,
+  AvatarFallback,
+  NavigationContainer,
+  PaginationContainer,
+  PaginationDot,
+  Section,
+  Star,
+  TestimonialCard,
+  TestimonialContent,
+} from "./testimonial.styled";
+import {
+  CardHeader,
+  PublicationDate,
+  StarsContainer,
+  TestimonialCardsContainer,
+  TestimonialCardsSlide,
+  TestimonialCardsWrapper,
+  UserInfo,
+  UserName,
+} from "./testimonialCards.styled";
 import type {
   TestimonialCardsItemProps,
   TestimonialCardsProps,
@@ -40,11 +61,7 @@ const useResponsiveCardsPerSlide = () => {
 const TestimonialCardsItem: React.FC<TestimonialCardsItemProps> = ({
   testimonial,
 }) => {
-  const { name, position, company, rating, content, avatar, date } =
-    testimonial;
-
-  const displayPosition =
-    position && company ? `${position} chez ${company}` : position || company;
+  const { name, rating, content, avatar, date } = testimonial;
 
   const initials = name
     .split(" ")
@@ -55,9 +72,9 @@ const TestimonialCardsItem: React.FC<TestimonialCardsItemProps> = ({
 
   const renderStars = () => {
     return Array.from({ length: 5 }, (_, index) => (
-      <S.Star key={index} $filled={index < rating} aria-hidden="true">
+      <Star key={index} $filled={index < rating} aria-hidden="true">
         ★
-      </S.Star>
+      </Star>
     ));
   };
 
@@ -77,9 +94,9 @@ const TestimonialCardsItem: React.FC<TestimonialCardsItemProps> = ({
   };
 
   return (
-    <S.TestimonialCard>
-      <S.CardHeader>
-        <S.AvatarContainer>
+    <TestimonialCard>
+      <CardHeader>
+        <AvatarContainer>
           {avatar ? (
             <>
               <img
@@ -97,36 +114,31 @@ const TestimonialCardsItem: React.FC<TestimonialCardsItemProps> = ({
                   }
                 }}
               />
-              <S.AvatarFallback data-fallback style={{ display: "none" }}>
+              <AvatarFallback data-fallback style={{ display: "none" }}>
                 {initials}
-              </S.AvatarFallback>
+              </AvatarFallback>
             </>
           ) : (
-            <S.AvatarFallback>{initials}</S.AvatarFallback>
+            <AvatarFallback>{initials}</AvatarFallback>
           )}
-        </S.AvatarContainer>
+        </AvatarContainer>
 
-        <S.UserInfo>
-          <S.UserName>{name}</S.UserName>
-          {displayPosition && (
-            <S.UserPosition>{displayPosition}</S.UserPosition>
-          )}
-          {date && <S.PublicationDate>{formatDate(date)}</S.PublicationDate>}
-        </S.UserInfo>
-      </S.CardHeader>
+        <UserInfo>
+          <UserName>{name}</UserName>
+          {date && <PublicationDate>{formatDate(date)}</PublicationDate>}
+        </UserInfo>
+      </CardHeader>
 
-      <S.StarsContainer>{renderStars()}</S.StarsContainer>
+      <StarsContainer>{renderStars()}</StarsContainer>
 
-      <S.TestimonialContent>{content}</S.TestimonialContent>
-    </S.TestimonialCard>
+      <TestimonialContent>{content}</TestimonialContent>
+    </TestimonialCard>
   );
 };
 
-const TestimonialCards: React.FC<TestimonialCardsProps> = ({
-  testimonials,
-  autoplay = false,
-  autoplayDelay = 5000,
-}) => {
+const TestimonialCards: React.FC<TestimonialCardsProps> = (props) => {
+  const { title, testimonials, features } = props;
+  const { autoplay = false, autoplayDelay = 5000 } = features || {};
   const [currentIndex, setCurrentIndex] = useState(0);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
   const responsiveCardsPerSlide = useResponsiveCardsPerSlide();
@@ -202,37 +214,38 @@ const TestimonialCards: React.FC<TestimonialCardsProps> = ({
   }
 
   return (
-    <div onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-      <S.TestimonialCardsContainer>
-        <S.TestimonialCardsWrapper $currentIndex={currentIndex}>
+    <Section onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+      {title ? <Title>{title}</Title> : null}
+      <TestimonialCardsContainer>
+        <TestimonialCardsWrapper $currentIndex={currentIndex}>
           {slides.map((slide) => (
-            <S.TestimonialCardsSlide key={slide.map((t) => t.id).join("-")}>
+            <TestimonialCardsSlide key={slide.map((t) => t.id).join("-")}>
               {slide.map((testimonial) => (
                 <TestimonialCardsItem
                   key={testimonial.id}
                   testimonial={testimonial}
                 />
               ))}
-            </S.TestimonialCardsSlide>
+            </TestimonialCardsSlide>
           ))}
-        </S.TestimonialCardsWrapper>
+        </TestimonialCardsWrapper>
 
         {totalSlides > 1 && (
-          <S.NavigationContainer>
-            <S.PaginationContainer>
+          <NavigationContainer>
+            <PaginationContainer>
               {slides.map((slide, index) => (
-                <S.PaginationDot
+                <PaginationDot
                   key={slide.map((t) => t.id).join("-")}
                   $active={index === currentIndex}
                   onClick={() => goToSlide(index)}
                   aria-label={`Aller au slide ${index + 1}`}
                 />
               ))}
-            </S.PaginationContainer>
-          </S.NavigationContainer>
+            </PaginationContainer>
+          </NavigationContainer>
         )}
-      </S.TestimonialCardsContainer>
-    </div>
+      </TestimonialCardsContainer>
+    </Section>
   );
 };
 

@@ -24,6 +24,7 @@
     "content": "Contenu du message",
     "contentHint": "Rédigez votre message ici",
     "contentPlaceholder": "Décrivez votre message",
+    "companyHint": "Exemple : Di Paolo",
     "send": "Envoyer",
     "sending": "Envoi en cours...",
     "required": "(Obligatoire)",

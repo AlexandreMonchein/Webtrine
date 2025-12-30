@@ -594,7 +594,7 @@
               "descriptionTop": "Webtrine, c’est une offre tout-en-un : un package complet pour créer et lancer votre site sans prise de tête.",
               "descriptionBottom": [
                 { "text": "* Si vous le faites héberger chez nous" },
-                { "text": "** Pour un supplément de 250€/an HT" },
+                { "text": "** Pour un supplément de 200€/an HT" },
                 { "text": "*** Sur les 6 mois suivant le déploiement du site" }
               ],
               "price": "450,00€ HT",
@@ -690,7 +690,7 @@
               "textPosition": "center"
             },
             "contact-1": {
-              "type": "extendedContact",
+              "type": "defaultContact",
               "datas": {
                 "features": {}
               }
@@ -730,7 +730,7 @@
                 "Webtrine propose des services de création de sites vitrines. Les prestations offertes incluent :",
                 "- Création de site vitrine : 450€ incluant la mise en place de l'application et une assistance pour la réalisation.",
                 "- Options:",
-                "- Hébergement : 250€/an.",
+                "- Hébergement : 200€/an.",
                 "- Assistance : Incluse pour les 6 mois suivant le déploiement du site.",
                 "- Modifications à la demande : 1 fois par mois durant les 6 mois suivant le déploiement du site. Un abonnement avec un tarif annuel peut etre mis en place avec le client en fonction de ses besoins"
               ]

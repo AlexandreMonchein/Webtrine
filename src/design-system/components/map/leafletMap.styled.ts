@@ -97,3 +97,18 @@ export const MapContainer = styled(LeafletMapContainer)`
   width: 100%;
   height: 100%;
 `;
+
+export const ZoneContainer = styled(LeafletMapContainer)`
+  height: 50vh;
+
+  ${bp.min(
+    breakpointNames.wide,
+    css`
+      height: 30vh;
+    `,
+  )}
+`;
+
+export const PrivateZoneContainer = styled(LeafletMapContainer)`
+  height: 80vh;
+`;

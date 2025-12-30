@@ -17,11 +17,14 @@ export interface DescriptionImage {
   name: string;
   alt: string;
   focusable: boolean;
+  description?: string;
 }
 
 export interface DescriptionFeatures {
   isReversed?: boolean;
   isContinious?: boolean;
+  isCentered?: boolean;
+  isTextBefore?: boolean;
 }
 
 export interface DescriptionProps {
@@ -30,5 +33,5 @@ export interface DescriptionProps {
   title?: string;
   hash?: string;
   content: DescriptionContentItem[];
-  image?: DescriptionImage;
+  images?: DescriptionImage[];
 }

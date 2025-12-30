@@ -40,6 +40,7 @@
     "phoneHint": "Exemple : 0123456789",
     "company": "Entreprise",
     "companyPlaceholder": "Entrez le nom de votre entreprise",
+    "companyHint": "Exemple : Webtrine",
     "content": "Contenu du message",
     "contentHint": "Rédigez votre message ici",
     "contentPlaceholder": "Décrivez votre message",

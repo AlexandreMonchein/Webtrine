@@ -20,9 +20,6 @@ importers:
       '@reduxjs/toolkit':
         specifier: 2.2.4
         version: 2.2.4(react-redux@9.1.2(@types/react@18.3.2)(react@18.3.1)(redux@5.0.1))(react@18.3.1)
-      '@turf/concave':
-        specifier: ^7.3.1
-        version: 7.3.1
       '@turf/turf':
         specifier: ^7.3.1
         version: 7.3.1
@@ -86,6 +83,9 @@ importers:
       react-scripts:
         specifier: 5.0.1
         version: 5.0.1(@babel/plugin-syntax-flow@7.24.1(@babel/core@7.24.5))(@babel/plugin-transform-react-jsx@7.23.4(@babel/core@7.24.5))(@types/babel__core@7.20.5)(@types/webpack@5.28.5(esbuild@0.25.1))(debug@2.6.9)(esbuild@0.25.1)(eslint@9.21.0(jiti@1.21.0))(react@18.3.1)(type-fest@4.38.0)(typescript@5.7.2)(webpack-hot-middleware@2.26.1)
+      serpapi:
+        specifier: ^2.2.1
+        version: 2.2.1
       storybook:
         specifier: 8.6.7
         version: 8.6.7(prettier@3.2.5)
@@ -8412,6 +8412,9 @@ packages:
 
   serialize-javascript@6.0.2:
     resolution: {integrity: sha512-Saa1xPByTTq2gdeFZYLLo+RFE35NHZkAbqZeWNd3BpzppeVisAqpDjcp8dyf6uIvEqJRd46jemmyA4iFIeVk8g==}
+
+  serpapi@2.2.1:
+    resolution: {integrity: sha512-1HXXaIwDmYueFPauAggIkzozMi5P/a4/yRUxB8Z1kad0VQE/7ohf9a6xRQ99aXR252itDChfmJUfBdCA4phCYA==}
 
   serve-index@1.9.1:
     resolution: {integrity: sha512-pXHfKNP4qujrtteMrSBb0rc8HJ9Ms/GrXwcUtUtD5s4ewDJI8bT3Cz2zTVRMKtri49pLx2e0Ya8ziP5Ya2pZZw==}
@@ -20058,6 +20061,8 @@ snapshots:
   serialize-javascript@6.0.2:
     dependencies:
       randombytes: 2.1.0
+
+  serpapi@2.2.1: {}
 
   serve-index@1.9.1:
     dependencies:

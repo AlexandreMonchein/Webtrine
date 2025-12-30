@@ -27,17 +27,17 @@ export const TestimonialCardsWrapper = styled.div<{ $currentIndex: number }>`
 
 export const TestimonialCardsSlide = styled.div`
   min-width: 100%;
-  display: flex;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr; /* Toutes les colonnes ont la même largeur */
   gap: 16px;
-  padding: 0 16px; /* Padding à l'intérieur de chaque slide */
-  box-sizing: border-box; /* Important pour le calcul de la largeur */
+  box-sizing: border-box;
 
   /* Responsive gap et padding */
   ${bp.min(
     breakpointNames.medium,
     css`
       gap: 20px;
-      padding: 0 24px;
     `,
   )}
 
@@ -64,6 +64,8 @@ export const TestimonialCard = styled.div`
   position: relative;
   border: 1px solid rgba(0, 0, 0, 0.05);
   flex: 1; /* Prend la largeur disponible dans le slide */
+  min-height: 200px; /* Hauteur minimale pour uniformiser les cartes */
+  height: 100%; /* S'adapte à la hauteur du conteneur */
 
   &:hover {
     transform: translateY(-2px);
@@ -76,6 +78,14 @@ export const TestimonialCard = styled.div`
     breakpointNames.medium,
     css`
       padding: 18px;
+      min-height: 220px;
+    `,
+  )}
+
+  ${bp.min(
+    breakpointNames.large,
+    css`
+      min-height: 240px;
     `,
   )}
 `;
@@ -148,20 +158,6 @@ export const UserName = styled.div`
     breakpointNames.medium,
     css`
       font-size: 15px;
-    `,
-  )}
-`;
-
-export const UserPosition = styled.div`
-  font-size: 12px;
-  color: inherit;
-  opacity: 0.8;
-  line-height: 1.2;
-
-  ${bp.min(
-    breakpointNames.medium,
-    css`
-      font-size: 13px;
     `,
   )}
 `;
@@ -275,7 +271,7 @@ export const NavigationContainer = styled.div`
   align-items: center;
   justify-content: center;
   gap: 16px;
-  margin-top: 24px;
+  margin-top: 26px;
   padding: 0 16px;
 
   ${bp.min(

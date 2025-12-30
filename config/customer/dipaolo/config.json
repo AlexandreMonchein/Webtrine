@@ -122,11 +122,13 @@
                   "text": "Nous sommes spécialisés dans la fabrication de prothèses complexes, qu’il s’agisse de prothèses sur implants, de prothèses amovibles, ou d’autres types de solutions personnalisées."
                 }
               ],
-              "image": {
-                "name": "accueil_1",
-                "alt": "",
-                "focusable": false
-              }
+              "images": [
+                {
+                  "name": "accueil_1",
+                  "alt": "",
+                  "focusable": false
+                }
+              ]
             },
             "display-1": {
               "type": "display",
@@ -203,11 +205,13 @@
                   "text": "Julien Di Paolo a su anticiper cette tendance et moderniser son entreprise, faisant du Laboratoire Di Paolo un acteur important dans la région Auvergne-Rhône-Alpes."
                 }
               ],
-              "image": {
-                "name": "accueil",
-                "alt": "",
-                "focusable": false
-              }
+              "images": [
+                {
+                  "name": "accueil",
+                  "alt": "",
+                  "focusable": false
+                }
+              ]
             },
             "gallery-1": {
               "type": "gallery",
@@ -479,8 +483,8 @@
         "type": "gallery",
         "id": "gallery",
         "datas": {
-          "title": "Galerie photo",
-          "description": "Le laboratoire en image",
+          "title": null,
+          "description": null,
           "features": { "canFullScreen": true, "shouldRedirect": false },
           "inventory": [
             {
@@ -539,7 +543,7 @@
           "description": "Nous contacter",
           "content": {
             "contact-1": {
-              "type": "extendedContact",
+              "type": "defaultContact",
               "datas": {
                 "map": {
                   "type": "map",

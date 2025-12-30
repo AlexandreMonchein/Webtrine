@@ -213,17 +213,13 @@ Pour utiliser ce composant dans votre configuration client, ajoutez-le dans votr
       description: "Liste des témoignages à afficher",
       control: { type: "object" },
     },
-    autoplay: {
-      description: "Active le défilement automatique",
-      control: { type: "boolean" },
-    },
-    autoplayDelay: {
-      description: "Délai entre les slides en ms",
-      control: { type: "number", min: 1000, max: 10000, step: 500 },
-    },
-    className: {
-      description: "Classe CSS personnalisée",
+    title: {
+      description: "Titre de la section",
       control: { type: "text" },
+    },
+    features: {
+      description: "Options de configuration (autoplay, autoplayDelay)",
+      control: { type: "object" },
     },
   },
   tags: ["autodocs"],
@@ -232,19 +228,24 @@ Pour utiliser ce composant dans votre configuration client, ajoutez-le dans votr
 export default meta;
 type Story = StoryObj<TestimonialCardsProps>;
 
-// Avec autoplay activé
+// Sans autoplay
 export const Default: Story = {
   args: {
     testimonials: mockTestimonials,
-    autoplay: false,
-    autoplayDelay: 3000,
+    features: {
+      autoplay: false,
+      autoplayDelay: 3000,
+    },
   },
 };
 
+// Avec autoplay activé
 export const WithAutoplay: Story = {
   args: {
     testimonials: mockTestimonials,
-    autoplay: true,
-    autoplayDelay: 4000,
+    features: {
+      autoplay: true,
+      autoplayDelay: 4000,
+    },
   },
 };

@@ -44,6 +44,16 @@ export const SectionTitle = styled.h2`
 
 export const Content = styled.div`
   width: 100%;
+
+  &.isCentered {
+    display: flex;
+  }
+
+  &.isReversed {
+    flex-direction: row-reverse;
+    justify-content: space-between;
+  }
+
   ${bp.max(
     breakpointNames.medium,
     css`
@@ -52,20 +62,22 @@ export const Content = styled.div`
       flex-direction: column;
       align-items: center;
       gap: 0px;
+
+      &.isTextBefore {
+        flex-direction: column-reverse;
+      }
     `,
   )};
 `;
 
 export const ImageContainer = styled.div`
-  margin: 0;
   padding: 0 24px 0 0;
-  height: auto;
   float: left;
 
   ${bp.max(
     breakpointNames.medium,
     css`
-      padding: 0 0 12px 0;
+      padding: 0 12px 12px 0;
     `,
   )};
 
@@ -80,17 +92,34 @@ export const ImageContainer = styled.div`
       `,
     )};
   }
+
+  &.isCentered {
+    float: unset;
+    align-content: center;
+  }
 `;
 
 export const Image = styled.img`
   width: 100%;
   max-width: 416px;
   border-radius: 24px;
+
+  &.isCentered {
+    width: auto;
+  }
 `;
 
 export const TextContent = styled.div`
-  display: flex;
-  overflow: hidden;
+  display: block;
+  justify-content: flex-start;
+
+  height: 100%;
+
+  &.isCentered {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
 `;
 
 export const Text = styled.p`

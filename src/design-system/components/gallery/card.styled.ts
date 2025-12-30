@@ -1,5 +1,7 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
+import { bp } from "../../../breakpoint";
+import { breakpointNames } from "../../../breakpointDef";
 import ConditionalLink from "../link/link.component";
 import { COLORS, WEIGHTS } from "./constants";
 
@@ -16,10 +18,19 @@ export const ImageWrapper = styled.div`
 `;
 
 export const Image = styled.img`
-  width: 100%;
+  width: 261px;
   height: 261px;
   object-fit: cover;
   border-radius: 16px 16px 16px 16px;
+  filter: drop-shadow(2px 3px 3px var(--brown));
+
+  ${bp.min(
+    breakpointNames.wide,
+    css`
+      width: 522px;
+      height: 522px;
+    `,
+  )};
 `;
 
 export const Title = styled.div`

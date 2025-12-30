@@ -43,6 +43,7 @@ export const GalleryRoot = styled.section`
   align-items: center;
   gap: 32px;
   padding: 40px 120px;
+  background-color: var(--back-color-2);
 
   ${bp.max(
     breakpointNames.medium,
@@ -52,6 +53,7 @@ export const GalleryRoot = styled.section`
   )}
 
   &.isLogo {
+    flex-direction: row;
     padding: 24px 120px;
 
     ${bp.min(
@@ -78,7 +80,7 @@ export const Wrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  column-gap: 32px;
+  column-gap: 24px;
 
   &.isLogo {
     padding-bottom: 0px;
@@ -88,8 +90,11 @@ export const Wrapper = styled.div`
 export const CardWrapper = styled.div`
   min-width: 261px;
   max-width: 261px;
-  flex: 1;
   padding-bottom: 32px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
 
   ${bp.min(
     breakpointNames.wide,
@@ -102,6 +107,7 @@ export const CardWrapper = styled.div`
   &.isLogo {
     min-width: 64px;
     max-width: 128px;
+    padding-bottom: 0;
 
     img {
       height: auto;

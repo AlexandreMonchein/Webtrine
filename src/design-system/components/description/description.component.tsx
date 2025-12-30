@@ -13,6 +13,7 @@ import {
   Section,
   SectionTitle,
   Text,
+  TextContent,
 } from "./description.styled";
 import { DescriptionContentItem, DescriptionProps } from "./description.types";
 
@@ -20,8 +21,13 @@ const Description: React.FC<DescriptionProps> = (datas) => {
   const customer = getCustomer();
 
   const {
-    features: { isReversed = false, isContinious = false },
-    image,
+    features: {
+      isReversed = false,
+      isContinious = false,
+      isCentered = false,
+      isTextBefore = false,
+    },
+    images,
     title,
     hash,
     content,
@@ -60,23 +66,46 @@ const Description: React.FC<DescriptionProps> = (datas) => {
     >
       {title ? <SectionTitle id={hash}>{title}</SectionTitle> : null}
       <Container>
-        <Content>
-          {image ? (
+        <Content
+          className={classNames({
+            isTextBefore: isTextBefore,
+            isReversed: isReversed,
+            isCentered: isCentered,
+          })}
+        >
+          {images && images.length !== 0 ? (
             <ImageContainer
               className={classNames({
                 isReversed: isReversed,
+                isCentered: isCentered,
               })}
             >
-              <Image
-                tabIndex={image.focusable ? 0 : -1}
-                src={`${import.meta.env.BASE_URL}assets/${customer}/${image.name}.webp`}
-                alt={image.alt}
-              />
+              {images.map((image) => (
+                <div key={image.name}>
+                  <Image
+                    tabIndex={image.focusable ? 0 : -1}
+                    src={`${import.meta.env.BASE_URL}assets/${customer}/${image.name}.webp`}
+                    alt={image.alt}
+                    className={classNames({
+                      isCentered: isCentered,
+                    })}
+                  />
+                  {image.description ? (
+                    <p style={{ textAlign: "center" }}>{image.description}</p>
+                  ) : null}
+                </div>
+              ))}
             </ImageContainer>
           ) : null}
-          {content
-            ? content.map((item, index) => renderContentItem(item, index))
-            : null}
+          <TextContent
+            className={classNames({
+              isCentered: isCentered,
+            })}
+          >
+            {content
+              ? content.map((item, index) => renderContentItem(item, index))
+              : null}
+          </TextContent>
         </Content>
       </Container>
     </Section>

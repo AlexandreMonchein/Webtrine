@@ -96,8 +96,8 @@ export const CardContainer = styled.div<{
 `;
 
 export const Card = styled.div`
-  background: #fff;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  background: var(--back-color-3);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   border-radius: 16px;
   padding: 1rem;
   width: -webkit-fill-available;

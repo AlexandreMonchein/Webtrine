@@ -30,7 +30,8 @@
             "isFixed": false,
             "hasHideOnScroll": false,
             "trad": false,
-            "darkMode": false
+            "darkMode": false,
+            "shouldDisplaySocials": false
           },
           "content": {
             "logo": {
@@ -86,12 +87,7 @@
             "description": "<p><strong>06.24.78.74.42 ou via mon adresse mail: oceanemic.petsitting@gmail.com</strong></p>",
             "additionalText": "Suivez-moi sur les réseaux pour découvrir mes petits protégés !"
           },
-          "logos": [
-            {
-              "name": "label_france_petsitters",
-              "alt": "Partenaire"
-            }
-          ]
+          "logos": null
         }
       },
       {
@@ -269,7 +265,7 @@
                   "text": "Chill Paws est là pour s’occuper de votre animal avec bienveillance et professionnalisme. Partez l’esprit tranquille et sans stress, avec des nouvelles régulières (photos et vidéos) de votre compagnon. Je suis pet sitter à domicile, légalement déclarée et certifiée, afin de vous offrir, à vous et à votre animal, des soins de qualité et un service fiable."
                 },
                 {
-                  "text": "Les animaux de compagnie tels que les chats, furets, petits mammifères et lagomorphes (lapins, etc.) sont très sensibles au stress lorsque leur environnement est perturbé."
+                  "text": "Les animaux de compagnie tels que les chats, furets, petits mammifères et lagomorphes (lapins, etc...) sont très sensibles au stress lorsque leur environnement est perturbé."
                 },
                 {
                   "text": "C’est pour ces raisons que je me déplace directement chez vous pour prendre soin d’eux, en respectant leurs repères et leur bien-être pendant votre absence."
@@ -278,11 +274,13 @@
                   "text": "Durant votre absence, je veille également sur votre logement : aération, nettoyage des éventuelles salissures, et surveillance générale. Il est bon à savoir qu'une présence régulière contribue aussi à réduire les risques de cambriolage."
                 }
               ],
-              "image": {
-                "name": "IMG_7573",
-                "alt": "",
-                "focusable": false
-              }
+              "images": [
+                {
+                  "name": "IMG_7573",
+                  "alt": "",
+                  "focusable": false
+                }
+              ]
             },
             "cards-1": {
               "type": "actionCardsList",
@@ -293,7 +291,7 @@
                   "id": "1",
                   "title": "Pré-visite",
                   "description": "La pré-visite est une rencontre obligatoire avant toute garde d'animal, elle permet de faire connaissance et de recueillir les informations nécessaires au bon déroulement de la prestation.",
-                  "imageSrc": "IMG_7558",
+                  "imageSrc": "IMG_1234",
                   "buttons": [
                     {
                       "label": "Déroulement",
@@ -307,7 +305,7 @@
                   "title": "Déroulement d’une visite",
                   "hash": "visites",
                   "description": "Lors de chaque visite, je consacre un temps privilégié à votre animal, en respectant ses besoins spécifiques et vos consignes.",
-                  "imageSrc": "IMG_0533",
+                  "imageSrc": "IMG_7861",
                   "buttons": [
                     {
                       "label": "Déroulement",
@@ -320,7 +318,7 @@
                   "id": "3",
                   "title": "Programme de fidélité",
                   "description": "Pour récompenser votre confiance et votre fidélité, après 10 visites, bénéficiez d'une visite offerte ainsi qu'un jouet ou une friandise pour votre animal !",
-                  "imageSrc": "IMG_7591",
+                  "imageSrc": "IMG_7730",
                   "buttons": [
                     {
                       "label": "Programme de fidélité",
@@ -333,7 +331,7 @@
                   "id": "4",
                   "title": "Tarifs",
                   "description": "Consultez les tarifs de mes prestations de garde d'animaux, adaptés à vos besoins et à ceux de votre compagnon.",
-                  "imageSrc": "IMG_7591",
+                  "imageSrc": "IMG_7558",
                   "buttons": [
                     {
                       "label": "Visites chien/chat",
@@ -351,6 +349,46 @@
                       "hash": "#promenades"
                     }
                   ]
+                }
+              ]
+            },
+            "testimonial-1": {
+              "type": "testimonialCards",
+              "title": "Ils nous ont fait confiance",
+              "features": {
+                "autoplay": true,
+                "autoplayDelay": 4000
+              },
+              "testimonials": [
+                {
+                  "id": "1",
+                  "name": "Lucie R",
+                  "position": "Propriétaire d'animaux",
+                  "company": "",
+                  "rating": 5,
+                  "content": "Je fais appel à océane pour s'occuper de mon chat et de mon chien depuis 3 ans Je fais appel à Géna pour s'occuper de mon chat et de mon chien depuis 3 ans Je fais appel à Géna pour s'occuper de mon chat et de mon chien depuis 3 ans Je fais appel à Géna pour s'occuper de mon chat et de mon chien depuis 3 ans Je fais appel à Géna pour s'occuper de mon chat et de mon chien depuis 3 ans Je fais appel à Géna pour s'occuper de mon chat et de mon chien depuis 3 ans ",
+                  "avatar": "https://example.com/avatar1.jpg",
+                  "date": "2025-03-19"
+                },
+                {
+                  "id": "2",
+                  "name": "Marie D",
+                  "position": "Directrice Marketing",
+                  "company": "Tech Corp",
+                  "rating": 5,
+                  "content": "Service exceptionnel ! L'équipe est très professionnelle et réactive...",
+                  "avatar": "https://example.com/avatar2.jpg",
+                  "date": "2025-02-15"
+                },
+                {
+                  "id": "3",
+                  "name": "Thomas L",
+                  "position": "Entrepreneur",
+                  "company": "",
+                  "rating": 4,
+                  "content": "Très satisfait du service rendu. L'accompagnement personnalisé...",
+                  "avatar": "https://example.com/avatar3.jpg",
+                  "date": "2025-01-28"
                 }
               ]
             },
@@ -384,11 +422,13 @@
                   "text": "Ce métier de passion contribue à limiter les abandons et la maltraitance animale, en offrant aux propriétaires la possibilité de confier leurs compagnons à des personnes de confiance, tout en évitant une séparation douloureuse."
                 }
               ],
-              "image": {
-                "name": "IMG_1625",
-                "alt": "",
-                "focusable": false
-              }
+              "images": [
+                {
+                  "name": "IMG_1625",
+                  "alt": "",
+                  "focusable": false
+                }
+              ]
             },
             "cards-2": {
               "type": "cardsList",
@@ -496,11 +536,13 @@
                   "text": "Pendant mon temps libre, j’aime m’occuper d’eux, leur offrir toute l’attention, la présence et l’affection dont ils ont besoin. Je suis une personne dynamique et aussi énergiques que certain animaux domestiques, ce qui ravira sans doute le vôtre. "
                 }
               ],
-              "image": {
-                "name": "IMG_3652",
-                "alt": "",
-                "focusable": false
-              }
+              "images": [
+                {
+                  "name": "IMG_3652",
+                  "alt": "",
+                  "focusable": false
+                }
+              ]
             },
             "description-2": {
               "type": "description",
@@ -520,11 +562,13 @@
                   "text": "Sous ma garde, vos compagnons sont eux aussi en vacances : choyés, câlinés et entourés selon leurs besoins."
                 }
               ],
-              "image": {
-                "name": "IMG_6601",
-                "alt": "",
-                "focusable": false
-              }
+              "images": [
+                {
+                  "name": "IMG_6601",
+                  "alt": "",
+                  "focusable": false
+                }
+              ]
             },
             "cards-1": {
               "type": "cardsList",
@@ -549,15 +593,6 @@
                     }
                   ],
                   "imageSrc": "IMG_6932"
-                },
-                {
-                  "title": "TODO",
-                  "description": [
-                    {
-                      "text": "TODO"
-                    }
-                  ],
-                  "imageSrc": "IMG_7387"
                 },
                 {
                   "title": "🐾 Luna – 2 ans",
@@ -600,13 +635,13 @@
               "features": { "isReversed": false, "isCentered": false },
               "content": [
                 {
-                  "text": "Une fois le formulaire de contacts rempli, je vous recontacte en moins de 24 heures pour établir d’une pré-visite, qui me permettra de récolter toutes les informations nécessaires au bon déroulement de mes services."
+                  "text": "Une fois le formulaire de contact rempli, je vous recontacterai sous 24 heures afin d’organiser une pré-visite, qui me permettra de recueillir toutes les informations nécessaires au bon déroulement de mes services."
                 },
                 {
-                  "text": "Cette pré-visite nous permet d’apprendre à se connaître ainsi que votre animal et de recueillir vos habitudes. Avec votre lui ( nourriture, litière, habitude de l’animal) c’est aussi le moment de valider la prestation demandée ainsi que la remise des clefs de votre logement."
+                  "text": "Cette pré-visite nous permet d’apprendre à nous connaître, ainsi que de faire connaissance avec votre animal. C’est également le moment de voir ensemble les besoins de votre animal (nourriture, litière, habitudes), de valider la prestation demandée et d’organiser la remise des clés de votre logement."
                 },
                 {
-                  "text": "La pré visite est obligatoire afin de comprendre vos besoins ainsi que celle de votre animal."
+                  "text": "La pré-visite est obligatoire afin de bien comprendre vos besoins ainsi que ceux de votre animal et vous est offerte si vous me recommandez ou partagez mes réseaux sociaux."
                 }
               ]
             },
@@ -614,16 +649,20 @@
               "type": "description",
               "title": "Comment se déroule une visite ?",
               "hash": "visites",
-              "features": { "isReversed": false, "isCentered": false },
+              "features": {
+                "isReversed": true,
+                "isCentered": true,
+                "isTextBefore": true
+              },
               "content": [
-                {
-                  "text": "Lors de chaque visite à votre domicile, je veille avant tout au bien-être de vos animaux et au bon entretien de votre habitat."
-                },
                 {
                   "text": "🏡 Entretien de l’habitat"
                 },
                 {
-                  "text": "À mon arrivée, j’aère le logement et je m’assure que tout est en ordre. Si vous le souhaitez, je peux également récupérer votre courrier."
+                  "text": "Lors de chaque visite à votre domicile, je veille avant tout au bien-être de vos animaux et au bon entretien de votre habitat."
+                },
+                {
+                  "text": "À mon arrivée, j’aère le logement et je m’assure que tout est en ordre. Si vous le souhaitez, je peux également récupérer votre courrier ainsi qu'arroser vos plantes."
                 },
                 {
                   "text": "Je nettoie soigneusement :"
@@ -643,12 +682,30 @@
                 {
                   "text": "Le changement complet de la litière est effectué selon vos consignes (toutes les 1 à 2 semaines, par exemple)."
                 }
+              ],
+              "images": [
+                {
+                  "name": "IMG_7868",
+                  "alt": "",
+                  "focusable": false,
+                  "description": "Avant"
+                },
+                {
+                  "name": "IMG_7869",
+                  "alt": "",
+                  "focusable": false,
+                  "description": "Après"
+                }
               ]
             },
             "description-3": {
               "type": "description",
               "title": null,
-              "features": { "isReversed": true, "isCentered": false },
+              "features": {
+                "isReversed": false,
+                "isCentered": true,
+                "isTextBefore": true
+              },
               "content": [
                 {
                   "text": "🍽️ Nourrissage & soins"
@@ -666,14 +723,25 @@
                   "text": "- croquettes et/ou pâtée"
                 },
                 {
-                  "text": "Pour les animaux nécessitant des soins particulier (médicaments oraux, crèmes, sirops, soins vétérinaires), j’applique scrupuleusement les consignes du vétérinaire. Chaque soin administré est mentionné dans le rapport de visite."
+                  "text": "Pour les animaux nécessitant des soins particulier (médicaments oraux, crèmes, sirops), j’applique scrupuleusement les consignes du vétérinaire. Chaque soin administré est mentionné dans le rapport de visite."
+                }
+              ],
+              "images": [
+                {
+                  "name": "IMG_7832",
+                  "alt": "",
+                  "focusable": false
                 }
               ]
             },
             "description-4": {
               "type": "description",
               "title": null,
-              "features": { "isReversed": false, "isCentered": false },
+              "features": {
+                "isReversed": true,
+                "isCentered": true,
+                "isTextBefore": true
+              },
               "content": [
                 {
                   "text": "❤️ Temps dédié à votre animal"
@@ -699,12 +767,23 @@
                 {
                   "text": "Pour les animaux craintifs, je prends le temps de créer un lien en douceur, visite après visite. Si un animal n’est pas réceptif, je respecte son espace et ne le force jamais, tout en vérifiant qu’il va bien avant mon départ."
                 }
+              ],
+              "images": [
+                {
+                  "name": "IMG_7859",
+                  "alt": "",
+                  "focusable": false
+                }
               ]
             },
             "description-5": {
               "type": "description",
               "title": null,
-              "features": { "isReversed": true, "isCentered": false },
+              "features": {
+                "isReversed": false,
+                "isCentered": true,
+                "isTextBefore": true
+              },
               "content": [
                 {
                   "text": "📸 Compte rendu quotidien"
@@ -719,17 +798,28 @@
                   "text": "- des photos et/ou vidéos"
                 },
                 {
-                  "text": "*toute information importante concernant son comportement ou son environnement."
+                  "text": "- toute information importante concernant son comportement ou son environnement."
                 },
                 {
                   "text": "Ainsi, vous partez l’esprit tranquille, en sachant que votre animal est entre de bonnes mains."
+                }
+              ],
+              "images": [
+                {
+                  "name": "IMG_0349",
+                  "alt": "",
+                  "focusable": false
                 }
               ]
             },
             "description-6": {
               "type": "description",
               "title": null,
-              "features": { "isReversed": false, "isCentered": false },
+              "features": {
+                "isReversed": true,
+                "isCentered": true,
+                "isTextBefore": true
+              },
               "content": [
                 {
                   "text": "🧹 Dernière visite"
@@ -749,26 +839,39 @@
                 {
                   "text": "Cette visite permet de laisser votre maison propre et accueillante, tout en assurant que vos compagnons ont été parfaitement pris en charge."
                 }
+              ],
+              "images": [
+                {
+                  "name": "IMG_7669",
+                  "alt": "",
+                  "focusable": false
+                }
               ]
             },
             "description-7": {
               "type": "description",
               "title": "Programme de fidélité",
               "hash": "fidelite",
-              "features": { "isReversed": false, "isCentered": false },
+              "features": {
+                "isReversed": false,
+                "isCentered": true,
+                "isTextBefore": true
+              },
               "content": [
                 {
-                  "text": "Chill Paws souhaite récompenser votre soutien avec son programme de fidélité. Toute les 10 visites,  1 visites vous est offerte aisin qu’un jouet pour votre animal."
+                  "text": "Chill Paws souhaite récompenser votre fidélité grâce à son programme de fidélité. Toutes les 10 visites, une visite vous est offerte, ainsi qu’un jouet pour votre animal."
                 },
                 {
-                  "text": "Le cadeaux sera vue avec vous entre plusieurs choix. Si votre animal n’est pas jouer des friandises seront sûrement le ravire "
+                  "text": "Le cadeau sera choisi avec vous parmi plusieurs options. Si votre animal n’est pas joueur, des friandises sauront certainement le ravir."
                 }
               ],
-              "image": {
-                "name": "prestation_image_3",
-                "alt": "",
-                "focusable": false
-              }
+              "images": [
+                {
+                  "name": "IMG_7561",
+                  "alt": "",
+                  "focusable": false
+                }
+              ]
             }
           }
         }
@@ -798,90 +901,141 @@
               "type": "description",
               "title": "Visite chien et chat",
               "hash": "visite-chien-chat",
-              "features": { "isReversed": false, "isCentered": false },
+              "features": { "isReversed": false, "isCentered": true },
               "content": [
                 {
-                  "text": "1h: 16€ par jours"
+                  "text": "1 h : 16 € par jour"
                 },
                 {
-                  "text": "Forfait 2 jours: 30 €"
+                  "text": "Forfait 2 jours : 30 €"
                 },
                 {
-                  "text": "Forfait une semaine (7 jours): 100 €"
+                  "text": "Forfait 5 jours : 80 €"
                 },
                 {
-                  "text": "* Supplément de 5€ par animaux en plus par semaine"
+                  "text": "Forfait une semaine (7 jours) : 100 €"
                 },
                 {
-                  "text": "** Deuxième visite le même jour 5€ supplémentaires par semaine (3 semaine = 15€ supplémentaire)"
+                  "text": "* Supplément de 5 € par animal en plus par semaine"
+                },
+                {
+                  "text": "** Deuxième visite le même jour : 5 € supplémentaires par semaine (3 semaines = 15 € supplémentaires)"
                 }
               ],
-              "image": {
-                "name": "prestation_image_3",
-                "alt": "",
-                "focusable": false
-              }
+              "images": [
+                {
+                  "name": "IMG_7858",
+                  "alt": "",
+                  "focusable": false
+                }
+              ]
             },
             "description-3": {
               "type": "description",
               "title": "Visite NAC",
               "hash": "visite-nac",
-              "features": { "isReversed": true, "isCentered": false },
+              "features": { "isReversed": true, "isCentered": true },
               "content": [
                 {
-                  "text": "1h: 12€ par jours"
+                  "text": "1 h : 12 € par jour"
                 },
                 {
-                  "text": "Forfait 2 jours: 20€"
+                  "text": "Forfait 2 jours : 20 €"
                 },
                 {
-                  "text": "Forfait 5 visites: 55 €"
+                  "text": "Forfait 5 jours : 55 €"
                 },
                 {
-                  "text": "Forfait une semaine (sept jours): 80 €"
+                  "text": "Forfait une semaine (7 jours) : 80 €"
+                },
+                {
+                  "text": "* Supplément de 5 € par animal en plus par semaine"
+                },
+                {
+                  "text": "** Deuxième visite le même jour : 5 € supplémentaires par semaine (3 semaines = 15 € supplémentaires)"
                 }
               ],
-              "image": {
-                "name": "prestation_image_3",
-                "alt": "",
-                "focusable": false
-              }
+              "images": [
+                {
+                  "name": "IMG_7865",
+                  "alt": "",
+                  "focusable": false
+                }
+              ]
             },
             "description-4": {
               "type": "description",
               "title": "Promenade chien / chat ",
               "hash": "promenades",
-              "features": { "isReversed": false, "isCentered": false },
+              "features": { "isReversed": false, "isCentered": true },
               "content": [
+                {
+                  "text": "Je réalise des promenades pour chiens, qui varient selon les besoins d’activité de votre animal. La durée sera définie avec vous lors de la pré-visite. Je récupère l’animal à votre domicile."
+                },
+                {
+                  "text": "La laisse ainsi que le harnais sont fournis par le propriétaire. J’emporte avec moi une gamelle d’eau pendant toute la durée de la promenade."
+                },
                 {
                   "text": "Promenades: 30min: 12€ / 45min: 15€ / 1h: 20€"
-                },
-                {
-                  "text": "La dépose des clés sera facturé 5€ par trajets. Pour éviter cette facturation. Vous pouvez remettre les clés à la pré-visite ou le premier jour de garde ou directement le déposer chez moi en main propre ou dans ma boîte aux lettres."
                 }
               ],
-              "image": {
-                "name": "prestation_image_3",
-                "alt": "",
-                "focusable": false
-              }
+              "images": [
+                {
+                  "name": "IMG_7875",
+                  "alt": "",
+                  "focusable": false
+                }
+              ]
             },
-            "description-5": {
-              "type": "description",
-              "title": "Paiements",
-              "features": { "isReversed": false, "isCentered": false },
+            "cards-1": {
+              "type": "cardsList",
+              "features": { "displayInline": true },
+              "title": null,
               "content": [
                 {
-                  "text": "Devis gratuit"
+                  "title": "Conditions de paiements",
+                  "icon": "paymentConditions",
+                  "description": [
+                    {
+                      "text": "Un acompte de 50 % est à régler lors de la pré-visite, au moment de la signature du contrat. Le solde sera à régler le premier jour de garde."
+                    },
+                    {
+                      "text": "Virement ou en espèces accepté."
+                    }
+                  ]
                 },
                 {
-                  "text": "Conditions de payement : un acompte de 50 % sera effectué à la pré-visite lors de la signature du contrat puis le restera à régler lors du premier jour de garde"
+                  "title": "Remise des clés",
+                  "icon": "remiseCles",
+                  "description": [
+                    {
+                      "text": "La récupération des clés est facturée 5 € par trajet. Afin d’éviter cette facturation, vous pouvez remettre les clés lors de la pré-visite, le premier jour de garde, ou les déposer directement chez moi (en main propre ou dans ma boîte aux lettres)."
+                    }
+                  ]
                 },
                 {
-                  "text": "Virement et espèces acceptés"
+                  "title": "Aucun frais supplémentaire",
+                  "icon": "aucunFrais",
+                  "description": [
+                    {
+                      "text": "Frais kilométrique"
+                    },
+                    {
+                      "text": "Week-ends et Jours fériés"
+                    }
+                  ]
                 },
                 {
-                  "text": "Il n’y a aucun supplément pour les jours fériés, ni les week-ends, ainsi que pour les frais kilométriques."
+                  "title": "Devis",
+                  "icon": "devis",
+                  "description": [
+                    {
+                      "text": "Pour toute demande spécifique ou garde de longue durée, n’hésitez pas à me contacter pour un devis personnalisé."
+                    },
+                    {
+                      "text": "Le devis est gratuit et sans engagement."
+                    }
+                  ]
                 }
               ]
             }
@@ -893,38 +1047,59 @@
         "id": "gallery",
         "datas": {
           "title": "Album photo",
-          "description": "L’album photo permet d’immortaliser vos animaux pendant leur garde. Une garde est un moment convivial avec votre animal de ce fait je l’Immortale pour vous.  Avec votre autorisation, je partage ces photos sur les réseaux sociaux afin de montrer mon travail et la joie des animaux que je garde. </br> Ils nous ont fait confiance, suivez leurs avantures sur <a style='font-size: inherit;' href=\"https://www.facebook.com/chill_paws_off/\">Facebook</a> et <a style='font-size: inherit;' href=\"https://www.instagram.com/chill_paws_off/\">Instagram</a> !",
+          "description": "L’album photo permet d’immortaliser vos animaux pendant leur garde. Une garde est un moment convivial avec votre animal de ce fait je l’Immortale pour vous. Avec votre autorisation, je partage ces photos sur les réseaux sociaux afin de montrer mon travail et le bien-être des animaux que je garde. </br> Ils nous ont fait confiance, suivez leurs avantures sur <a style='font-size: inherit;' href=\"https://www.facebook.com/chill_paws_off/\">Facebook</a> et <a style='font-size: inherit;' href=\"https://www.instagram.com/chill_paws_off/\">Instagram</a> !",
           "features": { "canFullScreen": true, "shouldRedirect": false },
           "inventory": [
             {
-              "alt": "Photo de chat: Tigrou - 3 ans",
-              "imageSrc": "IMG_0003",
-              "description": "Tigrou - 3 ans"
+              "alt": "Photo de chien: Vegas - 5 ans",
+              "imageSrc": "IMG_7862",
+              "description": "Vegas - 5 ans"
+            },
+            {
+              "alt": "Photo de NAC: Néo - 9 ans",
+              "imageSrc": "IMG_7789",
+              "description": "Néo - 9 ans"
             },
             {
               "alt": "Photo de chat: Tigrou - 3 ans",
-              "imageSrc": "IMG_0003",
+              "imageSrc": "IMG_6037",
               "description": "Tigrou - 3 ans"
             },
             {
-              "alt": "Photo de chat: Tigrou - 3 ans",
-              "imageSrc": "IMG_0003",
-              "description": "Tigrou - 3 ans"
+              "alt": "Photo de chat: Luna - 2 ans",
+              "imageSrc": "IMG_5834",
+              "description": "Luna - 2 ans"
+            },
+
+            {
+              "alt": "Photo de chat: Nougat - 7 mois",
+              "imageSrc": "IMG_7557",
+              "description": "Nougat - 7 mois"
             },
             {
-              "alt": "Photo de chat: Tigrou - 3 ans",
-              "imageSrc": "IMG_0003",
-              "description": "Tigrou - 3 ans"
+              "alt": "Photo de chat: Elios - 10 ans",
+              "imageSrc": "IMG_6616",
+              "description": "Elios - 10 ans"
             },
             {
-              "alt": "Photo de chat: Tigrou - 3 ans",
-              "imageSrc": "IMG_0003",
-              "description": "Tigrou - 3 ans"
+              "alt": "Photo de chat: Minoune - 2 ans",
+              "imageSrc": "IMG_7897",
+              "description": "Minoune - 2 ans"
             },
             {
-              "alt": "Photo de chat: Tigrou - 3 ans",
-              "imageSrc": "IMG_0003",
-              "description": "Tigrou - 3 ans"
+              "alt": "Photo de chat: Yoko - 1 ans",
+              "imageSrc": "IMG_7895",
+              "description": "Yoko - 1 ans"
+            },
+            {
+              "alt": "Photo de chien: Milka - 4 ans",
+              "imageSrc": "IMG_7900",
+              "description": "Milka - 4 ans"
+            },
+            {
+              "alt": "Photo de chien: Léo - 5 mois",
+              "imageSrc": "IMG_7899",
+              "description": "Léo - 5 mois"
             }
           ]
         }
@@ -943,7 +1118,7 @@
                 "hasCategories": true,
                 "allowMultipleOpen": false
               },
-              "title": "Les questions fréquentes qui nous sont demandées:",
+              "title": "Les questions fréquentes qui me sont demandées :",
               "subtitle": null,
               "content": {
                 "categories": [
@@ -953,18 +1128,80 @@
                     "items": [
                       {
                         "id": "gen-1",
-                        "question": "Qu'est-ce que l'offre Webtrine All-In-One ?",
-                        "answer": "<p>Webtrine propose une <strong>offre tout-en-un</strong> pour créer votre site vitrine sans prise de tête :</p><ul><li>Création de votre charte graphique</li><li>Création de votre site vitrine</li><li>Nom de domaine inclus</li><li>Hébergement sur serveur VPS OVH</li><li>Maintenance et support</li><li>1 modification gratuite par mois (6 premiers mois)</li></ul><p>Tout est inclus dans un seul prix : <strong>450€ HT</strong></p>"
+                        "question": "Qu’est-ce que Chill Paws ?",
+                        "answer": "<p><strong>Chill Paws</strong> est un service de <strong>pet-sitting à domicile</strong> (visites et promenades) sur le secteur <strong>Lyon – Saint-Étienne</strong>.</p><p>Je me déplace directement chez vous pour prendre soin de vos animaux, dans leur environnement, afin de limiter le stress lié aux déplacements.</p>"
                       },
                       {
                         "id": "gen-2",
-                        "question": "Combien de temps faut-il pour créer mon site ?",
-                        "answer": "<p>Notre processus se déroule en <strong>5 étapes</strong> :</p><ol><li><strong>Consultation gratuite</strong> : analyse de vos besoins</li><li><strong>Devis personnalisé</strong> : proposition détaillée</li><li><strong>Conception</strong> : maquettes et validation</li><li><strong>Développement</strong> : création de votre site</li><li><strong>Livraison</strong> : formation et mise en ligne</li></ol><p>Le délai global est généralement de <strong>2 à 4 semaines</strong> selon la complexité de votre projet.</p>"
+                        "question": "Qui s’occupe de mon animal ?",
+                        "answer": "<p>Je m’appelle <strong>Océane Michel</strong> et je suis pet-sitter à domicile, <strong>déclarée</strong> et <strong>certifiée</strong>.</p><p>Je suis titulaire de l’<strong>ACACED</strong>, une attestation obligatoire pour les professionnels, qui garantit des connaissances adaptées aux besoins des différentes espèces.</p>"
                       },
                       {
                         "id": "gen-3",
-                        "question": "Comment me contacter ?",
-                        "answer": "<p>Vous pouvez joindre <strong>Alexandre Monschein</strong> :</p><ul><li><strong>Téléphone</strong> : +33 6 14 61 22 95</li><li><strong>Email</strong> : webtrine.pro@gmail.com</li><li><strong>LinkedIn</strong> : alexandre-monschein</li><li><strong>Formulaire de contact</strong> sur le site</li></ul><p>Je vous réponds rapidement pour discuter de votre projet !</p>"
+                        "question": "Pourquoi choisir un pet-sitter professionnel plutôt qu’une plateforme ?",
+                        "answer": "<p>Un pet-sitter professionnel est <strong>formé</strong> et <strong>déclaré</strong> (DDPP) et possède l’<strong>ACACED</strong>.</p><p>Cette formation permet de mieux comprendre les besoins, le comportement et les précautions à prendre selon l’espèce (chiens, chats, furets, petits mammifères, lagomorphes, poissons, oiseaux…).</p>"
+                      },
+                      {
+                        "id": "gen-4",
+                        "question": "Quels animaux gardez-vous ?",
+                        "answer": "<p>Je peux m’occuper de <strong>chats</strong>, <strong>chiens</strong> et de nombreux <strong>NAC</strong> (petits mammifères, lagomorphes comme les lapins, etc.).</p><p>Si vous avez une demande spécifique, contactez-moi : je vous dirai si la prise en charge est possible et adaptée au bien-être de votre animal.</p>"
+                      },
+                      {
+                        "id": "gen-5",
+                        "question": "Dans quelles zones intervenez-vous ?",
+                        "answer": "<p>J’interviens sur une zone large autour de <strong>Lyon</strong> et <strong>Saint-Étienne</strong>, incluant les communes environnantes.</p><p>Contactez-moi pour vérifier si votre adresse fait partie de ma zone d’intervention.</p>"
+                      }
+                    ]
+                  },
+                  {
+                    "id": "services",
+                    "label": "Prestations",
+                    "items": [
+                      {
+                        "id": "serv-1",
+                        "question": "Comment se déroule une visite à domicile ?",
+                        "answer": "<p>Lors d’une visite, je veille au <strong>bien-être</strong> de votre animal et au <strong>bon entretien</strong> de votre logement :</p><ul><li><strong>Entretien léger</strong> : aération, nettoyage des éventuelles salissures, gestion des déchets</li><li><strong>Hygiène</strong> : gamelles / fontaines à eau, litières (nettoyage quotidien selon vos consignes)</li><li><strong>Nourrissage</strong> : selon vos instructions (grammages, alimentation séparée si besoin)</li><li><strong>Temps dédié</strong> : caresses, jeux, présence, brossage si nécessaire</li></ul>"
+                      },
+                      {
+                        "id": "serv-2",
+                        "question": "Envoyez-vous des nouvelles pendant la garde ?",
+                        "answer": "<p><strong>Oui.</strong> Vous recevez régulièrement des <strong>nouvelles</strong> avec <strong>photos et/ou vidéos</strong>.</p><p>Un <strong>compte rendu</strong> mentionne aussi les informations importantes (comportement, repas, soins, éléments à noter).</p>"
+                      },
+                      {
+                        "id": "serv-3",
+                        "question": "Pouvez-vous donner des médicaments ou effectuer des soins ?",
+                        "answer": "<p><strong>Oui</strong>, pour les soins simples (médicaments oraux, crèmes, sirops), j’applique strictement les consignes du vétérinaire et vos instructions.</p><p>Chaque soin administré est mentionné dans le compte rendu de visite.</p>"
+                      },
+                      {
+                        "id": "serv-4",
+                        "question": "Que faites-vous lors de la dernière visite ?",
+                        "answer": "<p>Lors de la dernière visite, je réalise un <strong>entretien complet</strong> pour vous garantir un retour agréable :</p><ul><li>Passage de l’aspirateur</li><li>Nettoyage du sol si nécessaire</li><li>Vérification finale : animaux, habitat, consignes</li></ul>"
+                      },
+                      {
+                        "id": "serv-5",
+                        "question": "Proposez-vous des promenades ?",
+                        "answer": "<p><strong>Oui</strong>, je propose des promenades pour chiens (et selon le profil, pour certains chats).</p><p>La durée est définie avec vous lors de la pré-visite. Je récupère l’animal à votre domicile. La laisse et le harnais sont fournis par le propriétaire et j’emporte une gamelle d’eau pendant la promenade.</p>"
+                      }
+                    ]
+                  },
+                  {
+                    "id": "previsit",
+                    "label": "Pré-visite",
+                    "items": [
+                      {
+                        "id": "pre-1",
+                        "question": "La pré-visite est-elle obligatoire ?",
+                        "answer": "<p><strong>Oui</strong>, la pré-visite est une rencontre <strong>obligatoire</strong> avant toute garde.</p><p>Elle permet de faire connaissance, de rencontrer votre animal, de définir les besoins (nourriture, habitudes, soins…), de valider la prestation et d’organiser la remise des clés.</p>"
+                      },
+                      {
+                        "id": "pre-2",
+                        "question": "Sous quel délai êtes-vous recontactée après le formulaire de contact ?",
+                        "answer": "<p>Après réception du formulaire, je vous recontacte généralement <strong>sous 24 heures</strong> afin d’organiser la pré-visite.</p>"
+                      },
+                      {
+                        "id": "pre-3",
+                        "question": "La pré-visite est-elle gratuite ?",
+                        "answer": "<p>La pré-visite peut être <strong>offerte</strong> si vous me recommandez ou si vous faites une <strong>publication/story</strong> sur l’un de vos réseaux sociaux (Facebook, Instagram…).</p><p>Dans les autres cas, le tarif vous sera précisé lors de notre échange.</p>"
                       }
                     ]
                   },
@@ -974,60 +1211,103 @@
                     "items": [
                       {
                         "id": "price-1",
-                        "question": "Combien coûte un site vitrine avec Webtrine ?",
-                        "answer": "<p>L'offre Webtrine All-In-One est à <strong>450€ HT</strong> et comprend :</p><ul><li>Création complète de votre site vitrine</li><li>Charte graphique personnalisée</li><li>Nom de domaine (si hébergé chez nous)</li><li>Hébergement sur VPS OVH</li><li>Maintenance et support</li><li>1 modification gratuite par mois (6 premiers mois)</li></ul><p>C'est un investissement <em>accessible</em> pour une présence web professionnelle !</p>"
+                        "question": "Quels sont les tarifs des visites chien et chat ?",
+                        "answer": "<p><strong>Visite chien / chat (1h)</strong> : <strong>16 € / jour</strong></p><ul><li>Forfait 2 jours : <strong>30 €</strong></li><li>Forfait 5 jours : <strong>80 €</strong></li><li>Forfait 1 semaine (7 jours) : <strong>100 €</strong></li></ul><p><em>Supplément</em> : +5 € par animal supplémentaire par semaine.<br/><em>Deuxième visite le même jour</em> : +5 € par semaine.</p>"
                       },
                       {
                         "id": "price-2",
-                        "question": "Quels sont les coûts récurrents ?",
-                        "answer": "<p>Après la création, les seuls frais récurrents sont :</p><ul><li><strong>Hébergement</strong> : 250€/an HT sur nos serveurs VPS OVH</li><li><strong>Nom de domaine</strong> : inclus si hébergé chez nous</li><li><strong>Maintenance</strong> : incluse dans l'hébergement</li></ul><p><strong>Pas de frais cachés</strong> ! Tout est transparent dès le devis.</p>"
+                        "question": "Quels sont les tarifs des visites NAC ?",
+                        "answer": "<p><strong>Visite NAC (1h)</strong> : <strong>12 € / jour</strong></p><ul><li>Forfait 2 jours : <strong>20 €</strong></li><li>Forfait 5 jours : <strong>55 €</strong></li><li>Forfait 1 semaine (7 jours) : <strong>80 €</strong></li></ul><p><em>Supplément</em> : +5 € par animal supplémentaire par semaine.<br/><em>Deuxième visite le même jour</em> : +5 € par semaine.</p>"
                       },
                       {
                         "id": "price-3",
-                        "question": "Combien coûtent les modifications après livraison ?",
-                        "answer": "<p>Tarifs des prestations complémentaires :</p><ul><li><strong>Modification simple</strong> (texte, image) : 15-30€ HT</li><li><strong>Ajout d'élément</strong> : 40€ HT</li><li><strong>Modification de style</strong> : 50-100€ HT</li><li><strong>Nouveau composant</strong> : 100-200€ HT</li><li><strong>Nouvelle section</strong> : 150-300€ HT</li><li><strong>Nouvelle page</strong> : 250-500€ HT</li></ul><p>Rappel : <em>1 modification gratuite par mois</em> les 6 premiers mois !</p>"
+                        "question": "Quels sont les tarifs des promenades ?",
+                        "answer": "<p><strong>Promenades</strong> :</p><ul><li><strong>30 min</strong> : 12 €</li><li><strong>45 min</strong> : 15 €</li><li><strong>1 h</strong> : 20 €</li></ul><p>La durée est définie selon les besoins de votre animal, validée lors de la pré-visite.</p>"
+                      },
+                      {
+                        "id": "price-4",
+                        "question": "Proposez-vous des devis ?",
+                        "answer": "<p><strong>Oui</strong>. Pour une demande spécifique ou une garde de longue durée, n’hésitez pas à me contacter pour un <strong>devis personnalisé</strong>.</p><p>Le devis est <strong>gratuit</strong> et <strong>sans engagement</strong>.</p>"
                       }
                     ]
                   },
                   {
-                    "id": "technical",
-                    "label": "Technique",
+                    "id": "payment",
+                    "label": "Paiement & conditions",
                     "items": [
                       {
-                        "id": "tech-1",
-                        "question": "Où sont hébergés les sites Webtrine ?",
-                        "answer": "<p>Vos sites sont hébergés chez <strong>OVH</strong>, leader européen :</p><ul><li><strong>VPS dédiés</strong> (Serveur Privé Virtuel)</li><li><strong>Ressources garanties</strong> (CPU, RAM, stockage)</li><li><strong>Certificats SSL</strong> Let's Encrypt automatiques</li><li><strong>Nom de domaine</strong> géré par OVH</li><li><strong>Sauvegardes</strong> et monitoring inclus</li></ul><p>Performances, sécurité et fiabilité garanties !</p>"
+                        "id": "pay-1",
+                        "question": "Quelles sont les conditions de paiement ?",
+                        "answer": "<p>Un <strong>acompte de 50 %</strong> est à régler lors de la pré-visite, au moment de la <strong>signature du contrat</strong>.</p><p>Le <strong>solde</strong> est à régler le <strong>premier jour de garde</strong>.</p>"
                       },
                       {
-                        "id": "tech-2",
-                        "question": "Mes sites sont-ils adaptés aux mobiles ?",
-                        "answer": "<p><strong>Absolument !</strong> Tous nos sites sont :</p><ul><li><strong>Responsive</strong> : adaptation automatique à tous les écrans</li><li><strong>Mobile-first</strong> : conçus d'abord pour mobile</li><li><strong>Optimisés</strong> : temps de chargement rapides</li><li><strong>Testés</strong> sur ordinateur, mobile et tablette</li></ul><p>Votre site sera parfait quel que soit le support utilisé !</p>"
+                        "id": "pay-2",
+                        "question": "Quels moyens de paiement acceptez-vous ?",
+                        "answer": "<p>J’accepte le <strong>virement</strong> et le <strong>paiement en espèces</strong>.</p>"
                       },
                       {
-                        "id": "tech-3",
-                        "question": "Qu'est-ce que l'accessibilité web ?",
-                        "answer": "<p>L'accessibilité permet à <strong>tous</strong> d'utiliser votre site, y compris les 12 millions de personnes en situation de handicap en France :</p><ul><li><strong>Navigation clavier</strong> pour les handicaps moteurs</li><li><strong>Contrastes élevés</strong> pour les malvoyants</li><li><strong>Lecteurs d'écran</strong> compatibles</li><li><strong>Textes clairs</strong> pour les troubles cognitifs</li></ul><p>C'est un <em>droit fondamental</em> que nous respectons dans tous nos sites.</p>"
+                        "id": "pay-3",
+                        "question": "Y a-t-il des frais supplémentaires (kilomètres, week-ends, jours fériés) ?",
+                        "answer": "<p><strong>Non</strong>. Je n’applique <strong>aucun frais kilométrique</strong> dans ma zone d’intervention, et <strong>aucun supplément</strong> n’est facturé pour les prestations le week-end ou les jours fériés.</p>"
                       }
                     ]
                   },
                   {
-                    "id": "process",
-                    "label": "Processus",
+                    "id": "keys",
+                    "label": "Remise des clés",
                     "items": [
                       {
-                        "id": "process-1",
-                        "question": "Comment travaillez-vous avec vos templates ?",
-                        "answer": "<p>Nous proposons <strong>deux approches</strong> :</p><ul><li><strong>Templates existants</strong> : sélection de designs prêts à personnaliser</li><li><strong>Création sur mesure</strong> : si aucun template ne convient</li></ul><p>Dans tous les cas, nous adaptons entièrement le design à <em>votre image</em> et vos besoins spécifiques.</p>"
+                        "id": "keys-1",
+                        "question": "Comment se passe la remise des clés ?",
+                        "answer": "<p>La récupération des clés est facturée <strong>5 € par trajet</strong>.</p><p>Pour éviter ce coût, vous pouvez :</p><ul><li>Me remettre les clés lors de la <strong>pré-visite</strong></li><li>Me les remettre le <strong>premier jour</strong> de garde</li><li>Déposer les clés directement chez moi (en main propre ou dans ma boîte aux lettres)</li></ul>"
+                      }
+                    ]
+                  },
+                  {
+                    "id": "loyalty",
+                    "label": "Programme de fidélité",
+                    "items": [
+                      {
+                        "id": "loy-1",
+                        "question": "Comment fonctionne le programme de fidélité ?",
+                        "answer": "<p>Toutes les <strong>10 visites</strong>, une <strong>visite vous est offerte</strong>, ainsi qu’un <strong>jouet</strong> ou une <strong>friandise</strong> pour votre animal.</p><p>Le cadeau est choisi avec vous selon les préférences de votre compagnon.</p>"
+                      }
+                    ]
+                  },
+                  {
+                    "id": "privacy",
+                    "label": "Données & confidentialité",
+                    "items": [
+                      {
+                        "id": "priv-1",
+                        "question": "Quelles données sont collectées via le formulaire de contact ?",
+                        "answer": "<p>Le site peut collecter les informations que vous renseignez dans le formulaire : <strong>nom, prénom, e-mail, téléphone, message</strong>.</p><p>Ces données servent uniquement à <strong>répondre à votre demande</strong> et à organiser les prestations (visites, promenades, etc.).</p>"
                       },
                       {
-                        "id": "process-2",
-                        "question": "Que dois-je préparer pour commencer ?",
-                        "answer": "<p>Pour optimiser la création de votre site :</p><ul><li><strong>Contenus textuels</strong> : présentation, services, coordonnées</li><li><strong>Images</strong> : photos, logos en haute qualité</li><li><strong>Objectifs</strong> : ce que vous attendez de votre site</li><li><strong>Inspirations</strong> : sites que vous appréciez (optionnel)</li></ul><p>Pas d'inquiétude, je vous accompagne dans cette préparation !</p>"
+                        "id": "priv-2",
+                        "question": "Le site propose-t-il des paiements en ligne ou de la vente en ligne ?",
+                        "answer": "<p><strong>Non</strong>. Le site ne propose pas d’achat en ligne et ne permet pas de paiement directement sur le site.</p>"
                       },
                       {
-                        "id": "process-3",
-                        "question": "Pourrai-je modifier mon site moi-même ?",
-                        "answer": "<p>Nos sites sont construits avec des technologies modernes mais ne disposent pas d'interface d'administration classique.</p><p><strong>Cependant</strong> :</p><ul><li>1 modification <strong>gratuite par mois</strong> les 6 premiers mois</li><li><strong>Tarifs préférentiels</strong> pour les modifications ultérieures</li><li><strong>Réactivité</strong> pour vos demandes de changements</li><li><strong>Conseils</strong> pour optimiser votre contenu</li></ul><p>Vous gardez le contrôle sans les contraintes techniques !</p>"
+                        "id": "priv-3",
+                        "question": "Y a-t-il des cookies publicitaires ? Utilisez-vous une mesure d’audience ?",
+                        "answer": "<p>Le site ne dépose <strong>pas</strong> de cookies publicitaires.</p><p>Une mesure d’audience peut être réalisée pour améliorer le site (ex : <strong>Google Analytics</strong> avec anonymisation de l’IP activée).</p>"
+                      },
+                      {
+                        "id": "priv-4",
+                        "question": "Comment exercer mes droits RGPD (accès, rectification, suppression) ?",
+                        "answer": "<p>Conformément au RGPD, vous pouvez demander l’accès, la rectification, l’opposition, la limitation ou la suppression de vos données.</p><p>Pour exercer vos droits, contactez Chill Paws à l’adresse : <strong>oceanemic.petsitting@gmail.com</strong>.</p>"
+                      }
+                    ]
+                  },
+                  {
+                    "id": "contact",
+                    "label": "Contact",
+                    "items": [
+                      {
+                        "id": "contact-1",
+                        "question": "Comment contacter Chill Paws ?",
+                        "answer": "<p>Vous pouvez me contacter :</p><ul><li><strong>Téléphone</strong> : 06.24.78.74.42</li><li><strong>Email</strong> : oceanemic.petsitting@gmail.com</li><li>Via le <strong>formulaire de contact</strong> du site</li></ul><p>Je réponds rapidement, <strong>7j/7</strong>.</p>"
                       }
                     ]
                   }
@@ -1055,6 +1335,20 @@
         }
       },
       {
+        "type": "description",
+        "id": "multiDescriptions",
+        "name": "PrivateMap",
+        "datas": {
+          "title": "PrivateMap",
+          "description": null,
+          "content": {
+            "map-1": {
+              "type": "moduleLeafletCustomZone"
+            }
+          }
+        }
+      },
+      {
         "type": "error",
         "id": "error"
       },
@@ -1066,14 +1360,14 @@
           "title": "Mentions légales",
           "description": "Mentions légales de Chillpaws",
           "subTitle": "En vigueur au 01/01/2025",
-          "disclaimer": "Conformément aux dispositions des Articles 6-III et 19 de la Loi n°2004-575 du 21 juin 2004 pour la Confiance dans l’économie numérique, dite L.C.E.N., il est porté à la connaissance des utilisateurs et visiteurs, ci-après l'Utilisateur, du site TODO: URL du site (ex: https://www.chillpaws.fr), les présentes mentions légales. La navigation sur le Site par l’Utilisateur implique acceptation intégrale et sans réserve des présentes mentions légales. Ces dernières sont accessibles sur le Site à la rubrique « Mentions légales ».",
+          "disclaimer": "Conformément aux dispositions des Articles 6-III et 19 de la Loi n°2004-575 du 21 juin 2004 pour la Confiance dans l’économie numérique, dite L.C.E.N., il est porté à la connaissance des utilisateurs et visiteurs, ci-après l'Utilisateur, du site https://www.chillpaws.fr, les présentes mentions légales. La navigation sur le Site par l’Utilisateur implique acceptation intégrale et sans réserve des présentes mentions légales. Ces dernières sont accessibles sur le Site à la rubrique « Mentions légales ».",
           "content": [
             {
               "title": "Article 1 - L'éditeur",
               "texts": [
-                "L’édition et la direction de la publication du Site est assurée par Chillpaws (TODO: raison sociale exacte), (TODO: forme juridique), immatriculée sous le numéro SIRET : TODO: SIRET, dont le siège social est situé TODO: adresse complète.",
-                "Contact : TODO: téléphone – TODO: email.",
-                "Le responsable de la publication est TODO: Nom et prénom du responsable."
+                "L’édition et la direction de la publication du Site est assurée par Chillpaws, Micro entreprise, immatriculée sous le numéro SIRET: 995 118 080 00010, dont le siège social est situé au 227 rue des veloutiers, 69530 Orlienas",
+                "Contact : 06.24.78.74.42 - oceanemic.petsitting@gmail.com",
+                "Le responsable de la publication est Océane Michel"
               ]
             },
             {
@@ -1086,8 +1380,8 @@
             {
               "title": "Article 3 - L'hébergeur",
               "texts": [
-                "Le Site est hébergé par TODO: nom de l’hébergeur.",
-                "TODO: Adresse du siège de l’hébergeur – TODO: Téléphone de l’hébergeur.",
+                "Le Site est hébergé chez OVH",
+                "2 rue Kellermann, 59100 Roubaix, contactable en composant le: 1007",
                 "La gestion technique et l’administration de l’hébergement sont assurées par Webtrine."
               ]
             },
@@ -1103,7 +1397,7 @@
                 "Dans le cadre de son fonctionnement, le Site peut collecter des données personnelles via le formulaire de contact (ex : nom, prénom, adresse e-mail, numéro de téléphone, message). Ces données sont strictement utilisées pour répondre aux demandes de l’Utilisateur et assurer le suivi des échanges liés aux prestations de petsitting (garde, visites, promenades, etc.).",
                 "Le Site ne réalise aucune vente en ligne et ne propose pas de paiement sur le Site.",
                 "Le Site ne dépose pas de cookies publicitaires. Une mesure d’audience peut toutefois être effectuée afin d’analyser la fréquentation et améliorer l’expérience utilisateur. Les informations collectées à cette fin sont traitées de manière anonymisée (ou agrégée) et ne visent pas à identifier l’Utilisateur.",
-                "Conformément au Règlement Général sur la Protection des Données (RGPD) et à la loi Informatique et Libertés, l’Utilisateur dispose d’un droit d’accès, de rectification, d’opposition, de limitation et de suppression des données le concernant. Ces droits peuvent être exercés en contactant l’Éditeur à l’adresse : TODO: email RGPD (peut être le même que l’email de contact).",
+                "Conformément au Règlement Général sur la Protection des Données (RGPD) et à la loi Informatique et Libertés, l’Utilisateur dispose d’un droit d’accès, de rectification, d’opposition, de limitation et de suppression des données le concernant. Ces droits peuvent être exercés en contactant l’Éditeur à l’adresse : webtrine.pro@gmail.com",
                 "Les données issues du formulaire de contact sont conservées pendant une durée n’excédant pas celle nécessaire au traitement de la demande et à la gestion de la relation, sauf obligation légale contraire."
               ]
             },
@@ -1123,7 +1417,7 @@
           "type": "confidentialite",
           "title": "Politique de confidentialité du site: Chillpaws",
           "description": "Politique de confidentialité de Chillpaws",
-          "subTitle": "En vigueur au TODO: date d’entrée en vigueur (ex: 01/01/2025)",
+          "subTitle": "En vigueur au 01/01/2025",
           "disclaimer": null,
           "content": [
             {
@@ -1144,15 +1438,15 @@
               "texts": [
                 "Le site ne dépose pas de cookies publicitaires.",
                 "Une mesure d’audience peut être réalisée afin de comprendre la fréquentation du site et d’en améliorer le fonctionnement. Les informations utilisées à cette fin sont traitées de manière anonymisée (ou agrégée) et ne visent pas à identifier personnellement l’utilisateur.",
-                "TODO: préciser l’outil de mesure d’audience utilisé (ex: Matomo / Google Analytics / autre) et, si applicable, si l’anonymisation IP est activée."
+                "Outils: Google Analytics (l’anonymisation d'IP est activée)"
               ]
             },
             {
               "title": "Article 4 - Responsable du traitement des données",
               "texts": [
-                "Le responsable du traitement des données est Chillpaws (TODO: raison sociale exacte) – TODO: adresse complète.",
-                "Conformément à la réglementation en vigueur (RGPD et loi Informatique et Libertés), les utilisateurs disposent d'un droit d'accès, de rectification, d'opposition, de limitation et de suppression de leurs données personnelles. Pour exercer ces droits, il suffit de contacter Chillpaws à l'adresse suivante : TODO: email de contact RGPD.",
-                "TODO: ajouter, si souhaité, une durée de conservation (ex: “Les données issues du formulaire de contact sont conservées pendant TODO: durée, puis supprimées.”)."
+                "Le responsable du traitement des données est Chillpaws Micro Entreprise – 227 rue des veloutiers, 69530 Orlienas",
+                "Conformément à la réglementation en vigueur (RGPD et loi Informatique et Libertés), les utilisateurs disposent d'un droit d'accès, de rectification, d'opposition, de limitation et de suppression de leurs données personnelles. Pour exercer ces droits, il suffit de contacter Chillpaws à l'adresse suivante : oceanemic.petsitting@gmail.com.",
+                "Les données issues du formulaire de contact sont conservées le temps de traiter la demande, puis supprimées."
               ]
             },
             {

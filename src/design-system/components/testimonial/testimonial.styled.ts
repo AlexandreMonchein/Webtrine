@@ -1,6 +1,25 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
-import { breakpoints } from "../../../breakpointDef";
+import { bp } from "../../../breakpoint";
+import { breakpointNames, breakpoints } from "../../../breakpointDef";
+
+export const Section = styled.section`
+  padding: 40px 120px;
+
+  ${bp.max(
+    breakpointNames.medium,
+    css`
+      padding: 20px 40px;
+    `,
+  )}
+
+  ${bp.min(
+    breakpointNames.wide,
+    css`
+      padding: 40px 480px;
+    `,
+  )}
+`;
 
 export const TestimonialContainer = styled.div`
   position: relative;
@@ -26,11 +45,11 @@ export const TestimonialSlide = styled.div`
 `;
 
 export const TestimonialCard = styled.article`
-  background: #ffffff;
-  border: 1px solid #e1e5e9;
+  background: var(--back-color-3);
+  border: 1px solid var(--back-color-3);
   border-radius: 12px;
   padding: 24px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   transition:
     box-shadow 0.3s ease,
     transform 0.3s ease;
@@ -149,6 +168,7 @@ export const TestimonialContent = styled.blockquote`
   margin: 0;
   font-size: 1rem;
   line-height: 1.6;
+  height: 110px;
   color: var(--text-color, #1a1a1a);
   position: relative;
 
@@ -158,18 +178,6 @@ export const TestimonialContent = styled.blockquote`
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 3;
   padding-block: 0 !important;
-
-  &::before {
-    content: '"';
-    position: absolute;
-    top: -8px;
-    left: -8px;
-    font-size: 3rem;
-    color: var(--blue, #007bff);
-    opacity: 0.3;
-    line-height: 1;
-    pointer-events: none;
-  }
 
   @media ${breakpoints.tablet} {
     font-size: 1.125rem;

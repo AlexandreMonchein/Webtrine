@@ -89,7 +89,13 @@ const ClassicNavbar = (props) => {
   }, [componentFiles, socials]);
 
   const {
-    features: { isFixed, hasHideOnScroll, trad, darkMode },
+    features: {
+      isFixed,
+      hasHideOnScroll,
+      trad,
+      darkMode,
+      shouldDisplaySocials = true,
+    },
     categories,
     actionButton,
     content: {
@@ -255,7 +261,7 @@ const ClassicNavbar = (props) => {
             <ToggleThemeMode toggleTheme={toggleTheme} theme={theme} />
           ) : null}
           {calendlyUrl ? <CalendlyButton url={calendlyUrl} /> : null}
-          {components ? (
+          {shouldDisplaySocials && components ? (
             <Socials>
               <SocialContent>{components}</SocialContent>
             </Socials>

@@ -108,7 +108,7 @@ export const Default: Story = {
       "Webtrine, c'est une offre tout-en-un : un package complet pour créer et lancer votre site sans prise de tête.",
     descriptionBottom: [
       {
-        text: "* Si vous le faites héberger chez nous - ** Pour un supplément de 250€/an HT",
+        text: "* Si vous le faites héberger chez nous - ** Pour un supplément de 200€/an HT",
       },
     ],
     price: "450,00€",

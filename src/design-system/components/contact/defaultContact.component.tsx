@@ -69,7 +69,10 @@ const DefaultContact = ({ datas }) => {
           ...datas,
         });
         dispatch(
-          showPopUp({ type: "success", message: "Email envoyé avec succès !" }),
+          showPopUp({
+            type: "success",
+            message: t("contact.emailSentSuccess"),
+          }),
         );
 
         e.target.reset();
@@ -77,14 +80,14 @@ const DefaultContact = ({ datas }) => {
         dispatch(
           showPopUp({
             type: "error",
-            message: "Erreur : L'email n'a pas pu être envoyé.",
+            message: t("contact.emailSentError"),
           }),
         );
       } finally {
         setIsSubmitting(false);
       }
     },
-    [dispatch, templateId, isSubmitting],
+    [isSubmitting, templateId, dispatch, t],
   );
 
   const title = t("contact.title");
@@ -161,11 +164,13 @@ const DefaultContact = ({ datas }) => {
               </Field>
               <Field>
                 <Label htmlFor="company">{t("contact.company")}</Label>
+                <Hint id="hint-company">{t("contact.companyHint")}</Hint>
                 <Input
                   type="text"
                   id="company"
                   name="company"
                   placeholder={t("contact.companyPlaceholder")}
+                  aria-describedby="hint-company"
                 />
               </Field>
               <Field>

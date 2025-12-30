@@ -1,4 +1,5 @@
-import React from "react";
+import DOMPurify from "dompurify";
+import React, { useEffect, useMemo, useState } from "react";
 
 import { getCustomer } from "../../../customer.utils";
 import {
@@ -16,6 +17,7 @@ interface CardData {
   title: string;
   description: [{ text: string }];
   imageSrc?: string; // Image optionnelle
+  icon?: string; // Icone optionnelle
 }
 
 interface CardsProps {
@@ -27,16 +29,73 @@ interface CardsProps {
   };
 }
 
+const componentFiles = import.meta.glob("../../../assets/**/*.component.tsx");
+
 const Cards: React.FC<CardsProps> = (props) => {
   const { title, description, content, features } = props;
   const { displayInline = false } = features || {};
   const customer = getCustomer();
+  const [iconComponents, setIconComponents] = useState<
+    Record<string, React.ComponentType<{ size?: number }>>
+  >({});
 
   // Calculer la logique d'affichage
   const isEvenCount = content.length % 2 === 0;
 
   // Si une seule carte, forcer l'affichage stack même en mode inline
   const shouldUseStack = !displayInline || content.length === 1;
+
+  // Mémoriser la liste des noms d'icônes pour éviter les re-renders
+  const iconNames = useMemo(
+    () => content.filter((card) => card.icon).map((card) => card.icon!),
+    [content],
+  );
+
+  useEffect(() => {
+    const loadComponent = async (iconName: string) => {
+      try {
+        const componentPath = `../../../assets/icons/${iconName}.component.tsx`;
+        const module = componentFiles[componentPath];
+
+        if (module) {
+          const resolvedModule = await module();
+          // @ts-expect-error TODO: to fix
+          const Component = resolvedModule.default;
+
+          return Component;
+        }
+
+        return null;
+      } catch (error) {
+        console.error(`Error loading component: ${iconName}`, error);
+        return null;
+      }
+    };
+
+    const loadIcons = async () => {
+      const iconPromises = iconNames.map(async (iconName) => ({
+        icon: iconName,
+        component: await loadComponent(iconName),
+      }));
+
+      const loadedIcons = await Promise.all(iconPromises);
+      console.warn(">>> loadedIcons", loadedIcons);
+
+      const icons: Record<string, React.ComponentType<{ size?: number }>> = {};
+      loadedIcons.forEach(({ icon, component }) => {
+        if (component) {
+          icons[icon] = component;
+        }
+      });
+      console.warn(">>> icons", icons);
+
+      setIconComponents(icons);
+    };
+
+    if (iconNames.length > 0) {
+      loadIcons();
+    }
+  }, [iconNames]);
 
   return (
     <Section>
@@ -47,20 +106,29 @@ const Cards: React.FC<CardsProps> = (props) => {
         $isEvenCount={isEvenCount}
         $cardCount={content.length}
       >
-        {content.map((card) => (
-          <Card key={card.title}>
-            {card.imageSrc && (
-              <CardImage
-                src={`${import.meta.env.BASE_URL}assets/${customer}/${card.imageSrc}.webp`}
-                alt={card.title}
-              />
-            )}
-            <CardTitle>{card.title}</CardTitle>
-            {card.description.map((desc) => (
-              <CardDescription key={desc.text}>{desc.text}</CardDescription>
-            ))}
-          </Card>
-        ))}
+        {content.map((card) => {
+          const IconComponent = card.icon ? iconComponents[card.icon] : null;
+          return (
+            <Card key={card.title}>
+              {card.imageSrc && (
+                <CardImage
+                  src={`${import.meta.env.BASE_URL}assets/${customer}/${card.imageSrc}.webp`}
+                  alt={card.title}
+                />
+              )}
+              {IconComponent && <IconComponent size={64} />}
+              <CardTitle>{card.title}</CardTitle>
+              {card.description.map((desc) => (
+                <CardDescription
+                  dangerouslySetInnerHTML={{
+                    __html: DOMPurify.sanitize(desc.text),
+                  }}
+                  key={desc.text}
+                />
+              ))}
+            </Card>
+          );
+        })}
       </CardContainer>
     </Section>
   );

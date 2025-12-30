@@ -42,12 +42,15 @@ const Gallery = (datas) => {
 
   return (
     <>
-      {" "}
       <GalleryRoot className={classNames({ isLogo: type === "logo" })}>
-        <GalleryTitle>{title}</GalleryTitle>
-        <GalleryDescription
-          dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(description) }}
-        />
+        {title ? <GalleryTitle>{title}</GalleryTitle> : null}
+        {description ? (
+          <GalleryDescription
+            dangerouslySetInnerHTML={{
+              __html: DOMPurify.sanitize(description),
+            }}
+          />
+        ) : null}
         <MainColumn>
           <Wrapper className={classNames({ isLogo: type === "logo" })}>
             {inventory.map((data, index) => (

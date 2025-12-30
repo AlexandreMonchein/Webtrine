@@ -18,11 +18,12 @@ export const RootStyle = createGlobalStyle<{ globalStyle }>`
 
     --nav-hover-color: var(--orange);
     --link-hover-color: var(--orange);
-    
+
     --navigation-text-color: var(--white);
 
     --back-color-1: var(--white);
     --back-color-2: var(--light-grey);
+    --back-color-3: var(--white);
     --background-color: var(--dark-grey);
 
     --button-background-color: var(--dark-grey);

@@ -36,8 +36,12 @@ export const FooterGrid = styled.div`
   ${bp.min(
     breakpointNames.medium,
     css`
-      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-columns: 0fr 1fr 1fr;
       gap: 3rem;
+
+      &.isLogo {
+        grid-template-columns: 1fr 1fr 1fr;
+      }
     `,
   )}
 `;

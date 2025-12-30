@@ -42,6 +42,7 @@ const MultiDescription = ({ templateName = null }) => {
         try {
           if (moduleName && type) {
             const modulePath = `../${moduleName}/${type}.component.tsx`;
+
             if (modules[modulePath]) {
               const module = await modules[modulePath]();
               // @ts-expect-error TODO: to fix
