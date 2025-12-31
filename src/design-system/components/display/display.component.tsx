@@ -10,11 +10,12 @@ import {
 } from "./display.styled";
 import { Datas } from "./display.types";
 
+const componentFiles = import.meta.glob(
+  "../../../assets/**/**/*.component.tsx",
+);
+
 const FeatureSection = (datas: Datas) => {
   const [components, setComponents] = useState<React.ReactNode[]>([]);
-  const componentFiles = import.meta.glob(
-    "../../../assets/**/**/*.component.tsx",
-  );
 
   const { title, content } = datas || {};
 
@@ -55,7 +56,7 @@ const FeatureSection = (datas: Datas) => {
     };
 
     loadComponents();
-  }, [componentFiles, content]);
+  }, [content]);
 
   return (
     <Section>

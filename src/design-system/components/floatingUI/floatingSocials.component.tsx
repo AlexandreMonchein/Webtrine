@@ -4,14 +4,14 @@ import { useSelector } from "react-redux";
 import { getSocials } from "../../../store/state.selector";
 import { FloatingContainer, SocialLogo } from "./floatingSocials.styled";
 
+const componentFiles = import.meta.glob(
+  "../../../assets/**/**/*.component.tsx",
+);
+
 const FloatingSocials: React.FC = () => {
   const [components, setComponents] = useState<React.ReactNode[]>([]);
   const socials: { [key: string]: { link: string; color: string } } =
     useSelector(getSocials);
-
-  const componentFiles = import.meta.glob(
-    "../../../assets/**/**/*.component.tsx",
-  );
 
   useEffect(() => {
     const loadComponents = async () => {
@@ -57,7 +57,7 @@ const FloatingSocials: React.FC = () => {
     };
 
     loadComponents();
-  }, [componentFiles, socials]);
+  }, [socials]);
 
   if (!socials) {
     return null;

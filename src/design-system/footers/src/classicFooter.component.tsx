@@ -21,6 +21,10 @@ import {
   TopSection,
 } from "./classicFooter.styled";
 
+const componentFiles = import.meta.glob(
+  "../../../assets/**/**/*.component.tsx",
+);
+
 const ClassicFooter = (props) => {
   const [components, setComponents] = useState<React.ReactNode[]>([]);
   const { name: clientName } = useSelector(getClient);
@@ -33,10 +37,6 @@ const ClassicFooter = (props) => {
   const { logo } = props || {};
   const { name, alt, link, shape } = logo || {};
   const { width, height } = getLogoDimensions(shape);
-
-  const componentFiles = import.meta.glob(
-    "../../../assets/**/**/*.component.tsx",
-  );
 
   useEffect(() => {
     const loadComponents = async () => {
@@ -84,7 +84,7 @@ const ClassicFooter = (props) => {
     };
 
     loadComponents();
-  }, [componentFiles, socials]);
+  }, [socials]);
 
   return (
     <FooterContainer>

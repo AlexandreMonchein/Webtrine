@@ -32,6 +32,8 @@ interface AllInOneProps {
   content: Content[];
 }
 
+const componentFiles = import.meta.glob("../../../assets/**/*.component.tsx");
+
 const AllInOne = (datas: AllInOneProps) => {
   const [components, setComponents] = useState<React.ReactNode[]>([]);
   const { t } = useTranslation();
@@ -45,8 +47,6 @@ const AllInOne = (datas: AllInOneProps) => {
     additionalDescription,
     content,
   } = datas;
-
-  const componentFiles = import.meta.glob("../../../assets/**/*.component.tsx");
 
   useEffect(() => {
     const loadComponents = async (content: Content[]) => {
@@ -97,7 +97,7 @@ const AllInOne = (datas: AllInOneProps) => {
     };
 
     loadComponents(content);
-  }, [componentFiles, content]);
+  }, [content]);
 
   return (
     <PricesContainer>

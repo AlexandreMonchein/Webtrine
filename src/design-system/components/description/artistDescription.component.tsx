@@ -28,6 +28,10 @@ interface ArtistDescriptionData {
   contactUrl?: string;
 }
 
+const componentFiles = import.meta.glob(
+  "../../../assets/**/**/*.component.tsx",
+);
+
 const ArtistDescription: React.FC<{ datas: ArtistDescriptionData }> = ({
   datas,
 }) => {
@@ -46,10 +50,6 @@ const ArtistDescription: React.FC<{ datas: ArtistDescriptionData }> = ({
 
   // Utilisation du hook fullscreen
   const fullscreenMode = useFullscreenMode(images.length);
-
-  const componentFiles = import.meta.glob(
-    "../../../assets/**/**/*.component.tsx",
-  );
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -78,7 +78,7 @@ const ArtistDescription: React.FC<{ datas: ArtistDescriptionData }> = ({
     };
 
     loadInstagramIcon();
-  }, [componentFiles]);
+  }, []);
 
   return (
     <Container>
