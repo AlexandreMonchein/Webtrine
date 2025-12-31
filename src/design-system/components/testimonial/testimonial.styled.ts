@@ -63,7 +63,8 @@ export const TestimonialCard = styled.article`
   }
 
   @media ${breakpoints.tablet} {
-    padding: 32px;
+    padding: 24px;
+    margin: 12px;
   }
 `;
 

@@ -12,6 +12,7 @@ import {
   TestimonialCard,
   TestimonialContent,
 } from "./testimonial.styled";
+import { Testimonial } from "./testimonial.types";
 import {
   CardHeader,
   PublicationDate,
@@ -103,6 +104,8 @@ const TestimonialCardsItem: React.FC<TestimonialCardsItemProps> = ({
                 src={avatar}
                 alt={`profil de ${name}`}
                 loading="lazy"
+                referrerPolicy="no-referrer"
+                crossOrigin="anonymous"
                 onError={(e) => {
                   const target = e.target as HTMLImageElement;
                   target.style.display = "none";
@@ -137,11 +140,13 @@ const TestimonialCardsItem: React.FC<TestimonialCardsItemProps> = ({
 };
 
 const TestimonialCards: React.FC<TestimonialCardsProps> = (props) => {
-  const { title, testimonials, features } = props;
+  const { title, dataId, features } = props;
   const { autoplay = false, autoplayDelay = 5000 } = features || {};
   const [currentIndex, setCurrentIndex] = useState(0);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
   const responsiveCardsPerSlide = useResponsiveCardsPerSlide();
+
+  const [testimonials, setTestimonials] = useState<Testimonial[]>([]);
 
   // Créer les slides avec le nombre responsive de cartes par slide
   const createSlides = () => {
@@ -209,9 +214,53 @@ const TestimonialCards: React.FC<TestimonialCardsProps> = (props) => {
     }
   };
 
-  if (testimonials.length === 0) {
-    return null;
-  }
+  // Fonction pour charger les reviews depuis l'API
+  const fetchGoogleReviews = useCallback(async (dataId: string) => {
+    try {
+      const apiUrl =
+        process.env.NODE_ENV === "production"
+          ? "/api/reviews"
+          : "http://localhost:3001/api/reviews";
+
+      const response = await fetch(`${apiUrl}?dataId=${dataId}`);
+
+      if (!response.ok) {
+        throw new Error("Erreur lors du chargement des reviews");
+      }
+
+      const data = await response.json();
+
+      // Transformer les reviews SerpAPI en format Testimonial
+      if (data.reviews && Array.isArray(data.reviews)) {
+        const transformedTestimonials: Testimonial[] = data.reviews.map(
+          (review: any, index: number) => ({
+            id: review.review_id || `review-${index}`,
+            name: review.user?.name || "Utilisateur anonyme",
+            position: review.user?.reviews
+              ? `${review.user.reviews} avis`
+              : undefined,
+            rating: review.rating || 5,
+            content: review.snippet || "",
+            avatar: review.user?.thumbnail || undefined,
+            date: review.iso_date || review.date || undefined,
+          }),
+        );
+
+        setTestimonials(transformedTestimonials);
+      }
+
+      return data;
+    } catch (error) {
+      console.error("Erreur au chargement des reviews:", error);
+      return [];
+    }
+  }, []);
+
+  useEffect(() => {
+    if (dataId) {
+      fetchGoogleReviews(dataId);
+    }
+  }, [fetchGoogleReviews, dataId]);
 
   return (
     <Section onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>

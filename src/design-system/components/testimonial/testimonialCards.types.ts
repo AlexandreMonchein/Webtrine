@@ -1,7 +1,7 @@
 import { Testimonial } from "./testimonial.types";
 
 export interface TestimonialCardsProps {
-  testimonials: Testimonial[];
+  dataId: string;
   title?: string;
   features?: {
     autoplay?: boolean; // Autoplay activé/désactivé

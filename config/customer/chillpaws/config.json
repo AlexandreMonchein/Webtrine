@@ -355,42 +355,11 @@
             "testimonial-1": {
               "type": "testimonialCards",
               "title": "Ils nous ont fait confiance",
+              "dataId": "0x6578a6dfce6f43cd:0xb6bc9658ae2a5d0d",
               "features": {
                 "autoplay": true,
                 "autoplayDelay": 4000
-              },
-              "testimonials": [
-                {
-                  "id": "1",
-                  "name": "Lucie R",
-                  "position": "Propriétaire d'animaux",
-                  "company": "",
-                  "rating": 5,
-                  "content": "Je fais appel à océane pour s'occuper de mon chat et de mon chien depuis 3 ans Je fais appel à Géna pour s'occuper de mon chat et de mon chien depuis 3 ans Je fais appel à Géna pour s'occuper de mon chat et de mon chien depuis 3 ans Je fais appel à Géna pour s'occuper de mon chat et de mon chien depuis 3 ans Je fais appel à Géna pour s'occuper de mon chat et de mon chien depuis 3 ans Je fais appel à Géna pour s'occuper de mon chat et de mon chien depuis 3 ans ",
-                  "avatar": "https://example.com/avatar1.jpg",
-                  "date": "2025-03-19"
-                },
-                {
-                  "id": "2",
-                  "name": "Marie D",
-                  "position": "Directrice Marketing",
-                  "company": "Tech Corp",
-                  "rating": 5,
-                  "content": "Service exceptionnel ! L'équipe est très professionnelle et réactive...",
-                  "avatar": "https://example.com/avatar2.jpg",
-                  "date": "2025-02-15"
-                },
-                {
-                  "id": "3",
-                  "name": "Thomas L",
-                  "position": "Entrepreneur",
-                  "company": "",
-                  "rating": 4,
-                  "content": "Très satisfait du service rendu. L'accompagnement personnalisé...",
-                  "avatar": "https://example.com/avatar3.jpg",
-                  "date": "2025-01-28"
-                }
-              ]
+              }
             },
             "description-2": {
               "type": "description",
