@@ -27,7 +27,7 @@
             "hasHideOnScroll": false,
             "trad": false,
             "darkMode": false,
-            "shouldDisplaySocials": false
+            "shouldDisplaySocials": true
           },
           "content": {
             "logo": {
@@ -219,13 +219,6 @@
               "features": { "isReversed": false, "isCentered": false }
             }
           }
-        }
-      },
-      {
-        "type": "floatingUI",
-        "id": "floatingSocials",
-        "datas": {
-          "features": null
         }
       },
       {
