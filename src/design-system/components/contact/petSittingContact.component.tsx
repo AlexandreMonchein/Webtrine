@@ -112,7 +112,7 @@ const PetSittingContact = () => {
       const visitFrequency = e.target.visitFrequency.value || null;
       const petType = e.target.petType.value || null;
       const additionalInfo = e.target.additionalInfo.value || null;
-      const reply_to = e.target.email.value || null;
+      const replyTo = email || "webtrine.pro@gmail.com";
 
       const datas = {
         firstName,
@@ -127,7 +127,7 @@ const PetSittingContact = () => {
         visitFrequency,
         petType,
         additionalInfo,
-        reply_to,
+        replyTo,
       };
 
       const serviceId = "service_4fc2bmb";
