@@ -99,12 +99,12 @@ export const MapContainer = styled(LeafletMapContainer)`
 `;
 
 export const ZoneContainer = styled(LeafletMapContainer)`
-  height: 50vh;
+  height: 40vh;
 
   ${bp.min(
     breakpointNames.wide,
     css`
-      height: 30vh;
+      height: 35vh;
     `,
   )}
 `;

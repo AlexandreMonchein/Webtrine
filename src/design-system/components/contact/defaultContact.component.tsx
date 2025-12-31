@@ -51,7 +51,7 @@ const DefaultContact = ({ datas }) => {
       const emailFrom = e.target.email.value || null;
       const number = e.target.phone.value || null;
       const content = e.target.content.value || null;
-      const reply_to = e.target.email.value || null;
+      const replyTo = email || "webtrine.pro@gmail.com";
 
       const datas = {
         name,
@@ -59,7 +59,7 @@ const DefaultContact = ({ datas }) => {
         emailFrom,
         number,
         content,
-        reply_to,
+        replyTo,
       };
 
       const serviceId = "service_4fc2bmb";
@@ -87,7 +87,7 @@ const DefaultContact = ({ datas }) => {
         setIsSubmitting(false);
       }
     },
-    [isSubmitting, templateId, dispatch, t],
+    [isSubmitting, email, templateId, dispatch, t],
   );
 
   const title = t("contact.title");

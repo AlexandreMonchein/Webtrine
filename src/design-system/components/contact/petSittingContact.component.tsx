@@ -13,7 +13,7 @@ import {
   Button,
   ClientInfo,
   ContactForm,
-  ContactSection,
+  ContactSectionWithZone,
   Content,
   Description,
   Field,
@@ -163,7 +163,7 @@ const PetSittingContact = () => {
   const subTitle = t("contact.description");
 
   return (
-    <ContactSection>
+    <ContactSectionWithZone>
       <PopUp />
       <Content>
         {title ? <Title>{title}</Title> : null}
@@ -467,7 +467,7 @@ const PetSittingContact = () => {
           </FormDisplay>
         </FormContainer>
       </Content>
-    </ContactSection>
+    </ContactSectionWithZone>
   );
 };
 

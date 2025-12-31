@@ -24,6 +24,27 @@ export const ContactSection = styled.section`
   )}
 `;
 
+export const ContactSectionWithZone = styled.section`
+  padding: 40px 120px;
+  margin: 0 auto;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+
+  ${bp.max(
+    breakpointNames.medium,
+    css`
+      padding: 20px 40px;
+    `,
+  )}
+
+  ${bp.min(
+    breakpointNames.wide,
+    css`
+      padding: 20px 360px;
+    `,
+  )}
+`;
+
 export const SocialLogos = styled.div`
   display: flex;
   justify-content: start;

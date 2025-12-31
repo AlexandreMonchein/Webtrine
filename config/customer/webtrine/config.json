@@ -7,7 +7,7 @@
       "name": "Alexandre Monschein",
       "phone": "+33614612295",
       "email": "webtrine.pro@gmail.com",
-      "mailTemplate": "template_8b4j0fm"
+      "mailTemplate": "template_u67t0nr"
     },
     "socials": {
       "linkedin": {
@@ -107,11 +107,11 @@
                   "text": "Nous mettons à votre disposition une sélection de templates prêts à l'emploi pour poser les bases de votre site. Et si aucun ne correspond parfaitement à vos attentes, pas de souci : nous en créerons un sur mesure, ensemble !"
                 }
               ],
-              "image": {
+              "images": [{
                 "name": "description_image_1",
                 "alt": "",
                 "focusable": false
-              }
+              }]
             },
             "description-2": {
               "type": "description",
@@ -143,11 +143,11 @@
                   "text": "Notre formule tout-en-un vous offre dès le départ tout ce dont vous avez besoin pour un site complet et performant, sans avoir à ajouts différentes options au fur et à mesure."
                 }
               ],
-              "image": {
+              "images": [{
                 "name": "accueil_image_2",
                 "alt": "",
                 "focusable": false
-              }
+              }]
             },
             "list-1": {
               "type": "imageList",
@@ -159,6 +159,11 @@
                   "alt": "Logo entreprise cliente: Di Paolo",
                   "link": "https://www.labodipaolo.com",
                   "src": "dipaolo"
+                },
+                {
+                  "alt": "Logo entreprise cliente: Chill Paws",
+                  "link": "https://www.chillpaws.fr",
+                  "src": "chillpaws"
                 }
               ]
             },
@@ -256,11 +261,11 @@
                   "text": "J’ai hâte de collaborer avec vous et de donner vie à votre projet web !"
                 }
               ],
-              "image": {
+              "images": [{
                 "name": "accueil_image_1",
                 "alt": "",
                 "focusable": false
-              }
+              }]
             },
             "banner-2": {
               "type": "banner",
@@ -334,11 +339,11 @@
                   "text": "Grâce à cette infrastructure hébergée chez OVH, nous assurons à nos clients des sites performants, sécurisés et accessibles en permanence."
                 }
               ],
-              "image": {
+              "images": [{
                 "name": "hosting_image_1",
                 "alt": "",
                 "focusable": false
-              }
+              }]
             },
             "banner-2": {
               "type": "banner",
@@ -399,11 +404,11 @@
                   "text": "Permettre à toute ces personnes d'accéder à l'information et de naviguer sur le web est essentiel. C'est un droit fondamental qui doit être respecté. En intégrant des pratiques d'accessibilité dans nos sites, nous contribuons à créer un web plus inclusif et équitable."
                 }
               ],
-              "image": {
+              "images": [{
                 "name": "accessibility_image_1",
                 "alt": "",
                 "focusable": false
-              }
+              }]
             },
             "description-2": {
               "type": "description",
@@ -474,11 +479,11 @@
                   "text": "Pour plus de renseignement, vous pouvez consulter le site de l'éditeur: <a style='font-size: inherit;' href=\"https://luciole-vision.com/\">luciole-vision.com</a>"
                 }
               ],
-              "image": {
+              "images": [{
                 "name": "accessibility_image_2",
                 "alt": "",
                 "focusable": false
-              }
+              }]
             },
             "banner-2": {
               "type": "banner",

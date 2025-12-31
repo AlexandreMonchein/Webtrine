@@ -52,6 +52,13 @@ export const Content = styled.div`
   &.isReversed {
     flex-direction: row-reverse;
     justify-content: space-between;
+
+    ${bp.max(
+      breakpointNames.medium,
+      css`
+        flex-direction: column;
+      `,
+    )};
   }
 
   ${bp.max(
@@ -105,7 +112,12 @@ export const Image = styled.img`
   border-radius: 24px;
 
   &.isCentered {
-    width: auto;
+    ${bp.min(
+      breakpointNames.medium,
+      css`
+        width: auto;
+      `,
+    )};
   }
 `;
 
