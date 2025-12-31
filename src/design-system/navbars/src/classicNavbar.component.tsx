@@ -36,6 +36,8 @@ import {
   SubCategoryContainer,
 } from "./classicNavbar.styled";
 
+const componentFiles = import.meta.glob("../../../assets/**/*.component.tsx");
+
 const ClassicNavbar = (props) => {
   const { i18n } = useTranslation();
   const dispatch = useDispatch();
@@ -43,8 +45,6 @@ const ClassicNavbar = (props) => {
   const { name: clientName } = useSelector(getClient);
   const socials = useSelector(getSocials);
   const modal = useSelector(getModalState);
-
-  const componentFiles = import.meta.glob("../../../assets/**/*.component.tsx");
 
   useEffect(() => {
     const loadComponents = async () => {
@@ -86,7 +86,7 @@ const ClassicNavbar = (props) => {
     };
 
     loadComponents();
-  }, [componentFiles, socials]);
+  }, [socials]);
 
   const {
     features: {
