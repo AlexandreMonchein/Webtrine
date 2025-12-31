@@ -156,7 +156,7 @@ const PetSittingContact = () => {
         setIsSubmitting(false);
       }
     },
-    [isSubmitting, templateId, dispatch, t],
+    [isSubmitting, email, templateId, dispatch, t],
   );
 
   const title = t("contact.title");
@@ -348,10 +348,12 @@ const PetSittingContact = () => {
                     {t("contact.preVisitDateTimeHint")}
                   </Hint>
                   <Input
-                    type="datetime-local"
+                    type="date"
                     id="preVisitDateTime"
                     name="preVisitDateTime"
-                    min={new Date().toISOString().slice(0, 16)}
+                    max={
+                      firstVisitDate || new Date().toISOString().split("T")[0]
+                    }
                     required
                     aria-required="true"
                     aria-describedby="hint-preVisitDateTime"
