@@ -262,6 +262,10 @@ const TestimonialCards: React.FC<TestimonialCardsProps> = (props) => {
     }
   }, [fetchGoogleReviews, dataId]);
 
+  if (testimonials.length === 0) {
+    return null;
+  }
+
   return (
     <Section onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
       {title ? <Title>{title}</Title> : null}
