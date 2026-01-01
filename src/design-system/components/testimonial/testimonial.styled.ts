@@ -169,19 +169,22 @@ export const TestimonialContent = styled.blockquote`
   margin: 0;
   font-size: 1rem;
   line-height: 1.6;
-  height: 110px;
+  max-height: 110px;
   color: var(--text-color, #1a1a1a);
   position: relative;
 
-  // Lineclamp
+  // Multi-line ellipsis avec -webkit-line-clamp
   overflow: hidden;
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: 5;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
   padding-block: 0 !important;
 
   @media ${breakpoints.tablet} {
     font-size: 1.125rem;
+    -webkit-line-clamp: 4;
   }
 `;
 

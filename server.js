@@ -1,21 +1,24 @@
+import bodyParser from "body-parser";
 import cors from "cors";
 import dotenv from "dotenv";
 import express from "express";
-import { dirname, join } from "path";
+import path from "path";
+import { dirname } from "path";
 import { getJson } from "serpapi";
 import { fileURLToPath } from "url";
-
-dotenv.config();
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-const app = express();
-const PORT = process.env.VITE_PORT || 3001;
+dotenv.config();
 
-// Middlewares
+const port = 5000;
+
+const app = express();
+
 app.use(cors());
-app.use(express.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 // Route API pour récupérer les reviews Google
 app.get("/api/reviews", async (req, res) => {
@@ -29,40 +32,28 @@ app.get("/api/reviews", async (req, res) => {
     // Utiliser google_maps_reviews pour obtenir les avis
     const results = await getJson({
       engine: "google_maps_reviews",
-      api_key: process.env.VITE_SERPAPI_KEY,
+      api_key:
+        "8a37493c357fc96c542460ecedbee27211b005c84ea482e138caedff6980c995",
       data_id: dataId,
       hl: "fr",
     });
 
     return res.json(results);
-  } catch (error) {
-    console.error("Erreur SerpAPI:", error);
+  } catch (err) {
+    console.error("Erreur SerpAPI:", err);
     return res
       .status(500)
-      .json({ error: "Erreur lors de la récupération des reviews" });
+      .json({ error: `Erreur lors de la récupération des reviews: ${err}` });
   }
 });
 
-// Servir les fichiers statiques du build React
-app.use(
-  express.static(
-    join(__dirname, "build", process.env.VITE_CUSTOMER || "showcase"),
-  ),
-);
+app.use(express.static(path.join(__dirname, "html")));
 
-// Route catch-all pour le React Router (doit être après toutes les routes API)
-app.use((req, res) => {
-  res.sendFile(
-    join(
-      __dirname,
-      "build",
-      process.env.VITE_CUSTOMER || "showcase",
-      "index.html",
-    ),
-  );
+app.use("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "html/index.html"));
 });
 
-app.listen(PORT, () => {
-  console.log(`✅ Serveur démarré sur le port ${PORT}`);
-  console.log(`📍 API disponible sur http://localhost:${PORT}/api/reviews`);
+app.listen(port, () => {
+  console.log(`✅ Serveur démarré sur le port ${port}`);
+  console.log(`📍 API disponible sur http://localhost:${port}/api/reviews`);
 });

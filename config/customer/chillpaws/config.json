@@ -2,7 +2,7 @@
   "client": {
     "logo": "logo_chillpaws_color_2",
     "name": "chillpaws",
-    "fullName": "Chill Paws",
+    "fullName": "ChillPaws",
     "contact": {
       "name": "Oceane Michel",
       "phone": "06.24.78.74.42",
@@ -227,12 +227,12 @@
         "name": "Home",
         "datas": {
           "title": "Accueil",
-          "description": "Chillpaws, pet sitting à Lyon - Saint-Etienne",
+          "description": "ChillPaws, pet sitting à Lyon - Saint-Etienne",
           "content": {
             "banner-1": {
               "type": "banner",
               "features": { "multi": false, "medium": true },
-              "title": "Chill paws",
+              "title": "Chillpaws",
               "subTitle": "Votre pet-sitter professionnel à domicile",
               "subTitle2": "Lyon - Saint-Etienne",
               "images": [
@@ -244,14 +244,14 @@
             },
             "description-1": {
               "type": "description",
-              "title": "Pourquoi faire appel à Chill Paws ?",
+              "title": "Pourquoi faire appel à ChillPaws ?",
               "features": { "isReversed": false, "isCentered": false },
               "content": [
                 {
                   "text": "Vous partez en vacances ou en déplacement professionnel ? Une hospitalisation, un imprévu ? Ou bien n’avez pas le temps pour les promener, l'emmener chez le vétérinaire ou au toilettage ?"
                 },
                 {
-                  "text": "Chill Paws est là pour s’occuper de votre animal avec bienveillance et professionnalisme. Partez l’esprit tranquille et sans stress, avec des nouvelles régulières (photos et vidéos) de votre compagnon. Je suis pet sitter à domicile, légalement déclarée et certifiée, afin de vous offrir, à vous et à votre animal, des soins de qualité et un service fiable."
+                  "text": "ChillPaws est là pour s’occuper de votre animal avec bienveillance et professionnalisme. Partez l’esprit tranquille et sans stress, avec des nouvelles régulières (photos et vidéos) de votre compagnon. Je suis pet sitter à domicile, légalement déclarée et certifiée, afin de vous offrir, à vous et à votre animal, des soins de qualité et un service fiable."
                 },
                 {
                   "text": "Les animaux de compagnie tels que les chats, furets, petits mammifères et lagomorphes (lapins, etc...) sont très sensibles au stress lorsque leur environnement est perturbé."
@@ -440,7 +440,7 @@
                   "title": "Pré-visite offerte si pub",
                   "description": [
                     {
-                      "text": "La pré-visite vous est offerte si vous me faites une publication/story sur l'un de vos réseaux sociaux (Facebook, Instagram, etc.)"
+                      "text": "La pré-visite vous est offerte si vous me faites une publication/story sur l'un de vos réseaux sociaux (Instagram...)"
                     }
                   ]
                 },
@@ -511,10 +511,10 @@
                   "text": "La garde d’animaux est une activité qui demande des connaissances spécifiques. C’est pourquoi je me forme continuellement et suis titulaire de l’ACACED (Attestation de Connaissances pour les Animaux de Compagnie d’Espèces Domestiques), cette formation est obligatoire, elle garantit le bien-être et le respect des animaux pris en charge, en tenant compte de leur espèce, de leur âge et de leur sexe."
                 },
                 {
-                  "text": "C’est cette passion et cette volonté de bien faire qui m’ont poussée à créer Chill Paws, En français, Chill Paws signifie « patounes tranquilles ». À travers ce nom, je souhaite transmettre la sérénité, la confiance et le bien-être que je veux offrir aux animaux lorsque leurs maîtres ne peuvent pas être présents."
+                  "text": "C’est cette passion et cette volonté de bien faire qui m’ont poussée à créer ChillPaws, En français, ChillPaws signifie « patounes tranquilles ». À travers ce nom, je souhaite transmettre la sérénité, la confiance et le bien-être que je veux offrir aux animaux lorsque leurs maîtres ne peuvent pas être présents."
                 },
                 {
-                  "text": "Je suis une personne motivée et déterminer à réaliser mes project. Mon objectif avec Chill Paws est d’en faire, à terme, mon activité principale et d’évoluer dans ce domaine. Je souhaite poursuivre des formations afin de proposer à l’avenir des services de comportementalisme animalier ainsi que des pensions à mon domicile. Ces services seront développés progressivement, afin de garantir un cadre stable et sécurisé."
+                  "text": "Je suis une personne motivée et déterminer à réaliser mes project. Mon objectif avec ChillPaws est d’en faire, à terme, mon activité principale et d’évoluer dans ce domaine. Je souhaite poursuivre des formations afin de proposer à l’avenir des services de comportementalisme animalier ainsi que des pensions à mon domicile. Ces services seront développés progressivement, afin de garantir un cadre stable et sécurisé."
                 },
                 {
                   "text": "Sous ma garde, vos compagnons sont eux aussi en vacances : choyés, câlinés et entourés selon leurs besoins."
@@ -817,7 +817,7 @@
               },
               "content": [
                 {
-                  "text": "Chill Paws souhaite récompenser votre fidélité grâce à son programme de fidélité. Toutes les 10 visites, une visite vous est offerte, ainsi qu’un jouet pour votre animal."
+                  "text": "ChillPaws souhaite récompenser votre fidélité grâce à son programme de fidélité. Toutes les 10 visites, une visite vous est offerte, ainsi qu’un jouet pour votre animal."
                 },
                 {
                   "text": "Le cadeau sera choisi avec vous parmi plusieurs options. Si votre animal n’est pas joueur, des friandises sauront certainement le ravir."
@@ -1005,7 +1005,7 @@
         "id": "gallery",
         "datas": {
           "title": "Album photo",
-          "description": "L’album photo permet d’immortaliser vos animaux pendant leur garde. Une garde est un moment convivial avec votre animal de ce fait je l’Immortale pour vous. Avec votre autorisation, je partage ces photos sur les réseaux sociaux afin de montrer mon travail et le bien-être des animaux que je garde. </br> Ils nous ont fait confiance, suivez leurs avantures sur <a style='font-size: inherit;' href=\"https://www.facebook.com/chill_paws_off/\">Facebook</a> et <a style='font-size: inherit;' href=\"https://www.instagram.com/chill_paws_off/\">Instagram</a> !",
+          "description": "L’album photo permet d’immortaliser vos animaux pendant leur garde. Une garde est un moment convivial avec votre animal de ce fait je l’Immortale pour vous. Avec votre autorisation, je partage ces photos sur les réseaux sociaux afin de montrer mon travail et le bien-être des animaux que je garde. </br> Ils nous ont fait confiance, suivez leurs avantures sur <a style='font-size: inherit;' href=\"https://www.instagram.com/chill_paws_off/\">Instagram</a> !",
           "features": { "canFullScreen": true, "shouldRedirect": false },
           "inventory": [
             {
@@ -1058,6 +1058,16 @@
               "alt": "Photo de chien: Léo - 5 mois",
               "imageSrc": "IMG_7899",
               "description": "Léo - 5 mois"
+            },
+            {
+              "alt": "Photo de chien: Chelsea - 6 ans",
+              "imageSrc": "IMG_8048",
+              "description": "Chelsea - 6 ans"
+            },
+            {
+              "alt": "Photo de chien: Ice - 2 mois",
+              "imageSrc": "IMG_8001",
+              "description": "Ice - 2 mois"
             }
           ]
         }
@@ -1086,8 +1096,8 @@
                     "items": [
                       {
                         "id": "gen-1",
-                        "question": "Qu’est-ce que Chill Paws ?",
-                        "answer": "<p><strong>Chill Paws</strong> est un service de <strong>pet-sitting à domicile</strong> (visites et promenades) sur le secteur <strong>Lyon – Saint-Étienne</strong>.</p><p>Je me déplace directement chez vous pour prendre soin de vos animaux, dans leur environnement, afin de limiter le stress lié aux déplacements.</p>"
+                        "question": "Qu’est-ce que ChillPaws ?",
+                        "answer": "<p><strong>ChillPaws</strong> est un service de <strong>pet-sitting à domicile</strong> (visites et promenades) sur le secteur <strong>Lyon – Saint-Étienne</strong>.</p><p>Je me déplace directement chez vous pour prendre soin de vos animaux, dans leur environnement, afin de limiter le stress lié aux déplacements.</p>"
                       },
                       {
                         "id": "gen-2",
@@ -1159,7 +1169,7 @@
                       {
                         "id": "pre-3",
                         "question": "La pré-visite est-elle gratuite ?",
-                        "answer": "<p>La pré-visite peut être <strong>offerte</strong> si vous me recommandez ou si vous faites une <strong>publication/story</strong> sur l’un de vos réseaux sociaux (Facebook, Instagram…).</p><p>Dans les autres cas, le tarif vous sera précisé lors de notre échange.</p>"
+                        "answer": "<p>La pré-visite peut être <strong>offerte</strong> si vous me recommandez ou si vous faites une <strong>publication/story</strong> sur l’un de vos réseaux sociaux (Instagram…).</p><p>Dans les autres cas, le tarif vous sera précisé lors de notre échange.</p>"
                       }
                     ]
                   },
@@ -1254,7 +1264,7 @@
                       {
                         "id": "priv-4",
                         "question": "Comment exercer mes droits RGPD (accès, rectification, suppression) ?",
-                        "answer": "<p>Conformément au RGPD, vous pouvez demander l’accès, la rectification, l’opposition, la limitation ou la suppression de vos données.</p><p>Pour exercer vos droits, contactez Chill Paws à l’adresse : <strong>oceanemic.petsitting@gmail.com</strong>.</p>"
+                        "answer": "<p>Conformément au RGPD, vous pouvez demander l’accès, la rectification, l’opposition, la limitation ou la suppression de vos données.</p><p>Pour exercer vos droits, contactez ChillPaws à l’adresse : <strong>oceanemic.petsitting@gmail.com</strong>.</p>"
                       }
                     ]
                   },
@@ -1264,7 +1274,7 @@
                     "items": [
                       {
                         "id": "contact-1",
-                        "question": "Comment contacter Chill Paws ?",
+                        "question": "Comment contacter ChillPaws ?",
                         "answer": "<p>Vous pouvez me contacter :</p><ul><li><strong>Téléphone</strong> : 06.24.78.74.42</li><li><strong>Email</strong> : oceanemic.petsitting@gmail.com</li><li>Via le <strong>formulaire de contact</strong> du site</li></ul><p>Je réponds rapidement, <strong>7j/7</strong>.</p>"
                       }
                     ]
