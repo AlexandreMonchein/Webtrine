@@ -2,7 +2,7 @@
   "client": {
     "logo": "logo_chillpaws_color_2",
     "name": "chillpaws",
-    "fullName": "ChillPaws",
+    "fullName": "Chill Paws",
     "contact": {
       "name": "Oceane Michel",
       "phone": "06.24.78.74.42",
@@ -92,7 +92,7 @@
         "name": "Information",
         "datas": {
           "title": "Informations",
-          "description": "Toutes les informations sur les prestations de Chillpaws",
+          "description": "Toutes les informations sur les prestations de Chill Paws",
           "content": {
             "description-1": {
               "id": "pet_care",
@@ -227,12 +227,12 @@
         "name": "Home",
         "datas": {
           "title": "Accueil",
-          "description": "ChillPaws, pet sitting à Lyon - Saint-Etienne",
+          "description": "Chill Paws, pet sitting à Lyon - Saint-Etienne",
           "content": {
             "banner-1": {
               "type": "banner",
               "features": { "multi": false, "medium": true },
-              "title": "Chillpaws",
+              "title": "Chill Paws",
               "subTitle": "Votre pet-sitter professionnel à domicile",
               "subTitle2": "Lyon - Saint-Etienne",
               "images": [
@@ -244,14 +244,14 @@
             },
             "description-1": {
               "type": "description",
-              "title": "Pourquoi faire appel à ChillPaws ?",
+              "title": "Pourquoi faire appel à Chill Paws ?",
               "features": { "isReversed": false, "isCentered": false },
               "content": [
                 {
                   "text": "Vous partez en vacances ou en déplacement professionnel ? Une hospitalisation, un imprévu ? Ou bien n’avez pas le temps pour les promener, l'emmener chez le vétérinaire ou au toilettage ?"
                 },
                 {
-                  "text": "ChillPaws est là pour s’occuper de votre animal avec bienveillance et professionnalisme. Partez l’esprit tranquille et sans stress, avec des nouvelles régulières (photos et vidéos) de votre compagnon. Je suis pet sitter à domicile, légalement déclarée et certifiée, afin de vous offrir, à vous et à votre animal, des soins de qualité et un service fiable."
+                  "text": "Chill Paws est là pour s’occuper de votre animal avec bienveillance et professionnalisme. Partez l’esprit tranquille et sans stress, avec des nouvelles régulières (photos et vidéos) de votre compagnon. Je suis pet sitter à domicile, légalement déclarée et certifiée, afin de vous offrir, à vous et à votre animal, des soins de qualité et un service fiable."
                 },
                 {
                   "text": "Les animaux de compagnie tels que les chats, furets, petits mammifères et lagomorphes (lapins, etc...) sont très sensibles au stress lorsque leur environnement est perturbé."
@@ -391,7 +391,7 @@
             "cards-2": {
               "type": "cardsList",
               "features": { "displayInline": false },
-              "title": "Les avantages de Chillpaws",
+              "title": "Les avantages de Chill Paws",
               "content": [
                 {
                   "title": "Titulaire de l'ACACED",
@@ -511,10 +511,10 @@
                   "text": "La garde d’animaux est une activité qui demande des connaissances spécifiques. C’est pourquoi je me forme continuellement et suis titulaire de l’ACACED (Attestation de Connaissances pour les Animaux de Compagnie d’Espèces Domestiques), cette formation est obligatoire, elle garantit le bien-être et le respect des animaux pris en charge, en tenant compte de leur espèce, de leur âge et de leur sexe."
                 },
                 {
-                  "text": "C’est cette passion et cette volonté de bien faire qui m’ont poussée à créer ChillPaws, En français, ChillPaws signifie « patounes tranquilles ». À travers ce nom, je souhaite transmettre la sérénité, la confiance et le bien-être que je veux offrir aux animaux lorsque leurs maîtres ne peuvent pas être présents."
+                  "text": "C’est cette passion et cette volonté de bien faire qui m’ont poussée à créer Chill Paws, En français, Chill Paws signifie « patounes tranquilles ». À travers ce nom, je souhaite transmettre la sérénité, la confiance et le bien-être que je veux offrir aux animaux lorsque leurs maîtres ne peuvent pas être présents."
                 },
                 {
-                  "text": "Je suis une personne motivée et déterminer à réaliser mes project. Mon objectif avec ChillPaws est d’en faire, à terme, mon activité principale et d’évoluer dans ce domaine. Je souhaite poursuivre des formations afin de proposer à l’avenir des services de comportementalisme animalier ainsi que des pensions à mon domicile. Ces services seront développés progressivement, afin de garantir un cadre stable et sécurisé."
+                  "text": "Je suis une personne motivée et déterminer à réaliser mes project. Mon objectif avec Chill Paws est d’en faire, à terme, mon activité principale et d’évoluer dans ce domaine. Je souhaite poursuivre des formations afin de proposer à l’avenir des services de comportementalisme animalier ainsi que des pensions à mon domicile. Ces services seront développés progressivement, afin de garantir un cadre stable et sécurisé."
                 },
                 {
                   "text": "Sous ma garde, vos compagnons sont eux aussi en vacances : choyés, câlinés et entourés selon leurs besoins."
@@ -817,7 +817,7 @@
               },
               "content": [
                 {
-                  "text": "ChillPaws souhaite récompenser votre fidélité grâce à son programme de fidélité. Toutes les 10 visites, une visite vous est offerte, ainsi qu’un jouet pour votre animal."
+                  "text": "Chill Paws souhaite récompenser votre fidélité grâce à son programme de fidélité. Toutes les 10 visites, une visite vous est offerte, ainsi qu’un jouet pour votre animal."
                 },
                 {
                   "text": "Le cadeau sera choisi avec vous parmi plusieurs options. Si votre animal n’est pas joueur, des friandises sauront certainement le ravir."
@@ -1096,8 +1096,8 @@
                     "items": [
                       {
                         "id": "gen-1",
-                        "question": "Qu’est-ce que ChillPaws ?",
-                        "answer": "<p><strong>ChillPaws</strong> est un service de <strong>pet-sitting à domicile</strong> (visites et promenades) sur le secteur <strong>Lyon – Saint-Étienne</strong>.</p><p>Je me déplace directement chez vous pour prendre soin de vos animaux, dans leur environnement, afin de limiter le stress lié aux déplacements.</p>"
+                        "question": "Qu’est-ce que Chill Paws ?",
+                        "answer": "<p><strong>Chill Paws</strong> est un service de <strong>pet-sitting à domicile</strong> (visites et promenades) sur le secteur <strong>Lyon – Saint-Étienne</strong>.</p><p>Je me déplace directement chez vous pour prendre soin de vos animaux, dans leur environnement, afin de limiter le stress lié aux déplacements.</p>"
                       },
                       {
                         "id": "gen-2",
@@ -1264,7 +1264,7 @@
                       {
                         "id": "priv-4",
                         "question": "Comment exercer mes droits RGPD (accès, rectification, suppression) ?",
-                        "answer": "<p>Conformément au RGPD, vous pouvez demander l’accès, la rectification, l’opposition, la limitation ou la suppression de vos données.</p><p>Pour exercer vos droits, contactez ChillPaws à l’adresse : <strong>oceanemic.petsitting@gmail.com</strong>.</p>"
+                        "answer": "<p>Conformément au RGPD, vous pouvez demander l’accès, la rectification, l’opposition, la limitation ou la suppression de vos données.</p><p>Pour exercer vos droits, contactez Chill Paws à l’adresse : <strong>oceanemic.petsitting@gmail.com</strong>.</p>"
                       }
                     ]
                   },
@@ -1274,7 +1274,7 @@
                     "items": [
                       {
                         "id": "contact-1",
-                        "question": "Comment contacter ChillPaws ?",
+                        "question": "Comment contacter Chill Paws ?",
                         "answer": "<p>Vous pouvez me contacter :</p><ul><li><strong>Téléphone</strong> : 06.24.78.74.42</li><li><strong>Email</strong> : oceanemic.petsitting@gmail.com</li><li>Via le <strong>formulaire de contact</strong> du site</li></ul><p>Je réponds rapidement, <strong>7j/7</strong>.</p>"
                       }
                     ]
@@ -1326,14 +1326,14 @@
         "datas": {
           "type": "mentions-legals",
           "title": "Mentions légales",
-          "description": "Mentions légales de Chillpaws",
+          "description": "Mentions légales de Chill Paws",
           "subTitle": "En vigueur au 01/01/2025",
           "disclaimer": "Conformément aux dispositions des Articles 6-III et 19 de la Loi n°2004-575 du 21 juin 2004 pour la Confiance dans l’économie numérique, dite L.C.E.N., il est porté à la connaissance des utilisateurs et visiteurs, ci-après l'Utilisateur, du site https://www.chillpaws.fr, les présentes mentions légales. La navigation sur le Site par l’Utilisateur implique acceptation intégrale et sans réserve des présentes mentions légales. Ces dernières sont accessibles sur le Site à la rubrique « Mentions légales ».",
           "content": [
             {
               "title": "Article 1 - L'éditeur",
               "texts": [
-                "L’édition et la direction de la publication du Site est assurée par Chillpaws, Micro entreprise, immatriculée sous le numéro SIRET: 995 118 080 00010, dont le siège social est situé au 227 rue des veloutiers, 69530 Orlienas",
+                "L’édition et la direction de la publication du Site est assurée par Chill Paws, Micro entreprise, immatriculée sous le numéro SIRET: 995 118 080 00010, dont le siège social est situé au 227 rue des veloutiers, 69530 Orlienas",
                 "Contact : 06.24.78.74.42 - oceanemic.petsitting@gmail.com",
                 "Le responsable de la publication est Océane Michel"
               ]
@@ -1383,15 +1383,15 @@
         "id": "legals",
         "datas": {
           "type": "confidentialite",
-          "title": "Politique de confidentialité du site: Chillpaws",
-          "description": "Politique de confidentialité de Chillpaws",
+          "title": "Politique de confidentialité du site: Chill Paws",
+          "description": "Politique de confidentialité de Chill Paws",
           "subTitle": "En vigueur au 01/01/2025",
           "disclaimer": null,
           "content": [
             {
               "title": "Article 1 - Collecte des données personnelles :",
               "texts": [
-                "Chillpaws s'engage à respecter la vie privée de ses utilisateurs. Des données personnelles peuvent être collectées via le site, notamment via le formulaire de contact (ex : nom, prénom, adresse e-mail, numéro de téléphone, message). Ces informations sont strictement confidentielles et utilisées uniquement pour répondre aux demandes, assurer le suivi des échanges et organiser les prestations de petsitting (garde, visites, promenades, etc.)."
+                "Chill Paws s'engage à respecter la vie privée de ses utilisateurs. Des données personnelles peuvent être collectées via le site, notamment via le formulaire de contact (ex : nom, prénom, adresse e-mail, numéro de téléphone, message). Ces informations sont strictement confidentielles et utilisées uniquement pour répondre aux demandes, assurer le suivi des échanges et organiser les prestations de petsitting (garde, visites, promenades, etc.)."
               ]
             },
             {
@@ -1412,21 +1412,21 @@
             {
               "title": "Article 4 - Responsable du traitement des données",
               "texts": [
-                "Le responsable du traitement des données est Chillpaws Micro Entreprise – 227 rue des veloutiers, 69530 Orlienas",
-                "Conformément à la réglementation en vigueur (RGPD et loi Informatique et Libertés), les utilisateurs disposent d'un droit d'accès, de rectification, d'opposition, de limitation et de suppression de leurs données personnelles. Pour exercer ces droits, il suffit de contacter Chillpaws à l'adresse suivante : oceanemic.petsitting@gmail.com.",
+                "Le responsable du traitement des données est Chill Paws Micro Entreprise – 227 rue des veloutiers, 69530 Orlienas",
+                "Conformément à la réglementation en vigueur (RGPD et loi Informatique et Libertés), les utilisateurs disposent d'un droit d'accès, de rectification, d'opposition, de limitation et de suppression de leurs données personnelles. Pour exercer ces droits, il suffit de contacter Chill Paws à l'adresse suivante : oceanemic.petsitting@gmail.com.",
                 "Les données issues du formulaire de contact sont conservées le temps de traiter la demande, puis supprimées."
               ]
             },
             {
               "title": "Article 5 - Sécurité des données :",
               "texts": [
-                "Chillpaws met en œuvre toutes les mesures techniques et organisationnelles raisonnables nécessaires pour garantir la sécurité et la confidentialité des données personnelles et empêcher leur accès non autorisé, leur divulgation, leur altération ou leur destruction."
+                "Chill Paws met en œuvre toutes les mesures techniques et organisationnelles raisonnables nécessaires pour garantir la sécurité et la confidentialité des données personnelles et empêcher leur accès non autorisé, leur divulgation, leur altération ou leur destruction."
               ]
             },
             {
               "title": "Article 6 - Modifications de la politique de confidentialité :",
               "texts": [
-                "Chillpaws se réserve le droit de modifier à tout moment la présente politique de confidentialité. Les utilisateurs seront informés de toute modification substantielle via le site."
+                "Chill Paws se réserve le droit de modifier à tout moment la présente politique de confidentialité. Les utilisateurs seront informés de toute modification substantielle via le site."
               ]
             }
           ]
