@@ -14,6 +14,7 @@ export const Card = ({ data, type }) => {
       <Image
         alt={alt}
         src={`${import.meta.env.BASE_URL}assets/${customer}/${imageSrc}.webp`}
+        loading="lazy"
       />
     </Wrapper>
   );

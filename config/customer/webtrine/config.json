@@ -1,6 +1,6 @@
 {
   "client": {
-    "logo": "webtrine_logo_2_blanc_noTitle",
+    "logo": "webtrine_logo_2_color_noTitle",
     "name": "webtrine",
     "fullName": "Webtrine",
     "contact": {
@@ -182,7 +182,7 @@
                 },
                 {
                   "title": "Un investissement accessible",
-                  "description": [{ "text": "À partir de 450€ HT, un site vitrine représente un investissement abordable pour accroître votre présence en ligne et attirer de nouveaux clients." }]
+                  "description": [{ "text": "À partir de 450€ TTC, un site vitrine représente un investissement abordable pour accroître votre présence en ligne et attirer de nouveaux clients." }]
                 }
               ]
             },
@@ -599,10 +599,10 @@
               "descriptionTop": "Webtrine, c’est une offre tout-en-un : un package complet pour créer et lancer votre site sans prise de tête.",
               "descriptionBottom": [
                 { "text": "* Si vous le faites héberger chez nous" },
-                { "text": "** Pour un supplément de 200€/an HT" },
+                { "text": "** Pour un supplément de 200€/an TTC" },
                 { "text": "*** Sur les 6 mois suivant le déploiement du site" }
               ],
-              "price": "450,00€ HT",
+              "price": "450,00€ TTC",
               "per": null,
               "additionalDescription": null
             },
@@ -616,7 +616,7 @@
                 "columns": [
                   { "header": "Type de prestation", "key": "type" },
                   { "header": "Détail", "key": "detail" },
-                  { "header": "Tarif HT", "key": "price" }
+                  { "header": "Tarif TTC", "key": "price" }
                 ],
                 "data": [
                   {

@@ -862,16 +862,16 @@
               "features": { "isReversed": false, "isCentered": true },
               "content": [
                 {
-                  "text": "1 h : 16 € par jour"
+                  "text": "1 h : 10 € par jour"
                 },
                 {
-                  "text": "Forfait 2 jours : 30 €"
+                  "text": "Forfait 2 jours : 20 €"
                 },
                 {
-                  "text": "Forfait 5 jours : 80 €"
+                  "text": "Forfait 5 jours : 50 €"
                 },
                 {
-                  "text": "Forfait une semaine (7 jours) : 100 €"
+                  "text": "Forfait une semaine (7 jours) : 70 €"
                 },
                 {
                   "text": "* Supplément de 5 € par animal en plus par semaine"
@@ -895,16 +895,16 @@
               "features": { "isReversed": true, "isCentered": true },
               "content": [
                 {
-                  "text": "1 h : 12 € par jour"
+                  "text": "1 h : 10 € par jour"
                 },
                 {
                   "text": "Forfait 2 jours : 20 €"
                 },
                 {
-                  "text": "Forfait 5 jours : 55 €"
+                  "text": "Forfait 5 jours : 50 €"
                 },
                 {
-                  "text": "Forfait une semaine (7 jours) : 80 €"
+                  "text": "Forfait une semaine (7 jours) : 70 €"
                 },
                 {
                   "text": "* Supplément de 5 € par animal en plus par semaine"
@@ -1035,11 +1035,6 @@
               "description": "Nougat - 7 mois"
             },
             {
-              "alt": "Photo de chat: Elios - 10 ans",
-              "imageSrc": "IMG_6616",
-              "description": "Elios - 10 ans"
-            },
-            {
               "alt": "Photo de chat: Minoune - 2 ans",
               "imageSrc": "IMG_7897",
               "description": "Minoune - 2 ans"
@@ -1066,8 +1061,28 @@
             },
             {
               "alt": "Photo de chien: Ice - 2 mois",
-              "imageSrc": "IMG_8001",
+              "imageSrc": "IMG_8285",
               "description": "Ice - 2 mois"
+            },
+            {
+              "alt": "Photo de chien: Jojo - 2 ans",
+              "imageSrc": "IMG_8236",
+              "description": "Jojo - 2 ans"
+            },
+            {
+              "alt": "Photo de 3 chiens: Oyat - 7 ans",
+              "imageSrc": "IMG_8368",
+              "description": "Oyat - 7 ans"
+            },
+            {
+              "alt": "Photo de 3 chiens: Jordan - 11 ans",
+              "imageSrc": "IMG_8366",
+              "description": "Jordan - 11 ans"
+            },
+            {
+              "alt": "Photo de 3 chiens: J'adore - 11 ans",
+              "imageSrc": "IMG_8340",
+              "description": "J'adore - 11 ans"
             }
           ]
         }
