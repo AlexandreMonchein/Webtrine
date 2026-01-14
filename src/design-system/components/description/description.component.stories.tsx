@@ -5,7 +5,7 @@ import DescriptionComponent from "./description.component";
 
 const meta: Meta<typeof DescriptionComponent> = {
   component: DescriptionComponent,
-  title: "Design System/Components/Description/TextDescription",
+  title: "Design System/Components/Description/Description",
   decorators: [
     (Story) => (
       <MemoryRouter>
@@ -33,26 +33,28 @@ Copiez et adaptez cette configuration dans votre \`config.json\` :
     "isReversed": false,
     "isContinuous": false
   },
-  "title": "Titre de votre section",
+  "title": "description h2 title data-1",
   "content": [
     {
-      "text": "Premier paragraphe de contenu. Supporte le HTML basique."
+      "text": "description p text data-1. Lorem ipsum dolor sit amet, consectetur adipiscing elit."
     },
     {
-      "text": "Deuxième paragraphe avec <strong>mise en forme</strong> si nécessaire."
+      "text": "description p text data-2. Lorem ipsum dolor sit amet with <strong>HTML formatting</strong>."
     },
     {
       "button": {
-        "label": "Nos services",
-        "to": "/nos-services"
+        "label": "description button label data-1",
+        "to": "/link-1"
       }
     }
   ],
-  "image": {
-    "name": "nom_de_votre_image",
-    "alt": "Description alternative de l'image",
-    "focusable": false
-  }
+  "images": [
+    {
+      "name": "square_image",
+      "alt": "description img alt data-1",
+      "focusable": false
+    }
+  ]
 }
 \`\`\`
 
@@ -88,10 +90,10 @@ Copiez et adaptez cette configuration dans votre \`config.json\` :
       description:
         "Tableau d'objets contenant le texte à afficher ou des boutons. Le texte supporte le HTML (sanitisé avec DOMPurify). Les boutons utilisent React Router Link.",
     },
-    image: {
+    images: {
       control: "object",
       description:
-        "Configuration de l'image : name (nom du fichier), alt (texte alternatif), focusable (accessible au clavier)",
+        "Tableau d'images : name (nom du fichier), alt (texte alternatif), focusable (accessible au clavier)",
     },
   },
 };
@@ -105,38 +107,40 @@ export const Default: Story = {
   args: {
     type: "description",
     features: { isReversed: false, isContinious: false },
-    title: "Une petite présentation s'impose !",
+    title: "description h2 title data-1",
     content: [
       {
-        text: "Bonjour et bienvenue !",
+        text: "description p text data-1",
       },
       {
-        text: "Je m'appelle Alexandre, j'ai 24 ans et je suis développeur web. Ma passion dans ce domaine, c'est de créer des sites esthétiques et faciles à utiliser.",
+        text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
       },
       {
-        text: "C'est cette passion qui m'a poussé à lancer mon propre projet, afin d'exprimer ma créativité et mon amour pour le développement web.",
+        text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
       },
       {
-        text: "C'est ainsi qu'est née Webtrine. Webtrine c'est une solution que j'ai développée pour concevoir des sites vitrines à partir de templates que je crée et améliore continuellement. Ensemble, nous pourrons rapidement mettre en place VOTRE site en utilisant ces templates.",
+        text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.",
       },
       {
-        text: "Mon objectif est de simplifier la création de votre présence en ligne. J'ai donc conçu une offre unique pour vous permettre d'obtenir facilement et rapidement votre identité web.",
+        text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.",
       },
       {
-        text: "Le processus est simple : lors d'un premier rendez-vous, nous choisirons ensemble les templates et définirons les aspects graphiques ainsi que les formalités (comme le nom de domaine). Ensuite, vous me fournirez les informations nécessaires pour remplir votre site. En quelques jours seulement, votre site sera opérationnel et en ligne.",
+        text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.",
       },
       {
-        text: "Avec Webtrine, la création de votre site vitrine n'a jamais été aussi simple.",
+        text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur.",
       },
       {
-        text: "Au plaisir de collaborer avec vous !",
+        text: "description p text data-8",
       },
     ],
-    image: {
-      name: "square_image",
-      alt: "Présentation de l'équipe Webtrine",
-      focusable: false,
-    },
+    images: [
+      {
+        name: "square_image_1",
+        alt: "description img alt data-1",
+        focusable: false,
+      },
+    ],
   },
   parameters: {
     docs: {
@@ -155,26 +159,28 @@ export const Reversed: Story = {
       isReversed: true,
       isContinious: false,
     },
-    title: "Notre approche technique",
+    title: "description h2 title data-1",
     content: [
       {
-        text: "Développement moderne et performant",
+        text: "description p text data-1",
       },
       {
-        text: "Nous utilisons les dernières technologies web pour garantir des sites rapides, sécurisés et évolutifs.",
+        text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
       },
       {
-        text: "Notre stack technique comprend React, TypeScript, et des outils de build modernes pour une expérience développeur optimale.",
+        text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.",
       },
       {
-        text: "Chaque projet bénéficie d'une architecture pensée pour la scalabilité et la maintenabilité à long terme.",
+        text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.",
       },
     ],
-    image: {
-      name: "square_image",
-      alt: "Illustration des technologies modernes",
-      focusable: false,
-    },
+    images: [
+      {
+        name: "square_image_1",
+        alt: "description img alt data-1",
+        focusable: false,
+      },
+    ],
   },
   parameters: {
     docs: {
@@ -194,25 +200,25 @@ export const WithoutImage: Story = {
       isReversed: false,
       isContinious: false,
     },
-    title: "Nos valeurs",
+    title: "description h2 title data-1",
     content: [
       {
-        text: "Transparence et communication",
+        text: "description p text data-1",
       },
       {
-        text: "Nous croyons en une relation de confiance basée sur la transparence. Chaque étape de votre projet est communiquée clairement.",
+        text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
       },
       {
-        text: "Qualité et excellence technique",
+        text: "description p text data-3",
       },
       {
-        text: "Notre engagement pour la qualité se reflète dans chaque ligne de code et chaque pixel de design.",
+        text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
       },
       {
-        text: "Innovation et veille technologique",
+        text: "description p text data-5",
       },
       {
-        text: "Nous restons à la pointe des technologies pour vous offrir les meilleures solutions du marché.",
+        text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
       },
     ],
   },
@@ -233,35 +239,37 @@ export const WithButtons: Story = {
       isReversed: false,
       isContinious: false,
     },
-    title: "Prêt à commencer ?",
+    title: "description h2 title data-1",
     content: [
       {
-        text: "Découvrez nos services",
+        text: "description p text data-1",
       },
       {
-        text: "Nous proposons une gamme complète de solutions pour répondre à tous vos besoins digitaux.",
+        text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
       },
       {
         button: {
-          label: "Voir nos services",
+          label: "description button label data-1",
           to: "/services",
         },
       },
       {
-        text: "Vous avez un projet en tête ? N'hésitez pas à nous contacter pour en discuter.",
+        text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
       },
       {
         button: {
-          label: "Nous contacter",
+          label: "description button label data-2",
           to: "/contact",
         },
       },
     ],
-    image: {
-      name: "vertical_image",
-      alt: "Illustration des services proposés",
-      focusable: false,
-    },
+    images: [
+      {
+        name: "vertical_image_1",
+        alt: "description img alt data-1",
+        focusable: false,
+      },
+    ],
   },
   parameters: {
     docs: {

@@ -1,110 +1,23 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import type { Testimonial } from "./testimonial.types";
 import TestimonialCards from "./testimonialCards.component";
 import type { TestimonialCardsProps } from "./testimonialCards.types";
 
-// Mock data pour les témoignages
-const mockTestimonials: Testimonial[] = [
-  {
-    id: "1",
-    name: "Lucie R",
-    position: "Propriétaire d'animaux",
-    company: "",
-    rating: 5,
-    content:
-      "Je fais appel à Géna pour s'occuper de mon chat et de mon chien depuis 3 ans, pour des vacances mais aussi pour des passages ponctuels en journée. Elle s'est même occupée des gerbilles de nos amis deux ans de suite ! Elle est vraiment extra et fiable. Mes animaux l'adorent et moi je suis toujours parfaitement rassurée de lui confier.",
-    avatar:
-      "https://lh3.googleusercontent.com/a/ACg8ocIZwACmylt2HYVfqftVCS5_oBww8VBbqdXE65MQ5XC3K7Z1sw=s120-c-rp-mo-br100",
-    date: "2025-03-19",
-  },
-  {
-    id: "2",
-    name: "Marie D",
-    position: "Directrice Marketing",
-    company: "Tech Corp",
-    rating: 5,
-    content:
-      "Service exceptionnel ! L'équipe est très professionnelle et réactive. Je recommande vivement pour tous vos besoins. Ils ont dépassé nos attentes.",
-    avatar: "https://i.pravatar.cc/120?img=1",
-    date: "2025-02-15",
-  },
-  {
-    id: "3",
-    name: "Thomas L",
-    position: "Entrepreneur",
-    company: "",
-    rating: 4,
-    content:
-      "Très satisfait du service rendu. L'accompagnement personnalisé et la qualité du travail fourni sont remarquables.",
-    avatar: "https://i.pravatar.cc/120?img=3",
-    date: "2025-01-28",
-  },
-  {
-    id: "4",
-    name: "Sophie M",
-    position: "Chef de projet",
-    company: "Digital Agency",
-    rating: 5,
-    content:
-      "Une collaboration fantastique ! L'expertise technique et l'approche humaine font la différence. Je recommande sans hésiter.",
-    avatar: "https://i.pravatar.cc/120?img=5",
-    date: "2025-01-10",
-  },
-  {
-    id: "5",
-    name: "Alexandre B",
-    position: "Développeur",
-    company: "",
-    rating: 5,
-    content:
-      "Excellent service client et résultats au-delà de nos espérances. Une équipe compétente et à l'écoute.",
-    date: "2024-12-20",
-  },
-  {
-    id: "6",
-    name: "Claire F",
-    position: "Responsable Communication",
-    company: "StartupCo",
-    rating: 4,
-    content:
-      "Très bonne expérience globale. La communication était fluide et les délais respectés. Je referai appel à leurs services.",
-    avatar: "https://i.pravatar.cc/120?img=9",
-    date: "2024-11-30",
-  },
-  {
-    id: "7",
-    name: "Julien P",
-    position: "Consultant",
-    company: "",
-    rating: 5,
-    content:
-      "Une équipe professionnelle et dévouée. Ils ont su comprendre nos besoins et livrer un travail de qualité.",
-    avatar: "https://i.pravatar.cc/120?img=10",
-    date: "2024-11-15",
-  },
-  {
-    id: "8",
-    name: "Emma S",
-    position: "Designer",
-    company: "Creative Studio",
-    rating: 5,
-    content:
-      "Collaboration fluide et résultats impressionnants. Leur créativité et leur expertise sont un atout majeur.",
-    avatar: "https://i.pravatar.cc/120?img=12",
-    date: "2024-10-25",
-  },
-  {
-    id: "9",
-    name: "Nicolas G",
-    position: "Manager",
-    company: "",
-    rating: 4,
-    content:
-      "Service de qualité avec une équipe réactive. Je suis globalement très satisfait de notre collaboration.",
-    date: "2024-10-10",
-  },
-];
+// Note: Les témoignages sont chargés depuis l'API mock dans le composant
+// Les données ci-dessous servent uniquement de référence pour la documentation
+/*
+Example testimonial structure:
+{
+  id: "1",
+  name: "testimonialCards h3 name data-1",
+  position: "testimonialCards span position data-1",
+  company: "testimonialCards span company data-1",
+  rating: 5,
+  content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit...",
+  avatar: "https://i.pravatar.cc/120?img=1",
+  date: "2025-03-19",
+}
+*/
 
 const meta: Meta<typeof TestimonialCards> = {
   title: "Design System/Components/Testimonial/TestimonialCards",
@@ -150,32 +63,32 @@ Pour utiliser ce composant dans votre configuration client, ajoutez-le dans votr
     "testimonials": [
       {
         "id": "1",
-        "name": "Lucie R",
-        "position": "Propriétaire d'animaux",
-        "company": "",
+        "name": "testimonialCards h3 name data-1",
+        "position": "testimonialCards span position data-1",
+        "company": "testimonialCards span company data-1",
         "rating": 5,
-        "content": "Je fais appel à Géna pour s'occuper de mon chat et de mon chien depuis 3 ans...",
-        "avatar": "https://example.com/avatar1.jpg",
+        "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...",
+        "avatar": "https://i.pravatar.cc/120?img=1",
         "date": "2025-03-19"
       },
       {
         "id": "2",
-        "name": "Marie D",
-        "position": "Directrice Marketing",
-        "company": "Tech Corp",
+        "name": "testimonialCards h3 name data-2",
+        "position": "testimonialCards span position data-2",
+        "company": "testimonialCards span company data-2",
         "rating": 5,
-        "content": "Service exceptionnel ! L'équipe est très professionnelle et réactive...",
-        "avatar": "https://example.com/avatar2.jpg",
+        "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...",
+        "avatar": "https://i.pravatar.cc/120?img=2",
         "date": "2025-02-15"
       },
       {
         "id": "3",
-        "name": "Thomas L",
-        "position": "Entrepreneur",
+        "name": "testimonialCards h3 name data-3",
+        "position": "testimonialCards span position data-3",
         "company": "",
         "rating": 4,
-        "content": "Très satisfait du service rendu. L'accompagnement personnalisé...",
-        "avatar": "https://example.com/avatar3.jpg",
+        "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua...",
+        "avatar": "https://i.pravatar.cc/120?img=3",
         "date": "2025-01-28"
       }
     ]
@@ -209,10 +122,6 @@ Pour utiliser ce composant dans votre configuration client, ajoutez-le dans votr
     },
   },
   argTypes: {
-    testimonials: {
-      description: "Liste des témoignages à afficher",
-      control: { type: "object" },
-    },
     title: {
       description: "Titre de la section",
       control: { type: "text" },
@@ -231,10 +140,10 @@ type Story = StoryObj<TestimonialCardsProps>;
 // Sans autoplay
 export const Default: Story = {
   args: {
-    testimonials: mockTestimonials,
+    dataId: "testimonialCards-1",
     features: {
       autoplay: false,
-      autoplayDelay: 3000,
+      autoplayDelay: 2000,
     },
   },
 };
@@ -242,10 +151,10 @@ export const Default: Story = {
 // Avec autoplay activé
 export const WithAutoplay: Story = {
   args: {
-    testimonials: mockTestimonials,
+    dataId: "testimonialCards-2",
     features: {
       autoplay: true,
-      autoplayDelay: 4000,
+      autoplayDelay: 2000,
     },
   },
 };

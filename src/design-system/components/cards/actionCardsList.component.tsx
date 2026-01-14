@@ -43,6 +43,7 @@ const ActionCardsList: React.FC<ActionCardsListProps> = (props) => {
                           to={{ pathname: btn.route, hash: btn.hash || "" }}
                           state={{ type: btn.type }}
                           key={btn.label}
+                          id={btn.id}
                           type="button"
                         >
                           {btn.label}

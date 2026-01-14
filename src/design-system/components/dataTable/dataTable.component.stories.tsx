@@ -20,21 +20,21 @@ Composant de tableau flexible permettant d'afficher des données tabulaires avec
 import DataTable from './dataTable.component';
 
 const datas = {
-  title: "Mon tableau", // Optionnel
-  subTitle: "Description du tableau", // Optionnel
+  title: "dataTable h2 title data-1", // Optionnel
+  subTitle: "dataTable p subtitle data-1", // Optionnel
   features: { // Optionnel
     centeredTitles: false,
     centerContent: false
   },
   content: {
     columns: [
-      { header: "Nom", key: "name" },
-      { header: "Description", key: "description" },
-      { header: "Prix", key: "price" }
+      { header: "dataTable th header data-1", key: "name" },
+      { header: "dataTable th header data-2", key: "description" },
+      { header: "dataTable th header data-3", key: "price" }
     ],
     data: [
-      { name: "Produit 1", description: "Description du produit", price: "99€" },
-      { name: "Produit 2", description: "Autre description", price: "149€" }
+      { name: "dataTable td data-1-1", description: "Lorem ipsum dolor sit amet", price: "99€" },
+      { name: "dataTable td data-2-1", description: "Lorem ipsum dolor sit amet", price: "149€" }
     ]
   }
 };
@@ -81,61 +81,83 @@ type Story = StoryObj<typeof DataTable>;
 
 // Données d'exemple basées sur votre tableau de tarifs
 const pricingColumns = [
-  { header: "Type de prestation", key: "type" },
-  { header: "Détail", key: "detail" },
-  { header: "Tarif HT", key: "price" },
+  { header: "dataTable th header data-1", key: "type" },
+  { header: "dataTable th header data-2", key: "detail" },
+  { header: "dataTable th header data-3", key: "price" },
 ];
 
 const pricingData = [
   {
-    type: "Suppression / modification simple",
-    detail: "Texte, bouton, image, groupe d'élément simple",
-    price: "10 – 30 €",
+    type: "dataTable td data-1-1",
+    detail:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    price: "dataTable td data-1-3",
   },
   {
-    type: "Ajout",
-    detail: "Ajouter une image, un bouton, une section simple",
-    price: "40 €",
+    type: "dataTable td data-2-1",
+    detail:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    price: "dataTable td data-2-3",
   },
   {
-    type: "Création / modification de style",
-    detail: "Ajustements de style, responsive",
-    price: "50 – 100 €",
+    type: "dataTable td data-3-1",
+    detail:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    price: "dataTable td data-3-3",
   },
   {
-    type: "Nouveau composant au sein d'une section/page",
-    detail: "Nouveau composant",
-    price: "100 – 200 €",
+    type: "dataTable td data-4-1",
+    detail:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    price: "dataTable td data-4-3",
   },
   {
-    type: "Nouvelle section",
-    detail: 'Ex : "À propos", "Contact" avec formulaire simple...',
-    price: "150 – 300 €",
+    type: "dataTable td data-5-1",
+    detail:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    price: "dataTable td data-5-3",
   },
   {
-    type: "Nouvelle page complète",
-    detail: "Nouvelle page avec structure, contenu et responsive",
-    price: "250 – 500 €",
+    type: "dataTable td data-6-1",
+    detail:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    price: "dataTable td data-6-3",
   },
 ];
 
 // Données d'exemple simples
 const simpleColumns = [
-  { header: "Nom", key: "name" },
-  { header: "Email", key: "email" },
-  { header: "Rôle", key: "role" },
+  { header: "dataTable th header data-1", key: "name" },
+  { header: "dataTable th header data-2", key: "email" },
+  { header: "dataTable th header data-3", key: "role" },
 ];
 
 const simpleData = [
-  { name: "John Doe", email: "john@example.com", role: "Développeur" },
-  { name: "Jane Smith", email: "jane@example.com", role: "Designer" },
-  { name: "Bob Johnson", email: "bob@example.com", role: "Manager" },
-  { name: "Alice Brown", email: "alice@example.com", role: "Développeur" },
+  {
+    name: "dataTable td data-1-1",
+    email: "dataTable td data-1-2",
+    role: "dataTable td data-1-3",
+  },
+  {
+    name: "dataTable td data-2-1",
+    email: "dataTable td data-2-2",
+    role: "dataTable td data-2-3",
+  },
+  {
+    name: "dataTable td data-3-1",
+    email: "dataTable td data-3-2",
+    role: "dataTable td data-3-3",
+  },
+  {
+    name: "dataTable td data-4-1",
+    email: "dataTable td data-4-2",
+    role: "dataTable td data-4-3",
+  },
 ];
 
 export const Default: Story = {
   args: {
-    title: "Tableau d'exemple",
+    title: "dataTable h2 title data-1",
     content: {
       columns: simpleColumns,
       data: simpleData,
@@ -154,8 +176,8 @@ export const WithoutTitle: Story = {
 
 export const WithSubtitle: Story = {
   args: {
-    title: "Équipe de développement",
-    subTitle: "Liste des membres actifs",
+    title: "dataTable h2 title data-1",
+    subTitle: "dataTable p subtitle data-1",
     content: {
       columns: simpleColumns,
       data: simpleData,
@@ -165,8 +187,8 @@ export const WithSubtitle: Story = {
 
 export const CenteredTitles: Story = {
   args: {
-    title: "Équipe de développement",
-    subTitle: "Liste des membres actifs",
+    title: "dataTable h2 title data-1",
+    subTitle: "dataTable p subtitle data-1",
     content: {
       columns: simpleColumns,
       data: simpleData,
@@ -186,8 +208,8 @@ export const CenteredTitles: Story = {
 
 export const CenteredContent: Story = {
   args: {
-    title: "Équipe de développement",
-    subTitle: "Liste des membres actifs",
+    title: "dataTable h2 title data-1",
+    subTitle: "dataTable p subtitle data-1",
     content: {
       columns: simpleColumns,
       data: simpleData,
@@ -207,8 +229,8 @@ export const CenteredContent: Story = {
 
 export const FullyCentered: Story = {
   args: {
-    title: "Équipe de développement",
-    subTitle: "Liste des membres actifs",
+    title: "dataTable h2 title data-1",
+    subTitle: "dataTable p subtitle data-1",
     content: {
       columns: simpleColumns,
       data: simpleData,
@@ -229,9 +251,8 @@ export const FullyCentered: Story = {
 
 export const PricingTable: Story = {
   args: {
-    title: "Tarifs des prestations complémentaires",
-    subTitle:
-      "Détail des tarifs pour les modifications et ajouts sur votre site vitrine",
+    title: "dataTable h2 title data-1",
+    subTitle: "dataTable p subtitle data-1",
     content: {
       columns: pricingColumns,
       data: pricingData,
@@ -249,8 +270,8 @@ export const PricingTable: Story = {
 
 export const EmptyState: Story = {
   args: {
-    title: "Aucune donnée disponible",
-    subTitle: "Le tableau est vide",
+    title: "dataTable h2 title data-1",
+    subTitle: "dataTable p subtitle data-1",
     content: {
       columns: simpleColumns,
       data: [],

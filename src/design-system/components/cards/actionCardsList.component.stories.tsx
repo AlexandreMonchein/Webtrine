@@ -23,18 +23,18 @@ const meta: Meta<typeof ActionCardsList> = {
 "cards-1": {
   "type": "actionCardsList",
   "features": {},
-  "title": "Les Prestations Animaute",
+  "title": "actionCardsList h2 title data-1",
   "content": {
     "cards": [
       {
         "id": "1",
-        "title": "Garde d'animaux en famille",
-        "description": "Plus de 250 000 pet sitters attentionnés partout en France.",
-        "imageSrc": "/assets/images/card-placeholder-1.jpg",
+        "title": "actionCardsList h3 card-title data-1",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+        "imageSrc": "vertical_image",
         "buttons": [
-          { "label": "Garde d'animaux", "route": "/animaux" },
-          { "label": "Garde de chien", "route": "/chien" },
-          { "label": "Garde de chat", "route": "/chat" }
+          { "id": "btn-1", "label": "actionCardsList button label data-1-1", "route": "/animaux" },
+          { "id": "btn-2", "label": "actionCardsList button label data-1-2", "route": "/chien" },
+          { "id": "btn-3", "label": "actionCardsList button label data-1-3", "route": "/chat" }
         ]
       }
     ]
@@ -52,29 +52,45 @@ type Story = StoryObj<ActionCardsListProps>;
 
 export const Default: Story = {
   args: {
-    title: "Les Prestations Animaute",
+    title: "actionCardsList h2 title data-1",
     cards: [
       {
         id: "1",
-        title: "Garde d'animaux en famille",
+        title: "actionCardsList h3 card-title data-1",
         description:
-          "Plus de 250 000 pet sitters attentionnés partout en France. La meilleure alternative à la pension pour chien et à la pension pour chat.",
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
         imageSrc: "vertical_image",
         buttons: [
-          { label: "Garde d'animaux", type: "pet_care", route: "/animaux" },
-          { label: "Garde de chien", type: "dog_care", route: "/chien" },
-          { label: "Garde de chat", type: "cat_care", route: "/chat" },
+          {
+            id: "pet_care",
+            label: "actionCardsList button label data-1-1",
+            type: "pet_care",
+            route: "/animaux",
+          },
+          {
+            id: "dog_care",
+            label: "actionCardsList button label data-1-2",
+            type: "dog_care",
+            route: "/chien",
+          },
+          {
+            id: "cat_care",
+            label: "actionCardsList button label data-1-3",
+            type: "cat_care",
+            route: "/chat",
+          },
         ],
       },
       {
         id: "2",
-        title: "Promenade de chien",
+        title: "actionCardsList h3 card-title data-2",
         description:
-          "Vous n'avez pas le temps de promener votre toutou ? Nos promeneurs s'en occupent !",
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
         imageSrc: "vertical_image",
         buttons: [
           {
-            label: "Promenade de chien",
+            id: "dog_walking",
+            label: "actionCardsList button label data-2-1",
             type: "dog_walking",
             route: "/promenade",
           },
@@ -82,21 +98,33 @@ export const Default: Story = {
       },
       {
         id: "3",
-        title: "Visite de chat",
+        title: "actionCardsList h3 card-title data-3",
         description:
-          "Pendant votre absence, un cat sitter rend visite à votre chat pour le nourrir et entretenir sa litière.",
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
         imageSrc: "vertical_image",
         buttons: [
-          { label: "Visite de chat", type: "cat_visits", route: "/visite" },
+          {
+            id: "cat_visits",
+            label: "actionCardsList button label data-3-1",
+            type: "cat_visits",
+            route: "/visite",
+          },
         ],
       },
       {
         id: "4",
-        title: "Garde de NAC",
+        title: "actionCardsList h3 card-title data-4",
         description:
-          "Lapin, furet, oiseau... nos pet sitters s'adaptent à leurs besoins spécifiquement.",
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
         imageSrc: "vertical_image",
-        buttons: [{ label: "Garde de NAC", type: "nac_care", route: "/nac" }],
+        buttons: [
+          {
+            id: "nac_care",
+            label: "actionCardsList button label data-4-1",
+            type: "nac_care",
+            route: "/nac",
+          },
+        ],
       },
     ],
   },

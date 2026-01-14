@@ -173,7 +173,7 @@ export const Default: Story = {
   args: {
     testimonials: mockTestimonialsQuote,
     autoplay: false,
-    autoplayDelay: 5000,
+    autoplayDelay: 2000,
     showPagination: true,
   },
 };
@@ -183,7 +183,7 @@ export const WithAutoplay: Story = {
   args: {
     testimonials: mockTestimonialsQuote,
     autoplay: true,
-    autoplayDelay: 4000,
+    autoplayDelay: 2000,
     showPagination: true,
   },
 };
@@ -193,7 +193,7 @@ export const SingleTestimonial: Story = {
   args: {
     testimonials: [mockTestimonialsQuote[0]],
     autoplay: false,
-    autoplayDelay: 5000,
+    autoplayDelay: 2000,
     showPagination: false,
   },
 };

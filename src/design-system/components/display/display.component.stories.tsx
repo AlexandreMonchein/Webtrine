@@ -22,19 +22,19 @@ Copiez et adaptez cette configuration dans votre \`config.json\` :
 "display-1": {
   "type": "display",
   "features": null,
-  "title": "Nos services",
+  "title": "display h2 title data-1",
   "content": [
     {
       "name": "websiteCreation",
-      "text": "Création de sites web modernes et responsifs"
+      "text": "display p text data-1. Lorem ipsum dolor sit amet, consectetur adipiscing elit."
     },
     {
       "name": "quality",
-      "text": "Qualité et excellence dans chaque projet"
+      "text": "display p text data-2. Lorem ipsum dolor sit amet, consectetur adipiscing elit."
     },
     {
       "name": "support",
-      "text": "Support technique continu et réactif"
+      "text": "display p text data-3. Lorem ipsum dolor sit amet, consectetur adipiscing elit."
     }
   ]
 }
@@ -67,31 +67,31 @@ Copiez et adaptez cette configuration dans votre \`config.json\` :
   "type": "display",
   "id": "all-services",
   "datas": {
-    "title": "Toutes nos prestations",
+    "title": "display h2 title data-1",
     "content": [
       {
         "name": "websiteCreation",
-        "text": "Création de sites web"
+        "text": "display p text data-1"
       },
       {
         "name": "quality",
-        "text": "Assurance qualité"
+        "text": "display p text data-2"
       },
       {
         "name": "support",
-        "text": "Support technique"
+        "text": "display p text data-3"
       },
       {
         "name": "colorPalette",
-        "text": "Design graphique"
+        "text": "display p text data-4"
       },
       {
         "name": "domain",
-        "text": "Gestion de domaine"
+        "text": "display p text data-5"
       },
       {
         "name": "euro",
-        "text": "Tarifs compétitifs"
+        "text": "display p text data-6"
       }
     ]
   }
@@ -104,23 +104,23 @@ Copiez et adaptez cette configuration dans votre \`config.json\` :
   "type": "display",
   "id": "social-networks",
   "datas": {
-    "title": "Suivez-nous sur nos réseaux",
+    "title": "display h2 title data-1",
     "content": [
       {
         "name": "facebook",
-        "text": "Retrouvez-nous sur Facebook"
+        "text": "display p text data-1"
       },
       {
         "name": "instagram",
-        "text": "Nos créations sur Instagram"
+        "text": "display p text data-2"
       },
       {
         "name": "linkedin",
-        "text": "Notre actualité professionnelle"
+        "text": "display p text data-3"
       },
       {
         "name": "youtube",
-        "text": "Tutoriels et démonstrations"
+        "text": "display p text data-4"
       }
     ]
   }
@@ -158,19 +158,19 @@ type Story = StoryObj<typeof DisplayComponent>;
 export const Default: Story = {
   name: "Affichage par défaut",
   args: {
-    title: "Nos services",
+    title: "display h2 title data-1",
     content: [
       {
         name: "websiteCreation",
-        text: "Création de sites web modernes et responsifs",
+        text: "display p text data-1. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
       },
       {
         name: "quality",
-        text: "Qualité et excellence dans chaque projet",
+        text: "display p text data-2. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
       },
       {
         name: "support",
-        text: "Support technique continu et réactif",
+        text: "display p text data-3. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
       },
     ],
   },
@@ -187,31 +187,31 @@ export const Default: Story = {
 export const ManyItems: Story = {
   name: "Nombreux éléments",
   args: {
-    title: "Toutes nos prestations",
+    title: "display h2 title data-1",
     content: [
       {
         name: "websiteCreation",
-        text: "Création de sites web",
+        text: "display p text data-1. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
       },
       {
         name: "quality",
-        text: "Assurance qualité",
+        text: "display p text data-2. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
       },
       {
         name: "support",
-        text: "Support technique",
+        text: "display p text data-3. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
       },
       {
         name: "colorPalette",
-        text: "Design graphique",
+        text: "display p text data-4. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
       },
       {
         name: "domain",
-        text: "Gestion de domaine",
+        text: "display p text data-5. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
       },
       {
         name: "euro",
-        text: "Tarifs compétitifs",
+        text: "display p text data-6. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
       },
     ],
   },
@@ -228,23 +228,23 @@ export const ManyItems: Story = {
 export const SocialNetworks: Story = {
   name: "Réseaux sociaux",
   args: {
-    title: "Suivez-nous sur nos réseaux",
+    title: "display h2 title data-1",
     content: [
       {
         name: "facebook",
-        text: "Retrouvez-nous sur Facebook",
+        text: "display p text data-1. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
       },
       {
         name: "instagram",
-        text: "Nos créations sur Instagram",
+        text: "display p text data-2. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
       },
       {
         name: "linkedin",
-        text: "Notre actualité professionnelle",
+        text: "display p text data-3. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
       },
       {
         name: "youtube",
-        text: "Tutoriels et démonstrations",
+        text: "display p text data-4. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
       },
     ],
   },

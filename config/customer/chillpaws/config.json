@@ -237,7 +237,7 @@
               "subTitle2": "Lyon - Saint-Etienne",
               "images": [
                 {
-                  "name": "IMG_0003_crop"
+                  "name": "IMG_0003"
                 }
               ],
               "textPosition": "center-right"
@@ -266,7 +266,6 @@
               "images": [
                 {
                   "name": "IMG_7573",
-                  "alt": "",
                   "focusable": false
                 }
               ]
@@ -285,7 +284,8 @@
                     {
                       "label": "Déroulement",
                       "route": "/prestation",
-                      "hash": "#previsite"
+                      "hash": "#previsite",
+                      "id": "deroulement-previsite"
                     }
                   ]
                 },
@@ -299,7 +299,8 @@
                     {
                       "label": "Déroulement",
                       "route": "/prestation",
-                      "hash": "#visites"
+                      "hash": "#visites",
+                      "id": "deroulement-visite"
                     }
                   ]
                 },
@@ -312,7 +313,8 @@
                     {
                       "label": "Programme de fidélité",
                       "route": "/prestation",
-                      "hash": "#fidelite"
+                      "hash": "#fidelite",
+                      "id": "programme-fidelite"
                     }
                   ]
                 },
@@ -325,17 +327,20 @@
                     {
                       "label": "Visites chien/chat",
                       "route": "/tarifs",
-                      "hash": "#visite-chien-chat"
+                      "hash": "#visite-chien-chat",
+                      "id": "tarifs-visite-chien-chat"
                     },
                     {
                       "label": "Visites NAC",
                       "route": "/tarifs",
-                      "hash": "#visite-nac"
+                      "hash": "#visite-nac",
+                      "id": "tarifs-visite-nac"
                     },
                     {
                       "label": "Promenade de chien",
                       "route": "/tarifs",
-                      "hash": "#promenades"
+                      "hash": "#promenades",
+                      "id": "tarifs-promenade-chien"
                     }
                   ]
                 }
@@ -383,7 +388,6 @@
               "images": [
                 {
                   "name": "IMG_1625",
-                  "alt": "",
                   "focusable": false
                 }
               ]
@@ -497,7 +501,6 @@
               "images": [
                 {
                   "name": "IMG_3652",
-                  "alt": "",
                   "focusable": false
                 }
               ]
@@ -523,7 +526,6 @@
               "images": [
                 {
                   "name": "IMG_6601",
-                  "alt": "",
                   "focusable": false
                 }
               ]
@@ -644,13 +646,11 @@
               "images": [
                 {
                   "name": "IMG_7868",
-                  "alt": "",
                   "focusable": false,
                   "description": "Avant"
                 },
                 {
                   "name": "IMG_7869",
-                  "alt": "",
                   "focusable": false,
                   "description": "Après"
                 }
@@ -687,7 +687,6 @@
               "images": [
                 {
                   "name": "IMG_7832",
-                  "alt": "",
                   "focusable": false
                 }
               ]
@@ -729,7 +728,6 @@
               "images": [
                 {
                   "name": "IMG_7859",
-                  "alt": "",
                   "focusable": false
                 }
               ]
@@ -765,7 +763,6 @@
               "images": [
                 {
                   "name": "IMG_0349",
-                  "alt": "",
                   "focusable": false
                 }
               ]
@@ -801,7 +798,6 @@
               "images": [
                 {
                   "name": "IMG_7669",
-                  "alt": "",
                   "focusable": false
                 }
               ]
@@ -826,7 +822,6 @@
               "images": [
                 {
                   "name": "IMG_7561",
-                  "alt": "",
                   "focusable": false
                 }
               ]
@@ -883,7 +878,6 @@
               "images": [
                 {
                   "name": "IMG_7858",
-                  "alt": "",
                   "focusable": false
                 }
               ]
@@ -916,7 +910,6 @@
               "images": [
                 {
                   "name": "IMG_7865",
-                  "alt": "",
                   "focusable": false
                 }
               ]
@@ -940,7 +933,6 @@
               "images": [
                 {
                   "name": "IMG_7875",
-                  "alt": "",
                   "focusable": false
                 }
               ]

@@ -113,6 +113,24 @@
                 "focusable": false
               }]
             },
+            "list-1": {
+              "type": "imageList",
+              "features": null,
+              "title": "Ils nous ont fait confiance",
+              "subtitle": null,
+              "images": [
+                {
+                  "alt": "Logo entreprise cliente: Di Paolo",
+                  "link": "https://www.labodipaolo.com",
+                  "src": "dipaolo"
+                },
+                {
+                  "alt": "Logo entreprise cliente: ChillPaws",
+                  "link": "https://www.chillpaws.fr",
+                  "src": "chillpaws"
+                }
+              ]
+            },
             "description-2": {
               "type": "description",
               "features": { "isReversed": true, "isContinious": false },
@@ -135,12 +153,6 @@
                 },
                 {
                   "text": "Notre solution est conçu pour être accessible à tous, garantissant une navigation fluide et une expérience optimale, quel que soit le profil de l'utilisateur."
-                },
-                {
-                  "text": "4) Sans (mauvaise) surprise: "
-                },
-                {
-                  "text": "Notre formule tout-en-un vous offre dès le départ tout ce dont vous avez besoin pour un site complet et performant, sans avoir à ajouts différentes options au fur et à mesure."
                 }
               ],
               "images": [{
@@ -148,24 +160,6 @@
                 "alt": "",
                 "focusable": false
               }]
-            },
-            "list-1": {
-              "type": "imageList",
-              "features": null,
-              "title": "Ils nous ont fait confiance",
-              "subtitle": null,
-              "images": [
-                {
-                  "alt": "Logo entreprise cliente: Di Paolo",
-                  "link": "https://www.labodipaolo.com",
-                  "src": "dipaolo"
-                },
-                {
-                  "alt": "Logo entreprise cliente: ChillPaws",
-                  "link": "https://www.chillpaws.fr",
-                  "src": "chillpaws"
-                }
-              ]
             },
             "cards-1": {
               "type": "cardsList",

@@ -8,6 +8,7 @@ export interface ActionCard {
     type?: string;
     route: string;
     hash?: string;
+    id: string;
   }[];
 }
 

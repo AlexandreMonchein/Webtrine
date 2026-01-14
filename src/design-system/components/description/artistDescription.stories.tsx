@@ -22,14 +22,14 @@ Copiez et adaptez cette configuration dans votre config.json :
 "description-1":{
   "type": "artistDescription",
   "datas": {
-    "name": "Nom de l'artiste",
-    "instagram": "handle_instagram",
-    "tagline": "STYLE / THÈME / SPÉCIALITÉ",
-    "description": "Description complète de l'artiste, son parcours, ses influences et son style artistique. Cette description peut être longue et détaillée.",
+    "name": "artistDescription h1 name data-1",
+    "instagram": "artistDescription span instagram data-1",
+    "tagline": "artistDescription p tagline data-1",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
     "images": [
-      "/assets/customer/image1.webp",
-      "/assets/customer/image2.webp",
-      "/assets/customer/image3.webp"
+      "/assets/customer/square_image_1.webp",
+      "/assets/customer/square_image_2.webp",
+      "/assets/customer/square_image_3.webp"
     ],
     "intervalBetweenImages": 5000,
     "instagramUrl": "https://www.instagram.com/handle_instagram",
@@ -52,10 +52,10 @@ Copiez et adaptez cette configuration dans votre config.json :
 \`\`\`json
 {
   "images": [
-    "/assets/customer/tattoo1.webp",
-    "/assets/customer/tattoo2.webp",
-    "/assets/customer/tattoo3.webp",
-    "/assets/customer/tattoo4.webp"
+    "/assets/customer/square_image_1.webp",
+    "/assets/customer/square_image_2.webp",
+    "/assets/customer/square_image_3.webp",
+    "/assets/customer/square_image_4.webp"
   ]
 }
 \`\`\`
@@ -84,18 +84,18 @@ type Story = StoryObj<typeof ArtistDescription>;
 export const Default: Story = {
   args: {
     datas: {
-      name: "DUF",
-      instagram: "duftattoo",
-      tagline: "MINIMALISTE / CONTEMPORAIN / ÉPURÉ",
+      name: "artistDescription h1 name data-1",
+      instagram: "artistDescription span instagram data-1",
+      tagline: "artistDescription p tagline data-1",
       description:
-        "Florian est un artiste autodidacte depuis 2012. Il fait ses débuts dans le graffiti et se perfectionne en découvrant le tatouage. Créateur et gérant du studio APT.235, il réalise aujourd'hui des tattoos aux lignes simples et épurées au style reconnaissable. Ses créations sont influencées par l'art contemporain, l'architecture et le design minimaliste, ce qui lui permet de proposer des compositions uniques. Il aime travailler sur des projets personnalisés et collaborer avec ses clients pour traduire leurs idées en tatouages qui traversent le temps. Chaque pièce est conçue avec une attention particulière aux détails, aux proportions et à l'équilibre graphique. Son approche sobre et élégante rend ses œuvres intemporelles et immédiatement reconnaissables.",
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.",
       images: [
-        "/assets/showcase/square_image.webp",
+        "/assets/showcase/square_image_1.webp",
         "/assets/showcase/square_image_2.webp",
         "/assets/showcase/square_image_3.webp",
       ],
       intervalBetweenImages: 5000,
-      instagramUrl: "https://www.instagram.com/duftattoo",
+      instagramUrl: "https://www.instagram.com/artistDescription_link_data-1",
       contactUrl: "#contact-form",
     },
   },
@@ -104,19 +104,19 @@ export const Default: Story = {
 export const ShortDescription: Story = {
   args: {
     datas: {
-      name: "DUF",
-      instagram: "duftattoo",
-      tagline: "MINIMALISTE / CONTEMPORAIN / ÉPURÉ",
+      name: "artistDescription h1 name data-1",
+      instagram: "artistDescription span instagram data-1",
+      tagline: "artistDescription p tagline data-1",
       description:
-        "Florian est un artiste autodidacte depuis 2012. Il réalise aujourd'hui des tattoos aux lignes simples et épurées au style reconnaissable.",
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
       images: [
-        "/assets/showcase/square_image.webp",
+        "/assets/showcase/square_image_1.webp",
         "/assets/showcase/square_image_2.webp",
         "/assets/showcase/square_image_3.webp",
       ],
       intervalBetweenImages: 5000,
-      instagramUrl: "https://www.instagram.com/duftattoo",
-      contactUrl: "mailto:contact@apt235.com",
+      instagramUrl: "https://www.instagram.com/artistDescription_link_data-1",
+      contactUrl: "mailto:artistDescription_email_data-1",
     },
   },
 };

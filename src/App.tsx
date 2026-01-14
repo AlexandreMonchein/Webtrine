@@ -15,7 +15,7 @@ import ScrollToTop from "./scrollToTop.utils";
 import { setConfig } from "./store/state.action";
 import { getClient, getStyle, getTemplates } from "./store/state.selector";
 import GlobalStyle from "./theme/customer/default/globalStyled";
-import { initializeGoogleAnalytics } from "./utils/analytics.utils";
+import { initializeGA, initializeGTM } from "./utils/analytics.utils";
 
 export const templatesTypesBlackList = [
   "navbars",
@@ -114,8 +114,9 @@ function App(props) {
       document.head.appendChild(favicon);
     }
 
-    // Initialiser Google Analytics pour ce client
-    initializeGoogleAnalytics(clientName);
+    // Initialiser Google Tag Manager pour ce client
+    initializeGTM(clientName);
+    initializeGA(clientName);
   }, [customer, logo]);
 
   return (

@@ -101,7 +101,7 @@
               "subTitle": "Il n'a jamais été aussi simple de confectionner un site",
               "images": [
                 {
-                  "name": "accueil_banner_2"
+                  "name": "horizontal_image_1"
                 }
               ],
               "textPosition": "center-right"
@@ -146,12 +146,6 @@
                 },
                 {
                   "text": "Notre solution est conçu pour être accessible à tous, garantissant une navigation fluide et une expérience optimale, quel que soit le profil de l'utilisateur."
-                },
-                {
-                  "text": "4) Sans (mauvaise) surprise: "
-                },
-                {
-                  "text": "Notre formule tout-en-un vous offre dès le départ tout ce dont vous avez besoin pour un site complet et performant, sans avoir à ajouts différentes options au fur et à mesure."
                 }
               ],
               "image": {
@@ -211,7 +205,7 @@
               "subTitle": null,
               "images": [
                 {
-                  "name": "banner_2"
+                  "name": "horizontal_image_2"
                 }
               ],
               "textPosition": "center-left",
@@ -292,7 +286,7 @@
               "subTitle": null,
               "images": [
                 {
-                  "name": "banner_2"
+                  "name": "horizontal_image_2"
                 }
               ],
               "textPosition": "center-left",
@@ -370,7 +364,7 @@
               "subTitle": null,
               "images": [
                 {
-                  "name": "banner_2"
+                  "name": "horizontal_image_2"
                 }
               ],
               "textPosition": "center-left",
@@ -510,7 +504,7 @@
               "subTitle": null,
               "images": [
                 {
-                  "name": "banner_2"
+                  "name": "horizontal_image_2"
                 }
               ],
               "textPosition": "center-left",
@@ -796,7 +790,7 @@
               "subTitle": null,
               "images": [
                 {
-                  "name": "banner_2"
+                  "name": "horizontal_image_2"
                 }
               ],
               "textPosition": "center-left",

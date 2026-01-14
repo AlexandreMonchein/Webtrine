@@ -126,7 +126,7 @@ const FullscreenModeDemo: React.FC<{
 
 // Images d'exemple du projet
 const sampleImages = [
-  "/assets/showcase/square_image.webp",
+  "/assets/showcase/square_image_1.webp",
   "/assets/showcase/square_image_2.webp",
   "/assets/showcase/square_image_3.webp",
 ];

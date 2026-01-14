@@ -34,7 +34,7 @@ export const TestimonialQuoteCard = styled.article`
   transition:
     box-shadow 0.3s ease,
     transform 0.3s ease;
-  padding: 6px;
+  padding: 24px;
   position: relative;
   height: 100%;
   display: flex;

@@ -24,34 +24,34 @@ Copiez et adaptez cette configuration dans votre \`config.json\` :
   "features": {
     "displayInline": true
   },
-  "title": "Titre de votre section",
-  "description": "Description de votre section",
+  "title": "cardsList h2 title data-1",
+  "description": "cardsList p description data-1",
   "content": [
     {
-      "title": "Titre de la première carte",
+      "title": "cardsList h3 card-title data-1",
       "description": [
         {
-          "text": "Description détaillée de la première carte. Peut contenir plusieurs phrases pour expliquer le concept ou service."
+          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris."
         }
       ],
-      "imageSrc": "nom_de_votre_image"
+      "imageSrc": "square_image"
     },
     {
-      "title": "Titre de la deuxième carte",
+      "title": "cardsList h3 card-title data-2",
       "description": [
         {
-          "text": "Description de la deuxième carte avec des informations pertinentes pour vos visiteurs."
+          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
         }
       ]
     },
     {
-      "title": "Titre de la troisième carte",
+      "title": "cardsList h3 card-title data-3",
       "description": [
         {
-          "text": "Description de la troisième carte pour compléter votre présentation."
+          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
         }
       ],
-      "imageSrc": "autre_image"
+      "imageSrc": "square_image"
     }
   ]
 }
@@ -120,31 +120,30 @@ type Story = StoryObj<typeof Cards>;
 export const Default: Story = {
   name: "Par défaut",
   args: {
-    title: "Pourquoi avoir un site vitrine ?",
-    description:
-      "Découvrez les avantages clés d'un site vitrine pour votre entreprise.",
+    title: "cardsList h2 title data-1",
+    description: "cardsList p description data-1",
     content: [
       {
-        title: "Une vitrine numérique à votre image",
+        title: "cardsList h3 card-title data-1",
         description: [
           {
-            text: "Les réseaux sociaux c'est bien, mais un site web, c'est votre vitrine personnalisée, disponible 24/7. Vous bénéficiez d'une totale liberté de création pour montrer au monde votre entreprise.",
+            text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
           },
         ],
       },
       {
-        title: "Amélioration du référencement",
+        title: "cardsList h3 card-title data-2",
         description: [
           {
-            text: "Je préfère être transparent : un site web ne garantit pas de figurer en première page de Google. Cependant, un SEO bien travaillé et un site bien développé et accessible améliore grandement votre visibilité sur les moteurs de recherche.",
+            text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
           },
         ],
       },
       {
-        title: "Un investissement accessible",
+        title: "cardsList h3 card-title data-3",
         description: [
           {
-            text: "À partir de 450€ HT, un site vitrine représente un investissement abordable pour accroître votre présence en ligne et attirer de nouveaux clients.",
+            text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
           },
         ],
       },
@@ -163,34 +162,34 @@ export const Default: Story = {
 export const WithImages: Story = {
   name: "Avec images",
   args: {
-    title: "Nos services web",
+    title: "cardsList h2 title data-1",
     content: [
       {
-        title: "Développement sur mesure",
+        title: "cardsList h3 card-title data-1",
         description: [
           {
-            text: "Création de sites web personnalisés selon vos besoins spécifiques. Nous utilisons les dernières technologies pour garantir performance et évolutivité.",
+            text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
           },
         ],
-        imageSrc: "square_image",
+        imageSrc: "square_image_1",
       },
       {
-        title: "Design & UX/UI",
+        title: "cardsList h3 card-title data-2",
         description: [
           {
-            text: "Conception d'interfaces modernes et intuitives. Nos designs sont pensés pour offrir la meilleure expérience utilisateur possible.",
+            text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
           },
         ],
-        imageSrc: "square_image",
+        imageSrc: "square_image_2",
       },
       {
-        title: "Maintenance & Support",
+        title: "cardsList h3 card-title data-3",
         description: [
           {
-            text: "Accompagnement post-lancement avec maintenance technique, mises à jour de sécurité et support client réactif.",
+            text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
           },
         ],
-        imageSrc: "square_image",
+        imageSrc: "square_image_3",
       },
     ],
   },
@@ -207,38 +206,46 @@ export const WithImages: Story = {
 export const InlineDisplay: Story = {
   name: "Affichage côte à côte",
   args: {
-    title: "Nos services",
+    title: "cardsList h2 title data-1",
     features: {
       displayInline: true,
     },
     content: [
       {
-        title: "Développement",
-        description: [
-          { text: "Sites web modernes et performants adaptés à vos besoins." },
-        ],
-        imageSrc: "service_dev",
-      },
-      {
-        title: "Design UX/UI",
+        title: "cardsList h3 card-title data-1",
         description: [
           {
-            text: "Interfaces intuitives et esthétiques pour vos utilisateurs.",
+            text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
           },
         ],
-        imageSrc: "service_design",
+        imageSrc: "square_image_1",
       },
       {
-        title: "SEO",
-        description: [{ text: "Optimisation pour les moteurs de recherche." }],
-        imageSrc: "service_seo",
-      },
-      {
-        title: "Maintenance",
+        title: "cardsList h3 card-title data-2",
         description: [
-          { text: "Support technique et mises à jour régulières." },
+          {
+            text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+          },
         ],
-        imageSrc: "service_support",
+        imageSrc: "square_image_2",
+      },
+      {
+        title: "cardsList h3 card-title data-3",
+        description: [
+          {
+            text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+          },
+        ],
+        imageSrc: "square_image_3",
+      },
+      {
+        title: "cardsList h3 card-title data-4",
+        description: [
+          {
+            text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+          },
+        ],
+        imageSrc: "square_image_4",
       },
     ],
   },
@@ -255,42 +262,64 @@ export const InlineDisplay: Story = {
 export const EvenCount: Story = {
   name: "Nombre pair (6 cartes)",
   args: {
-    title: "Nos 6 services principaux",
+    title: "cardsList h2 title data-1",
     features: {
       displayInline: true,
     },
     content: [
       {
-        title: "Développement web",
+        title: "cardsList h3 card-title data-1",
         description: [
-          { text: "Sites sur mesure avec les dernières technologies." },
+          {
+            text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          },
         ],
-        imageSrc: "service_dev",
+        imageSrc: "square_image_1",
       },
       {
-        title: "Design UX/UI",
-        description: [{ text: "Interfaces modernes et intuitives." }],
-        imageSrc: "service_design",
+        title: "cardsList h3 card-title data-2",
+        description: [
+          {
+            text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          },
+        ],
+        imageSrc: "square_image_2",
       },
       {
-        title: "SEO",
-        description: [{ text: "Optimisation pour les moteurs de recherche." }],
-        imageSrc: "service_seo",
+        title: "cardsList h3 card-title data-3",
+        description: [
+          {
+            text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          },
+        ],
+        imageSrc: "square_image_3",
       },
       {
-        title: "E-commerce",
-        description: [{ text: "Boutiques en ligne performantes." }],
-        imageSrc: "service_ecommerce",
+        title: "cardsList h3 card-title data-4",
+        description: [
+          {
+            text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          },
+        ],
+        imageSrc: "square_image_4",
       },
       {
-        title: "Maintenance",
-        description: [{ text: "Support technique continu." }],
-        imageSrc: "service_support",
+        title: "cardsList h3 card-title data-5",
+        description: [
+          {
+            text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          },
+        ],
+        imageSrc: "square_image_1",
       },
       {
-        title: "Formation",
-        description: [{ text: "Accompagnement et formation des équipes." }],
-        imageSrc: "service_formation",
+        title: "cardsList h3 card-title data-6",
+        description: [
+          {
+            text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          },
+        ],
+        imageSrc: "square_image_2",
       },
     ],
   },
@@ -307,39 +336,55 @@ export const EvenCount: Story = {
 export const OddCount: Story = {
   name: "Nombre impair (5 cartes)",
   args: {
-    title: "Nos 5 expertises clés",
+    title: "cardsList h2 title data-1",
     features: {
       displayInline: true,
     },
     content: [
       {
-        title: "Stratégie digitale",
+        title: "cardsList h3 card-title data-1",
         description: [
-          { text: "Conseil et accompagnement dans votre transformation." },
+          {
+            text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          },
         ],
-        imageSrc: "expertise_strategy",
+        imageSrc: "square_image_1",
       },
       {
-        title: "Développement",
+        title: "cardsList h3 card-title data-2",
         description: [
-          { text: "Solutions techniques sur mesure et évolutives." },
+          {
+            text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          },
         ],
-        imageSrc: "expertise_dev",
+        imageSrc: "square_image_2",
       },
       {
-        title: "Design",
-        description: [{ text: "Création d'identité visuelle et interfaces." }],
-        imageSrc: "expertise_design",
+        title: "cardsList h3 card-title data-3",
+        description: [
+          {
+            text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          },
+        ],
+        imageSrc: "square_image_3",
       },
       {
-        title: "Marketing digital",
-        description: [{ text: "Campagnes et optimisation de la visibilité." }],
-        imageSrc: "expertise_marketing",
+        title: "cardsList h3 card-title data-4",
+        description: [
+          {
+            text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          },
+        ],
+        imageSrc: "square_image_4",
       },
       {
-        title: "Analytics",
-        description: [{ text: "Mesure et analyse des performances." }],
-        imageSrc: "expertise_analytics",
+        title: "cardsList h3 card-title data-5",
+        description: [
+          {
+            text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          },
+        ],
+        imageSrc: "square_image_1",
       },
     ],
   },

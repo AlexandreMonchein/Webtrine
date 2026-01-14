@@ -59,8 +59,8 @@ export const InfoSection = styled.div`
 `;
 
 export const Title = styled.h2`
-  font-size: 2rem;
   margin: 0;
+  padding-bottom: 0;
 `;
 
 export const Subtitle = styled.a`
@@ -133,7 +133,7 @@ export const Description = styled.p`
   line-height: 1.5;
 
   display: -webkit-box;
-  -webkit-line-clamp: 4;
+  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;

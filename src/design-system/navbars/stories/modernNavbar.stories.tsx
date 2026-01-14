@@ -21,80 +21,44 @@ const mockStore = configureStore({
 // Mock data pour la navigation
 const mockNavigationItems: NavItem[] = [
   {
-    label: "Accueil",
+    label: "modernNavbar a link data-1",
     href: "/",
   },
   {
-    label: "Services",
+    label: "modernNavbar a link data-2",
     subItems: [
       {
-        label: "Développement Web",
+        label: "modernNavbar a sublink data-2-1",
         href: "/services/web-dev",
-        description: "Sites web modernes et applications React",
+        description:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
       },
       {
-        label: "Design UX/UI",
+        label: "modernNavbar a sublink data-2-2",
         href: "/services/design",
-        description: "Interface utilisateur et expérience client",
+        description:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
       },
       {
-        label: "SEO & Marketing",
+        label: "modernNavbar a sublink data-2-3",
         href: "/services/seo",
-        description: "Référencement et stratégie digitale",
+        description:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
       },
       {
-        label: "E-commerce",
+        label: "modernNavbar a sublink data-2-4",
         href: "/services/ecommerce",
-        description: "Boutiques en ligne et solutions de vente",
+        description:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
       },
     ],
   },
   {
-    label: "Solutions",
-    subItems: [
-      {
-        label: "Pour les Startups",
-        href: "/solutions/startups",
-        description: "Solutions adaptées aux jeunes entreprises",
-      },
-      {
-        label: "Pour les PME",
-        href: "/solutions/pme",
-        description: "Accompagnement des entreprises établies",
-      },
-      {
-        label: "Entreprises",
-        href: "/solutions/entreprises",
-        description: "Solutions enterprise et sur mesure",
-      },
-    ],
-  },
-  {
-    label: "Portfolio",
+    label: "modernNavbar a link data-3",
     href: "/portfolio",
   },
   {
-    label: "À propos",
-    subItems: [
-      {
-        label: "Notre équipe",
-        href: "/about/team",
-        description: "Rencontrez les experts derrière vos projets",
-      },
-      {
-        label: "Notre histoire",
-        href: "/about/story",
-        description: "Découvrez notre parcours et nos valeurs",
-      },
-      {
-        label: "Carrières",
-        href: "/about/careers",
-        description: "Rejoignez notre équipe dynamique",
-      },
-    ],
-  },
-  {
-    label: "Contact",
+    label: "modernNavbar a link data-4",
     href: "/contact",
   },
 ];
@@ -122,54 +86,54 @@ Pour utiliser ce composant dans votre configuration JSON :
   "datas": {
     "logo": {
       "name": "logo-principal",
-      "alt": "Logo de l'entreprise"
+      "alt": "modernNavbar img alt data-1"
     },
     "navigationItems": [
       {
-        "label": "Accueil",
+        "label": "modernNavbar a link data-1",
         "href": "/"
       },
       {
-        "label": "Services",
+        "label": "modernNavbar a link data-2",
         "subItems": [
           {
-            "label": "Développement Web",
+            "label": "modernNavbar a sublink data-2-1",
             "href": "/services/web-dev",
-            "description": "Sites web modernes et applications React"
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
           },
           {
-            "label": "Design UX/UI",
+            "label": "modernNavbar a sublink data-2-2",
             "href": "/services/design",
-            "description": "Interface utilisateur et expérience client"
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
           },
           {
-            "label": "SEO & Marketing",
+            "label": "modernNavbar a sublink data-2-3",
             "href": "/services/seo",
-            "description": "Référencement et stratégie digitale"
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
           }
         ]
       },
       {
-        "label": "Solutions",
+        "label": "modernNavbar a link data-3",
         "subItems": [
           {
-            "label": "Pour les Startups",
+            "label": "modernNavbar a sublink data-3-1",
             "href": "/solutions/startups",
-            "description": "Solutions adaptées aux jeunes entreprises"
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
           },
           {
-            "label": "Pour les PME",
+            "label": "modernNavbar a sublink data-3-2",
             "href": "/solutions/pme",
-            "description": "Accompagnement des entreprises établies"
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
           }
         ]
       },
       {
-        "label": "Portfolio",
+        "label": "modernNavbar a link data-4",
         "href": "/portfolio"
       },
       {
-        "label": "Contact",
+        "label": "modernNavbar a link data-5",
         "href": "/contact"
       }
     ]
@@ -226,7 +190,7 @@ export const Default: Story = {
   args: {
     logo: {
       name: "logo_chillpaws_color_2",
-      alt: "Logo de l'entreprise",
+      alt: "modernNavbar img alt data-1",
     },
     navigationItems: mockNavigationItems,
   },

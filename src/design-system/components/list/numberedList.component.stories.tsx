@@ -22,27 +22,27 @@ Copiez et adaptez cette configuration dans votre \`config.json\` :
 "list-1": {
   "type": "numberedList",
   "features": null,
-  "title": "Un processus de création simple et efficace",
+  "title": "numberedList h2 title data-1",
   "content": [
     {
-      "title": "Définition du projet & Conseils",
-      "description": "Dès notre premier contact, nous échangeons pour comprendre votre secteur d'activité et définir le cadre de votre projet."
+      "title": "numberedList h3 step-title data-1",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris."
     },
     {
-      "title": "Conception graphique UX/UI",
-      "description": "Deux options s'offrent à vous : soit vous choisissez des templates existants, soit nous travaillerons ensemble sur un design personnalisé."
+      "title": "numberedList h3 step-title data-2",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris."
     },
     {
-      "title": "Devis détaillé",
-      "description": "Un devis précis est établi en fonction de vos besoins et des options choisies pour votre projet."
+      "title": "numberedList h3 step-title data-3",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris."
     },
     {
-      "title": "Développement & Tests",
-      "description": "Nous développons votre site en suivant les meilleures pratiques et effectuons des tests complets avant la mise en ligne."
+      "title": "numberedList h3 step-title data-4",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris."
     },
     {
-      "title": "Mise en ligne & Formation",
-      "description": "Nous mettons votre site en ligne et vous formons à son utilisation pour une autonomie complète."
+      "title": "numberedList h3 step-title data-5",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris."
     }
   ]
 }
@@ -99,32 +99,32 @@ type Story = StoryObj<typeof NumberedListComponent>;
 export const Default: Story = {
   name: "Liste numérotée standard",
   args: {
-    title: "Un processus de création simple et efficace",
+    title: "numberedList h2 title data-1",
     content: [
       {
-        title: "Définition du projet & Conseils",
+        title: "numberedList h3 step-title data-1",
         description:
-          "Dès notre premier contact, nous échangeons pour comprendre votre secteur d'activité et définir le cadre de votre projet.",
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
       },
       {
-        title: "Conception graphique UX/UI",
+        title: "numberedList h3 step-title data-2",
         description:
-          "Deux options s'offrent à vous : soit vous choisissez des templates existants, soit nous travaillerons ensemble sur un design personnalisé.",
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
       },
       {
-        title: "Devis détaillé",
+        title: "numberedList h3 step-title data-3",
         description:
-          "Un devis précis est établi en fonction de vos besoins et des options choisies pour votre projet.",
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis.",
       },
       {
-        title: "Développement & Tests",
+        title: "numberedList h3 step-title data-4",
         description:
-          "Nous développons votre site en suivant les meilleures pratiques et effectuons des tests complets avant la mise en ligne.",
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.",
       },
       {
-        title: "Mise en ligne & Formation",
+        title: "numberedList h3 step-title data-5",
         description:
-          "Nous mettons votre site en ligne et vous formons à son utilisation pour une autonomie complète.",
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.",
       },
     ],
   },
@@ -141,17 +141,17 @@ export const Default: Story = {
 export const ShortProcess: Story = {
   name: "Processus court",
   args: {
-    title: "Étapes principales",
+    title: "numberedList h2 title data-1",
     content: [
       {
-        title: "Consultation",
+        title: "numberedList h3 step-title data-1",
         description:
-          "Nous discutons de vos besoins et objectifs pour bien comprendre votre projet.",
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
       },
       {
-        title: "Réalisation",
+        title: "numberedList h3 step-title data-2",
         description:
-          "Nous créons votre site selon vos spécifications et notre expertise technique.",
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
       },
     ],
   },
@@ -168,27 +168,27 @@ export const ShortProcess: Story = {
 export const TechnicalSteps: Story = {
   name: "Étapes techniques",
   args: {
-    title: "Processus de développement technique",
+    title: "numberedList h2 title data-1",
     content: [
       {
-        title: "Analyse des besoins",
+        title: "numberedList h3 step-title data-1",
         description:
-          "Étude approfondie des fonctionnalités requises et contraintes techniques du projet.",
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
       },
       {
-        title: "Architecture & Setup",
+        title: "numberedList h3 step-title data-2",
         description:
-          "Définition de l'architecture technique, choix des technologies et mise en place de l'environnement de développement.",
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.",
       },
       {
-        title: "Développement itératif",
+        title: "numberedList h3 step-title data-3",
         description:
-          "Implémentation des fonctionnalités par sprints avec feedback continu et tests réguliers.",
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.",
       },
       {
-        title: "Optimisation & Déploiement",
+        title: "numberedList h3 step-title data-4",
         description:
-          "Optimisation des performances, tests de charge et déploiement en production avec monitoring.",
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores.",
       },
     ],
   },
@@ -208,16 +208,19 @@ export const WithoutTitle: Story = {
     title: "",
     content: [
       {
-        title: "Première étape",
-        description: "Description de la première action à effectuer.",
+        title: "numberedList h3 step-title data-1",
+        description:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
       },
       {
-        title: "Deuxième étape",
-        description: "Explication de la suite du processus.",
+        title: "numberedList h3 step-title data-2",
+        description:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
       },
       {
-        title: "Finalisation",
-        description: "Dernière étape pour compléter le processus.",
+        title: "numberedList h3 step-title data-3",
+        description:
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.",
       },
     ],
   },

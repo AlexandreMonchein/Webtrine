@@ -332,7 +332,6 @@ export const MobileSubMenu = styled.div<{ $isOpen: boolean }>`
   max-height: ${(props) => (props.$isOpen ? "500px" : "0")};
   overflow: hidden;
   transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  background-color: #f8fafc;
   border-radius: 0 0 12px 12px;
   margin-top: -12px;
   padding-top: 12px;

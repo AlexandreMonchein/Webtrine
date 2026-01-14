@@ -80,10 +80,10 @@ export const Default: Story = {
     template: {
       type: "gallery",
       inventory: [
-        { imageSrc: "square_image", alt: "Image d'accueil 1" },
-        { imageSrc: "square_image", alt: "Image d'accueil 2" },
-        { imageSrc: "square_image", alt: "Image de description 1" },
-        { imageSrc: "square_image", alt: "Image de description 2" },
+        { imageSrc: "square_image_1", alt: "Image d'accueil 1" },
+        { imageSrc: "square_image_2", alt: "Image d'accueil 2" },
+        { imageSrc: "square_image_3", alt: "Image de description 1" },
+        { imageSrc: "square_image_1", alt: "Image de description 2" },
       ],
       features: {
         canFullScreen: false,

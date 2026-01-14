@@ -11,7 +11,7 @@ const meta: Meta<typeof DescriptionB> = {
     docs: {
       description: {
         component:
-          'Implementation example (JSON):\n\n"<folder—name>-1": {\n  "type": "DescriptionB",\n  "features": { "feature1": true },\n  "title": null,\n  "subTitle": null,\n  "content": {\n    "leftImage": { "src": "/images/left.jpg", "alt": "Studio reception", "width": 1200, "height": 1600 },\n    "rightImage": { "src": "/images/right.jpg", "alt": "Tattoo chair", "width": 1200, "height": 1600 },\n    "leftBox": { "title": "PRENDRE RENDEZ-VOUS", "description": "Prenez rendez-vous avec votre artiste pour réaliser votre projet de tatouage.", "ctaLabel": "Découvrir", "ctaHref": "/rendez-vous" },\n    "rightBox": { "title": "LES ARTISTES", "description": "Regardez nos différents artistes et prenez rendez-vous avec celui qui correspond à votre projet.", "ctaLabel": "Voir les artistes", "ctaHref": "/artistes" }\n  }\n}',
+          'Implementation example (JSON):\n\n"<folder—name>-1": {\n  "type": "DescriptionB",\n  "features": { "feature1": true },\n  "title": "descriptionB h2 title data-1",\n  "subTitle": "descriptionB p subtitle data-1",\n  "content": {\n    "leftImage": { "src": "vertical_image", "alt": "descriptionB img alt data-1", "width": 1200, "height": 1600 },\n    "rightImage": { "src": "vertical_image", "alt": "descriptionB img alt data-2", "width": 1200, "height": 1600 },\n    "leftBox": { "title": "descriptionB h3 box-title data-1", "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", "ctaLabel": "descriptionB button label data-1", "ctaHref": "/link-1" },\n    "rightBox": { "title": "descriptionB h3 box-title data-2", "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", "ctaLabel": "descriptionB button label data-2", "ctaHref": "/link-2" }\n  }\n}',
       },
     },
   },
@@ -27,33 +27,33 @@ type Story = StoryObj<typeof DescriptionB>;
 export const Default: Story = {
   args: {
     id: "description-b",
-    title: "",
-    subTitle: "",
+    title: "descriptionB h2 title data-1",
+    subTitle: "descriptionB p subtitle data-1",
     content: {
       leftImage: {
-        src: "vertical_image",
-        alt: "Carte de visite posée sur un bureau",
+        src: "vertical_image_1",
+        alt: "descriptionB img alt data-1",
         width: 1200,
         height: 1600,
       },
       rightImage: {
-        src: "vertical_image",
-        alt: "Chaise de tatouage dans un studio",
+        src: "vertical_image_1",
+        alt: "descriptionB img alt data-2",
         width: 1200,
         height: 1600,
       },
       leftBox: {
-        title: "PRENDRE RENDEZ-VOUS",
+        title: "descriptionB h3 box-title data-1",
         description:
-          "PRENEZ RENDEZ-VOUS AVEC VOTRE ARTISTE POUR RÉALISER VOTRE PROJET DE TATOUAGE",
-        ctaLabel: "En savoir plus",
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+        ctaLabel: "descriptionB button label data-1",
         ctaHref: "#",
       },
       rightBox: {
-        title: "LES ARTISTES",
+        title: "descriptionB h3 box-title data-2",
         description:
-          "REGARDEZ NOS DIFFÉRENTS ARTISTES ET PRENEZ RENDEZ-VOUS AVEC CELUI QUI CORRESPOND À VOTRE PROJET",
-        ctaLabel: "Découvrir",
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+        ctaLabel: "descriptionB button label data-2",
         ctaHref: "#",
       },
     },
