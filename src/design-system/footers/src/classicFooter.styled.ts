@@ -5,8 +5,8 @@ import { breakpointNames } from "../../../breakpointDef";
 import { DefaultContent } from "../../navbars/src/classicNavbar.styled";
 
 export const FooterContainer = styled.footer`
-  background-color: var(--background-color);
-  color: var(--color-primary);
+  background-color: var(--theme-color-secondary);
+  color: var(--theme-color-primary);
   left: 0;
   right: 0;
   bottom: 0;
@@ -42,7 +42,7 @@ export const RightSection = styled.div`
 
 export const MiddleSection = styled.div`
   text-align: center;
-  color: var(--navigation-text-color);
+  color: var(--theme-color-primary);
 
   ${bp.max(
     breakpointNames.small,
@@ -94,5 +94,5 @@ export const SocialContent = styled(DefaultContent)`
 export const SiteRef = styled.a`
   text-decoration: none;
   cursor: pointer;
-  color: var(--nav-hover-color);
+  color: var(--theme-color-hover);
 `;

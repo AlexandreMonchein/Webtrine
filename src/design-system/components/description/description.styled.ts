@@ -6,7 +6,7 @@ import { breakpointNames } from "../../../breakpointDef";
 export const Section = styled.section`
   position: relative;
   padding: 40px 120px;
-  color: var(--text-color-secondary);
+  color: var(--theme-color-tertiary);
   overflow: hidden;
 
   &.isContinious {
@@ -38,7 +38,7 @@ export const Container = styled.div`
 `;
 
 export const SectionTitle = styled.h2`
-  color: var(--title-color-2);
+  color: var(--theme-color-quaternary);
   text-align: center;
 `;
 
@@ -140,12 +140,12 @@ export const Text = styled.p`
 
   a {
     background: linear-gradient(
-        var(--link-hover-color),
-        var(--link-hover-color)
+        var(--theme-color-utility-4),
+        var(--theme-color-utility-4)
       )
       center bottom / 100% 1px no-repeat;
     border-bottom: none;
-    color: var(--link-hover-color);
+    color: var(--theme-color-utility-4);
     text-decoration: none;
     transition:
       background 300ms ease-in-out,
@@ -154,11 +154,11 @@ export const Text = styled.p`
     &:hover,
     &:focus {
       background: linear-gradient(
-          var(--link-hover-color),
-          var(--link-hover-color)
+          var(--theme-color-utility-4),
+          var(--theme-color-utility-4)
         )
         center bottom / 100% 100% no-repeat;
-      color: var(--text-color-primary);
+      color: var(--theme-color-primary);
     }
   }
 `;
@@ -188,17 +188,17 @@ export const ButtonLink = styled.button`
     display: inline-block;
     font-size: x-large;
     padding: 24px 64px;
-    background-color: var(--button-background-color);
-    color: var(--button-text-color);
+    background-color: var(--theme-color-utility-4);
+    color: var(--theme-color-primary);
     text-decoration: none;
     border-radius: 64px;
     transition: all 0.3s ease;
-    border: 2px solid var(--button-background-color);
+    border: 2px solid var(--theme-color-utility-4);
 
     &:hover,
     &:focus {
-      background-color: var(--nav-hover-color);
-      border-color: var(--nav-hover-color);
+      background-color: var(--theme-color-hover);
+      border-color: var(--theme-color-hover);
       transform: translateY(-2px);
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }

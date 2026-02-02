@@ -39,7 +39,7 @@ export const Header = styled.div`
 `;
 
 export const Title = styled.h2`
-  color: var(--text-color-secondary);
+  color: var(--theme-color-tertiary);
   margin: 0 0 16px 0;
 
   ${bp.max(
@@ -51,14 +51,14 @@ export const Title = styled.h2`
 `;
 
 export const Subtitle = styled.h3`
-  color: var(--text-color-secondary);
+  color: var(--theme-color-tertiary);
   margin: 0;
   opacity: 0.8;
 `;
 
 export const TabsContainer = styled.div`
   margin-bottom: 32px;
-  border-bottom: 1px solid var(--light-grey);
+  border-bottom: 1px solid var(--theme-color-background-1);
 
   ${bp.max(
     breakpointNames.medium,
@@ -88,14 +88,17 @@ export const TabsList = styled.div`
 
 export const Tab = styled.button<{ $isActive: boolean }>`
   padding: 16px 24px;
-  color: var(--text-color-secondary);
+  color: var(--theme-color-tertiary);
   cursor: pointer;
   white-space: nowrap;
   border-bottom: 2px solid transparent;
   transition: all 0.2s ease;
   position: relative;
 
-  background: linear-gradient(var(--link-hover-color), var(--link-hover-color))
+  background: linear-gradient(
+      var(--theme-color-hover),
+      var(--theme-color-hover)
+    )
     center bottom / 100% 0px no-repeat;
   text-decoration: none;
   transition:
@@ -105,18 +108,18 @@ export const Tab = styled.button<{ $isActive: boolean }>`
   &:hover,
   &:focus {
     background: linear-gradient(
-        var(--link-hover-color),
-        var(--link-hover-color)
+        var(--theme-color-hover),
+        var(--theme-color-hover)
       )
       center bottom / 100% 100% no-repeat;
-    color: var(--text-color-primary);
+    color: var(--theme-color-primary);
   }
 
   ${({ $isActive }) =>
     $isActive &&
     css`
-      color: var(--text-color-secondary);
-      border-bottom-color: var(--text-color-secondary);
+      color: var(--theme-color-tertiary);
+      border-bottom-color: var(--theme-color-tertiary);
     `}
 
   ${bp.max(
@@ -156,9 +159,9 @@ export const AccordionContainer = styled.div`
 `;
 
 export const AccordionItem = styled.div`
-  border: 1px solid var(--light-grey);
+  border: 1px solid var(--theme-color-background-1);
   border-radius: 8px;
-  background: var(--white);
+  background: var(--theme-color-primary);
   position: relative;
 
   &:focus-within {
@@ -179,7 +182,10 @@ export const AccordionHeader = styled.button<{ $isExpanded: boolean }>`
   border-radius: 8px;
   position: relative;
 
-  background: linear-gradient(var(--link-hover-color), var(--link-hover-color))
+  background: linear-gradient(
+      var(--theme-color-hover),
+      var(--theme-color-hover)
+    )
     center bottom / 100% 0px no-repeat;
   transition:
     background 300ms ease-in-out,
@@ -188,13 +194,13 @@ export const AccordionHeader = styled.button<{ $isExpanded: boolean }>`
   &:hover,
   &:focus {
     background: linear-gradient(
-        var(--link-hover-color),
-        var(--link-hover-color)
+        var(--theme-color-hover),
+        var(--theme-color-hover)
       )
       center bottom / 100% 100% no-repeat;
 
     span {
-      color: var(--text-color-primary);
+      color: var(--theme-color-primary);
     }
   }
 
@@ -207,7 +213,7 @@ export const AccordionHeader = styled.button<{ $isExpanded: boolean }>`
 `;
 
 export const QuestionText = styled.span`
-  color: var(--text-color-secondary);
+  color: var(--theme-color-tertiary);
   margin: 0;
   flex: 1;
   padding-right: 16px;
@@ -217,7 +223,7 @@ export const QuestionText = styled.span`
 export const ChevronIcon = styled.svg<{ $isExpanded: boolean }>`
   width: 24px;
   height: 24px;
-  color: var(--text-color-secondary);
+  color: var(--theme-color-tertiary);
   transition:
     transform 0.2s ease,
     color 0.2s ease;
@@ -268,7 +274,7 @@ export const AccordionContent = styled.div<{
 
 export const AccordionBody = styled.div`
   padding: 24px;
-  color: var(--text-color-secondary);
+  color: var(--theme-color-tertiary);
   border-radius: 0 0 8px 8px;
   position: relative;
 
@@ -287,7 +293,7 @@ export const AccordionBody = styled.div`
   }
 
   strong {
-    color: var(--text-color-secondary);
+    color: var(--theme-color-tertiary);
   }
 
   ${bp.max(
@@ -301,7 +307,7 @@ export const AccordionBody = styled.div`
 export const EmptyState = styled.div`
   text-align: center;
   padding: 40px 20px;
-  color: var(--text-color-secondary);
+  color: var(--theme-color-tertiary);
   opacity: 0.6;
 
   ${bp.max(

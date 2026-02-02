@@ -54,9 +54,9 @@ const GlobalStyle = createGlobalStyle`
   }
 
   *:focus-visible {
-    outline: 2px solid var(--white) !important;
+    outline: 2px solid var(--theme-color-primary) !important;
     outline-offset: 2px !important;
-    box-shadow: 0px 0px 0px 3px var(--black) !important;
+    box-shadow: 0px 0px 0px 3px var(--theme-color-tertiary) !important;
   }
 
   html {

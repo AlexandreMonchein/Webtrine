@@ -22,7 +22,7 @@ export const Section = styled.section`
 `;
 
 export const Title = styled.h2`
-  color: var(--title-color-2);
+  color: var(--theme-color-hover);
   text-align: center;
 `;
 
@@ -55,5 +55,5 @@ export const SvgIcon = styled.div`
 `;
 
 export const Text = styled.p`
-  color: var(--text-color);
+  color: var(--theme-color-tertiary);
 `;

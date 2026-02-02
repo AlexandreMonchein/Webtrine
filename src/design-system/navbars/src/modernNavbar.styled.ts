@@ -5,7 +5,7 @@ import { breakpointNames } from "../../../breakpointDef";
 
 export const NavbarContainer = styled.nav`
   position: relative;
-  background: var(--white);
+  background: var(--theme-color-primary);
   border-bottom: 1px solid #e5e7eb;
   z-index: 50;
 `;
@@ -55,7 +55,7 @@ export const LogoLink = styled.a`
   }
 
   &:focus-visible {
-    outline: 2px solid var(--blue);
+    outline: 2px solid var(--theme-color-utility-4);
     outline-offset: 2px;
     border-radius: 4px;
   }
@@ -99,7 +99,7 @@ export const NavLink = styled.a<{ $hasSubItems?: boolean }>`
   align-items: center;
   gap: 4px;
   padding: 12px 16px;
-  color: var(--text-color);
+  color: var(--theme-color-tertiary);
   text-decoration: none;
   font-weight: 500;
   font-size: 15px;
@@ -108,12 +108,12 @@ export const NavLink = styled.a<{ $hasSubItems?: boolean }>`
   cursor: pointer;
 
   &:hover {
-    color: var(--blue);
+    color: var(--theme-color-utility-4);
     background-color: #f8fafc;
   }
 
   &:focus-visible {
-    outline: 2px solid var(--blue);
+    outline: 2px solid var(--theme-color-utility-4);
     outline-offset: 2px;
   }
 
@@ -142,7 +142,7 @@ export const SubMenu = styled.div<{ $isOpen: boolean }>`
   top: 100%;
   left: 0;
   min-width: 280px;
-  background: var(--white);
+  background: var(--theme-color-primary);
   border-radius: 12px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
   border: 1px solid #e5e7eb;
@@ -159,7 +159,7 @@ export const SubMenu = styled.div<{ $isOpen: boolean }>`
 export const SubMenuItem = styled.a`
   display: block;
   padding: 12px 16px;
-  color: var(--text-color);
+  color: var(--theme-color-tertiary);
   text-decoration: none;
   border-radius: 8px;
   transition: all 0.3s ease;
@@ -167,11 +167,11 @@ export const SubMenuItem = styled.a`
 
   &:hover {
     background-color: #f1f5f9;
-    color: var(--blue);
+    color: var(--theme-color-utility-4);
   }
 
   &:focus-visible {
-    outline: 2px solid var(--blue);
+    outline: 2px solid var(--theme-color-utility-4);
     outline-offset: -2px;
   }
 `;
@@ -206,7 +206,7 @@ export const MobileMenuButton = styled.button`
   }
 
   &:focus-visible {
-    outline: 2px solid var(--blue);
+    outline: 2px solid var(--theme-color-utility-4);
     outline-offset: 2px;
   }
 
@@ -228,7 +228,7 @@ export const HamburgerIcon = styled.div<{ $isOpen: boolean }>`
     left: 0;
     width: 100%;
     height: 2px;
-    background-color: var(--text-color);
+    background-color: var(--theme-color-tertiary);
     border-radius: 1px;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
@@ -268,7 +268,7 @@ export const MobileMenu = styled.div<{ $isOpen: boolean }>`
   top: 72px;
   left: 0;
   right: 0;
-  background: var(--white);
+  background: var(--theme-color-primary);
   border-bottom: 1px solid #e5e7eb;
   max-height: calc(100vh - 72px);
   overflow-y: auto;
@@ -309,7 +309,7 @@ export const MobileNavLink = styled.a<{ $hasSubItems?: boolean }>`
   align-items: center;
   justify-content: space-between;
   padding: 16px;
-  color: var(--text-color);
+  color: var(--theme-color-tertiary);
   text-decoration: none;
   font-weight: 600;
   font-size: 18px;
@@ -319,11 +319,11 @@ export const MobileNavLink = styled.a<{ $hasSubItems?: boolean }>`
 
   &:hover {
     background-color: #f8fafc;
-    color: var(--blue);
+    color: var(--theme-color-utility-4);
   }
 
   &:focus-visible {
-    outline: 2px solid var(--blue);
+    outline: 2px solid var(--theme-color-utility-4);
     outline-offset: -2px;
   }
 `;
@@ -340,19 +340,19 @@ export const MobileSubMenu = styled.div<{ $isOpen: boolean }>`
 export const MobileSubMenuItem = styled.a`
   display: block;
   padding: 12px 24px;
-  color: var(--text-color);
+  color: var(--theme-color-tertiary);
   text-decoration: none;
   font-size: 16px;
   transition: all 0.3s ease;
   cursor: pointer;
 
   &:hover {
-    color: var(--blue);
+    color: var(--theme-color-utility-4);
     background-color: #e2e8f0;
   }
 
   &:focus-visible {
-    outline: 2px solid var(--blue);
+    outline: 2px solid var(--theme-color-utility-4);
     outline-offset: -2px;
   }
 `;

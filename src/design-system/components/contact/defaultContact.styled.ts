@@ -71,12 +71,12 @@ export const Spacer = styled.hr`
 export const Content = styled.div``;
 
 export const Title = styled.h2`
-  color: var(--title-color-2);
+  color: var(--theme-color-quaternary);
   margin-bottom: 10px;
 `;
 
 export const Description = styled.p`
-  color: var(--text-color);
+  color: var(--theme-color-tertiary);
   margin-bottom: 40px;
 `;
 
@@ -122,7 +122,7 @@ export const ClientInfo = styled.div`
 
   p {
     font-size: var(--text-font-size);
-    color: var(--text-color);
+    color: var(--theme-color-tertiary);
   }
 
   ${bp.max(
@@ -141,27 +141,27 @@ export const Field = styled.div`
 `;
 
 export const Label = styled.label`
-  font-size: var(--label-font-size);
-  color: var(--label-color);
+  font-size: var(--description-font-size);
+  color: var(--theme-color-tertiary);
 `;
 
 export const Hint = styled.div`
-  font-size: var(--hint-font-size);
-  color: var(--hint-color);
+  font-size: var(--description-font-size);
+  color: var(--theme-color-tertiary);
   margin-top: 4px;
 `;
 
 export const Input = styled.input`
   padding: 10px;
   font-size: var(--text-font-size);
-  border: 1px solid var(--border-colors);
+  border: 1px solid var(--theme-color-tertiary);
   border-radius: 5px;
 `;
 
 export const Textarea = styled.textarea`
   padding: 10px;
   font-size: var(--text-font-size);
-  border: 1px solid var(--border-colors);
+  border: 1px solid var(--theme-color-tertiary);
   border-radius: 5px;
   resize: vertical;
   min-height: 200px;
@@ -170,14 +170,14 @@ export const Textarea = styled.textarea`
 export const Button = styled.button`
   padding: 10px;
   font-size: var(--text-font-size);
-  color: var(--text-color-primary);
-  background-color: var(--button-background-color);
+  color: var(--theme-color-primary);
+  background-color: var(--theme-color-quaternary);
   border: none;
   border-radius: 5px;
   cursor: pointer;
   transition: all 0.3s;
 
   &:hover {
-    filter: brightness(80%);
+    background-color: var(--theme-color-secondary);
   }
 `;

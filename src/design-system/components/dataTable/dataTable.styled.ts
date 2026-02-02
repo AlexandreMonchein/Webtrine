@@ -6,7 +6,7 @@ import { breakpointNames } from "../../../breakpointDef";
 export const Section = styled.section`
   position: relative;
   padding: 40px 120px;
-  color: var(--text-color-secondary);
+  color: var(--theme-color-tertiary);
   overflow: hidden;
 
   ${bp.max(
@@ -32,7 +32,7 @@ export const TableTitle = styled.h2.withConfig({
   shouldForwardProp: (prop) => !["centered"].includes(prop),
 })<{ centered?: boolean }>`
   text-align: center;
-  color: var(--title-color-2);
+  color: var(--theme-color-hover);
   text-align: ${({ centered }) => (centered ? "center" : "left")};
 `;
 
@@ -49,8 +49,8 @@ export const TableContainer = styled.div`
   box-shadow:
     0 4px 6px -1px rgba(0, 0, 0, 0.1),
     0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  background: var(--back-color-1);
-  border: 1px solid var(--border-colors);
+  background: var(--theme-color-primary);
+  border: 1px solid var(--theme-color-tertiary);
 
   ${bp.max(
     breakpointNames.medium,
@@ -83,9 +83,9 @@ export const Table = styled.table`
   /* Focus styles for keyboard navigation */
   th:focus,
   td:focus {
-    outline: 2px solid var(--blue);
+    outline: 2px solid var(--theme-color-utility-4);
     outline-offset: -2px;
-    background-color: var(--back-color-2);
+    background-color: var(--theme-color-background-1);
   }
 
   ${bp.max(
@@ -105,8 +105,8 @@ export const Table = styled.table`
 `;
 
 export const TableHeader = styled.thead`
-  background: var(--back-color-2);
-  border-bottom: 2px solid var(--border-colors);
+  background: var(--theme-color-background-1);
+  border-bottom: 2px solid var(--theme-color-tertiary);
 `;
 
 export const TableHeaderCell = styled.th.withConfig({
@@ -119,7 +119,7 @@ export const TableHeaderCell = styled.th.withConfig({
 }>`
   padding: 16px 20px;
   text-align: ${({ centered }) => (centered ? "center" : "left")};
-  color: var(--text-color-secondary);
+  color: var(--theme-color-tertiary);
   font-size: var(--description-font-size);
   letter-spacing: 0.025em;
   text-transform: uppercase;
@@ -128,9 +128,9 @@ export const TableHeaderCell = styled.th.withConfig({
 
   /* Accessibility: Focus indicator */
   &:focus {
-    outline: 2px solid var(--blue);
+    outline: 2px solid var(--theme-color-utility-4);
     outline-offset: -2px;
-    background-color: var(--back-color-2);
+    background-color: var(--theme-color-background-1);
     z-index: 1;
   }
 
@@ -140,9 +140,9 @@ export const TableHeaderCell = styled.th.withConfig({
   }
 
   &:focus-visible {
-    outline: 2px solid var(--blue);
+    outline: 2px solid var(--theme-color-utility-4);
     outline-offset: -2px;
-    background-color: var(--back-color-2);
+    background-color: var(--theme-color-background-1);
   }
 
   ${({ isFirst }) =>
@@ -178,7 +178,7 @@ export const TableHeaderCell = styled.th.withConfig({
 export const TableBody = styled.tbody``;
 
 export const TableRow = styled.tr`
-  border-bottom: 1px solid var(--border-colors);
+  border-bottom: 1px solid var(--theme-color-tertiary);
   transition: background-color 0.2s ease;
 
   &:last-child {
@@ -186,7 +186,7 @@ export const TableRow = styled.tr`
   }
 
   &:hover {
-    background-color: var(--back-color-2);
+    background-color: var(--theme-color-background-1);
   }
 `;
 
@@ -199,7 +199,7 @@ export const TableCell = styled.td.withConfig({
   centered?: boolean;
 }>`
   padding: 16px 20px;
-  color: var(--text-color-secondary);
+  color: var(--theme-color-tertiary);
   vertical-align: top;
   text-align: ${({ centered }) => (centered ? "center" : "left")};
   word-wrap: break-word;
@@ -208,9 +208,9 @@ export const TableCell = styled.td.withConfig({
 
   /* Accessibility: Focus indicator */
   &:focus {
-    outline: 2px solid var(--blue);
+    outline: 2px solid var(--theme-color-utility-4);
     outline-offset: -2px;
-    background-color: var(--back-color-2);
+    background-color: var(--theme-color-background-1);
     z-index: 1;
   }
 
@@ -220,9 +220,9 @@ export const TableCell = styled.td.withConfig({
   }
 
   &:focus-visible {
-    outline: 2px solid var(--blue);
+    outline: 2px solid var(--theme-color-utility-4);
     outline-offset: -2px;
-    background-color: var(--back-color-2);
+    background-color: var(--theme-color-background-1);
   }
 
   ${bp.max(

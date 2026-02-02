@@ -110,7 +110,7 @@ export const AvatarContainer = styled.div`
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(45deg, var(--blue), #6c757d);
+    background: linear-gradient(45deg, var(--theme-color-utility-4), #6c757d);
     opacity: 0;
     transition: opacity 0.3s ease;
   }
@@ -140,8 +140,8 @@ export const AvatarFallback = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--blue);
-  color: var(--white);
+  background: var(--theme-color-utility-4);
+  color: var(--theme-color-primary);
   font-weight: 600;
   font-size: 1.75rem;
 
@@ -198,7 +198,7 @@ export const StarRating = styled.div`
 `;
 
 export const Star = styled.span<{ $filled: boolean }>`
-  color: ${(props) => (props.$filled ? "var(--nav-hover-color)" : "#e0e0e0")};
+  color: ${(props) => (props.$filled ? "var(--theme-color-hover)" : "#e0e0e0")};
   font-size: 1.25rem;
   line-height: 1;
   transition: color 0.3s ease;
@@ -224,17 +224,17 @@ export const PaginationDot = styled.button<{ $active: boolean }>`
   border: none;
   border-radius: 50%;
   background: ${(props) =>
-    props.$active ? "var(--nav-hover-color)" : "#e0e0e0"};
+    props.$active ? "var(--theme-color-hover)" : "#e0e0e0"};
   cursor: pointer;
   transition: all 0.3s ease;
 
   &:hover {
-    background: var(--nav-hover-color);
+    background: var(--theme-color-hover);
     transform: scale(1.2);
   }
 
   &:focus-visible {
-    outline: 2px solid var(--nav-hover-color);
+    outline: 2px solid var(--theme-color-hover);
     outline-offset: 2px;
   }
 `;

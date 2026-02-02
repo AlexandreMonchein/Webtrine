@@ -70,7 +70,7 @@ export const Img = styled.img`
 `;
 
 export const Box = styled.div<{ $anchor: "top-left" | "bottom-right" }>`
-  background-color: var(--light-grey);
+  background-color: var(--theme-color-background-1);
   min-width: 250px;
   max-width: 480px;
   padding: 12px;
@@ -108,14 +108,14 @@ export const Divider = styled.hr`
   height: 2px;
   border: 0;
   margin: 8px 0 20px 0;
-  background: var(--black);
+  background: var(--theme-color-tertiary);
 `;
 
 export const Cta = styled.a`
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  color: var(--black);
+  color: var(--theme-color-tertiary);
   text-decoration: none;
 
   &:hover,

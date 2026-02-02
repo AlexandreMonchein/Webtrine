@@ -9,7 +9,7 @@ export const PricesContainer = styled.section`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  color: var(--text-color-secondary);
+  color: var(--theme-color-tertiary);
 
   position: relative;
   padding: 40px 120px;
@@ -36,7 +36,7 @@ export const PriceCardsContainer = styled.div`
 `;
 
 export const PriceCard = styled.div`
-  background: var(--price-background-color);
+  background: var(--theme-color-primary);
   padding: 40px 30px;
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -47,13 +47,13 @@ export const PriceCard = styled.div`
 export const CardTitle = styled.h3`
   font-size: 24px;
   margin-bottom: 10px;
-  color: var(--text-color-secondary);
+  color: var(--theme-color-tertiary);
 `;
 
 export const CardPrice = styled.p`
   font-size: 32px;
   margin-bottom: 20px;
-  color: var(--price-color);
+  color: var(--theme-color-utility-4);
 `;
 
 export const FeaturesList = styled.ul`
@@ -64,15 +64,15 @@ export const FeaturesList = styled.ul`
 
 export const FeatureItem = styled.li`
   font-size: 16px;
-  color: var(--text-color-secondary);
+  color: var(--theme-color-tertiary);
   margin-bottom: 10px;
 `;
 
 export const ActionButton = styled(Link)`
   padding: 10px 20px;
   font-size: 16px;
-  color: var(--button-text-color);
-  background-color: var(--button-background-color);
+  color: var(--theme-color-primary);
+  background-color: var(--theme-color-utility-4);
   border: none;
   border-radius: 5px;
   cursor: pointer;

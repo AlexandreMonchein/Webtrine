@@ -50,8 +50,8 @@ export const TestimonialCardsSlide = styled.div`
 `;
 
 export const TestimonialCard = styled.div`
-  background-color: var(--white);
-  color: var(--text-color);
+  background-color: var(--theme-color-primary);
+  color: var(--theme-color-tertiary);
   border-radius: 12px;
   padding: 16px;
   box-shadow:
@@ -103,7 +103,7 @@ export const AvatarContainer = styled.div`
   border-radius: 50%;
   overflow: hidden;
   flex-shrink: 0;
-  background-color: var(--gold);
+  background-color: var(--theme-color-hover);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -131,8 +131,8 @@ export const AvatarFallback = styled.div`
   justify-content: center;
   font-weight: 600;
   font-size: 14px;
-  color: var(--white);
-  background-color: var(--gold);
+  color: var(--theme-color-primary);
+  background-color: var(--theme-color-hover);
 
   ${bp.min(
     breakpointNames.medium,
@@ -226,7 +226,8 @@ export const StarsContainer = styled.div`
 
 export const Star = styled.span<{ $filled: boolean }>`
   font-size: 14px;
-  color: ${(props) => (props.$filled ? "#fe8403" : "#e0e0e0")};
+  color: ${(props) =>
+    props.$filled ? "var(--theme-color-utility-3)" : "white"};
   line-height: 1;
 
   ${bp.min(
@@ -289,18 +290,20 @@ export const NavButton = styled.button<{ $disabled?: boolean }>`
   justify-content: center;
   width: 40px;
   height: 40px;
-  border: 1px solid ${(props) => (props.$disabled ? "#e0e0e0" : "var(--gold)")};
+  border: 1px solid
+    ${(props) => (props.$disabled ? "#e0e0e0" : "var(--theme-color-utility-3)")};
   background-color: ${(props) =>
-    props.$disabled ? "#f5f5f5" : "var(--white)"};
-  color: ${(props) => (props.$disabled ? "#999" : "var(--gold)")};
+    props.$disabled ? "#f5f5f5" : "var(--theme-color-primary)"};
+  color: ${(props) =>
+    props.$disabled ? "#999" : "var(--theme-color-utility-3)"};
   border-radius: 50%;
   cursor: ${(props) => (props.$disabled ? "not-allowed" : "pointer")};
   transition: all 0.3s ease;
   font-size: 18px;
 
   &:hover:not(:disabled) {
-    background-color: var(--gold);
-    color: var(--white);
+    background-color: var(--theme-color-hover);
+    color: var(--theme-color-primary);
     transform: scale(1.1);
   }
 
@@ -321,13 +324,13 @@ export const PaginationDot = styled.button<{ $active?: boolean }>`
   border: none;
   border-radius: 50%;
   background-color: ${(props) =>
-    props.$active ? "var(--nav-hover-color)" : "#e0e0e0"};
+    props.$active ? "var(--theme-color-hover)" : "#e0e0e0"};
   cursor: pointer;
   transition: all 0.3s ease;
   padding: 0;
 
   &:hover {
-    background-color: var(--nav-hover-color);
+    background-color: var(--theme-color-hover);
     transform: scale(1.2);
   }
 

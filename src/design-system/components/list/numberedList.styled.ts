@@ -7,7 +7,7 @@ import { breakpointNames } from "../../../breakpointDef";
 export const Section = styled.section`
   position: relative;
   padding: 40px 120px;
-  color: var(--text-color-secondary);
+  color: var(--theme-color-tertiary);
   overflow: hidden;
 
   &.isContinious {
@@ -34,7 +34,7 @@ export const Section = styled.section`
 `;
 
 export const BigTitle = styled.h2`
-  color: var(--title-color-2);
+  color: var(--theme-color-hover);
   text-align: center;
 `;
 

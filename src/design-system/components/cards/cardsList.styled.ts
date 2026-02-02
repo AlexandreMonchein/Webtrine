@@ -6,7 +6,7 @@ import { breakpointNames } from "../../../breakpointDef";
 export const Section = styled.section`
   position: relative;
   padding: 40px 120px;
-  color: var(--text-color-secondary);
+  color: var(--theme-color-tertiary);
   overflow: hidden;
 
   ${bp.max(
@@ -25,7 +25,7 @@ export const Section = styled.section`
 `;
 
 export const Title = styled.h2`
-  color: var(--title-color-2);
+  color: var(--theme-color-quaternary);
   text-align: center;
 `;
 
@@ -96,7 +96,7 @@ export const CardContainer = styled.div<{
 `;
 
 export const Card = styled.div`
-  background: var(--back-color-3);
+  background: var(--theme-color-background-2);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   border-radius: 16px;
   padding: 1rem;

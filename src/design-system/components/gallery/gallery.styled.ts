@@ -4,7 +4,7 @@ import { bp } from "../../../breakpoint";
 import { breakpointNames } from "../../../breakpointDef";
 
 export const GalleryTitle = styled.h1`
-  color: var(--title-color-2);
+  color: var(--theme-color-quaternary);
   text-align: center;
 `;
 export const GalleryDescription = styled.p`
@@ -14,12 +14,12 @@ export const GalleryDescription = styled.p`
 
   a {
     background: linear-gradient(
-        var(--link-hover-color),
-        var(--link-hover-color)
+        var(--theme-color-quaternary),
+        var(--theme-color-quaternary)
       )
       center bottom / 100% 1px no-repeat;
     border-bottom: none;
-    color: var(--link-hover-color);
+    color: var(--theme-color-quaternary);
     text-decoration: none;
     transition:
       background 300ms ease-in-out,
@@ -28,11 +28,11 @@ export const GalleryDescription = styled.p`
     &:hover,
     &:focus {
       background: linear-gradient(
-          var(--link-hover-color),
-          var(--link-hover-color)
+          var(--theme-color-quaternary),
+          var(--theme-color-quaternary)
         )
         center bottom / 100% 100% no-repeat;
-      color: var(--text-color-primary);
+      color: var(--theme-color-primary);
     }
   }
 `;
@@ -43,7 +43,7 @@ export const GalleryRoot = styled.section`
   align-items: center;
   gap: 32px;
   padding: 40px 120px;
-  background-color: var(--back-color-2);
+  background-color: var(--theme-color-background-1);
 
   ${bp.max(
     breakpointNames.medium,

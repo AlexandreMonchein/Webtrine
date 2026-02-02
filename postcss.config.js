@@ -1,9 +1,6 @@
 import postcssCustomMedia from "postcss-custom-media";
+import postcssImport from "postcss-import";
 
 export default {
-  plugins: [
-    postcssCustomMedia({
-      importFrom: "./src/custom-media.css",
-    }),
-  ],
+  plugins: [postcssImport(), postcssCustomMedia()],
 };

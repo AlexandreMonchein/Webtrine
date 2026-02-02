@@ -1,20 +1,51 @@
 {
+  "comment": "=== TYPOGRAPHY ===",
   "navbar-font-size": "16px",
   "subtitle-font-size": "32px",
   "text-font-size": "24px",
   "description-font-size": "16px",
 
+  "comment2": "=== Z-INDEX ===",
   "z-index-navbars": 3,
   "z-index-text": 2,
   "z-index-backgrounds": 1,
 
-  "dark-brown": "#562F0C",
-  "brown": "#8C4820",
-  "light-grey": "#F2F2F2",
-  "white": "#FFFFFF",
-  "black": "#000000",
+  "comment3": "=== BRAND PALETTE ===",
+  "theme-color-primary": "#FFFFFF",
+  "theme-color-primary-comment": "White - (changes in dark mode)",
 
-  "dark-beige": "#efd2af",
-  "light-beige": "#F4E1C9",
-  "beige": "#F2D9BB"
+  "theme-color-secondary": "#562F0C",
+  "theme-color-secondary-comment": "Dark Brown - Primary brand color",
+
+  "theme-color-tertiary": "#000000",
+  "theme-color-tertiary-comment": "Black - (changes in dark mode)",
+
+  "theme-color-quaternary": "#8C4820",
+  "theme-color-quaternary-comment": "Brown - Second brand color",
+
+  "theme-color-quinary": "#F4E1C9",
+  "theme-color-quinary-comment": "Beige - Third brand color",
+
+  "comment4": "=== UTILITY COLORS ===",
+  "theme-color-utility-1": "#DC2626",
+  "theme-color-utility-1-comment": "Red - Error, danger",
+
+  "theme-color-utility-2": "#16A34A",
+  "theme-color-utility-2-comment": "Green - Success, valid",
+
+  "theme-color-utility-3": "#EA580C",
+  "theme-color-utility-3-comment": "Orange - Warning, alert",
+
+  "theme-color-utility-4": "#2563EB",
+  "theme-color-utility-4-comment": "Blue - Info, link",
+
+  "comment5": "=== EXTENDED PALETTE ===",
+  "theme-color-hover": "#F2D9BB",
+  "theme-color-hover-comment": "Brown - Hover state",
+
+  "theme-color-background-1": "#F4E1C9",
+  "theme-color-background-1-comment": "Light Beige - Background color 1",
+
+  "theme-color-background-2": "#F2D9BB",
+  "theme-color-background-2-comment": "Beige - Background color 2"
 }

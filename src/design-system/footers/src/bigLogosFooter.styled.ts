@@ -4,8 +4,8 @@ import { bp } from "../../../breakpoint";
 import { breakpointNames } from "../../../breakpointDef";
 
 export const FooterContainer = styled.footer`
-  background-color: var(--background-color);
-  color: var(--navigation-text-color);
+  background-color: var(--theme-color-secondary);
+  color: var(--theme-color-primary);
 
   padding: 40px 80px;
 
@@ -58,7 +58,7 @@ export const MenuSection = styled.div`
 `;
 
 export const MenuTitle = styled.h2`
-  color: var(--title-color-1);
+  color: var(--theme-color-primary);
   margin: 0 0 1.5rem 0;
   line-height: 1.3;
 `;
@@ -75,18 +75,18 @@ export const MenuList = styled.ul`
 export const MenuListItem = styled.li``;
 
 export const MenuLink = styled.a`
-  color: var(--navigation-text-color);
+  color: var(--theme-color-primary);
   text-decoration: none;
   transition: color 0.2s ease;
 
   &:hover,
   &:focus {
-    color: var(--nav-hover-color);
+    color: var(--theme-color-hover);
     outline: none;
   }
 
   &:focus-visible {
-    outline: 2px solid var(--nav-hover-color);
+    outline: 2px solid var(--theme-color-hover);
     outline-offset: 2px;
   }
 `;
@@ -108,17 +108,17 @@ export const BrandSection = styled.div`
 `;
 
 export const BrandTitle = styled.h2`
-  color: var(--title-color-1);
+  color: var(--theme-color-primary);
   margin: 0 0 1rem 0;
 `;
 
 export const BrandDescription = styled.div`
-  color: var(--navigation-text-color);
+  color: var(--theme-color-primary);
   margin-bottom: 1rem;
 `;
 
 export const AdditionalText = styled.p`
-  color: var(--navigation-text-color);
+  color: var(--theme-color-primary);
   margin: 0;
 `;
 
@@ -148,17 +148,17 @@ export const SocialLink = styled.a`
   justify-content: center;
   width: 44px;
   height: 44px;
-  color: var(--navigation-text-color);
+  color: var(--theme-color-primary);
   transition: color 0.2s ease;
 
   &:hover,
   &:focus {
-    color: var(--nav-hover-color);
+    color: var(--theme-color-hover);
     outline: none;
   }
 
   &:focus-visible {
-    outline: 2px solid var(--nav-hover-color);
+    outline: 2px solid var(--theme-color-hover);
     outline-offset: 2px;
   }
 `;
@@ -209,7 +209,7 @@ export const LogoLink = styled.a`
   }
 
   &:focus-visible {
-    outline: 2px solid var(--nav-hover-color);
+    outline: 2px solid var(--theme-color-hover);
     outline-offset: 2px;
   }
 `;
@@ -225,5 +225,5 @@ export const LogoImage = styled.img`
 export const SiteRef = styled.a`
   text-decoration: none;
   cursor: pointer;
-  color: var(--nav-hover-color);
+  color: var(--theme-color-hover);
 `;

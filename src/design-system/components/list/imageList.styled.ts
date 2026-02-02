@@ -4,7 +4,7 @@ import { SectionTitle } from "../description/description.styled";
 
 export const Section = styled.section`
   padding: 40px 0px;
-  color: var(--text-color-secondary);
+  color: var(--theme-color-tertiary);
 `;
 
 export const Container = styled.div`

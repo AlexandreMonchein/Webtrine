@@ -22,6 +22,7 @@ export const BackgroundContainer = styled.div`
   width: 100%;
   height: 100%;
   object-fit: cover;
+  background-color: white;
   z-index: var(--z-index-backgrounds);
 
   &::before {
@@ -60,7 +61,7 @@ export const RedirectLink = styled.a`
   padding: 12px;
   bottom: 0;
   text-decoration: none;
-  color: var(--text-color-primary);
+  color: var(--theme-color-primary);
 `;
 
 export const Overlay = styled.div`
@@ -198,7 +199,7 @@ export const TextContainer = styled.div`
 
 export const Title = styled.h1`
   z-index: var(--z-index-text);
-  color: var(--title-color-1);
+  color: var(--theme-color-primary);
   padding: 0px 48px;
 
   ${bp.max(
@@ -213,7 +214,7 @@ export const Title = styled.h1`
 
 export const SubTitle = styled.h2`
   z-index: var(--z-index-text);
-  color: var(--title-color-1);
+  color: var(--theme-color-primary);
   padding: 0px 48px;
 
   ${bp.max(
@@ -240,7 +241,7 @@ export const Selector = styled.div`
   width: 15px;
   height: 15px;
   border-radius: 50%;
-  background-color: var(--color-primary);
+  background-color: var(--theme-color-primary);
   opacity: 0.5;
   cursor: pointer;
   transition: opacity 0.3s ease-in-out;

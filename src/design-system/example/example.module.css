@@ -3,14 +3,14 @@
 /* Base component container */
 .exampleRoot {
   padding: 1rem;
-  background-color: var(--white);
+  background-color: var(--theme-color-primary);
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 /* Title element */
 .title {
-  color: var(--dark-blue);
+  color: var(--theme-color-secondary);
   font-size: var(--subtitle-font-size);
   margin-bottom: 1rem;
   font-weight: bold;
@@ -18,19 +18,19 @@
 
 /* Description text */
 .description {
-  color: var(--black);
+  color: var(--theme-color-tertiary);
   font-size: var(--description-font-size);
   line-height: 1.6;
 }
 
 /* Variant modifiers */
 .exampleRootPrimary {
-  background-color: var(--blue);
-  color: var(--white);
+  background-color: var(--theme-color-utility-4);
+  color: var(--theme-color-primary);
 }
 
 .exampleRootSecondary {
-  background-color: var(--light-grey);
+  background-color: var(--theme-color-background-1);
 }
 
 /* State modifiers */

@@ -24,7 +24,7 @@ export const Section = styled.section`
 
 export const SectionTitle = styled.h2`
   text-align: center;
-  color: var(--title-color-2);
+  color: var(--theme-color-quaternary);
   margin-bottom: 40px;
 `;
 
@@ -59,7 +59,7 @@ export const Card = styled.article`
   justify-content: space-between;
   border-radius: 12px;
   overflow: hidden;
-  background-color: var(--back-color-1);
+  background-color: var(--theme-color-primary);
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   position: relative;
   width: 100%;
@@ -100,7 +100,7 @@ export const CardContent = styled.div`
   flex-grow: 1;
   padding: 20px;
   background-color: rgba(0, 0, 0, 0.4);
-  color: var(--text-color-primary);
+  color: var(--theme-color-primary);
   position: absolute;
   top: 0;
   left: 0;
@@ -126,8 +126,8 @@ export const ButtonsWrapper = styled.div`
 `;
 
 export const ActionCardButton = styled(Link)`
-  background-color: var(--button-background-color);
-  color: var(--button-text-color);
+  background-color: var(--theme-color-secondary);
+  color: var(--theme-color-primary);
   font-size: var(--description-font-size);
   border: none;
   max-width: 250px;
@@ -140,8 +140,8 @@ export const ActionCardButton = styled(Link)`
 
   &:hover,
   &:focus {
-    color: var(--black);
-    background-color: var(--nav-hover-color);
+    color: var(--theme-color-tertiary);
+    background-color: var(--theme-color-hover);
     outline: none;
   }
 `;

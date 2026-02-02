@@ -45,8 +45,8 @@ export const TestimonialSlide = styled.div`
 `;
 
 export const TestimonialCard = styled.article`
-  background: var(--back-color-3);
-  border: 1px solid var(--back-color-3);
+  background: var(--theme-color-background-2);
+  border: 1px solid var(--theme-color-background-2);
   border-radius: 12px;
   padding: 24px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -98,7 +98,11 @@ export const AvatarContainer = styled.div`
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(45deg, var(--blue, #007bff), #6c757d);
+    background: linear-gradient(
+      45deg,
+      var(--theme-color-utility-4, #007bff),
+      #6c757d
+    );
     opacity: 0;
     transition: opacity 0.3s ease;
   }
@@ -120,7 +124,7 @@ export const AvatarFallback = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--blue, #007bff);
+  background: var(--theme-color-utility-4, #007bff);
   color: var(--white, #ffffff);
   font-weight: 600;
   font-size: 1.25rem;
@@ -135,7 +139,7 @@ export const TestimonialName = styled.h3`
   margin: 0;
   font-size: 1.125rem;
   font-weight: 600;
-  color: var(--text-color, #1a1a1a);
+  color: var(--theme-color-tertiary, #1a1a1a);
   line-height: 1.4;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -159,7 +163,8 @@ export const StarRating = styled.div`
 `;
 
 export const Star = styled.span<{ $filled: boolean }>`
-  color: ${(props) => (props.$filled ? "var(--gold, #ffc107)" : "#e0e0e0")};
+  color: ${(props) =>
+    props.$filled ? "var(--theme-color-utility-3)" : "#e0e0e0"};
   font-size: 1rem;
   line-height: 1;
   transition: color 0.3s ease;
@@ -170,7 +175,7 @@ export const TestimonialContent = styled.blockquote`
   font-size: 1rem;
   line-height: 1.6;
   max-height: 110px;
-  color: var(--text-color, #1a1a1a);
+  color: var(--theme-color-tertiary, #1a1a1a);
   position: relative;
 
   // Multi-line ellipsis avec -webkit-line-clamp
@@ -214,7 +219,7 @@ export const NavigationButton = styled.button<{ $disabled?: boolean }>`
   border: 1px solid #e1e5e9;
   border-radius: 50%;
   background: #ffffff;
-  color: var(--text-color, #1a1a1a);
+  color: var(--theme-color-tertiary, #1a1a1a);
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -223,9 +228,9 @@ export const NavigationButton = styled.button<{ $disabled?: boolean }>`
   font-size: 1.25rem;
 
   &:hover:not(:disabled) {
-    background: var(--blue, #007bff);
+    background: var(--theme-color-utility-4, #007bff);
     color: var(--white, #ffffff);
-    border-color: var(--blue, #007bff);
+    border-color: var(--theme-color-utility-4, #007bff);
     transform: scale(1.05);
   }
 
@@ -235,7 +240,7 @@ export const NavigationButton = styled.button<{ $disabled?: boolean }>`
   }
 
   &:focus-visible {
-    outline: 2px solid var(--blue, #007bff);
+    outline: 2px solid var(--theme-color-utility-4, #007bff);
     outline-offset: 2px;
   }
 
@@ -259,17 +264,17 @@ export const PaginationDot = styled.button<{ $active: boolean }>`
   border: none;
   border-radius: 50%;
   background: ${(props) =>
-    props.$active ? "var(--blue, #007bff)" : "#e0e0e0"};
+    props.$active ? "var(--theme-color-utility-4, #007bff)" : "#e0e0e0"};
   cursor: pointer;
   transition: all 0.3s ease;
 
   &:hover {
-    background: var(--blue, #007bff);
+    background: var(--theme-color-utility-4, #007bff);
     transform: scale(1.2);
   }
 
   &:focus-visible {
-    outline: 2px solid var(--blue, #007bff);
+    outline: 2px solid var(--theme-color-utility-4, #007bff);
     outline-offset: 2px;
   }
 `;

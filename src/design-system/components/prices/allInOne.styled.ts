@@ -7,7 +7,7 @@ import { breakpointNames } from "../../../breakpointDef";
 export const PricesContainer = styled.section`
   position: relative;
   padding: 40px 120px;
-  color: var(--text-color-secondary);
+  color: var(--theme-color-tertiary);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -29,7 +29,7 @@ export const PricesContainer = styled.section`
 
 export const Title = styled.h2`
   text-align: center;
-  color: var(--title-color-2);
+  color: var(--theme-color-hover);
 `;
 
 export const Description = styled.p`
@@ -39,7 +39,7 @@ export const Description = styled.p`
 `;
 
 export const FeaturesCard = styled.div`
-  background: var(--price-background-color);
+  background: var(--theme-color-primary);
   border-radius: 10px;
   box-shadow: 0px 0px 8px 8px rgba(0, 0, 0, 0.1);
   width: 100%;
@@ -75,7 +75,7 @@ export const FeatureImage = styled.img`
 
 export const FeatureText = styled.p`
   padding-left: 12px;
-  color: var(--text-color-secondary);
+  color: var(--theme-color-tertiary);
 `;
 
 export const PriceContainer = styled.div`
@@ -87,22 +87,22 @@ export const PriceContainer = styled.div`
 export const Price = styled.p`
   font-size: 32px;
   margin: 20px 0;
-  color: var(--price-color);
+  color: var(--theme-color-utility-4);
   text-align: center;
 `;
 
 export const Per = styled.p`
   font-size: 24px;
   margin: 20px 0;
-  color: var(--text-color);
+  color: var(--theme-color-tertiary);
   text-align: center;
 `;
 
 export const ActionButton = styled(Link)`
   padding: 10px 20px;
   font-size: 16px;
-  color: var(--button-text-color);
-  background-color: var(--button-background-color);
+  color: var(--theme-color-primary);
+  background-color: var(--theme-color-utility-4);
   border: none;
   border-radius: 5px;
   cursor: pointer;

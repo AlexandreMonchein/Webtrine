@@ -1,16 +1,51 @@
 {
+  "comment": "=== TYPOGRAPHY ===",
   "navbar-font-size": "16px",
   "subtitle-font-size": "32px",
   "text-font-size": "24px",
   "description-font-size": "16px",
 
+  "comment2": "=== Z-INDEX ===",
   "z-index-navbars": 3,
   "z-index-text": 2,
   "z-index-backgrounds": 1,
 
-  "white": "#ffffff",
-  "light-grey": "#E8EEF1",
-  "dark-grey": "#505757",
-  "black": "#000000",
-  "orange": "#FF9D00"
+  "comment3": "=== BRAND PALETTE ===",
+  "theme-color-primary": "#ffffff",
+  "theme-color-primary-comment": "White - Main background (changes in dark mode)",
+
+  "theme-color-secondary": "#505757",
+  "theme-color-secondary-comment": "Dark Grey - Primary brand color",
+
+  "theme-color-tertiary": "#000000",
+  "theme-color-tertiary-comment": "Black - Text and contrast (changes in dark mode)",
+
+  "theme-color-quaternary": "#FF9D00",
+  "theme-color-quaternary-comment": "Orange - Secondary brand color",
+
+  "theme-color-quinary": "#ffffff",
+  "theme-color-quinary-comment": "White - Third brand color",
+
+  "comment4": "=== UTILITY COLORS ===",
+  "theme-color-utility-1": "#DC2626",
+  "theme-color-utility-1-comment": "Red - Error, danger",
+
+  "theme-color-utility-2": "#16A34A",
+  "theme-color-utility-2-comment": "Green - Success, valid",
+
+  "theme-color-utility-3": "#EA580C",
+  "theme-color-utility-3-comment": "Orange - Warning, alert",
+
+  "theme-color-utility-4": "#2563EB",
+  "theme-color-utility-4-comment": "Blue - Info, link",
+
+  "comment5": "=== EXTENDED PALETTE ===",
+  "theme-color-hover": "#FF9D00",
+  "theme-color-hover-comment": "Orange - Hover state",
+
+  "theme-color-background-1": "#E8EEF1",
+  "theme-color-background-1-comment": "Light Grey - Background color 1",
+
+  "theme-color-background-2": "#ffffff",
+  "theme-color-background-2-comment": "White - Background color 2"
 }

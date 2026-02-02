@@ -30,14 +30,14 @@ export const Links = styled.a`
   display: block;
   text-decoration: none;
   cursor: pointer;
-  color: var(--navigation-text-color);
+  color: var(--theme-color-primary);
   border-bottom: 2px solid transparent;
   padding: 10px 0px;
 
   &:hover,
   &:focus-visible {
-    color: var(--nav-hover-color);
-    border-bottom: 2px solid var(--nav-hover-color);
+    color: var(--theme-color-hover);
+    border-bottom: 2px solid var(--theme-color-hover);
   }
 `;
 
@@ -68,14 +68,14 @@ export const SubCategoryContainer = styled.ul`
   }
 
   ${Links} {
-    color: var(--text-color);
+    color: var(--theme-color-tertiary);
     padding: 10px;
     border-bottom: none;
 
     &:hover,
     &:focus-visible {
       border-bottom: none;
-      color: var(--nav-hover-color);
+      color: var(--theme-color-hover);
     }
   }
 `;
@@ -106,7 +106,7 @@ export const Sidebar = styled.div`
   position: fixed;
   top: 0;
   left: -321px;
-  background-color: var(--background-color);
+  background-color: var(--theme-color-secondary);
   overflow-x: hidden;
   transition: 0.5s;
   padding-top: 80px;
@@ -159,7 +159,7 @@ export const Sidebar = styled.div`
 
     &:hover,
     &:focus-visible {
-      color: var(--nav-hover-color);
+      color: var(--theme-color-hover);
     }
   }
 
@@ -174,8 +174,8 @@ export const Container = styled.header`
   align-items: center;
   padding: 16px 32px;
   font-size: var(--navbar-font-size);
-  background-color: var(--background-color);
-  color: var(--text-color);
+  background-color: var(--theme-color-secondary);
+  color: var(--theme-color-tertiary);
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 
   &.isFixed {

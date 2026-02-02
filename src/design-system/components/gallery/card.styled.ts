@@ -22,7 +22,7 @@ export const Image = styled.img`
   height: 261px;
   object-fit: cover;
   border-radius: 16px 16px 16px 16px;
-  filter: drop-shadow(2px 3px 3px var(--brown));
+  filter: drop-shadow(2px 3px 3px var(--theme-color-secondary));
 
   ${bp.min(
     breakpointNames.wide,

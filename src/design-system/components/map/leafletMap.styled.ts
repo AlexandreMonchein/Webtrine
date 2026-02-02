@@ -6,13 +6,13 @@ import { breakpointNames } from "../../../breakpointDef";
 
 export const Section = styled.section`
   box-sizing: border-box;
-  color: var(--text-color-secondary);
+  color: var(--theme-color-tertiary);
   position: relative;
   z-index: var(--z-index-text);
 `;
 
 export const BigTitle = styled.h2`
-  color: var(--title-color-2);
+  color: var(--theme-color-hover);
 
   ${bp.max(
     breakpointNames.medium,
@@ -75,7 +75,7 @@ export const ListSection = styled.div`
 `;
 
 export const Title = styled.h2`
-  color: var(--title-color-2);
+  color: var(--theme-color-hover);
   text-align: center;
 `;
 
