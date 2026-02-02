@@ -4,7 +4,7 @@
 
 ## 🏗️ Architecture & Technology Stack
 
-- **Frontend**: React 18, Redux Toolkit, Styled Components, TypeScript
+- **Frontend**: React 18, Redux Toolkit, CSS Modules + Styled Components (migration en cours), TypeScript
 - **Backend**: Express.js server (server.js pour servir les builds)
 - **Build Tools**: Vite 6 avec plugins personnalisés
 - **Package Manager**: pnpm (v10)
@@ -14,7 +14,7 @@
 
 ### Technologies Principales
 
-- **UI/Styling**: Styled Components 6.1.11, CSS moderne avec variables
+- **UI/Styling**: CSS Modules (nouveau) + Styled Components 6.1.11 (legacy), CSS moderne avec variables
 - **State Management**: Redux Toolkit (@reduxjs/toolkit 2.2.4)
 - **Routing**: React Router DOM 6.23.1
 - **Internationalization**: i18next 23.11.5 + react-i18next 14.1.1
@@ -22,6 +22,16 @@
 - **Forms**: EmailJS pour l'envoi d'emails, React Calendly pour la planification
 - **Testing**: Vitest 3.0.9 + Testing Library + Playwright
 - **Linting**: ESLint 9 avec flat config + Prettier + Stylelint
+- **CSS Modules**: typescript-plugin-css-modules pour le support TypeScript
+
+### Migration vers CSS Modules
+
+⚠️ **Le projet est en cours de migration de Styled Components vers CSS Modules** :
+- **Nouveaux composants** : Doivent utiliser CSS Modules
+- **Composants existants** : Peuvent rester avec Styled Components temporairement
+- **Coexistence** : Les deux approches peuvent coexister pendant la migration
+- **Documentation complète** : Voir `docs/CSS_MODULES_MIGRATION.md`
+- **Composant exemple** : `src/design-system/example/` montre le pattern CSS Modules
 
 ### Plugins Vite Personnalisés
 
@@ -198,14 +208,16 @@ pnpm convert:webp
 
 - **Composants React**: camelCase avec suffixe `.component.{tsx,jsx}`
   - Exemples: `classicNavbar.component.tsx`, `banner.component.tsx`
+- **CSS Modules**: camelCase avec suffixe `.module.css`
+  - Exemples: `banner.module.css`, `classicNavbar.module.css`
 - **Utilitaires**: camelCase avec suffixe `.utils.{ts,js}`
   - Exemples: `customer.utils.js`, `analytics.utils.js`, `scrollToTop.utils.js`
 - **Hooks React**: camelCase avec préfixe `use` et suffixe `.{ts,js}`
   - Exemples: `useAnalytics.js`
 - **Stories Storybook**: camelCase avec suffixe `.stories.{tsx,jsx}`
   - Exemples: `banner.component.stories.tsx`
-- **Styled Components**: camelCase avec suffixe `.styled.{ts,js}`
-  - Exemples: `banner.styled.ts`
+- **Styled Components** (legacy): camelCase avec suffixe `.styled.{ts,js}`
+  - Exemples: `banner.styled.ts` (à migrer vers CSS Modules)
 - **Redux**:
   - Actions: camelCase avec suffixe `.action.ts` (`state.action.ts`)
   - Reducers: camelCase avec suffixe `.reducer.ts` (`state.reducer.ts`)
@@ -213,6 +225,7 @@ pnpm convert:webp
 - **Types TypeScript**: camelCase avec suffixe `.types.ts`
 - **Tests**:
   - Intégration: `.int.{ts,tsx}` dans dossiers `__tests__`
+  - Unitaires: `.spec.{ts,tsx}` dans dossiers `__tests__`
 - **Configuration**:
   - JSON: `config.json`, `style.config.json`
   - JS/TS: `{name}.config.{js,ts,mjs}`
@@ -232,13 +245,17 @@ Les imports doivent être automatiquement triés par `simple-import-sort` :
 
 ### Organisation des Composants
 
+**Nouveau pattern (CSS Modules)** :
 ```
 src/design-system/
   ├── components/        # Composants réutilisables
   │   ├── banner/
   │   │   ├── banner.component.tsx
-  │   │   ├── banner.styled.ts
-  │   │   └── banner.component.stories.tsx
+  │   │   ├── banner.module.css
+  │   │   ├── banner.types.ts
+  │   │   ├── banner.stories.tsx
+  │   │   └── __tests__/
+  │   │       └── banner.component.spec.tsx
   │   └── ...
   ├── navbars/          # Barres de navigation
   ├── footers/          # Pieds de page
@@ -247,7 +264,49 @@ src/design-system/
   └── utils/            # Composants utilitaires (displayers, etc.)
 ```
 
-### Styled Components Best Practices
+**Legacy pattern (Styled Components - à migrer)** :
+```
+src/design-system/
+  ├── components/        # Composants réutilisables
+  │   ├── banner/
+  │   │   ├── banner.component.tsx
+  │   │   ├── banner.styled.ts      ← À remplacer par .module.css
+  │   │   └── banner.stories.tsx
+  │   └── ...
+```
+
+### CSS Modules Best Practices
+
+- **Import** : `import styles from './component.module.css'`
+- **Usage** : `<div className={styles.myClass}>`
+- **Conditionnels** : Utiliser la librairie `classnames`
+  ```tsx
+  <div className={classNames(styles.root, {
+    [styles.active]: isActive,
+    [styles.disabled]: disabled
+  })}>
+  ```
+- **Variables CSS** : Utiliser les variables de `style.config.json`
+  ```css
+  .title {
+    color: var(--dark-blue);
+    font-size: var(--subtitle-font-size);
+  }
+  ```
+- **Custom Media Queries** : Utiliser les breakpoints définis dans `src/custom-media.css`
+  ```css
+  @media (--bp-min-medium) {
+    .container { padding: 2rem; }
+  }
+  ```
+  - `--bp-min-medium` (768px+) - Tablette
+  - `--bp-min-large` (1024px+) - Desktop
+  - `--bp-min-xlarge` (1440px+) - Large Desktop
+  - Documentation complète : `docs/CUSTOM_MEDIA_QUERIES.md`
+
+### Styled Components Best Practices (Legacy)
+
+⚠️ **Pour les composants existants seulement - à migrer progressivement**
 
 - Utiliser les variables CSS définies dans `style.config.json`
 - Accéder aux variables via `var(--variable-name)`

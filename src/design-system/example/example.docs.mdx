@@ -1,0 +1,31 @@
+import { Meta, ArgTypes } from '@storybook/addon-docs/blocks';
+import * as ExampleStories from './example.stories';
+import { Example } from './example.component';
+
+<Meta of={ExampleStories} />
+
+# Example
+
+Example component description.
+
+## Usage
+
+```jsx
+<Example
+  bffFields={{ /* example bff fields */ }}
+  className="custom-class"
+  id="example-id"
+> Hello World
+</Example>
+
+{/* With conditional slot rendering */}
+<Example
+  bffFields={{ slot1: { value: "Slot content", attrs: { id: "slot-id" } } }}
+>
+Content after slot
+</Example>
+```
+
+## Props
+
+<ArgTypes of={Example.Playground} />

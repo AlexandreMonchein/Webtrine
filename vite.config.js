@@ -110,7 +110,14 @@ export default defineConfig({
   },
   css: {
     modules: {
-      localsConvention: "camelCaseOnly", // Optional: CSS modules config
+      localsConvention: "camelCase", // Support both camelCase and original names
+      scopeBehaviour: "local", // CSS modules scope
+      generateScopedName: "[name]__[local]___[hash:base64:5]", // Class name format
+    },
+    preprocessorOptions: {
+      scss: {
+        additionalData: `@import "@/styles/variables.scss";`, // Optional: global SCSS variables
+      },
     },
   },
   optimizeDeps: {

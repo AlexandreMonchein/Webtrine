@@ -1,0 +1,65 @@
+/* Example Component Styles - CSS Modules Pattern */
+
+/* Base component container */
+.exampleRoot {
+  padding: 1rem;
+  background-color: var(--white);
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Title element */
+.title {
+  color: var(--dark-blue);
+  font-size: var(--subtitle-font-size);
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+
+/* Description text */
+.description {
+  color: var(--black);
+  font-size: var(--description-font-size);
+  line-height: 1.6;
+}
+
+/* Variant modifiers */
+.exampleRootPrimary {
+  background-color: var(--blue);
+  color: var(--white);
+}
+
+.exampleRootSecondary {
+  background-color: var(--light-grey);
+}
+
+/* State modifiers */
+.exampleRootDisabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+/* Responsive design with custom media queries */
+@media (--bp-min-medium) {
+  .exampleRoot {
+    padding: 2rem;
+  }
+
+  .title {
+    font-size: calc(var(--subtitle-font-size) * 1.2);
+  }
+}
+
+@media (--bp-min-large) {
+  .exampleRoot {
+    padding: 3rem;
+  }
+}
+
+/* Hover states */
+.exampleRoot:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+  transition: all 0.3s ease;
+}
+
