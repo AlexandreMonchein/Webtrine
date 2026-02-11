@@ -1,0 +1,241 @@
+/* ClearGlassNavbar Styles */
+
+/* ========================================
+   BASE NAVBAR
+   ======================================== */
+
+.clearGlassNavbarRoot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  background: transparent;
+  z-index: var(--z-index-navbars);
+}
+
+/* ========================================
+   LOGO
+   ======================================== */
+
+.logoLink {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  z-index: calc(var(--z-index-navbars) + 2);
+}
+
+.logo {
+  object-fit: contain;
+}
+
+/* ========================================
+   BURGER BUTTON
+   ======================================== */
+
+.burgerButton {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  z-index: calc(var(--z-index-navbars) + 2);
+  transition: transform 0.2s ease;
+}
+
+.burgerButton:hover {
+  transform: scale(1.1);
+}
+
+.burgerLine {
+  width: 30px;
+  height: 3px;
+  background-color: var(--theme-color-primary);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+@media (--bp-min-medium) {
+  .burgerLine {
+    width: 35px;
+    height: 3px;
+  }
+}
+
+/* ========================================
+   MENU OVERLAY
+   ======================================== */
+
+.menuOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0);
+  z-index: calc(var(--z-index-navbars) + 1);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.menuOverlayOpen {
+  opacity: 1;
+  visibility: visible;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+/* ========================================
+   MENU PANEL
+   ======================================== */
+
+.menuPanel {
+  position: fixed;
+  inset: 0 0 0 auto;
+  width: 100%;
+  max-width: 100%;
+  background: var(--theme-color-background-1);
+  transform: translateX(100%);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+}
+
+.menuPanelOpen {
+  transform: translateX(0);
+}
+
+@media (--bp-min-medium) {
+  .menuPanel {
+    max-width: 500px;
+    padding: 3rem;
+  }
+}
+
+/* ========================================
+   CLOSE BUTTON
+   ======================================== */
+
+.closeButton {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease;
+}
+
+.closeButton:hover {
+  transform: scale(1.1);
+}
+
+.closeIcon {
+  font-size: 3rem;
+  line-height: 1;
+  color: var(--theme-color-tertiary);
+  font-weight: 300;
+}
+
+/* ========================================
+   LANGUAGE SELECTOR
+   ======================================== */
+
+.languageSelector {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 4rem;
+  margin-bottom: 3rem;
+}
+
+.langButton {
+  background: transparent;
+  border: 2px solid transparent;
+  cursor: pointer;
+  padding: 0.5rem;
+  font-size: 2rem;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+}
+
+.langButton:hover {
+  transform: scale(1.1);
+}
+
+.langButtonActive {
+  border-color: var(--theme-color-primary);
+}
+
+/* ========================================
+   NAVIGATION LINKS
+   ======================================== */
+
+.menuLinks {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+}
+
+.menuLinkItem {
+  width: 100%;
+  text-align: center;
+  position: relative;
+}
+
+.menuLink {
+  text-decoration: none;
+  color: var(--theme-color-tertiary);
+  font-size: 1.2rem;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  transition: color 0.2s ease;
+  display: inline-block;
+  padding: 0.5rem 0;
+}
+
+.menuLink:hover {
+  color: var(--theme-color-quaternary);
+}
+
+.menuLinkActive {
+  color: var(--theme-color-quaternary);
+}
+
+.menuLinkUnderline {
+  height: 1px;
+  background: var(--theme-color-primary);
+  margin: 0.5rem auto 0;
+  width: 70%;
+  max-width: 400px;
+}
+
+@media (--bp-min-medium) {
+  .menuLinks {
+    gap: 2.5rem;
+  }
+
+  .menuLink {
+    font-size: 1.3rem;
+  }
+}

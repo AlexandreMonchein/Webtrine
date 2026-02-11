@@ -1,0 +1,86 @@
+import { Meta, ArgTypes } from '@storybook/addon-docs/blocks';
+import * as ClearGlassNavbarStories from './clearGlassNavbar.stories';
+import { ClearGlassNavbar } from './clearGlassNavbar.component';
+
+<Meta of={ClearGlassNavbarStories} />
+
+# ClearGlassNavbar
+
+**ClearGlassNavbar** est une navbar minimaliste et moderne avec un menu burger qui ouvre un panneau slide-in en plein écran. Conçue avec un fond transparent (effet verre), elle offre une expérience utilisateur élégante et fluide.
+
+## Features
+
+- **Design translucide** : Navbar avec fond transparent pour un effet "clear glass"
+- **Menu burger** : Bouton avec 3 lignes horizontales pour ouvrir le menu
+- **Slide-in animation** : Le menu s'ouvre depuis la droite avec une animation fluide
+- **Full-screen overlay** : Menu plein écran avec fond semi-transparent
+- **Language switcher** : Sélecteur de langue FR/EN avec drapeaux émojis
+- **Active state** : Détection automatique de la page active avec style différencié
+- **Responsive** : Adapté pour mobile et desktop
+- **Accessible** : ARIA labels et attributs pour l'accessibilité
+
+## How It Works
+
+Le composant affiche une navbar fixe translucide avec :
+- Un **logo cliquable** à gauche qui charge dynamiquement l'icône depuis `/src/assets/icons/`
+- Un **bouton burger** à droite avec 3 lignes horizontales
+- Au clic sur le burger, un **menu plein écran** slide depuis la droite avec :
+  - Un sélecteur de langue (FR/EN)
+  - La liste des liens de navigation
+  - Un bouton de fermeture (×)
+
+Le menu se ferme automatiquement lors d'un clic sur un lien ou en dehors du panneau.
+
+## Usage
+
+```jsx
+<ClearGlassNavbar
+  logo="logo_showcase"
+  links={[
+    { label: "HOME", path: "/" },
+    { label: "SERVICES", path: "/services" },
+    { label: "ABOUT", path: "/about" },
+    { label: "CONTACT", path: "/contact" }
+  ]}
+  activePath="/services"
+/>
+```
+
+## Implementation in Config
+
+Copy-paste this template into your customer's `config.json` file:
+
+```json
+{
+  "type": "navbars",
+  "id": "clearGlassNavbar",
+  "datas": {
+    "logo": "logo_your_customer",
+    "shape": "horizontal-wide",
+    "links": [
+      {
+        "label": "HOME",
+        "path": "/"
+      },
+      {
+        "label": "SERVICES",
+        "path": "/services"
+      },
+      {
+        "label": "ABOUT",
+        "path": "/about"
+      },
+      {
+        "label": "CONTACT",
+        "path": "/contact"
+      }
+    ]
+  }
+}
+```
+
+**Important**: Assurez-vous que votre logo existe dans `/src/assets/icons/logo_{CUSTOMER}.component.tsx`
+
+## Props
+
+<ArgTypes of={ClearGlassNavbar} />

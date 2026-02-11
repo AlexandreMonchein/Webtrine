@@ -24,32 +24,34 @@
     "templates": [
       {
         "type": "navbars",
-        "id": "classicNavbar",
+        "id": "clearGlassNavbar",
         "datas": {
-          "features": {
-            "isFixed": true,
-            "hasHideOnScroll": true,
-            "trad": false,
-            "darkMode": false
-          },
-          "content": {
-            "logo": {
-              "name": "logo_apt235",
-              "shape": "auto"
-            }
-          },
-          "categories": [
+          "logo": "logo_apt235",
+          "shape": "horizontal-wide",
+          "links": [
             {
-              "name": "Accueil",
-              "link": "/"
+              "label": "ACCUEIL",
+              "path": "/"
             },
             {
-              "name": "Présentation",
-              "link": "/presentation"
+              "label": "RÉSERVER UN TATTOO",
+              "path": "/reserver"
             },
             {
-              "name": "Contact",
-              "link": "/contact"
+              "label": "LES ARTISTES",
+              "path": "/artistes"
+            },
+            {
+              "label": "LE STUDIO",
+              "path": "/studio"
+            },
+            {
+              "label": "ÉVÉNEMENTS",
+              "path": "/evenements"
+            },
+            {
+              "label": "FAQ",
+              "path": "/faq"
             }
           ]
         }

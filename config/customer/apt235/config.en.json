@@ -1,11 +1,12 @@
 {
   "client": {
     "name": "apt235",
-    "fullName": "Apt235",
+    "fullName": "Apt.235",
     "contact": {
+      "name": "Studio APT.235",
       "email": "contact@apt235.com",
       "phone": "+33 1 23 45 67 89",
-      "mailTemplate": "template_default"
+      "mailTemplate": "template_u67t0nr"
     },
     "socials": {
       "instagram": {
@@ -23,33 +24,59 @@
     "templates": [
       {
         "type": "navbars",
-        "id": "classicNavbar",
+        "id": "clearGlassNavbar",
         "datas": {
           "logo": "logo_apt235",
+          "shape": "horizontal-wide",
           "links": [
             {
-              "label": "Home",
+              "label": "ACCUEIL",
               "path": "/"
             },
             {
-              "label": "About",
-              "path": "/presentation"
+              "label": "RÉSERVER UN TATTOO",
+              "path": "/reserver"
             },
             {
-              "label": "Contact",
-              "path": "/contact"
+              "label": "LES ARTISTES",
+              "path": "/artistes"
+            },
+            {
+              "label": "LE STUDIO",
+              "path": "/studio"
+            },
+            {
+              "label": "ÉVÉNEMENTS",
+              "path": "/evenements"
+            },
+            {
+              "label": "FAQ",
+              "path": "/faq"
             }
           ]
         }
       },
       {
-        "type": "banner",
-        "id": "mainBanner",
+        "type": "description",
+        "id": "multiDescriptions",
         "name": "Home",
         "datas": {
-          "title": "Welcome to Apt235",
-          "subtitle": "Your trusted partner",
-          "backgroundImage": "banner_background"
+          "title": "Accueil",
+          "description": "Webtrine - Création de site vitrine",
+          "content": {
+            "banner-1": {
+              "type": "banner",
+              "features": { "multi": false, "medium": false, "mask": false },
+              "title": "APT.235",
+              "subTitle": "Studio de tatouage",
+              "images": [
+                {
+                  "name": "banner_1"
+                }
+              ],
+              "textPosition": "center"
+            }
+          }
         }
       },
       {
@@ -58,8 +85,8 @@
         "name": "Home",
         "datas": {
           "title": "Apt235",
-          "description": "Discover our services",
-          "content": []
+          "description": "Découvrez nos services",
+          "content": {}
         }
       },
       {
@@ -67,9 +94,9 @@
         "id": "multiDescriptions",
         "name": "Presentation",
         "datas": {
-          "title": "About Us",
-          "description": "Who are we?",
-          "content": []
+          "title": "Présentation",
+          "description": "Qui sommes-nous ?",
+          "content": {}
         }
       },
       {
@@ -78,13 +105,15 @@
         "name": "Contact",
         "datas": {
           "title": "Contact",
-          "description": "Get in touch",
-          "content": [
-            {
-              "type": "contact",
-              "id": "petSittingContact"
+          "description": "Contactez-nous",
+          "content": {
+            "contact-1": {
+              "type": "defaultContact",
+              "datas": {
+                "features": {}
+              }
             }
-          ]
+          }
         }
       },
       {
@@ -92,9 +121,9 @@
         "id": "mentions-legals",
         "datas": {
           "type": "mentions-legals",
-          "title": "Legal Notice",
-          "subTitle": "Legal Information",
-          "disclaimer": "Last update: 02/11/2026",
+          "title": "Mentions légales",
+          "subTitle": "Informations légales",
+          "disclaimer": "Dernière mise à jour : 11/02/2026",
           "content": []
         }
       },
@@ -103,9 +132,9 @@
         "id": "confidentialite",
         "datas": {
           "type": "confidentialite",
-          "title": "Privacy Policy",
-          "subTitle": "Data Protection",
-          "disclaimer": "Last update: 02/11/2026",
+          "title": "Politique de confidentialité",
+          "subTitle": "Protection des données",
+          "disclaimer": "Dernière mise à jour : 11/02/2026",
           "content": []
         }
       },
@@ -114,9 +143,9 @@
         "id": "cgu-cgv",
         "datas": {
           "type": "cgu-cgv",
-          "title": "Terms & Conditions",
-          "subTitle": "General Terms",
-          "disclaimer": "Last update: 02/11/2026",
+          "title": "CGU & CGV",
+          "subTitle": "Conditions générales",
+          "disclaimer": "Dernière mise à jour : 11/02/2026",
           "content": []
         }
       },
@@ -124,22 +153,13 @@
         "type": "footers",
         "id": "classicFooter",
         "datas": {
-          "logo": "logo_apt235",
-          "description": "Apt235 - All rights reserved",
-          "links": [
-            {
-              "label": "Legal Notice",
-              "path": "/mentions-legals"
-            },
-            {
-              "label": "Privacy",
-              "path": "/confidentialite"
-            },
-            {
-              "label": "Terms",
-              "path": "/cgu-cgv"
-            }
-          ]
+          "features": {},
+          "logo": {
+            "name": "webtrine_logo_2_blanc_noTitle",
+            "shape": "square",
+            "alt": "logo-webtrine",
+            "link": "/"
+          }
         }
       }
     ]
