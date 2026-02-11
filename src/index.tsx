@@ -1,4 +1,5 @@
 import "./index.css";
+import "./theme/customer/default/globalStyle.css";
 
 import { Suspense, useEffect, useState } from "react";
 import ReactDOM from "react-dom/client";

@@ -6,10 +6,11 @@ import { useLocation } from "react-router-dom";
 import { getTemplate } from "../../../App";
 import { getClient, getTemplates } from "../../../store/state.selector";
 import { Container } from "./multiDescriptions.styled";
+import type { MultiDescriptionProps } from "./multiDescriptions.types";
 
 const regex = /-[0-9]/i;
 
-const MultiDescription = ({ templateName = null }) => {
+const MultiDescription = ({ templateName = null }: MultiDescriptionProps) => {
   const location = useLocation();
   const [components, setComponents] = useState<React.ReactNode[]>([]);
   const templates = useSelector(getTemplates);

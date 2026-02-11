@@ -1,0 +1,225 @@
+/* Global Styles - Webtrine Default Theme */
+
+/* ========================================
+   FONT FACES
+   ======================================== */
+
+@font-face {
+  font-family: Luciole;
+  src: url('/assets/fonts/Luciole-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Luciole;
+  src: url('/assets/fonts/Luciole-Regular-Italic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: Luciole;
+  src: url('/assets/fonts/Luciole-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Luciole;
+  src: url('/assets/fonts/Luciole-Bold-Italic.ttf') format('truetype');
+  font-weight: 700;
+  font-style: italic;
+}
+
+/* ========================================
+   ACCESSIBILITY
+   ======================================== */
+
+/* Screen reader only content */
+.sr-only {
+  border: 0 !important;
+  clip: rect(1px, 1px, 1px, 1px) !important;
+  clip-path: inset(50%) !important;
+  height: 1px !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  position: absolute !important;
+  width: 1px !important;
+  white-space: nowrap !important;
+}
+
+/* ========================================
+   BASE RESET
+   ======================================== */
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Focus visible styles for accessibility */
+*:focus-visible {
+  outline: 2px solid var(--theme-color-primary) !important;
+  outline-offset: 2px !important;
+  box-shadow: 0 0 0 3px var(--theme-color-tertiary) !important;
+}
+
+/* ========================================
+   HTML & BODY
+   ======================================== */
+
+html {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+body {
+  min-height: 100vh;
+  font-family: Luciole, Arial, sans-serif;
+}
+
+/* ========================================
+   MEDIA ELEMENTS
+   ======================================== */
+
+img,
+picture,
+video,
+canvas {
+  display: block;
+  max-width: 100%;
+}
+
+/* ========================================
+   FORM ELEMENTS
+   ======================================== */
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  color: inherit;
+  border: none;
+  cursor: pointer;
+  outline: inherit;
+  padding: 0;
+  background: none;
+}
+
+/* ========================================
+   LINKS
+   ======================================== */
+
+a {
+  text-decoration: none;
+  color: inherit;
+  font-size: inherit;
+}
+
+@media (--bp-min-medium) {
+  a {
+    font-size: large;
+  }
+}
+
+@media (--bp-min-large) {
+  a {
+    font-size: large;
+  }
+}
+
+@media (--bp-min-wide) {
+  a {
+    font-size: x-large;
+  }
+}
+
+/* ========================================
+   LISTS
+   ======================================== */
+
+ul,
+ol {
+  list-style: none;
+}
+
+/* ========================================
+   BLOCKQUOTES
+   ======================================== */
+
+blockquote {
+  margin: 0;
+  padding: 0;
+  border: none;
+  quotes: none;
+}
+
+blockquote::before,
+blockquote::after {
+  content: '';
+  content: none;
+}
+
+/* ========================================
+   TYPOGRAPHY
+   ======================================== */
+
+h1 {
+  font-size: xxx-large;
+}
+
+h2 {
+  font-size: xx-large;
+  word-wrap: break-word;
+  padding-bottom: 24px;
+}
+
+@media (--bp-min-wide) {
+  h2 {
+    font-size: xxx-large;
+  }
+}
+
+p,
+li {
+  overflow-wrap: break-word;
+}
+
+@media (--bp-min-medium) {
+  p,
+  li {
+    font-size: large;
+  }
+}
+
+@media (--bp-min-large) {
+  p,
+  li {
+    font-size: x-large;
+  }
+}
+
+@media (--bp-min-wide) {
+  p,
+  li {
+    font-size: x-large;
+  }
+}
+
+span {
+  overflow-wrap: break-word;
+}
+
+@media (--bp-min-medium) {
+  span {
+    font-size: large;
+  }
+}

@@ -1,8 +1,9 @@
+import "../src/theme/customer/default/globalStyle.css";
+
 import type { Preview } from "@storybook/react";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 import { getCustomer } from "../src/customer.utils";
-import GlobalStyle from "../src/theme/customer/default/globalStyled";
 
 // Load customer configuration dynamically
 const customer = getCustomer();
@@ -22,21 +23,24 @@ const loadConfig = async () => {
 
 // Dynamic style loader component
 const StyleLoader = ({ children }: { children: React.ReactNode }) => {
-  const [RootStyle, setRootStyle] = useState<any>(null);
-  const [styleConfig, setStyleConfig] = useState({});
-
   useEffect(() => {
     const loadStyles = async () => {
       try {
-        // Load customer-specific global styles
-        const module = await import(
-          `../src/theme/customer/${customer}/globalStyles.ts`
-        );
-        setRootStyle(() => module.RootStyle);
+        // Dynamically import customer-specific CSS variables
+        await import(`../src/theme/customer/${customer}/variables.css`);
 
         // Load customer-specific style config
         const config = await loadConfig();
-        setStyleConfig(config);
+
+        // Inject CSS variables into :root
+        if (config && typeof config === "object") {
+          Object.entries(config).forEach(([key, value]) => {
+            document.documentElement.style.setProperty(
+              `--${key}-override`,
+              String(value),
+            );
+          });
+        }
       } catch (error) {
         console.error("Error loading customer styles:", error);
       }
@@ -45,13 +49,7 @@ const StyleLoader = ({ children }: { children: React.ReactNode }) => {
     loadStyles();
   }, []);
 
-  return (
-    <>
-      <GlobalStyle />
-      {RootStyle && <RootStyle globalStyle={{ ...styleConfig }} />}
-      {children}
-    </>
-  );
+  return <>{children}</>;
 };
 
 const preview: Preview = {

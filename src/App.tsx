@@ -14,7 +14,6 @@ import DisplayNavbar from "./design-system/utils/displayer/displayNavbar.compone
 import ScrollToTop from "./scrollToTop.utils";
 import { setConfig } from "./store/state.action";
 import { getClient, getStyle, getTemplates } from "./store/state.selector";
-import GlobalStyle from "./theme/customer/default/globalStyled";
 import { initializeGA, initializeGTM } from "./utils/analytics.utils";
 
 export const templatesTypesBlackList = [
@@ -30,10 +29,15 @@ export const templatesIdsBlackList = ["multiDescriptions"];
 export const templatesNamesBlackList = ["Contact"];
 
 export const getTemplate = (
-  templates,
-  templateType,
-  templateId = null,
-  templateName = null,
+  templates: Array<{
+    type: string;
+    id?: string;
+    name?: string;
+    datas?: unknown;
+  }>,
+  templateType: string,
+  templateId: string | null = null,
+  templateName: string | null = null,
 ) => {
   let template;
 
@@ -63,9 +67,8 @@ export const getTemplate = (
   return null;
 };
 
-function App(props) {
+function App(props: { config: unknown; style: unknown }) {
   const dispatch = useDispatch();
-  const [RootStyle, setRootStyle] = useState<any>(null);
 
   const [theme, setTheme] = useState("light");
   const toggleTheme = useCallback(() => {
@@ -79,22 +82,31 @@ function App(props) {
   const customer = useSelector(getCustomer);
 
   useEffect(() => {
-    const loadRootStyle = async () => {
+    const loadCustomerStyles = async () => {
       try {
-        // Dynamically import the correct globalStyles file based on customer
-        const module = await import(
-          `./theme/customer/${customer}/globalStyles.ts`
-        );
-        setRootStyle(() => module.RootStyle);
+        // Dynamically import customer-specific CSS variables
+        await import(`./theme/customer/${customer}/variables.css`);
       } catch (error) {
-        console.error("Error loading global styles:", error);
+        console.error("Error loading customer styles:", error);
       }
     };
 
-    loadRootStyle();
+    loadCustomerStyles();
   }, [customer]); // Trigger re-load when `customer` changes
 
   const globalStyle = useSelector(getStyle);
+
+  // Inject CSS variables into :root when globalStyle changes
+  useEffect(() => {
+    if (globalStyle && typeof globalStyle === "object") {
+      Object.entries(globalStyle).forEach(([key, value]) => {
+        document.documentElement.style.setProperty(
+          `--${key}-override`,
+          String(value),
+        );
+      });
+    }
+  }, [globalStyle]);
 
   const navbarTemplate = getTemplate(templates, "navbars");
   const footerTemplate = getTemplate(templates, "footers");
@@ -122,8 +134,6 @@ function App(props) {
   return (
     <Router>
       <ScrollToTop />
-      <GlobalStyle />
-      {RootStyle && <RootStyle globalStyle={{ ...globalStyle }} />}
       <div data-theme={theme}>
         <KeyboardShortcuts />
         {flaotingUI ? <FloatingSocials /> : null}

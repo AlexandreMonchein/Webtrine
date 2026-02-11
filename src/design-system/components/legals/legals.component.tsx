@@ -12,8 +12,9 @@ import {
   MainSubtitle,
   MainTitle,
 } from "./legals.styled";
+import type { LegalsProps } from "./legals.types";
 
-const Legals = ({ type = null }) => {
+const Legals = ({ type = null }: LegalsProps) => {
   const templates = useSelector(getTemplates);
   const legalsTemplates = templates.filter(
     (template) => template.type === "legals",

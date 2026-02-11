@@ -1,0 +1,42 @@
+/* Webtrine - CSS Variables Injection */
+
+:root {
+  /* ============================================
+     TYPOGRAPHY
+     ============================================ */
+  --navbar-font-size: var(--navbar-font-size-override, 1rem);
+  --subtitle-font-size: var(--subtitle-font-size-override, 1.5rem);
+  --text-font-size: var(--text-font-size-override, 1rem);
+  --description-font-size: var(--description-font-size-override, 0.875rem);
+
+  /* ============================================
+     Z-INDEX
+     ============================================ */
+  --z-index-navbars: var(--z-index-navbars-override, 1000);
+  --z-index-text: var(--z-index-text-override, 100);
+  --z-index-backgrounds: var(--z-index-backgrounds-override, 1);
+
+  /* ============================================
+     BRAND PALETTE
+     ============================================ */
+  --theme-color-primary: var(--theme-color-primary-override, #000);
+  --theme-color-secondary: var(--theme-color-secondary-override, #333);
+  --theme-color-tertiary: var(--theme-color-tertiary-override, #666);
+  --theme-color-quaternary: var(--theme-color-quaternary-override, #999);
+  --theme-color-quinary: var(--theme-color-quinary-override, #ccc);
+
+  /* ============================================
+     UTILITY COLORS
+     ============================================ */
+  --theme-color-utility-1: var(--theme-color-utility-1-override, #ff0000);
+  --theme-color-utility-2: var(--theme-color-utility-2-override, #00ff00);
+  --theme-color-utility-3: var(--theme-color-utility-3-override, #ff8800);
+  --theme-color-utility-4: var(--theme-color-utility-4-override, #0088ff);
+
+  /* ============================================
+     EXTENDED PALETTE
+     ============================================ */
+  --theme-color-hover: var(--theme-color-hover-override, #eee);
+  --theme-color-background-1: var(--theme-color-background-1-override, #fff);
+  --theme-color-background-2: var(--theme-color-background-2-override, #f5f5f5);
+}

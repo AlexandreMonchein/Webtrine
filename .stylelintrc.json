@@ -22,6 +22,7 @@
         "ignoreAtRules": ["value"]
       }
     ],
+    "color-hex-length": null,
     "color-function-notation": "legacy",
     "alpha-value-notation": "number"
   }

@@ -136,49 +136,6 @@ Pour cibler une plage de taille exacte :
 
 ### Cas d'Usage Avancés
 
-#### Mobile Only (cacher sur desktop)
-
-```css
-.mobileMenu {
-  display: block;
-}
-
-@media (--bp-min-medium) {
-  .mobileMenu {
-    display: none;
-  }
-}
-```
-
-#### Desktop Only (cacher sur mobile)
-
-```css
-.desktopSidebar {
-  display: none;
-}
-
-@media (--bp-min-large) {
-  .desktopSidebar {
-    display: block;
-  }
-}
-```
-
-#### Plage Spécifique (uniquement tablette)
-
-```css
-.tabletOptimized {
-  display: none;
-}
-
-@media (--bp-only-medium) {
-  .tabletOptimized {
-    display: block;
-    /* Styles uniquement pour tablette */
-  }
-}
-```
-
 #### Combinaison avec d'autres media features
 
 ```css
@@ -454,28 +411,3 @@ Respectez l'ordre croissant pour éviter les conflits :
 - **Configuration PostCSS** : `postcss.config.js`
 - **Documentation PostCSS** : [postcss-custom-media](https://github.com/csstools/postcss-plugins/tree/main/plugins/postcss-custom-media)
 - **Spécification CSS** : [CSS Media Queries Level 5](https://drafts.csswg.org/mediaqueries-5/#custom-mq)
-
-## 💡 Astuce : Snippet VSCode
-
-Ajoutez ce snippet à votre configuration VSCode pour accélérer la saisie :
-
-```json
-{
-  "Media Query Medium": {
-    "prefix": "mq-medium",
-    "body": [
-      "@media (--bp-min-medium) {",
-      "  $0",
-      "}"
-    ]
-  },
-  "Media Query Large": {
-    "prefix": "mq-large",
-    "body": [
-      "@media (--bp-min-large) {",
-      "  $0",
-      "}"
-    ]
-  }
-}
-```

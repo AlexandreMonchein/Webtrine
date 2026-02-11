@@ -141,7 +141,7 @@ const Button = styled.button<{ $primary?: boolean }>`
 **Avant** :
 ```tsx
 const Title = styled.h1`
-  color: var(--dark-blue);
+  color: var(--theme-color-primary);
   font-size: var(--subtitle-font-size);
 `;
 ```
@@ -149,12 +149,20 @@ const Title = styled.h1`
 **Après** :
 ```css
 .title {
-  color: var(--dark-blue);
+  color: var(--theme-color-primary);
   font-size: var(--subtitle-font-size);
 }
 ```
 
 Les variables CSS de `style.config.json` fonctionnent identiquement ! ✅
+
+**Système de couleurs disponible** :
+- **Brand Palette** : `--theme-color-primary`, `--theme-color-secondary`, `--theme-color-tertiary`, `--theme-color-quaternary`, `--theme-color-quinary`
+- **Utility Colors** : `--theme-color-utility-1` (red), `--theme-color-utility-2` (green), `--theme-color-utility-3` (orange), `--theme-color-utility-4` (blue)
+- **Extended** : `--theme-color-hover`, `--theme-color-background-1`, `--theme-color-background-2`
+- **Typography** : `--navbar-font-size`, `--subtitle-font-size`, `--text-font-size`, `--description-font-size`
+
+💡 Voir tous les tokens disponibles dans Storybook : `Design System/Tokens`
 
 ### 5. Breakpoints
 
@@ -223,7 +231,7 @@ import { bp } from '@/breakpoint';
 
 export const BannerContainer = styled.div`
   padding: 2rem;
-  background: var(--dark-blue);
+  background: var(--theme-color-primary);
 
   ${bp.min('tablet')} {
     padding: 4rem;
@@ -231,7 +239,7 @@ export const BannerContainer = styled.div`
 `;
 
 export const BannerTitle = styled.h1`
-  color: var(--white);
+  color: var(--theme-color-secondary);
   font-size: var(--subtitle-font-size);
   margin-bottom: 1rem;
 `;
@@ -255,17 +263,17 @@ export const Banner = ({ title, subtitle }) => (
 /* banner.module.css */
 .container {
   padding: 2rem;
-  background: var(--dark-blue);
+  background: var(--theme-color-primary);
 }
 
-@media (min-width: 768px) {
+@media (--bp-min-medium) {
   .container {
     padding: 4rem;
   }
 }
 
 .title {
-  color: var(--white);
+  color: var(--theme-color-secondary);
   font-size: var(--subtitle-font-size);
   margin-bottom: 1rem;
 }
@@ -298,7 +306,7 @@ export const StyledButton = styled.button<{
   border: none;
   cursor: ${props => props.$disabled ? 'not-allowed' : 'pointer'};
   background: ${props =>
-    props.$variant === 'primary' ? 'var(--blue)' : 'var(--grey)'};
+    props.$variant === 'primary' ? 'var(--theme-color-primary)' : 'var(--theme-color-secondary)'};
   opacity: ${props => props.$disabled ? 0.5 : 1};
 `;
 ```
@@ -333,11 +341,11 @@ export const Button = ({ variant = 'primary', disabled, children }) => (
 }
 
 .buttonPrimary {
-  background: var(--blue);
+  background: var(--theme-color-primary);
 }
 
 .buttonSecondary {
-  background: var(--grey);
+  background: var(--theme-color-secondary);
 }
 
 .buttonDisabled {
@@ -365,7 +373,7 @@ export const Button = ({ variant = 'primary', disabled, children }) => (
 
 .primaryButton {
   composes: baseButton;
-  background: var(--blue);
+  background: var(--theme-color-primary);
 }
 ```
 
@@ -375,11 +383,17 @@ Continuer à utiliser les variables de `style.config.json` :
 
 ```css
 .title {
-  color: var(--dark-blue);
+  color: var(--theme-color-primary);
   font-size: var(--subtitle-font-size);
   z-index: var(--z-index-navbars);
 }
 ```
+
+**Variables disponibles** :
+- **Couleurs** : `--theme-color-primary`, `--theme-color-secondary`, `--theme-color-tertiary`, `--theme-color-quaternary`, `--theme-color-quinary`
+- **Utility** : `--theme-color-utility-1` à `--theme-color-utility-4`, `--theme-color-hover`, `--theme-color-background-1`, `--theme-color-background-2`
+- **Typographie** : `--navbar-font-size`, `--subtitle-font-size`, `--text-font-size`, `--description-font-size`
+- **Z-index** : `--z-index-navbars`, etc.
 
 ### 4. Breakpoints helper (optionnel)
 
@@ -455,7 +469,7 @@ Pour chaque composant :
 - [ ] Tests passent
 - [ ] Storybook fonctionne
 - [ ] Supprimer `styled-components` de `package.json`
-- [ ] Supprimer les imports inutiles dans `globalStyled.ts`
+- [ ] Migrer `globalStyled.ts` vers `globalStyle.css` avec custom media queries
 - [ ] Mettre à jour AGENTS.md
 
 ## Order of Migration
