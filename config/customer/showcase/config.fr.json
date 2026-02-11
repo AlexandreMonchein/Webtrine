@@ -25,7 +25,7 @@
           "features": {
             "isFixed": false,
             "hasHideOnScroll": false,
-            "trad": false,
+            "trad": true,
             "darkMode": false
           },
           "content": {
