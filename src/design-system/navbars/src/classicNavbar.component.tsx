@@ -1,5 +1,5 @@
 import classNames from "classnames";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -20,6 +20,7 @@ import {
 import { getLogoDimensions } from "../../utils/dimensions.utils";
 import { FocusTrapProvider } from "../../utils/focusTrap/focusTrap.provider";
 import { MODAL_TYPES } from "../../utils/focusTrap/type";
+import { useLoadComponents } from "../../utils/useLoadComponents.hook";
 import {
   BurgerMenuIcon,
   Category,
@@ -36,57 +37,32 @@ import {
   SubCategoryContainer,
 } from "./classicNavbar.styled";
 
-const componentFiles = import.meta.glob("../../../assets/**/*.component.tsx");
-
 const ClassicNavbar = (props) => {
   const { i18n } = useTranslation();
   const dispatch = useDispatch();
-  const [components, setComponents] = useState<React.ReactNode[]>([]);
   const { name: clientName } = useSelector(getClient);
   const socials = useSelector(getSocials);
   const modal = useSelector(getModalState);
 
-  useEffect(() => {
-    const loadComponents = async () => {
-      const componentPromises = Object.entries(socials).map(
-        async ([name, link]) => {
-          try {
-            if (link) {
-              const componentPath = `../../../assets/icons/${name}.component.tsx`;
-              const module = componentFiles[componentPath];
+  const socialItems = useMemo(
+    () =>
+      Object.entries(socials)
+        .filter(([_, link]) => link)
+        .map(([name, link]) => ({ name, link })),
+    [socials],
+  );
 
-              if (module) {
-                const resolvedModule = await module();
-                // @ts-expect-error TODO: to fix
-                const Component = resolvedModule.default;
-
-                return (
-                  <li key={name}>
-                    <SocialLogo>
-                      {/* @ts-ignore */}
-                      <a aria-label={name} href={link.link}>
-                        <Component key={name} />
-                      </a>
-                    </SocialLogo>
-                  </li>
-                );
-              }
-            }
-          } catch (error) {
-            console.error(`Error loading component: ${name}`, error);
-          }
-          return null;
-        },
-      );
-
-      const loadedComponents = (await Promise.all(componentPromises)).filter(
-        Boolean,
-      );
-      setComponents(loadedComponents);
-    };
-
-    loadComponents();
-  }, [socials]);
+  const components = useLoadComponents(socialItems, {
+    renderFn: (Component, data) => (
+      <li key={data.name}>
+        <SocialLogo>
+          <a aria-label={data.name} href={(data.link as any).link}>
+            <Component />
+          </a>
+        </SocialLogo>
+      </li>
+    ),
+  }) as React.ReactNode[];
 
   const {
     features: {

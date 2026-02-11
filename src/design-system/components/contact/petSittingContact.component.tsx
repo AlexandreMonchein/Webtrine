@@ -1,12 +1,13 @@
 import emailjs from "@emailjs/browser";
 import DOMPurify from "dompurify";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 
 import { getCustomer } from "../../../customer.utils";
 import { showPopUp } from "../../../store/state.action";
 import { getClient, getSocials } from "../../../store/state.selector";
+import { useLoadComponents } from "../../utils/useLoadComponents.hook";
 import { MapLeafletZone } from "../map/moduleLeafletZone.component";
 import PopUp from "../popup/popUp.component";
 import {
@@ -28,17 +29,12 @@ import {
   Title,
 } from "./defaultContact.styled";
 
-const componentFiles = import.meta.glob(
-  "../../../assets/**/**/*.component.tsx",
-);
-
 const PetSittingContact = () => {
   const dispatch = useDispatch();
   const { t } = useTranslation();
   const customer = getCustomer();
   const { contact, logo } = useSelector(getClient);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [components, setComponents] = useState<React.ReactNode[]>([]);
   const socials: { [key: string]: { link: string; color: string } } =
     useSelector(getSocials);
 
@@ -46,48 +42,23 @@ const PetSittingContact = () => {
 
   useEffect(() => emailjs.init("OYqEmnhZaB6k1hEGB"), []);
 
-  useEffect(() => {
-    const loadComponents = async () => {
-      const loadedComponents: React.ReactNode[] = [];
+  const socialItems = useMemo(
+    () =>
+      socials
+        ? Object.entries(socials)
+            .filter(([_, { link }]) => link)
+            .map(([name, { link }]) => ({ name, link }))
+        : [],
+    [socials],
+  );
 
-      if (socials) {
-        const socialEntries = Object.entries(socials);
-        const componentPromises = socialEntries.map(
-          async ([name, { link }]) => {
-            try {
-              if (link) {
-                const componentPath = `../../../assets/icons/${name}.component.tsx`;
-                const module = componentFiles[componentPath];
-
-                if (module) {
-                  const resolvedModule = await module();
-                  // @ts-expect-error TODO: to fix
-                  const Component = resolvedModule.default;
-
-                  return (
-                    <a key={name} aria-label={name} href={link}>
-                      <Component color="full" />
-                    </a>
-                  );
-                }
-              }
-              return null;
-            } catch (error) {
-              console.error(`Error loading component: ${name}`, error);
-              return null;
-            }
-          },
-        );
-
-        const resolvedComponents = await Promise.all(componentPromises);
-        loadedComponents.push(...resolvedComponents.filter(Boolean));
-      }
-
-      setComponents(loadedComponents);
-    };
-
-    loadComponents();
-  }, [socials]);
+  const components = useLoadComponents(socialItems, {
+    renderFn: (Component, data) => (
+      <a key={data.name} aria-label={data.name} href={data.link}>
+        <Component color="full" />
+      </a>
+    ),
+  }) as React.ReactNode[];
 
   const [firstVisitDate, setFirstVisitDate] = useState("");
 
@@ -189,7 +160,7 @@ const PetSittingContact = () => {
                 <strong>{t("contact.email")}:</strong> {email}
               </p>
 
-              {socials && components.length > 0 ? (
+              {socials && (components as React.ReactNode[]).length > 0 ? (
                 <div>
                   <p>
                     <strong>{t("contact.socials")}:</strong>

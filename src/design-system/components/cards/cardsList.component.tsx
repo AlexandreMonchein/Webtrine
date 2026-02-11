@@ -1,7 +1,8 @@
 import DOMPurify from "dompurify";
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useMemo } from "react";
 
 import { getCustomer } from "../../../customer.utils";
+import { useLoadComponents } from "../../utils/useLoadComponents.hook";
 import {
   Card,
   CardContainer,
@@ -29,15 +30,10 @@ interface CardsProps {
   };
 }
 
-const componentFiles = import.meta.glob("../../../assets/**/*.component.tsx");
-
 const Cards: React.FC<CardsProps> = (props) => {
   const { title, description, content, features } = props;
   const { displayInline = false } = features || {};
   const customer = getCustomer();
-  const [iconComponents, setIconComponents] = useState<
-    Record<string, React.ComponentType<{ size?: number }>>
-  >({});
 
   // Calculer la logique d'affichage
   const isEvenCount = content.length % 2 === 0;
@@ -51,51 +47,9 @@ const Cards: React.FC<CardsProps> = (props) => {
     [content],
   );
 
-  useEffect(() => {
-    const loadComponent = async (iconName: string) => {
-      try {
-        const componentPath = `../../../assets/icons/${iconName}.component.tsx`;
-        const module = componentFiles[componentPath];
-
-        if (module) {
-          const resolvedModule = await module();
-          // @ts-expect-error TODO: to fix
-          const Component = resolvedModule.default;
-
-          return Component;
-        }
-
-        return null;
-      } catch (error) {
-        console.error(`Error loading component: ${iconName}`, error);
-        return null;
-      }
-    };
-
-    const loadIcons = async () => {
-      const iconPromises = iconNames.map(async (iconName) => ({
-        icon: iconName,
-        component: await loadComponent(iconName),
-      }));
-
-      const loadedIcons = await Promise.all(iconPromises);
-      console.warn(">>> loadedIcons", loadedIcons);
-
-      const icons: Record<string, React.ComponentType<{ size?: number }>> = {};
-      loadedIcons.forEach(({ icon, component }) => {
-        if (component) {
-          icons[icon] = component;
-        }
-      });
-      console.warn(">>> icons", icons);
-
-      setIconComponents(icons);
-    };
-
-    if (iconNames.length > 0) {
-      loadIcons();
-    }
-  }, [iconNames]);
+  const iconComponents = useLoadComponents(iconNames, {
+    returnAsRecord: true,
+  }) as Record<string, React.ComponentType<{ size?: number }> | null>;
 
   return (
     <Section>

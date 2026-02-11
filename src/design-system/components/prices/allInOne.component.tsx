@@ -1,7 +1,8 @@
 import _ from "lodash";
-import React, { useEffect, useState } from "react";
+import React, { useMemo } from "react";
 import { useTranslation } from "react-i18next";
 
+import { useLoadComponents } from "../../utils/useLoadComponents.hook";
 import {
   ActionButton,
   Description,
@@ -32,10 +33,7 @@ interface AllInOneProps {
   content: Content[];
 }
 
-const componentFiles = import.meta.glob("../../../assets/**/*.component.tsx");
-
 const AllInOne = (datas: AllInOneProps) => {
-  const [components, setComponents] = useState<React.ReactNode[]>([]);
   const { t } = useTranslation();
 
   const {
@@ -48,56 +46,29 @@ const AllInOne = (datas: AllInOneProps) => {
     content,
   } = datas;
 
-  useEffect(() => {
-    const loadComponents = async (content: Content[]) => {
-      const loadedComponents: React.ReactNode[] = [];
+  const contentItems = useMemo(
+    () =>
+      Object.entries(content).map(([index, data]) => ({
+        name: data.imgSrc,
+        text: data.text,
+        index,
+      })),
+    [content],
+  );
 
-      const contentEntries = Object.entries(content);
-      const componentPromises = contentEntries.map(async ([index, data]) => {
-        try {
-          const { imgSrc, text } = data;
-
-          if (imgSrc) {
-            const componentPath = `../../../assets/icons/${imgSrc}.component.tsx`;
-            const module = componentFiles[componentPath];
-
-            if (module) {
-              const resolvedModule = await module();
-              // @ts-expect-error TODO: to fix
-              const Component = resolvedModule.default;
-
-              return (
-                <FeatureItem key={index}>
-                  <Component
-                    key={`${imgSrc}-${index}`}
-                    size={32}
-                    aria-hidden="true" // Ensures that the icon is not read by screen readers
-                  />
-                  <FeatureText
-                    id={`feature-text-${index}`}
-                    aria-describedby={`feature-text-${index}`}
-                  >
-                    {text}
-                  </FeatureText>
-                </FeatureItem>
-              );
-            }
-          }
-          return null;
-        } catch (error) {
-          console.error(`Error loading prices component`, error);
-          return null;
-        }
-      });
-
-      const resolvedComponents = await Promise.all(componentPromises);
-      loadedComponents.push(...resolvedComponents.filter(Boolean));
-
-      setComponents(loadedComponents);
-    };
-
-    loadComponents(content);
-  }, [content]);
+  const components = useLoadComponents(contentItems, {
+    renderFn: (Component, data) => (
+      <FeatureItem key={data.index}>
+        <Component size={32} aria-hidden="true" />
+        <FeatureText
+          id={`feature-text-${data.index}`}
+          aria-describedby={`feature-text-${data.index}`}
+        >
+          {data.text}
+        </FeatureText>
+      </FeatureItem>
+    ),
+  }) as React.ReactNode[];
 
   return (
     <PricesContainer>

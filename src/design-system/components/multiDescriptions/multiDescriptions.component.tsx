@@ -1,4 +1,4 @@
-import { Suspense, useEffect, useState } from "react";
+import { Suspense, useEffect, useMemo, useState } from "react";
 import { Helmet } from "react-helmet";
 import { useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
@@ -26,6 +26,9 @@ const MultiDescription = ({ templateName = null }) => {
     datas: { content, title, description },
   } = template || {};
 
+  // Note: This component uses dynamic imports from multiple folders (../**/*)
+  // which doesn't fit the standard icon loading pattern used by useLoadComponents hook.
+  // Keep the manual loading logic here for now.
   useEffect(() => {
     const loadComponents = async () => {
       const loadedComponents: React.ReactNode[] = [];

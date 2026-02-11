@@ -1,63 +1,33 @@
-import React, { useEffect, useState } from "react";
+import React, { useMemo } from "react";
 import { useSelector } from "react-redux";
 
 import { getSocials } from "../../../store/state.selector";
+import { useLoadComponents } from "../../utils/useLoadComponents.hook";
 import { FloatingContainer, SocialLogo } from "./floatingSocials.styled";
 
-const componentFiles = import.meta.glob(
-  "../../../assets/**/**/*.component.tsx",
-);
-
 const FloatingSocials: React.FC = () => {
-  const [components, setComponents] = useState<React.ReactNode[]>([]);
   const socials: { [key: string]: { link: string; color: string } } =
     useSelector(getSocials);
 
-  useEffect(() => {
-    const loadComponents = async () => {
-      const loadedComponents: React.ReactNode[] = [];
+  const socialItems = useMemo(
+    () =>
+      socials
+        ? Object.entries(socials)
+            .filter(([_, { link }]) => link)
+            .map(([name, { link }]) => ({ name, link }))
+        : [],
+    [socials],
+  );
 
-      if (socials) {
-        const socialEntries = Object.entries(socials);
-        const componentPromises = socialEntries.map(
-          async ([name, { link }]) => {
-            try {
-              if (link) {
-                const componentPath = `../../../assets/icons/${name}.component.tsx`;
-                const module = componentFiles[componentPath];
-
-                if (module) {
-                  const resolvedModule = await module();
-                  // @ts-expect-error TODO: to fix
-                  const Component = resolvedModule.default;
-
-                  return (
-                    <SocialLogo key={name}>
-                      {/* @ts-ignore TODO: fix this type error */}
-                      <a aria-label={name} href={link}>
-                        <Component color="full" />
-                      </a>
-                    </SocialLogo>
-                  );
-                }
-              }
-              return null;
-            } catch (error) {
-              console.error(`Error loading component: ${name}`, error);
-              return null;
-            }
-          },
-        );
-
-        const resolvedComponents = await Promise.all(componentPromises);
-        loadedComponents.push(...resolvedComponents.filter(Boolean));
-      }
-
-      setComponents(loadedComponents);
-    };
-
-    loadComponents();
-  }, [socials]);
+  const components = useLoadComponents(socialItems, {
+    renderFn: (Component, data) => (
+      <SocialLogo key={data.name}>
+        <a aria-label={data.name} href={data.link}>
+          <Component color="full" />
+        </a>
+      </SocialLogo>
+    ),
+  }) as React.ReactNode[];
 
   if (!socials) {
     return null;

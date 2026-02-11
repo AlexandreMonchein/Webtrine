@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useMemo } from "react";
 import { useSelector } from "react-redux";
 
 import {
@@ -7,6 +7,7 @@ import {
   getTemplates,
 } from "../../../store/state.selector";
 import { getLogoDimensions } from "../../utils/dimensions.utils";
+import { useLoadComponents } from "../../utils/useLoadComponents.hook";
 import {
   BottomSection,
   FooterContainer,
@@ -21,12 +22,7 @@ import {
   TopSection,
 } from "./classicFooter.styled";
 
-const componentFiles = import.meta.glob(
-  "../../../assets/**/**/*.component.tsx",
-);
-
 const ClassicFooter = (props) => {
-  const [components, setComponents] = useState<React.ReactNode[]>([]);
   const { name: clientName } = useSelector(getClient);
   const socials: { [key: string]: { link: string; color: string } } =
     useSelector(getSocials);
@@ -38,53 +34,27 @@ const ClassicFooter = (props) => {
   const { name, alt, link, shape } = logo || {};
   const { width, height } = getLogoDimensions(shape);
 
-  useEffect(() => {
-    const loadComponents = async () => {
-      const loadedComponents: React.ReactNode[] = [];
+  const socialItems = useMemo(
+    () =>
+      socials
+        ? Object.entries(socials)
+            .filter(([_, { link }]) => link)
+            .map(([name, { link, color }]) => ({ name, link, color }))
+        : [],
+    [socials],
+  );
 
-      if (socials) {
-        const socialEntries = Object.entries(socials);
-        const componentPromises = socialEntries.map(
-          async ([name, { link, color }]) => {
-            try {
-              if (link) {
-                const componentPath = `../../../assets/icons/${name}.component.tsx`;
-                const module = componentFiles[componentPath];
-
-                if (module) {
-                  const resolvedModule = await module();
-                  // @ts-expect-error TODO: to fix
-                  const Component = resolvedModule.default;
-
-                  return (
-                    <li key={name}>
-                      <SocialLogo>
-                        {/* @ts-ignore TODO: fix this type error */}
-                        <a aria-label={name} href={link}>
-                          <Component color={color} />
-                        </a>
-                      </SocialLogo>
-                    </li>
-                  );
-                }
-              }
-              return null;
-            } catch (error) {
-              console.error(`Error loading component: ${name}`, error);
-              return null;
-            }
-          },
-        );
-
-        const resolvedComponents = await Promise.all(componentPromises);
-        loadedComponents.push(...resolvedComponents.filter(Boolean));
-      }
-
-      setComponents(loadedComponents);
-    };
-
-    loadComponents();
-  }, [socials]);
+  const components = useLoadComponents(socialItems, {
+    renderFn: (Component, data) => (
+      <li key={data.name}>
+        <SocialLogo>
+          <a aria-label={data.name} href={data.link}>
+            <Component color={data.color} />
+          </a>
+        </SocialLogo>
+      </li>
+    ),
+  });
 
   return (
     <FooterContainer>
