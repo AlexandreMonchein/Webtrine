@@ -12,7 +12,14 @@ import { getCustomer } from "./customer.utils";
 import i18n from "./i18n";
 import store from "./store";
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
+const rootElement = document.getElementById("root");
+
+// Store root on the DOM element to persist across hot reloads
+if (rootElement && !(rootElement as any)._reactRoot) {
+  (rootElement as any)._reactRoot = ReactDOM.createRoot(rootElement);
+}
+
+const root = rootElement ? (rootElement as any)._reactRoot : null;
 
 const customer = getCustomer();
 
@@ -52,7 +59,7 @@ function ConfigLoader() {
 
       setConfig(configModule.default);
       setStyle(styleModule.default);
-      console.log(`✅ Configuration loaded for language: ${language}`);
+      console.warn(`✅ Configuration loaded for language: ${language}`);
     } catch (error) {
       console.warn(
         `⚠️  Config file not found for language '${language}', falling back to French`,
@@ -70,7 +77,7 @@ function ConfigLoader() {
 
         setConfig(configModule.default);
         setStyle(styleModule.default);
-        console.log("✅ Fallback configuration loaded (French)");
+        console.warn("✅ Fallback configuration loaded (French)");
       } catch (fallbackError) {
         console.error(
           "❌ Error loading fallback configuration:",
@@ -82,8 +89,7 @@ function ConfigLoader() {
 
   // Load config on mount and when language changes
   useEffect(() => {
-    const currentLanguage =
-      i18n.language || i18n.options.fallbackLng?.[0] || "fr";
+    const currentLanguage = i18n.language || "fr";
     loadConfiguration(currentLanguage);
   }, [i18n.language]);
 
@@ -103,15 +109,17 @@ const initializeApp = async () => {
     });
   }
 
-  root.render(
-    <Provider store={store}>
-      <I18nextProvider i18n={i18n}>
-        <Suspense fallback={<LoadingFallback />}>
-          <ConfigLoader />
-        </Suspense>
-      </I18nextProvider>
-    </Provider>,
-  );
+  if (root) {
+    root.render(
+      <Provider store={store}>
+        <I18nextProvider i18n={i18n}>
+          <Suspense fallback={<LoadingFallback />}>
+            <ConfigLoader />
+          </Suspense>
+        </I18nextProvider>
+      </Provider>,
+    );
+  }
 };
 
 initializeApp();

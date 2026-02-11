@@ -21,7 +21,7 @@ const Banner = (datas) => {
   const customer = getCustomer();
 
   const {
-    features: { multi, textPositionFeature, medium = false },
+    features: { multi, textPositionFeature, medium = false, mask = true },
     title,
     subTitle,
     subTitle2,
@@ -84,7 +84,7 @@ const Banner = (datas) => {
           {subTitle2 ? <SubTitle>{subTitle2}</SubTitle> : null}
         </TextContainer>
       )}
-      <BackgroundContainer>
+      <BackgroundContainer className={classNames({ mask: mask })}>
         {images.map((image, index) => {
           const { name, copyright } = image || {};
           const { url, title } = copyright || {};

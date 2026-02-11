@@ -1,0 +1,151 @@
+{
+  "client": {
+    "name": "apt235",
+    "fullName": "Apt235",
+    "contact": {
+      "email": "contact@apt235.com",
+      "phone": "+33 1 23 45 67 89",
+      "mailTemplate": "template_default"
+    },
+    "socials": {
+      "instagram": {
+        "link": "https://instagram.com/apt235",
+        "title": "Instagram"
+      },
+      "facebook": {
+        "link": "https://facebook.com/apt235",
+        "title": "Facebook"
+      }
+    },
+    "logo": "logo_apt235"
+  },
+  "layout": {
+    "templates": [
+      {
+        "type": "navbars",
+        "id": "classicNavbar",
+        "datas": {
+          "logo": "logo_apt235",
+          "links": [
+            {
+              "label": "Home",
+              "path": "/"
+            },
+            {
+              "label": "About",
+              "path": "/presentation"
+            },
+            {
+              "label": "Contact",
+              "path": "/contact"
+            }
+          ]
+        }
+      },
+      {
+        "type": "banner",
+        "id": "mainBanner",
+        "name": "Home",
+        "datas": {
+          "title": "Welcome to Apt235",
+          "subtitle": "Your trusted partner",
+          "backgroundImage": "banner_background"
+        }
+      },
+      {
+        "type": "description",
+        "id": "multiDescriptions",
+        "name": "Home",
+        "datas": {
+          "title": "Apt235",
+          "description": "Discover our services",
+          "content": []
+        }
+      },
+      {
+        "type": "description",
+        "id": "multiDescriptions",
+        "name": "Presentation",
+        "datas": {
+          "title": "About Us",
+          "description": "Who are we?",
+          "content": []
+        }
+      },
+      {
+        "type": "description",
+        "id": "multiDescriptions",
+        "name": "Contact",
+        "datas": {
+          "title": "Contact",
+          "description": "Get in touch",
+          "content": [
+            {
+              "type": "contact",
+              "id": "petSittingContact"
+            }
+          ]
+        }
+      },
+      {
+        "type": "legals",
+        "id": "mentions-legals",
+        "datas": {
+          "type": "mentions-legals",
+          "title": "Legal Notice",
+          "subTitle": "Legal Information",
+          "disclaimer": "Last update: 02/11/2026",
+          "content": []
+        }
+      },
+      {
+        "type": "legals",
+        "id": "confidentialite",
+        "datas": {
+          "type": "confidentialite",
+          "title": "Privacy Policy",
+          "subTitle": "Data Protection",
+          "disclaimer": "Last update: 02/11/2026",
+          "content": []
+        }
+      },
+      {
+        "type": "legals",
+        "id": "cgu-cgv",
+        "datas": {
+          "type": "cgu-cgv",
+          "title": "Terms & Conditions",
+          "subTitle": "General Terms",
+          "disclaimer": "Last update: 02/11/2026",
+          "content": []
+        }
+      },
+      {
+        "type": "footers",
+        "id": "classicFooter",
+        "datas": {
+          "logo": "logo_apt235",
+          "description": "Apt235 - All rights reserved",
+          "links": [
+            {
+              "label": "Legal Notice",
+              "path": "/mentions-legals"
+            },
+            {
+              "label": "Privacy",
+              "path": "/confidentialite"
+            },
+            {
+              "label": "Terms",
+              "path": "/cgu-cgv"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "analytics": {
+    "googleAnalytics": "",
+    "googleTagManager": ""
+  }
+}

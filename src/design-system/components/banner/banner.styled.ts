@@ -25,17 +25,19 @@ export const BackgroundContainer = styled.div`
   background-color: white;
   z-index: var(--z-index-backgrounds);
 
-  &::before {
-    content: "";
-    background: #000;
-    z-index: calc(var(--z-index-backgrounds) + 1);
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: block;
-    position: absolute;
-    opacity: 0.4;
+  &.mask {
+    &::before {
+      content: "";
+      background: #000;
+      z-index: calc(var(--z-index-backgrounds) + 1);
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: block;
+      position: absolute;
+      opacity: 0.4;
+    }
   }
 `;
 
@@ -101,11 +103,13 @@ export const TextContainer = styled.div`
   ${bp.max(
     breakpointNames.medium,
     css`
-      top: 0 !important;
-      left: 0 !important;
-      width: 100% !important;
+      display: flex !important;
+      justify-content: center !important;
       padding: 0 !important;
       text-align: center !important;
+      position: relative !important;
+      inset: 0 !important;
+      width: 100% !important;
     `,
   )};
 
@@ -153,8 +157,7 @@ export const TextContainer = styled.div`
   }
 
   &.center {
-    top: 30vh;
-    left: 50vh;
+    top: 40vh;
     text-align: center;
 
     &.medium {

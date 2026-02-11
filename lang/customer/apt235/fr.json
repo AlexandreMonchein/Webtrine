@@ -1,0 +1,30 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "presentation": "Présentation",
+    "contact": "Contact"
+  },
+  "banner": {
+    "title": "Bienvenue",
+    "subtitle": "Votre partenaire de confiance"
+  },
+  "footer": {
+    "copyright": "© 2026 Apt235 - Tous droits réservés"
+  },
+  "contact": {
+    "title": "Nous contacter",
+    "name": "Nom",
+    "email": "Email",
+    "phone": "Téléphone",
+    "message": "Message",
+    "send": "Envoyer",
+    "success": "Message envoyé avec succès !",
+    "error": "Erreur lors de l'envoi du message"
+  },
+  "errors": {
+    "404": "Page non trouvée",
+    "404_description": "La page que vous recherchez n'existe pas",
+    "500": "Erreur serveur",
+    "back_home": "Retour à l'accueil"
+  }
+}

@@ -19,9 +19,9 @@ async function convertImagesInFolder(folder) {
 
     if (stat.isDirectory()) {
       return convertImagesInFolder(filePath); // Recursively process subdirectories
-    } else if (/\.(jpe?g|png)$/i.test(file)) {
+    } else if (/\.(jpe?g|png|avif)$/i.test(file)) {
       // Check for both .jpg and .png
-      const webpPath = filePath.replace(/\.(jpe?g|png)$/i, ".webp");
+      const webpPath = filePath.replace(/\.(jpe?g|png|avif)$/i, ".webp");
       try {
         // Convert image (JPG or PNG) to WebP
         await sharp(filePath).webp({ quality: 75 }).toFile(webpPath);

@@ -1,0 +1,25 @@
+{
+  "navbar-font-size": "1rem",
+  "subtitle-font-size": "1.5rem",
+  "text-font-size": "1rem",
+  "description-font-size": "0.875rem",
+
+  "z-index-navbars": "1000",
+  "z-index-text": "100",
+  "z-index-backgrounds": "1",
+
+  "theme-color-primary": "#ffffff",
+  "theme-color-secondary": "#ffffff",
+  "theme-color-tertiary": "#000000",
+  "theme-color-quaternary": "#666666",
+  "theme-color-quinary": "#cccccc",
+
+  "theme-color-utility-1": "#ff4444",
+  "theme-color-utility-2": "#44ff44",
+  "theme-color-utility-3": "#ff8800",
+  "theme-color-utility-4": "#4488ff",
+
+  "theme-color-hover": "#e0e0e0",
+  "theme-color-background-1": "#ffffff",
+  "theme-color-background-2": "#f9f9f9"
+}

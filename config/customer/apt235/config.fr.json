@@ -1,0 +1,169 @@
+{
+  "client": {
+    "name": "apt235",
+    "fullName": "Apt.235",
+    "contact": {
+      "name": "Studio APT.235",
+      "email": "contact@apt235.com",
+      "phone": "+33 1 23 45 67 89",
+      "mailTemplate": "template_u67t0nr"
+    },
+    "socials": {
+      "instagram": {
+        "link": "https://instagram.com/apt235",
+        "title": "Instagram"
+      },
+      "facebook": {
+        "link": "https://facebook.com/apt235",
+        "title": "Facebook"
+      }
+    },
+    "logo": "logo_apt235"
+  },
+  "layout": {
+    "templates": [
+      {
+        "type": "navbars",
+        "id": "classicNavbar",
+        "datas": {
+          "features": {
+            "isFixed": true,
+            "hasHideOnScroll": true,
+            "trad": false,
+            "darkMode": false
+          },
+          "content": {
+            "logo": {
+              "name": "logo_apt235",
+              "shape": "auto"
+            }
+          },
+          "categories": [
+            {
+              "name": "Accueil",
+              "link": "/"
+            },
+            {
+              "name": "Présentation",
+              "link": "/presentation"
+            },
+            {
+              "name": "Contact",
+              "link": "/contact"
+            }
+          ]
+        }
+      },
+      {
+        "type": "description",
+        "id": "multiDescriptions",
+        "name": "Home",
+        "datas": {
+          "title": "Accueil",
+          "description": "Webtrine - Création de site vitrine",
+          "content": {
+            "banner-1": {
+              "type": "banner",
+              "features": { "multi": false, "medium": false, "mask": false },
+              "title": "APT.235",
+              "subTitle": "Studio de tatouage",
+              "images": [
+                {
+                  "name": "banner_1"
+                }
+              ],
+              "textPosition": "center"
+            }
+          }
+        }
+      },
+      {
+        "type": "description",
+        "id": "multiDescriptions",
+        "name": "Home",
+        "datas": {
+          "title": "Apt235",
+          "description": "Découvrez nos services",
+          "content": {}
+        }
+      },
+      {
+        "type": "description",
+        "id": "multiDescriptions",
+        "name": "Presentation",
+        "datas": {
+          "title": "Présentation",
+          "description": "Qui sommes-nous ?",
+          "content": {}
+        }
+      },
+      {
+        "type": "description",
+        "id": "multiDescriptions",
+        "name": "Contact",
+        "datas": {
+          "title": "Contact",
+          "description": "Contactez-nous",
+          "content": {
+            "contact-1": {
+              "type": "defaultContact",
+              "datas": {
+                "features": {}
+              }
+            }
+          }
+        }
+      },
+      {
+        "type": "legals",
+        "id": "mentions-legals",
+        "datas": {
+          "type": "mentions-legals",
+          "title": "Mentions légales",
+          "subTitle": "Informations légales",
+          "disclaimer": "Dernière mise à jour : 11/02/2026",
+          "content": []
+        }
+      },
+      {
+        "type": "legals",
+        "id": "confidentialite",
+        "datas": {
+          "type": "confidentialite",
+          "title": "Politique de confidentialité",
+          "subTitle": "Protection des données",
+          "disclaimer": "Dernière mise à jour : 11/02/2026",
+          "content": []
+        }
+      },
+      {
+        "type": "legals",
+        "id": "cgu-cgv",
+        "datas": {
+          "type": "cgu-cgv",
+          "title": "CGU & CGV",
+          "subTitle": "Conditions générales",
+          "disclaimer": "Dernière mise à jour : 11/02/2026",
+          "content": []
+        }
+      },
+      {
+        "type": "footers",
+        "id": "classicFooter",
+        "datas": {
+          "features": {},
+          "logo": {
+            "name": "webtrine_logo_2_blanc_noTitle",
+            "shape": "square",
+            "alt": "logo-webtrine",
+            "link": "/"
+          }
+        }
+      }
+    ]
+  },
+  "analytics": {
+    "googleAnalytics": "",
+    "googleTagManager": ""
+  }
+}
