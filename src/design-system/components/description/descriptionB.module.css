@@ -1,0 +1,137 @@
+/* IMPORTANT: Import custom media queries at the top of EVERY CSS Module file */
+@import url('../../../custom-media.css');
+
+/* ========================================
+   DescriptionB Component Styles
+   Two-column layout with media and text
+   ======================================== */
+
+/* Base container */
+.descriptionBRoot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  padding: 120px 40px;
+
+  /* Tablet and up - Side by side layout */
+  @media (--bp-min-medium) {
+    flex-direction: row;
+    gap: 3rem;
+    padding: 120px 80px;
+  }
+
+  /* Desktop and up */
+  @media (--bp-min-large) {
+    gap: 4rem;
+    padding: 120px 80px;
+  }
+
+  /* Large Desktop and up - Max width centering */
+  @media (--bp-min-xlarge) {
+    padding: 80px 64px;
+  }
+}
+
+/* Media container (left side) */
+.mediaContainer {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-width: 0; /* Allow flexbox to shrink */
+
+  @media (--bp-min-medium) {
+    max-width: 50%;
+  }
+}
+
+/* Media element (image or video) */
+.media {
+  width: 80%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  display: block;
+  min-width: 300px;
+
+  @media (--bp-min-medium) {
+    max-height: 600px;
+  }
+
+  @media (--bp-min-large) {
+    max-height: 700px;
+  }
+}
+
+/* Content container (right side) */
+.contentContainer {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  min-width: 0; /* Allow flexbox to shrink */
+
+  @media (--bp-min-medium) {
+    max-width: 50%;
+  }
+}
+
+/* Title */
+.title {
+  margin: 0;
+  padding: 0;
+  color: var(--theme-color-foreground-1);
+  font-size: var(--subtitle-font-size);
+  font-weight: bold;
+  line-height: 1.2;
+  align-self: center;
+
+  @media (--bp-min-medium) {
+    font-size: calc(var(--subtitle-font-size) * 1.2);
+  }
+
+  @media (--bp-min-large) {
+    font-size: calc(var(--subtitle-font-size) * 1.4);
+  }
+}
+
+/* Separator line */
+.separator {
+  width: 120px;
+  height: 1px;
+  background-color: var(--theme-color-foreground-1);
+  border: none;
+  margin: 32px 0;
+  align-self: center;
+}
+
+/* Description container */
+.descriptionContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  @media (--bp-min-medium) {
+    gap: 1.5rem;
+  }
+}
+
+/* Individual paragraph */
+.paragraph {
+  margin: 0;
+  color: var(--theme-color-foreground-1);
+  font-size: var(--text-font-size);
+  line-height: 1.7;
+  text-align: justify;
+
+  @media (--bp-min-medium) {
+    font-size: calc(var(--text-font-size) * 1.05);
+    line-height: 1.8;
+  }
+
+  @media (--bp-min-large) {
+    font-size: calc(var(--text-font-size) * 1.1);
+  }
+}

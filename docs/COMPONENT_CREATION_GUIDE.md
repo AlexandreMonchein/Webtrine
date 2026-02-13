@@ -141,6 +141,9 @@ export const MyComponent = ({
 **`myComponent.module.css`** :
 
 ```css
+/* IMPORTANT: Import custom media queries at the top of EVERY CSS Module file */
+@import url('../../../custom-media.css');
+
 /* MyComponent Styles */
 
 /* Base container */
@@ -148,7 +151,7 @@ export const MyComponent = ({
   padding: 1rem;
   background-color: var(--theme-color-background-1);
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px rgba(var(--theme-color-tertiary), 0.1);
 }
 
 /* Title element */
@@ -182,20 +185,49 @@ export const MyComponent = ({
   pointer-events: none;
 }
 
-/* Responsive design with custom media queries */
-@media (--bp-min-medium) {
-  .myComponentRoot {
+/* ========================================
+   RESPONSIVE DESIGN - MOBILE FIRST
+   ======================================== */
+
+/* IMPORTANT: Media queries DOIVENT être imbriquées dans les sélecteurs */
+/* ALWAYS use --bp-min-* (mobile first approach) */
+/* NEVER use --bp-max-* unless absolutely necessary */
+
+/* Base container with responsive behavior */
+.myComponentRoot {
+  padding: 1rem;
+  background-color: var(--theme-color-background-1);
+  border-radius: 8px;
+
+  /* Tablet and up (768px+) */
+  @media (--bp-min-medium) {
     padding: 2rem;
   }
 
-  .title {
-    font-size: calc(var(--subtitle-font-size) * 1.2);
+  /* Desktop and up (1024px+) */
+  @media (--bp-min-large) {
+    padding: 3rem;
+  }
+
+  /* Large Desktop and up (1440px+) */
+  @media (--bp-min-xlarge) {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  /* Ultra Wide and up (1920px+) */
+  @media (--bp-min-wide) {
+    max-width: 1400px;
   }
 }
 
-@media (--bp-min-large) {
-  .myComponentRoot {
-    padding: 3rem;
+/* Title with responsive font size */
+.title {
+  color: var(--theme-color-primary);
+  font-size: var(--subtitle-font-size);
+
+  @media (--bp-min-medium) {
+    font-size: calc(var(--subtitle-font-size) * 1.2);
   }
 }
 
@@ -207,12 +239,54 @@ export const MyComponent = ({
 }
 ```
 
-**Points clés** :
+**Points clés CSS Modules** :
+- ✅ **OBLIGATOIRE** : Ajouter `@import url('../../../custom-media.css');` en haut de CHAQUE fichier CSS Module
+- ✅ **Mobile First** : TOUJOURS utiliser `--bp-min-*` (de small à wide) si possible
+- ✅ **ÉVITER** : `--bp-max-*` sauf cas très spécifiques (ciblage mobile uniquement)
+- ✅ **Media queries** : DOIVENT être imbriquées DANS les sélecteurs (CSS nesting moderne)
+- ✅ **Ordre des breakpoints** : `--bp-min-medium` (768px) → `--bp-min-large` (1024px) → `--bp-min-xlarge` (1440px) → `--bp-min-wide` (1920px)
 - ✅ Utiliser les **variables CSS du theme** (`--theme-color-*`, `--*-font-size`)
-- ✅ Utiliser les **custom media queries** (`--bp-min-medium`, `--bp-min-large`)
 - ✅ Nommage BEM-like : `{componentName}Root`, `{componentName}RootPrimary`, `{componentName}RootDisabled`
 - ✅ Commenter les sections du fichier
 - ✅ Grouper les styles par catégorie (base, variants, states, responsive)
+
+**❌ ERREURS COURANTES À ÉVITER** :
+
+```css
+/* ✅ BON - Media query imbriquée dans le sélecteur */
+.myComponentRoot {
+  padding: 1rem;
+
+  @media (--bp-min-medium) {
+    padding: 2rem;
+  }
+}
+
+/* ❌ MAUVAIS - Media query séparée (répétition du sélecteur) */
+.myComponentRoot {
+  padding: 1rem;
+}
+
+@media (--bp-min-medium) {
+  .myComponentRoot {
+    padding: 2rem;
+  }
+}
+
+/* ❌ MAUVAIS - Desktop first avec --bp-max */
+.myComponentRoot {
+  padding: 3rem; /* Desktop par défaut */
+
+  @media (--bp-max-medium) {
+    padding: 0.5rem; /* Mobile en dernier */
+  }
+}
+
+/* ✅ BON - Mobile first avec --bp-min */
+.myComponentRoot {
+  padding: 0.5rem; /* Mobile par défaut */
+
+  @media (--bp-min-medium) {
 
 ### Variables CSS disponibles
 
@@ -221,7 +295,7 @@ Voir la liste complète dans `src/design-system/tokens/tokens.stories.tsx` :
 **Couleurs** :
 - Brand : `--theme-color-primary`, `--theme-color-secondary`, `--theme-color-tertiary`, `--theme-color-quaternary`, `--theme-color-quinary`
 - Utility : `--theme-color-utility-1` (red), `--theme-color-utility-2` (green), `--theme-color-utility-3` (orange), `--theme-color-utility-4` (blue)
-- Extended : `--theme-color-hover`, `--theme-color-background-1`, `--theme-color-background-2`
+- Extended : `--theme-color-hover`, `--theme-color-background-1`, `--theme-color-background-2`, `--theme-color-foreground-1`, `--theme-color-foreground-2`, `--theme-color-foreground-3`
 
 **Typographie** :
 - `--navbar-font-size`, `--subtitle-font-size`, `--text-font-size`, `--description-font-size`
@@ -231,12 +305,50 @@ Voir la liste complète dans `src/design-system/tokens/tokens.stories.tsx` :
 
 ### Breakpoints disponibles
 
-Définis dans `src/custom-media.css` :
+**⚠️ IMPORTANT : Approche Mobile First Obligatoire**
+
+TOUJOURS utiliser `--bp-min-*` (si possible) pour une approche mobile-first avec media queries **imbriquées** :
+
+```css
+/* ✅ RECOMMANDÉ - Mobile First avec media queries imbriquées */
+@import url('../../../custom-media.css'); /* OBLIGATOIRE en haut du fichier */
+
+.myComponent {
+  padding: 1rem; /* Mobile par défaut */
+
+  /* 768px+ : Tablette */
+  @media (--bp-min-medium) {
+    padding: 2rem;
+  }
+
+  /* 1024px+ : Desktop */
+  @media (--bp-min-large) {
+    padding: 3rem;
+  }
+
+  /* 1440px+ : Large Desktop */
+  @media (--bp-min-xlarge) {
+    padding: 4rem;
+  }
+
+  /* 1920px+ : Ultra Wide */
+  @media (--bp-min-wide) {
+
+**Breakpoints disponibles** (définis dans `src/custom-media.css`) :
+
+**Mobile First (MIN) - À UTILISER EN PRIORITÉ** :
+- `--bp-min-small` (600px+) - Petit tablette
 - `--bp-min-medium` (768px+) - Tablette
 - `--bp-min-large` (1024px+) - Desktop
 - `--bp-min-xlarge` (1440px+) - Large Desktop
+- `--bp-min-wide` (1920px+) - Ultra Wide
 
-Documentation complète : `docs/CUSTOM_MEDIA_QUERIES.md`
+**Desktop First (MAX) - À ÉVITER SI POSSIBLE** :
+- `--bp-max-xsmall` (< 600px) - Mobile uniquement
+- `--bp-max-small` (< 768px) - Mobile et petite tablette
+- `--bp-max-medium` (< 1024px) - Jusqu'à tablette
+
+**📚 Documentation complète** : Voir `docs/CUSTOM_MEDIA_QUERIES.md`
 
 ### 5. Créer les Stories Storybook
 
@@ -468,6 +580,58 @@ Description détaillée du composant et de ses cas d'usage.
 - Documenter avec JSDoc
 - Exporter les types de variants séparément
 - Typer les retours de fonctions explicitement
+
+### CSS Modules & Responsive Design
+
+**Import obligatoire** :
+- ✅ **TOUJOURS** ajouter `@import url('../../../custom-media.css');` en première ligne
+- ❌ Ne JAMAIS oublier cet import, sinon les custom media queries ne fonctionneront pas
+
+**Media Queries - Mobile First** :
+- ✅ **TOUJOURS** utiliser `--bp-min-*` (de small à wide) en priorité
+- ✅ Commencer par les styles mobile par défaut
+- ✅ Ajouter les breakpoints progressivement : medium → large → xlarge → wide
+- ✅ **IMBRIQUER** les media queries DANS les sélecteurs (CSS nesting)
+- ❌ **ÉVITER** `--bp-max-*` sauf cas très spécifiques (ciblage mobile uniquement)
+
+**Syntaxe correcte** :
+```css
+/* ✅ BON - Media queries imbriquées */
+@import url('../../../custom-media.css');
+
+.myComponent {
+  padding: 1rem; /* Mobile par défaut */
+
+  @media (--bp-min-medium) {
+    padding: 2rem;
+  }
+}
+
+/* ❌ MAUVAIS - Media query séparée (répétition) */
+.myComponent {
+  padding: 1rem;
+}
+
+@media (--bp-min-medium) {
+  .myComponent {
+    padding: 2rem;
+  }
+}
+
+/* ❌ MAUVAIS - Desktop first */
+.myComponent {
+  padding: 3rem; /* Desktop par défaut */
+
+  @media (--bp-max-medium) {
+    padding: 1rem; /* Mobile en dernier */
+  }
+}
+```
+
+**Variables CSS** :
+- Toujours utiliser les variables du theme (`--theme-color-*`, `--*-font-size`)
+- Ne JAMAIS hardcoder les couleurs ou tailles de police
+- Consulter `src/design-system/tokens/tokens.stories.tsx` pour la liste complète
 - Typer tous les paramètres de fonctions
 - Utiliser des génériques pour la réutilisabilité
 
@@ -515,9 +679,12 @@ Description détaillée du composant et de ses cas d'usage.
 - [ ] Pas de `any` dans le code TypeScript
 - [ ] Props typées et documentées
 - [ ] Utilisation de CSS Modules (pas de Styled Components)
-- [ ] Variables CSS du theme utilisées
-- [ ] Custom media queries pour le responsive
-- [ ] Classes CSS nommées de manière cohérente
+- [ ] **`@import url('../../../custom-media.css');` ajouté en première ligne du CSS**
+- [ ] Variables CSS du theme utilisées (`--theme-color-*`, `--*-font-size`)
+- [ ] **Custom media queries avec approche mobile-first (`--bp-min-*`)**
+- [ ] **Media queries imbriquées DANS les sélecteurs (CSS nesting)**
+- [ ] Classes CSS nommées de manière cohérente (`{componentName}Root`, `{componentName}RootVariant`)
+- [ ] Aucune valeur en dur (couleurs, tailles de police)
 
 ### Tests ✅
 

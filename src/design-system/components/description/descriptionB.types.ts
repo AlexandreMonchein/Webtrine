@@ -1,30 +1,33 @@
-export type DescriptionBBox = {
-  title: string;
-  description: string;
-  ctaLabel?: string;
-  ctaHref?: string;
-  ariaLabelCta?: string;
-};
+export type DescriptionBMediaType = "image" | "video";
 
-export type DescriptionBImage = {
+export interface DescriptionBTextItem {
+  /** Text content for a paragraph */
+  text: string;
+}
+
+export interface DescriptionBMedia {
+  /** Type of media to display */
+  type: DescriptionBMediaType;
+  /** Source URL for the media (image or video) */
   src: string;
-  alt: string;
-  width: number;
-  height: number;
-};
+  /** File extension for video (e.g., 'mp4', 'gif') */
+  extension?: string;
+  /** Alt text for image or video */
+  alt?: string;
+}
 
-export interface DescriptionBContent {
-  leftImage: DescriptionBImage;
-  rightImage: DescriptionBImage;
-  leftBox: DescriptionBBox;
-  rightBox: DescriptionBBox;
+export interface DescriptionBDatas {
+  /** Media to display on the left side */
+  media: DescriptionBMedia;
+  /** Title displayed above the description */
+  title: string;
+  /** Array of text paragraphs for the description */
+  description: DescriptionBTextItem[];
+  /** Test ID for testing */
+  "data-testid"?: string;
 }
 
 export interface DescriptionBProps {
-  id?: string;
-  className?: string;
-  features?: Record<string, boolean>;
-  title?: string | null;
-  subTitle?: string | null;
-  content: DescriptionBContent;
+  /** Component data */
+  datas: DescriptionBDatas;
 }

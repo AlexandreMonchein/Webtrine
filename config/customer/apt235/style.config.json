@@ -9,7 +9,7 @@
   "z-index-backgrounds": "1",
 
   "theme-color-primary": "#ffffff",
-  "theme-color-secondary": "#ffffff",
+  "theme-color-secondary": "#e7e7e7",
   "theme-color-tertiary": "#000000",
   "theme-color-quaternary": "#666666",
   "theme-color-quinary": "#cccccc",
@@ -21,5 +21,8 @@
 
   "theme-color-hover": "#e0e0e0",
   "theme-color-background-1": "#ffffff",
-  "theme-color-background-2": "#f9f9f9"
+  "theme-color-background-2": "#f9f9f9",
+  "theme-color-foreground-1": "#000000",
+  "theme-color-foreground-2": "#ffffff",
+  "theme-color-foreground-3": "#000000"
 }

@@ -1,21 +1,9 @@
+import classNames from "classnames";
 import React, { useEffect, useState } from "react";
 
 import { useFullscreenMode } from "../../utils/useFullscreenMode";
 import FullscreenMode from "../fullscreenMode/fullscreenMode.component";
-import {
-  Button,
-  CarouselImage,
-  CarouselWrapper,
-  Container,
-  Description,
-  ImageCounter,
-  InfoSection,
-  InstagramIcon,
-  Separator,
-  Subtitle,
-  TagLine,
-  Title,
-} from "./artistDescription.styled";
+import styles from "./artistDescription.module.css";
 
 interface ArtistDescriptionData {
   name: string;
@@ -81,26 +69,36 @@ const ArtistDescription: React.FC<{ datas: ArtistDescriptionData }> = ({
   }, []);
 
   return (
-    <Container>
-      <CarouselWrapper>
+    <section className={styles.container}>
+      <div className={styles.carouselWrapper}>
         {images.map((src, index) => (
-          <CarouselImage
+          <button
+            type="button"
             key={src}
-            src={src}
-            alt={`${name} tattoo ${index + 1}`}
-            active={index === currentIndex}
+            className={classNames(styles.carouselImageButton, {
+              [styles.carouselImageActive]: index === currentIndex,
+            })}
             onClick={() => fullscreenMode.openFullscreen(index)}
-          />
+            aria-label={`Voir l'image ${index + 1} de ${name} en plein écran`}
+          >
+            <img
+              src={src}
+              alt={`${name} tattoo ${index + 1}`}
+              className={styles.carouselImage}
+              draggable={false}
+            />
+          </button>
         ))}
-        <ImageCounter>
+        <div className={styles.imageCounter}>
           {currentIndex + 1}/{images.length}
-        </ImageCounter>
-      </CarouselWrapper>
+        </div>
+      </div>
 
-      <InfoSection>
-        <Title>{name}</Title>
-        <Separator />
-        <Subtitle
+      <div className={styles.infoSection}>
+        <h2 className={styles.title}>{name}</h2>
+        <hr className={styles.separator} />
+        <a
+          className={styles.subtitle}
           href={
             instagramUrl ||
             `https://instagram.com/${instagram.replace("@", "")}`
@@ -108,13 +106,17 @@ const ArtistDescription: React.FC<{ datas: ArtistDescriptionData }> = ({
           target="_blank"
           rel="noopener noreferrer"
         >
-          {instagramIcon && <InstagramIcon>{instagramIcon}</InstagramIcon>}@
-          {instagram}
-        </Subtitle>
-        <TagLine>{tagline}</TagLine>
-        <Description>{description}</Description>
-        <Button href={contactUrl}>PRENDRE RDV</Button>
-      </InfoSection>
+          {instagramIcon && (
+            <div className={styles.instagramIcon}>{instagramIcon}</div>
+          )}
+          @{instagram}
+        </a>
+        <p className={styles.tagLine}>{tagline}</p>
+        <p className={styles.description}>{description}</p>
+        <a className={styles.button} href={contactUrl}>
+          PRENDRE RDV
+        </a>
+      </div>
 
       <FullscreenMode
         images={images}
@@ -125,7 +127,7 @@ const ArtistDescription: React.FC<{ datas: ArtistDescriptionData }> = ({
         onPrev={fullscreenMode.prevImage}
         altTextPrefix={name}
       />
-    </Container>
+    </section>
   );
 };
 

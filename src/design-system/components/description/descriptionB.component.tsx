@@ -1,143 +1,63 @@
-// DescriptionB.component.tsx
-import React from "react";
+import { useRef } from "react";
 
-import { getCustomer } from "../../../customer.utils";
-import {
-  Box,
-  Container,
-  Cta,
-  Divider,
-  Figure,
-  Grid,
-  Img,
-  RightFigure,
-  Section,
-} from "./descriptionB.styled";
-import { DescriptionBProps } from "./descriptionB.types";
+import styles from "./descriptionB.module.css";
+import type { DescriptionBProps } from "./descriptionB.types";
 
-const Arrow = () => (
-  <svg
-    aria-hidden="true"
-    width="28"
-    height="12"
-    viewBox="0 0 28 12"
-    focusable="false"
-  >
-    <path
-      d="M0 6h24m0 0L18 1m6 5-6 5"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-    />
-  </svg>
-);
+const DescriptionB = ({ datas }: DescriptionBProps) => {
+  const { media, title, description, "data-testid": dataTestid } = datas;
+  const videoRef = useRef<HTMLVideoElement>(null);
 
-export const DescriptionB: React.FC<DescriptionBProps> = ({
-  id,
-  className,
-  content,
-  title,
-  subTitle,
-}) => {
-  const customer = getCustomer();
-  const sectionLabelId = id ? `${id}-label` : null;
+  const handleVideoClick = () => {
+    if (videoRef.current) {
+      if (videoRef.current.paused) {
+        videoRef.current.play();
+      } else {
+        videoRef.current.pause();
+      }
+    }
+  };
 
   return (
-    <Section id={id} aria-labelledby={sectionLabelId} className={className}>
-      <Container>
-        {title ? <h2 id={sectionLabelId}>{title}</h2> : null}
-        {subTitle ? (
-          <p id={sectionLabelId} className="sr-only">
-            {subTitle}
-          </p>
-        ) : null}
-        <Grid>
-          <Figure $bleedTop>
-            <Img
-              src={`${import.meta.env.BASE_URL}assets/${customer}/${content.leftImage.src}.webp`}
-              alt={content.leftImage.alt}
-              width={content.leftImage.width}
-              height={content.leftImage.height}
-              loading="eager"
-            />
-            <Box
-              $anchor="top-left"
-              role="group"
-              aria-labelledby={`${id}-left-title`}
-            >
-              <h3 id={`${id}-left-title`}>{content.leftBox.title}</h3>
-              <Divider />
-              <p>{content.leftBox.description}</p>
-              {content.leftBox.ctaHref
-                ? (() => {
-                    let ariaLabel = null;
-                    if (content.leftBox.ariaLabelCta) {
-                      ariaLabel = content.leftBox.ariaLabelCta;
-                    } else if (content.leftBox.ctaLabel) {
-                      ariaLabel = content.leftBox.ctaLabel;
-                    }
-                    return (
-                      <Cta
-                        href={content.leftBox.ctaHref}
-                        aria-label={ariaLabel}
-                      >
-                        <span>
-                          {content.leftBox.ctaLabel
-                            ? content.leftBox.ctaLabel
-                            : ""}
-                        </span>
-                        <Arrow />
-                      </Cta>
-                    );
-                  })()
-                : null}
-            </Box>
-          </Figure>
+    <section className={styles.descriptionBRoot} data-testid={dataTestid}>
+      {/* Left side - Media */}
+      <div className={styles.mediaContainer}>
+        {media.type === "image" ? (
+          <img
+            src={media.src}
+            alt={media.alt || title}
+            className={styles.media}
+          />
+        ) : (
+          <video
+            ref={videoRef}
+            src={media.src}
+            className={styles.media}
+            autoPlay
+            loop
+            muted
+            playsInline
+            onClick={handleVideoClick}
+            aria-label={media.alt || title}
+            style={{ cursor: "pointer" }}
+          >
+            Votre navigateur ne supporte pas la lecture de vidéos.
+          </video>
+        )}
+      </div>
 
-          <RightFigure>
-            <Img
-              src={`${import.meta.env.BASE_URL}assets/${customer}/${content.rightImage.src}.webp`}
-              alt={content.rightImage.alt}
-              width={content.rightImage.width}
-              height={content.rightImage.height}
-              loading="lazy"
-            />
-            <Box
-              $anchor="bottom-right"
-              role="group"
-              aria-labelledby={`${id}-right-title`}
-            >
-              <h3 id={`${id}-right-title`}>{content.rightBox.title}</h3>
-              <Divider />
-              <p>{content.rightBox.description}</p>
-              {content.rightBox.ctaHref
-                ? (() => {
-                    let ariaLabel = null;
-                    if (content.rightBox.ariaLabelCta) {
-                      ariaLabel = content.rightBox.ariaLabelCta;
-                    } else if (content.rightBox.ctaLabel) {
-                      ariaLabel = content.rightBox.ctaLabel;
-                    }
-                    return (
-                      <Cta
-                        href={content.rightBox.ctaHref}
-                        aria-label={ariaLabel}
-                      >
-                        <span>
-                          {content.rightBox.ctaLabel
-                            ? content.rightBox.ctaLabel
-                            : ""}
-                        </span>
-                        <Arrow />
-                      </Cta>
-                    );
-                  })()
-                : null}
-            </Box>
-          </RightFigure>
-        </Grid>
-      </Container>
-    </Section>
+      {/* Right side - Text content */}
+      <div className={styles.contentContainer}>
+        <h2 className={styles.title}>{title}</h2>
+        <hr className={styles.separator} />
+        <div className={styles.descriptionContainer}>
+          {description.map((item) => (
+            <p key={item.text} className={styles.paragraph}>
+              {item.text}
+            </p>
+          ))}
+        </div>
+      </div>
+    </section>
   );
 };
 

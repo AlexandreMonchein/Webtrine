@@ -1,61 +1,154 @@
-// DescriptionB.stories.tsx
 import type { Meta, StoryObj } from "@storybook/react";
+import { I18nextProvider } from "react-i18next";
+import { Provider } from "react-redux";
+import { BrowserRouter } from "react-router-dom";
 
-import { DescriptionB } from "./descriptionB.component";
-import type { DescriptionBProps } from "./descriptionB.types";
+import i18n from "../../../i18n";
+import store from "../../../store";
+import DescriptionB from "./descriptionB.component";
 
-const meta: Meta<typeof DescriptionB> = {
-  title: "Design System/Components/Description/DescriptionB",
+const meta = {
+  title: "Components/Description/DescriptionB",
   component: DescriptionB,
   parameters: {
-    docs: {
-      description: {
-        component:
-          'Implementation example (JSON):\n\n"<folder—name>-1": {\n  "type": "DescriptionB",\n  "features": { "feature1": true },\n  "title": "descriptionB h2 title data-1",\n  "subTitle": "descriptionB p subtitle data-1",\n  "content": {\n    "leftImage": { "src": "vertical_image", "alt": "descriptionB img alt data-1", "width": 1200, "height": 1600 },\n    "rightImage": { "src": "vertical_image", "alt": "descriptionB img alt data-2", "width": 1200, "height": 1600 },\n    "leftBox": { "title": "descriptionB h3 box-title data-1", "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", "ctaLabel": "descriptionB button label data-1", "ctaHref": "/link-1" },\n    "rightBox": { "title": "descriptionB h3 box-title data-2", "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", "ctaLabel": "descriptionB button label data-2", "ctaHref": "/link-2" }\n  }\n}',
-      },
-    },
+    layout: "fullscreen",
   },
-  argTypes: {
-    title: { control: "text" },
-    subTitle: { control: "text" },
-  },
-};
+  decorators: [
+    (Story) => (
+      <Provider store={store}>
+        <BrowserRouter>
+          <I18nextProvider i18n={i18n}>
+            <Story />
+          </I18nextProvider>
+        </BrowserRouter>
+      </Provider>
+    ),
+  ],
+  tags: ["autodocs"],
+} satisfies Meta<typeof DescriptionB>;
+
 export default meta;
+type Story = StoryObj<typeof meta>;
 
-type Story = StoryObj<typeof DescriptionB>;
+// Sample data for stories
+const sampleDescription = [
+  {
+    text: "Je m'appelle Océane Michel. Ma profession principale est la réalisation de prothèse dentaire, un métier que j'exerce au sein d'un laboratoire. J'aime travailler de mes mains et créer avec précision.",
+  },
+  {
+    text: "Cette profession m'a appris le sens du détail, la rigueur, la patience ainsi que l'importance de l'hygiène, des qualités essentielles que je mets également au service lors de mes gardes d'animaux.",
+  },
+  {
+    text: "Depuis toujours, les animaux occupent une place essentielle dans ma vie. J'ai grandi entourée de chats, ce qui m'a beaucoup apporté durant mon enfance.",
+  },
+];
 
+const shortDescription = [
+  {
+    text: "Un paragraphe court pour tester le composant avec moins de contenu.",
+  },
+];
+
+const longDescription = [
+  {
+    text: "Premier paragraphe d'une longue description qui contient beaucoup d'informations détaillées sur le sujet traité.",
+  },
+  {
+    text: "Deuxième paragraphe apportant des précisions supplémentaires et développant davantage le propos initial.",
+  },
+  {
+    text: "Troisième paragraphe continuant l'explication avec encore plus de détails techniques et pratiques.",
+  },
+  {
+    text: "Quatrième paragraphe pour démontrer la gestion de multiples paragraphes dans le composant.",
+  },
+  {
+    text: "Cinquième et dernier paragraphe concluant cette longue description de manière claire et concise.",
+  },
+];
+
+/**
+ * Default story with image media
+ */
 export const Default: Story = {
   args: {
-    id: "description-b",
-    title: "descriptionB h2 title data-1",
-    subTitle: "descriptionB p subtitle data-1",
-    content: {
-      leftImage: {
-        src: "vertical_image_1",
-        alt: "descriptionB img alt data-1",
-        width: 1200,
-        height: 1600,
+    datas: {
+      media: {
+        type: "image",
+        src: "https://images.unsplash.com/photo-1551434678-e076c223a692?w=800",
+        alt: "Image de présentation",
       },
-      rightImage: {
-        src: "vertical_image_1",
-        alt: "descriptionB img alt data-2",
-        width: 1200,
-        height: 1600,
-      },
-      leftBox: {
-        title: "descriptionB h3 box-title data-1",
-        description:
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-        ctaLabel: "descriptionB button label data-1",
-        ctaHref: "#",
-      },
-      rightBox: {
-        title: "descriptionB h3 box-title data-2",
-        description:
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-        ctaLabel: "descriptionB button label data-2",
-        ctaHref: "#",
-      },
+      title: "Qui suis-je ?",
+      description: sampleDescription,
     },
-  } as DescriptionBProps,
+  },
+};
+
+/**
+ * Story with video media (MP4)
+ */
+export const WithVideo: Story = {
+  args: {
+    datas: {
+      media: {
+        type: "video",
+        src: "https://www.w3schools.com/html/mov_bbb.mp4",
+        extension: "mp4",
+        alt: "Vidéo de présentation",
+      },
+      title: "Notre Studio",
+      description: sampleDescription,
+    },
+  },
+};
+
+/**
+ * Story with short description
+ */
+export const ShortContent: Story = {
+  args: {
+    datas: {
+      media: {
+        type: "image",
+        src: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800",
+        alt: "Équipe de travail",
+      },
+      title: "Description courte",
+      description: shortDescription,
+    },
+  },
+};
+
+/**
+ * Story with long description (multiple paragraphs)
+ */
+export const LongContent: Story = {
+  args: {
+    datas: {
+      media: {
+        type: "image",
+        src: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=800",
+        alt: "Espace de travail",
+      },
+      title: "Description détaillée",
+      description: longDescription,
+    },
+  },
+};
+
+/**
+ * Story with different title
+ */
+export const CustomTitle: Story = {
+  args: {
+    datas: {
+      media: {
+        type: "image",
+        src: "https://images.unsplash.com/photo-1556761175-b413da4baf72?w=800",
+        alt: "Studio créatif",
+      },
+      title: "Notre Histoire et Notre Passion",
+      description: sampleDescription,
+    },
+  },
 };

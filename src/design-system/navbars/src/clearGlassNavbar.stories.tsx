@@ -1,23 +1,39 @@
+import { configureStore } from "@reduxjs/toolkit";
 import type { Meta, StoryObj } from "@storybook/react";
 import { I18nextProvider } from "react-i18next";
+import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
 
 import i18n from "../../../i18n";
+import { initialState, stateReducer } from "../../../store/state.reducer";
 import { ClearGlassNavbar } from "./clearGlassNavbar.component";
 
+// Store mocké pour Storybook avec les données client
+const mockStore = configureStore({
+  reducer: stateReducer,
+  preloadedState: {
+    ...initialState,
+    client: {
+      name: "showcase",
+    },
+  },
+});
+
 const meta: Meta<typeof ClearGlassNavbar> = {
-  title: "Navbars/ClearGlassNavbar",
+  title: "Design System/Navbars/ClearGlassNavbar",
   component: ClearGlassNavbar,
   tags: ["autodocs"],
   decorators: [
     (Story) => (
-      <BrowserRouter>
-        <I18nextProvider i18n={i18n}>
-          <div style={{ minHeight: "100vh", background: "#f5f5f5" }}>
-            <Story />
-          </div>
-        </I18nextProvider>
-      </BrowserRouter>
+      <Provider store={mockStore}>
+        <BrowserRouter>
+          <I18nextProvider i18n={i18n}>
+            <div style={{ minHeight: "100vh", background: "#f5f5f5" }}>
+              <Story />
+            </div>
+          </I18nextProvider>
+        </BrowserRouter>
+      </Provider>
     ),
   ],
   parameters: {
@@ -52,59 +68,11 @@ const defaultLinks = [
 ];
 
 /**
- * Version par défaut de la burger navbar avec logo et liens de navigation.
+ * Version par défaut de la navbar avec logo personnalisé.
  */
 export const Default: Story = {
   args: {
-    logo: "logo_showcase",
-    links: defaultLinks,
-    activePath: "/",
-  },
-};
-
-/**
- * Navbar avec un chemin actif différent pour voir le style de lien actif.
- */
-export const ActiveLink: Story = {
-  args: {
-    logo: "logo_showcase",
-    links: defaultLinks,
-    activePath: "/artists",
-  },
-};
-
-/**
- * Navbar avec un logo personnalisé.
- */
-export const CustomLogo: Story = {
-  args: {
     logo: "logo_chillpaws_color_2",
-    links: defaultLinks,
-    activePath: "/",
-  },
-};
-
-/**
- * Navbar avec moins de liens pour un site simple.
- */
-export const SimplifiedNav: Story = {
-  args: {
-    logo: "logo_showcase",
-    links: [
-      { label: "HOME", path: "/" },
-      { label: "ABOUT", path: "/about" },
-      { label: "CONTACT", path: "/contact" },
-    ],
-    activePath: "/",
-  },
-};
-
-/**
- * Playground pour tester différentes configurations.
- */
-export const Playground: Story = {
-  args: {
-    logo: "logo_showcase",
     links: defaultLinks,
     activePath: "/",
   },

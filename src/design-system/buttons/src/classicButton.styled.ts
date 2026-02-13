@@ -23,6 +23,8 @@ export const Button = styled.button`
   border-radius: 50px;
   border-width: 0px;
   padding: 15px 30px;
+  background-color: var(--theme-color-background-1);
+  color: var(--theme-color-foreground-2);
   white-space: nowrap;
   transition: background-color 0.3s ease;
 

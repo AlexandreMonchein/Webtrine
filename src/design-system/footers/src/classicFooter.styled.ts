@@ -76,6 +76,7 @@ export const SocialIcon = styled.a`
 
 export const Logo = styled.img`
   display: block;
+  object-fit: contain;
 `;
 
 export const Socials = styled.div`
@@ -94,5 +95,5 @@ export const SocialContent = styled(DefaultContent)`
 export const SiteRef = styled.a`
   text-decoration: none;
   cursor: pointer;
-  color: var(--theme-color-hover);
+  color: var(--theme-color-foreground-3);
 `;

@@ -159,7 +159,7 @@ Les variables CSS de `style.config.json` fonctionnent identiquement ! ✅
 **Système de couleurs disponible** :
 - **Brand Palette** : `--theme-color-primary`, `--theme-color-secondary`, `--theme-color-tertiary`, `--theme-color-quaternary`, `--theme-color-quinary`
 - **Utility Colors** : `--theme-color-utility-1` (red), `--theme-color-utility-2` (green), `--theme-color-utility-3` (orange), `--theme-color-utility-4` (blue)
-- **Extended** : `--theme-color-hover`, `--theme-color-background-1`, `--theme-color-background-2`
+- **Extended** : `--theme-color-hover`, `--theme-color-background-1`, `--theme-color-background-2`, `--theme-color-foreground-1`, `--theme-color-foreground-2`, `--theme-color-foreground-3`
 - **Typography** : `--navbar-font-size`, `--subtitle-font-size`, `--text-font-size`, `--description-font-size`
 
 💡 Voir tous les tokens disponibles dans Storybook : `Design System/Tokens`
@@ -179,23 +179,39 @@ const Container = styled.div`
 `;
 ```
 
-**Après (avec custom media queries)** :
+**Après (avec custom media queries imbriquées)** :
 ```css
+/* IMPORTANT : Ajouter cet import en PREMIÈRE ligne de chaque fichier CSS Module */
+@import url('../../../custom-media.css');
+
 .container {
   width: 100%;
-}
 
-@media (--bp-min-medium) {
-  .container {
+  /* Media queries DOIVENT être imbriquées dans le sélecteur (CSS nesting) */
+  @media (--bp-min-medium) {
     width: 50%;
+  }
+
+  @media (--bp-min-large) {
+    width: 75%;
   }
 }
 ```
 
-**💡 Nouveau** : Nous utilisons maintenant des **custom media queries** pour une meilleure maintenabilité !
+**💡 Nouvelles règles** :
+- ✅ **OBLIGATOIRE** : Ajouter `@import url('../../../custom-media.css');` en première ligne
+- ✅ **TOUJOURS** utiliser `--bp-min-*` (mobile first) si possible
+- ✅ **IMBRIQUER** les media queries DANS les sélecteurs (CSS nesting moderne)
+- ❌ **ÉVITER** `--bp-max-*` sauf cas très spécifiques
+
+**Breakpoints disponibles** :
+- `--bp-min-small` (600px+)
 - `--bp-min-medium` (768px+) - Tablette
 - `--bp-min-large` (1024px+) - Desktop
-- Documentation complète : `docs/CUSTOM_MEDIA_QUERIES.md`
+- `--bp-min-xlarge` (1440px+) - Large Desktop
+- `--bp-min-wide` (1920px+) - Ultra Wide
+
+📚 Documentation complète : `docs/CUSTOM_MEDIA_QUERIES.md`
 ```css
 .link {
   color: blue;
@@ -261,13 +277,15 @@ export const Banner = ({ title, subtitle }) => (
 
 ```css
 /* banner.module.css */
+/* OBLIGATOIRE : Import des custom media queries en première ligne */
+@import url('../../../custom-media.css');
+
 .container {
   padding: 2rem;
   background: var(--theme-color-primary);
-}
 
-@media (--bp-min-medium) {
-  .container {
+  /* Media queries imbriquées dans le sélecteur */
+  @media (--bp-min-medium) {
     padding: 4rem;
   }
 }
@@ -390,39 +408,68 @@ Continuer à utiliser les variables de `style.config.json` :
 ```
 
 **Variables disponibles** :
-- **Couleurs** : `--theme-color-primary`, `--theme-color-secondary`, `--theme-color-tertiary`, `--theme-color-quaternary`, `--theme-color-quinary`
-- **Utility** : `--theme-color-utility-1` à `--theme-color-utility-4`, `--theme-color-hover`, `--theme-color-background-1`, `--theme-color-background-2`
+- **Couleurs de marque** : `--theme-color-primary`, `--theme-color-secondary`, `--theme-color-tertiary`, `--theme-color-quaternary`, `--theme-color-quinary`
+- **Couleurs utilitaires** : `--theme-color-utility-1` à `--theme-color-utility-4`
+- **Couleurs étendues** : `--theme-color-hover`, `--theme-color-background-1`, `--theme-color-background-2`, `--theme-color-foreground-1`, `--theme-color-foreground-2`, `--theme-color-foreground-3`
 - **Typographie** : `--navbar-font-size`, `--subtitle-font-size`, `--text-font-size`, `--description-font-size`
-- **Z-index** : `--z-index-navbars`, etc.
+- **Z-index** : `--z-index-navbars`, `--z-index-text`, `--z-index-backgrounds`
 
-### 4. Breakpoints helper (optionnel)
+### 4. Custom Media Queries (OBLIGATOIRE)
 
-Créer un fichier `_breakpoints.scss` :
+**Import requis en première ligne de chaque fichier CSS Module** :
 
-```scss
-// src/styles/_breakpoints.scss
-@mixin mobile {
-  @media (max-width: 767px) { @content; }
-}
+```css
+@import url('../../../custom-media.css');
+```
 
-@mixin tablet {
-  @media (min-width: 768px) { @content; }
-}
+**Usage avec media queries imbriquées (approche mobile-first)** :
 
-@mixin desktop {
-  @media (min-width: 1024px) { @content; }
+```css
+@import url('../../../custom-media.css');
+
+.container {
+  width: 100%;  /* Mobile par défaut */
+  padding: 1rem;
+
+  /* Tablette et plus (768px+) */
+  @media (--bp-min-medium) {
+    width: 50%;
+    padding: 2rem;
+  }
+
+  /* Desktop et plus (1024px+) */
+  @media (--bp-min-large) {
+    width: 75%;
+    padding: 3rem;
+  }
+
+  /* Large Desktop et plus (1440px+) */
+  @media (--bp-min-xlarge) {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
 }
 ```
 
-Usage :
-```scss
-@import '@/styles/breakpoints';
-
+**❌ À ne PAS faire** :
+```css
+/* ❌ MAUVAIS - Media query séparée (répétition du sélecteur) */
 .container {
   width: 100%;
+}
 
-  @include tablet {
+@media (--bp-min-medium) {
+  .container {
     width: 50%;
+  }
+}
+
+/* ❌ MAUVAIS - Desktop first */
+.container {
+  width: 75%;  /* Desktop par défaut */
+
+  @media (--bp-max-medium) {
+    width: 100%;  /* Mobile en dernier */
   }
 }
 ```

@@ -175,6 +175,14 @@ function App(props: { config: unknown; style: unknown }) {
             element={<MultiDescription templateName="Prestation" />}
           />
           <Route
+            path="/artistes"
+            element={<MultiDescription templateName="Artistes" />}
+          />
+          <Route
+            path="/events"
+            element={<MultiDescription templateName="Evenements" />}
+          />
+          <Route
             path="/tarifs"
             element={<MultiDescription templateName="Tarifs" />}
           />

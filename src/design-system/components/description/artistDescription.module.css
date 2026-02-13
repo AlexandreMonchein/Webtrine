@@ -1,0 +1,185 @@
+@import url("../../../custom-media.css");
+
+/* Keyframes */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* Container */
+.container {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 40px 20px 80px;
+
+  @media (--bp-min-medium) {
+    padding: 100px 120px;
+  }
+
+  @media (--bp-min-wide) {
+    padding: 120px 480px;
+  }
+}
+
+/* Carousel Wrapper */
+.carouselWrapper {
+  position: relative;
+  width: 300px;
+  height: 300px; /* force square */
+  overflow: hidden;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+/* Image Counter */
+.imageCounter {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  z-index: 2;
+}
+
+/* Carousel Image Button */
+.carouselImageButton {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 1s ease;
+
+  &.carouselImageActive {
+    opacity: 1;
+    animation: fadeIn 1s ease;
+    z-index: 1;
+  }
+}
+
+/* Carousel Image */
+.carouselImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Info Section */
+.infoSection {
+  flex: 1;
+  min-width: 280px;
+}
+
+/* Title */
+.title {
+  margin: 0;
+  padding-bottom: 0;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Subtitle */
+.subtitle {
+  font-size: 1rem;
+  color: #666;
+  margin: 0.5rem 0;
+  text-decoration: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.subtitle:hover {
+  color: #007bff;
+  text-decoration: underline;
+}
+
+/* Instagram Icon */
+.instagramIcon {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.instagramIcon svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* Separator */
+.separator {
+  width: 50px;
+  height: 1px;
+  background-color: #333;
+  border: none;
+  margin: 8px 0;
+}
+
+/* TagLine */
+.tagLine {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  line-clamp: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  position: relative;
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin: 0.5rem 0;
+}
+
+/* Description */
+.description {
+  font-size: 1rem;
+  margin: 8px 0;
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Button */
+.button {
+  background: black;
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+}
+
+.button:hover {
+  background: #333;
+}

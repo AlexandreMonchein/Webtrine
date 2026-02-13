@@ -171,7 +171,10 @@ Variables CSS injectées dynamiquement :
 
   "theme-color-hover": "#e0e0e0",
   "theme-color-background-1": "#ffffff",
-  "theme-color-background-2": "#f9f9f9"
+  "theme-color-background-2": "#f9f9f9",
+  "theme-color-foreground-1": "#ffffff",
+  "theme-color-foreground-2": "#000000",
+  "theme-color-foreground-3": "#e0e0e0"
 }
 ```
 
@@ -205,6 +208,9 @@ Variables CSS injectées dynamiquement :
 - `theme-color-hover` : État hover
 - `theme-color-background-1` : Fond principal
 - `theme-color-background-2` : Fond secondaire
+- `theme-color-foreground-1` : Premier plan (blanc par défaut)
+- `theme-color-foreground-2` : Premier plan alternatif (noir par défaut)
+- `theme-color-foreground-3` : Premier plan tertiaire (couleur hover par défaut)
 
 ## Traductions
 

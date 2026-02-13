@@ -39,4 +39,7 @@
   --theme-color-hover: var(--theme-color-hover-override, #e0e0e0);
   --theme-color-background-1: var(--theme-color-background-1-override, #ffffff);
   --theme-color-background-2: var(--theme-color-background-2-override, #f9f9f9);
+  --theme-color-foreground-1: var(--theme-color-foreground-1-override, #ffffff);
+  --theme-color-foreground-2: var(--theme-color-foreground-2-override, #000000);
+  --theme-color-foreground-3: var(--theme-color-foreground-3-override, var(--theme-color-hover));
 }

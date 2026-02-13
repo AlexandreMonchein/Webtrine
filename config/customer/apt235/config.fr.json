@@ -10,12 +10,14 @@
     },
     "socials": {
       "instagram": {
-        "link": "https://instagram.com/apt235",
-        "title": "Instagram"
+        "link": "https://www.instagram.com/apt.235/",
+        "title": "Instagram",
+        "color": "black"
       },
-      "facebook": {
-        "link": "https://facebook.com/apt235",
-        "title": "Facebook"
+      "tiktok": {
+        "link": "https://www.tiktok.com/@apt.235",
+        "title": "Tiktok",
+        "color": "black"
       }
     },
     "logo": "logo_apt235"
@@ -35,7 +37,7 @@
             },
             {
               "label": "RÉSERVER UN TATTOO",
-              "path": "/reserver"
+              "path": "/contact"
             },
             {
               "label": "LES ARTISTES",
@@ -43,11 +45,11 @@
             },
             {
               "label": "LE STUDIO",
-              "path": "/studio"
+              "path": "/presentation"
             },
             {
               "label": "ÉVÉNEMENTS",
-              "path": "/evenements"
+              "path": "/events"
             },
             {
               "label": "FAQ",
@@ -75,6 +77,27 @@
                 }
               ],
               "textPosition": "center"
+            },
+            "description-1": {
+              "type": "doubleImageDescription",
+              "leftText": {
+                "title": "PRENDRE RENDEZ-VOUS",
+                "description": "Prenez rendez-vous avec votre artiste et laissez vous guider tout au long de votre séance",
+                "link": "/contact"
+              },
+              "leftImage": {
+                "image": "IMG_1",
+                "imageAlt": "Business card"
+              },
+              "rightImage": {
+                "image": "IMG_2",
+                "imageAlt": "Studio photo"
+              },
+              "rightText": {
+                "title": "LES ARTISTES",
+                "description": "Regardez nos différents artistes, tous passionnés et prêts à vous offrir la meilleure expérience",
+                "link": "/artistes"
+              }
             }
           }
         }
@@ -82,11 +105,161 @@
       {
         "type": "description",
         "id": "multiDescriptions",
-        "name": "Home",
+        "name": "Artistes",
         "datas": {
-          "title": "Apt235",
-          "description": "Découvrez nos services",
-          "content": {}
+          "title": "Les artistes",
+          "description": null,
+          "content": {
+            "description-1": {
+              "type": "description",
+              "title": "Les artistes",
+              "features": { "isReversed": false, "isCentered": false }
+            },
+            "description-2": {
+              "type": "artistDescription",
+              "datas": {
+                "name": "DUF",
+                "instagram": "duftattoo",
+                "tagline": "MINIMALISTE / CONTEMPORAIN / ÉPURÉ",
+                "description": "FLORIAN EST UN ARTISTE AUTODIDACTE DEPUIS 2012. IL FAIT SES DÉBUTS DANS LE GRAFFITI ET SE PERFECTIONNE EN DÉCOUVRANT LE TATOUAGE. CRÉATEUR ET GÉRANT DU STUDIO APT.235, IL RÉALISE AUJOURD'HUI DES TATTOOS AUX LIGNES SIMPLES ET ÉPURÉES AU STYLE RECONNAISSABLE.",
+                "images": [
+                  "/assets/apt235/artist-1-1.webp",
+                  "/assets/apt235/artist-1-2.webp",
+                  "/assets/apt235/artist-1-3.webp",
+                  "/assets/apt235/artist-1-4.webp"
+                ],
+                "intervalBetweenImages": 2500,
+                "instagramUrl": "https://www.instagram.com/handle_instagram",
+                "contactUrl": "/contact"
+              }
+            },
+            "description-3": {
+              "type": "artistDescription",
+              "datas": {
+                "name": "NOKTO",
+                "instagram": "nokto.ttt",
+                "tagline": "BLACKWORK / DARK",
+                "description": "INSPIRÉ PAR L’ENCRE NOIRE ET LES OMBRES, ANTHONY COMBINE DES LIGNES ET DES APLATS AFIN DE CRÉER DES TATOUAGES AUX CONTRASTES TRÈS MARQUÉS. EN PLAÇANT LE NOIR AU BON ENDROIT, IL LAISSE APPARAÎTRE SES MOTIFS AVEC FINESSE.",
+                "images": [
+                  "/assets/apt235/artist-1-1.webp",
+                  "/assets/apt235/artist-1-2.webp",
+                  "/assets/apt235/artist-1-3.webp",
+                  "/assets/apt235/artist-1-4.webp"
+                ],
+                "intervalBetweenImages": 2500,
+                "instagramUrl": "https://www.instagram.com/nokto.ttt",
+                "contactUrl": "/contact"
+              }
+            },
+            "description-4": {
+              "type": "artistDescription",
+              "datas": {
+                "name": "SARAH MALFATTI",
+                "instagram": "malfatti.ttt",
+                "tagline": "TRANSPARENCE / X-RAY / FUMÉE",
+                "description": "FORMÉE PAR DUF AU STUDIO APT.235, LE STYLE DE SARAH S'ORIENTE VERS DES CONCEPTS DE TRANSPARENCE ET DE FLUIDITÉ, AVEC NOTAMMENT DES EFFETS X-RAY ET DE FUMÉE. MÊLANT LE CONTRASTE ENTRE OMBRES DÉLICATES ET NOIRS SATURÉS.",
+                "images": [
+                  "/assets/apt235/artist-1-1.webp",
+                  "/assets/apt235/artist-1-2.webp",
+                  "/assets/apt235/artist-1-3.webp",
+                  "/assets/apt235/artist-1-4.webp"
+                ],
+                "intervalBetweenImages": 2500,
+                "instagramUrl": "https://www.instagram.com/malfatti.ttt",
+                "contactUrl": "/contact"
+              }
+            },
+            "description-5": {
+              "type": "artistDescription",
+              "datas": {
+                "name": "EMMA",
+                "instagram": "marberyry.ttt",
+                "tagline": "POP CULTURE / COLORÉ",
+                "description": "VENANT D’UN DUT EN GRAPHISME, EMMA DÉVELOPPE EN PARALLÈLE UNE SENSIBILITÉ AU MONDE DU TATOUAGE. INSPIRÉE PAR LA CULTURE JAPONAISE ET LE MANGA, ELLE DÉCIDE DONC NATURELLEMENT D’ORIENTER SON STYLE DANS CETTE DIRECTION.",
+                "images": [
+                  "/assets/apt235/artist-1-1.webp",
+                  "/assets/apt235/artist-1-2.webp",
+                  "/assets/apt235/artist-1-3.webp",
+                  "/assets/apt235/artist-1-4.webp"
+                ],
+                "intervalBetweenImages": 2500,
+                "instagramUrl": "https://www.instagram.com/marberyry.ttt",
+                "contactUrl": "/contact"
+              }
+            },
+            "description-6": {
+              "type": "artistDescription",
+              "datas": {
+                "name": "AIEUH ÇA PIQUE",
+                "instagram": "aieuh_ca_pique",
+                "tagline": "ORNEMENTAL / FINE LINE",
+                "description": "INSPIRÉ PAR L’ÉCLAT DE LA LUNE ET LA PUISSANCE DU SOLEIL, MARWANE FAÇONNE DES TATOUAGES DÉLICATS, PORTEURS DE SIGNIFICATIONS PROFONDES OU SIMPLEMENT ESTHÉTIQUES. SON ART RÉSIDE DANS L’HARMONIE SUBTILE ENTRE DES LIGNES DÉLICATES ET DES TRAITS PLUS MARQUÉS, CRÉANT AINSI DES CONTRASTES QUI CONFÈRENT À VOS ORNEMENTS UNE SINGULARITÉ ENVOÛTANTE.",
+                "images": [
+                  "/assets/apt235/artist-1-1.webp",
+                  "/assets/apt235/artist-1-2.webp",
+                  "/assets/apt235/artist-1-3.webp",
+                  "/assets/apt235/artist-1-4.webp"
+                ],
+                "intervalBetweenImages": 2500,
+                "instagramUrl": "https://www.instagram.com/marberyry.ttt",
+                "contactUrl": "/contact"
+              }
+            },
+            "description-7": {
+              "type": "artistDescription",
+              "datas": {
+                "name": "MAHÉ",
+                "instagram": "tattooday_studio",
+                "tagline": "ILLUSTRATION / HANDPOKE / COULEUR",
+                "description": "PASSIONNÉE DEPUIS PETITE PAR LE DESSIN ET LA NATURE, MAHÉ DESSINE DE MANIÈRE POÉTIQUE ET ENFANTINE TOUT CE QUI L’ENTOURE. DIPLÔMÉE EN DESIGN GRAPHIQUE, ELLE AIME LES COMBINAISONS DE COULEURS ET LES COMPOSITIONS QUI SAURONT VOUS METTRE EN VALEUR !",
+                "images": [
+                  "/assets/apt235/artist-1-1.webp",
+                  "/assets/apt235/artist-1-2.webp",
+                  "/assets/apt235/artist-1-3.webp",
+                  "/assets/apt235/artist-1-4.webp"
+                ],
+                "intervalBetweenImages": 2500,
+                "instagramUrl": "https://www.instagram.com/tattooday_studio",
+                "contactUrl": "/contact"
+              }
+            },
+            "description-8": {
+              "type": "artistDescription",
+              "datas": {
+                "name": "NATURAFFECTION",
+                "instagram": "naturaffection.ttt",
+                "tagline": "GRAPHIQUE / SURRÉALISME / MICRO RÉALISME",
+                "description": "PORTÉE PAR SON PARCOURS EN DESIGN GRAPHIQUE ET SES EXPÉRIENCES PERSONNELLES, CASSANDRA COMPOSE DES RÉCITS VISUELS OÙ POÉSIE, MICRO-RÉALISME ET SURRÉALISME S'ENTRELACENT. ELLE AIME TRAVAILLER LES OMBRAGES, LES TEXTURES ET EXPLORE CHAQUE DÉTAIL AVEC SENSIBILITÉ POUR CRÉER DES ŒUVRES UNIQUES, INSPIRÉES DES ÉMOTIONS HUMAINES ET DES HISTOIRES QUE CHACUN PORTE EN SOI.",
+                "images": [
+                  "/assets/apt235/artist-1-1.webp",
+                  "/assets/apt235/artist-1-2.webp",
+                  "/assets/apt235/artist-1-3.webp",
+                  "/assets/apt235/artist-1-4.webp"
+                ],
+                "intervalBetweenImages": 2500,
+                "instagramUrl": "https://www.instagram.com/naturaffection.ttt",
+                "contactUrl": "/contact"
+              }
+            },
+            "description-9": {
+              "type": "artistDescription",
+              "datas": {
+                "name": "ELENA",
+                "instagram": "vidnevskaya_tattoo",
+                "tagline": "MICRO RÉALISME / FLORAL",
+                "description": "ELENA EST UNE TATOUEUSE UKRAINIENNE, PASSIONNÉE DE DESSIN DEPUIS L’ENFANCE. LE TATOUAGE A COMMENCÉ POUR ELLE SUR UN COUP DE TÊTE. ELLE A TOUJOURS ÉTÉ ATTIRÉE PAR LES DÉTAILS, NOTAMMENT LES PLANTES ET LES VISAGES. DEPUIS MAINTENANT 8 ANS, ELLE DÉVELOPPE UN STYLE AXÉ SUR LE MICRO-RÉALISME ET LES TRAITS FINS, AVEC UNE PRÉDILECTION POUR LES MOTIFS BOTANIQUES. À TRAVERS SES TATOUAGES, ELLE CHERCHE À CAPTURER UN INSTANT ÉTERNEL ET À RACONTER DES HISTOIRES PERSONNELLES.",
+                "images": [
+                  "/assets/apt235/artist-1-1.webp",
+                  "/assets/apt235/artist-1-2.webp",
+                  "/assets/apt235/artist-1-3.webp",
+                  "/assets/apt235/artist-1-4.webp"
+                ],
+                "intervalBetweenImages": 2500,
+                "instagramUrl": "https://www.instagram.com/naturaffection.ttt",
+                "contactUrl": "/contact"
+              }
+            }
+          }
         }
       },
       {
@@ -94,23 +267,64 @@
         "id": "multiDescriptions",
         "name": "Presentation",
         "datas": {
-          "title": "Présentation",
-          "description": "Qui sommes-nous ?",
-          "content": {}
+          "title": "Le studio",
+          "description": null,
+          "content": {
+            "description-1": {
+              "type": "descriptionB",
+              "datas": {
+                "media": {
+                  "type": "video",
+                  "src": "/assets/apt235/the_studio.mp4",
+                  "extension": "mp4",
+                  "alt": "Photo de présentation"
+                },
+                "title": "LE STUDIO",
+                "description": [
+                  {
+                    "text": "APT.235 EST UN STUDIO DE TATOUAGE À BORDEAUX. NOS ARTISTES TATOUEURS RÉSIDENTS AINSI QUE NOS INVITÉS NATIONAUX ET INTERNATIONAUX AURONT LE PLAISIR DE VOUS ACCUEILLIR DANS UN ENDROIT SAFE, PROPRE ET MODERNE AVEC UNE PRESTATION DE QUALITÉ. ILS SERONT À VOTRE ÉCOUTE POUR RÉALISER VOS TATOUAGES PERSONNALISÉS AVEC RESPECT ET CONFIANCE."
+                  },
+                  {
+                    "text": "NOUS SOMMES OUVERTS AU PUBLIC UNIQUEMENT SUR RENDEZ-VOUS. RETROUVEZ TOUTES LES INFORMATIONS VIA INSTAGRAM @APT.235"
+                  }
+                ]
+              }
+            }
+          }
         }
       },
       {
         "type": "description",
         "id": "multiDescriptions",
-        "name": "Contact",
+        "name": "Evenements",
         "datas": {
-          "title": "Contact",
-          "description": "Contactez-nous",
+          "title": "Flash day",
+          "description": null,
           "content": {
-            "contact-1": {
-              "type": "defaultContact",
+            "description-1": {
+              "type": "descriptionB",
               "datas": {
-                "features": {}
+                "media": {
+                  "type": "video",
+                  "src": "/assets/apt235/flashday.mp4",
+                  "extension": "mp4",
+                  "alt": "Photo de présentation"
+                },
+                "title": "FLASH DAY",
+                "description": [
+                  {
+                    "text": "LE FLASH DAY EST UNE JOURNÉE ORGANISÉE PAR LE STUDIO APT.235. ELLE SE DÉROULE UNE À DEUX FOIS PAR AN À DES DATES ALÉATOIRES ET CELA SANS RENDEZ-VOUS."
+                  },
+                  {
+                    "text": "ON Y TROUVE DES PETITS FLASHS TATTOO AUX PRIX RÉDUITS QUE LES TATOUEURS RÉALISENT TOUT AU LONG DE LA JOURNÉE EN NON-STOP."
+                  },
+                  {
+                    "text": "PREMIER ARRIVÉ, PREMIER SERVI !"
+                  },
+                  {
+                    "text": "CES ÉVÉNEMENTS SONT ORGANISÉS VIA L'INSTAGRAM DU STUDIO."
+                  }
+                ]
               }
             }
           }
@@ -155,9 +369,9 @@
         "datas": {
           "features": {},
           "logo": {
-            "name": "webtrine_logo_2_blanc_noTitle",
-            "shape": "square",
-            "alt": "logo-webtrine",
+            "name": "logo_apt235",
+            "shape": "horizontal-wide",
+            "alt": "logo_apt235",
             "link": "/"
           }
         }

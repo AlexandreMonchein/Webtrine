@@ -72,7 +72,10 @@ const ClassicFooter = (props) => {
       </LeftSection>
       <MiddleSection>
         <TopSection>
-          <SiteRef href="https://www.webtrine.fr" style={{ color: "unset" }}>
+          <SiteRef
+            href="https://www.webtrine.fr"
+            style={{ color: "var(--theme-color-foreground-1)" }}
+          >
             Webtrine 2025 - tous droits réservés.
           </SiteRef>
         </TopSection>

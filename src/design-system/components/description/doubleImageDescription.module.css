@@ -1,0 +1,140 @@
+@import url("../../../custom-media.css");
+
+.doubleImageDescriptionRoot {
+  position: relative;
+  padding: 40px 20px 80px;
+  color: var(--theme-color-tertiary);
+  overflow: hidden;
+
+  @media (--bp-min-medium) {
+    padding: 100px 120px;
+  }
+
+  @media (--bp-min-wide) {
+    padding: 120px 480px;
+  }
+}
+
+/* Root container with two columns */
+.doubleImageDescriptionContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4rem;
+  width: 100%;
+  box-sizing: border-box;
+
+  @media (--bp-min-medium) {
+    flex-direction: row;
+    gap: 2rem;
+  }
+}
+
+/* Column for each image + text block */
+.column {
+  display: flex;
+  flex-direction: column;
+
+  @media (--bp-min-medium) {
+    &:first-child {
+      margin-top: 3rem;
+    }
+
+    &:last-child {
+      margin-top: -3rem;
+    }
+  }
+}
+
+/* Image wrapper - relative positioning for absolute text overlay */
+.imageWrapper {
+  position: relative;
+  width: 100%;
+}
+
+/* Image styling */
+.image {
+  width: 100%;
+
+  @media (--bp-min-medium) {
+    min-width: 300px;
+    max-width: 300px;
+  }
+
+  @media (--bp-min-large) {
+    min-width: 400px;
+    max-width: 400px;
+  }
+}
+
+/* Text block - absolutely positioned over image */
+.textBlock {
+  position: absolute;
+  left: 0;
+  right: 0;
+  background-color: var(--theme-color-secondary);
+  padding: 16px;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  z-index: 1;
+  width: 100%;
+
+  @media (--bp-min-medium) {
+    width: 80%;
+  }
+}
+
+/* Position text at top of left image */
+.textBlockTop {
+  bottom: -40px;
+
+  @media (--bp-min-medium) {
+    top: 0;
+    height: min-content;
+    transform: translate(50px, -95px);
+  }
+}
+
+/* Position text at bottom of right image */
+.textBlockBottom {
+  bottom: -40px;
+
+  @media (--bp-min-medium) {
+    transform: translate(20px, 70px);
+  }
+}
+
+/* Text content container */
+.textContent {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* Title */
+.title {
+  margin: 0;
+  color: var(--theme-color-tertiary);
+}
+
+/* Horizontal divider line */
+.divider {
+  border: none;
+  border-top: 2px solid var(--theme-color-tertiary);
+  width: 3rem;
+  margin: 0;
+}
+
+/* Description paragraph */
+.description {
+  margin: 0;
+  color: var(--theme-color-tertiary);
+}
+
+/* Arrow indicator */
+.arrow {
+  color: var(--theme-color-tertiary);
+  align-self: flex-end;
+}
