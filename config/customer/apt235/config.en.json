@@ -10,12 +10,14 @@
     },
     "socials": {
       "instagram": {
-        "link": "https://instagram.com/apt235",
-        "title": "Instagram"
+        "link": "https://www.instagram.com/apt.235/",
+        "title": "Instagram",
+        "color": "black"
       },
-      "facebook": {
-        "link": "https://facebook.com/apt235",
-        "title": "Facebook"
+      "tiktok": {
+        "link": "https://www.tiktok.com/@apt.235",
+        "title": "Tiktok",
+        "color": "black"
       }
     },
     "logo": "logo_apt235"
@@ -30,24 +32,24 @@
           "shape": "horizontal-wide",
           "links": [
             {
-              "label": "ACCUEIL",
+              "label": "HOME",
               "path": "/"
             },
             {
-              "label": "RÉSERVER UN TATTOO",
-              "path": "/reserver"
+              "label": "BOOK A TATTOO",
+              "path": "/contact"
             },
             {
-              "label": "LES ARTISTES",
+              "label": "THE ARTISTS",
               "path": "/artistes"
             },
             {
-              "label": "LE STUDIO",
-              "path": "/studio"
+              "label": "THE STUDIO",
+              "path": "/presentation"
             },
             {
-              "label": "ÉVÉNEMENTS",
-              "path": "/evenements"
+              "label": "EVENTS",
+              "path": "/events"
             },
             {
               "label": "FAQ",
@@ -61,20 +63,141 @@
         "id": "multiDescriptions",
         "name": "Home",
         "datas": {
-          "title": "Accueil",
-          "description": "Webtrine - Création de site vitrine",
+          "title": "Home",
+          "description": "Webtrine - Showcase Website Creation",
           "content": {
             "banner-1": {
               "type": "banner",
               "features": { "multi": false, "medium": false, "mask": false },
               "title": "APT.235",
-              "subTitle": "Studio de tatouage",
+              "subTitle": "Tattoo Studio",
               "images": [
                 {
                   "name": "banner_1"
                 }
               ],
               "textPosition": "center"
+            },
+            "description-1": {
+              "type": "doubleImageDescription",
+              "leftText": {
+                "title": "BOOK AN APPOINTMENT",
+                "description": "Book an appointment with your artist and let yourself be guided throughout your session",
+                "link": "/contact"
+              },
+              "leftImage": {
+                "image": "IMG_1",
+                "imageAlt": "Business card"
+              },
+              "rightImage": {
+                "image": "IMG_2",
+                "imageAlt": "Studio photo"
+              },
+              "rightText": {
+                "title": "THE ARTISTS",
+                "description": "Discover our different artists, all passionate and ready to offer you the best experience",
+                "link": "/artistes"
+              }
+            },
+            "description-2": {
+              "type": "descriptionB",
+              "datas": {
+                "media": {
+                  "type": "image",
+                  "src": "/assets/apt235/IMG_3.webp",
+                  "alt": "Presentation photo"
+                },
+                "title": "THE STUDIO",
+                "description": [
+                  {
+                    "text": "APT.235 IS A TATTOO STUDIO IN BORDEAUX. OUR RESIDENT TATTOO ARTISTS AS WELL AS OUR NATIONAL AND INTERNATIONAL GUESTS WILL BE PLEASED TO WELCOME YOU IN A SAFE, CLEAN AND MODERN PLACE WITH QUALITY SERVICE. THEY WILL LISTEN TO YOU TO CREATE YOUR PERSONALIZED TATTOOS WITH RESPECT AND TRUST."
+                  },
+                  {
+                    "text": "WE ARE OPEN TO THE PUBLIC BY APPOINTMENT ONLY. FIND ALL INFORMATION VIA INSTAGRAM @APT.235"
+                  }
+                ]
+              }
+            },
+            "banner-2": {
+              "type": "contactBanner",
+              "datas": {
+                "title": "STAY IN TOUCH",
+                "media": {
+                  "type": "image",
+                  "src": "/assets/apt235/IMG_4.webp",
+                  "alt": "Studio interior"
+                },
+                "infoTitle": "APT.235",
+                "content": [
+                  {
+                    "text": "139 Bd du Président Wilson, 33200 Bordeaux",
+                    "withSpacer": true
+                  },
+                  {
+                    "text": "Opening hours:"
+                  },
+                  {
+                    "text": "Studio Open Monday to Saturday: 11am - 7pm"
+                  },
+                  {
+                    "text": "Closed on Sundays and public holidays."
+                  }
+                ]
+              }
+            }
+          }
+        }
+      },
+
+      {
+        "type": "description",
+        "id": "multiDescriptions",
+        "name": "Contact",
+        "datas": {
+          "title": "Contact",
+          "description": "Contact us",
+          "content": {
+            "contact-1": {
+              "type": "tattooContact",
+              "datas": {
+                "artists": [
+                  {
+                    "artistName": "DUF",
+                    "mail": "artist1@gmail.com"
+                  },
+                  {
+                    "artistName": "NOKTO",
+                    "mail": "artist2@gmail.com"
+                  },
+                  {
+                    "artistName": "SARAH MALFATTI",
+                    "mail": "artist3@gmail.com"
+                  },
+                  {
+                    "artistName": "EMMA",
+                    "mail": "artist4@gmail.com"
+                  },
+                  {
+                    "artistName": "AIEUH ÇA PIQUE",
+                    "mail": "mailto:aieuh_ca_pique@outlook.fr"
+                  },
+                  {
+                    "artistName": "MAHÉ",
+                    "mail": "artist5@gmail.com"
+                  },
+                  {
+                    "artistName": "NATURAFFECTION",
+                    "mail": "artist6@gmail.com"
+                  },
+                  {
+                    "artistName": "ELENA",
+                    "mail": "artist7@gmail.com"
+                  }
+                ],
+                "serviceId": "service_apt235",
+                "templateId": "template_tattoo_request",
+                "replyTo": "contact@apt235.com"
+              }
             }
           }
         }
@@ -82,11 +205,161 @@
       {
         "type": "description",
         "id": "multiDescriptions",
-        "name": "Home",
+        "name": "Artistes",
         "datas": {
-          "title": "Apt235",
-          "description": "Découvrez nos services",
-          "content": {}
+          "title": "The Artists",
+          "description": null,
+          "content": {
+            "description-1": {
+              "type": "description",
+              "title": "THE ARTISTS",
+              "features": { "isReversed": false, "isCentered": false }
+            },
+            "description-2": {
+              "type": "artistDescription",
+              "datas": {
+                "name": "DUF",
+                "instagram": "duftattoo",
+                "tagline": "MINIMALIST / CONTEMPORARY / CLEAN",
+                "description": "FLORIAN IS A SELF-TAUGHT ARTIST SINCE 2012. HE STARTED WITH GRAFFITI AND PERFECTED HIS CRAFT BY DISCOVERING TATTOOING. CREATOR AND MANAGER OF APT.235 STUDIO, HE NOW CREATES TATTOOS WITH SIMPLE AND CLEAN LINES IN A RECOGNIZABLE STYLE.",
+                "images": [
+                  "/assets/apt235/artist-1-1.webp",
+                  "/assets/apt235/artist-1-2.webp",
+                  "/assets/apt235/artist-1-3.webp",
+                  "/assets/apt235/artist-1-4.webp"
+                ],
+                "intervalBetweenImages": 2500,
+                "instagramUrl": "https://www.instagram.com/handle_instagram",
+                "contactUrl": "/contact"
+              }
+            },
+            "description-3": {
+              "type": "artistDescription",
+              "datas": {
+                "name": "NOKTO",
+                "instagram": "nokto.ttt",
+                "tagline": "BLACKWORK / DARK",
+                "description": "INSPIRED BY BLACK INK AND SHADOWS, ANTHONY COMBINES LINES AND SOLID FILLS TO CREATE TATTOOS WITH STRONG CONTRASTS. BY PLACING BLACK IN THE RIGHT PLACE, HE REVEALS HIS PATTERNS WITH FINESSE.",
+                "images": [
+                  "/assets/apt235/artist-1-1.webp",
+                  "/assets/apt235/artist-1-2.webp",
+                  "/assets/apt235/artist-1-3.webp",
+                  "/assets/apt235/artist-1-4.webp"
+                ],
+                "intervalBetweenImages": 2500,
+                "instagramUrl": "https://www.instagram.com/nokto.ttt",
+                "contactUrl": "/contact"
+              }
+            },
+            "description-4": {
+              "type": "artistDescription",
+              "datas": {
+                "name": "SARAH MALFATTI",
+                "instagram": "malfatti.ttt",
+                "tagline": "TRANSPARENCY / X-RAY / SMOKE",
+                "description": "TRAINED BY DUF AT APT.235 STUDIO, SARAH'S STYLE FOCUSES ON CONCEPTS OF TRANSPARENCY AND FLUIDITY, INCLUDING X-RAY AND SMOKE EFFECTS. BLENDING THE CONTRAST BETWEEN DELICATE SHADOWS AND SATURATED BLACKS.",
+                "images": [
+                  "/assets/apt235/artist-1-1.webp",
+                  "/assets/apt235/artist-1-2.webp",
+                  "/assets/apt235/artist-1-3.webp",
+                  "/assets/apt235/artist-1-4.webp"
+                ],
+                "intervalBetweenImages": 2500,
+                "instagramUrl": "https://www.instagram.com/malfatti.ttt",
+                "contactUrl": "/contact"
+              }
+            },
+            "description-5": {
+              "type": "artistDescription",
+              "datas": {
+                "name": "EMMA",
+                "instagram": "marberyry.ttt",
+                "tagline": "POP CULTURE / COLORFUL",
+                "description": "COMING FROM A GRAPHIC DESIGN DEGREE, EMMA DEVELOPS A PARALLEL SENSITIVITY TO THE WORLD OF TATTOOING. INSPIRED BY JAPANESE CULTURE AND MANGA, SHE NATURALLY DECIDES TO ORIENT HER STYLE IN THIS DIRECTION.",
+                "images": [
+                  "/assets/apt235/artist-1-1.webp",
+                  "/assets/apt235/artist-1-2.webp",
+                  "/assets/apt235/artist-1-3.webp",
+                  "/assets/apt235/artist-1-4.webp"
+                ],
+                "intervalBetweenImages": 2500,
+                "instagramUrl": "https://www.instagram.com/marberyry.ttt",
+                "contactUrl": "/contact"
+              }
+            },
+            "description-6": {
+              "type": "artistDescription",
+              "datas": {
+                "name": "AIEUH ÇA PIQUE",
+                "instagram": "aieuh_ca_pique",
+                "tagline": "ORNAMENTAL / FINE LINE",
+                "description": "INSPIRED BY THE BRIGHTNESS OF THE MOON AND THE POWER OF THE SUN, MARWANE CRAFTS DELICATE TATTOOS, CARRYING DEEP MEANINGS OR SIMPLY AESTHETIC. HIS ART LIES IN THE SUBTLE HARMONY BETWEEN DELICATE LINES AND BOLDER STROKES, CREATING CONTRASTS THAT GIVE YOUR ORNAMENTS A CAPTIVATING UNIQUENESS.",
+                "images": [
+                  "/assets/apt235/artist-1-1.webp",
+                  "/assets/apt235/artist-1-2.webp",
+                  "/assets/apt235/artist-1-3.webp",
+                  "/assets/apt235/artist-1-4.webp"
+                ],
+                "intervalBetweenImages": 2500,
+                "instagramUrl": "https://www.instagram.com/marberyry.ttt",
+                "contactUrl": "/contact"
+              }
+            },
+            "description-7": {
+              "type": "artistDescription",
+              "datas": {
+                "name": "MAHÉ",
+                "instagram": "tattooday_studio",
+                "tagline": "ILLUSTRATION / HANDPOKE / COLOR",
+                "description": "PASSIONATE ABOUT DRAWING AND NATURE SINCE CHILDHOOD, MAHÉ DRAWS IN A POETIC AND CHILDLIKE MANNER EVERYTHING AROUND HER. WITH A DEGREE IN GRAPHIC DESIGN, SHE LOVES COLOR COMBINATIONS AND COMPOSITIONS THAT WILL HIGHLIGHT YOU!",
+                "images": [
+                  "/assets/apt235/artist-1-1.webp",
+                  "/assets/apt235/artist-1-2.webp",
+                  "/assets/apt235/artist-1-3.webp",
+                  "/assets/apt235/artist-1-4.webp"
+                ],
+                "intervalBetweenImages": 2500,
+                "instagramUrl": "https://www.instagram.com/tattooday_studio",
+                "contactUrl": "/contact"
+              }
+            },
+            "description-8": {
+              "type": "artistDescription",
+              "datas": {
+                "name": "NATURAFFECTION",
+                "instagram": "naturaffection.ttt",
+                "tagline": "GRAPHIC / SURREALISM / MICRO REALISM",
+                "description": "DRIVEN BY HER BACKGROUND IN GRAPHIC DESIGN AND HER PERSONAL EXPERIENCES, CASSANDRA COMPOSES VISUAL NARRATIVES WHERE POETRY, MICRO-REALISM AND SURREALISM INTERTWINE. SHE LOVES WORKING WITH SHADING, TEXTURES AND EXPLORES EVERY DETAIL WITH SENSITIVITY TO CREATE UNIQUE WORKS, INSPIRED BY HUMAN EMOTIONS AND THE STORIES EACH PERSON CARRIES WITHIN.",
+                "images": [
+                  "/assets/apt235/artist-1-1.webp",
+                  "/assets/apt235/artist-1-2.webp",
+                  "/assets/apt235/artist-1-3.webp",
+                  "/assets/apt235/artist-1-4.webp"
+                ],
+                "intervalBetweenImages": 2500,
+                "instagramUrl": "https://www.instagram.com/naturaffection.ttt",
+                "contactUrl": "/contact"
+              }
+            },
+            "description-9": {
+              "type": "artistDescription",
+              "datas": {
+                "name": "ELENA",
+                "instagram": "vidnevskaya_tattoo",
+                "tagline": "MICRO REALISM / FLORAL",
+                "description": "ELENA IS A UKRAINIAN TATTOO ARTIST, PASSIONATE ABOUT DRAWING SINCE CHILDHOOD. TATTOOING STARTED FOR HER ON A WHIM. SHE HAS ALWAYS BEEN ATTRACTED TO DETAILS, ESPECIALLY PLANTS AND FACES. FOR 8 YEARS NOW, SHE HAS BEEN DEVELOPING A STYLE FOCUSED ON MICRO-REALISM AND FINE LINES, WITH A PREDILECTION FOR BOTANICAL MOTIFS. THROUGH HER TATTOOS, SHE SEEKS TO CAPTURE AN ETERNAL MOMENT AND TELL PERSONAL STORIES.",
+                "images": [
+                  "/assets/apt235/artist-1-1.webp",
+                  "/assets/apt235/artist-1-2.webp",
+                  "/assets/apt235/artist-1-3.webp",
+                  "/assets/apt235/artist-1-4.webp"
+                ],
+                "intervalBetweenImages": 2500,
+                "instagramUrl": "https://www.instagram.com/naturaffection.ttt",
+                "contactUrl": "/contact"
+              }
+            }
+          }
         }
       },
       {
@@ -94,23 +367,257 @@
         "id": "multiDescriptions",
         "name": "Presentation",
         "datas": {
-          "title": "Présentation",
-          "description": "Qui sommes-nous ?",
-          "content": {}
+          "title": "The Studio",
+          "description": null,
+          "content": {
+            "description-1": {
+              "type": "descriptionB",
+              "datas": {
+                "media": {
+                  "type": "video",
+                  "src": "/assets/apt235/the_studio.mp4",
+                  "extension": "mp4",
+                  "alt": "Photo de présentation"
+                },
+                "title": "THE STUDIO",
+                "description": [
+                  {
+                    "text": "APT.235 IS A TATTOO STUDIO IN BORDEAUX. OUR RESIDENT TATTOO ARTISTS AS WELL AS OUR NATIONAL AND INTERNATIONAL GUESTS WILL BE PLEASED TO WELCOME YOU IN A SAFE, CLEAN AND MODERN PLACE WITH QUALITY SERVICE. THEY WILL LISTEN TO YOU TO CREATE YOUR PERSONALIZED TATTOOS WITH RESPECT AND TRUST."
+                  },
+                  {
+                    "text": "WE ARE OPEN TO THE PUBLIC BY APPOINTMENT ONLY. FIND ALL INFORMATION VIA INSTAGRAM @APT.235"
+                  }
+                ]
+              }
+            }
+          }
         }
       },
       {
         "type": "description",
         "id": "multiDescriptions",
-        "name": "Contact",
+        "name": "Evenements",
         "datas": {
-          "title": "Contact",
-          "description": "Contactez-nous",
+          "title": "Flash Day",
+          "description": null,
           "content": {
-            "contact-1": {
-              "type": "defaultContact",
+            "description-1": {
+              "type": "descriptionB",
               "datas": {
-                "features": {}
+                "media": {
+                  "type": "video",
+                  "src": "/assets/apt235/flashday.mp4",
+                  "extension": "mp4",
+                  "alt": "Photo de présentation"
+                },
+                "title": "FLASH DAY",
+                "description": [
+                  {
+                    "text": "FLASH DAY IS AN EVENT ORGANIZED BY APT.235 STUDIO. IT TAKES PLACE ONCE OR TWICE A YEAR ON RANDOM DATES AND WITHOUT APPOINTMENT."
+                  },
+                  {
+                    "text": "YOU CAN FIND SMALL FLASH TATTOOS AT REDUCED PRICES THAT THE TATTOO ARTISTS CREATE THROUGHOUT THE DAY NON-STOP."
+                  },
+                  {
+                    "text": "FIRST COME, FIRST SERVED!"
+                  },
+                  {
+                    "text": "THESE EVENTS ARE ORGANIZED VIA THE STUDIO'S INSTAGRAM."
+                  }
+                ]
+              }
+            }
+          }
+        }
+      },
+      {
+        "type": "description",
+        "id": "multiDescriptions",
+        "name": "Faq",
+        "datas": {
+          "title": "FAQ",
+          "description": "Frequently Asked Questions - APT.235 Studio",
+          "content": {
+            "q&a-1": {
+              "type": "q&a",
+              "features": {
+                "hasCategories": true,
+                "allowMultipleOpen": false
+              },
+              "title": "Frequently Asked Questions",
+              "subtitle": null,
+              "content": {
+                "categories": [
+                  {
+                    "id": "questions-frequentes",
+                    "label": "Frequently Asked Questions",
+                    "items": [
+                      {
+                        "id": "faq-1",
+                        "question": "Does getting a tattoo hurt?",
+                        "answer": "<p>It's not really a pain that will make you cry, but more of a disturbing and unpleasant sensation.</p><p>Pain is specific to each person, it varies according to your pain tolerance, as well as the part of the body where you get this tattoo and its style/technique.</p><p>For example, a person getting tattooed in the same place as you may feel pain while you may only feel a simple scratch...</p><p>The \"pain\" is instantaneous upon contact of the needle with the skin.</p><p>When the tattoo is finished, the pain gives way to a sensation similar to a sunburn.</p><p>But rest assured, if so many people get tattooed, it's because it's not that terrible ;)</p>"
+                      },
+                      {
+                        "id": "faq-2",
+                        "question": "Which areas hurt the most?",
+                        "answer": "<p>Often, the arms are the least sensitive areas and allow you to have a comfortable position.</p><p>Areas on the inner side of your limbs have thinner skin and therefore sharper pain. Areas close to bones like feet, shins, knees, elbows etc. are also very sensitive.</p>"
+                      },
+                      {
+                        "id": "faq-3",
+                        "question": "Things that will prevent you from getting tattooed",
+                        "answer": "<p>- Being pregnant or breastfeeding your child</p><p>- Having an autoimmune disease such as: hemophilia</p><p>- Having damaged skin in the area to be tattooed (sunburn / eczema)</p><p>- Having to undergo surgery less than a month after your tattoo session</p>"
+                      },
+                      {
+                        "id": "faq-4",
+                        "question": "Can I come accompanied by friends or family?",
+                        "answer": "<p>It's best to come alone. If you absolutely need the presence of a loved one, they will have to stay in the studio lounge and cannot be next to you during the session.</p>"
+                      },
+                      {
+                        "id": "faq-5",
+                        "question": "How much does a tattoo cost?",
+                        "answer": "<p>The price of a tattoo varies according to size, details, working time and the artist. Note that each tattoo artist applies their own rates.</p><p>At Apt.235 Studio, the minimum price is 100 euros.</p><p>This price is justified by the studio and artist's service. The welcome, comfort, and work upstream of the session (email, drawing etc.) as well as the charges we are subject to.</p>"
+                      },
+                      {
+                        "id": "faq-6",
+                        "question": "Deposits / Down payments?",
+                        "answer": "<p>Deposits serve to finalize and reserve your appointment. They are an advance and guarantee for the artists, in order to be able to work on your projects and avoid a cancellation having worked for \"nothing\".</p><p>This deposit is obviously deducted from the final price.</p><p>Your deposit will be lost in the following cases:</p><p>- Cancellation of your appointment without rescheduling it</p><p>- Following a second cancellation</p><p>- Multiple modifications to your project without completion</p><p>- Being more than 30 minutes late for your appointment</p>"
+                      },
+                      {
+                        "id": "faq-7",
+                        "question": "How do I book an appointment?",
+                        "answer": "<p>To book an appointment, simply go to the \"book an appointment\" section and fill out the form.</p><p>All exchanges (questions, quotes, etc.) are done there.</p><p>Some artists have meetings to talk about your project directly at the studio.</p>"
+                      },
+                      {
+                        "id": "faq-8",
+                        "question": "Which tattoo artist should I choose?",
+                        "answer": "<p>All the studio's artists have their own tattoo style.</p><p>If you don't know which tattoo artist to choose for your project, the best thing is to go to our \"The Artists\" section.</p><p>Take the time to look at their universes and don't hesitate to browse their Instagram pages.</p><p>We advise you to choose the tattoo artist who is closest to the style you want for your tattoo.</p>"
+                      },
+                      {
+                        "id": "faq-9",
+                        "question": "Is there a waiting time?",
+                        "answer": "<p>The waiting time to get tattooed varies depending on the artist and their organization. It can be between 1 week and 1 month, but it can also be very quick if you jump on the opportunity when a tattoo artist announces on their Instagram that they have a free slot due to a cancellation.</p>"
+                      },
+                      {
+                        "id": "faq-10",
+                        "question": "Vegan / REACH ink?",
+                        "answer": "<p>All the products we use are vegan, meet European standards and our inks comply with the recent REACH standard.</p>"
+                      },
+                      {
+                        "id": "faq-11",
+                        "question": "Can I come with a ready-made design or my own drawing?",
+                        "answer": "<p>All the studio's tattoo artists are artists and create their own creations. You can show us your models or your own drawing but they will only serve as inspiration and indication so that the artist does not stray from your basic idea.</p>"
+                      },
+                      {
+                        "id": "faq-12",
+                        "question": "Is it cheaper if I get several tattoos?",
+                        "answer": "<p>Obviously if you get several tattoos in one session the final price will be reduced, because we will use the same equipment for both.</p><p>And also out of kindness simply.</p>"
+                      },
+                      {
+                        "id": "faq-13",
+                        "question": "How do I find my tattoo idea and placement?",
+                        "answer": "<p>If you have no idea, the best thing for you is to browse our Instagram as well as the Instagram of our various artists.</p><p>If you don't know where on your body, or if you're hesitating with several places, it will depend on the motif you want. You can discuss it with your tattoo artist on the day of the appointment so that it is as harmonious as possible with your body.</p>"
+                      },
+                      {
+                        "id": "faq-14",
+                        "question": "Which ointments should I use for my tattoos?",
+                        "answer": "<p>You can use several types of ointment: the simplest are ointments that you will find in pharmacies:</p><p>- Cicalfate - Avene</p><p>- Cicaplast - La Roche Posay</p><p>- Aquaphor - Eucerin</p><p>If you are a fan of organic products, you can apply organic coconut oil or organic shea butter.</p><p>Products specially made for tattoos will be available for sale at Apt.235 studio.</p>"
+                      },
+                      {
+                        "id": "faq-15",
+                        "question": "Can I come directly to the studio without an appointment?",
+                        "answer": "<p>Despite the space and number of artists, we remain a private studio, only people who have an appointment are present. We want to prioritize the session for the client without being disturbed by comings and goings.</p>"
+                      },
+                      {
+                        "id": "faq-16",
+                        "question": "What is the minimum age to get a tattoo?",
+                        "answer": "<p>To get a tattoo in our studio, you must be 18 years old, therefore of legal age.</p><p>If you are a minor, even with parental permission, you will not be able to get tattooed!</p>"
+                      },
+                      {
+                        "id": "faq-17",
+                        "question": "Tattoos on fingers?",
+                        "answer": "<p>If you wish to get a tattoo on your fingers, we must warn you about the healing result.</p><p>Your tattoo may need touch-ups because it will fade, or it may also heal perfectly.</p><p>For this we advise you to go to a tattoo artist who practices the handpoke technique, this way of tattooing is gentler and contributes to better healing.</p>"
+                      }
+                    ]
+                  },
+                  {
+                    "id": "avant-tattoo",
+                    "label": "Before Getting My Tattoo",
+                    "items": [
+                      {
+                        "id": "avant-1",
+                        "question": "How do I choose the right size for my tattoo?",
+                        "answer": "<p>The size of your tattoo will vary depending on the motif you want, the style as well as your budget obviously.</p><p>Your artist will be there to advise you and choose the most harmonious size with your body.</p>"
+                      },
+                      {
+                        "id": "avant-2",
+                        "question": "How do I prepare for my tattoo session?",
+                        "answer": "<p>It is best to come following our recommendations:</p><p>Have eaten well, bring a sugary drink with you, be in good shape and have proper hygiene.</p><p>If you have a long session, come with casual clothing in which you feel comfortable.</p>"
+                      },
+                      {
+                        "id": "avant-3",
+                        "question": "Things NOT to do before my tattoo session",
+                        "answer": "<ul><li>Consume alcohol / drugs</li><li>Take medication that thins your blood such as pain relievers, etc...</li><li>Be under treatment, antibiotics or have had a vaccine (if you have doubts, it is best to ask your doctor)</li><li>Apply an anesthetic cream/ointment</li><li>Have applied greasy cream or self-tanner</li></ul>"
+                      },
+                      {
+                        "id": "avant-4",
+                        "question": "Should I prepare my skin before a tattoo?",
+                        "answer": "<p>No preparation is necessary, except having proper hygiene.</p><p>All preparation (shaving, cleaning, disinfecting, etc.) will be done by your tattoo artist during your session.</p>"
+                      }
+                    ]
+                  },
+                  {
+                    "id": "apres-tattoo",
+                    "label": "After Getting My Tattoo",
+                    "items": [
+                      {
+                        "id": "apres-1",
+                        "question": "How do I care for my tattoo during healing?",
+                        "answer": "<p>Skin care plays a very important role in the final result.</p><p>At the end of your session, the tattoo artist will take the time to explain all the advice and instructions to apply to your tattoo.</p><p>A sheet summarizing all the steps will be given to you.</p><p>Please respect your tattoo artist's instructions as they will have put time and passion into giving you the best possible result.</p>"
+                      },
+                      {
+                        "id": "apres-2",
+                        "question": "Things to avoid after my tattoo session?",
+                        "answer": "<p>After getting the tattoo, you will have to wait 3 weeks / 1 month before it is completely healed.</p><p>During this healing process it is recommended not to:</p><ul><li>expose yourself to the sun / tan</li><li>no bath / beach / pool</li><li>not practice a spa session (hammam, sauna etc.)</li><li>no beauty treatments or hair removal on the tattoo area</li><li>not do sports</li></ul><p>However, if your tattoo takes less time to heal and you feel that your skin has become smooth again, you can resume these activities 2 weeks minimum after getting the tattoo.</p><p>Do not let your loved ones touch the tattoo, and if you need to handle it, always make sure you have clean hands.</p><p>Be careful of dog, cat and other animal hair, dust, etc.</p>"
+                      },
+                      {
+                        "id": "apres-3",
+                        "question": "How do I care for my tattoo after healing?",
+                        "answer": "<p>In order to have quality tattoo and minimal evolution, the most important thing is to protect it from the sun.</p><p>You can use a sun stick SPF 50+ or classic sunscreen but always SPF 50+ to apply every hour on your tattoo during your sun exposures (beach, pool vacations, etc.).</p>"
+                      },
+                      {
+                        "id": "apres-4",
+                        "question": "How will my tattoo age?",
+                        "answer": "<p>Your tattoo will evolve with your body over time, it depends on the person, the style of your tattoo, the tattoo artist, and maintenance.</p><p>It may become thicker, or more faded in certain places. But rest assured in most cases your tattoo will remain intact, you just need to know that it will be part of your body and its evolution.</p>"
+                      },
+                      {
+                        "id": "apres-5",
+                        "question": "The healing process?",
+                        "answer": "<p>During the healing process you can gently apply ointment 1 to 2 times a day on your tattoo.</p><p>Another option, dry healing, that is to say you let your tattoo dry until your skin regenerates, without ointment.</p>"
+                      },
+                      {
+                        "id": "apres-6",
+                        "question": "Touch-ups?",
+                        "answer": "<p>Touch-ups are not mandatory, it is best to send your tattoo artist a photo of your tattoo 3 weeks / 1 month after it was done. Depending on how your tattoo has healed, your tattoo artist will judge whether or not it is necessary to do a touch-up session.</p><p>Touch-ups are free, they are part of the price of your tattoo.</p><p>However, if your tattoo needs touch-ups and you take more than 3 months to book an appointment, the session will cost you 50 euros.</p>"
+                      }
+                    ]
+                  },
+                  {
+                    "id": "sante",
+                    "label": "Health",
+                    "items": [
+                      {
+                        "id": "sante-1",
+                        "question": "I am diabetic, can I get tattooed?",
+                        "answer": "<p>You can still get tattooed if you are diabetic. Nothing really changes, you just need to avoid areas where you do your injections and your healing process may be longer than someone who is not diabetic. But it is still best to talk to your doctor to avoid any risks.</p><p>However, tattoos on the feet are strongly discouraged.</p>"
+                      },
+                      {
+                        "id": "sante-2",
+                        "question": "Is there wheelchair access?",
+                        "answer": "<p>The studio is equipped with a secondary entrance where we can welcome everyone without problem.</p><p>If you are in a wheelchair, or cannot climb stairs, let your tattoo artist know before your appointment and we will make the necessary arrangements for you.</p>"
+                      }
+                    ]
+                  }
+                ]
               }
             }
           }
@@ -121,9 +628,9 @@
         "id": "mentions-legals",
         "datas": {
           "type": "mentions-legals",
-          "title": "Mentions légales",
-          "subTitle": "Informations légales",
-          "disclaimer": "Dernière mise à jour : 11/02/2026",
+          "title": "Legal Notice",
+          "subTitle": "Legal Information",
+          "disclaimer": "Last update: 11/02/2026",
           "content": []
         }
       },
@@ -132,9 +639,9 @@
         "id": "confidentialite",
         "datas": {
           "type": "confidentialite",
-          "title": "Politique de confidentialité",
-          "subTitle": "Protection des données",
-          "disclaimer": "Dernière mise à jour : 11/02/2026",
+          "title": "Privacy Policy",
+          "subTitle": "Data Protection",
+          "disclaimer": "Last update: 11/02/2026",
           "content": []
         }
       },
@@ -143,9 +650,9 @@
         "id": "cgu-cgv",
         "datas": {
           "type": "cgu-cgv",
-          "title": "CGU & CGV",
-          "subTitle": "Conditions générales",
-          "disclaimer": "Dernière mise à jour : 11/02/2026",
+          "title": "Terms & Conditions",
+          "subTitle": "General Conditions",
+          "disclaimer": "Last update: 11/02/2026",
           "content": []
         }
       },
@@ -155,9 +662,9 @@
         "datas": {
           "features": {},
           "logo": {
-            "name": "webtrine_logo_2_blanc_noTitle",
-            "shape": "square",
-            "alt": "logo-webtrine",
+            "name": "logo_apt235",
+            "shape": "horizontal-wide",
+            "alt": "logo_apt235",
             "link": "/"
           }
         }

@@ -113,7 +113,10 @@ const ArtistDescription: React.FC<{ datas: ArtistDescriptionData }> = ({
         </a>
         <p className={styles.tagLine}>{tagline}</p>
         <p className={styles.description}>{description}</p>
-        <a className={styles.button} href={contactUrl}>
+        <a
+          className={styles.button}
+          href={`${contactUrl}${contactUrl.includes("?") ? "&" : "?"}artist=${encodeURIComponent(name)}`}
+        >
           PRENDRE RDV
         </a>
       </div>

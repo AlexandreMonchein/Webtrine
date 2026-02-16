@@ -71,6 +71,7 @@ export const TabsContainer = styled.div`
 export const TabsList = styled.div`
   display: flex;
   overflow-x: auto;
+  justify-content: center;
   scrollbar-width: none;
   -ms-overflow-style: none;
 

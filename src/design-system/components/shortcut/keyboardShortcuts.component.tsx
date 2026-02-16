@@ -3,8 +3,8 @@ import React, { useEffect, useState } from "react";
 const FocusButton = () => {
   const [isVisible, setIsVisible] = useState(false);
 
-  // Fonction pour obtenir le premier élément focusable dans la première section
-  const getFirstFocusableElement = (section) => {
+  // Fonction pour obtenir le premier élément focusable parmi toutes les sections
+  const getFirstFocusableElement = (sections: NodeListOf<HTMLElement>) => {
     const focusableElements = [
       "a[href]",
       "button",
@@ -14,9 +14,16 @@ const FocusButton = () => {
       '[tabindex]:not([tabindex="-1"])',
     ];
 
-    // Sélectionner tous les éléments focusables dans la section
-    const elements = section.querySelectorAll(focusableElements.join(", "));
-    return elements[0]; // Retourner le premier élément focusable
+    // Parcourir toutes les sections jusqu'à trouver un élément focusable
+    for (const section of sections) {
+      const elements = section.querySelectorAll<HTMLElement>(
+        focusableElements.join(", "),
+      );
+      if (elements.length > 0) {
+        return elements[0]; // Retourner le premier élément focusable trouvé
+      }
+    }
+    return null; // Aucun élément focusable trouvé dans toutes les sections
   };
 
   // Fonction pour faire descendre le bouton au focus
@@ -24,11 +31,11 @@ const FocusButton = () => {
     setIsVisible(true);
   };
 
-  // Fonction pour rediriger l'utilisateur vers le premier élément focusable de la première section
+  // Fonction pour rediriger l'utilisateur vers le premier élément focusable dans n'importe quelle section
   const handleClick = () => {
-    const firstSection = document.querySelector("section");
-    if (firstSection) {
-      const firstFocusableElement = getFirstFocusableElement(firstSection);
+    const sections = document.querySelectorAll<HTMLElement>("section");
+    if (sections.length > 0) {
+      const firstFocusableElement = getFirstFocusableElement(sections);
       if (firstFocusableElement) {
         firstFocusableElement.focus();
       }
@@ -41,10 +48,14 @@ const FocusButton = () => {
     };
 
     const button = document.getElementById("focusButton");
-    button.addEventListener("blur", handleBlur);
+    if (button) {
+      button.addEventListener("blur", handleBlur);
+    }
 
     return () => {
-      button.removeEventListener("blur", handleBlur);
+      if (button) {
+        button.removeEventListener("blur", handleBlur);
+      }
     };
   }, []);
 

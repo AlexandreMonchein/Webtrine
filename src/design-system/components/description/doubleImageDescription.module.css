@@ -2,21 +2,9 @@
 
 .doubleImageDescriptionRoot {
   position: relative;
-  padding: 40px 20px 80px;
+  padding: 40px 80px 80px;
   color: var(--theme-color-tertiary);
   overflow: hidden;
-
-  @media (--bp-min-medium) {
-    padding: 100px 120px;
-  }
-
-  @media (--bp-min-wide) {
-    padding: 120px 480px;
-  }
-}
-
-/* Root container with two columns */
-.doubleImageDescriptionContainer {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -24,9 +12,15 @@
   width: 100%;
   box-sizing: border-box;
 
+
   @media (--bp-min-medium) {
+    padding: 100px 120px;
     flex-direction: row;
     gap: 2rem;
+  }
+
+  @media (--bp-min-wide) {
+    padding: 120px 480px;
   }
 }
 

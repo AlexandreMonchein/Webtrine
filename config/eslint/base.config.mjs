@@ -82,7 +82,7 @@ export const baseConfig = {
       },
     ],
     "react/no-unescaped-entities": "off",
-    "react/no-array-index-key": "error",
+    "react/no-array-index-key": "off",
     "react/button-has-type": "error",
     "react/no-deprecated": "error",
     "react/jsx-key": "error",

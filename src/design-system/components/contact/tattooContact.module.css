@@ -1,0 +1,516 @@
+/* IMPORTANT: Import custom media queries at the top of EVERY CSS Module file */
+@import url("../../../custom-media.css");
+
+/* TattooContact Styles */
+
+/* ========================================
+   BASE LAYOUT
+   ======================================== */
+
+.tattooContactRoot {
+  background-color: var(--theme-color-background-1);
+  min-height: 60vh;
+  padding: 40px;
+
+  /* Tablet and up - Side by side layout */
+  @media (--bp-min-medium) {
+    padding: 120px 140px;
+  }
+
+  /* Desktop and up */
+  @media (--bp-min-large) {
+    padding: 120px 180px;
+  }
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ========================================
+   TYPOGRAPHY
+   ======================================== */
+
+.title {
+  color: var(--theme-color-tertiary);
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.description {
+  color: var(--theme-color-tertiary);
+  text-align: center;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+
+  @media (--bp-min-medium) {
+    margin-bottom: 3rem;
+  }
+}
+
+.sectionTitle {
+  color: var(--theme-color-tertiary);
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+/* ========================================
+   ARTIST SELECTION
+   ======================================== */
+
+.artistSelection {
+  margin-bottom: 2rem;
+}
+
+.artistGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+
+  @media (--bp-min-medium) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  @media (--bp-min-large) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.artistCard {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem;
+  background-color: var(--theme-color-background-2);
+  border: 2px solid var(--theme-color-tertiary);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: left;
+  width: 100%;
+
+  &:hover {
+    background-color: var(--theme-color-hover);
+    border-color: var(--theme-color-primary);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  &:focus {
+    outline: 3px solid var(--theme-color-primary);
+    outline-offset: 2px;
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+.artistName {
+  color: var(--theme-color-foreground-1);
+}
+
+.artistIcon {
+  color: var(--theme-color-primary);
+  transition: transform 0.3s ease;
+
+  .artistCard:hover & {
+    transform: translateX(5px);
+  }
+}
+
+/* ========================================
+   SELECTED ARTIST BANNER
+   ======================================== */
+
+.selectedArtistBanner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 1rem;
+  background-color: var(--theme-color-background-1);
+  border-left: 4px solid var(--theme-color-primary);
+  border-radius: 4px;
+  margin-bottom: 2rem;
+
+  @media (--bp-min-medium) {
+    padding: 1.5rem;
+  }
+}
+
+.selectedArtistLabel {
+  color: var(--theme-color-tertiary);
+}
+
+.selectedArtistName {
+  color: var(--theme-color-tertiary);
+}
+
+.changeArtistButton {
+  padding: 0.5rem 1rem;
+  margin-left: 1rem;
+  background-color: var(--theme-color-background-1);
+  color: var(--theme-color-foreground-1);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background-color: var(--theme-color-hover);
+  }
+}
+
+/* ========================================
+   NO MAIL CONTAINER
+   ======================================== */
+
+.noMailContainer {
+  text-align: center;
+  padding: 3rem 1rem;
+  background-color: var(--theme-color-background-2);
+  border-radius: 8px;
+
+  @media (--bp-min-medium) {
+    padding: 4rem 2rem;
+  }
+}
+
+.noMailMessage {
+  color: var(--theme-color-tertiary);
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.mailtoButton {
+  display: inline-block;
+  padding: 1rem 2rem;
+  background-color: var(--theme-color-background-1);
+  color: var(--theme-color-foreground-1);
+  text-decoration: none;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: var(--theme-color-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  &:focus {
+    outline: 3px solid var(--theme-color-primary);
+    outline-offset: 4px;
+  }
+}
+
+/* ========================================
+   FORM LAYOUT
+   ======================================== */
+
+.form {
+  background-color: var(--theme-color-background-2);
+  padding: 2rem 1rem;
+  border-radius: 8px;
+
+  @media (--bp-min-medium) {
+    padding: 3rem 2rem;
+  }
+
+  @media (--bp-min-large) {
+    padding: 3rem;
+  }
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+
+  @media (--bp-min-medium) {
+    gap: 2rem;
+  }
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+}
+
+.fieldFull {
+  @media (--bp-min-medium) {
+    grid-column: 1 / -1;
+  }
+}
+
+/* ========================================
+   FORM ELEMENTS
+   ======================================== */
+
+.label {
+  color: var(--theme-color-foreground-1);
+  margin-bottom: 0.25rem;
+}
+
+.required {
+  color: var(--theme-color-utility-1);
+  margin-left: 0.25rem;
+}
+
+.hint {
+  color: var(--theme-color-foreground-3);
+  margin-bottom: 0.5rem;
+  line-height: 1.4;
+}
+
+.input {
+  padding: 0.75rem;
+  border: 2px solid var(--theme-color-tertiary);
+  border-radius: 4px;
+  background-color: var(--theme-color-background-1);
+  color: var(--theme-color-foreground-1);
+  transition: all 0.2s ease;
+
+  &::placeholder {
+    color: var(--theme-color-foreground-3);
+  }
+
+  &:focus {
+    outline: none;
+    border-color: var(--theme-color-primary);
+    box-shadow: 0 0 0 3px rgba(var(--theme-color-primary), 0.1);
+  }
+
+  &:invalid {
+    border-color: var(--theme-color-utility-1);
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    background-color: var(--theme-color-foreground-3);
+  }
+
+  @media (--bp-min-medium) {
+    padding: 1rem;
+  }
+}
+
+.select {
+  padding: 0.75rem;
+  border: 2px solid var(--theme-color-tertiary);
+  border-radius: 4px;
+  background-color: var(--theme-color-background-1);
+  color: var(--theme-color-foreground-1);
+  transition: all 0.2s ease;
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23666' d='M1.41 0L6 4.58 10.59 0 12 1.41l-6 6-6-6z'/%3E%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 12px;
+  padding-right: 2.5rem;
+
+  &:focus {
+    outline: none;
+    border-color: var(--theme-color-primary);
+    box-shadow: 0 0 0 3px rgba(var(--theme-color-primary), 0.1);
+  }
+
+  &:invalid {
+    border-color: var(--theme-color-utility-1);
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    background-color: var(--theme-color-foreground-3);
+  }
+
+  @media (--bp-min-medium) {
+    padding: 1rem;
+    padding-right: 2.5rem;
+  }
+}
+
+.textarea {
+  padding: 0.75rem;
+  border: 2px solid var(--theme-color-tertiary);
+  border-radius: 4px;
+  background-color: var(--theme-color-background-1);
+  color: var(--theme-color-foreground-1);
+  transition: all 0.2s ease;
+  resize: vertical;
+  min-height: 120px;
+
+  &::placeholder {
+    color: var(--theme-color-foreground-3);
+  }
+
+  &:focus {
+    outline: none;
+    border-color: var(--theme-color-primary);
+    box-shadow: 0 0 0 3px rgba(var(--theme-color-primary), 0.1);
+  }
+
+  &:invalid {
+    border-color: var(--theme-color-utility-1);
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    background-color: var(--theme-color-foreground-3);
+  }
+
+  @media (--bp-min-medium) {
+    padding: 1rem;
+  }
+}
+
+.inputFile {
+  padding: 0.5rem;
+  border: 2px dashed var(--theme-color-tertiary);
+  border-radius: 4px;
+  background-color: var(--theme-color-background-1);
+  color: var(--theme-color-foreground-1);
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:focus {
+    outline: none;
+    border-color: var(--theme-color-primary);
+    box-shadow: 0 0 0 3px rgba(var(--theme-color-primary), 0.1);
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  &:hover:not(:disabled) {
+    border-color: var(--theme-color-primary);
+    background-color: var(--theme-color-hover);
+  }
+}
+
+/* ========================================
+   PHOTO PREVIEW
+   ======================================== */
+
+.photoPreviewContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.photoPreview {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem;
+  background-color: var(--theme-color-background-1);
+  border: 1px solid var(--theme-color-tertiary);
+  border-radius: 4px;
+}
+
+.photoName {
+  color: var(--theme-color-foreground-1);
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.removePhotoButton {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--theme-color-utility-1);
+  color: var(--theme-color-background-1);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+  margin-left: 0.5rem;
+
+  &:hover {
+    background-color: #c00;
+    transform: scale(1.1);
+  }
+
+  &:focus {
+    outline: 3px solid var(--theme-color-utility-1);
+    outline-offset: 2px;
+  }
+}
+
+/* ========================================
+   ERROR MESSAGES
+   ======================================== */
+
+.errorList {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 0;
+}
+
+.errorItem {
+  padding: 0.5rem 0.75rem;
+  margin-bottom: 0.5rem;
+  background-color: rgba(var(--theme-color-utility-1), 0.1);
+  border-left: 4px solid var(--theme-color-utility-1);
+  color: var(--theme-color-utility-1);
+  border-radius: 4px;
+}
+
+/* ========================================
+   SUBMIT BUTTON
+   ======================================== */
+
+.submitButton {
+  width: 100%;
+  padding: 1rem 2rem;
+  background-color: var(--theme-color-background-1);
+  color: var(--theme-color-foreground-1);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:focus {
+    outline: 3px solid var(--theme-color-primary);
+    outline-offset: 4px;
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    background-color: var(--theme-color-foreground-3);
+  }
+
+  &:hover:not(:disabled) {
+    background-color: var(--theme-color-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  &:active:not(:disabled) {
+    transform: translateY(0);
+  }
+
+  @media (--bp-min-medium) {
+    width: auto;
+    min-width: 300px;
+    display: block;
+    margin: 0 auto;
+  }
+}

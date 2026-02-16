@@ -98,6 +98,106 @@
                 "description": "Regardez nos différents artistes, tous passionnés et prêts à vous offrir la meilleure expérience",
                 "link": "/artistes"
               }
+            },
+            "description-2": {
+              "type": "descriptionB",
+              "datas": {
+                "media": {
+                  "type": "image",
+                  "src": "/assets/apt235/IMG_3.webp",
+                  "alt": "Photo de présentation"
+                },
+                "title": "LE STUDIO",
+                "description": [
+                  {
+                    "text": "APT.235 EST UN STUDIO DE TATOUAGE À BORDEAUX. NOS ARTISTES TATOUEURS RÉSIDENTS AINSI QUE NOS INVITÉS NATIONAUX ET INTERNATIONAUX AURONT LE PLAISIR DE VOUS ACCUEILLIR DANS UN ENDROIT SAFE, PROPRE ET MODERNE AVEC UNE PRESTATION DE QUALITÉ. ILS SERONT À VOTRE ÉCOUTE POUR RÉALISER VOS TATOUAGES PERSONNALISÉS AVEC RESPECT ET CONFIANCE."
+                  },
+                  {
+                    "text": "NOUS SOMMES OUVERTS AU PUBLIC UNIQUEMENT SUR RENDEZ-VOUS. RETROUVEZ TOUTES LES INFORMATIONS VIA INSTAGRAM @APT.235"
+                  }
+                ]
+              }
+            },
+            "banner-2": {
+              "type": "contactBanner",
+              "datas": {
+                "title": "GARDONS CONTACT",
+                "media": {
+                  "type": "image",
+                  "src": "/assets/apt235/IMG_4.webp",
+                  "alt": "Studio interior"
+                },
+                "infoTitle": "APT.235",
+                "content": [
+                  {
+                    "text": "139 Bd du Président Wilson, 33200 Bordeaux",
+                    "withSpacer": true
+                  },
+                  {
+                    "text": "Horaires:"
+                  },
+                  {
+                    "text": "Studio Ouvert du Lundi au Samedi: 11h - 19h"
+                  },
+                  {
+                    "text": "Fermé le Dimanche et jours fériés."
+                  }
+                ]
+              }
+            }
+          }
+        }
+      },
+
+      {
+        "type": "description",
+        "id": "multiDescriptions",
+        "name": "Contact",
+        "datas": {
+          "title": "Contact",
+          "description": "Contactez-nous",
+          "content": {
+            "contact-1": {
+              "type": "tattooContact",
+              "datas": {
+                "artists": [
+                  {
+                    "artistName": "DUF",
+                    "mail": "artist1@gmail.com"
+                  },
+                  {
+                    "artistName": "NOKTO",
+                    "mail": "artist2@gmail.com"
+                  },
+                  {
+                    "artistName": "SARAH MALFATTI",
+                    "mail": "artist3@gmail.com"
+                  },
+                  {
+                    "artistName": "EMMA",
+                    "mail": "artist4@gmail.com"
+                  },
+                  {
+                    "artistName": "AIEUH ÇA PIQUE",
+                    "mail": "mailto:aieuh_ca_pique@outlook.fr"
+                  },
+                  {
+                    "artistName": "MAHÉ",
+                    "mail": "artist5@gmail.com"
+                  },
+                  {
+                    "artistName": "NATURAFFECTION",
+                    "mail": "artist6@gmail.com"
+                  },
+                  {
+                    "artistName": "ELENA",
+                    "mail": "artist7@gmail.com"
+                  }
+                ],
+                "serviceId": "service_apt235",
+                "templateId": "template_tattoo_request",
+                "replyTo": "contact@apt235.com"
+              }
             }
           }
         }
@@ -112,7 +212,7 @@
           "content": {
             "description-1": {
               "type": "description",
-              "title": "Les artistes",
+              "title": "LES ARTISTES",
               "features": { "isReversed": false, "isCentered": false }
             },
             "description-2": {
@@ -129,7 +229,7 @@
                   "/assets/apt235/artist-1-4.webp"
                 ],
                 "intervalBetweenImages": 2500,
-                "instagramUrl": "https://www.instagram.com/handle_instagram",
+                "instagramUrl": "https://www.instagram.com/duftattoo",
                 "contactUrl": "/contact"
               }
             },
@@ -201,8 +301,8 @@
                   "/assets/apt235/artist-1-4.webp"
                 ],
                 "intervalBetweenImages": 2500,
-                "instagramUrl": "https://www.instagram.com/marberyry.ttt",
-                "contactUrl": "/contact"
+                "instagramUrl": "https://www.instagram.com/aieuh_ca_pique",
+                "contactUrl": "mailto:aieuh_ca_pique@outlook.fr"
               }
             },
             "description-7": {
@@ -255,7 +355,7 @@
                   "/assets/apt235/artist-1-4.webp"
                 ],
                 "intervalBetweenImages": 2500,
-                "instagramUrl": "https://www.instagram.com/naturaffection.ttt",
+                "instagramUrl": "https://www.instagram.com/vidnevskaya_tattoo",
                 "contactUrl": "/contact"
               }
             }
@@ -323,6 +423,199 @@
                   },
                   {
                     "text": "CES ÉVÉNEMENTS SONT ORGANISÉS VIA L'INSTAGRAM DU STUDIO."
+                  }
+                ]
+              }
+            }
+          }
+        }
+      },
+      {
+        "type": "description",
+        "id": "multiDescriptions",
+        "name": "Faq",
+        "datas": {
+          "title": "FAQ",
+          "description": "Foire aux questions - Studio APT.235",
+          "content": {
+            "q&a-1": {
+              "type": "q&a",
+              "features": {
+                "hasCategories": true,
+                "allowMultipleOpen": false
+              },
+              "title": "Foire aux questions",
+              "subtitle": null,
+              "content": {
+                "categories": [
+                  {
+                    "id": "questions-frequentes",
+                    "label": "Questions fréquentes",
+                    "items": [
+                      {
+                        "id": "faq-1",
+                        "question": "Est-ce que ça fait mal de faire un tatouage ?",
+                        "answer": "<p>Ce n'est pas vraiment une douleur qui va vous faire mal et pleurer, mais plus une sensation dérangeante et désagréable.</p><p>La douleur est propre à chacun, elle varie suivant votre tolérance à la douleur, ainsi qu'a la partie du corps où vous faites ce tatouage et au style / technique de celui-ci.</p><p>Pour exemple, une personne qui se fait tatouer au même endroit que vous pourra avoir mal et vous, ressentir un simple grattement…</p><p>La \"douleur\" est instantanée au contact de l'aiguille sur la peau.</p><p>Lorsque le tatouage est fini la douleur laisse place à une sensation proche de celle d'un coup de soleil.</p><p>Mais rassurez vous, si autant de gens se font tatouer c'est que ce n'est pas si terrible que ça ;)</p>"
+                      },
+                      {
+                        "id": "faq-2",
+                        "question": "Quels endroits font le plus mal ?",
+                        "answer": "<p>Souvent, les bras sont les endroits les moins sensibles et vous permettent d'avoir une position confortable.</p><p>Les endroits se trouvant du coté intérieur de vos membres ont une peau plus fine et donc une douleur plus aiguë. Les endroits proche d'os comme les pieds, tibias, genoux, coudes etc sont également très sensibles.</p>"
+                      },
+                      {
+                        "id": "faq-3",
+                        "question": "Les choses qui font que vous ne pourrez pas être tatoué",
+                        "answer": "<p>- Etre enceinte ou allaiter votre enfant</p><p>- Avoir une maladie auto immune type: hémophilie</p><p>- Avoir la peau de la zone à tatouer abimée ( coup de soleil / eczéma )</p><p>- Devoir subir une opération moins d'un mois après votre séance de tattoo</p>"
+                      },
+                      {
+                        "id": "faq-4",
+                        "question": "Est ce que je peux venir accompagné de mes amies ou de ma famille ?",
+                        "answer": "<p>Le mieux est de venir seul, si vous avez absolument besoin de la présence d'un proche, il devra rester dans le salon du studio et ne pourra pas être auprès a coté de vous pendant la séance.</p>"
+                      },
+                      {
+                        "id": "faq-5",
+                        "question": "Combien coûte un tattoo ?",
+                        "answer": "<p>Le prix d'un tattoo varie suivant la taille, les détails, le temps de travail ainsi que l'artiste. A noter que chaque tatoueurs appliquent ses propres tarifs.</p><p>Au Studio Apt.235 Le prix minimum est de 100 euros.</p><p>Ce prix est justifié par la prestation du studio et de l'artiste. L'accueil, le confort, et le travail en amont de la séance (email, dessin etc ) ainsi que les charges auxquelles nous sommes soumis.</p>"
+                      },
+                      {
+                        "id": "faq-6",
+                        "question": "Les acomptes / Arrhes ?",
+                        "answer": "<p>Les Arrhes servent à finaliser et a réserver votre rendez-vous. Ils sont une avance et une garantie pour les artistes, afin de pouvoir travailler sur vos projets et éviter une annulation en ayant travailler pour \"rien\".</p><p>Cet acompte est bien évidemment déduit du prix final.</p><p>Votre acompte sera perdu dans les cas suivants:</p><p>- Annulation de votre rendez vous sans report de celui-ci</p><p>- Suite à une deuxième annulation</p><p>- Plusieurs modifications de votre projet sans aboutissement</p><p>- Retard de plus de 30 minutes à votre rendez-vous</p>"
+                      },
+                      {
+                        "id": "faq-7",
+                        "question": "Comment prendre rendez-vous ?",
+                        "answer": "<p>Pour prendre rendez-vous, il vous suffis de vous rendre dans la rubrique \" prendre rendez-vous\" et de remplir le formulaire.</p><p>Tous les échanges ( questions, devis etc ) se font par là.</p><p>Certains artistes font des rencontres pour parler de votre projet en direct au studio.</p>"
+                      },
+                      {
+                        "id": "faq-8",
+                        "question": "Quel tatoueur choisir ?",
+                        "answer": "<p>Tous les artistes du studio ont leur propre style de tatouage.</p><p>Si vous ne savez pas quel tatoueur choisir pour votre projet, le mieux est d'aller dans notre rubrique \" Les Artistes \".</p><p>Prenez le temps de bien regarder leurs univers et n'hésitez pas à vous balader sur leurs pages Instagram.</p><p>Nous vous conseillons de choisir le tatoueur qui se rapproche le plus du style que voulez pour votre tatouage.</p>"
+                      },
+                      {
+                        "id": "faq-9",
+                        "question": "Un delais d'attente ?",
+                        "answer": "<p>Le délais d'attente pour vous faire tatouer varie suivant l'artiste et son organisation. Cela peut être entre 1 semaine et 1 mois, mais cela peut être  aussi très rapide si vous sautez sur l'occasion lorsqu'un tatoueur annonce sur son Instagram qu'il a une place de libre due à une annulation.</p>"
+                      },
+                      {
+                        "id": "faq-10",
+                        "question": "Encre vegan / reach ?",
+                        "answer": "<p>Tous les produits que nous utilisons sont vegan, aux normes européennes et  nos encres respecte la récente norme REACH.</p>"
+                      },
+                      {
+                        "id": "faq-11",
+                        "question": "Est ce que je peux venir avec un dessin tout prêt ou mon propre dessin ?",
+                        "answer": "<p>Tous les tatoueurs du studio sont des artistes et réalisent leurs propres créations. Vous pouvez nous montrer vos modèles ou votre propre dessin mais ils serviront uniquement d'inspiration et d'indication afin que l'artiste ne s'éloigne pas de votre idée de base.</p>"
+                      },
+                      {
+                        "id": "faq-12",
+                        "question": "Est ce que c'est moins cher si je fais plusieurs tattoos ?",
+                        "answer": "<p>Forcement si vous faites plusieurs tatouages sur une seule séance le prix final sera réduit, car nous utiliserons le même matériel pour les deux.</p><p>Et aussi par gentillesse tout simplement.</p>"
+                      },
+                      {
+                        "id": "faq-13",
+                        "question": "Comment trouver mon idée de tatouage et l'emplacement ?",
+                        "answer": "<p>Si vous n'avez pas d'idée le mieux pour vous est de parcourir notre Instagram ainsi que le Instagram de nos différents artistes.</p><p>Si vous ne savez pas à quel endroit sur votre corps, ou que vous hésitez avec plusieurs endroits, cela dépendra du motif que vous voulez. Vous pourrez en parler avec votre tatoueur(se) le jour du rendez-vous afin qu'il soit le plus harmonieux possible avec votre corps.</p>"
+                      },
+                      {
+                        "id": "faq-14",
+                        "question": "Quelles pommades utiliser pour mes tattoos ?",
+                        "answer": "<p>Vous pouvez utiliser plusieurs type de pommade: le plus simple sont les pommade que vous trouverez en pharmacie:</p><p>- Cicalfate - Avene</p><p>- Cicaplast - La Roche Posay</p><p>- Aquaphor - Ecerin</p><p>Si vous êtes adepte des produits bio, vous pouvez appliquer le huile de coco bio ou bien du beurre de karaté bio.</p><p>Des produits spécialement fait pour les tattoos seront disponibles a la vente au studio Apt.235.</p>"
+                      },
+                      {
+                        "id": "faq-15",
+                        "question": "Est ce que je peux venir directement au studio sans rendez-vous ?",
+                        "answer": "<p>Malgré l'espace et le nombre d'artistes nous restons un studio privé, seules les personnes qui ont un rendez vous sont présentes. Nous voulons privilégier la séance pour le client sans être dérangé pas des allez et venues.</p>"
+                      },
+                      {
+                        "id": "faq-16",
+                        "question": "Quel âge minimum se faire tatouer ?",
+                        "answer": "<p>Pour vous faire tatouer dans notre studio, il vous faudra avoir 18 ans, être donc majeur.</p><p>Si vous êtes mineur, et ca même avec l'autorisation de vos parents, vous ne pourrais pas être tatoué !</p>"
+                      },
+                      {
+                        "id": "faq-17",
+                        "question": "Les tatouages sur les doigts ?",
+                        "answer": "<p>Si vous souhaitez faire un tatouage sur les doigts, nous nous devons de vous mettre en garde sur le résultat de la cicatrisation.</p><p>Votre tatouage pourra avoir besoin de retouche car il sera effacé, ou bien il pourra aussi être parfaitement cicatrisé.</p><p>Pour cela nous vous conseillons de vous orienter vers un tatoueur qui exerce la technique du handpoke, cette façon de tatouer est plus douce et contribue a obtenir une meilleur cicatrisation.</p>"
+                      }
+                    ]
+                  },
+                  {
+                    "id": "avant-tattoo",
+                    "label": "Avant de faire mon tattoo",
+                    "items": [
+                      {
+                        "id": "avant-1",
+                        "question": "Comment choisir la bonne taille de mon tatouage ?",
+                        "answer": "<p>La taille de votre tattoo sera variable suivant le motif que vous voulez, le style ainsi que votre budget bien évidement.</p><p>Votre artiste sera là pour vous conseiller et choisir la taille la plus harmonieuse avec votre corps.</p>"
+                      },
+                      {
+                        "id": "avant-2",
+                        "question": "Comment me preparer pour ma séance de tattoo ?",
+                        "answer": "<p>Le mieux est de venir en suivant nos recommandations:</p><p>Avoir bien mangé, prendre avec vous une boisson sucrée, être en forme et avoir une hygiène correcte.</p><p>Si vous avez une longue séance, venez avec une tenue décontractée dans laquelle vous vous sentez à l'aise.</p>"
+                      },
+                      {
+                        "id": "avant-3",
+                        "question": "Les choses à NE PAS faire avant ma séance de tattoo",
+                        "answer": "<ul><li>Consommer de l'alcool / drogues</li><li>Prendre de médicament qui fluidifient votre sang du type Doliprane anti douleurs etc…</li><li>Être sous traitements, antibiotiques ou avoir fait un vaccin ( si vous avez des doutes le mieux est de demander à votre médecin )</li><li>Mettre une crème/pommade anesthésiante</li><li>Avoir mis de crème grasse ou auto bronzante</li></ul>"
+                      },
+                      {
+                        "id": "avant-4",
+                        "question": "Dois-je préparer ma peau avant un tattoo ?",
+                        "answer": "<p>Aucune préparation est nécessaire, hormis avoir une hygiène correcte.</p><p>Toute la préparation ( raser, nettoyer, désinfecter, etc. ) sera faite par votre tatoueur lors de votre séance.</p>"
+                      }
+                    ]
+                  },
+                  {
+                    "id": "apres-tattoo",
+                    "label": "Après avoir fait mon tattoo",
+                    "items": [
+                      {
+                        "id": "apres-1",
+                        "question": "Comment entretenir mon tattoo pendant la cicatrisation ?",
+                        "answer": "<p>Les soins de la peau jouent un rôle très important dans le résultat final.</p><p>A la fin de votre séance, le tatoueur prendra le temps de vous expliquer tous les conseils et consignes à appliquer sur votre tatouage.</p><p>Une feuille qui résume toutes les étapes vous sera donnée.</p><p>Merci de respecter les instructions de votre tatoueur car il aura mis du temps et de la passion pour vous donner le meilleur résultat possible.</p>"
+                      },
+                      {
+                        "id": "apres-2",
+                        "question": "Les choses à éviter après ma séance de tattoo ?",
+                        "answer": "<p>Après la réalisation du tattoo, il vous fera attendre 3 semaine / 1 mois avant qu'il soit complément cicatrisé.</p><p>Pendant ce processus de cicatrisation il est recommandé de ne pas:</p><ul><li>vous exposer au soleil / bronzer</li><li>pas de bain / plage / piscine</li><li>ne pas pratiquer une séance de spa (hamam, sauna etc )</li><li>pas de soins beauté, ni d'épilation sur la zone de tattoo</li><li>ne pas faire de sport</li></ul><p>Toutefois si votre tattoo prend moins de temps à cicatriser et que vous estimez que votre peau est redevenue lisse, vous pourrez reprendre ces activités 2 semaines minimum après la réalisation du tattoo.</p><p>Ne pas faire toucher le tattoo par vos proches, et si vous devez le manipuler, assurez vous de toujours avoir les mains propres.</p><p>Attention aux poils de chien, chat et autres animaux, poussière etc.</p>"
+                      },
+                      {
+                        "id": "apres-3",
+                        "question": "Comment entretenir mon tattoo après la cicatrisation ?",
+                        "answer": "<p>Afin d'avoir une qualité de tattoo et un minimum d'évolution, le plus important et de le protéger du soleil.</p><p>Vous pouvez utiliser un stick solaire indice 50+ ou bien de la crème solaire classique mais toujours en indice 50+ à appliquer toutes les heures sur votre tatouage lors de vos expositions au soleil ( plage, piscine vacances, etc. ).</p>"
+                      },
+                      {
+                        "id": "apres-4",
+                        "question": "Comment va vieillir mon tattoo ?",
+                        "answer": "<p>Votre tatouage va évoluer avec votre corps dans le temps, cela dépend de la personne, du style de votre tatouage, du tatoueur, et de l'entretien.</p><p>Il peut devenir plus épais, ou plus atténué à certains endroits. Mais rassurez-vous dans la plupart des cas votre tattoo restera intacte, vous devez juste savoir qu'il fera partie de votre corps et de son évolution.</p>"
+                      },
+                      {
+                        "id": "apres-5",
+                        "question": "Le processus de cicatrisation ?",
+                        "answer": "<p>Durant le processus de cicatrisation vous pouvez appliquer délicatement 1 à 2 fois par jour de la pommade sur votre tattoo.</p><p>Autre option, la cicatrisation sèche, c'est à dire que vous laissez sécher votre tattoo jusqu'à régénération de votre peau, sans pommade.</p>"
+                      },
+                      {
+                        "id": "apres-6",
+                        "question": "Les retouches ?",
+                        "answer": "<p>Les retouches ne sont pas obligatoires, le mieux est d'envoyer à votre tatoueur une photo de votre tattoo 3 semaine / 1 mois après sa réalisation. Suivant comment votre tattoo aura cicatrisé, votre tatoueur jugera lui même si il et nécessaire ou non de faire une séance de retouche.</p><p>Les retouches sont gratuites, elles font partie du prix de votre tattoo.</p><p>Toutes fois si votre tattoo a besoin de retouches et que vous mettez plus de 3 mois à prendre rendez-vous, la séance vous sera facturée 50 euros.</p>"
+                      }
+                    ]
+                  },
+                  {
+                    "id": "sante",
+                    "label": "Santé",
+                    "items": [
+                      {
+                        "id": "sante-1",
+                        "question": "Je suis diabétique, puis-je me faire tatouer ?",
+                        "answer": "<p>Vous pouvez quand même vous faire tatouer si vous êtes diabétique. Rien ne change vraiment, il faut simplement éviter les zones ou vous effectuez vos piqure et votre processus de cicatrisation sera peut être plus long que quelqu'un de non diabétique. Mais le mieux reste toutefois d'en parler à votre médecin pour éviter tous risques.</p><p>Cependant, les tatouages aux pieds sont fortement déconseillés.</p>"
+                      },
+                      {
+                        "id": "sante-2",
+                        "question": "Y-a-t-il un accès pour les fauteuils roulants ?",
+                        "answer": "<p>Le studio est équipé d'une entrée secondaire où nous pouvons accueillir tout le monde sans problème.</p><p>Si vous êtes en fauteuil roulant, ou que vous ne pouvez pas monter de marches, prévenez votre tatoueur avant votre rendez-vous et nous ferons le nécessaire pour vous.</p>"
+                      }
+                    ]
                   }
                 ]
               }

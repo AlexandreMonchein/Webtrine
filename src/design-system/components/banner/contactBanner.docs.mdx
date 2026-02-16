@@ -1,0 +1,136 @@
+import { Meta, ArgTypes } from '@storybook/addon-docs/blocks';
+import * as ContactBannerStories from './contactBanner.stories';
+import ContactBanner from './contactBanner.component';
+
+<Meta of={ContactBannerStories} />
+
+# ContactBanner
+
+**ContactBanner** est un composant de bannière de contact qui affiche un titre, un média (image ou vidéo), une boîte d'informations overlay, et un bouton de retour en haut de page.
+
+## Features
+
+- **Titre principal (h2)** : Titre en haut de la bannière
+- **Média flexible** : Support image ou vidéo en fond
+- **Boîte d'informations overlay** : Superposée sur le média avec titre (h3), séparateur et liste de contenu
+- **Bouton retour en haut** : Défilement smooth vers le top de la page
+- **Responsive** : Design mobile-first adapté à tous les écrans
+- **Accessible** : ARIA labels et attributs pour l'accessibilité
+
+## How It Works
+
+Le composant crée une section complète avec :
+- Un **titre principal (h2)** affiché en haut
+- Un **conteneur média** avec image ou vidéo
+- Une **boîte d'informations** positionnée en overlay sur la droite du média contenant :
+  - Un titre (h3)
+  - Un séparateur visuel
+  - Une liste de paragraphes de contenu
+- Un **bouton "Retour en haut"** avec animation smooth scroll
+
+## Usage
+
+```jsx
+<ContactBanner
+  title="LE STUDIO."
+  media={{
+    type: "image",
+    src: "/assets/apt235/the_studio_image.jpg",
+    alt: "Studio interior"
+  }}
+  infoTitle="INFORMATIONS"
+  content={[
+    { text: "APT.235 EST UN STUDIO DE TATOUAGE À BORDEAUX." },
+    { text: "NOUS SOMMES OUVERTS SUR RENDEZ-VOUS." }
+  ]}
+/>
+```
+
+### With Video
+
+```jsx
+<ContactBanner
+  title="LE STUDIO."
+  media={{
+    type: "video",
+    src: "/assets/apt235/the_studio.mp4",
+    extension: "mp4",
+    alt: "Studio video tour"
+  }}
+  infoTitle="CONTACT"
+  content={[
+    { text: "123 Rue Example, 33000 Bordeaux" },
+    { text: "Téléphone : +33 1 23 45 67 89" }
+  ]}
+/>
+```
+
+## Implementation in Config
+
+Copy-paste this template into your customer's `config.json` file:
+
+```json
+{
+  "type": "contact",
+  "id": "contactBanner",
+  "datas": {
+    "title": "LE STUDIO.",
+    "media": {
+      "type": "image",
+      "src": "/assets/{CUSTOMER}/the_studio_image.jpg",
+      "alt": "Studio interior"
+    },
+    "infoTitle": "INFORMATIONS",
+    "content": [
+      {
+        "text": "Première ligne d'information"
+      },
+      {
+        "text": "Deuxième ligne d'information"
+      },
+      {
+        "text": "Troisième ligne d'information"
+      }
+    ]
+  }
+}
+```
+
+### With Video
+
+```json
+{
+  "type": "contact",
+  "id": "contactBanner",
+  "datas": {
+    "title": "LE STUDIO.",
+    "media": {
+      "type": "video",
+      "src": "/assets/{CUSTOMER}/the_studio.mp4",
+      "extension": "mp4",
+      "alt": "Studio video tour"
+    },
+    "infoTitle": "CONTACT",
+    "content": [
+      {
+        "text": "123 Rue Example, 33000 Bordeaux, France"
+      },
+      {
+        "text": "Téléphone : +33 1 23 45 67 89"
+      },
+      {
+        "text": "Email : contact@example.com"
+      }
+    ]
+  }
+}
+```
+
+**Important**:
+- Assurez-vous que vos images/vidéos existent dans `/public/assets/{CUSTOMER}/`
+- Le champ `extension` est requis pour les vidéos (mp4, webm, etc.)
+- Vous pouvez ajouter autant d'éléments `content` que nécessaire
+
+## Props
+
+<ArgTypes of={ContactBanner} />

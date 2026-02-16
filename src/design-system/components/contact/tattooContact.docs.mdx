@@ -1,0 +1,264 @@
+import { Meta, ArgTypes } from '@storybook/addon-docs/blocks';
+import * as TattooContactStories from './tattooContact.stories';
+import { TattooContact } from './tattooContact.component';
+
+<Meta of={TattooContactStories} />
+
+# TattooContact
+
+**TattooContact** est un composant de formulaire de contact spécialisé pour les demandes de tatouage. Il permet aux clients de sélectionner un artiste et de soumettre une demande détaillée avec la possibilité d'ajouter des photos de référence.
+
+## Features
+
+- **Sélection d'artiste** : Menu déroulant (select) pour choisir un artiste dans une liste
+- **Formulaire complet** : Collecte toutes les informations nécessaires pour une demande de tatouage
+- **Upload de photos** : Jusqu'à 5 photos (max 2MB chacune) avec prévisualisation
+- **Validation** : Validation des champs obligatoires et des fichiers uploadés
+- **Gestion des artistes sans email** : Bouton mailto si l'artiste n'a pas d'email configuré
+- **Responsive** : Design mobile-first adapté à tous les écrans
+- **Accessible** : ARIA labels, hints et messages d'erreur pour une accessibilité optimale
+- **CSS Modules** : Styles modernes sans Styled Components
+
+## How It Works
+
+Le composant fonctionne en deux étapes :
+
+### Étape 1 : Sélection de l'artiste
+- Affiche un menu déroulant (select) avec la liste des artistes
+- L'utilisateur sélectionne un artiste dans la liste
+- Une fois sélectionné, l'artiste est automatiquement validé
+
+### Étape 2 : Formulaire ou Mailto
+- **Si l'artiste a un email configuré** : Affiche le formulaire complet avec tous les champs
+- **Si l'artiste n'a pas d'email** : Affiche un bouton mailto vers l'email général
+
+### Champs du formulaire complet
+- Email (obligatoire)
+- Nom complet (obligatoire)
+- Téléphone (obligatoire)
+- Objet de la demande (obligatoire)
+- Description du projet (obligatoire, textarea)
+- Taille du tatouage en cm (obligatoire)
+- Zone du tatouage (obligatoire)
+- Disponibilités (obligatoire)
+- Budget estimé (optionnel)
+- Photos de référence (optionnel, max 5 fichiers de 2MB)
+
+## Usage
+
+### Exemple basique avec plusieurs artistes
+
+```jsx
+<TattooContact
+  artists={[
+    { artistName: "John Doe", mail: "john.doe@example.com" },
+    { artistName: "Jane Smith", mail: "jane.smith@example.com" },
+    { artistName: "Mike Johnson", mail: "mike.johnson@example.com" }
+  ]}
+  serviceId="service_xxxxx"
+  templateId="template_xxxxx"
+  replyTo="contact@example.com"
+/>
+```
+
+### Avec un artiste sans email
+
+```jsx
+<TattooContact
+  artists={[
+    { artistName: "John Doe", mail: "john.doe@example.com" },
+    { artistName: "Jane Smith", mail: null } // Pas d'email = bouton mailto
+  ]}
+  serviceId="service_xxxxx"
+  templateId="template_xxxxx"
+  replyTo="contact@example.com"
+/>
+```
+
+## Implementation in Config
+
+Copy-paste this template into your customer's `config.json` file:
+
+```json
+{
+  "type": "contact",
+  "id": "tattooContact",
+  "datas": {
+    "artists": [
+      {
+        "artistName": "John Doe",
+        "mail": "john.doe@example.com"
+      },
+      {
+        "artistName": "Jane Smith",
+        "mail": "jane.smith@example.com"
+      },
+      {
+        "artistName": "Mike Johnson",
+        "mail": null
+      }
+    ],
+    "serviceId": "service_xxxxx",
+    "templateId": "template_xxxxx",
+    "replyTo": "contact@example.com"
+  }
+}
+```
+
+### Configuration des artistes
+
+Chaque artiste doit avoir :
+- **artistName** (string, obligatoire) : Le nom complet de l'artiste
+- **mail** (string | null, obligatoire) : L'adresse email de l'artiste ou `null` si pas d'email
+
+**Important** :
+- Si `mail` est `null`, un bouton mailto vers `replyTo` sera affiché au lieu du formulaire
+- Les artistes apparaissent dans l'ordre du tableau
+
+### Configuration EmailJS
+
+Vous devez configurer un service EmailJS avec les paramètres suivants :
+
+**Service ID** : `serviceId` - Votre ID de service EmailJS
+
+**Template ID** : `templateId` - Votre ID de template EmailJS qui doit accepter ces variables :
+- `artistName` : Nom de l'artiste sélectionné
+- `artistMail` : Email de l'artiste
+- `email` : Email du client
+- `name` : Nom complet du client
+- `phone` : Téléphone du client
+- `object` : Objet de la demande
+- `description` : Description du projet de tatouage
+- `tattooSize` : Taille du tatouage
+- `tattooZone` : Zone du tatouage
+- `availability` : Disponibilités du client
+- `budget` : Budget estimé (optionnel)
+- `photos` : Photos en base64 séparées par des virgules
+- `photoNames` : Noms des fichiers photos
+- `replyTo` : Email de réponse
+
+**Reply-to** : `replyTo` - Email de réponse par défaut
+
+### Exemple de template EmailJS
+
+```
+Nouvelle demande de tatouage
+
+Artiste sélectionné : {{artistName}} ({{artistMail}})
+
+--- Informations client ---
+Nom : {{name}}
+Email : {{email}}
+Téléphone : {{phone}}
+
+--- Détails du projet ---
+Objet : {{object}}
+Description : {{description}}
+
+Taille : {{tattooSize}}
+Zone : {{tattooZone}}
+Disponibilités : {{availability}}
+Budget : {{budget}}
+
+--- Photos ---
+{{photoNames}}
+```
+
+## Translation Keys
+
+Les clés de traduction suivantes doivent être ajoutées dans vos fichiers de langue (`lang/customer/{CUSTOMER}/fr.json` et `en.json`) :
+
+```json
+{
+  "contact": {
+    "email": "E-mail",
+    "emailHint": "Votre adresse e-mail",
+    "emailPlaceholder": "email@example.com",
+    "name": "Nom complet",
+    "nameHint": "Votre nom complet",
+    "namePlaceholder": "Jean Dupont",
+    "phone": "Téléphone",
+    "phoneHint": "Votre numéro de téléphone",
+    "phonePlaceholder": "0123456789",
+    "content": "Description",
+    "send": "Envoyer",
+    "sending": "Envoi en cours...",
+    "emailSentSuccess": "E-mail envoyé avec succès !",
+    "emailSentError": "Erreur lors de l'envoi de l'e-mail",
+    "tattoo": {
+      "title": "Demande de tatouage",
+      "description": "Sélectionnez un artiste et remplissez le formulaire",
+      "selectArtist": "Choisissez votre artiste",
+      "selectArtistLabel": "Sélectionner l'artiste",
+      "selectedArtist": "Artiste sélectionné",
+      "change": "Changer",
+      "changeArtist": "Changer d'artiste",
+      "noMailMessage": "Cet artiste n'a pas d'email configuré",
+      "openMail": "Ouvrir l'application mail",
+      "openMailApp": "Ouvrir l'application mail",
+      "mailSubject": "Demande de tatouage pour",
+      "object": "Objet de la demande",
+      "objectHint": "L'objet de votre demande",
+      "objectPlaceholder": "Nouveau tatouage",
+      "descriptionHint": "Décrivez votre projet",
+      "descriptionPlaceholder": "Je souhaite...",
+      "size": "Taille du tatouage",
+      "sizeHint": "Taille en centimètres",
+      "sizePlaceholder": "10 x 15 cm",
+      "zone": "Zone du tatouage",
+      "zoneHint": "Partie du corps",
+      "zonePlaceholder": "Avant-bras",
+      "availability": "Disponibilités",
+      "availabilityHint": "Vos disponibilités",
+      "availabilityPlaceholder": "Semaine prochaine",
+      "budget": "Budget estimé",
+      "budgetHint": "Budget (optionnel)",
+      "budgetPlaceholder": "500€",
+      "photos": "Photos de référence",
+      "photosHint": "Max 5 photos (2MB chacune)",
+      "errorNotImage": "n'est pas une image",
+      "errorTooLarge": "est trop volumineux",
+      "errorMaxFiles": "Maximum 5 photos",
+      "removePhoto": "Supprimer la photo"
+    }
+  }
+}
+```
+
+**Voir [TRANSLATION_KEYS.md](./TRANSLATION_KEYS.md) pour les traductions complètes en français et anglais.**
+
+## Best Practices
+
+### Nombres d'artistes recommandés
+- **1-3 artistes** : Design optimal sur tous les écrans
+- **4-6 artistes** : Bon rendu sur tablette et desktop
+- **7+ artistes** : Considérer une pagination ou un système de filtres
+
+### Configuration EmailJS
+1. Créez un compte sur [EmailJS](https://www.emailjs.com/)
+2. Créez un service email (Gmail, Outlook, etc.)
+3. Créez un template avec toutes les variables listées ci-dessus
+4. Ajoutez votre Public Key dans le composant (`emailjs.init()`)
+5. Testez avec la version Storybook avant de déployer
+
+### Gestion des photos
+- Les photos sont converties en base64 avant l'envoi
+- Maximum 5 photos pour éviter de dépasser les limites EmailJS
+- Taille maximale de 2MB par photo
+- Types acceptés : tous les types `image/*` (jpg, png, webp, etc.)
+
+### Accessibilité
+- Tous les champs ont des labels visibles
+- Les hints fournissent des exemples concrets
+- Les champs obligatoires sont marqués avec `*` et `aria-required`
+- Les erreurs de photos sont annoncées avec `role="alert"` et `aria-live="polite"`
+- Support complet du clavier pour la navigation
+
+## Props
+
+<ArgTypes of={TattooContact} />
+
+## Related Components
+
+- [DefaultContact](../defaultContact.component.tsx) : Formulaire de contact simple
+- [ContactBanner](../banner/contactBanner.component.tsx) : Bannière de contact avec média

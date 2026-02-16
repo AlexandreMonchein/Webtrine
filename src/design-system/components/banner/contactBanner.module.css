@@ -1,0 +1,184 @@
+/* IMPORTANT: Import custom media queries at the top of EVERY CSS Module file */
+@import url("../../../custom-media.css");
+
+/* ContactBanner Styles */
+
+/* ========================================
+   BASE CONTAINER
+   ======================================== */
+
+.contactBannerRoot {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 40px;
+  background-color: var(--theme-color-background-1);
+
+  @media (--bp-min-medium) {
+    padding: 80px 140px;
+  }
+}
+
+/* ========================================
+   TITLE SECTION
+   ======================================== */
+
+.titleContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  letter-spacing: 0.2em;
+  text-align: center;
+  color: var(--theme-color-foreground-1);
+  margin: 0;
+  text-transform: uppercase;
+}
+
+/* ========================================
+   MEDIA SECTION WITH INFO OVERLAY
+   ======================================== */
+
+.mediaContainer {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+
+  @media (--bp-max-small) {
+    flex-direction: column;
+  }
+}
+
+.media {
+  max-height: 600px;
+  max-width: unset;
+  object-fit: cover;
+  display: block;
+
+  @media (--bp-min-medium) {
+    max-height: 800px;
+  }
+}
+
+/* ========================================
+   INFORMATION BOX OVERLAY
+   ======================================== */
+
+.infoBox {
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.95);
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  left: 5%;
+  right: 5%;
+
+  @media (--bp-min-medium) {
+    padding: 2rem;
+    top: 15%;
+    bottom: 15%;
+    left: auto;
+    width: fit-content;
+  }
+
+  @media (--bp-min-large) {
+    padding: 2.5rem;
+  }
+
+  @media (--bp-min-xlarge) {
+    padding: 3rem;
+  }
+}
+
+.infoTitle {
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--theme-color-foreground-1);
+  margin: 0 0 1rem;
+}
+
+.separator {
+  width: 100px;
+  height: 1px;
+  background-color: var(--theme-color-foreground-1);
+  margin: 1rem 0;
+
+  @media (--bp-min-medium) {
+   margin: 2rem 0;
+  }
+}
+
+.infoContent {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.infoText {
+  line-height: 1.6;
+  color: var(--theme-color-foreground-1);
+  margin: 0;
+}
+
+.infoTextWithSpacer {
+  padding-bottom: 1rem;
+
+  @media (--bp-min-medium) {
+    padding-bottom: 1.5rem;
+  }
+}
+
+/* ========================================
+   BACK TO TOP BUTTON
+   ======================================== */
+
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+
+  @media (--bp-min-medium) {
+    margin-top: 1.5rem;
+  }
+}
+
+.backToTopButton {
+  padding: 0.75rem 2rem;
+  color: var(--theme-color-foreground-1);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+
+  @media (--bp-min-medium) {
+    padding: 1rem 2.5rem;
+  }
+
+  @media (--bp-min-large) {
+    padding: 1.2rem 3rem;
+  }
+}
+
+.backToTopButton:hover {
+  background-color: var(--theme-color-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.backToTopButton:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.backToTopButton:focus-visible {
+  outline: 2px solid var(--theme-color-primary);
+  outline-offset: 2px;
+}

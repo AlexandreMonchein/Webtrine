@@ -38,7 +38,7 @@ export const Container = styled.div`
 `;
 
 export const SectionTitle = styled.h2`
-  color: var(--theme-color-quaternary);
+  color: var(--theme-color-foreground-1);
   text-align: center;
 `;
 
