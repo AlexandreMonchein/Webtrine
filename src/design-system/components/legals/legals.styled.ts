@@ -11,12 +11,12 @@ export const Container = styled.section`
   align-items: center;
   gap: 8px;
 
-  padding: 40px 120px;
+  padding: 120px;
 
   ${bp.max(
     breakpointNames.medium,
     css`
-      padding: 20px 40px;
+      padding: 60px;
     `,
   )}
 `;

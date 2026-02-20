@@ -2,7 +2,7 @@
 
 .doubleImageDescriptionRoot {
   position: relative;
-  padding: 40px 80px 80px;
+  padding: 40px 60px 80px;
   color: var(--theme-color-tertiary);
   overflow: hidden;
   display: flex;

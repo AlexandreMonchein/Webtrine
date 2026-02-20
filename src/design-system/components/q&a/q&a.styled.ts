@@ -14,9 +14,9 @@ export const Section = styled.section`
   )}
 
   ${bp.min(
-    breakpointNames.wide,
+    breakpointNames.xlarge,
     css`
-      padding: 40px 480px;
+      padding: 40px 120px;
     `,
   )}
 `;
@@ -71,7 +71,7 @@ export const TabsContainer = styled.div`
 export const TabsList = styled.div`
   display: flex;
   overflow-x: auto;
-  justify-content: center;
+  justify-content: flex-start;
   scrollbar-width: none;
   -ms-overflow-style: none;
 
@@ -79,10 +79,11 @@ export const TabsList = styled.div`
     display: none;
   }
 
-  ${bp.max(
+  ${bp.min(
     breakpointNames.medium,
     css`
       gap: 8px;
+      justify-content: center;
     `,
   )}
 `;

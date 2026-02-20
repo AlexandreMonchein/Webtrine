@@ -182,8 +182,6 @@ export const TattooContact = ({ datas }: TattooContactProps) => {
         formElement.reset();
         setPhotos([]);
         setPhotoErrors([]);
-        setSelectedArtist(null);
-        setArtistInput("");
       } catch (error) {
         dispatch(
           showPopUp({
@@ -207,41 +205,50 @@ export const TattooContact = ({ datas }: TattooContactProps) => {
     ],
   );
 
+  const hasValidEmailForForm =
+    selectedArtist?.mail && !selectedArtist.mail.startsWith("mailto:");
+
   return (
     <section className={styles.tattooContactRoot} data-testid={dataTestid}>
       <PopUp />
       <div className={styles.container}>
         <h1 className={styles.title}>{t("contact.tattoo.title")}</h1>
         <p className={styles.description}>{t("contact.tattoo.description")}</p>
-
-        {selectedArtist ? (
-          <>
-            <div className={styles.selectedArtistBanner}>
-              <span className={styles.selectedArtistLabel}>
-                {t("contact.tattoo.selectedArtist")}:
+        <div>
+          <div className={styles.field}>
+            <label htmlFor="artist-select" className={styles.label}>
+              {t("contact.tattoo.artistLabel")}
+              <span className={styles.required} aria-label="requis">
+                *
               </span>
-              <strong className={styles.selectedArtistName}>
-                {selectedArtist.artistName}
-              </strong>
-              <button
-                type="button"
-                className={styles.changeArtistButton}
-                onClick={() => {
-                  setSelectedArtist(null);
-                  setArtistInput("");
-                  // Clear artist param from URL
-                  const url = new URL(window.location.href);
-                  url.searchParams.delete("artist");
-                  window.history.replaceState({}, "", url.toString());
-                }}
-                aria-label={t("contact.tattoo.changeArtist")}
-              >
-                {t("contact.tattoo.change")}
-              </button>
-            </div>
+            </label>
+            <p id="artist-hint" className={styles.hint}>
+              {t("contact.tattoo.artistHint")}
+            </p>
+            <select
+              id="artist-select"
+              value={artistInput}
+              onChange={handleArtistSelectChange}
+              className={styles.select}
+              required
+              aria-describedby="artist-hint"
+            >
+              <option value="" disabled>
+                {t("contact.tattoo.artistPlaceholder")}
+              </option>
+              {artists.map((artist) => (
+                <option key={artist.artistName} value={artist.artistName}>
+                  {artist.artistName}
+                </option>
+              ))}
+            </select>
+          </div>
+        </div>
 
-            {selectedArtist.mail ? (
-              <form className={styles.form} onSubmit={handleSubmit} noValidate>
+        {selectedArtist && (
+          <>
+            {hasValidEmailForForm ? (
+              <form className={styles.form} onSubmit={handleSubmit}>
                 <div className={styles.formGrid}>
                   {/* Email */}
                   <div className={styles.field}>
@@ -500,9 +507,13 @@ export const TattooContact = ({ datas }: TattooContactProps) => {
                   {t("contact.tattoo.noMailMessage")}
                 </p>
                 <a
-                  href={`mailto:${replyTo}?subject=${encodeURIComponent(
-                    `${t("contact.tattoo.mailSubject")} ${selectedArtist.artistName}`,
-                  )}`}
+                  href={
+                    selectedArtist.mail?.includes("mailto")
+                      ? selectedArtist.mail
+                      : `mailto:${selectedArtist.mail || replyTo}?subject=${encodeURIComponent(
+                          `${t("contact.tattoo.mailSubject")} ${selectedArtist.artistName}`,
+                        )}`
+                  }
                   className={styles.mailtoButton}
                   aria-label={t("contact.tattoo.openMailApp")}
                 >
@@ -511,40 +522,6 @@ export const TattooContact = ({ datas }: TattooContactProps) => {
               </div>
             )}
           </>
-        ) : (
-          <div className={styles.artistSelection}>
-            <h2 className={styles.sectionTitle}>
-              {t("contact.tattoo.selectArtist")}
-            </h2>
-            <div className={styles.field}>
-              <label htmlFor="artist-select" className={styles.label}>
-                {t("contact.tattoo.artistLabel")}
-                <span className={styles.required} aria-label="requis">
-                  *
-                </span>
-              </label>
-              <p id="artist-hint" className={styles.hint}>
-                {t("contact.tattoo.artistHint")}
-              </p>
-              <select
-                id="artist-select"
-                value={artistInput}
-                onChange={handleArtistSelectChange}
-                className={styles.select}
-                required
-                aria-describedby="artist-hint"
-              >
-                <option value="" disabled>
-                  {t("contact.tattoo.artistPlaceholder")}
-                </option>
-                {artists.map((artist) => (
-                  <option key={artist.artistName} value={artist.artistName}>
-                    {artist.artistName}
-                  </option>
-                ))}
-              </select>
-            </div>
-          </div>
         )}
       </div>
     </section>

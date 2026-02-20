@@ -1,6 +1,9 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
+  min-height: 95vh;
+  background-color: var(--theme-color-background-2);
+
   section:nth-of-type(even) {
     background-color: var(--theme-color-background-1);
   }

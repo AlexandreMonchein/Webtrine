@@ -26,6 +26,9 @@
 .container {
   max-width: 1200px;
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
 /* ========================================
@@ -34,19 +37,13 @@
 
 .title {
   color: var(--theme-color-tertiary);
-  margin-bottom: 1rem;
   text-align: center;
 }
 
 .description {
   color: var(--theme-color-tertiary);
   text-align: center;
-  margin-bottom: 2rem;
   line-height: 1.6;
-
-  @media (--bp-min-medium) {
-    margin-bottom: 3rem;
-  }
 }
 
 .sectionTitle {
@@ -58,10 +55,6 @@
 /* ========================================
    ARTIST SELECTION
    ======================================== */
-
-.artistSelection {
-  margin-bottom: 2rem;
-}
 
 .artistGrid {
   display: grid;
@@ -171,13 +164,9 @@
 
 .noMailContainer {
   text-align: center;
-  padding: 3rem 1rem;
+  padding: 1rem;
   background-color: var(--theme-color-background-2);
   border-radius: 8px;
-
-  @media (--bp-min-medium) {
-    padding: 4rem 2rem;
-  }
 }
 
 .noMailMessage {
@@ -213,16 +202,7 @@
 
 .form {
   background-color: var(--theme-color-background-2);
-  padding: 2rem 1rem;
   border-radius: 8px;
-
-  @media (--bp-min-medium) {
-    padding: 3rem 2rem;
-  }
-
-  @media (--bp-min-large) {
-    padding: 3rem;
-  }
 }
 
 .formGrid {
@@ -285,10 +265,6 @@
     box-shadow: 0 0 0 3px rgba(var(--theme-color-primary), 0.1);
   }
 
-  &:invalid {
-    border-color: var(--theme-color-utility-1);
-  }
-
   &:disabled {
     opacity: 0.6;
     cursor: not-allowed;
@@ -321,10 +297,6 @@
     box-shadow: 0 0 0 3px rgba(var(--theme-color-primary), 0.1);
   }
 
-  &:invalid {
-    border-color: var(--theme-color-utility-1);
-  }
-
   &:disabled {
     opacity: 0.6;
     cursor: not-allowed;
@@ -355,10 +327,6 @@
     outline: none;
     border-color: var(--theme-color-primary);
     box-shadow: 0 0 0 3px rgba(var(--theme-color-primary), 0.1);
-  }
-
-  &:invalid {
-    border-color: var(--theme-color-utility-1);
   }
 
   &:disabled {

@@ -30,6 +30,9 @@
         "datas": {
           "logo": "logo_apt235",
           "shape": "horizontal-wide",
+          "features": {
+            "hideOnScroll": true
+          },
           "links": [
             {
               "label": "HOME",

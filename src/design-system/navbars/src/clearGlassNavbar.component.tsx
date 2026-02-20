@@ -40,7 +40,10 @@ export const ClearGlassNavbar = ({
 
   return (
     <>
-      <nav className={styles.clearGlassNavbarRoot} data-testid={dataTestid}>
+      <nav
+        className={classNames(styles.clearGlassNavbarRoot)}
+        data-testid={dataTestid}
+      >
         <a href="/" className={styles.logoLink}>
           <img
             src={logoSrc}

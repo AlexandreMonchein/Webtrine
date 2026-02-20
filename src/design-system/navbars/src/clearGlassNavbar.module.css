@@ -1,11 +1,8 @@
-/* ClearGlassNavbar Styles */
-
-/* ========================================
-   BASE NAVBAR
-   ======================================== */
+/* IMPORTANT: Import custom media queries at the top of EVERY CSS Module file */
+@import url("../../../custom-media.css");
 
 .clearGlassNavbarRoot {
-  position: fixed;
+  position: relative;
   top: 0;
   left: 0;
   right: 0;
@@ -13,13 +10,14 @@
   justify-content: space-between;
   align-items: center;
   padding: 1.5rem 2rem;
-  background: transparent;
+  background: var(--theme-color-background-1);
   z-index: var(--z-index-navbars);
-}
 
-/* ========================================
-   LOGO
-   ======================================== */
+  @media (--bp-min-medium) {
+    background: transparent;
+    position: fixed;
+  }
+}
 
 .logoLink {
   display: flex;
@@ -31,10 +29,6 @@
 .logo {
   object-fit: contain;
 }
-
-/* ========================================
-   BURGER BUTTON
-   ======================================== */
 
 .burgerButton {
   display: flex;
@@ -58,18 +52,12 @@
   background-color: var(--theme-color-tertiary);
   border-radius: 2px;
   transition: all 0.3s ease;
-}
 
-@media (--bp-min-medium) {
-  .burgerLine {
+  @media (--bp-min-medium) {
     width: 35px;
     height: 3px;
   }
 }
-
-/* ========================================
-   MENU OVERLAY
-   ======================================== */
 
 .menuOverlay {
   position: fixed;
@@ -78,7 +66,9 @@
   z-index: calc(var(--z-index-navbars) + 1);
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.3s ease, visibility 0.3s ease;
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease;
 }
 
 .menuOverlayOpen {
@@ -86,10 +76,6 @@
   visibility: visible;
   background: rgba(0, 0, 0, 0.3);
 }
-
-/* ========================================
-   MENU PANEL
-   ======================================== */
 
 .menuPanel {
   position: fixed;
@@ -103,22 +89,15 @@
   display: flex;
   flex-direction: column;
   padding: 2rem;
+
+  @media (--bp-min-medium) {
+    padding: 3rem;
+  }
 }
 
 .menuPanelOpen {
   transform: translateX(0);
 }
-
-@media (--bp-min-medium) {
-  .menuPanel {
-    max-width: 500px;
-    padding: 3rem;
-  }
-}
-
-/* ========================================
-   CLOSE BUTTON
-   ======================================== */
 
 .closeButton {
   position: absolute;
@@ -146,10 +125,6 @@
   color: var(--theme-color-tertiary);
   font-weight: 300;
 }
-
-/* ========================================
-   LANGUAGE SELECTOR
-   ======================================== */
 
 .languageSelector {
   display: flex;
@@ -182,10 +157,6 @@
   border-color: var(--theme-color-primary);
 }
 
-/* ========================================
-   NAVIGATION LINKS
-   ======================================== */
-
 .menuLinks {
   list-style: none;
   padding: 0;
@@ -194,6 +165,10 @@
   flex-direction: column;
   gap: 2rem;
   align-items: center;
+
+  @media (--bp-min-medium) {
+    gap: 2.5rem;
+  }
 }
 
 .menuLinkItem {
@@ -212,6 +187,10 @@
   transition: color 0.2s ease;
   display: inline-block;
   padding: 0.5rem 0;
+
+  @media (--bp-min-medium) {
+    font-size: 1.3rem;
+  }
 }
 
 .menuLink:hover {
@@ -228,14 +207,4 @@
   margin: 0.5rem auto 0;
   width: 70%;
   max-width: 400px;
-}
-
-@media (--bp-min-medium) {
-  .menuLinks {
-    gap: 2.5rem;
-  }
-
-  .menuLink {
-    font-size: 1.3rem;
-  }
 }

@@ -1,5 +1,5 @@
 /* IMPORTANT: Import custom media queries at the top of EVERY CSS Module file */
-@import url('../../../custom-media.css');
+@import url("../../../custom-media.css");
 
 /* ========================================
    DescriptionB Component Styles
@@ -18,12 +18,12 @@
   @media (--bp-min-medium) {
     flex-direction: row;
     justify-content: space-around;
-    padding: 120px;
+    padding: 80px;
   }
 
   /* Desktop and up */
   @media (--bp-min-large) {
-    padding: 120px 140px;
+    padding: 60px 120px;
   }
 }
 
