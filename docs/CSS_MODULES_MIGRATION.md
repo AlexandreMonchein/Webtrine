@@ -2,6 +2,45 @@
 
 Ce guide vous accompagne dans la migration progressive de Styled Components vers CSS Modules.
 
+## ⚡ Quick Rules for AI
+
+### MUST (Règles de migration)
+- ✅ **Créer `.module.css`** avec `@import url('../../../custom-media.css');` ligne 1
+- ✅ **Importer avec** `import styles from './component.module.css'`
+- ✅ **Utiliser classNames()** pour classes multiples/conditionnelles
+- ✅ **Media queries imbriquées** DANS sélecteurs (mobile-first)
+- ✅ **Variables CSS identiques** : `var(--theme-color-*)` fonctionne pareil
+- ✅ **Default export** si chargement dynamique
+
+### MUST NOT (Interdictions)
+- ❌ **Jamais de font-properties** (`font-size`, `font-weight`, `font-family`, `font-style`)
+- ❌ **Jamais template strings** pour classes (`${styles.a} ${styles.b}`)
+- ❌ **Jamais media queries séparées** (toujours imbriquées)
+- ❌ **Jamais desktop-first** (utiliser `--bp-min-*`)
+
+### PATTERN (Conversion rapide)
+```tsx
+// ❌ Styled Components
+const Title = styled.h1`
+  color: var(--theme-color-primary);
+  font-size: 2rem; // ❌ font property
+`;
+
+// ✅ CSS Modules
+// component.module.css
+@import url('../../../custom-media.css');
+.title {
+  color: var(--theme-color-primary);
+  /* ❌ PAS de font-size */
+  margin: 0;
+}
+
+// component.tsx
+<h1 className={styles.title}>
+```
+
+---
+
 ## 📋 Table des matières
 
 1. [Pourquoi CSS Modules ?](#pourquoi-css-modules)
@@ -11,332 +50,193 @@ Ce guide vous accompagne dans la migration progressive de Styled Components vers
 5. [Best Practices](#best-practices)
 6. [Checklist](#checklist)
 
-## Pourquoi CSS Modules ?
+## [WHY] Pourquoi CSS Modules ?
 
-### Avantages de CSS Modules
+### Avantages
 
-- ✅ **Performance** : Pas de runtime JavaScript, CSS statique
-- ✅ **Taille du bundle** : Réduction de ~30kb (styled-components runtime)
-- ✅ **Simplicité** : Séparation claire HTML/CSS
-- ✅ **Tooling** : Meilleur support IDE, IntelliSense pour CSS
+- ✅ **Performance** : Pas de runtime JS, CSS statique
+- ✅ **Bundle** : Réduction ~30kb (styled-components runtime)
+- ✅ **Simplicité** : Séparation HTML/CSS claire
+- ✅ **Tooling** : Meilleur support IDE, IntelliSense
 - ✅ **SSR** : Pas de hydration mismatch
-- ✅ **Debugging** : Noms de classes lisibles en dev
+- ✅ **Debug** : Classes lisibles en dev
 
-### Coexistence pendant la migration
+### Coexistence
+Les deux systèmes coexistent pendant la migration (composant par composant).
 
-Les deux systèmes peuvent coexister :
-- Styled Components continue de fonctionner normalement
-- CSS Modules fonctionne en parallèle
-- Migration composant par composant
-
-## Configuration
+## [CONFIG] Configuration
 
 ### TypeScript Support
 
-Le projet est configuré pour supporter CSS Modules avec TypeScript :
+**`tsconfig.json`** + **`src/css-modules.d.ts`** : Support TypeScript configuré ✅
 
-**`tsconfig.json`** :
-```json
-{
-  "compilerOptions": {
-    "plugins": [
-      { "name": "typescript-plugin-css-modules" }
-    ]
-  },
-  "include": ["src/**/*.module.css"]
-}
+### Vite
+
+**`vite.config.js`** : CSS Modules avec `camelCase` + scoping local ✅
+
+## [PATTERNS] Patterns de Migration
+
+### 1. Structure
+
 ```
-
-**`src/css-modules.d.ts`** : Déclarations de types pour les modules CSS
-
-### Vite Configuration
-
-**`vite.config.js`** :
-```javascript
-css: {
-  modules: {
-    localsConvention: "camelCase", // Support camelCase ET noms originaux
-    scopeBehaviour: "local",
-    generateScopedName: "[name]__[local]___[hash:base64:5]"
-  }
-}
-```
-
-### StyleLint
-
-**`.stylelintrc.json`** : Configuré pour valider les fichiers `.module.css`
-
-## Patterns de Migration
-
-### 1. Structure de fichiers
-
-**Avant (Styled Components)** :
-```
+// ❌ Avant
 component/
   ├── myComponent.component.tsx
   ├── myComponent.styled.ts
-  └── myComponent.stories.tsx
-```
 
-**Après (CSS Modules)** :
-```
+// ✅ Après
 component/
   ├── myComponent.component.tsx
   ├── myComponent.module.css
-  └── myComponent.stories.tsx
 ```
 
-### 2. Import et utilisation
+### 2. Import
 
-**Avant** :
 ```tsx
+// ❌ Avant
 import { Container, Title } from './myComponent.styled';
+<Container><Title>Hello</Title></Container>
 
-export const MyComponent = () => (
-  <Container>
-    <Title>Hello</Title>
-  </Container>
-);
-```
-
-**Après** :
-```tsx
-import classNames from 'classnames';
+// ✅ Après
 import styles from './myComponent.module.css';
-
-export const MyComponent = () => (
-  <div className={styles.container}>
-    <h1 className={styles.title}>Hello</h1>
-  </div>
-);
+<div className={styles.container}>
+  <h1 className={styles.title}>Hello</h1>
+</div>
 ```
 
 ### 3. Props conditionnelles
 
-**Avant** :
 ```tsx
+// ❌ Avant
 const Button = styled.button<{ $primary?: boolean }>`
   background: ${props => props.$primary ? 'blue' : 'gray'};
 `;
-
 <Button $primary>Click</Button>
-```
 
-**Après** :
-```tsx
-// CSS
+// ✅ Après (CSS)
 .button { background: gray; }
 .buttonPrimary { background: blue; }
 
-// TSX
+// ✅ Après (TSX)
+import classNames from 'classnames';
 <button className={classNames(styles.button, {
   [styles.buttonPrimary]: isPrimary
 })}>
-  Click
-</button>
 ```
 
-### 4. Variables CSS du client
+### 4. Variables CSS
 
-**Avant** :
-```tsx
-const Title = styled.h1`
-  color: var(--theme-color-primary);
-  font-size: var(--subtitle-font-size);
-`;
-```
+Variables de `style.config.json` fonctionnent identiquement ! ✅
 
-**Après** :
 ```css
 .title {
   color: var(--theme-color-primary);
-  font-size: var(--subtitle-font-size);
+  /* Voir tous tokens : Storybook → Design System/Tokens */
 }
 ```
-
-Les variables CSS de `style.config.json` fonctionnent identiquement ! ✅
-
-**Système de couleurs disponible** :
-- **Brand Palette** : `--theme-color-primary`, `--theme-color-secondary`, `--theme-color-tertiary`, `--theme-color-quaternary`, `--theme-color-quinary`
-- **Utility Colors** : `--theme-color-utility-1` (red), `--theme-color-utility-2` (green), `--theme-color-utility-3` (orange), `--theme-color-utility-4` (blue)
-- **Extended** : `--theme-color-hover`, `--theme-color-background-1`, `--theme-color-background-2`, `--theme-color-foreground-1`, `--theme-color-foreground-2`, `--theme-color-foreground-3`
-- **Typography** : `--navbar-font-size`, `--subtitle-font-size`, `--text-font-size`, `--description-font-size`
-
-💡 Voir tous les tokens disponibles dans Storybook : `Design System/Tokens`
 
 ### 5. Breakpoints
 
-**Avant** :
-```tsx
+```css
+// ❌ Avant (Styled Components)
 import { bp } from '@/breakpoint';
-
 const Container = styled.div`
   width: 100%;
-
-  ${bp.min('tablet')} {
-    width: 50%;
-  }
+  ${bp.min('tablet')} { width: 50%; }
 `;
-```
 
-**Après (avec custom media queries imbriquées)** :
-```css
-/* IMPORTANT : Ajouter cet import en PREMIÈRE ligne de chaque fichier CSS Module */
+// ✅ Après (CSS Modules avec nesting)
 @import url('../../../custom-media.css');
-
 .container {
   width: 100%;
-
-  /* Media queries DOIVENT être imbriquées dans le sélecteur (CSS nesting) */
-  @media (--bp-min-medium) {
-    width: 50%;
-  }
-
-  @media (--bp-min-large) {
-    width: 75%;
-  }
+  @media (--bp-min-medium) { width: 50%; }
 }
 ```
 
-**💡 Nouvelles règles** :
-- ✅ **OBLIGATOIRE** : Ajouter `@import url('../../../custom-media.css');` en première ligne
-- ✅ **TOUJOURS** utiliser `--bp-min-*` (mobile first) si possible
-- ✅ **IMBRIQUER** les media queries DANS les sélecteurs (CSS nesting moderne)
-- ❌ **ÉVITER** `--bp-max-*` sauf cas très spécifiques
+### 6. Font Properties
 
-**Breakpoints disponibles** :
-- `--bp-min-small` (600px+)
-- `--bp-min-medium` (768px+) - Tablette
-- `--bp-min-large` (1024px+) - Desktop
-- `--bp-min-xlarge` (1440px+) - Large Desktop
-- `--bp-min-wide` (1920px+) - Ultra Wide
+❌ **INTERDITES** : `font-size`, `font-weight`, `font-family`, `font-style`
+✅ **Autorisées** : `line-height`, `letter-spacing`, `text-transform`, `text-align`
 
-📚 Documentation complète : `docs/CUSTOM_MEDIA_QUERIES.md`
 ```css
-.link {
-  color: blue;
-}
-
-.link:hover {
-  color: darkblue;
-}
-```
-
-## Exemples de Conversion
-
-### Exemple complet : Banner Component
-
-**Avant (Styled Components)** :
-
-```tsx
-// banner.component.tsx
-import { BannerContainer, BannerTitle } from './banner.styled';
-
-export const Banner = ({ title, subtitle }) => (
-  <BannerContainer>
-    <BannerTitle>{title}</BannerTitle>
-    <p>{subtitle}</p>
-  </BannerContainer>
-);
-```
-
-```tsx
-// banner.styled.ts
-import styled from 'styled-components';
-import { bp } from '@/breakpoint';
-
-export const BannerContainer = styled.div`
-  padding: 2rem;
-  background: var(--theme-color-primary);
-
-  ${bp.min('tablet')} {
-    padding: 4rem;
-  }
-`;
-
-export const BannerTitle = styled.h1`
-  color: var(--theme-color-secondary);
+// ❌ Avant (Styled Components)
+const Title = styled.h1`
   font-size: var(--subtitle-font-size);
-  margin-bottom: 1rem;
+  font-weight: bold;
 `;
+
+// ✅ Après (CSS Modules)
+.title {
+  line-height: 1.5; /* ✅ OK */
+  /* ❌ PAS de font-size, font-weight */
+}
 ```
 
-**Après (CSS Modules)** :
+**Pourquoi ?** Géré globalement par `src/theme/customer/default/globalStyle.css`
+
+### 7. classNames()
+
+✅ **TOUJOURS utiliser** pour classes multiples/conditionnelles
 
 ```tsx
-// banner.component.tsx
-import styles from './banner.module.css';
+// ❌ MAUVAIS
+<div className={`${styles.button} ${isPrimary ? styles.primary : ''}`}>
 
-export const Banner = ({ title, subtitle }) => (
+// ✅ BON
+import classNames from 'classnames';
+<div className={classNames(styles.button, { [styles.primary]: isPrimary })}>
+```
+
+## [EXAMPLES] Exemples de Conversion
+
+### Banner Component
+
+```tsx
+// ❌ Avant (Styled)
+import { BannerContainer, BannerTitle } from './banner.styled';
+export const Banner = ({ title }) => (
+  <BannerContainer><BannerTitle>{title}</BannerTitle></BannerContainer>
+);
+
+// ✅ Après (CSS Modules)
+import styles from './banner.module.css';
+export const Banner = ({ title }) => (
   <div className={styles.container}>
     <h1 className={styles.title}>{title}</h1>
-    <p>{subtitle}</p>
   </div>
 );
 ```
 
 ```css
 /* banner.module.css */
-/* OBLIGATOIRE : Import des custom media queries en première ligne */
 @import url('../../../custom-media.css');
 
 .container {
   padding: 2rem;
   background: var(--theme-color-primary);
-
-  /* Media queries imbriquées dans le sélecteur */
-  @media (--bp-min-medium) {
-    padding: 4rem;
-  }
+  @media (--bp-min-medium) { padding: 4rem; }
 }
 
 .title {
   color: var(--theme-color-secondary);
-  font-size: var(--subtitle-font-size);
   margin-bottom: 1rem;
 }
 ```
 
-### Exemple : Composant avec conditions
-
-**Avant** :
+### Button avec Variants
 
 ```tsx
-// button.component.tsx
-import { StyledButton } from './button.styled';
-
-export const Button = ({ variant, disabled, children }) => (
-  <StyledButton $variant={variant} $disabled={disabled}>
-    {children}
-  </StyledButton>
-);
-```
-
-```tsx
-// button.styled.ts
-import styled from 'styled-components';
-
-export const StyledButton = styled.button<{
-  $variant?: 'primary' | 'secondary';
-  $disabled?: boolean;
-}>`
-  padding: 1rem 2rem;
-  border: none;
-  cursor: ${props => props.$disabled ? 'not-allowed' : 'pointer'};
-  background: ${props =>
-    props.$variant === 'primary' ? 'var(--theme-color-primary)' : 'var(--theme-color-secondary)'};
-  opacity: ${props => props.$disabled ? 0.5 : 1};
+// ❌ Avant
+const StyledButton = styled.button<{ $variant, $disabled }>`
+  background: ${p => p.$variant === 'primary' ? 'blue' : 'gray'};
+  opacity: ${p => p.$disabled ? 0.5 : 1};
 `;
-```
 
-**Après** :
-
-```tsx
-// button.component.tsx
+// ✅ Après (TSX)
 import classNames from 'classnames';
 import styles from './button.module.css';
 
-export const Button = ({ variant = 'primary', disabled, children }) => (
+export const Button = ({ variant = 'primary', disabled }) => (
   <button
     className={classNames(styles.button, {
       [styles.buttonPrimary]: variant === 'primary',
@@ -344,202 +244,57 @@ export const Button = ({ variant = 'primary', disabled, children }) => (
       [styles.buttonDisabled]: disabled,
     })}
     disabled={disabled}
-  >
-    {children}
-  </button>
+  />
 );
 ```
 
 ```css
 /* button.module.css */
-.button {
-  padding: 1rem 2rem;
-  border: none;
-  cursor: pointer;
-}
-
-.buttonPrimary {
-  background: var(--theme-color-primary);
-}
-
-.buttonSecondary {
-  background: var(--theme-color-secondary);
-}
-
-.buttonDisabled {
-  cursor: not-allowed;
-  opacity: 0.5;
-}
+.button { padding: 1rem 2rem; border: none; }
+.buttonPrimary { background: var(--theme-color-primary); }
+.buttonSecondary { background: var(--theme-color-secondary); }
+.buttonDisabled { opacity: 0.5; cursor: not-allowed; }
 ```
 
-## Best Practices
+## [BEST-PRACTICES] Best Practices
 
-### 1. Nommage des classes
-
-- ✅ **camelCase** : Activé dans la config pour utiliser `styles.myClass`
+### 1. Nommage
+- ✅ **camelCase** : `styles.myClass`
 - ✅ **BEM-like** : `.componentName__element--modifier`
-- ✅ **Descriptif** : `.cardTitle` plutôt que `.t1`
+- ✅ **Descriptif** : `.cardTitle` > `.t1`
 
 ### 2. Composition
-
 ```css
-/* Utiliser composes pour réutiliser des styles */
-.baseButton {
-  padding: 1rem 2rem;
-  border: none;
-}
-
-.primaryButton {
-  composes: baseButton;
-  background: var(--theme-color-primary);
-}
+.baseButton { padding: 1rem 2rem; border: none; }
+.primaryButton { composes: baseButton; background: var(--primary); }
 ```
 
-### 3. Variables CSS globales
+### 3. Tests
+Les tests restent identiques - classes CSS automatiquement appliquées ✅
 
-Continuer à utiliser les variables de `style.config.json` :
+## [CHECKLIST] Checklist
 
-```css
-.title {
-  color: var(--theme-color-primary);
-  font-size: var(--subtitle-font-size);
-  z-index: var(--z-index-navbars);
-}
-```
+### Par composant
+- [ ] Créer `.module.css` avec @import ligne 1
+- [ ] Convertir styled components → classes CSS
+- [ ] Props conditionnelles → `classNames()`
+- [ ] Media queries → imbriquées + mobile-first
+- [ ] Supprimer propriétés font
+- [ ] Tester
+- [ ] Vérifier Storybook
+- [ ] Supprimer `.styled.ts`
 
-**Variables disponibles** :
-- **Couleurs de marque** : `--theme-color-primary`, `--theme-color-secondary`, `--theme-color-tertiary`, `--theme-color-quaternary`, `--theme-color-quinary`
-- **Couleurs utilitaires** : `--theme-color-utility-1` à `--theme-color-utility-4`
-- **Couleurs étendues** : `--theme-color-hover`, `--theme-color-background-1`, `--theme-color-background-2`, `--theme-color-foreground-1`, `--theme-color-foreground-2`, `--theme-color-foreground-3`
-- **Typographie** : `--navbar-font-size`, `--subtitle-font-size`, `--text-font-size`, `--description-font-size`
-- **Z-index** : `--z-index-navbars`, `--z-index-text`, `--z-index-backgrounds`
-
-### 4. Custom Media Queries (OBLIGATOIRE)
-
-**Import requis en première ligne de chaque fichier CSS Module** :
-
-```css
-@import url('../../../custom-media.css');
-```
-
-**Usage avec media queries imbriquées (approche mobile-first)** :
-
-```css
-@import url('../../../custom-media.css');
-
-.container {
-  width: 100%;  /* Mobile par défaut */
-  padding: 1rem;
-
-  /* Tablette et plus (768px+) */
-  @media (--bp-min-medium) {
-    width: 50%;
-    padding: 2rem;
-  }
-
-  /* Desktop et plus (1024px+) */
-  @media (--bp-min-large) {
-    width: 75%;
-    padding: 3rem;
-  }
-
-  /* Large Desktop et plus (1440px+) */
-  @media (--bp-min-xlarge) {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-}
-```
-
-**❌ À ne PAS faire** :
-```css
-/* ❌ MAUVAIS - Media query séparée (répétition du sélecteur) */
-.container {
-  width: 100%;
-}
-
-@media (--bp-min-medium) {
-  .container {
-    width: 50%;
-  }
-}
-
-/* ❌ MAUVAIS - Desktop first */
-.container {
-  width: 75%;  /* Desktop par défaut */
-
-  @media (--bp-max-medium) {
-    width: 100%;  /* Mobile en dernier */
-  }
-}
-```
-
-### 5. Tests
-
-Les tests restent identiques :
-
-```tsx
-import { render, screen } from '@testing-library/react';
-import { MyComponent } from './myComponent.component';
-
-it('should render', () => {
-  render(<MyComponent />);
-  // Les classes CSS modules sont automatiquement appliquées
-  expect(screen.getByText('Hello')).toBeInTheDocument();
-});
-```
-
-## Checklist de Migration
-
-### Phase 1 : Préparation ✅
-- [x] Configuration TypeScript
-- [x] Configuration Vite
-- [x] Configuration StyleLint
-- [x] Types CSS Modules
-- [x] Documentation
-
-### Phase 2 : Migration Composant par Composant
-
-Pour chaque composant :
-
-- [ ] Créer le fichier `.module.css`
-- [ ] Convertir les styled components en classes CSS
-- [ ] Adapter les props conditionnelles avec `classNames`
-- [ ] Migrer les breakpoints
-- [ ] Tester le composant
-- [ ] Vérifier dans Storybook
-- [ ] Supprimer le fichier `.styled.ts`
-
-### Phase 3 : Nettoyage Final
-
-- [ ] Tous les composants migrés
-- [ ] Tests passent
-- [ ] Storybook fonctionne
+### Migration complète
+- [ ] Nouveaux composants : CSS Modules uniquement
+- [ ] Composants simples d'abord (buttons, cards)
+- [ ] Puis layout (banner, description)
+- [ ] Navigation en dernier (navbars, footers)
+- [ ] Tous tests passent
 - [ ] Supprimer `styled-components` de `package.json`
-- [ ] Migrer `globalStyled.ts` vers `globalStyle.css` avec custom media queries
-- [ ] Mettre à jour AGENTS.md
+- [ ] Migrer `globalStyled.ts` → `globalStyle.css`
 
-## Order of Migration
+## [RESOURCES] Ressources
 
-Recommandation d'ordre de migration :
-
-1. **Nouveaux composants** : Commencer directement avec CSS Modules
-2. **Composants simples** : Buttons, Cards, badges
-3. **Composants isolés** : Components sans beaucoup de dépendances
-4. **Layout components** : Banner, Description, Cards lists
-5. **Navigation** : Navbars et Footers (plus complexes)
-6. **Global styles** : Garder pour la fin
-
-## Ressources
-
-- [CSS Modules Documentation](https://github.com/css-modules/css-modules)
-- [Vite CSS Modules](https://vitejs.dev/guide/features.html#css-modules)
-- [TypeScript Plugin CSS Modules](https://github.com/mrmckeb/typescript-plugin-css-modules)
-- [Classnames Library](https://github.com/JedWatson/classnames)
-
-## Support
-
-Pour toute question sur la migration, consulter :
-- Le composant exemple dans `/src/design-system/example/`
-- Ce guide de migration
-- Les patterns existants dans le projet
+- **Exemple** : `src/design-system/example/`
+- **Documentation** : [CSS Modules](https://github.com/css-modules/css-modules), [Vite](https://vitejs.dev/guide/features.html#css-modules)
+- **Librairies** : [classnames](https://github.com/JedWatson/classnames)

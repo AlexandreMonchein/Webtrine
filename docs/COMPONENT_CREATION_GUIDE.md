@@ -2,54 +2,255 @@
 
 Ce guide détaille comment créer un nouveau composant dans le Design System Webtrine en suivant les meilleures pratiques et les conventions du projet.
 
+## ⚡ Quick Rules for AI
+
+### MUST (Règles absolues)
+- ✅ **TOUJOURS demander** NOM + TYPE + DESCRIPTION avant de créer
+- ✅ **Architecture TYPE-first** : fichiers dans `src/design-system/{TYPE}/nom.*`
+- ✅ **6 fichiers requis** : `.component.tsx`, `.module.css`, `.types.ts`, `.stories.tsx`, `.docs.md`, `__tests__/*.int.tsx`
+- ✅ **CSS** : `@import url('../../../custom-media.css');` en première ligne
+- ✅ **Mobile-first** : Media queries avec `--bp-min-*` imbriquées dans sélecteurs
+- ✅ **data-testid hardcodé** : `data-testid="{nom}Root"` (jamais en prop)
+- ✅ **defaultArgs pattern** : Créer `const defaultArgs` et spread `...defaultArgs` dans stories
+- ✅ **Default export** : `export default MyComponent` pour chargement dynamique
+
+### MUST NOT (Interdictions)
+- ❌ **JAMAIS créer sans** NOM + TYPE + DESCRIPTION
+- ❌ **JAMAIS** de dossier par composant (pas de `components/team/`)
+- ❌ **JAMAIS** de type `any` en TypeScript
+- ❌ **JAMAIS** de JSDoc au-dessus des composants React
+- ❌ **JAMAIS** de props `data-testid` dans les types
+- ❌ **JAMAIS** de font-properties dans CSS (`font-size`, `font-weight`, `font-family`, `font-style`)
+- ❌ **JAMAIS** de template strings pour classes CSS (utiliser `classNames()`)
+- ❌ **JAMAIS** doc implementation dans `.stories.tsx` (utiliser `.docs.md`)
+- ❌ **JAMAIS** media queries séparées (toujours imbriquées)
+
+### ARCHITECTURE
+- Pattern : `src/design-system/{TYPE}/{nom}.component.tsx`
+- Types disponibles : `banner/`, `cards/`, `description/`, `footer/`, `navbar/`, etc.
+- Storybook title : `"Design System/Components/{TYPE}/{NOM}"`
+
+### CSS-CRITICAL
+- Import obligatoire : `@import url('../../../custom-media.css');`
+- Breakpoints : `--bp-min-medium` (768px), `--bp-min-large` (1024px), `--bp-min-xlarge` (1440px), `--bp-min-wide` (1920px)
+- Nesting : Media queries DANS sélecteurs (pas séparées)
+- Variables : Toujours `var(--theme-color-*)`, jamais de valeurs en dur
+
+### STORIES
+- Pattern : `const defaultArgs = {...}` puis `...defaultArgs` dans stories
+- Principe : 1 story = 1 feature (pas de variations arbitraires)
+- Stories minimum : Default + Playground + 1 par variant/feature
+
+### TESTING
+- Framework : Vitest + Testing Library
+- Target : `screen.getByTestId("{nom}Root")`
+- Structure : `describe` → `beforeEach` → `it`
+
+### DECISION TREE
+```
+START
+  ├─ Ai-je NOM + TYPE + DESCRIPTION ?
+  │  ├─ NON → STOP et DEMANDER maintenant
+  │  └─ OUI → Continue
+  │
+  ├─ Identifier dossier TYPE dans src/design-system/
+  │  └─ Exemples : banner/, description/, cards/, footer/, navbar/
+  │
+  ├─ Créer 6 fichiers dans {TYPE}/
+  │  ├─ {nom}.component.tsx (React + hardcoded data-testid)
+  │  ├─ {nom}.module.css (@import custom-media + mobile-first)
+  │  ├─ {nom}.types.ts (interfaces + JSDoc si utile)
+  │  ├─ {nom}.stories.tsx (defaultArgs + spread)
+  │  ├─ {nom}.docs.md (full JSON implementation)
+  │  └─ __tests__/{nom}.component.int.tsx (Vitest)
+  │
+  └─ Vérifier checklist finale
+```
+
+---
+
 ## 📋 Table des matières
 
-1. [Structure de fichiers](#structure-de-fichiers)
-2. [Création pas à pas](#création-pas-à-pas)
-3. [Fichiers requis](#fichiers-requis)
-4. [Best Practices](#best-practices)
-5. [Checklist](#checklist)
+1. [⚠️ Informations requises AVANT de commencer](#%EF%B8%8F-informations-requises-avant-de-commencer)
+2. [Structure de fichiers](#structure-de-fichiers)
+3. [Création pas à pas](#création-pas-à-pas)
+4. [Fichiers requis](#fichiers-requis)
+5. [Best Practices](#best-practices)
+6. [Checklist](#checklist)
 
-## Structure de fichiers
+## ⚠️ Informations requises AVANT de commencer
 
-Un composant complet dans le Design System suit cette structure :
+### 🚨 RÈGLE OBLIGATOIRE
+
+**AVANT de créer un composant, vous DEVEZ fournir les 3 informations suivantes** :
+
+1. **NOM du composant** : Le nom unique du composant (ex: `team`, `contactBanner`, `heroSection`)
+2. **TYPE du composant** : La catégorie fonctionnelle (ex: `description`, `banner`, `footer`, `cards`)
+3. **DESCRIPTION du composant** : Une description claire de ce que fait le composant et de ses fonctionnalités principales
+
+### ⛔ Si ces informations manquent
+
+**Si l'une de ces 3 informations manque, vous devez les DEMANDER AVANT de commencer à créer quoi que ce soit.**
+
+Ne commencez JAMAIS à créer un composant sans avoir :
+- ✅ Le nom du composant
+- ✅ Le type du composant
+- ✅ Une description détaillée des fonctionnalités
+
+### 📝 Format de demande recommandé
+
+Lorsque vous demandez de créer un composant, utilisez ce format :
 
 ```
-src/design-system/components/myComponent/
+Créer un composant [NOM] de type [TYPE]
+
+Description :
+- [Liste des fonctionnalités]
+- [Structure attendue]
+- [Props spécifiques]
+```
+
+**Exemples** :
+
+```
+Créer un composant "team" de type "description"
+
+Description :
+- Afficher une grille de membres d'équipe
+- Chaque membre a : photo ronde, nom, poste (optionnel)
+- Inclure un pré-titre, titre et description (tous optionnels)
+- Responsive : 1→2→3→4 colonnes selon la taille d'écran
+```
+
+```
+Créer un composant "contactBanner" de type "banner"
+
+Description :
+- Bannière d'appel à l'action pour la page contact
+- Inclure : titre, description, bouton CTA, image de fond
+- Overlay semi-transparent sur l'image
+- Centré verticalement et horizontalement
+```
+
+---
+
+## [ARCHITECTURE] Structure de fichiers
+
+### 🏗️ Architecture : Type + Nom
+
+**IMPORTANT** : L'architecture du projet organise les composants par **TYPE** (dossier) et non par nom de composant.
+
+- Le **TYPE** définit le **dossier** dans lequel créer le composant (banner, description, footer, navbar, cards, etc.)
+- Le **NOM** définit le **nom du fichier** du composant
+
+**Exemple** : "Créer un composant **team** de type **description**"
+```
+✅ CORRECT:
+src/design-system/components/description/
+├── team.component.tsx
+├── team.module.css
+├── team.types.ts
+├── team.stories.tsx
+├── team.docs.md
+└── __tests__/
+    └── team.component.int.tsx
+
+❌ INCORRECT:
+src/design-system/components/team/  ← Pas de dossier par composant !
+```
+
+**Autre exemple** : "Créer un composant **contactBanner** de type **banner**"
+```
+✅ CORRECT:
+src/design-system/components/banner/
+├── contactBanner.component.tsx
+├── contactBanner.module.css
+├── contactBanner.types.ts
+└── ...
+
+❌ INCORRECT:
+src/design-system/components/contactBanner/  ← Pas de dossier par composant !
+```
+
+### Structure standard d'un composant
+
+Les fichiers d'un composant suivent ce pattern (exemple avec `myComponent`) :
+
+```
+src/design-system/components/{TYPE}/
 ├── myComponent.component.tsx      # Composant React principal
 ├── myComponent.module.css         # Styles CSS Modules
 ├── myComponent.types.ts           # Types TypeScript
 ├── myComponent.stories.tsx        # Stories Storybook
-├── myComponent.docs.mdx           # Documentation (optionnel)
-├── __tests__/                     # Tests
-│   └── myComponent.component.int.tsx
-├── customer/                      # Configurations par client (optionnel)
-│   └── default/
-└── shared/                        # Constantes partagées (optionnel)
-    └── myComponent.constants.ts
+├── myComponent.docs.md            # Documentation (optionnel)
+└── __tests__/                     # Tests (dossier partagé par type)
+    └── myComponent.component.int.tsx
 ```
 
-### Exemple de référence
+### Exemples de référence
 
-Le dossier `src/design-system/example/` contient un composant complet qui démontre toutes les bonnes pratiques.
+- `src/design-system/example/` : Composant complet démontrant toutes les bonnes pratiques
+- `src/design-system/components/description/team.*` : Composant team dans le dossier description
+- `src/design-system/components/description/description.*` : Composant description dans son propre dossier type
 
 ## Création pas à pas
 
-### 1. Créer le dossier du composant
+> **⚠️ RAPPEL** : Avant de commencer, assurez-vous d'avoir les 3 informations requises :
+> 1. **NOM** du composant
+> 2. **TYPE** du composant
+> 3. **DESCRIPTION** détaillée des fonctionnalités
+>
+> Si l'une manque, demandez-la AVANT de continuer.
 
-Choisir l'emplacement approprié selon le type de composant :
+### [ARCHITECTURE] 1. Identifier le TYPE de composant
 
-- **`components/`** : Composants réutilisables généraux (cards, buttons, forms, etc.)
+**ÉTAPE CRITIQUE** : Avant de créer un composant, identifiez son TYPE pour choisir le bon dossier.
+
+#### Types de composants disponibles
+
+Les types sont définis par les dossiers existants dans `src/design-system/` :
+
+- **`components/banner/`** : Bannières principales (hero, contact, etc.)
+- **`components/cards/`** : Listes de cartes et grilles
+- **`components/description/`** : Sections de description et présentation
+- **`components/contact/`** : Formulaires et sections de contact
+- **`components/gallery/`** : Galeries d'images
+- **`components/legals/`** : Pages légales (mentions, CGV, etc.)
+- **`components/list/`** : Listes numérotées ou à puces
+- **`components/prices/`** : Tarifications et pricing tables
 - **`navbars/`** : Barres de navigation
 - **`footers/`** : Pieds de page
 - **`buttons/`** : Composants boutons
-- **`error/`** : Pages d'erreur
-- **`utils/`** : Composants utilitaires
+- **`error/`** : Pages d'erreur (404, 500, etc.)
+- **`utils/`** : Composants utilitaires (displayers, etc.)
+
+#### Comment choisir le type ?
+
+Posez-vous la question : **"À quelle catégorie fonctionnelle appartient mon composant ?"**
+
+**Exemples** :
+- "Composant pour présenter l'équipe" → Type **`description`** (présentation)
+- "Bannière de contact avec CTA" → Type **`banner`** (bannière)
+- "Liste de services avec icônes" → Type **`cards`** (cartes)
+- "Footer avec logos partenaires" → Type **`footers`** (pied de page)
+
+#### Créer les fichiers dans le bon dossier
+
+Une fois le type identifié, créez les fichiers directement dans le dossier du type :
 
 ```bash
-mkdir -p src/design-system/components/myComponent
-cd src/design-system/components/myComponent
+# Exemple : Créer un composant "team" de type "description"
+cd src/design-system/components/description/
+
+# Les fichiers seront créés ici :
+# - team.component.tsx
+# - team.module.css
+# - team.types.ts
+# - team.stories.tsx
+# - team.docs.md (optionnel)
 ```
+
+**Note** : Le dossier `__tests__/` est partagé par tous les composants du même type.
 
 ### 2. Créer le fichier de types
 
@@ -61,25 +262,47 @@ import { type PropsWithChildren } from "react";
 export type MyComponentVariant = "default" | "primary" | "secondary";
 
 export type MyComponentProps = PropsWithChildren<{
-  /** Optional title for the component */
   title?: string;
-  /** Optional description text */
   description?: string;
-  /** Visual variant of the component */
   variant?: MyComponentVariant;
-  /** Whether the component is disabled */
+  /** Disables all interactions - Visual state only */
   disabled?: boolean;
-  /** Test ID for testing */
-  "data-testid"?: string;
+  /** Image filename without extension (.webp added automatically) */
+  image?: string;
 }>;
 ```
 
 **Points clés** :
 - ✅ Utiliser `PropsWithChildren<>` si le composant accepte des children
 - ✅ Exporter les types de variants séparément
-- ✅ Documenter chaque prop avec JSDoc
-- ✅ Inclure `data-testid` pour les tests
+- ✅ **Documenter UNIQUEMENT les props qui nécessitent des explications** (détails d'implémentation, comportements non-évidents)
+- ❌ **NE PAS documenter les props évidentes** (title, description, name, etc.)
+- ✅ Documenter si la prop a un comportement spécial (transformation automatique, side-effects, etc.)
 - ✅ Définir des valeurs par défaut dans les types si nécessaire
+- ❌ **NE PAS inclure `data-testid` dans les props** - Sera hardcodé dans le composant
+
+**Exemples de commentaires utiles** :
+```typescript
+// ✅ BON - Information non-évidente
+/** Image filename without extension (.webp added automatically) */
+image: string;
+
+/** Main title - Rendered as h2 for accessibility */
+title?: string;
+
+/** Callback fired on close - Cleans up external state */
+onClose?: () => void;
+
+// ❌ MAUVAIS - Information évidente
+/** Name of the user */
+name: string;
+
+/** Optional description text */
+description?: string;
+
+/** Whether the component is disabled */
+disabled?: boolean;
+```
 
 ### 3. Créer le composant React
 
@@ -91,202 +314,113 @@ import classNames from "classnames";
 import styles from "./myComponent.module.css";
 import type { MyComponentProps } from "./myComponent.types";
 
-/**
- * MyComponent - Description du composant
- *
- * Ce composant permet de [décrire la fonctionnalité principale].
- *
- * @example
- * ```tsx
- * <MyComponent title="Hello" variant="primary">
- *   Content here
- * </MyComponent>
- * ```
- */
 export const MyComponent = ({
   children,
   title,
   description,
   variant = "default",
   disabled = false,
-  "data-testid": dataTestid,
 }: MyComponentProps) => {
   return (
-    <div
-      className={classNames(styles.myComponentRoot, {
-        [styles.myComponentRootPrimary]: variant === "primary",
-        [styles.myComponentRootSecondary]: variant === "secondary",
-        [styles.myComponentRootDisabled]: disabled,
-      })}
-      data-testid={dataTestid}
-    >
-      {title && <h2 className={styles.title}>{title}</h2>}
-      {description && <p className={styles.description}>{description}</p>}
-      {children}
-    </div>
+    <section className={styles.myComponentRoot} data-testid="myComponentRoot">
+      <div
+        className={classNames(styles.content, {
+          [styles.contentPrimary]: variant === "primary",
+          [styles.contentSecondary]: variant === "secondary",
+          [styles.contentDisabled]: disabled,
+        })}
+      >
+        {title && <h2 className={styles.title}>{title}</h2>}
+        {description && <p className={styles.description}>{description}</p>}
+        {children}
+      </div>
+    </section>
   );
 };
+
+export default MyComponent;
 ```
 
 **Points clés** :
 - ✅ Utiliser **CSS Modules** (pas de Styled Components)
-- ✅ Utiliser `classNames` pour les classes conditionnelles
-- ✅ Documenter le composant avec JSDoc
+- ✅ Utiliser `classNames` pour les classes conditionnelles multiples
+- ✅ **NE PAS ajouter de commentaires JSDoc** au-dessus du composant (documentation dans stories et .docs.md)
 - ✅ Destructurer les props avec valeurs par défaut
 - ✅ Nommer la classe racine `{componentName}Root` (ex: `myComponentRoot`)
+- ✅ **Hardcoder `data-testid="{componentName}Root"`** directement dans l'élément racine
 - ✅ **Aucun type `any` autorisé** - Toujours typer correctement
+- ✅ Exporter le composant en **default export** pour le chargement dynamique via config.json
 
-### 4. Créer les styles CSS Modules
+**Usage de `classNames` pour classes multiples** :
+```tsx
+// ✅ BON - Utiliser classNames
+className={classNames(styles.textBlock, styles.textBlockTop)}
+
+// ✅ BON - Avec conditions
+className={classNames(styles.button, {
+  [styles.buttonPrimary]: isPrimary,
+  [styles.buttonDisabled]: disabled,
+})}
+
+// ❌ MAUVAIS - Template strings
+className={`${styles.textBlock} ${styles.textBlockTop}`}
+```
+
+### [CSS-CRITICAL] 4. Créer les styles CSS Modules
 
 **`myComponent.module.css`** :
 
 ```css
-/* IMPORTANT: Import custom media queries at the top of EVERY CSS Module file */
+/* OBLIGATOIRE : Import en première ligne */
 @import url('../../../custom-media.css');
 
-/* MyComponent Styles */
-
-/* Base container */
+/* Base styles - Mobile par défaut */
 .myComponentRoot {
   padding: 1rem;
   background-color: var(--theme-color-background-1);
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(var(--theme-color-tertiary), 0.1);
+
+  /* Media queries IMBRIQUÉES */
+  @media (--bp-min-medium) { padding: 2rem; }
+  @media (--bp-min-large) { padding: 3rem; }
+  @media (--bp-min-xlarge) { max-width: 1200px; margin: 0 auto; }
 }
 
-/* Title element */
 .title {
   color: var(--theme-color-primary);
-  font-size: var(--subtitle-font-size);
   margin-bottom: 1rem;
-  font-weight: bold;
+  /* ❌ PAS de font-size, font-weight, font-family, font-style */
 }
 
-/* Description text */
 .description {
   color: var(--theme-color-secondary);
-  font-size: var(--description-font-size);
-  line-height: 1.6;
+  line-height: 1.6; /* ✅ line-height autorisé */
 }
 
-/* Variant modifiers */
-.myComponentRootPrimary {
-  background-color: var(--theme-color-primary);
-  color: var(--theme-color-background-1);
-}
-
-.myComponentRootSecondary {
-  background-color: var(--theme-color-secondary);
-}
-
-/* State modifiers */
-.myComponentRootDisabled {
-  opacity: 0.5;
-  pointer-events: none;
-}
-
-/* ========================================
-   RESPONSIVE DESIGN - MOBILE FIRST
-   ======================================== */
-
-/* IMPORTANT: Media queries DOIVENT être imbriquées dans les sélecteurs */
-/* ALWAYS use --bp-min-* (mobile first approach) */
-/* NEVER use --bp-max-* unless absolutely necessary */
-
-/* Base container with responsive behavior */
-.myComponentRoot {
-  padding: 1rem;
-  background-color: var(--theme-color-background-1);
-  border-radius: 8px;
-
-  /* Tablet and up (768px+) */
-  @media (--bp-min-medium) {
-    padding: 2rem;
-  }
-
-  /* Desktop and up (1024px+) */
-  @media (--bp-min-large) {
-    padding: 3rem;
-  }
-
-  /* Large Desktop and up (1440px+) */
-  @media (--bp-min-xlarge) {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-
-  /* Ultra Wide and up (1920px+) */
-  @media (--bp-min-wide) {
-    max-width: 1400px;
-  }
-}
-
-/* Title with responsive font size */
-.title {
-  color: var(--theme-color-primary);
-  font-size: var(--subtitle-font-size);
-
-  @media (--bp-min-medium) {
-    font-size: calc(var(--subtitle-font-size) * 1.2);
-  }
-}
-
-/* Hover states */
-.myComponentRoot:hover {
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-  transform: translateY(-2px);
-  transition: all 0.3s ease;
-}
+/* Variants */
+.myComponentRootPrimary { background-color: var(--theme-color-primary); }
+.myComponentRootDisabled { opacity: 0.5; pointer-events: none; }
 ```
 
-**Points clés CSS Modules** :
-- ✅ **OBLIGATOIRE** : Ajouter `@import url('../../../custom-media.css');` en haut de CHAQUE fichier CSS Module
-- ✅ **Mobile First** : TOUJOURS utiliser `--bp-min-*` (de small à wide) si possible
-- ✅ **ÉVITER** : `--bp-max-*` sauf cas très spécifiques (ciblage mobile uniquement)
-- ✅ **Media queries** : DOIVENT être imbriquées DANS les sélecteurs (CSS nesting moderne)
-- ✅ **Ordre des breakpoints** : `--bp-min-medium` (768px) → `--bp-min-large` (1024px) → `--bp-min-xlarge` (1440px) → `--bp-min-wide` (1920px)
-- ✅ Utiliser les **variables CSS du theme** (`--theme-color-*`, `--*-font-size`)
-- ✅ Nommage BEM-like : `{componentName}Root`, `{componentName}RootPrimary`, `{componentName}RootDisabled`
-- ✅ Commenter les sections du fichier
-- ✅ Grouper les styles par catégorie (base, variants, states, responsive)
+**Points clés** :
+- ✅ **@import OBLIGATOIRE** en ligne 1 : `@import url('../../../custom-media.css');`
+- ✅ **Mobile First** : Styles mobile par défaut + `--bp-min-*`
+- ✅ **Nesting** : Media queries DANS sélecteurs
+- ✅ **Variables** : `var(--theme-color-*)`, jamais de valeurs en dur
+- ✅ **Nommage** : `{nom}Root`, `{nom}RootVariant`
+- ❌ **Font-properties interdites** : Voir section Best Practices
 
-**❌ ERREURS COURANTES À ÉVITER** :
-
+**Exemple rapide** :
 ```css
-/* ✅ BON - Media query imbriquée dans le sélecteur */
-.myComponentRoot {
+/* ✅ BON */
+.myRoot {
   padding: 1rem;
-
-  @media (--bp-min-medium) {
-    padding: 2rem;
-  }
+  @media (--bp-min-medium) { padding: 2rem; }
 }
 
-/* ❌ MAUVAIS - Media query séparée (répétition du sélecteur) */
-.myComponentRoot {
-  padding: 1rem;
-}
-
-@media (--bp-min-medium) {
-  .myComponentRoot {
-    padding: 2rem;
-  }
-}
-
-/* ❌ MAUVAIS - Desktop first avec --bp-max */
-.myComponentRoot {
-  padding: 3rem; /* Desktop par défaut */
-
-  @media (--bp-max-medium) {
-    padding: 0.5rem; /* Mobile en dernier */
-  }
-}
-
-/* ✅ BON - Mobile first avec --bp-min */
-.myComponentRoot {
-  padding: 0.5rem; /* Mobile par défaut */
-
-  @media (--bp-min-medium) {
+/* ❌ MAUVAIS - Séparée */
+.myRoot { padding: 1rem; }
+@media (--bp-min-medium) { .myRoot { padding: 2rem; } }
 
 ### Variables CSS disponibles
 
@@ -303,145 +437,79 @@ Voir la liste complète dans `src/design-system/tokens/tokens.stories.tsx` :
 **Z-index** :
 - `--z-index-navbars`, etc.
 
-### Breakpoints disponibles
+### [CSS-REFERENCE] Breakpoints
 
-**⚠️ IMPORTANT : Approche Mobile First Obligatoire**
-
-TOUJOURS utiliser `--bp-min-*` (si possible) pour une approche mobile-first avec media queries **imbriquées** :
-
-```css
-/* ✅ RECOMMANDÉ - Mobile First avec media queries imbriquées */
-@import url('../../../custom-media.css'); /* OBLIGATOIRE en haut du fichier */
-
-.myComponent {
-  padding: 1rem; /* Mobile par défaut */
-
-  /* 768px+ : Tablette */
-  @media (--bp-min-medium) {
-    padding: 2rem;
-  }
-
-  /* 1024px+ : Desktop */
-  @media (--bp-min-large) {
-    padding: 3rem;
-  }
-
-  /* 1440px+ : Large Desktop */
-  @media (--bp-min-xlarge) {
-    padding: 4rem;
-  }
-
-  /* 1920px+ : Ultra Wide */
-  @media (--bp-min-wide) {
-
-**Breakpoints disponibles** (définis dans `src/custom-media.css`) :
-
-**Mobile First (MIN) - À UTILISER EN PRIORITÉ** :
-- `--bp-min-small` (600px+) - Petit tablette
+**Mobile First (--bp-min-*)** - À UTILISER :
 - `--bp-min-medium` (768px+) - Tablette
 - `--bp-min-large` (1024px+) - Desktop
 - `--bp-min-xlarge` (1440px+) - Large Desktop
 - `--bp-min-wide` (1920px+) - Ultra Wide
 
-**Desktop First (MAX) - À ÉVITER SI POSSIBLE** :
-- `--bp-max-xsmall` (< 600px) - Mobile uniquement
-- `--bp-max-small` (< 768px) - Mobile et petite tablette
-- `--bp-max-medium` (< 1024px) - Jusqu'à tablette
+**Desktop First (--bp-max-*)** - À ÉVITER :
+- Utiliser seulement si ciblage mobile strict nécessaire
 
-**📚 Documentation complète** : Voir `docs/CUSTOM_MEDIA_QUERIES.md`
+📚 **Doc complète** : `docs/CUSTOM_MEDIA_QUERIES.md`
 
-### 5. Créer les Stories Storybook
+### [STORIES] 5. Créer les Stories Storybook
 
 **`myComponent.stories.tsx`** :
 
 ```tsx
 import type { Meta, StoryObj } from "@storybook/react";
-
 import { MyComponent } from "./myComponent.component";
+import type { MyComponentProps } from "./myComponent.types";
+
+// defaultArgs : Définir UNE FOIS, réutiliser partout
+const defaultArgs: MyComponentProps = {
+  title: "Default Component",
+  description: "This is a default variant",
+  variant: "default",
+};
 
 const meta: Meta<typeof MyComponent> = {
-  title: "Components/MyComponent",
+  title: "Design System/Components/{TYPE}/MyComponent",
   component: MyComponent,
   tags: ["autodocs"],
   argTypes: {
-    variant: {
-      control: "select",
-      options: ["default", "primary", "secondary"],
-    },
-    disabled: {
-      control: "boolean",
-    },
+    variant: { control: "select", options: ["default", "primary", "secondary"] },
   },
 };
 
 export default meta;
-
 type Story = StoryObj<typeof MyComponent>;
 
-// Story par défaut
-export const Default: Story = {
-  args: {
-    title: "Default Component",
-    description: "This is a default variant",
-    children: "Component content here",
-  },
-};
-
-// Story Primary
-export const Primary: Story = {
-  args: {
-    title: "Primary Component",
-    description: "This is a primary variant",
-    variant: "primary",
-    children: "Primary content",
-  },
-};
-
-// Story Secondary
-export const Secondary: Story = {
-  args: {
-    title: "Secondary Component",
-    description: "This is a secondary variant",
-    variant: "secondary",
-    children: "Secondary content",
-  },
-};
-
-// Story Disabled
-export const Disabled: Story = {
-  args: {
-    title: "Disabled Component",
-    description: "This component is disabled",
-    disabled: true,
-    children: "Disabled content",
-  },
-};
-
-// Playground interactif
-export const Playground: Story = {
-  args: {
-    title: "Interactive Component",
-    description: "Play with the controls below",
-    children: "Playground content",
-  },
-};
+// 1 story = 1 feature
+export const Default: Story = { args: defaultArgs };
+export const Primary: Story = { args: { ...defaultArgs, variant: "primary" } };
+export const WithoutDescription: Story = { args: { ...defaultArgs, description: undefined } };
+export const Playground: Story = { args: defaultArgs };
 ```
 
 **Points clés** :
-- ✅ Organiser dans la hiérarchie Storybook (`Components/MyComponent`)
-- ✅ Ajouter `tags: ["autodocs"]` pour la documentation automatique
-- ✅ Définir les `argTypes` pour les contrôles interactifs
-- ✅ Créer plusieurs stories pour chaque variant/état
-- ✅ Inclure une story `Playground` pour les tests interactifs
+- ✅ Pattern **defaultArgs** : `const defaultArgs = {...}` puis `...defaultArgs`
+- ✅ **1 story = 1 feature** : Default + Playground + 1 par variant
+- ✅ Title format : `"Design System/Components/{TYPE}/{NOM}"`
+- ✅ `tags: ["autodocs"]` pour documentation auto
+- ❌ **PAS de doc implementation** dans stories (utiliser `.docs.md`)
+- ❌ **PAS de variations arbitraires** de contenu
 
-### 6. Créer les tests
+**Exemple rapide** :
+```tsx
+// ✅ BON - 1 story = 1 feature
+export const Default: Story = { args: defaultArgs };
+export const WithoutTitle: Story = { args: { ...defaultArgs, title: undefined } };
+
+// ❌ MAUVAIS - Variation arbitraire
+export const AlternativeTitle: Story = { args: { ...defaultArgs, title: "Other" } };
+```
+
+### [TESTING] 6. Créer les tests
 
 **`__tests__/myComponent.component.int.tsx`** :
 
 ```tsx
 import { render, screen } from "@testing-library/react";
 import { beforeEach, describe, expect, it } from "vitest";
-
 import { MyComponent } from "../myComponent.component";
 import type { MyComponentProps } from "../myComponent.types";
 
@@ -449,200 +517,283 @@ describe("<MyComponent />", () => {
   let props: MyComponentProps;
 
   beforeEach(() => {
-    props = {
-      "data-testid": "my-component",
-      title: "Test Title",
-      description: "Test Description",
-    };
+    props = { title: "Test Title", description: "Test Description" };
   });
 
-  it("should render the component", () => {
+  it("should render", () => {
     render(<MyComponent {...props} />);
-    expect(screen.getByTestId("my-component")).toBeInTheDocument();
+    expect(screen.getByTestId("myComponentRoot")).toBeInTheDocument();
   });
 
-  it("should render title when provided", () => {
+  it("should render title", () => {
     render(<MyComponent {...props} />);
     expect(screen.getByText("Test Title")).toBeInTheDocument();
   });
 
-  it("should render description when provided", () => {
-    render(<MyComponent {...props} />);
-    expect(screen.getByText("Test Description")).toBeInTheDocument();
-  });
-
-  it("should render children", () => {
-    render(<MyComponent {...props}>Child content</MyComponent>);
-    expect(screen.getByText("Child content")).toBeInTheDocument();
-  });
-
-  it("should apply primary variant class", () => {
+  it("should apply variant", () => {
     render(<MyComponent {...props} variant="primary" />);
-    const element = screen.getByTestId("my-component");
-    expect(element).toHaveClass(/myComponentRootPrimary/);
-  });
-
-  it("should apply disabled class when disabled", () => {
-    render(<MyComponent {...props} disabled />);
-    const element = screen.getByTestId("my-component");
-    expect(element).toHaveClass(/myComponentRootDisabled/);
+    expect(screen.getByTestId("myComponentRoot").querySelector('[class*="contentPrimary"]')).toBeInTheDocument();
   });
 });
 ```
 
 **Points clés** :
-- ✅ Utiliser `describe` et `it` de Vitest
-- ✅ Utiliser `beforeEach` pour initialiser les props
-- ✅ Tester le rendu de base
-- ✅ Tester les props conditionnelles
-- ✅ Tester les variants et états
-- ✅ Utiliser `data-testid` pour cibler les éléments
+- ✅ `beforeEach` pour initialiser props
+- ✅ `screen.getByTestId("{nom}Root")` pour cibler root
+- ✅ Tester : rendu de base + props conditionnelles + variants
 
-### 7. Documentation additionnelle (optionnel)
+### [IMPLEMENTATION-DOC] 7. Documentation d'implémentation (OBLIGATOIRE)
 
-**`myComponent.docs.mdx`** :
+⚠️ **CRITIQUE** : Documentation d'implémentation dans `.docs.md` UNIQUEMENT (jamais dans `.stories.tsx`).
 
-````mdx
-import { Meta, ArgTypes } from '@storybook/addon-docs/blocks';
-import * as MyComponentStories from './myComponent.stories';
-import { MyComponent } from './myComponent.component';
+**`myComponent.docs.md`** (structure complète dans section "Comment les composants sont chargés") :
 
-<Meta of={MyComponentStories} />
-
+````markdown
 # MyComponent
 
-Description détaillée du composant et de ses cas d'usage.
+Description du composant.
 
-## Usage
+## Implementation
 
-```jsx
-<MyComponent
-  title="Example Title"
-  description="Example description"
-  variant="primary"
->
-  Content here
-</MyComponent>
+Le composant n'est jamais importé directement. Chargement automatique via `config.json`.
+
+### Configuration JSON
+
+```json
+{
+  "type": "description",
+  "id": "multiDescriptions",
+  "name": "PageName",
+  "datas": {
+    "title": "Page Title",
+    "description": "SEO description",
+    "content": {
+      "{TYPE}-1": {
+        "type": "myComponent",
+        "datas": {
+          "title": "Component Title",
+          "variant": "primary"
+        }
+      }
+    }
+  }
+}
 ```
 
-## When to use
+### Structure
 
-- Utiliser ce composant quand...
-- Ne pas utiliser quand...
+- **Niveau 1** : `type`, `id`, `name` (routing)
+- **Niveau 2** : `datas.title`, `datas.description` (SEO)
+- **Niveau 3** : `content` avec clés `{folder}-{number}`
+- **Niveau 4** : `type` (nom composant) + `datas` (props)
 
 ## Props
 
-<ArgTypes of={MyComponent} />
-
-## Examples
-
-### Avec variant primary
-
-```jsx
-<MyComponent variant="primary">
-  Primary content
-</MyComponent>
-```
-
-### Désactivé
-
-```jsx
-<MyComponent disabled>
-  Disabled content
-</MyComponent>
-```
+[Documentation...]
 ````
 
-## Best Practices
+📚 **Structure JSON complète** : Voir section "Comment les composants sont chargés"
 
-### Nommage
+## [DYNAMIC-LOADING] Comment les composants sont chargés
 
-- **Fichiers** : camelCase avec suffixes
-  - `.component.tsx` pour les composants
-  - `.module.css` pour les styles
-  - `.types.ts` pour les types
-  - `.stories.tsx` pour Storybook
-  - `.int.tsx` pour les tests d'intégration
+### Système de templates dynamiques
 
-- **Classes CSS** : camelCase, descriptif
-  - `{componentName}Root`, `title`, `description`
-  - Modificateurs : `{componentName}RootPrimary`, `{componentName}RootDisabled`
+**IMPORTANT** : Composants **JAMAIS importés directement** - chargement via `config.json`.
 
-- **Props** : camelCase, préfixer les booleans avec `is`, `has`, `should`
+### Workflow
+
+1. **Config client** : `config/customer/{CLIENT}/config.json`
+2. **Parsing** : Extraction composants depuis `content` (clés `{folder}-{number}`)
+3. **Chargement dynamique** : Import `src/design-system/{folder}/{type}.component.tsx`
+4. **Props** : `datas` passées au composant
+
+### [JSON-STRUCTURE] Structure de configuration (4 niveaux)
+
+```json
+{
+  "type": "{layoutType}",
+  "id": "multiDescriptions",
+  "name": "{routeName}",
+  "datas": {
+    "title": "{pageTitle}",
+    "description": "{metaDescription}",
+    "content": {
+      "{folder}-{number}": {
+        "type": "{componentName}",
+        "datas": {
+          "prop1": "value1",
+          "prop2": "value2"
+        }
+      }
+    }
+  }
+}
+```
+
+**Explication** :
+
+- **Niveau 1 (Layout)** : `type`, `id`, `name` → Routing et layout
+- **Niveau 2 (Metadata)** : `title`, `description` → SEO
+- **Niveau 3 (Content)** : Clés `{folder}-{number}` → Organisation composants
+- **Niveau 4 (Component)** : `type` (nom fichier) + `datas` (props)
+
+### Exemple : Composant Team
+
+```json
+{
+  "type": "description",
+  "id": "multiDescriptions",
+  "name": "Team",
+  "datas": {
+    "title": "Our Team",
+    "description": "Meet our amazing team members",
+    "content": {
+      "description-1": {
+        "type": "team",
+        "datas": {
+          "preTitle": "Meet the team",
+          "title": "Our Amazing Team",
+          "description": "We are professionals...",
+          "members": [
+            {
+              "name": "John Doe",
+              "position": "CEO",
+              "image": "team_john",
+              "imageAlt": "John profile"
+            }
+          ]
+        }
+      }
+    }
+  }
+}
+```
+
+### Mapping Clé + Type → Composant
+
+| Clé Config | Type | Chemin Composant |
+|------------|------|------------------|
+| `description-1` | `team` | `components/description/team.component.tsx` |
+| `banner-1` | `contactBanner` | `components/banner/contactBanner.component.tsx` |
+| `cards-1` | `cardsList` | `components/cards/cardsList.component.tsx` |
+
+**Règle** : `src/design-system/{folder}/{type}.component.tsx`
+
+### Conséquences développement
+
+1. **Default export obligatoire** : `export default MyComponent`
+2. **Types stricts** : Props = interface TypeScript exacte
+3. **Documentation .docs.md** : Expliquer structure JSON complète
+4. **Testing isolé** : Tester composant seul, pas chargement dynamique
+
+## [CODE-STYLE] Best Practices
+
+### [NAMING] Nommage
+
+- **Fichiers** : camelCase + suffixes
+  - `.component.tsx`, `.module.css`, `.types.ts`, `.stories.tsx`, `.docs.md`, `.int.tsx`
+- **Classes CSS** : camelCase
+  - `{nom}Root`, `title`, `description`
+  - Modificateurs : `{nom}RootPrimary`, `{nom}RootDisabled`
+- **Props boolean** : Préfixer avec `is`, `has`, `should`
   - ✅ `isDisabled`, `hasError`, `shouldRender`
   - ❌ `disabled`, `error`, `render`
 
-### TypeScript
+### [TYPESCRIPT] TypeScript
 
-- **AUCUN type `any` autorisé** - Utiliser des types spécifiques ou `unknown` si nécessaire
-- Toujours typer les props avec une interface/type exporté
-- Utiliser `PropsWithChildren` pour les composants avec children
-- Documenter avec JSDoc
-- Exporter les types de variants séparément
-- Typer les retours de fonctions explicitement
+- ❌ **AUCUN `any`** autorisé (utiliser types spécifiques ou `unknown`)
+- ✅ Props typées avec interface/type exporté
+- ✅ `PropsWithChildren` pour composants avec children
+- ✅ JSDoc sur types/interfaces **UNIQUEMENT si utile** (pas sur composants)
+- ✅ Exporter variants séparément
+- ✅ Typer retours de fonctions explicitement
 
-### CSS Modules & Responsive Design
+### [CODE-RULES] Règles de Code
 
-**Import obligatoire** :
-- ✅ **TOUJOURS** ajouter `@import url('../../../custom-media.css');` en première ligne
-- ❌ Ne JAMAIS oublier cet import, sinon les custom media queries ne fonctionneront pas
+#### ❌ Pas de JSDoc sur composants React
 
-**Media Queries - Mobile First** :
-- ✅ **TOUJOURS** utiliser `--bp-min-*` (de small à wide) en priorité
-- ✅ Commencer par les styles mobile par défaut
-- ✅ Ajouter les breakpoints progressivement : medium → large → xlarge → wide
-- ✅ **IMBRIQUER** les media queries DANS les sélecteurs (CSS nesting)
-- ❌ **ÉVITER** `--bp-max-*` sauf cas très spécifiques (ciblage mobile uniquement)
+```tsx
+// ❌ MAUVAIS
+/** Team component... */
+export const Team = ({ ... }: TeamProps) => {...}
 
-**Syntaxe correcte** :
+// ✅ BON
+export const Team = ({ ... }: TeamProps) => {...}
+```
+
+#### ✅ data-testid Hardcodé
+
+```tsx
+// ❌ MAUVAIS - En prop
+interface Props { dataTestId?: string; }
+<section data-testid={dataTestId}>
+
+// ✅ BON - Hardcodé
+<section data-testid="teamRoot">
+```
+
+#### ✅ classNames() pour Styles
+
+```tsx
+import classNames from 'classnames';
+
+// ❌ MAUVAIS - Template strings
+<div className={`${styles.button} ${isPrimary ? styles.primary : ''}`}>
+
+// ✅ BON - classNames()
+<div className={classNames(styles.button, { [styles.primary]: isPrimary })}>
+```
+
+#### ❌ Font Properties Interdites
+
 ```css
-/* ✅ BON - Media queries imbriquées */
-@import url('../../../custom-media.css');
-
-.myComponent {
-  padding: 1rem; /* Mobile par défaut */
-
-  @media (--bp-min-medium) {
-    padding: 2rem;
-  }
+/* ❌ MAUVAIS */
+.title {
+  font-size: 2rem;
+  font-weight: bold;
+  font-family: Arial;
+  font-style: italic;
 }
 
-/* ❌ MAUVAIS - Media query séparée (répétition) */
-.myComponent {
-  padding: 1rem;
-}
-
-@media (--bp-min-medium) {
-  .myComponent {
-    padding: 2rem;
-  }
-}
-
-/* ❌ MAUVAIS - Desktop first */
-.myComponent {
-  padding: 3rem; /* Desktop par défaut */
-
-  @media (--bp-max-medium) {
-    padding: 1rem; /* Mobile en dernier */
-  }
+/* ✅ BON */
+.title {
+  color: var(--theme-color-primary);
+  line-height: 1.5; /* ✅ line-height OK */
+  letter-spacing: 0.05em; /* ✅ letter-spacing OK */
 }
 ```
 
-**Variables CSS** :
-- Toujours utiliser les variables du theme (`--theme-color-*`, `--*-font-size`)
-- Ne JAMAIS hardcoder les couleurs ou tailles de police
-- Consulter `src/design-system/tokens/tokens.stories.tsx` pour la liste complète
-- Typer tous les paramètres de fonctions
-- Utiliser des génériques pour la réutilisabilité
+**Interdits** : `font-size`, `font-weight`, `font-family`, `font-style`
+**Autorisés** : `line-height`, `letter-spacing`, `text-transform`, `text-align`
 
-### CSS Modules
+### [CSS-CONSOLIDATED] CSS Modules & Responsive
 
-- Utiliser les variables CSS du theme
-- Utiliser les custom media queries
-- Éviter les valeurs en dur (couleurs, tailles)
-- **Ne pas écraser les styles globaux** (font-style, font-weight, etc.) - Le style global est défini dans `src/theme/customer/default/globalStyle.css`
-- Organiser par sections : base, variants, states, responsive
-- Commenter les sections
+**Règles** :
+- ✅ **@import obligatoire** : `@import url('../../../custom-media.css');` ligne 1
+- ✅ **Mobile First** : Styles mobile par défaut + `--bp-min-*`
+- ✅ **Nesting** : Media queries DANS sélecteurs
+- ✅ **Variables** : `var(--theme-color-*)`, jamais hardcoded
+- ❌ **Font-properties interdites** : `font-size`, `font-weight`, `font-family`, `font-style`
+
+**Exemple** :
+```css
+@import url('../../../custom-media.css');
+
+.myComponent {
+  padding: 1rem;
+  @media (--bp-min-medium) { padding: 2rem; }
+}
+```
+
+📚 **Variables complètes** : `src/design-system/tokens/tokens.stories.tsx`
+
+### [CSS-SUMMARY] CSS Modules
+
+- ✅ Variables theme obligatoires : `var(--theme-color-*)`
+- ✅ @import custom-media en ligne 1
+- ✅ Mobile-first avec `--bp-min-*` imbriqué
+- ❌ **Pas de font-properties** (size/weight/family/style) - géré par theme global
+- ✅ Organisation : base → variants → states
 
 ### Accessibilité
 
@@ -658,98 +809,93 @@ Description détaillée du composant et de ses cas d'usage.
 - Lazy load les composants lourds
 - Optimiser les images
 
-## Checklist de création
+## [CHECKLIST] Checklist de création
 
-### Fichiers requis ✅
+### ⚠️ Prérequis (BLOCKER)
+- [ ] **NOM** défini
+- [ ] **TYPE** identifié
+- [ ] **DESCRIPTION** détaillée fournie
+- [ ] Si manquant → **DEMANDER avant de créer**
 
-- [ ] `myComponent.component.tsx` - Composant React
-- [ ] `myComponent.module.css` - Styles CSS Modules
-- [ ] `myComponent.types.ts` - Types TypeScript
-- [ ] `myComponent.stories.tsx` - Stories Storybook
-- [ ] `__tests__/myComponent.component.int.tsx` - Tests
+### Architecture
+- [ ] Type identifié → dossier correct (`{TYPE}/`)
+- [ ] Fichiers dans `src/design-system/{TYPE}/` (pas de dossier par composant)
+- [ ] Nomenclature : `{nom}.component.tsx`, `{nom}.module.css`, etc.
+- [ ] Storybook title : `"Design System/Components/{TYPE}/{NOM}"`
 
-### Fichiers optionnels
+### Fichiers requis (6)
+- [ ] `{nom}.component.tsx` - React + `export default`
+- [ ] `{nom}.module.css` - @import custom-media ligne 1
+- [ ] `{nom}.types.ts` - Interfaces TypeScript
+- [ ] `{nom}.stories.tsx` - defaultArgs + spread
+- [ ] `{nom}.docs.md` - Full JSON implementation
+- [ ] `__tests__/{nom}.component.int.tsx` - Vitest
 
-- [ ] `myComponent.docs.mdx` - Documentation détaillée
-- [ ] `customer/default/` - Configuration par client
-- [ ] `shared/myComponent.constants.ts` - Constantes
+### Code Quality
+- [ ] Pas de `any` TypeScript
+- [ ] Props typées + JSDoc **si utile uniquement**
+- [ ] CSS Modules (pas Styled Components)
+- [ ] `@import url('../../../custom-media.css');` ligne 1 CSS
+- [ ] Variables theme : `var(--theme-color-*)`
+- [ ] ❌ **Aucune font-property** (size/weight/family/style)
+- [ ] Mobile-first : `--bp-min-*` imbriquées
+- [ ] `classNames()` pour classes multiples
+- [ ] `data-testid="{nom}Root"` hardcodé (pas en prop)
 
-### Code Quality ✅
+### Stories
+- [ ] `const defaultArgs` créé + typé
+- [ ] `...defaultArgs` dans stories
+- [ ] 1 story = 1 feature (pas variations arbitraires)
+- [ ] `tags: ["autodocs"]`
+- [ ] ❌ Pas de doc implementation dans .stories.tsx
 
-- [ ] Pas de `any` dans le code TypeScript
-- [ ] Props typées et documentées
-- [ ] Utilisation de CSS Modules (pas de Styled Components)
-- [ ] **`@import url('../../../custom-media.css');` ajouté en première ligne du CSS**
-- [ ] Variables CSS du theme utilisées (`--theme-color-*`, `--*-font-size`)
-- [ ] **Custom media queries avec approche mobile-first (`--bp-min-*`)**
-- [ ] **Media queries imbriquées DANS les sélecteurs (CSS nesting)**
-- [ ] Classes CSS nommées de manière cohérente (`{componentName}Root`, `{componentName}RootVariant`)
-- [ ] Aucune valeur en dur (couleurs, tailles de police)
+### Tests
+- [ ] Tests intégration écrits
+- [ ] Couverture : base + variants + states
+- [ ] `beforeEach` pour props
 
-### Tests ✅
+### Documentation
+- [ ] ❌ Pas JSDoc sur composant React
+- [ ] Props documentées **si utile** dans types
+- [ ] `.docs.md` avec structure JSON complète
 
-- [ ] Tests d'intégration écrits
-- [ ] Couverture des variants principaux
-- [ ] Tests des états (disabled, loading, etc.)
-- [ ] Tests de rendu conditionnel
-
-### Documentation ✅
-
-- [ ] JSDoc sur le composant principal
-- [ ] Props documentées dans les types
-- [ ] Stories Storybook créées (Default, variants, Playground)
-- [ ] Tag `autodocs` ajouté
-- [ ] ArgTypes configurés pour les contrôles
-
-### Vérification finale ✅
-
-- [ ] Le composant s'affiche correctement dans Storybook
-- [ ] Les tests passent (`pnpm test`)
-- [ ] Pas d'erreurs ESLint (`pnpm lint`)
-- [ ] Le composant est responsive (tester sur mobile, tablette, desktop)
+### Vérification finale
+- [ ] Affichage Storybook OK
+- [ ] Tests passent : `pnpm test`
+- [ ] Pas erreurs : `pnpm lint`
+- [ ] Responsive : mobile → desktop
 - [ ] Accessible (clavier, screen readers)
-- [ ] Performance optimale (pas de re-renders inutiles)
 
-## Ressources
+## [RESOURCES] Ressources
 
-- **Exemple de référence** : `src/design-system/example/`
-- **Tokens & Variables** : Storybook → `Design System/Tokens`
-- **Custom Media Queries** : `docs/CUSTOM_MEDIA_QUERIES.md`
-- **Migration CSS Modules** : `docs/CSS_MODULES_MIGRATION.md`
-- **Hooks réutilisables** : `src/design-system/utils/useLoadComponents.hook.tsx`
+- **Exemple complet** : `src/design-system/example/`
+- **Composant référence** : `src/design-system/components/description/team.*`
+- **Tokens** : Storybook → `Design System/Tokens`
+- **Media queries** : `docs/CUSTOM_MEDIA_QUERIES.md`
+- **Migration CSS** : `docs/CSS_MODULES_MIGRATION.md`
 
-## Commandes utiles
+## [COMMANDS] Commandes
 
 ```bash
-# Lancer Storybook
-pnpm storybook
-
-# Lancer les tests en watch mode
-pnpm test
-
-# Lancer les tests pour un fichier spécifique
-pnpm test myComponent
-
-# Linter le code
-pnpm lint
-
-# Vérifier les types TypeScript
-pnpm type-check
+pnpm storybook          # Storybook
+pnpm test               # Tests watch
+pnpm test {nom}         # Tests spécifiques
+pnpm lint               # Linter
 ```
 
-## Workflow recommandé
+## [WORKFLOW] Workflow recommandé
 
-1. **Planifier** : Définir les props, variants, états nécessaires
-2. **Créer les types** : Commencer par `myComponent.types.ts`
-3. **Créer le composant** : Structure de base dans `.component.tsx`
-4. **Créer les styles** : CSS Modules avec variables theme
-5. **Créer les stories** : Tester visuellement dans Storybook
-6. **Itérer** : Ajuster design et fonctionnalités
-7. **Écrire les tests** : Assurer la qualité et la non-régression
-8. **Documenter** : JSDoc et optionnellement `.docs.mdx`
-9. **Review** : Vérifier la checklist complète
-10. **Commit** : Suivre les conventions de commit du projet
+1. **Vérifier prérequis** : NOM + TYPE + DESCRIPTION
+2. **Identifier TYPE** : Choisir dossier dans `src/design-system/`
+3. **Créer types** : `.types.ts` avec interfaces
+4. **Créer composant** : `.component.tsx` (React + data-testid hardcodé)
+5. **Créer styles** : `.module.css` (@import + mobile-first + variables)
+6. **Créer stories** : `.stories.tsx` (defaultArgs + spread)
+7. **Créer docs** : `.docs.md` (structure JSON complète)
+8. **Créer tests** : `__tests__/*.int.tsx` (Vitest)
+9. **Vérifier** : Checklist complète
+10. **Commit** : Suivre conventions projet
 
 ---
 
-**Bonne création de composants ! 🎨✨**
+**🎯 Bonne création de composants !**

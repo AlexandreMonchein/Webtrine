@@ -1,25 +1,35 @@
 /* Example Component Styles - CSS Modules Pattern */
 
+/* OBLIGATOIRE : Import custom media queries */
+@import url('../../custom-media.css');
+
 /* Base component container */
 .exampleRoot {
   padding: 1rem;
   background-color: var(--theme-color-primary);
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  /* Tablet and up (768px+) */
+  @media (--bp-min-medium) {
+    padding: 2rem;
+  }
+
+  /* Desktop and up (1024px+) */
+  @media (--bp-min-large) {
+    padding: 3rem;
+  }
 }
 
 /* Title element */
 .title {
   color: var(--theme-color-secondary);
-  font-size: var(--subtitle-font-size);
   margin-bottom: 1rem;
-  font-weight: bold;
 }
 
 /* Description text */
 .description {
   color: var(--theme-color-tertiary);
-  font-size: var(--description-font-size);
   line-height: 1.6;
 }
 
@@ -37,23 +47,6 @@
 .exampleRootDisabled {
   opacity: 0.5;
   pointer-events: none;
-}
-
-/* Responsive design with custom media queries */
-@media (--bp-min-medium) {
-  .exampleRoot {
-    padding: 2rem;
-  }
-
-  .title {
-    font-size: calc(var(--subtitle-font-size) * 1.2);
-  }
-}
-
-@media (--bp-min-large) {
-  .exampleRoot {
-    padding: 3rem;
-  }
 }
 
 /* Hover states */

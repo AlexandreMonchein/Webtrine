@@ -4,7 +4,7 @@ import styles from "./descriptionB.module.css";
 import type { DescriptionBProps } from "./descriptionB.types";
 
 const DescriptionB = ({ datas }: DescriptionBProps) => {
-  const { media, title, description, "data-testid": dataTestid } = datas;
+  const { media, title, description } = datas;
   const videoRef = useRef<HTMLVideoElement>(null);
 
   const handleVideoClick = () => {
@@ -18,8 +18,7 @@ const DescriptionB = ({ datas }: DescriptionBProps) => {
   };
 
   return (
-    <section className={styles.descriptionBRoot} data-testid={dataTestid}>
-      {/* Left side - Media */}
+    <section className={styles.descriptionBRoot} data-testid="descriptionBRoot">
       <div className={styles.mediaContainer}>
         {media.type === "image" ? (
           <img

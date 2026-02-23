@@ -1,0 +1,184 @@
+/* IMPORTANT: Import custom media queries at the top of EVERY CSS Module file */
+@import url('../../../custom-media.css');
+
+/* ========================================
+   TEAM COMPONENT STYLES
+   ======================================== */
+
+/* Main section container */
+.teamRoot {
+  padding: 2rem 0;
+  background-color: var(--theme-color-background-1);
+
+  @media (--bp-min-medium) {
+    padding: 3rem 0;
+  }
+
+  @media (--bp-min-large) {
+    padding: 4rem 0;
+  }
+}
+
+/* Inner container for content */
+.container {
+  max-width: 100%;
+  padding: 0 1rem;
+  margin: 0 auto;
+
+  @media (--bp-min-medium) {
+    padding: 0 2rem;
+  }
+
+  @media (--bp-min-large) {
+    max-width: 1200px;
+  }
+
+  @media (--bp-min-xlarge) {
+    max-width: 1400px;
+  }
+}
+
+/* ========================================
+   HEADER SECTION
+   ======================================== */
+
+.header {
+  text-align: center;
+  margin-bottom: 2rem;
+
+  @media (--bp-min-medium) {
+    margin-bottom: 3rem;
+  }
+
+  @media (--bp-min-large) {
+    margin-bottom: 4rem;
+  }
+}
+
+/* Pre-title (small text above title) */
+.preTitle {
+  color: var(--theme-color-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin: 0 0 0.5rem;
+
+  @media (--bp-min-medium) {
+    margin-bottom: 1rem;
+  }
+}
+
+/* Main title */
+.title {
+  color: var(--theme-color-primary);
+  margin: 0 0 1rem;
+
+  @media (--bp-min-medium) {
+    margin-bottom: 1.5rem;
+  }
+}
+
+/* Description paragraph */
+.description {
+  color: var(--theme-color-secondary);
+  line-height: 1.6;
+  margin: 0;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+
+  @media (--bp-min-medium) {
+    line-height: 1.7;
+  }
+}
+
+/* ========================================
+   TEAM MEMBERS GRID
+   ======================================== */
+
+/* Grid container for team members */
+.membersGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  justify-items: center;
+
+  /* 2 columns on tablet */
+  @media (--bp-min-medium) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
+  }
+
+  /* 3 columns on desktop */
+  @media (--bp-min-large) {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+  }
+
+  /* 4 columns on large desktop */
+  @media (--bp-min-xlarge) {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 3rem;
+  }
+}
+
+/* Individual member card */
+.memberCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  max-width: 280px;
+}
+
+/* Image wrapper for round shape */
+.imageWrapper {
+  width: 150px;
+  height: 150px;
+  margin-bottom: 1rem;
+  position: relative;
+  overflow: hidden;
+  border-radius: 50%;
+  background-color: var(--theme-color-background-2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  @media (--bp-min-medium) {
+    width: 180px;
+    height: 180px;
+    margin-bottom: 1.5rem;
+  }
+
+  @media (--bp-min-large) {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+/* Hover effect on image wrapper */
+.imageWrapper:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Member profile image */
+.memberImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/* Member name */
+.memberName {
+  color: var(--theme-color-primary);
+  margin: 0 0 0.5rem;
+}
+
+/* Member position/role */
+.memberPosition {
+  color: var(--theme-color-secondary);
+  margin: 0;
+  font-style: italic;
+}
