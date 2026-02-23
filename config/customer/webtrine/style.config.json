@@ -47,5 +47,10 @@
   "theme-color-background-1-comment": "Light Grey - Background color 1",
 
   "theme-color-background-2": "#ffffff",
-  "theme-color-background-2-comment": "White - Background color 2"
+  "theme-color-background-2-comment": "White - Background color 2",
+
+  "theme-color-foreground-1": "#f5a320",
+  "theme-color-foreground-2": "#000000",
+  "theme-color-foreground-3": "#000000"
+
 }

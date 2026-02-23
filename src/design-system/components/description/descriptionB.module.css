@@ -69,18 +69,8 @@
   margin: 0;
   padding: 0;
   color: var(--theme-color-foreground-1);
-  font-size: var(--subtitle-font-size);
-  font-weight: bold;
   line-height: 1.2;
   align-self: center;
-
-  @media (--bp-min-medium) {
-    font-size: calc(var(--subtitle-font-size) * 1.2);
-  }
-
-  @media (--bp-min-large) {
-    font-size: calc(var(--subtitle-font-size) * 1.4);
-  }
 }
 
 /* Separator line */
@@ -108,16 +98,6 @@
 .paragraph {
   margin: 0;
   color: var(--theme-color-foreground-1);
-  font-size: var(--text-font-size);
   line-height: 1.7;
   text-align: justify;
-
-  @media (--bp-min-medium) {
-    font-size: calc(var(--text-font-size) * 1.05);
-    line-height: 1.8;
-  }
-
-  @media (--bp-min-large) {
-    font-size: calc(var(--text-font-size) * 1.1);
-  }
 }

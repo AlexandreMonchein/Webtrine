@@ -97,7 +97,9 @@ const MultiDescription = ({ templateName = null }: MultiDescriptionProps) => {
         </title>
         <meta name="description" content={description} />
       </Helmet>
-      <Container>{components}</Container>
+      <Container className={components.length === 1 ? "single-section" : ""}>
+        {components}
+      </Container>
     </Suspense>
   );
 };

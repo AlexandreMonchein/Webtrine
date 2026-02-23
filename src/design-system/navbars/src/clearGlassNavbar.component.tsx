@@ -1,5 +1,5 @@
 import classNames from "classnames";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
 import { Link, useLocation } from "react-router-dom";
@@ -17,6 +17,7 @@ export const ClearGlassNavbar = ({
   "data-testid": dataTestid,
 }: ClearGlassNavbarProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const scrollPosition = useRef(0);
   const { i18n } = useTranslation();
   const location = useLocation();
   const { name: clientName } = useSelector(getClient);
@@ -24,6 +25,22 @@ export const ClearGlassNavbar = ({
   const currentPath = activePath || location.pathname;
   const { width, height } = getLogoDimensions(shape);
   const logoSrc = `${import.meta.env.BASE_URL}assets/${clientName}/icons/${logo}.webp`;
+
+  useEffect(() => {
+    if (isMenuOpen) {
+      scrollPosition.current = window.scrollY;
+      document.body.style.position = "fixed";
+      document.body.style.top = `-${scrollPosition.current}px`;
+      document.body.style.width = "100%";
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.position = "";
+      document.body.style.top = "";
+      document.body.style.width = "";
+      document.body.style.overflow = "";
+      window.scrollTo(0, scrollPosition.current);
+    }
+  }, [isMenuOpen]);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);

@@ -20,7 +20,7 @@
         "color": "black"
       }
     },
-    "logo": "logo_apt235"
+    "logo": "favicon_apt235"
   },
   "layout": {
     "templates": [
@@ -226,13 +226,14 @@
                 "tagline": "MINIMALIST / CONTEMPORARY / CLEAN",
                 "description": "FLORIAN IS A SELF-TAUGHT ARTIST SINCE 2012. HE STARTED WITH GRAFFITI AND PERFECTED HIS CRAFT BY DISCOVERING TATTOOING. CREATOR AND MANAGER OF APT.235 STUDIO, HE NOW CREATES TATTOOS WITH SIMPLE AND CLEAN LINES IN A RECOGNIZABLE STYLE.",
                 "images": [
-                  "/assets/apt235/artist-1-1.webp",
-                  "/assets/apt235/artist-1-2.webp",
-                  "/assets/apt235/artist-1-3.webp",
-                  "/assets/apt235/artist-1-4.webp"
+                  "/assets/apt235/IMG_45.webp",
+                  "/assets/apt235/IMG_46.webp",
+                  "/assets/apt235/IMG_47.webp",
+                  "/assets/apt235/IMG_48.webp",
+                  "/assets/apt235/IMG_49.webp"
                 ],
                 "intervalBetweenImages": 2500,
-                "instagramUrl": "https://www.instagram.com/handle_instagram",
+                "instagramUrl": "https://www.instagram.com/duftattoo",
                 "contactUrl": "/contact"
               }
             },
@@ -244,10 +245,11 @@
                 "tagline": "BLACKWORK / DARK",
                 "description": "INSPIRED BY BLACK INK AND SHADOWS, ANTHONY COMBINES LINES AND SOLID FILLS TO CREATE TATTOOS WITH STRONG CONTRASTS. BY PLACING BLACK IN THE RIGHT PLACE, HE REVEALS HIS PATTERNS WITH FINESSE.",
                 "images": [
-                  "/assets/apt235/artist-1-1.webp",
-                  "/assets/apt235/artist-1-2.webp",
-                  "/assets/apt235/artist-1-3.webp",
-                  "/assets/apt235/artist-1-4.webp"
+                  "/assets/apt235/IMG_5.webp",
+                  "/assets/apt235/IMG_6.webp",
+                  "/assets/apt235/IMG_7.webp",
+                  "/assets/apt235/IMG_8.webp",
+                  "/assets/apt235/IMG_9.webp"
                 ],
                 "intervalBetweenImages": 2500,
                 "instagramUrl": "https://www.instagram.com/nokto.ttt",
@@ -262,10 +264,11 @@
                 "tagline": "TRANSPARENCY / X-RAY / SMOKE",
                 "description": "TRAINED BY DUF AT APT.235 STUDIO, SARAH'S STYLE FOCUSES ON CONCEPTS OF TRANSPARENCY AND FLUIDITY, INCLUDING X-RAY AND SMOKE EFFECTS. BLENDING THE CONTRAST BETWEEN DELICATE SHADOWS AND SATURATED BLACKS.",
                 "images": [
-                  "/assets/apt235/artist-1-1.webp",
-                  "/assets/apt235/artist-1-2.webp",
-                  "/assets/apt235/artist-1-3.webp",
-                  "/assets/apt235/artist-1-4.webp"
+                  "/assets/apt235/IMG_10.webp",
+                  "/assets/apt235/IMG_11.webp",
+                  "/assets/apt235/IMG_12.webp",
+                  "/assets/apt235/IMG_13.webp",
+                  "/assets/apt235/IMG_14.webp"
                 ],
                 "intervalBetweenImages": 2500,
                 "instagramUrl": "https://www.instagram.com/malfatti.ttt",
@@ -280,10 +283,11 @@
                 "tagline": "POP CULTURE / COLORFUL",
                 "description": "COMING FROM A GRAPHIC DESIGN DEGREE, EMMA DEVELOPS A PARALLEL SENSITIVITY TO THE WORLD OF TATTOOING. INSPIRED BY JAPANESE CULTURE AND MANGA, SHE NATURALLY DECIDES TO ORIENT HER STYLE IN THIS DIRECTION.",
                 "images": [
-                  "/assets/apt235/artist-1-1.webp",
-                  "/assets/apt235/artist-1-2.webp",
-                  "/assets/apt235/artist-1-3.webp",
-                  "/assets/apt235/artist-1-4.webp"
+                  "/assets/apt235/IMG_15.webp",
+                  "/assets/apt235/IMG_16.webp",
+                  "/assets/apt235/IMG_17.webp",
+                  "/assets/apt235/IMG_18.webp",
+                  "/assets/apt235/IMG_19.webp"
                 ],
                 "intervalBetweenImages": 2500,
                 "instagramUrl": "https://www.instagram.com/marberyry.ttt",
@@ -298,14 +302,16 @@
                 "tagline": "ORNAMENTAL / FINE LINE",
                 "description": "INSPIRED BY THE BRIGHTNESS OF THE MOON AND THE POWER OF THE SUN, MARWANE CRAFTS DELICATE TATTOOS, CARRYING DEEP MEANINGS OR SIMPLY AESTHETIC. HIS ART LIES IN THE SUBTLE HARMONY BETWEEN DELICATE LINES AND BOLDER STROKES, CREATING CONTRASTS THAT GIVE YOUR ORNAMENTS A CAPTIVATING UNIQUENESS.",
                 "images": [
-                  "/assets/apt235/artist-1-1.webp",
-                  "/assets/apt235/artist-1-2.webp",
-                  "/assets/apt235/artist-1-3.webp",
-                  "/assets/apt235/artist-1-4.webp"
+                  "/assets/apt235/IMG_20.webp",
+                  "/assets/apt235/IMG_21.webp",
+                  "/assets/apt235/IMG_22.webp",
+                  "/assets/apt235/IMG_23.webp",
+                  "/assets/apt235/IMG_24.webp",
+                  "/assets/apt235/IMG_25.webp"
                 ],
                 "intervalBetweenImages": 2500,
-                "instagramUrl": "https://www.instagram.com/marberyry.ttt",
-                "contactUrl": "/contact"
+                "instagramUrl": "https://www.instagram.com/aieuh_ca_pique",
+                "contactUrl": "mailto:aieuh_ca_pique@outlook.fr"
               }
             },
             "description-7": {
@@ -316,10 +322,11 @@
                 "tagline": "ILLUSTRATION / HANDPOKE / COLOR",
                 "description": "PASSIONATE ABOUT DRAWING AND NATURE SINCE CHILDHOOD, MAHÉ DRAWS IN A POETIC AND CHILDLIKE MANNER EVERYTHING AROUND HER. WITH A DEGREE IN GRAPHIC DESIGN, SHE LOVES COLOR COMBINATIONS AND COMPOSITIONS THAT WILL HIGHLIGHT YOU!",
                 "images": [
-                  "/assets/apt235/artist-1-1.webp",
-                  "/assets/apt235/artist-1-2.webp",
-                  "/assets/apt235/artist-1-3.webp",
-                  "/assets/apt235/artist-1-4.webp"
+                  "/assets/apt235/IMG_26.webp",
+                  "/assets/apt235/IMG_27.webp",
+                  "/assets/apt235/IMG_28.webp",
+                  "/assets/apt235/IMG_29.webp",
+                  "/assets/apt235/IMG_30.webp"
                 ],
                 "intervalBetweenImages": 2500,
                 "instagramUrl": "https://www.instagram.com/tattooday_studio",
@@ -334,10 +341,11 @@
                 "tagline": "GRAPHIC / SURREALISM / MICRO REALISM",
                 "description": "DRIVEN BY HER BACKGROUND IN GRAPHIC DESIGN AND HER PERSONAL EXPERIENCES, CASSANDRA COMPOSES VISUAL NARRATIVES WHERE POETRY, MICRO-REALISM AND SURREALISM INTERTWINE. SHE LOVES WORKING WITH SHADING, TEXTURES AND EXPLORES EVERY DETAIL WITH SENSITIVITY TO CREATE UNIQUE WORKS, INSPIRED BY HUMAN EMOTIONS AND THE STORIES EACH PERSON CARRIES WITHIN.",
                 "images": [
-                  "/assets/apt235/artist-1-1.webp",
-                  "/assets/apt235/artist-1-2.webp",
-                  "/assets/apt235/artist-1-3.webp",
-                  "/assets/apt235/artist-1-4.webp"
+                  "/assets/apt235/IMG_31.webp",
+                  "/assets/apt235/IMG_32.webp",
+                  "/assets/apt235/IMG_33.webp",
+                  "/assets/apt235/IMG_34.webp",
+                  "/assets/apt235/IMG_35.webp"
                 ],
                 "intervalBetweenImages": 2500,
                 "instagramUrl": "https://www.instagram.com/naturaffection.ttt",
@@ -352,13 +360,18 @@
                 "tagline": "MICRO REALISM / FLORAL",
                 "description": "ELENA IS A UKRAINIAN TATTOO ARTIST, PASSIONATE ABOUT DRAWING SINCE CHILDHOOD. TATTOOING STARTED FOR HER ON A WHIM. SHE HAS ALWAYS BEEN ATTRACTED TO DETAILS, ESPECIALLY PLANTS AND FACES. FOR 8 YEARS NOW, SHE HAS BEEN DEVELOPING A STYLE FOCUSED ON MICRO-REALISM AND FINE LINES, WITH A PREDILECTION FOR BOTANICAL MOTIFS. THROUGH HER TATTOOS, SHE SEEKS TO CAPTURE AN ETERNAL MOMENT AND TELL PERSONAL STORIES.",
                 "images": [
-                  "/assets/apt235/artist-1-1.webp",
-                  "/assets/apt235/artist-1-2.webp",
-                  "/assets/apt235/artist-1-3.webp",
-                  "/assets/apt235/artist-1-4.webp"
+                  "/assets/apt235/IMG_36.webp",
+                  "/assets/apt235/IMG_37.webp",
+                  "/assets/apt235/IMG_38.webp",
+                  "/assets/apt235/IMG_39.webp",
+                  "/assets/apt235/IMG_40.webp",
+                  "/assets/apt235/IMG_41.webp",
+                  "/assets/apt235/IMG_42.webp",
+                  "/assets/apt235/IMG_43.webp",
+                  "/assets/apt235/IMG_44.webp"
                 ],
                 "intervalBetweenImages": 2500,
-                "instagramUrl": "https://www.instagram.com/naturaffection.ttt",
+                "instagramUrl": "https://www.instagram.com/vidnevskaya_tattoo",
                 "contactUrl": "/contact"
               }
             }
@@ -632,31 +645,91 @@
         "datas": {
           "type": "mentions-legals",
           "title": "Legal Notice",
-          "subTitle": "Legal Information",
-          "disclaimer": "Last update: 11/02/2026",
-          "content": []
+          "description": "Legal notice for the APT.235 website",
+          "subTitle": "Effective as of 08/01/2022",
+          "disclaimer": "In accordance with the provisions of Articles 6-III and 19 of Law No. 2004-575 of June 21, 2004 for Confidence in the Digital Economy, known as L.C.E.N., these legal notices are brought to the attention of users and visitors, hereinafter referred to as the User, of the website https://www.apt235.com. Navigation on the Site by the User implies full and unreserved acceptance of these legal notices. These are accessible on the Site under the \"Legal Notice\" section.",
+          "content": [
+            {
+              "title": null,
+              "texts": [
+                "For better user comfort and more pleasant graphics, we recommend using the latest versions of modern browsers such as Safari, Firefox, Chrome, ...",
+                "By connecting to this site, and by requesting an appointment with one of the studio's artists, you expressly acknowledge that you understand that a tattoo is a permanent and definitive act. You also declare that you are over 18 years old and aware of your actions and commitments. You also have full responsibility for choosing the model, its design and its color."
+              ]
+            },
+            {
+              "title": "PUBLISHER OF THE APT.235 TATTOO STUDIO WEBSITE:",
+              "texts": [
+                "Pursuant to Article 6 of Law No. 2004-575 of June 21, 2004 for confidence in the digital economy, users of the website www.apt235.com are informed of",
+                "the identity of the various parties involved in its creation and monitoring:",
+                "Site Owner: APT.235 Tattoo Studio - 139 Bd du Président Wilson - 33200 - Bordeaux",
+                "Publication Manager: Florian Dufau",
+                "Data Protection: Florian Dufau",
+                "Email: duftattoo@gmail.com"
+              ]
+            },
+            {
+              "title": "WEBSITE DEVELOPMENT:",
+              "texts": [
+                "Webtrine",
+                "227 Rue des Veloutiers, 69530 Orliénas",
+                "webtrine.pro@gmail.com"
+              ]
+            }
+          ]
         }
       },
       {
         "type": "legals",
-        "id": "confidentialite",
+        "id": "legals",
         "datas": {
           "type": "confidentialite",
-          "title": "Privacy Policy",
-          "subTitle": "Data Protection",
-          "disclaimer": "Last update: 11/02/2026",
-          "content": []
-        }
-      },
-      {
-        "type": "legals",
-        "id": "cgu-cgv",
-        "datas": {
-          "type": "cgu-cgv",
-          "title": "Terms & Conditions",
-          "subTitle": "General Conditions",
-          "disclaimer": "Last update: 11/02/2026",
-          "content": []
+          "title": "Privacy Policy for the website: APT.235",
+          "description": "APT.235 Privacy Policy",
+          "subTitle": "Effective as of 01/01/2025",
+          "disclaimer": null,
+          "content": [
+            {
+              "title": "Article 1 - Collection of personal data:",
+              "texts": [
+                "APT.235 is committed to respecting the privacy of its users. Personal data may be collected via the site, particularly via the contact form (e.g.: last name, first name, email address, phone number, message). This information is strictly confidential and used only to respond to requests, follow up on exchanges and organize petsitting services (boarding, visits, walks, etc.)."
+              ]
+            },
+            {
+              "title": "Article 2 - Use of data:",
+              "texts": [
+                "Data collected via the contact form is used exclusively for communication with users, managing requests and improving the service. The site does not offer online purchasing and does not manage orders via the site.",
+                "Data is in no case transferred or sold to third parties without the prior consent of users, except legal obligation."
+              ]
+            },
+            {
+              "title": "Article 3 - Browsing data / audience measurement:",
+              "texts": [
+                "The site does not place advertising cookies.",
+                "Audience measurement may be performed to understand site traffic and improve its operation. Information used for this purpose is processed anonymously (or aggregated) and does not aim to personally identify the user.",
+                "Tools: Google Analytics (IP anonymization is enabled)"
+              ]
+            },
+            {
+              "title": "Article 4 - Data processing manager",
+              "texts": [
+                "The data processing manager is APT.235 - 139 Bd du Président Wilson, 33200 Bordeaux",
+                "In accordance with current regulations (GDPR and Data Protection Act), users have the right to access, rectify, object, limit and delete their personal data. To exercise these rights, simply contact Chill Paws at the following address: oceanemic.petsitting@gmail.com.",
+                "Data from the contact form is kept for the time necessary to process the request, then deleted."
+              ]
+            },
+            {
+              "title": "Article 5 - Data security:",
+              "texts": [
+                "APT.235 implements all reasonable technical and organizational measures necessary to guarantee the security and confidentiality of personal data and prevent unauthorized access, disclosure, alteration or destruction."
+              ]
+            },
+            {
+              "title": "Article 6 - Changes to the privacy policy:",
+              "texts": [
+                "APT.235 reserves the right to modify this privacy policy at any time. Users will be informed of any substantial modification via the site."
+              ]
+            }
+          ]
         }
       },
       {
