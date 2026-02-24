@@ -67,7 +67,7 @@ const ContactBanner = ({ datas }: ContactBannerProps) => {
           className={styles.backToTopButton}
           aria-label="Back to top"
         >
-          ↑ Retour en haut
+          <span>↑ Retour en haut</span>
         </button>
       </div>
     </section>

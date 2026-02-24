@@ -6,6 +6,7 @@ import { Link, useLocation } from "react-router-dom";
 
 import { getClient } from "../../../store/state.selector";
 import { getLogoDimensions } from "../../utils/dimensions.utils";
+import { useLoadComponent } from "../../utils/useLoadComponents.hook";
 import styles from "./clearGlassNavbar.module.css";
 import type { ClearGlassNavbarProps } from "./clearGlassNavbar.types";
 
@@ -21,6 +22,10 @@ export const ClearGlassNavbar = ({
   const { i18n } = useTranslation();
   const location = useLocation();
   const { name: clientName } = useSelector(getClient);
+
+  const CloseIcon = useLoadComponent("close");
+  const FrenchFlag = useLoadComponent("frenchFlag");
+  const EnglishFlag = useLoadComponent("englishFlag");
 
   const currentPath = activePath || location.pathname;
   const { width, height } = getLogoDimensions(shape);
@@ -100,7 +105,7 @@ export const ClearGlassNavbar = ({
             onClick={closeMenu}
             aria-label="Close menu"
           >
-            <span className={styles.closeIcon}>×</span>
+            {CloseIcon && <CloseIcon size={32} color="currentColor" />}
           </button>
           <div className={styles.languageSelector}>
             <button
@@ -111,7 +116,7 @@ export const ClearGlassNavbar = ({
               onClick={() => changeLanguage("en")}
               aria-label="Switch to English"
             >
-              🇬🇧
+              {EnglishFlag && <EnglishFlag size={28} />}
             </button>
             <button
               type="button"
@@ -121,7 +126,7 @@ export const ClearGlassNavbar = ({
               onClick={() => changeLanguage("fr")}
               aria-label="Passer en français"
             >
-              🇫🇷
+              {FrenchFlag && <FrenchFlag size={28} />}
             </button>
           </div>
           <ul className={styles.menuLinks}>

@@ -281,23 +281,41 @@ export type MyComponentProps = PropsWithChildren<{
 - ✅ Définir des valeurs par défaut dans les types si nécessaire
 - ❌ **NE PAS inclure `data-testid` dans les props** - Sera hardcodé dans le composant
 
+**⚠️ COMMENTAIRES : Par défaut, NE PAS en ajouter !**
+
+Les noms de propriétés et types doivent être self-explanatory. Ajouter un commentaire UNIQUEMENT s'il apporte une information non-évidente.
+
 **Exemples de commentaires utiles** :
 ```typescript
 // ✅ BON - Information non-évidente
 /** Image filename without extension (.webp added automatically) */
 image: string;
 
-/** Main title - Rendered as h2 for accessibility */
-title?: string;
+/** Interval in milliseconds (default: 3000) */
+interval?: number;
 
 /** Callback fired on close - Cleans up external state */
 onClose?: () => void;
 
-// ❌ MAUVAIS - Information évidente
+// ❌ MAUVAIS - Information évidente (redondant)
 /** Name of the user */
 name: string;
 
 /** Optional description text */
+description?: string;
+
+/** Array of banner images */
+images: BannerImage[];
+
+/** Main title (h1) */
+title?: string;
+
+// ✅ BON - Pas de commentaire, tout est clair
+interface ButtonProps {
+  text: string;
+  onClick: () => void;
+  disabled?: boolean;
+}
 description?: string;
 
 /** Whether the component is disabled */
@@ -421,6 +439,224 @@ className={`${styles.textBlock} ${styles.textBlockTop}`}
 /* ❌ MAUVAIS - Séparée */
 .myRoot { padding: 1rem; }
 @media (--bp-min-medium) { .myRoot { padding: 2rem; } }
+```
+
+### [CSS-NESTING] Nesting CSS : États, Pseudo-classes et Sélecteurs enfants
+
+**RÈGLE OBLIGATOIRE** : Toujours utiliser le **nesting CSS** pour les états, pseudo-classes, pseudo-éléments et sélecteurs enfants. Ne JAMAIS les séparer.
+
+#### États et pseudo-classes (&:hover, &:focus, &:active, etc.)
+
+```css
+/* ✅ BON - Nesting avec & */
+.button {
+  background: var(--theme-color-primary);
+  transition: background 0.2s ease;
+
+  &:hover,
+  &:focus {
+    background: var(--theme-color-hover);
+  }
+
+  &:active {
+    opacity: 0.8;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+}
+
+/* ❌ MAUVAIS - Sélecteurs séparés */
+.button { background: var(--theme-color-primary); }
+.button:hover { background: var(--theme-color-hover); }
+.button:active { opacity: 0.8; }
+```
+
+#### Sélecteurs enfants directs (svg, img, etc.)
+
+```css
+/* ✅ BON - Nesting pour les enfants */
+.iconButton {
+  width: 50px;
+  height: 50px;
+
+  svg {
+    width: 24px;
+    height: 24px;
+    transition: width 0.2s ease;
+
+    @media (--bp-min-medium) {
+      width: 28px;
+      height: 28px;
+    }
+  }
+
+  img {
+    width: 100%;
+    object-fit: cover;
+  }
+}
+
+/* ❌ MAUVAIS - Sélecteurs séparés */
+.iconButton { width: 50px; }
+.iconButton svg { width: 24px; }
+.iconButton img { width: 100%; }
+```
+
+#### Modificateurs et variantes (&.active, &.disabled)
+
+```css
+/* ✅ BON - Nesting pour les variantes */
+.menuLink {
+  color: var(--theme-color-tertiary);
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: var(--theme-color-quaternary);
+  }
+
+  &.active {
+    color: var(--theme-color-primary);
+    font-weight: bold;
+  }
+}
+
+/* ❌ MAUVAIS - Sélecteurs séparés */
+.menuLink { color: var(--theme-color-tertiary); }
+.menuLink:hover { color: var(--theme-color-quaternary); }
+.menuLink.active { color: var(--theme-color-primary); }
+```
+
+#### Nesting combiné : états + media queries
+
+```css
+/* ✅ BON - Nesting complet */
+.closeButton {
+  width: 40px;
+  height: 40px;
+  transition: width 0.2s ease, height 0.2s ease;
+
+  &:hover {
+    width: 44px;
+    height: 44px;
+  }
+
+  @media (--bp-min-large) {
+    width: 80px;
+    height: 80px;
+
+    &:hover {
+      width: 88px;
+      height: 88px;
+    }
+  }
+}
+
+/* ❌ MAUVAIS - Tout séparé */
+.closeButton { width: 40px; height: 40px; }
+.closeButton:hover { width: 44px; height: 44px; }
+@media (--bp-min-large) {
+  .closeButton { width: 80px; height: 80px; }
+  .closeButton:hover { width: 88px; height: 88px; }
+}
+```
+
+#### Pourquoi le nesting ?
+
+- ✅ **Lisibilité** : Toute la logique d'un élément au même endroit
+- ✅ **Maintenabilité** : Modifications groupées, moins d'oublis
+- ✅ **Performance** : Moins de répétitions, CSS plus compact
+- ✅ **Cohérence** : Standard du projet, approche moderne
+
+#### Transform vs Dimensions réelles
+
+**PRÉFÉRER** : Changements de dimensions réelles (width/height) plutôt que `transform: scale()`
+
+```css
+/* ✅ BON - Dimensions réelles */
+.icon {
+  width: 24px;
+  height: 24px;
+
+  &:hover {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+/* ❌ À ÉVITER - Transform scale */
+.icon {
+  width: 24px;
+  height: 24px;
+
+  &:hover {
+    transform: scale(1.2);
+  }
+}
+```
+
+**Pourquoi ?** Les dimensions réelles sont plus prédictibles, n'affectent pas le layout environnant, et sont plus simples à débugger.
+
+#### Valeurs paires uniquement
+
+**RÈGLE** : Toujours utiliser des **valeurs paires** (even numbers) pour les dimensions, espacements, et tailles. Jamais de valeurs impaires sauf exceptions minimales (1px pour les bordures).
+
+```css
+/* ✅ BON - Valeurs paires */
+.button {
+  width: 50px;
+  height: 50px;
+  padding: 16px 24px;
+  gap: 8px;
+
+  &:hover {
+    width: 56px;
+    height: 56px;
+  }
+
+  @media (--bp-min-medium) {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+
+  @media (--bp-min-medium) {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+/* ❌ MAUVAIS - Valeurs impaires */
+.button {
+  width: 51px;    /* ❌ impair */
+  height: 49px;   /* ❌ impair */
+  gap: 9px;       /* ❌ impair */
+
+  @media (--bp-min-medium) {
+    width: 55px;  /* ❌ impair */
+  }
+}
+
+/* ✅ EXCEPTION - Bordures minimales */
+.line {
+  height: 1px;  /* ✅ OK pour les bordures */
+  border: 1px solid;  /* ✅ OK */
+}
+```
+
+**Pourquoi ?**
+- ✅ **Cohérence visuelle** : Grille alignée sur des multiples de 2
+- ✅ **Divisibilité** : Plus facile de diviser ou doubler
+- ✅ **Standard design** : Convention des systèmes de design modernes
+- ✅ **Pixel parfait** : Évite les demi-pixels sur certains écrans
+
+**Valeurs recommandées** : 4, 8, 12, 16, 20, 24, 28, 32, 40, 48, 56, 64, 80, 96, 100, etc.
 
 ### Variables CSS disponibles
 
@@ -704,7 +940,8 @@ Le composant n'est jamais importé directement. Chargement automatique via `conf
 - ❌ **AUCUN `any`** autorisé (utiliser types spécifiques ou `unknown`)
 - ✅ Props typées avec interface/type exporté
 - ✅ `PropsWithChildren` pour composants avec children
-- ✅ JSDoc sur types/interfaces **UNIQUEMENT si utile** (pas sur composants)
+- ⚠️ **JSDoc : Par défaut, NE PAS en ajouter** - Uniquement si apporte info non-évidente
+- ❌ **Jamais de JSDoc sur composants React** (documentation dans stories/docs)
 - ✅ Exporter variants séparément
 - ✅ Typer retours de fonctions explicitement
 

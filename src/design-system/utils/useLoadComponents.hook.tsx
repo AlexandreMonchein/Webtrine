@@ -70,14 +70,11 @@ export function useLoadComponent<T = React.ComponentType<IconProps>>(
         let module;
 
         if (options?.customPath) {
-          // Load from custom path
           module = await import(/* @vite-ignore */ options.customPath);
         } else if (options?.folder) {
-          // Load template component (navbar, footer, etc.)
           const path = `../${options.folder}/src/${componentName}.component.tsx`;
           module = await import(/* @vite-ignore */ path);
         } else {
-          // Load icon from assets
           const componentPath = `../../assets/icons/${componentName}.component.tsx`;
           const moduleLoader = componentFiles[componentPath];
 
@@ -89,7 +86,7 @@ export function useLoadComponent<T = React.ComponentType<IconProps>>(
         }
 
         const Component = module.default;
-        setComponent(Component);
+        setComponent(() => Component);
       } catch (error) {
         const err = error instanceof Error ? error : new Error(String(error));
         console.error(`Error loading component: ${componentName}`, err);
@@ -242,7 +239,7 @@ export function useLoadComponents<T extends string | { name: string }>(
     };
 
     loadComponents();
-  }, [items, hasRenderFn, returnAsRecord]);
+  }, [items, hasRenderFn, returnAsRecord, options]);
 
   return result;
 }

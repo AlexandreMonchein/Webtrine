@@ -1,13 +1,13 @@
 import { useLayoutEffect, useRef, useState } from "react";
 
-import {
-  Button,
-  ButtonContainer,
-  OffscreenContentContainer,
-  Text,
-} from "./classicButton.styled";
+import styles from "./classicButton.module.css";
+import { ToggleButtonProps } from "./classicButton.types";
 
-export const ToggleButton = ({ type, displayedText, hiddenText }) => {
+export const ToggleButton = ({
+  type,
+  displayedText,
+  hiddenText,
+}: ToggleButtonProps) => {
   const [isHidden, setIsHidden] = useState(false);
   const [buttonWidth, setButtonWidth] = useState<number | null>(null);
   const displayedRef = useRef<HTMLSpanElement>(null);
@@ -20,6 +20,7 @@ export const ToggleButton = ({ type, displayedText, hiddenText }) => {
   const handleClickRedirectType = () => {
     window.location.href = "/contact";
   };
+
   useLayoutEffect(() => {
     if (displayedRef.current && hiddenRef.current) {
       const displayedWidth = displayedRef.current.offsetWidth;
@@ -29,22 +30,28 @@ export const ToggleButton = ({ type, displayedText, hiddenText }) => {
   }, []);
 
   return (
-    <ButtonContainer>
-      <Button
+    <div className={styles.buttonContainer} data-testid="toggleButtonRoot">
+      <button
         type="button"
+        className={styles.button}
         onClick={
           type === "call" ? handleClickCallType : handleClickRedirectType
         }
       >
-        <Text style={{ width: buttonWidth ? `${buttonWidth}px` : "auto" }}>
+        <span
+          className={styles.text}
+          style={{ width: buttonWidth ? `${buttonWidth}px` : "auto" }}
+        >
           {isHidden ? hiddenText : displayedText}
-        </Text>
-      </Button>
+        </span>
+      </button>
 
-      <OffscreenContentContainer>
+      <div className={styles.offscreenContentContainer}>
         <span ref={displayedRef}>{displayedText}</span>
         <span ref={hiddenRef}>{hiddenText}</span>
-      </OffscreenContentContainer>
-    </ButtonContainer>
+      </div>
+    </div>
   );
 };
+
+export default ToggleButton;

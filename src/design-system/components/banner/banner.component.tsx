@@ -3,21 +3,10 @@ import { useEffect, useState } from "react";
 
 import { getCustomer } from "../../../customer.utils";
 import { ToggleButton } from "../../buttons/src/classicButton.component";
-import {
-  Background,
-  BackgroundContainer,
-  ContactContainer,
-  Content,
-  Overlay,
-  RedirectLink,
-  Selector,
-  SelectorsContainer,
-  SubTitle,
-  TextContainer,
-  Title,
-} from "./banner.styled";
+import styles from "./banner.module.css";
+import { BannerDatas } from "./banner.types";
 
-const Banner = (datas) => {
+const Banner = (datas: BannerDatas) => {
   const customer = getCustomer();
 
   const {
@@ -26,98 +15,139 @@ const Banner = (datas) => {
     subTitle,
     subTitle2,
     images,
-    textPosition = "bottom-left", // default position
+    textPosition = "bottom-left",
     contact,
   } = datas;
 
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
-    let interval;
+    let interval: NodeJS.Timeout | undefined;
 
     if (multi) {
       interval = setInterval(() => {
         setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-      }, 5000); // Change image every 5 seconds
+      }, 5000);
 
       return () => clearInterval(interval);
     }
 
-    return () => clearInterval(interval);
+    return () => {
+      if (interval) clearInterval(interval);
+    };
   }, [images.length, multi]);
 
   const handleSelectorClick = (index: number) => {
     setCurrentIndex(index);
   };
 
+  // Convert kebab-case to camelCase for CSS class names
+  const textPositionClass = textPosition.replace(/-([a-z])/g, (g) =>
+    g[1].toUpperCase(),
+  );
+
   return (
-    <Content className={classNames(textPosition, { medium: medium })}>
+    <section
+      className={classNames(styles.content, {
+        [styles.medium]: medium,
+      })}
+      data-testid="bannerRoot"
+    >
       {contact ? (
-        <Overlay>
-          <TextContainer
-            className={classNames(textPosition, {
-              active: textPositionFeature,
-              medium: medium,
-              isSplit: contact,
-            })}
+        <div className={styles.overlay}>
+          <div
+            className={classNames(
+              styles.textContainer,
+              styles[textPositionClass],
+              {
+                active: textPositionFeature,
+                [styles.medium]: medium,
+                [styles.isSplit]: contact,
+              },
+            )}
           >
-            {title ? <Title>{title}</Title> : null}
-            {subTitle ? <SubTitle>{subTitle}</SubTitle> : null}
-            {subTitle2 ? <SubTitle>{subTitle2}</SubTitle> : null}
-          </TextContainer>
-          <ContactContainer>
+            {title ? <h1 className={styles.title}>{title}</h1> : null}
+            {subTitle ? <h2 className={styles.subTitle}>{subTitle}</h2> : null}
+            {subTitle2 ? (
+              <h2 className={styles.subTitle}>{subTitle2}</h2>
+            ) : null}
+          </div>
+          <div className={styles.contactContainer}>
             {contact.map((info) => (
               <ToggleButton key={info.type} {...info} />
             ))}
-          </ContactContainer>
-        </Overlay>
+          </div>
+        </div>
       ) : (
-        <TextContainer
-          className={classNames(textPosition, {
-            active: textPositionFeature,
-            medium: medium,
-            isSplit: contact,
-          })}
+        <div
+          className={classNames(
+            styles.textContainer,
+            styles[textPositionClass],
+            {
+              active: textPositionFeature,
+              [styles.medium]: medium,
+              [styles.isSplit]: contact,
+            },
+          )}
         >
-          {title ? <Title>{title}</Title> : null}
-          {subTitle ? <SubTitle>{subTitle}</SubTitle> : null}
-          {subTitle2 ? <SubTitle>{subTitle2}</SubTitle> : null}
-        </TextContainer>
+          {title ? <h1 className={styles.title}>{title}</h1> : null}
+          {subTitle ? <h2 className={styles.subTitle}>{subTitle}</h2> : null}
+          {subTitle2 ? <h2 className={styles.subTitle}>{subTitle2}</h2> : null}
+        </div>
       )}
-      <BackgroundContainer className={classNames({ mask: mask })}>
+      <div
+        className={classNames(styles.backgroundContainer, {
+          [styles.mask]: mask,
+        })}
+      >
         {images.map((image, index) => {
           const { name, copyright } = image || {};
-          const { url, title } = copyright || {};
+          const { url, title: copyrightTitle } = copyright || {};
 
           return (
             <div key={name}>
-              <Background
-                key={name}
+              <img
                 alt={`Background ${name}`}
                 src={`/assets/${customer}/${name}.webp`}
-                className={classNames({ active: index === currentIndex })}
+                className={classNames(styles.background, {
+                  [styles.active]: index === currentIndex,
+                })}
               />
-              {url && title ? (
-                <RedirectLink key={`link-${url}`} href={url}>
-                  {title}
-                </RedirectLink>
+              {url && copyrightTitle ? (
+                <a
+                  key={`link-${url}`}
+                  href={url}
+                  className={styles.redirectLink}
+                >
+                  {copyrightTitle}
+                </a>
               ) : null}
             </div>
           );
         })}
-      </BackgroundContainer>
+      </div>
       {multi ? (
-        <SelectorsContainer>
+        <div className={styles.selectorsContainer}>
           {images.map((image, index) => (
-            <Selector
+            <div
               key={`image-${image.name}`}
-              className={classNames({ active: index === currentIndex })}
+              className={classNames(styles.selector, {
+                [styles.active]: index === currentIndex,
+              })}
               onClick={() => handleSelectorClick(index)}
+              role="button"
+              tabIndex={0}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  handleSelectorClick(index);
+                }
+              }}
+              aria-label={`Go to slide ${index + 1}`}
             />
           ))}
-        </SelectorsContainer>
+        </div>
       ) : null}
-    </Content>
+    </section>
   );
 };
 

@@ -39,23 +39,23 @@
   cursor: pointer;
   padding: 0.5rem;
   z-index: calc(var(--z-index-navbars) + 2);
-  transition: transform 0.2s ease;
-}
+  transition: gap 0.2s ease;
 
-.burgerButton:hover {
-  transform: scale(1.1);
+  &:hover {
+    gap: 10px;
+  }
 }
 
 .burgerLine {
   width: 30px;
-  height: 3px;
+  height: 4px;
   background-color: var(--theme-color-tertiary);
   border-radius: 2px;
   transition: all 0.3s ease;
 
   @media (--bp-min-medium) {
-    width: 35px;
-    height: 3px;
+    width: 36px;
+    height: 4px;
   }
 }
 
@@ -108,21 +108,30 @@
   border: none;
   cursor: pointer;
   padding: 0;
-  width: 40px;
-  height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: transform 0.2s ease;
-}
-
-.closeButton:hover {
-  transform: scale(1.1);
-}
-
-.closeIcon {
-  line-height: 1;
   color: var(--theme-color-tertiary);
+  transition: transform 0.2s ease;
+
+  &:hover {
+    transform: scale(1.2);
+  }
+
+  svg {
+    width: 24px;
+    height: 24px;
+
+    @media (--bp-min-medium) {
+      width: 40px;
+      height: 40px;
+    }
+
+    @media (--bp-min-large) {
+      width: 60px;
+      height: 60px;
+    }
+  }
 }
 
 .languageSelector {
@@ -138,22 +147,34 @@
   border: 2px solid transparent;
   cursor: pointer;
   padding: 0.5rem;
-  font-size: 2rem;
   border-radius: 50%;
-  transition: all 0.2s ease;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 50px;
-  height: 50px;
-}
+  transition: transform 0.2s ease;
 
-.langButton:hover {
-  transform: scale(1.1);
-}
+  &.langButtonActive {
+    border-color: var(--theme-color-primary);
+  }
 
-.langButtonActive {
-  border-color: var(--theme-color-primary);
+  &:hover {
+    transform: scale(1.2);
+  }
+
+  svg {
+    width: 24px;
+    height: 24px;
+
+    @media (--bp-min-medium) {
+      width: 40px;
+      height: 40px;
+    }
+
+    @media (--bp-min-large) {
+      width: 60px;
+      height: 60px;
+    }
+  }
 }
 
 .menuLinks {
@@ -184,10 +205,10 @@
   transition: color 0.2s ease;
   display: inline-block;
   padding: 0.5rem 0;
-}
 
-.menuLink:hover {
-  color: var(--theme-color-quaternary);
+  &:hover {
+    color: var(--theme-color-quaternary);
+  }
 }
 
 .menuLinkActive {

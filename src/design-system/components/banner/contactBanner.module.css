@@ -63,6 +63,18 @@
   @media (--bp-min-medium) {
     max-height: 800px;
   }
+
+  @media (--bp-min-large) {
+    max-height: 1000px;
+  }
+
+  @media (--bp-min-xlarge) {
+    max-height: 1200px;
+  }
+
+  @media (--bp-min-wide) {
+    max-height: 1500px;
+  }
 }
 
 /* ========================================
@@ -75,23 +87,27 @@
   padding: 1.5rem;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   border-radius: 4px;
-  left: 5%;
-  right: 5%;
 
   @media (--bp-min-medium) {
     padding: 2rem;
     top: 15%;
     bottom: 15%;
-    left: auto;
     width: fit-content;
   }
 
   @media (--bp-min-large) {
     padding: 2.5rem;
+    transform: translateX(15%);
   }
 
   @media (--bp-min-xlarge) {
     padding: 3rem;
+    transform: translateX(50%);
+  }
+
+  @media (--bp-min-wide) {
+    padding: 3rem;
+    transform: translateX(90%);
   }
 }
 

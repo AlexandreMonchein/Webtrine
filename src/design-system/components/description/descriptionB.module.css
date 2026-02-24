@@ -22,8 +22,9 @@
   }
 
   /* Desktop and up */
-  @media (--bp-min-large) {
+  @media (--bp-min-xlarge) {
     padding: 60px 120px;
+    gap: 0;
   }
 }
 
@@ -48,6 +49,14 @@
 
   @media (--bp-min-large) {
     max-height: 500px;
+  }
+
+  @media (--bp-min-xlarge) {
+    max-height: 600px;
+  }
+
+  @media (--bp-min-wide) {
+    max-height: 800px;
   }
 }
 
