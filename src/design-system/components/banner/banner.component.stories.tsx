@@ -1,80 +1,26 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
 import BannerComponent from "./banner.component";
+import type { BannerDatas } from "./banner.types";
+
+// defaultArgs : Définir UNE FOIS, réutiliser partout
+const defaultArgs: BannerDatas = {
+  features: {
+    multi: false,
+    medium: true,
+    mask: true,
+  },
+  title: "Webtrine",
+  subTitle: "Il n'a jamais été aussi simple de confectionner un site",
+  images: [{ name: "banner_1" }],
+  textPosition: "center-right",
+};
 
 const meta: Meta<typeof BannerComponent> = {
   component: BannerComponent,
-  title: "Design System/Components/Banner",
+  title: "Design System/Components/Banner/Banner",
   parameters: {
     layout: "fullscreen",
-    docs: {
-      description: {
-        component: `
-# Banner Component
-
-Composant de bannière hero avec image(s) de fond et texte positionnable.
-
-## Configuration JSON pour intégration
-
-Copiez et adaptez cette configuration dans votre \`config.json\` :
-
-\`\`\`json
-
-"banner-1": {
-  "type": "banner",
-  "features": {
-    "multi": false,
-    "medium": true
-  },
-  "title": "Titre principal de votre bannière",
-  "subTitle": "Sous-titre optionnel pour plus de contexte",
-  "images": [
-    {
-      "name": "nom_de_votre_image_banner"
-    }
-  ],
-  "textPosition": "center-right"
-}
-\`\`\`
-
-### Pour un carrousel multi-images :
-\`\`\`json
-{
-  "type": "banner",
-  "features": {
-    "multi": true,
-    "medium": true
-  },
-  "title": "Titre de votre carrousel",
-  "images": [
-    {
-      "name": "banner_image_1"
-    },
-    {
-      "name": "banner_image_2"
-    },
-    {
-      "name": "banner_image_3"
-    }
-  ],
-  "textPosition": "center",
-  "intervalBetweenImages": 5000
-}
-\`\`\`
-
-### Options de \`textPosition\` :
-- \`center\` : Texte centré
-- \`center-left\` : Texte centré à gauche
-- \`center-right\` : Texte centré à droite
-- \`bottom-left\` : Texte en bas à gauche
-- \`bottom-right\` : Texte en bas à droite
-
-### Options de \`features\` :
-- \`multi: true\` : Active le carrousel multi-images
-- \`medium: true\` : Hauteur moyenne de bannière
-        `,
-      },
-    },
   },
   tags: ["autodocs"],
   argTypes: {
@@ -117,101 +63,77 @@ export default meta;
 
 type Story = StoryObj<typeof BannerComponent>;
 
-export const Default: Story = {
-  name: "Bannière par défaut",
-  args: {
-    title: "Webtrine",
-    subTitle: "Il n'a jamais été aussi simple de confectionner un site",
-    images: [{ name: "horizontal_image_1" }],
-    textPosition: "center-right",
-    features: { multi: false, medium: true },
-  },
-  parameters: {
-    docs: {
-      description: {
-        story:
-          "Configuration standard avec texte positionné en centre-droite et une seule image de fond.",
-      },
-    },
-  },
-};
+// Overview : OBLIGATOIRE - Tous les cas d'usage pour visual testing (Chromatic)
+export const Overview: Story = {
+  render: () => (
+    <div style={{ display: "flex", flexDirection: "column", gap: "2rem" }}>
+      <div>
+        <h3 style={{ marginBottom: "1rem", color: "#666" }}>
+          Bannière par défaut
+        </h3>
+        <BannerComponent {...defaultArgs} />
+      </div>
 
-export const WithContact: Story = {
-  name: "Avec bouton contact",
-  args: {
-    title: "Contactez-nous pour plus de renseignements",
-    subTitle: "Notre équipe vous accompagne dans votre projet web",
-    images: [{ name: "horizontal_image_2" }],
-    textPosition: "center-left",
-    features: { multi: false, medium: true },
-    contact: [
-      {
-        type: "redirect",
-        to: "contact",
-        displayedText: "Aller au formulaire de contact",
-      },
-    ],
-  },
-  parameters: {
-    docs: {
-      description: {
-        story:
-          "Bannière avec bouton d'action intégré pour rediriger vers une page de contact ou autre.",
-      },
-    },
-  },
-};
+      <div>
+        <h3 style={{ marginBottom: "1rem", color: "#666" }}>
+          Avec bouton contact
+        </h3>
+        <BannerComponent
+          {...defaultArgs}
+          title="Contactez-nous pour plus de renseignements"
+          subTitle="Notre équipe vous accompagne dans votre projet web"
+          textPosition="center-left"
+          contact={[
+            {
+              type: "redirect",
+              displayedText: "Aller au formulaire de contact",
+              hiddenText: "contact",
+            },
+          ]}
+        />
+      </div>
 
-export const MultipleImages: Story = {
-  name: "Carrousel d'images",
-  args: {
-    title: "Notre portfolio",
-    subTitle: "Découvrez nos réalisations à travers différents projets",
-    images: [
-      { name: "horizontal_image_1" },
-      { name: "horizontal_image_2" },
-      { name: "horizontal_image_3" },
-    ],
-    textPosition: "center",
-    features: { multi: true, medium: true },
-  },
-  parameters: {
-    docs: {
-      description: {
-        story:
-          "Bannière avec carrousel automatique d'images (changement toutes les 5 secondes) et sélecteurs manuels.",
-      },
-    },
-  },
-};
+      <div>
+        <h3 style={{ marginBottom: "1rem", color: "#666" }}>
+          Carrousel d'images
+        </h3>
+        <BannerComponent
+          {...defaultArgs}
+          title="Notre portfolio"
+          subTitle="Découvrez nos réalisations à travers différents projets"
+          images={[
+            { name: "horizontal_image_1" },
+            { name: "horizontal_image_2" },
+            { name: "horizontal_image_3" },
+          ]}
+          textPosition="center"
+          features={{ multi: true, medium: true, mask: true }}
+        />
+      </div>
 
-export const MultipleContactButtons: Story = {
-  name: "Plusieurs boutons d'action",
-  args: {
-    title: "Prêt à commencer votre projet ?",
-    subTitle: "Contactez-nous ou découvrez nos tarifs",
-    images: [{ name: "horizontal_image_3" }],
-    textPosition: "center",
-    features: { multi: false, medium: true },
-    contact: [
-      {
-        type: "redirect",
-        to: "contact",
-        displayedText: "Nous contacter",
-      },
-      {
-        type: "redirect",
-        to: "pricing",
-        displayedText: "Voir nos tarifs",
-      },
-    ],
-  },
-  parameters: {
-    docs: {
-      description: {
-        story:
-          "Bannière avec plusieurs boutons d'action pour offrir différentes options à l'utilisateur.",
-      },
-    },
-  },
+      <div>
+        <h3 style={{ marginBottom: "1rem", color: "#666" }}>
+          Plusieurs boutons d'action
+        </h3>
+        <BannerComponent
+          {...defaultArgs}
+          title="Prêt à commencer votre projet ?"
+          subTitle="Contactez-nous ou découvrez nos tarifs"
+          textPosition="center"
+          contact={[
+            {
+              type: "redirect",
+              displayedText: "Nous contacter",
+              hiddenText: "contact",
+            },
+            {
+              type: "redirect",
+              displayedText: "Voir nos tarifs",
+              hiddenText: "pricing",
+            },
+          ]}
+        />
+      </div>
+    </div>
+  ),
 };

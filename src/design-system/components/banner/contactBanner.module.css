@@ -44,10 +44,12 @@
 .mediaContainer {
   position: relative;
   width: 100%;
+  max-width: fit-content;
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
+  align-self: center;
 
   @media (--bp-max-small) {
     flex-direction: column;
@@ -56,16 +58,16 @@
 
 .media {
   max-height: 600px;
-  max-width: unset;
+  max-width: fit-content;
   object-fit: cover;
   display: block;
 
   @media (--bp-min-medium) {
-    max-height: 800px;
+    max-height: 600px;
   }
 
   @media (--bp-min-large) {
-    max-height: 1000px;
+    max-height: 800px;
   }
 
   @media (--bp-min-xlarge) {
@@ -87,6 +89,7 @@
   padding: 1.5rem;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   border-radius: 4px;
+  margin: 0 5%;
 
   @media (--bp-min-medium) {
     padding: 2rem;
@@ -97,17 +100,18 @@
 
   @media (--bp-min-large) {
     padding: 2.5rem;
-    transform: translateX(15%);
+    max-width: 550px;
+    right: 5%;
   }
 
   @media (--bp-min-xlarge) {
     padding: 3rem;
-    transform: translateX(50%);
+    max-width: 550px;
   }
 
   @media (--bp-min-wide) {
     padding: 3rem;
-    transform: translateX(90%);
+    max-width: 700px;
   }
 }
 

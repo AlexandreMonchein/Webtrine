@@ -4,7 +4,7 @@ import styles from "./contactBanner.module.css";
 import type { ContactBannerProps } from "./contactBanner.types";
 
 const ContactBanner = ({ datas }: ContactBannerProps) => {
-  const { title, media, infoTitle, content, "data-testid": dataTestid } = datas;
+  const { title, media, infoTitle, content } = datas;
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
@@ -12,7 +12,7 @@ const ContactBanner = ({ datas }: ContactBannerProps) => {
   return (
     <section
       className={styles.contactBannerRoot}
-      data-testid={dataTestid || "contact-banner"}
+      data-testid="contactBannerRoot"
     >
       {/* Title Section */}
       <div className={styles.titleContainer}>

@@ -47,5 +47,11 @@
   "theme-color-background-1-comment": "Light Grey - Background color 1",
 
   "theme-color-background-2": "#ffffff",
-  "theme-color-background-2-comment": "White - Background color 2"
+  "theme-color-background-2-comment": "White - Background color 2",
+
+  "theme-color-foreground-1": "#000000",
+  "theme-color-foreground-1-comment": "Black - Text and contrast (changes in dark mode)",
+
+  "theme-color-foreground-2": "#1E3D58",
+  "theme-color-foreground-2-comment": "Dark Blue - Secondary text and elements"
 }

@@ -24,6 +24,9 @@ Ce guide détaille comment créer un nouveau composant dans le Design System Web
 - ❌ **JAMAIS** de template strings pour classes CSS (utiliser `classNames()`)
 - ❌ **JAMAIS** doc implementation dans `.stories.tsx` (utiliser `.docs.md`)
 - ❌ **JAMAIS** media queries séparées (toujours imbriquées)
+- ❌ **JAMAIS oublier** la story Overview (OBLIGATOIRE pour visual testing)
+- ❌ **JAMAIS** de descriptions de types/classes CSS dans `.docs.md` (config JSON uniquement)
+- ❌ **JAMAIS** de stories en anglais (toujours en français)
 
 ### ARCHITECTURE
 - Pattern : `src/design-system/{TYPE}/{nom}.component.tsx`
@@ -38,8 +41,12 @@ Ce guide détaille comment créer un nouveau composant dans le Design System Web
 
 ### STORIES
 - Pattern : `const defaultArgs = {...}` puis `...defaultArgs` dans stories
-- Principe : 1 story = 1 feature (pas de variations arbitraires)
-- Stories minimum : Default + Playground + 1 par variant/feature
+- **Overview story** : TOUJOURS créer une story Overview qui affiche tous les cas d'usage possibles du composant (pour Chromatic visual testing)
+- **UNIQUEMENT Overview** : Si tous les cas d'usage sont dans Overview, les autres stories individuelles (Primary, Secondary, etc.) sont inutiles
+- **Titres dans Overview** : Chaque cas d'usage doit avoir un `<h3>` descriptif
+- **Assets** : TOUJOURS utiliser `/assets/showcase/` dans les stories (pas d'assets clients spécifiques)
+- **Langue** : TOUJOURS en français (titres, descriptions, contenu des stories)
+- Pas de story Default ni Playground séparées (tout est dans Overview)
 
 ### TESTING
 - Framework : Vitest + Testing Library
@@ -697,8 +704,8 @@ import type { MyComponentProps } from "./myComponent.types";
 
 // defaultArgs : Définir UNE FOIS, réutiliser partout
 const defaultArgs: MyComponentProps = {
-  title: "Default Component",
-  description: "This is a default variant",
+  title: "Mon composant",
+  description: "Ceci est une variante par défaut",
   variant: "default",
 };
 
@@ -714,29 +721,163 @@ const meta: Meta<typeof MyComponent> = {
 export default meta;
 type Story = StoryObj<typeof MyComponent>;
 
-// 1 story = 1 feature
-export const Default: Story = { args: defaultArgs };
-export const Primary: Story = { args: { ...defaultArgs, variant: "primary" } };
-export const WithoutDescription: Story = { args: { ...defaultArgs, description: undefined } };
-export const Playground: Story = { args: defaultArgs };
+// Overview : OBLIGATOIRE - Tous les cas d'usage pour visual testing (Chromatic)
+export const Overview: Story = {
+  render: () => (
+    <div style={{ display: "flex", flexDirection: "column", gap: "2rem" }}>
+      <div>
+        <h3 style={{ marginBottom: "1rem", color: "#666" }}>Par défaut</h3>
+        <MyComponent {...defaultArgs} />
+      </div>
+
+      <div>
+        <h3 style={{ marginBottom: "1rem", color: "#666" }}>Variante Primaire</h3>
+        <MyComponent {...defaultArgs} variant="primary" />
+      </div>
+
+      <div>
+        <h3 style={{ marginBottom: "1rem", color: "#666" }}>Variante Secondaire</h3>
+        <MyComponent {...defaultArgs} variant="secondary" />
+      </div>
+
+      <div>
+        <h3 style={{ marginBottom: "1rem", color: "#666" }}>Sans description</h3>
+        <MyComponent {...defaultArgs} description={undefined} />
+      </div>
+    </div>
+  ),
+};
+
+// Stories individuelles optionnelles (seulement si interaction spécifique nécessaire)
+// Si tous les cas sont déjà dans Overview, ces stories sont inutiles
+// export const Primary: Story = { args: { ...defaultArgs, variant: "primary" } };
+// export const Secondary: Story = { args: { ...defaultArgs, variant: "secondary" } };
 ```
 
 **Points clés** :
+- ✅ **Story Overview OBLIGATOIRE** : Première story qui affiche tous les cas d'usage du composant (pour Chromatic visual testing)
+- ✅ **Titres dans Overview** : Chaque cas d'usage doit avoir un `<h3>` descriptif pour identification claire
 - ✅ Pattern **defaultArgs** : `const defaultArgs = {...}` puis `...defaultArgs`
-- ✅ **1 story = 1 feature** : Default + Playground + 1 par variant
+- ✅ **UNIQUEMENT Overview suffit** : Si tous les variants/features sont dans Overview, pas besoin d'autres stories individuelles
+- ✅ Stories individuelles optionnelles : Uniquement si interaction spécifique nécessaire (ex: contrôles Storybook pour tester manuellement)
 - ✅ Title format : `"Design System/Components/{TYPE}/{NOM}"`
 - ✅ `tags: ["autodocs"]` pour documentation auto
+- ✅ **LANGUE FRANÇAISE** : Tous les textes des stories doivent être en français (titres, descriptions, contenu)
 - ❌ **PAS de doc implementation** dans stories (utiliser `.docs.md`)
 - ❌ **PAS de variations arbitraires** de contenu
 
+**🇫🇷 Langue des Stories**
+
+**RÈGLE OBLIGATOIRE** : Toutes les stories doivent être **en français**.
+
+Cela inclut :
+- ✅ Titres des sections `<h3>` dans Overview
+- ✅ Contenu textuel dans `defaultArgs` (titres, descriptions, labels, etc.)
+- ✅ Descriptions dans argTypes
+
+**Exemple** :
+```tsx
+const defaultArgs: MyComponentProps = {
+  title: "Notre entreprise",           // ✅ BON - français
+  description: "Découvrez nos services", // ✅ BON - français
+  // title: "Our Company",              // ❌ MAUVAIS - anglais
+};
+```
+
+**⚡ Pourquoi la story Overview ?**
+
+La story **Overview** est **OBLIGATOIRE** car elle permet de :
+- 📸 **Visual testing efficace** : Chromatic (version gratuite) a une limite de snapshots. Une story Overview = 1 snapshot pour tous les cas d'usage au lieu de N snapshots
+- 👁️ **Validation rapide** : Voir d'un coup d'œil tous les variants et états du composant
+- 🐛 **Détection de régressions** : Les changements CSS affectant plusieurs variants sont immédiatement visibles
+- 💰 **Économie** : Réduit considérablement le nombre de snapshots facturés par Chromatic
+
+**📁 Assets pour les Stories**
+
+**RÈGLE OBLIGATOIRE** : Toujours utiliser les assets du dossier **`/assets/showcase/`** dans les stories.
+
+**Pourquoi showcase ?**
+- ✅ **Cohérence** : Tous les composants utilisent les mêmes assets de test
+- ✅ **Client neutre** : Les exemples Storybook ne sont pas liés à un client spécifique
+- ✅ **Visual testing** : Assets génériques facilitent la détection de régressions CSS
+
+**Assets disponibles dans showcase** :
+- Images : `banner_1.webp`, `horizontal_image_1/2/3.webp`, `vertical_image_1.webp`, `square_image_1/2/3.webp` (voir le dossier pour la liste complète)
+- Vidéos : `the_studio.mp4` (voir le dossier pour la liste complète)
+
+**Exemple** :
+```tsx
+const defaultArgs: MyComponentProps = {
+  image: "/assets/showcase/banner_1.webp",  // ✅ BON
+  // image: "/assets/apt235/image.jpg",     // ❌ MAUVAIS
+};
+```
+
+**Structure de la story Overview** :
+```tsx
+export const Overview: Story = {
+  render: () => (
+    <div style={{ display: "flex", flexDirection: "column", gap: "2rem" }}>
+      {/* Cas d'usage 1 : Default */}
+      <div>
+        <h3 style={{ marginBottom: "1rem", color: "#666" }}>Default</h3>
+        <MyComponent {...defaultArgs} />
+      </div>
+
+      {/* Cas d'usage 2 : Variants */}
+      <div>
+        <h3 style={{ marginBottom: "1rem", color: "#666" }}>Variant Primary</h3>
+        <MyComponent {...defaultArgs} variant="primary" />
+      </div>
+      <div>
+        <h3 style={{ marginBottom: "1rem", color: "#666" }}>Variant Secondary</h3>
+        <MyComponent {...defaultArgs} variant="secondary" />
+      </div>
+
+      {/* Cas d'usage 3 : États spéciaux */}
+      <div>
+        <h3 style={{ marginBottom: "1rem", color: "#666" }}>Disabled</h3>
+        <MyComponent {...defaultArgs} disabled />
+      </div>
+      <div>
+        <h3 style={{ marginBottom: "1rem", color: "#666" }}>Sans description</h3>
+        <MyComponent {...defaultArgs} description={undefined} />
+      </div>
+    </div>
+  ),
+};
+```
+
 **Exemple rapide** :
 ```tsx
-// ✅ BON - 1 story = 1 feature
-export const Default: Story = { args: defaultArgs };
-export const WithoutTitle: Story = { args: { ...defaultArgs, title: undefined } };
+// ✅ BON - Uniquement Overview avec tous les cas d'usage
+export const Overview: Story = {
+  render: () => (
+    <div style={{ display: "flex", flexDirection: "column", gap: "2rem" }}>
+      <div>
+        <h3>Par défaut</h3>
+        <MyComponent {...defaultArgs} />
+      </div>
+      <div>
+        <h3>Variante principale</h3>
+        <MyComponent {...defaultArgs} variant="primary" />
+      </div>
+      <div>
+        <h3>Sans titre</h3>
+        <MyComponent {...defaultArgs} title={undefined} />
+      </div>
+    </div>
+  )
+};
 
-// ❌ MAUVAIS - Variation arbitraire
-export const AlternativeTitle: Story = { args: { ...defaultArgs, title: "Other" } };
+// Stories individuelles optionnelles (généralement inutiles si tout est dans Overview)
+// Uniquement si vous avez besoin de tester des interactions spécifiques manuellement
+// export const Primary: Story = { args: { ...defaultArgs, variant: "primary" } };
+
+// ❌ MAUVAIS - Variations arbitraires ou duplications
+// export const AlternativeTitle: Story = { args: { ...defaultArgs, title: "Autre" } };
+// export const Default: Story = { args: defaultArgs };  // ❌ Redondant avec Overview
+// export const Playground: Story = { args: defaultArgs };  // ❌ Redondant avec Overview
 ```
 
 ### [TESTING] 6. Créer les tests
@@ -782,51 +923,82 @@ describe("<MyComponent />", () => {
 
 ⚠️ **CRITIQUE** : Documentation d'implémentation dans `.docs.md` UNIQUEMENT (jamais dans `.stories.tsx`).
 
+⚠️ **CONTENU MINIMALISTE** : Le fichier `.docs.md` doit contenir UNIQUEMENT :
+- **Configuration JSON** : Exemples complets de configuration pour `config.json`
+- **Comportements spécifiques** : Navigation clavier, comportements de carrousel, etc. (si applicable)
+- **Accessibilité** : Notes spécifiques (si pertinent)
+
+❌ **NE PAS inclure** :
+- Descriptions de types TypeScript (déjà dans `.types.ts`)
+- Exemples d'appels directs de composants (utiliser config JSON uniquement)
+- Liste des classes CSS (implémentation interne)
+- Props interface complète (déjà documentée par autodocs)
+- Informations redondantes déjà explicites dans le code
+
 **`myComponent.docs.md`** (structure complète dans section "Comment les composants sont chargés") :
 
 ````markdown
 # MyComponent
 
-Description du composant.
+Brève description du composant et de ses fonctionnalités principales.
 
-## Implementation
+## Configuration JSON
 
-Le composant n'est jamais importé directement. Chargement automatique via `config.json`.
-
-### Configuration JSON
+### Exemple de base
 
 ```json
 {
   "type": "description",
-  "id": "multiDescriptions",
-  "name": "PageName",
+  "id": "myComponent-1",
   "datas": {
-    "title": "Page Title",
-    "description": "SEO description",
-    "content": {
-      "{TYPE}-1": {
-        "type": "myComponent",
-        "datas": {
-          "title": "Component Title",
-          "variant": "primary"
-        }
-      }
-    }
+    "title": "Mon titre",
+    "description": "Ma description",
+    "variant": "primary"
   }
 }
 ```
 
-### Structure
+### Avec options avancées
 
-- **Niveau 1** : `type`, `id`, `name` (routing)
-- **Niveau 2** : `datas.title`, `datas.description` (SEO)
-- **Niveau 3** : `content` avec clés `{folder}-{number}`
-- **Niveau 4** : `type` (nom composant) + `datas` (props)
+```json
+{
+  "type": "description",
+  "id": "myComponent-2",
+  "datas": {
+    "title": "Mon titre",
+    "description": "Ma description",
+    "variant": "secondary",
+    "images": [
+      { "name": "image_1" },
+      { "name": "image_2" }
+    ]
+  }
+}
+```
 
-## Props
+## Navigation clavier
 
-[Documentation...]
+(Seulement si applicable - exemple : composant avec carrousel, menu, etc.)
+
+Les sélecteurs supportent la navigation au clavier :
+- **Enter** : Activer
+- **Space** : Activer
+- **Tab** : Naviguer entre éléments
+
+## Accessibilité
+
+(Seulement si notes spécifiques importantes)
+
+- ✅ Navigation clavier complète
+- ✅ Attributs ARIA appropriés
 ````
+
+**Guidelines pour .docs.md** :
+- ✅ **Titre et description brève** : 1-2 phrases maximum
+- ✅ **Exemples JSON** : Multiples exemples couvrant les cas d'usage courants
+- ✅ **Comportements spécifiques** : Navigation clavier, carrousel, etc. (si applicable)
+- ✅ **Accessibilité** : Seulement si notes importantes
+- ❌ **PAS de** : Types TypeScript, classes CSS, exemples JSX directs, props interface
 
 📚 **Structure JSON complète** : Voir section "Comment les composants sont chargés"
 
@@ -1080,9 +1252,13 @@ import classNames from 'classnames';
 - [ ] `data-testid="{nom}Root"` hardcodé (pas en prop)
 
 ### Stories
+- [ ] **Story Overview créée** : Affiche tous les cas d'usage (OBLIGATOIRE pour Chromatic)
+- [ ] **Titres dans Overview** : Chaque cas d'usage a un `<h3>` descriptif
+- [ ] **Assets showcase** : Utilise `/assets/showcase/` (pas d'assets clients)
 - [ ] `const defaultArgs` créé + typé
-- [ ] `...defaultArgs` dans stories
-- [ ] 1 story = 1 feature (pas variations arbitraires)
+- [ ] **UNIQUEMENT Overview suffit** : Pas besoin de stories individuelles si tout est dans Overview
+- [ ] Stories individuelles optionnelles : Uniquement si interaction spécifique nécessaire
+- [ ] Pas de variations arbitraires
 - [ ] `tags: ["autodocs"]`
 - [ ] ❌ Pas de doc implementation dans .stories.tsx
 
@@ -1095,6 +1271,8 @@ import classNames from 'classnames';
 - [ ] ❌ Pas JSDoc sur composant React
 - [ ] Props documentées **si utile** dans types
 - [ ] `.docs.md` avec structure JSON complète
+- [ ] `.docs.md` MINIMALISTE : uniquement config JSON, pas de descriptions de types/classes CSS
+- [ ] Stories en français (titres, descriptions, contenu)
 
 ### Vérification finale
 - [ ] Affichage Storybook OK

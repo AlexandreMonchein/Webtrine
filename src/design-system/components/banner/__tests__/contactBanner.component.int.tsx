@@ -23,7 +23,6 @@ describe("<ContactBanner />", () => {
           { text: "First line of information" },
           { text: "Second line of information" },
         ],
-        "data-testid": "contact-banner-test",
       },
     };
 
@@ -33,7 +32,7 @@ describe("<ContactBanner />", () => {
 
   it("should render the component", () => {
     render(<ContactBanner {...props} />);
-    expect(screen.getByTestId("contact-banner-test")).toBeInTheDocument();
+    expect(screen.getByTestId("contactBannerRoot")).toBeInTheDocument();
   });
 
   it("should render the main title", () => {
@@ -128,19 +127,6 @@ describe("<ContactBanner />", () => {
     render(<ContactBanner {...propsWithoutAlt} />);
     const image = screen.getByAltText("Contact banner image");
     expect(image).toBeInTheDocument();
-  });
-
-  it("should use default data-testid if not provided", () => {
-    const propsWithoutTestId = {
-      datas: {
-        title: "Test",
-        media: { type: "image" as const, src: "/test.jpg" },
-        infoTitle: "Info",
-        content: [{ text: "Test" }],
-      },
-    };
-    render(<ContactBanner {...propsWithoutTestId} />);
-    expect(screen.getByTestId("contact-banner")).toBeInTheDocument();
   });
 
   it("should apply withSpacer class when withSpacer is true", () => {
