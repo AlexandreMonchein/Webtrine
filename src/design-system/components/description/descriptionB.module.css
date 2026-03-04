@@ -48,15 +48,15 @@
   }
 
   @media (--bp-min-large) {
-    max-height: 500px;
-  }
-
-  @media (--bp-min-xlarge) {
     max-height: 600px;
   }
 
+  @media (--bp-min-xlarge) {
+    max-height: 700px;
+  }
+
   @media (--bp-min-wide) {
-    max-height: 800px;
+    max-height: 850px;
   }
 }
 
@@ -88,8 +88,12 @@
   height: 1px;
   background-color: var(--theme-color-foreground-1);
   border: none;
-  margin: 32px 0;
+  margin: 16px 0;
   align-self: center;
+
+  @media (--bp-min-medium) {
+    margin: 32px 0;
+  }
 }
 
 /* Description container */

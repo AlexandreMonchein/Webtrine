@@ -88,10 +88,12 @@
   overflow-y: auto;
   display: flex;
   flex-direction: column;
+  justify-content: center;;
   padding: 2rem;
 
   @media (--bp-min-medium) {
     padding: 3rem;
+    justify-content: unset;
   }
 }
 
@@ -122,12 +124,12 @@
     width: 24px;
     height: 24px;
 
-    @media (--bp-min-medium) {
+    @media (--bp-min-large) {
       width: 40px;
       height: 40px;
     }
 
-    @media (--bp-min-large) {
+    @media (--bp-min-wide) {
       width: 60px;
       height: 60px;
     }
@@ -138,8 +140,11 @@
   display: flex;
   gap: 1rem;
   justify-content: center;
-  margin-top: 4rem;
   margin-bottom: 3rem;
+
+  @media (--bp-min-xlarge) {
+    margin-top: 4rem;
+  }
 }
 
 .langButton {
@@ -162,8 +167,8 @@
   }
 
   svg {
-    width: 24px;
-    height: 24px;
+    width: 32px;
+    height: 32px;
 
     @media (--bp-min-medium) {
       width: 40px;
@@ -171,8 +176,8 @@
     }
 
     @media (--bp-min-large) {
-      width: 60px;
-      height: 60px;
+      width: 52px;
+      height: 52px;
     }
   }
 }

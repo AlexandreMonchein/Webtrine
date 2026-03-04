@@ -1,10 +1,11 @@
-import { Suspense, useEffect, useMemo, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
 import { useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
 
 import { getTemplate } from "../../../App";
 import { getClient, getTemplates } from "../../../store/state.selector";
+import { PageNotFound } from "../../error/src/pageNotFound.component";
 import { Container } from "./multiDescriptions.styled";
 import type { MultiDescriptionProps } from "./multiDescriptions.types";
 
@@ -23,14 +24,17 @@ const MultiDescription = ({ templateName = null }: MultiDescriptionProps) => {
     templateName,
   );
 
-  const {
-    datas: { content, title, description },
-  } = template || {};
+  const { datas: { content, title, description } = {} } = template || {};
 
   // Note: This component uses dynamic imports from multiple folders (../**/*)
   // which doesn't fit the standard icon loading pattern used by useLoadComponents hook.
   // Keep the manual loading logic here for now.
   useEffect(() => {
+    // Ne rien faire si pas de content
+    if (!content || Object.keys(content).length === 0) {
+      return;
+    }
+
     const loadComponents = async () => {
       const loadedComponents: React.ReactNode[] = [];
       const modules = import.meta.glob("../**/*.component.tsx");
@@ -85,8 +89,9 @@ const MultiDescription = ({ templateName = null }: MultiDescriptionProps) => {
     loadComponents();
   }, [content, location.state]);
 
+  // Vérifier si le template existe APRÈS tous les hooks
   if (!template) {
-    return null;
+    return <PageNotFound />;
   }
 
   return (

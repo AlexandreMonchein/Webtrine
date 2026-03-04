@@ -14,8 +14,23 @@ export default function ScrollToTop() {
         }
       }, 100);
     } else {
-      // Sinon, scroller en haut de la page
-      window.scrollTo(0, 0);
+      // Scroll vers le haut - utiliser requestAnimationFrame pour s'assurer que le DOM est rendu
+      const scrollToTopImmediate = () => {
+        window.scrollTo(0, 0);
+        document.documentElement.scrollTop = 0;
+        document.body.scrollTop = 0;
+      };
+
+      // Scroll immédiat
+      scrollToTopImmediate();
+
+      // Scroll après le prochain frame pour s'assurer que le contenu est bien rendu
+      requestAnimationFrame(() => {
+        scrollToTopImmediate();
+
+        // Un dernier check après un court délai
+        setTimeout(scrollToTopImmediate, 10);
+      });
     }
   }, [pathname, hash]);
 

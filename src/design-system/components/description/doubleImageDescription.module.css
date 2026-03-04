@@ -14,7 +14,7 @@
 
 
   @media (--bp-min-medium) {
-    padding: 100px 120px;
+    padding: 120px;
     flex-direction: row;
     gap: 2rem;
   }
@@ -57,18 +57,18 @@
   }
 
   @media (--bp-min-large) {
-    min-width: 500px;
-    max-width: 500px;
+    min-width: 450px;
+    max-width: 450px;
   }
 
   @media (--bp-min-xlarge) {
-    min-width: 650px;
-    max-width: 650px;
+    min-width: 550px;
+    max-width: 550px;
   }
 
   @media (--bp-min-wide) {
-    min-width: 800px;
-    max-width: 800px;
+    min-width: 700px;
+    max-width: 700px;
   }
 }
 
@@ -116,6 +116,10 @@
   display: flex;
   flex-direction: column;
   gap: 4px;
+
+  @media (--bp-min-xlarge) {
+    gap: 8px;
+  }
 }
 
 /* Title */

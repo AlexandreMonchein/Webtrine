@@ -47,6 +47,29 @@ export const Overview: Story = {
       </div>
 
       <div>
+        <h3 style={{ marginBottom: "1rem", color: "#666" }}>
+          Avec plusieurs items d'information
+        </h3>
+        <ContactBanner
+          datas={{
+            ...defaultArgs.datas,
+            title: "NOTRE ADRESSE",
+            infoTitle: "DÉTAILS",
+            content: [
+              { text: "📍 Adresse : 123 Rue Exemple, Ville" },
+              { text: "📞 Téléphone : +33 1 23 45 67 89" },
+              { text: "📧 Email : contact@exemple.fr" },
+              { text: "🕐 Lun-Ven : 10h-19h" },
+              { text: "🕐 Sam : 10h-18h" },
+              { text: "🕐 Dim : Fermé" },
+              { text: "💳 Paiement : Carte, Espèces" },
+              { text: "🅿️ Parking : Disponible" },
+            ],
+          }}
+        />
+      </div>
+
+      <div>
         <h3 style={{ marginBottom: "1rem", color: "#666" }}>Avec vidéo</h3>
         <ContactBanner
           datas={{
@@ -61,25 +84,4 @@ export const Overview: Story = {
       </div>
     </div>
   ),
-};
-
-export const MultipleInfoItems: Story = {
-  args: {
-    ...defaultArgs,
-    datas: {
-      ...defaultArgs.datas,
-      title: "NOTRE ADRESSE",
-      infoTitle: "DÉTAILS",
-      content: [
-        { text: "📍 Adresse : 123 Rue Exemple, Ville" },
-        { text: "📞 Téléphone : +33 1 23 45 67 89" },
-        { text: "📧 Email : contact@exemple.fr" },
-        { text: "🕐 Lun-Ven : 10h-19h" },
-        { text: "🕐 Sam : 10h-18h" },
-        { text: "🕐 Dim : Fermé" },
-        { text: "💳 Paiement : Carte, Espèces" },
-        { text: "🅿️ Parking : Disponible" },
-      ],
-    },
-  },
 };

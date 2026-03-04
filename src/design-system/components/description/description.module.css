@@ -1,0 +1,183 @@
+@import url('../../../custom-media.css');
+
+.section {
+  position: relative;
+  padding: 20px 40px;
+  color: var(--theme-color-tertiary);
+  overflow: hidden;
+
+  @media (--bp-min-medium) {
+    padding: 40px 120px;
+  }
+
+  @media (--bp-min-wide) {
+    padding: 40px 480px;
+  }
+
+  &.isContinious {
+    padding: 0 40px;
+
+    @media (--bp-min-medium) {
+      padding: 0 120px;
+    }
+  }
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+.sectionTitle {
+  color: var(--theme-color-foreground-1);
+  text-align: center;
+}
+
+.content {
+  width: 100%;
+  display: flex;
+  gap: 0;
+  flex-direction: column;
+  align-items: center;
+
+  &.isCentered {
+    display: flex;
+  }
+
+  &.isTextBefore {
+    flex-direction: column-reverse;
+  }
+
+  &.isReversed {
+    flex-direction: column;
+
+    @media (--bp-min-medium) {
+      flex-direction: row-reverse;
+      justify-content: space-between;
+    }
+  }
+
+  @media (--bp-min-large) {
+    display: block;
+  }
+}
+
+.imageContainer {
+  padding: 0 12px 12px 0;
+  float: left;
+
+  @media (--bp-min-medium) {
+    padding: 0 24px 0 0;
+  }
+
+  &.isReversed {
+    padding: 0 0 12px;
+
+    @media (--bp-min-medium) {
+      float: right;
+      padding: 0 0 0 24px;
+    }
+  }
+
+  &.isCentered {
+    float: unset;
+    align-content: center;
+  }
+}
+
+.image {
+  width: 100%;
+  max-width: 416px;
+  border-radius: 24px;
+
+  &.isCentered {
+    @media (--bp-min-medium) {
+      width: auto;
+    }
+  }
+}
+
+.textContent {
+  display: block;
+  justify-content: flex-start;
+  height: 100%;
+
+  &.isCentered {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+
+.buttonWrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.buttonLink {
+  border-radius: 64px;
+}
+
+.text {
+  width: 100%;
+  padding-bottom: 16px;
+}
+
+/* Base link styles - must come before pseudo-classes */
+.buttonLink a {
+  display: inline-block;
+  font-size: x-large;
+  padding: 24px 64px;
+  background-color: var(--theme-color-utility-4);
+  color: var(--theme-color-primary);
+  text-decoration: none;
+  border-radius: 64px;
+  transition: all 0.3s ease;
+  border: 2px solid var(--theme-color-utility-4);
+}
+
+.text a {
+  background: linear-gradient(
+      var(--theme-color-utility-4),
+      var(--theme-color-utility-4)
+    )
+    center bottom / 100% 1px no-repeat;
+  border-bottom: none;
+  color: var(--theme-color-utility-4);
+  text-decoration: none;
+  transition:
+    background 300ms ease-in-out,
+    color 300ms ease-in-out;
+}
+
+/* Pseudo-class styles - must come after base styles */
+.buttonLink a:hover,
+.buttonLink a:focus {
+  background-color: var(--theme-color-hover);
+  border-color: var(--theme-color-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.buttonLink a:active {
+  transform: translateY(0);
+}
+
+.text a:hover,
+.text a:focus {
+  background: linear-gradient(
+      var(--theme-color-utility-4),
+      var(--theme-color-utility-4)
+    )
+    center bottom / 100% 100% no-repeat;
+  color: var(--theme-color-primary);
+}
+
+.descriptionContentWrapper {
+  list-style: none;
+  padding-left: 0;
+
+  :last-child {
+    margin-bottom: 0;
+  }
+}

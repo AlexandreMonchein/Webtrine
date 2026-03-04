@@ -3,6 +3,36 @@ import { MemoryRouter } from "react-router-dom";
 
 import DescriptionComponent from "./description.component";
 
+const defaultArgs = {
+  type: "description" as const,
+  features: {
+    isReversed: false,
+    isContinious: false,
+    isCentered: false,
+    isTextBefore: false,
+  },
+  title: "Notre histoire et nos valeurs",
+  hash: "section-description",
+  content: [
+    {
+      text: "Depuis notre création, nous nous engageons à offrir des services de qualité qui dépassent les attentes de nos clients.",
+    },
+    {
+      text: "Notre équipe passionnée travaille chaque jour pour innover et créer des solutions sur mesure adaptées à vos besoins spécifiques.",
+    },
+    {
+      text: "Nous croyons fermement que <strong>la qualité</strong> et <strong>l'attention aux détails</strong> font toute la différence dans la réussite de chaque projet.",
+    },
+  ],
+  images: [
+    {
+      name: "square_image_1",
+      alt: "Image illustrant notre approche",
+      focusable: false,
+    },
+  ],
+};
+
 const meta: Meta<typeof DescriptionComponent> = {
   component: DescriptionComponent,
   title: "Design System/Components/Description/Description",
@@ -15,85 +45,35 @@ const meta: Meta<typeof DescriptionComponent> = {
   ],
   parameters: {
     layout: "padded",
-    docs: {
-      description: {
-        component: `
-# Description Component
-
-Composant pour afficher une section de description avec du texte, des boutons et une image optionnelle.
-
-## Configuration JSON pour intégration
-
-Copiez et adaptez cette configuration dans votre \`config.json\` :
-
-\`\`\`json
-"description-1":{
-  "type": "description",
-  "features": {
-    "isReversed": false,
-    "isContinuous": false
-  },
-  "title": "description h2 title data-1",
-  "content": [
-    {
-      "text": "description p text data-1. Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-    },
-    {
-      "text": "description p text data-2. Lorem ipsum dolor sit amet with <strong>HTML formatting</strong>."
-    },
-    {
-      "button": {
-        "label": "description button label data-1",
-        "to": "/link-1"
-      }
-    }
-  ],
-  "images": [
-    {
-      "name": "square_image",
-      "alt": "description img alt data-1",
-      "focusable": false
-    }
-  ]
-}
-\`\`\`
-
-### Types de contenu supportés :
-- **Texte** : \`{ "text": "Votre contenu texte avec HTML" }\`
-- **Bouton** : \`{ "button": { "label": "Texte du bouton", "to": "/lien" } }\`
-
-### Options de \`features\` :
-- \`isReversed: true\` : Place l'image à droite du texte
-- \`isContinuous: true\` : Affichage continu sans espacement supplémentaire
-
-### Structure de l'image :
-- \`name\` : Nom du fichier image (sans extension, .webp sera ajouté)
-- \`alt\` : Texte alternatif pour l'accessibilité
-- \`focusable\` : Si l'image peut recevoir le focus (navigation clavier)
-        `,
-      },
-    },
   },
   tags: ["autodocs"],
   argTypes: {
-    title: {
-      control: "text",
-      description: "Titre principal de la section (optionnel)",
+    type: {
+      control: false,
+      description: "Type de template (toujours 'description')",
     },
     features: {
       control: "object",
       description:
-        "Configuration du comportement : isReversed (image à droite), isContinuous (affichage continu)",
+        "Configuration du comportement : isReversed, isContinious, isCentered, isTextBefore",
+    },
+    title: {
+      control: "text",
+      description: "Titre principal de la section (optionnel)",
+    },
+    hash: {
+      control: "text",
+      description: "Ancre pour la navigation (optionnel)",
     },
     content: {
       control: "object",
       description:
-        "Tableau d'objets contenant le texte à afficher ou des boutons. Le texte supporte le HTML (sanitisé avec DOMPurify). Les boutons utilisent React Router Link.",
+        "Tableau d'éléments de contenu (texte ou bouton). Le texte supporte le HTML (sanitisé avec DOMPurify)",
     },
     images: {
       control: "object",
       description:
-        "Tableau d'images : name (nom du fichier), alt (texte alternatif), focusable (accessible au clavier)",
+        "Tableau d'images avec name, alt, focusable et description optionnelle",
     },
   },
 };
@@ -102,181 +82,110 @@ export default meta;
 
 type Story = StoryObj<typeof DescriptionComponent>;
 
-export const Default: Story = {
-  name: "Configuration par défaut",
-  args: {
-    type: "description",
-    features: { isReversed: false, isContinious: false },
-    title: "description h2 title data-1",
-    content: [
-      {
-        text: "description p text data-1",
-      },
-      {
-        text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      },
-      {
-        text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-      },
-      {
-        text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.",
-      },
-      {
-        text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.",
-      },
-      {
-        text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.",
-      },
-      {
-        text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur.",
-      },
-      {
-        text: "description p text data-8",
-      },
-    ],
-    images: [
-      {
-        name: "square_image_1",
-        alt: "description img alt data-1",
-        focusable: false,
-      },
-    ],
-  },
-  parameters: {
-    docs: {
-      description: {
-        story:
-          "Configuration standard avec texte à gauche et image à droite. Idéal pour les sections de présentation ou d'introduction.",
-      },
-    },
-  },
-};
+export const Overview: Story = {
+  name: "Vue d'ensemble",
+  args: defaultArgs,
+  render: (args) => (
+    <div>
+      <h3 style={{ textAlign: "center", marginBottom: "40px" }}>
+        Configuration par défaut
+      </h3>
+      <DescriptionComponent {...args} />
 
-export const Reversed: Story = {
-  name: "Image inversée (à gauche)",
-  args: {
-    features: {
-      isReversed: true,
-      isContinious: false,
-    },
-    title: "description h2 title data-1",
-    content: [
-      {
-        text: "description p text data-1",
-      },
-      {
-        text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      },
-      {
-        text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.",
-      },
-      {
-        text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.",
-      },
-    ],
-    images: [
-      {
-        name: "square_image_1",
-        alt: "description img alt data-1",
-        focusable: false,
-      },
-    ],
-  },
-  parameters: {
-    docs: {
-      description: {
-        story:
-          "Configuration avec image à gauche et texte à droite (isReversed: true). Permet de varier l'affichage sur une page.",
-      },
-    },
-  },
-};
+      <hr style={{ margin: "60px 0", border: "1px solid #e0e0e0" }} />
 
-// Nouvelles stories pour couvrir plus de cas d'usage
-export const WithoutImage: Story = {
-  name: "Sans image",
-  args: {
-    features: {
-      isReversed: false,
-      isContinious: false,
-    },
-    title: "description h2 title data-1",
-    content: [
-      {
-        text: "description p text data-1",
-      },
-      {
-        text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      },
-      {
-        text: "description p text data-3",
-      },
-      {
-        text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
-      },
-      {
-        text: "description p text data-5",
-      },
-      {
-        text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-      },
-    ],
-  },
-  parameters: {
-    docs: {
-      description: {
-        story:
-          "Configuration sans image pour les sections purement textuelles. Le contenu prend toute la largeur disponible.",
-      },
-    },
-  },
-};
+      <h3 style={{ textAlign: "center", marginBottom: "40px" }}>
+        Image inversée (à droite)
+      </h3>
+      <DescriptionComponent
+        {...args}
+        features={{ ...args.features, isReversed: true }}
+        title="Une approche différente"
+        content={[
+          {
+            text: "En inversant la disposition, nous créons un effet visuel différent qui permet de varier l'apparence de vos pages.",
+          },
+          {
+            text: "Cette configuration est idéale pour alterner les sections et maintenir l'intérêt visuel de vos visiteurs.",
+          },
+        ]}
+      />
 
-export const WithButtons: Story = {
-  name: "Avec boutons d'action",
-  args: {
-    features: {
-      isReversed: false,
-      isContinious: false,
-    },
-    title: "description h2 title data-1",
-    content: [
-      {
-        text: "description p text data-1",
-      },
-      {
-        text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      },
-      {
-        button: {
-          label: "description button label data-1",
-          to: "/services",
-        },
-      },
-      {
-        text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
-      },
-      {
-        button: {
-          label: "description button label data-2",
-          to: "/contact",
-        },
-      },
-    ],
-    images: [
-      {
-        name: "vertical_image_1",
-        alt: "description img alt data-1",
-        focusable: false,
-      },
-    ],
-  },
-  parameters: {
-    docs: {
-      description: {
-        story:
-          "Exemple avec des boutons d'action intégrés dans le contenu. Les boutons utilisent React Router pour la navigation.",
-      },
-    },
-  },
+      <hr style={{ margin: "60px 0", border: "1px solid #e0e0e0" }} />
+
+      <h3 style={{ textAlign: "center", marginBottom: "40px" }}>Sans image</h3>
+      <DescriptionComponent
+        {...args}
+        title="Du texte, simplement"
+        images={[]}
+        content={[
+          {
+            text: "Parfois, <strong>le contenu textuel seul</strong> est suffisant pour transmettre votre message de manière claire et efficace.",
+          },
+          {
+            text: "Cette configuration permet de se concentrer uniquement sur le texte, sans distraction visuelle. Le contenu prend toute la largeur disponible.",
+          },
+          {
+            text: "Idéal pour les sections explicatives, les mentions légales ou tout autre contenu nécessitant une lecture approfondie.",
+          },
+        ]}
+      />
+
+      <hr style={{ margin: "60px 0", border: "1px solid #e0e0e0" }} />
+
+      <h3 style={{ textAlign: "center", marginBottom: "40px" }}>
+        Avec boutons d'action
+      </h3>
+      <DescriptionComponent
+        {...args}
+        title="Passez à l'action"
+        images={[
+          {
+            name: "vertical_image_1",
+            alt: "Illustration pour l'appel à l'action",
+            focusable: false,
+          },
+        ]}
+        content={[
+          {
+            text: "Découvrez comment nous pouvons transformer vos idées en réalité grâce à notre expertise et notre passion.",
+          },
+          {
+            button: {
+              label: "Découvrir nos services",
+              to: "/services",
+            },
+          },
+          {
+            text: "Notre équipe est prête à vous accompagner dans tous vos projets, du concept à la réalisation.",
+          },
+          {
+            button: {
+              label: "Nous contacter",
+              to: "/contact",
+            },
+          },
+        ]}
+      />
+
+      <hr style={{ margin: "60px 0", border: "1px solid #e0e0e0" }} />
+
+      <h3 style={{ textAlign: "center", marginBottom: "40px" }}>
+        Affichage continu (isContinious)
+      </h3>
+      <DescriptionComponent
+        {...args}
+        features={{ ...args.features, isContinious: true }}
+        title="Section sans espacement supplémentaire"
+        content={[
+          {
+            text: "L'option <strong>isContinious</strong> permet d'afficher la section sans padding vertical supplémentaire.",
+          },
+          {
+            text: "Cela permet de créer un flux continu entre plusieurs sections adjacentes, idéal pour des designs épurés.",
+          },
+        ]}
+      />
+    </div>
+  ),
 };

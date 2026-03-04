@@ -3,18 +3,7 @@ import DOMPurify from "dompurify";
 import { Link } from "react-router-dom";
 
 import { getCustomer } from "../../../customer.utils";
-import {
-  ButtonLink,
-  ButtonWrapper,
-  Container,
-  Content,
-  Image,
-  ImageContainer,
-  Section,
-  SectionTitle,
-  Text,
-  TextContent,
-} from "./description.styled";
+import styles from "./description.module.css";
 import { DescriptionContentItem, DescriptionProps } from "./description.types";
 
 const Description: React.FC<DescriptionProps> = (datas) => {
@@ -37,19 +26,23 @@ const Description: React.FC<DescriptionProps> = (datas) => {
     // Vérifier si c'est un bouton
     if ("button" in item) {
       return (
-        <ButtonWrapper key={`${item.button.label}-${index}`}>
-          <ButtonLink>
+        <div
+          key={`${item.button.label}-${index}`}
+          className={styles.buttonWrapper}
+        >
+          <button type="button" className={styles.buttonLink}>
             <Link to={item.button.to}>{item.button.label}</Link>
-          </ButtonLink>
-        </ButtonWrapper>
+          </button>
+        </div>
       );
     }
 
     // Sinon c'est un texte
     if ("text" in item) {
       return (
-        <Text
+        <p
           key={index}
+          className={styles.text}
           dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(item.text) }}
         />
       );
@@ -59,35 +52,39 @@ const Description: React.FC<DescriptionProps> = (datas) => {
   };
 
   return (
-    <Section
-      className={classNames({
-        isContinious: isContinious,
+    <section
+      data-testid="descriptionRoot"
+      className={classNames(styles.section, {
+        [styles.isContinious]: isContinious,
       })}
     >
-      {title ? <SectionTitle id={hash}>{title}</SectionTitle> : null}
-      <Container>
-        <Content
-          className={classNames({
-            isTextBefore: isTextBefore,
-            isReversed: isReversed,
-            isCentered: isCentered,
+      {title ? (
+        <h2 id={hash} className={styles.sectionTitle}>
+          {title}
+        </h2>
+      ) : null}
+      <div className={styles.container}>
+        <div
+          className={classNames(styles.content, {
+            [styles.isTextBefore]: isTextBefore,
+            [styles.isReversed]: isReversed,
+            [styles.isCentered]: isCentered,
           })}
         >
           {images && images.length !== 0 ? (
-            <ImageContainer
-              className={classNames({
-                isReversed: isReversed,
-                isCentered: isCentered,
+            <div
+              className={classNames(styles.imageContainer, {
+                [styles.isReversed]: isReversed,
+                [styles.isCentered]: isCentered,
               })}
             >
               {images.map((image) => (
                 <div key={image.name}>
-                  <Image
-                    tabIndex={image.focusable ? 0 : -1}
+                  <img
                     src={`${import.meta.env.BASE_URL}assets/${customer}/${image.name}.webp`}
                     alt={image.alt}
-                    className={classNames({
-                      isCentered: isCentered,
+                    className={classNames(styles.image, {
+                      [styles.isCentered]: isCentered,
                     })}
                   />
                   {image.description ? (
@@ -95,20 +92,20 @@ const Description: React.FC<DescriptionProps> = (datas) => {
                   ) : null}
                 </div>
               ))}
-            </ImageContainer>
+            </div>
           ) : null}
-          <TextContent
-            className={classNames({
-              isCentered: isCentered,
+          <div
+            className={classNames(styles.textContent, {
+              [styles.isCentered]: isCentered,
             })}
           >
             {content
               ? content.map((item, index) => renderContentItem(item, index))
               : null}
-          </TextContent>
-        </Content>
-      </Container>
-    </Section>
+          </div>
+        </div>
+      </div>
+    </section>
   );
 };
 

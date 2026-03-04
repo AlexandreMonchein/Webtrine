@@ -4,6 +4,7 @@ import { bp } from "../../../breakpoint";
 import { breakpointNames } from "../../../breakpointDef";
 
 export const Section = styled.section`
+  min-height: inherit;
   padding: 40px 120px;
 
   ${bp.max(
