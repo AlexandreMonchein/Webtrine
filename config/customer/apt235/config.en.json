@@ -145,7 +145,14 @@
                   {
                     "text": "Closed on Sundays and public holidays."
                   }
-                ]
+                ],
+                "reviewButton": {
+                  "text": "Leave us a review",
+                  "url": "https://search.google.com/local/writereview?placeid=ChIJY2CtwvgnVQ0Rurh3z1oF2QE",
+                  "variant": "secondary",
+                  "size": "medium",
+                  "shape": "rounded"
+                }
               }
             }
           }

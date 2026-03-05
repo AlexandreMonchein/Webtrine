@@ -1,0 +1,114 @@
+@import url("../../../custom-media.css");
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  border: none;
+  padding: 12px 24px;
+  text-decoration: none;
+  white-space: nowrap;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    transform 0.2s ease,
+    box-shadow 0.3s ease;
+  position: relative;
+  overflow: visible;
+
+  &:hover,
+  &:focus {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  &:active {
+    transform: scale(0.98);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  }
+}
+
+/* Variantes de style */
+.primary {
+  background-color: var(--theme-color-quinary);
+  color: var(--theme-color-tertiary);
+
+  &:hover,
+  &:focus {
+    background-color: var(--theme-color-quaternary);
+    color: var(--theme-color-primary);
+  }
+}
+
+.secondary {
+  background-color: var(--theme-color-quaternary);
+  color: var(--theme-color-primary);
+
+  &:hover,
+  &:focus {
+    background-color: var(--theme-color-quinary);
+    color: var(--theme-color-tertiary);
+  }
+}
+
+/* Tailles */
+.small {
+  padding: 8px 16px;
+  gap: 8px;
+}
+
+.medium {
+  padding: 12px 24px;
+  gap: 8px;
+}
+
+.large {
+  padding: 16px 32px;
+  gap: 12px;
+}
+
+/* Formes */
+.pill {
+  border-radius: 50px;
+}
+
+.rounded {
+  border-radius: 8px;
+}
+
+.icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 0;
+
+  & svg {
+    width: 20px;
+    height: 20px;
+    fill: currentcolor;
+  }
+
+  .small & svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .large & svg {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+.text {
+  display: inline-block;
+  line-height: 1.2;
+}
+
+/* Responsive */
+@media (--bp-min-medium) {
+  .button {
+    gap: 8px;
+  }
+}

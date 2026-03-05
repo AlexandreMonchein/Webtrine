@@ -159,12 +159,15 @@
 
 .buttonContainer {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 16px;
   margin-top: 1rem;
 
   @media (--bp-min-medium) {
     margin-top: 1.5rem;
+    gap: 24px;
   }
 }
 

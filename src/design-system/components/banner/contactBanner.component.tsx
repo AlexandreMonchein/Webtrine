@@ -1,10 +1,11 @@
 import classNames from "classnames";
 
+import CallToAction from "../../buttons/src/callToAction.component";
 import styles from "./contactBanner.module.css";
 import type { ContactBannerProps } from "./contactBanner.types";
 
 const ContactBanner = ({ datas }: ContactBannerProps) => {
-  const { title, media, infoTitle, content } = datas;
+  const { title, media, infoTitle, content, reviewButton } = datas;
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
@@ -69,6 +70,15 @@ const ContactBanner = ({ datas }: ContactBannerProps) => {
         >
           <span>↑ Retour en haut</span>
         </button>
+        {reviewButton && (
+          <CallToAction
+            text={reviewButton.text}
+            href={reviewButton.url}
+            variant={reviewButton.variant || "primary"}
+            size={reviewButton.size || "medium"}
+            shape={reviewButton.shape || "rounded"}
+          />
+        )}
       </div>
     </section>
   );

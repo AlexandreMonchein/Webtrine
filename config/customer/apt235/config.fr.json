@@ -145,7 +145,14 @@
                   {
                     "text": "Fermé le Dimanche et jours fériés."
                   }
-                ]
+                ],
+                "reviewButton": {
+                  "text": "Laissez-nous un avis",
+                  "url": "https://search.google.com/local/writereview?placeid=ChIJY2CtwvgnVQ0Rurh3z1oF2QE",
+                  "variant": "secondary",
+                  "size": "medium",
+                  "shape": "rounded"
+                }
               }
             }
           }

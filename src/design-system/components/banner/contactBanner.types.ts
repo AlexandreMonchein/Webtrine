@@ -4,6 +4,14 @@ export type ContactInfoItem = {
   withSpacer?: boolean;
 };
 
+export type ReviewButton = {
+  text: string;
+  url: string;
+  variant?: "primary" | "secondary";
+  size?: "small" | "medium" | "large";
+  shape?: "pill" | "rounded";
+};
+
 export type ContactBannerMediaData = {
   type: "image" | "video";
   src: string;
@@ -16,6 +24,7 @@ export type ContactBannerDatas = {
   media: ContactBannerMediaData;
   infoTitle: string;
   content: ContactInfoItem[];
+  reviewButton?: ReviewButton;
 };
 
 export type ContactBannerProps = {

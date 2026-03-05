@@ -82,6 +82,16 @@ const ColorPalette = () => {
             description="Hover state"
           />
           <ColorSwatch
+            name="Foreground 1"
+            variable="--theme-color-foreground-1"
+            description="Foreground color 1"
+          />
+          <ColorSwatch
+            name="Foreground 2"
+            variable="--theme-color-foreground-2"
+            description="Foreground color 2"
+          />
+          <ColorSwatch
             name="Background 1"
             variable="--theme-color-background-1"
             description="Background color 1"

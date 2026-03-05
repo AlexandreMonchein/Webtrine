@@ -432,6 +432,7 @@ className={`${styles.textBlock} ${styles.textBlockTop}`}
 - ✅ **Mobile First** : Styles mobile par défaut + `--bp-min-*`
 - ✅ **Nesting** : Media queries DANS sélecteurs
 - ✅ **Variables** : `var(--theme-color-*)`, jamais de valeurs en dur
+- ✅ **Nombres pairs uniquement** : Utiliser 8px, 16px, 24px, 32px (jamais 10px, 15px, 23px)
 - ✅ **Nommage** : `{nom}Root`, `{nom}RootVariant`
 - ❌ **Font-properties interdites** : Voir section Best Practices
 
@@ -672,7 +673,7 @@ Voir la liste complète dans `src/design-system/tokens/tokens.stories.tsx` :
 **Couleurs** :
 - Brand : `--theme-color-primary`, `--theme-color-secondary`, `--theme-color-tertiary`, `--theme-color-quaternary`, `--theme-color-quinary`
 - Utility : `--theme-color-utility-1` (red), `--theme-color-utility-2` (green), `--theme-color-utility-3` (orange), `--theme-color-utility-4` (blue)
-- Extended : `--theme-color-hover`, `--theme-color-background-1`, `--theme-color-background-2`, `--theme-color-foreground-1`, `--theme-color-foreground-2`, `--theme-color-foreground-3`
+- Extended : `--theme-color-hover`, `--theme-color-background-1`, `--theme-color-background-2`, `--theme-color-foreground-1`, `--theme-color-foreground-2`
 
 **Typographie** :
 - `--navbar-font-size`, `--subtitle-font-size`, `--text-font-size`, `--description-font-size`
@@ -1182,6 +1183,7 @@ import classNames from 'classnames';
 - ✅ **Mobile First** : Styles mobile par défaut + `--bp-min-*`
 - ✅ **Nesting** : Media queries DANS sélecteurs
 - ✅ **Variables** : `var(--theme-color-*)`, jamais hardcoded
+- ✅ **Nombres pairs uniquement** : Utiliser 8px, 16px, 24px, 32px, etc. pour spacing/sizing (jamais 10px, 15px, 23px)
 - ❌ **Font-properties interdites** : `font-size`, `font-weight`, `font-family`, `font-style`
 
 **Exemple** :
@@ -1201,6 +1203,7 @@ import classNames from 'classnames';
 - ✅ Variables theme obligatoires : `var(--theme-color-*)`
 - ✅ @import custom-media en ligne 1
 - ✅ Mobile-first avec `--bp-min-*` imbriqué
+- ✅ Nombres pairs uniquement (8px, 16px, 24px, 32px)
 - ❌ **Pas de font-properties** (size/weight/family/style) - géré par theme global
 - ✅ Organisation : base → variants → states
 
@@ -1246,6 +1249,7 @@ import classNames from 'classnames';
 - [ ] CSS Modules (pas Styled Components)
 - [ ] `@import url('../../../custom-media.css');` ligne 1 CSS
 - [ ] Variables theme : `var(--theme-color-*)`
+- [ ] Nombres pairs uniquement pour spacing/sizing (8px, 16px, 24px)
 - [ ] ❌ **Aucune font-property** (size/weight/family/style)
 - [ ] Mobile-first : `--bp-min-*` imbriquées
 - [ ] `classNames()` pour classes multiples
