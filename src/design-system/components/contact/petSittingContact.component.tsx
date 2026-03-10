@@ -38,7 +38,12 @@ const PetSittingContact = () => {
   const socials: { [key: string]: { link: string; color: string } } =
     useSelector(getSocials);
 
-  const { phone, email, mailTemplate: templateId } = contact;
+  const {
+    phone,
+    email,
+    mailTemplate: templateId,
+    mailServiceId: serviceId,
+  } = contact;
 
   useEffect(() => emailjs.init("OYqEmnhZaB6k1hEGB"), []);
 
@@ -100,8 +105,6 @@ const PetSittingContact = () => {
         additionalInfo,
         replyTo,
       };
-
-      const serviceId = "service_4fc2bmb";
 
       try {
         await emailjs.send(serviceId, templateId, {

@@ -242,7 +242,7 @@
 }
 
 .hint {
-  color: var(--theme-color-hover);
+  color: var(--theme-color-foreground-1);
   margin-bottom: 0.5rem;
   line-height: 1.4;
 }
@@ -256,7 +256,7 @@
   transition: all 0.2s ease;
 
   &::placeholder {
-    color: var(--theme-color-hover);
+    color: var(--theme-color-foreground-1);
   }
 
   &:focus {

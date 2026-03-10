@@ -1,5 +1,8 @@
 /* Showcase - CSS Variables Injection */
 
+/* Import font definitions (available for Storybook, not applied to site) */
+@import url('./fonts.css');
+
 :root {
   /* ============================================
      TYPOGRAPHY

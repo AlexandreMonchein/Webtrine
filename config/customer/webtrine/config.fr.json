@@ -7,13 +7,40 @@
       "name": "Alexandre Monschein",
       "phone": "+33614612295",
       "email": "webtrine.pro@gmail.com",
-      "mailTemplate": "template_u67t0nr"
+      "mailTemplate": "template_u67t0nr",
+      "mailServiceId": "service_4fc2bmb"
     },
     "socials": {
       "linkedin": {
         "link": "https://www.linkedin.com/in/alexandre-monschein-34984a161",
         "color": "white"
       }
+    },
+    "structuredData": {
+      "@type": "ProfessionalService",
+      "name": "Webtrine",
+      "description": "Agence de développement web et d'hébergement de sites internet. Création de sites vitrines, applications web sur mesure, hébergement et maintenance de sites professionnels.",
+      "url": "https://webtrine.fr",
+      "telephone": "+33614612295",
+      "email": "webtrine.pro@gmail.com",
+      "priceRange": "€€€",
+      "address": {
+        "addressLocality": "France",
+        "addressCountry": "FR"
+      },
+      "areaServed": [
+        {
+          "@type": "Country",
+          "name": "France"
+        },
+        {
+          "@type": "AdministrativeArea",
+          "name": "Europe"
+        }
+      ],
+      "openingHours": [
+        "Mo-Fr 09:00-18:00"
+      ]
     }
   },
   "layout": {

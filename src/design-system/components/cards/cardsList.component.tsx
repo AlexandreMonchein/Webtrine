@@ -47,9 +47,13 @@ const Cards: React.FC<CardsProps> = (props) => {
     [content],
   );
 
-  const iconComponents = useLoadComponents(iconNames, {
-    returnAsRecord: true,
-  }) as Record<string, React.ComponentType<{ size?: number }> | null>;
+  // Mémoriser les options pour éviter les re-renders
+  const loadOptions = useMemo(() => ({ returnAsRecord: true }), []);
+
+  const iconComponents = useLoadComponents(iconNames, loadOptions) as Record<
+    string,
+    React.ComponentType<{ size?: number }> | null
+  >;
 
   return (
     <Section>

@@ -6,7 +6,8 @@
       "name": "Studio APT.235",
       "email": "contact@apt235.com",
       "phone": "+33 1 23 45 67 89",
-      "mailTemplate": "template_u67t0nr"
+      "mailTemplate": "template_3amwy1b",
+      "mailServiceId": "service_4fc2bmb"
     },
     "socials": {
       "instagram": {
@@ -20,7 +21,57 @@
         "color": "black"
       }
     },
-    "logo": "favicon_apt235"
+    "logo": "favicon_apt235",
+    "structuredData": {
+      "@type": "TattooParlor",
+      "name": "APT.235",
+      "url": "https://apt235.com",
+      "telephone": "+33123456789",
+      "priceRange": "$$-$$$",
+      "image": [
+        "https://apt235.com/assets/apt235/images/studio.webp"
+      ],
+      "address": {
+        "streetAddress": "139 Bis Bd du Président Wilson",
+        "addressLocality": "Bordeaux",
+        "addressRegion": "Nouvelle-Aquitaine",
+        "postalCode": "33000",
+        "addressCountry": "FR"
+      },
+      "geo": {
+        "latitude": 44.843062,
+        "longitude": -0.599658
+      },
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "Bordeaux"
+        },
+        {
+          "@type": "City",
+          "name": "Le Bouscat"
+        },
+        {
+          "@type": "City",
+          "name": "Caudéran"
+        },
+        {
+          "@type": "City",
+          "name": "St Genès"
+        },
+        {
+          "@type": "AdministrativeArea",
+          "name": "Métropole de Bordeaux"
+        }
+      ],
+      "openingHoursSpecification": [
+        {
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+          "opens": "11:00",
+          "closes": "19:00"
+        }
+      ]
+    }
   },
   "layout": {
     "templates": [
@@ -67,7 +118,7 @@
         "name": "Home",
         "datas": {
           "title": "Home",
-          "description": "Webtrine - Showcase Website Creation",
+          "description": "APT.235 - Tattoo Studio in Bordeaux",
           "content": {
             "banner-1": {
               "type": "banner",

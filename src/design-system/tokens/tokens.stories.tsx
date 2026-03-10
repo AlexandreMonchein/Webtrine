@@ -141,7 +141,7 @@ const ColorPalette = () => {
 };
 
 const meta = {
-  title: "Design System/Tokens",
+  title: "Design System/Tokens/Colors",
   component: ColorPalette,
   parameters: {
     layout: "fullscreen",

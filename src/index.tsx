@@ -11,6 +11,7 @@ import App from "./App";
 import { getCustomer } from "./customer.utils";
 import i18n from "./i18n";
 import store from "./store";
+import type { AppConfig, StyleConfig } from "./types/config.types";
 
 const rootElement = document.getElementById("root");
 
@@ -44,8 +45,8 @@ function LoadingFallback() {
 // Component that loads config based on current language
 function ConfigLoader() {
   const { i18n } = useTranslation();
-  const [config, setConfig] = useState(null);
-  const [style, setStyle] = useState(null);
+  const [config, setConfig] = useState<AppConfig | null>(null);
+  const [style, setStyle] = useState<StyleConfig | null>(null);
 
   const loadConfiguration = async (language: string) => {
     try {

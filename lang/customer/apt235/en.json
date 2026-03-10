@@ -63,10 +63,10 @@
       "budgetHint": "Your estimated budget (optional)",
       "budgetPlaceholder": "$500 - $1000",
       "photos": "Reference photos",
-      "photosHint": "Add up to 5 reference photos (max 2MB each)",
+      "photosHint": "Add 1 reference photo (compression to ~20KB, reduced quality)",
       "errorNotImage": "is not a valid image",
-      "errorTooLarge": "is too large (max 2MB)",
-      "errorMaxFiles": "Maximum 5 photos allowed",
+      "errorTooLarge": "is too large (max 10MB before compression)",
+      "errorMaxFiles": "Maximum 1 photo allowed",
       "removePhoto": "Remove photo"
     }
   },

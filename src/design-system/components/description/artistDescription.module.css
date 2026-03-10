@@ -36,6 +36,11 @@
   overflow: hidden;
   border-radius: 12px;
   cursor: pointer;
+
+  @media (--bp-min-xlarge) {
+    width: 500px;
+    height: 500px;
+  }
 }
 
 /* Image Counter */

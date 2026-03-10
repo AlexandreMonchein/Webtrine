@@ -73,10 +73,6 @@
   @media (--bp-min-xlarge) {
     max-height: 1200px;
   }
-
-  @media (--bp-min-wide) {
-    max-height: 1500px;
-  }
 }
 
 /* ========================================

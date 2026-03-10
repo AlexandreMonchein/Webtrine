@@ -1,5 +1,8 @@
 /* Apt235 - CSS Variables Injection */
 
+/* Import SK Modernist Mono font family */
+@import url('./fonts.css');
+
 :root {
   /* ============================================
      TYPOGRAPHY
@@ -8,6 +11,7 @@
   --subtitle-font-size: var(--subtitle-font-size-override, 1.5rem);
   --text-font-size: var(--text-font-size-override, 1rem);
   --description-font-size: var(--description-font-size-override, 0.875rem);
+
 
   /* ============================================
      Z-INDEX
@@ -41,4 +45,9 @@
   --theme-color-background-2: var(--theme-color-background-2-override, #f9f9f9);
   --theme-color-foreground-1: var(--theme-color-foreground-1-override, #ffffff);
   --theme-color-foreground-2: var(--theme-color-foreground-2-override, #000000);
+}
+
+body {
+  /* font-family: 'SK Modernist Mono', monospace; */
+  font-family: 'IBM Plex Mono', monospace;
 }

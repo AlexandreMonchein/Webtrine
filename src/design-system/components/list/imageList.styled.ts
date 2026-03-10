@@ -1,7 +1,5 @@
 import styled from "styled-components";
 
-import { SectionTitle } from "../description/description.styled";
-
 export const Section = styled.section`
   padding: 40px 0px;
   color: var(--theme-color-tertiary);
@@ -109,7 +107,9 @@ export const ScrollButton = styled.button`
   }
 `;
 
-export const Title = styled(SectionTitle)`
+export const Title = styled.h2`
+  color: var(--theme-color-foreground-1);
+  text-align: center;
   padding-bottom: 0px;
 `;
 

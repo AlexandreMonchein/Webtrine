@@ -12,6 +12,12 @@ Ce guide détaille comment ajouter un nouveau client dans le système multi-tena
 - ✅ **Format WebP** : Toutes les images en `.webp` (utiliser `pnpm convert:webp`)
 - ✅ **Tester dev** : `VITE_CUSTOMER={CLIENT} pnpm dev` avant build
 
+### SHOULD (Fortement recommandé)
+- 🎯 **Structured Data** : Ajouter section `structuredData` pour le SEO (schema.org JSON-LD)
+- 🎯 **areaServed** : Définir zones géographiques desservies pour référencement local
+- 🎯 **Google My Business** : Optimiser avec les mêmes infos que structured data
+- 🎯 **Analytics** : Configurer Google Analytics ou GTM pour le tracking
+
 ### MUST NOT (Erreurs courantes)
 - ❌ **Jamais font-properties dans CSS** : Voir `CSS_MODULES_MIGRATION.md`
 - ❌ **Jamais clés de traduction manquantes** : FR et EN doivent avoir les mêmes clés
@@ -148,6 +154,175 @@ Webtrine/
 
 **Variables disponibles** : `*-font-size`, `z-index-*`, `theme-color-*` (primary/secondary/tertiary/quaternary/quinary, utility-1/2/3/4, hover, background-1/2, foreground-1/2/3)
 
+### Données Structurées (SEO)
+
+**`config/customer/myclient/config.fr.json`** - Section `structuredData` (optionnel) :
+
+Les données structurées permettent aux moteurs de recherche de mieux comprendre et indexer votre établissement. Elles utilisent le format JSON-LD selon les standards schema.org.
+
+**Champs disponibles** (tous optionnels) :
+
+```json
+{
+  "client": {
+    "name": "myclient",
+    "fullName": "My Client Inc",
+    "structuredData": {
+      "@type": "LocalBusiness",
+      "name": "My Client Inc",
+      "description": "Description de votre établissement",
+      "url": "https://myclient.com",
+      "telephone": "+33 1 23 45 67 89",
+      "email": "contact@myclient.com",
+      "priceRange": "$$",
+      "image": "https://myclient.com/assets/myclient/images/photo_principale.webp",
+      "address": {
+        "streetAddress": "123 Rue Exemple",
+        "addressLocality": "Paris",
+        "postalCode": "75001",
+        "addressCountry": "FR"
+      },
+      "geo": {
+        "latitude": 48.8566,
+        "longitude": 2.3522
+      },
+      "openingHours": [
+        "Mo-Fr 09:00-18:00",
+        "Sa 10:00-17:00"
+      ],
+      "areaServed": [
+        "Paris",
+        "Île-de-France",
+        "Boulogne-Billancourt",
+        "Montreuil"
+      ],
+      "aggregateRating": {
+        "ratingValue": 5.0,
+        "reviewCount": 250
+      },
+      "review": [
+        {
+          "author": "Jean Dupont",
+          "datePublished": "2026-01-15",
+          "reviewBody": "Excellent service, très professionnel!",
+          "reviewRating": 5
+        }
+      ]
+    }
+  }
+}
+```
+
+> **Note** : `areaServed` peut aussi utiliser le format typé avec `@type: "City"`, `@type: "State"`, etc. Voir section "Stratégie `areaServed`" ci-dessous pour les détails.
+```
+
+**Types d'établissements** (`@type`) :
+- `LocalBusiness` - Commerce local générique
+- `TattooParlor` - Studio de tatouage
+- `Restaurant` - Restaurant
+- `Store` - Magasin
+- `ProfessionalService` - Service professionnel
+- [Plus de types sur schema.org](https://schema.org/LocalBusiness)
+
+**Champs clés** :
+- **`@type`** : Type d'établissement selon schema.org
+- **`name`** : Nom officiel de l'établissement
+- **`description`** : Description complète pour les moteurs de recherche
+- **`url`** : URL du site web
+- **`address`** : Adresse physique complète (streetAddress, addressLocality, postalCode, addressCountry)
+- **`geo`** : Coordonnées GPS (latitude, longitude)
+- **`openingHours`** : Horaires d'ouverture au format schema.org (ex: "Mo-Fr 09:00-18:00")
+- **`areaServed`** : Zones géographiques desservies (villes, régions) - **Crucial pour le SEO local**
+- **`aggregateRating`** : Note moyenne et nombre d'avis
+- **`review`** : Avis clients individuels
+
+**Stratégie `areaServed`** :
+
+Le champ `areaServed` est essentiel pour le référencement local. Il indique aux moteurs de recherche les zones géographiques que vous ciblez.
+
+**Format 1 - Simple (recommandé)** : Tableau de strings
+```json
+"areaServed": [
+  "Bordeaux",           // Ville principale ciblée
+  "Cenon",              // Localisation physique
+  "Floirac",            // Villes limitrophes
+  "Lormont",
+  "Métropole de Bordeaux"  // Région
+]
+```
+
+**Format 2 - Typé (plus précis)** : Objets avec `@type`
+```json
+"areaServed": [
+  {
+    "@type": "City",
+    "name": "Bordeaux"
+  },
+  {
+    "@type": "City",
+    "name": "Cenon"
+  },
+  {
+    "@type": "City",
+    "name": "Floirac"
+  },
+  {
+    "@type": "AdministrativeArea",
+    "name": "Métropole de Bordeaux"
+  },
+  {
+    "@type": "State",
+    "name": "Nouvelle-Aquitaine"
+  }
+]
+```
+
+**Types disponibles** pour `@type` dans `areaServed` :
+- `City` - Ville
+- `AdministrativeArea` - Zone administrative (métropole, communauté urbaine)
+- `State` - Région/Département
+- `Country` - Pays
+- `Place` - Lieu générique
+
+**Quelle option choisir ?**
+- **Format simple** : Plus facile à utiliser, largement accepté par Google, suffisant pour la plupart des cas
+- **Format typé** : Plus précis sémantiquement, recommandé si vous ciblez des zones de différents types (villes + régions + pays)
+
+**Bonnes pratiques** :
+- Ajouter la ville où vous êtes situé
+- Ajouter les villes environnantes (< 15km)
+- Ajouter la métropole/agglomération
+- Ajouter la région si pertinent
+- Maximum 5-10 zones pour rester pertinent
+- Cohérence : utiliser le même format partout (simple OU typé, pas les deux mélangés)
+
+**Validation** :
+
+Après avoir ajouté les données structurées :
+
+1. **Tester en développement** :
+   ```bash
+   VITE_CUSTOMER=myclient pnpm dev
+   ```
+
+2. **Vérifier dans le navigateur** :
+   - Ouvrir DevTools → Onglet Elements
+   - Chercher `<script type="application/ld+json" id="structured-data">` dans `<head>`
+   - Vérifier que le JSON est présent et valide
+
+3. **Valider avec Google** :
+   - Aller sur [Google Rich Results Test](https://search.google.com/test/rich-results)
+   - Tester l'URL ou coller le code HTML
+   - Vérifier qu'il n'y a pas d'erreurs
+
+4. **Compléter avec** :
+   - Google My Business optimisé avec les mêmes informations
+   - Contenu web mentionnant les zones ciblées
+   - Citations locales (annuaires, etc.)
+   - Avis clients sur Google et autres plateformes
+
+**Note** : Les données structurées doivent être identiques dans `config.fr.json` et `config.en.json` (sauf `description` qui peut être traduite).
+
 ## [TRANSLATIONS] Traductions
 
 **`lang/customer/myclient/fr.json`** :
@@ -232,6 +407,16 @@ VITE_CUSTOMER=myclient pnpm storybook
 - [ ] `client.logo` défini (sans extension)
 - [ ] Templates configurés (`navbars`, `footers`, `banner`, etc.)
 - [ ] Analytics configuré (GA, GTM)
+
+### Données Structurées (SEO)
+- [ ] Section `structuredData` ajoutée dans `config.fr.json` et `config.en.json`
+- [ ] `@type` approprié défini (`LocalBusiness`, `TattooParlor`, etc.)
+- [ ] Adresse complète renseignée (`address`)
+- [ ] Coordonnées GPS ajoutées (`geo`)
+- [ ] Zones desservies définies (`areaServed`) pour SEO local
+- [ ] Horaires d'ouverture renseignés (`openingHours`)
+- [ ] JSON-LD vérifié dans `<head>` avec DevTools
+- [ ] Validé avec [Google Rich Results Test](https://search.google.com/test/rich-results)
 
 ### Traductions
 - [ ] `fr.json` et `en.json` créés

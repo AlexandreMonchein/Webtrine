@@ -34,7 +34,7 @@ export const DoubleImageDescription = ({
             className={`${styles.textBlock} ${styles.textBlockTop}`}
           >
             <div className={styles.textContent}>
-              <h3 className={styles.title}>{leftText.title}</h3>
+              <h2 className={styles.title}>{leftText.title}</h2>
               <hr className={styles.divider} />
               <p className={styles.description}>{leftText.description}</p>
               <div className={styles.arrow}>→</div>
@@ -55,7 +55,7 @@ export const DoubleImageDescription = ({
             className={`${styles.textBlock} ${styles.textBlockBottom}`}
           >
             <div className={styles.textContent}>
-              <h3 className={styles.title}>{rightText.title}</h3>
+              <h2 className={styles.title}>{rightText.title}</h2>
               <hr className={styles.divider} />
               <p className={styles.description}>{rightText.description}</p>
               <div className={styles.arrow}>→</div>

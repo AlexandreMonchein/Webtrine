@@ -1,0 +1,20 @@
+/* Font Families for APT.235 */
+
+/* ============================================
+   IBM PLEX MONO - Monospace Font
+   ============================================ */
+
+/* Import shared IBM Plex Mono definitions */
+@import url('../../font/ibm-plex-mono.css');
+
+/* ============================================
+   SK MODERNIST MONO - Primary Font
+   ============================================ */
+
+@font-face {
+  font-family: 'SK Modernist Mono';
+  src: url('../../font/Sk-Modernist-Mono.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}

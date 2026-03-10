@@ -7,13 +7,53 @@
       "name": "Oceane Michel",
       "phone": "06.24.78.74.42",
       "email": "oceanemic.petsitting@gmail.com",
-      "mailTemplate": "template_8b4j0fm"
+      "mailTemplate": "template_8b4j0fm",
+      "mailServiceId": "service_4fc2bmb"
     },
     "socials": {
       "instagram": {
         "link": "https://www.instagram.com/chill_paws_off/",
         "color": "white"
       }
+    },
+    "structuredData": {
+      "@type": "LocalBusiness",
+      "name": "Chill Paws",
+      "description": "Service professionnel de garde d'animaux et pet-sitting à domicile dans la région de Lyon et Saint-Étienne. Visites, promenades, soins personnalisés pour vos animaux de compagnie.",
+      "url": "https://chillpaws.fr",
+      "telephone": "0624787442",
+      "email": "oceanemic.petsitting@gmail.com",
+      "priceRange": "€€",
+      "address": {
+        "addressLocality": "Lyon",
+        "addressRegion": "Auvergne-Rhône-Alpes",
+        "addressCountry": "FR"
+      },
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "Lyon"
+        },
+        {
+          "@type": "City",
+          "name": "Saint-Étienne"
+        },
+        {
+          "@type": "City",
+          "name": "Villeurbanne"
+        },
+        {
+          "@type": "City",
+          "name": "Vénissieux"
+        },
+        {
+          "@type": "AdministrativeArea",
+          "name": "Métropole de Lyon"
+        }
+      ],
+      "openingHours": [
+        "Mo-Su 08:00-20:00"
+      ]
     }
   },
   "layout": {

@@ -1,0 +1,17 @@
+/* Showcase - Font Definitions */
+
+/* All fonts available for Storybook testing, but not applied by default to the site */
+
+/* Import IBM Plex Mono (shared font definitions) */
+@import url('../../font/ibm-plex-mono.css');
+
+/* SK Modernist Mono - Primary monospace font for APT.235, available for testing in showcase */
+@font-face {
+  font-family: 'SK Modernist Mono';
+  src: url('../../font/Sk-Modernist-Mono.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Note: Luciole fonts are already loaded via default theme */

@@ -7,13 +7,64 @@
       "name": "Alexandre Monschein",
       "phone": "+33614612295",
       "email": "webtrine.pro@gmail.com",
-      "mailTemplate": "template_u67t0nr"
+      "mailTemplate": "template_u67t0nr",
+      "mailServiceId": "service_4fc2bmb"
     },
     "socials": {
       "linkedin": {
         "link": "https://www.linkedin.com/in/alexandre-monschein-34984a161",
         "color": "white"
       }
+    },
+    "structuredData": {
+      "@type": "ProfessionalService",
+      "name": "Webtrine",
+      "url": "https://webtrine.fr",
+      "telephone": "+33614612295",
+      "priceRange": "$$-$$$",
+      "image": [
+        "https://webtrine.fr/assets/showcase/images/hero.webp"
+      ],
+      "address": {
+        "streetAddress": "123 Rue de l'Innovation",
+        "addressLocality": "Paris",
+        "addressRegion": "Île-de-France",
+        "postalCode": "75001",
+        "addressCountry": "FR"
+      },
+      "geo": {
+        "latitude": 48.8566,
+        "longitude": 2.3522
+      },
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "Paris"
+        },
+        {
+          "@type": "City",
+          "name": "Boulogne-Billancourt"
+        },
+        {
+          "@type": "City",
+          "name": "Montreuil"
+        },
+        {
+          "@type": "City",
+          "name": "Saint-Denis"
+        },
+        {
+          "@type": "AdministrativeArea",
+          "name": "Île-de-France"
+        }
+      ],
+      "openingHoursSpecification": [
+        {
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "09:00",
+          "closes": "18:00"
+        }
+      ]
     }
   },
   "layout": {

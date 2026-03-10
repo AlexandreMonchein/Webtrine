@@ -1,26 +1,18 @@
 import emailjs from "@emailjs/browser";
+import imageCompression from "browser-image-compression";
 import classNames from "classnames";
 import { useCallback, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import { showPopUp } from "../../../store/state.action";
+import { getClient } from "../../../store/state.selector";
 import PopUp from "../popup/popUp.component";
 import styles from "./tattooContact.module.css";
-import type {
-  Artist,
-  FormData,
-  TattooContactProps,
-} from "./tattooContact.types";
+import type { Artist, TattooContactProps } from "./tattooContact.types";
 
 export const TattooContact = ({ datas }: TattooContactProps) => {
-  const {
-    artists,
-    serviceId,
-    templateId,
-    replyTo,
-    "data-testid": dataTestid,
-  } = datas;
+  const { artists, "data-testid": dataTestid } = datas;
   const dispatch = useDispatch();
   const { t } = useTranslation();
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -28,6 +20,8 @@ export const TattooContact = ({ datas }: TattooContactProps) => {
   const [artistInput, setArtistInput] = useState("");
   const [photos, setPhotos] = useState<File[]>([]);
   const [photoErrors, setPhotoErrors] = useState<string[]>([]);
+  const client = useSelector(getClient).contact;
+  const { mailTemplate: templateId, mailServiceId: serviceId } = client;
 
   useEffect(() => emailjs.init("OYqEmnhZaB6k1hEGB"), []);
 
@@ -48,45 +42,91 @@ export const TattooContact = ({ datas }: TattooContactProps) => {
     }
   }, [artists, selectedArtist]);
 
+  const compressImage = useCallback(async (file: File): Promise<File> => {
+    const options = {
+      maxSizeMB: 0.01, // 10KB max pour test
+      maxWidthOrHeight: 800,
+      useWebWorker: true,
+      quality: 0.5,
+    };
+
+    try {
+      const compressedFile = await imageCompression(file, options);
+
+      return compressedFile;
+    } catch (error) {
+      console.error("Image compression error:", error);
+      return file; // Return original if compression fails
+    }
+  }, []);
+
   const validatePhotos = useCallback(
-    (files: FileList | null): File[] => {
+    async (files: FileList | null): Promise<File[]> => {
       if (!files) return [];
 
       const validFiles: File[] = [];
       const errors: string[] = [];
-      const maxSize = 2 * 1024 * 1024; // 2MB
-      const maxFiles = 5;
+      const maxSize = 10 * 1024 * 1024; // 10MB before compression
+      const maxFiles = 1; // Limited to 1 photo due to EmailJS 50KB variable limit
 
-      Array.from(files).forEach((file) => {
-        if (!file.type.startsWith("image/")) {
-          errors.push(`${file.name}: ${t("contact.tattoo.errorNotImage")}`);
-          return;
-        }
+      const filesToProcess = Array.from(files).slice(0, maxFiles);
 
-        if (file.size > maxSize) {
-          errors.push(`${file.name}: ${t("contact.tattoo.errorTooLarge")}`);
-          return;
-        }
+      // Process all files in parallel for better performance
+      const results = await Promise.all(
+        filesToProcess.map(async (file) => {
+          if (!file.type.startsWith("image/")) {
+            return {
+              error: `${file.name}: ${t("contact.tattoo.errorNotImage")}`,
+            };
+          }
 
-        if (validFiles.length < maxFiles) {
-          validFiles.push(file);
-        } else {
-          errors.push(t("contact.tattoo.errorMaxFiles"));
+          if (file.size > maxSize) {
+            return {
+              error: `${file.name}: ${t("contact.tattoo.errorTooLarge")}`,
+            };
+          }
+
+          try {
+            // Compress the image before adding
+            const compressedFile = await compressImage(file);
+            return { file: compressedFile };
+          } catch (error) {
+            return {
+              error: `${file.name}: ${t("contact.tattoo.errorNotImage")}`,
+            };
+          }
+        }),
+      );
+
+      // Separate files and errors
+      results.forEach((result) => {
+        if ("file" in result && result.file) {
+          validFiles.push(result.file);
+        } else if ("error" in result) {
+          errors.push(result.error);
         }
       });
+
+      if (files.length > maxFiles) {
+        errors.push(t("contact.tattoo.errorMaxFiles"));
+      }
 
       setPhotoErrors(errors);
       return validFiles;
     },
-    [t],
+    [t, compressImage],
   );
 
   const handlePhotoChange = useCallback(
-    (e: React.ChangeEvent<HTMLInputElement>) => {
-      const validatedPhotos = validatePhotos(e.target.files);
+    async (e: React.ChangeEvent<HTMLInputElement>) => {
+      const validatedPhotos = await validatePhotos(e.target.files);
+
+      // Store compressed photos in state (we'll inject them into the input on submit)
       setPhotos((prev) => {
         const combined = [...prev, ...validatedPhotos];
-        return combined.slice(0, 5); // Limit to 5 photos
+        const result = combined.slice(0, 1); // Limit to 1 photo (EmailJS 50KB limit)
+
+        return result;
       });
     },
     [validatePhotos],
@@ -124,53 +164,45 @@ export const TattooContact = ({ datas }: TattooContactProps) => {
       setIsSubmitting(true);
 
       const formElement = e.target as HTMLFormElement;
-      const formData: FormData = {
-        artistName: selectedArtist.artistName,
-        artistMail: selectedArtist.mail || "",
-        email: (formElement.elements.namedItem("email") as HTMLInputElement)
-          .value,
-        name: (formElement.elements.namedItem("name") as HTMLInputElement)
-          .value,
-        phone: (formElement.elements.namedItem("phone") as HTMLInputElement)
-          .value,
-        object: (formElement.elements.namedItem("object") as HTMLInputElement)
-          .value,
-        description: (
-          formElement.elements.namedItem("description") as HTMLTextAreaElement
-        ).value,
-        tattooSize: (
-          formElement.elements.namedItem("tattooSize") as HTMLInputElement
-        ).value,
-        tattooZone: (
-          formElement.elements.namedItem("tattooZone") as HTMLInputElement
-        ).value,
-        availability: (
-          formElement.elements.namedItem("availability") as HTMLInputElement
-        ).value,
-        budget:
-          (formElement.elements.namedItem("budget") as HTMLInputElement)
-            ?.value || "",
-        photos,
-      };
 
       try {
-        // Convert photos to base64 for email attachment
-        const photoPromises = photos.map((photo) => {
-          return new Promise<string>((resolve) => {
-            const reader = new FileReader();
-            reader.onloadend = () => resolve(reader.result as string);
-            reader.readAsDataURL(photo);
-          });
+        // Create FormData manually with all form fields + compressed photos
+        const manualFormData = new FormData();
+
+        // Add all text fields from the form
+        const formData = new FormData(formElement);
+        for (const [key, value] of formData.entries()) {
+          if (key !== "photos") {
+            manualFormData.append(key, value);
+          }
+        }
+
+        // Add compressed photos from state
+        photos.forEach((photo) => {
+          manualFormData.append("photos", photo, photo.name);
         });
 
-        const photoBase64 = await Promise.all(photoPromises);
+        // Add photo count
+        manualFormData.set("photoCount", photos.length.toString());
 
-        await emailjs.send(serviceId, templateId, {
-          ...formData,
-          photos: photoBase64.join(","),
-          photoNames: photos.map((p) => p.name).join(", "),
-          replyTo,
-        });
+        // Add EmailJS required fields
+        manualFormData.append("lib_version", "4.3.3");
+        manualFormData.append("service_id", serviceId);
+        manualFormData.append("template_id", templateId);
+        manualFormData.append("user_id", "OYqEmnhZaB6k1hEGB");
+
+        // Send directly to EmailJS API
+        const apiResponse = await fetch(
+          "https://api.emailjs.com/api/v1.0/email/send-form",
+          {
+            method: "POST",
+            body: manualFormData,
+          },
+        );
+
+        if (!apiResponse.ok) {
+          throw new Error(`EmailJS API error: ${apiResponse.status}`);
+        }
 
         dispatch(
           showPopUp({
@@ -183,6 +215,11 @@ export const TattooContact = ({ datas }: TattooContactProps) => {
         setPhotos([]);
         setPhotoErrors([]);
       } catch (error) {
+        console.error("Email sending error:", error);
+        console.error("Error details:", {
+          message: error instanceof Error ? error.message : "Unknown error",
+          stack: error instanceof Error ? error.stack : undefined,
+        });
         dispatch(
           showPopUp({
             type: "error",
@@ -193,16 +230,7 @@ export const TattooContact = ({ datas }: TattooContactProps) => {
         setIsSubmitting(false);
       }
     },
-    [
-      isSubmitting,
-      selectedArtist,
-      photos,
-      serviceId,
-      templateId,
-      replyTo,
-      dispatch,
-      t,
-    ],
+    [isSubmitting, selectedArtist, photos, serviceId, templateId, dispatch, t],
   );
 
   const hasValidEmailForForm =
@@ -248,7 +276,33 @@ export const TattooContact = ({ datas }: TattooContactProps) => {
         {selectedArtist && (
           <>
             {hasValidEmailForForm ? (
-              <form className={styles.form} onSubmit={handleSubmit}>
+              <form
+                className={styles.form}
+                onSubmit={handleSubmit}
+                encType="multipart/form-data"
+              >
+                {/* Hidden fields for EmailJS template variables */}
+                <input
+                  type="hidden"
+                  name="artistName"
+                  value={selectedArtist.artistName}
+                />
+                <input
+                  type="hidden"
+                  name="artistMail"
+                  value={selectedArtist.mail || "webtrine.pro@gmail.com"}
+                />
+                <input
+                  type="hidden"
+                  name="replyTo"
+                  value={selectedArtist.mail || "webtrine.pro@gmail.com"}
+                />
+                <input
+                  type="hidden"
+                  name="photoCount"
+                  value={photos.length.toString()}
+                />
+
                 <div className={styles.formGrid}>
                   {/* Email */}
                   <div className={styles.field}>
@@ -411,10 +465,9 @@ export const TattooContact = ({ datas }: TattooContactProps) => {
                       name="photos"
                       className={styles.inputFile}
                       accept="image/*"
-                      multiple
                       onChange={handlePhotoChange}
                       aria-describedby="hint-photos"
-                      disabled={photos.length >= 5}
+                      disabled={photos.length >= 1}
                     />
 
                     {photoErrors.length > 0 && (
@@ -510,7 +563,7 @@ export const TattooContact = ({ datas }: TattooContactProps) => {
                   href={
                     selectedArtist.mail?.includes("mailto")
                       ? selectedArtist.mail
-                      : `mailto:${selectedArtist.mail || replyTo}?subject=${encodeURIComponent(
+                      : `mailto:${selectedArtist.mail}?subject=${encodeURIComponent(
                           `${t("contact.tattoo.mailSubject")} ${selectedArtist.artistName}`,
                         )}`
                   }

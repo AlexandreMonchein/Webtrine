@@ -8,15 +8,7 @@ export type TattooContactProps = {
 };
 
 export type TattooContactDatas = {
-  /** Array of artists with their email addresses */
   artists: Artist[];
-  /** Service ID for EmailJS */
-  serviceId: string;
-  /** Template ID for EmailJS */
-  templateId: string;
-  /** Reply-to email address */
-  replyTo: string;
-  /** Test ID for testing */
   "data-testid"?: string;
 };
 
@@ -33,4 +25,5 @@ export type FormData = {
   availability: string;
   budget?: string;
   photos: File[];
+  replyTo: string;
 };

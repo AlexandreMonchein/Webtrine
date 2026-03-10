@@ -11,10 +11,19 @@ import KeyboardShortcuts from "./design-system/components/shortcut/keyboardShort
 import { PageNotFound } from "./design-system/error/src/pageNotFound.component";
 import DisplayFooter from "./design-system/utils/displayer/displayFooter.component";
 import DisplayNavbar from "./design-system/utils/displayer/displayNavbar.component";
+import { useStructuredData } from "./hooks/useStructuredData";
 import ScrollToTop from "./scrollToTop.utils";
 import { setConfig } from "./store/state.action";
 import { getClient, getStyle, getTemplates } from "./store/state.selector";
+import type { AppProps } from "./types/config.types";
 import { initializeGA, initializeGTM } from "./utils/analytics.utils";
+
+export interface TemplateData {
+  type: string;
+  id?: string;
+  name?: string;
+  datas?: Record<string, unknown>;
+}
 
 export const templatesTypesBlackList = [
   "navbars",
@@ -29,16 +38,11 @@ export const templatesIdsBlackList = ["multiDescriptions"];
 export const templatesNamesBlackList = ["Contact"];
 
 export const getTemplate = (
-  templates: Array<{
-    type: string;
-    id?: string;
-    name?: string;
-    datas?: unknown;
-  }>,
+  templates: TemplateData[],
   templateType: string,
   templateId: string | null = null,
   templateName: string | null = null,
-) => {
+): TemplateData | null => {
   let template;
 
   if (templates) {
@@ -61,13 +65,13 @@ export const getTemplate = (
         );
       }
     }
-    return template;
+    return template || null;
   }
 
   return null;
 };
 
-function App(props: { config: unknown; style: unknown }) {
+function App(props: AppProps) {
   const dispatch = useDispatch();
 
   const [theme, setTheme] = useState("light");
@@ -78,8 +82,12 @@ function App(props: { config: unknown; style: unknown }) {
   dispatch(setConfig(props));
 
   const templates = useSelector(getTemplates);
-  const { logo = "" } = useSelector(getClient);
+  const client = useSelector(getClient);
+  const { logo = "", structuredData } = client;
   const customer = useSelector(getCustomer);
+
+  // Inject structured data for SEO
+  useStructuredData(structuredData);
 
   useEffect(() => {
     const loadCustomerStyles = async () => {

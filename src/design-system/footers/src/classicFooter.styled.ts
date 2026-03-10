@@ -95,5 +95,5 @@ export const SocialContent = styled(DefaultContent)`
 export const SiteRef = styled.a`
   text-decoration: none;
   cursor: pointer;
-  color: var(--theme-color-hover);
+  color: var(--theme-color-foreground-1);
 `;

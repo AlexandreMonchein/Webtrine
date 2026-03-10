@@ -63,10 +63,10 @@
       "budgetHint": "Votre budget estimé (optionnel)",
       "budgetPlaceholder": "500€ - 1000€",
       "photos": "Photos de référence",
-      "photosHint": "Ajoutez jusqu'à 5 photos de référence (max 2MB chacune)",
+      "photosHint": "Ajoutez 1 photo de référence (compression à ~20KB, qualité réduite)",
       "errorNotImage": "n'est pas une image valide",
-      "errorTooLarge": "est trop volumineux (max 2MB)",
-      "errorMaxFiles": "Maximum 5 photos autorisées",
+      "errorTooLarge": "est trop volumineux (max 10MB avant compression)",
+      "errorMaxFiles": "Maximum 1 photo autorisée",
       "removePhoto": "Supprimer la photo"
     }
   },

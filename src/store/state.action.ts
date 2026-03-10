@@ -1,5 +1,7 @@
+import type { AppProps } from "../types/config.types";
+
 export const SET_CONFIG = "SET_CONFIG";
-export const setConfig = ({ config, style }) => {
+export const setConfig = ({ config, style }: AppProps) => {
   const { client, layout } = config || {};
 
   return {
@@ -11,7 +13,15 @@ export const setConfig = ({ config, style }) => {
 };
 
 export const DISPLAY_POPUP = "DISPLAY_POPUP";
-export const showPopUp = ({ type, message, error = undefined }) => {
+export const showPopUp = ({
+  type,
+  message,
+  error = undefined,
+}: {
+  type: string;
+  message: string;
+  error?: Error;
+}) => {
   return {
     type: DISPLAY_POPUP,
     payload: { type, message, error },
@@ -26,7 +36,13 @@ export const hidePopUp = () => {
 };
 
 export const TOGGLE_MODAL = "TOGGLE_MODAL";
-export const toggleModal = ({ type, active }) => {
+export const toggleModal = ({
+  type,
+  active,
+}: {
+  type: string;
+  active: boolean;
+}) => {
   return {
     type: TOGGLE_MODAL,
     modalType: type,
