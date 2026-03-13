@@ -200,6 +200,111 @@ src/design-system/components/{TYPE}/
 - `src/design-system/components/description/team.*` : Composant team dans le dossier description
 - `src/design-system/components/description/description.*` : Composant description dans son propre dossier type
 
+## [HOOKS] Hooks personnalisés React
+
+### Localisation et nommage
+
+Les hooks personnalisés React sont stockés dans **`src/hooks/`** et suivent une convention de nommage stricte :
+
+**Convention** : `{nomDuHook}.hooks.{ts|tsx|js}`
+
+**Exemples** :
+```
+src/hooks/
+├── useImageUpload.hooks.ts        # Hook TypeScript
+├── useImageUpload.docs.md         # Documentation du hook (optionnel)
+├── useStructuredData.hooks.tsx    # Hook TypeScript avec JSX
+└── __tests__/                     # Tests des hooks
+    └── useImageUpload.hooks.test.ts
+```
+
+### Règles de nommage des hooks
+
+- ✅ **TOUJOURS** préfixer le nom par `use` (convention React)
+- ✅ **TOUJOURS** utiliser le suffixe `.hooks.{ts|tsx|js}`
+- ✅ **camelCase** pour le nom du fichier : `useMyCustomHook.hooks.ts`
+- ✅ Extension `.ts` pour les hooks TypeScript sans JSX
+- ✅ Extension `.tsx` pour les hooks TypeScript avec JSX
+
+### Structure d'un hook personnalisé
+
+```typescript
+// src/hooks/useMyCustomHook.hooks.ts
+import { useCallback, useState } from "react";
+
+export type MyCustomHookConfig = {
+  option1: string;
+  option2?: number;
+};
+
+export type MyCustomHookResult = {
+  data: string[];
+  isLoading: boolean;
+  error: string | null;
+  refresh: () => void;
+};
+
+export const useMyCustomHook = (config: MyCustomHookConfig): MyCustomHookResult => {
+  const [data, setData] = useState<string[]>([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  const refresh = useCallback(() => {
+    // Logic here
+  }, []);
+
+  return {
+    data,
+    isLoading,
+    error,
+    refresh,
+  };
+};
+```
+
+### Import d'un hook personnalisé
+
+```typescript
+// Dans un composant
+import { useMyCustomHook } from "@/hooks/useMyCustomHook.hooks";
+// Ou avec chemin relatif
+import { useMyCustomHook } from "../../../hooks/useMyCustomHook.hooks";
+
+const MyComponent = () => {
+  const { data, isLoading, error, refresh } = useMyCustomHook({
+    option1: "value",
+    option2: 42,
+  });
+
+  // ...
+};
+```
+
+### Documentation des hooks
+
+Si le hook est complexe, créez un fichier de documentation :
+
+```
+src/hooks/
+├── useImageUpload.hooks.ts
+└── useImageUpload.docs.md    # Documentation détaillée
+```
+
+La documentation doit inclure :
+- Vue d'ensemble du hook
+- Paramètres et configuration
+- Valeurs de retour
+- Exemples d'utilisation
+- Cas d'usage avancés
+
+### Exemples de hooks existants
+
+- **`useAnalytics.hooks.js`** : Tracking Google Analytics et GTM
+- **`useImageUpload.hooks.ts`** : Upload d'images avec feature flip (attachment vs cloud)
+- **`useStructuredData.hooks.tsx`** : Gestion des données structurées pour SEO
+
+- `src/design-system/components/description/description.*` : Composant description dans son propre dossier type
+
 ## Création pas à pas
 
 > **⚠️ RAPPEL** : Avant de commencer, assurez-vous d'avoir les 3 informations requises :

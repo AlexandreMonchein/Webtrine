@@ -16,7 +16,9 @@ const icons = {
   success: "✅",
   warning: "⚠️",
   error: "❌",
-};
+} as const;
+
+type PopUpType = keyof typeof icons;
 
 const PopUp: React.FC = () => {
   const dispatch = useDispatch();
@@ -28,23 +30,35 @@ const PopUp: React.FC = () => {
   }, [dispatch]);
 
   useEffect(() => {
-    if (!showPopUp) return;
+    if (!showPopUp) {
+      setProgress(0);
+      return undefined;
+    }
 
     const interval = setInterval(() => {
       setProgress((prev) => {
         if (prev >= 100) {
-          clearInterval(interval);
-          handlePopUpClose();
           return 100;
         }
         return prev + 2;
       });
     }, 100);
-  }, [handlePopUpClose, showPopUp]);
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, [showPopUp]);
+
+  // Close popup when progress reaches 100
+  useEffect(() => {
+    if (progress >= 100 && showPopUp) {
+      handlePopUpClose();
+    }
+  }, [progress, showPopUp, handlePopUpClose]);
 
   return showPopUp ? (
     <PopUpContainer type={type}>
-      <Icon>{icons[type]}</Icon>
+      <Icon>{icons[type as PopUpType]}</Icon>
       <Message>
         {message}
         {error && (

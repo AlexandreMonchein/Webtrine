@@ -11,7 +11,7 @@ import KeyboardShortcuts from "./design-system/components/shortcut/keyboardShort
 import { PageNotFound } from "./design-system/error/src/pageNotFound.component";
 import DisplayFooter from "./design-system/utils/displayer/displayFooter.component";
 import DisplayNavbar from "./design-system/utils/displayer/displayNavbar.component";
-import { useStructuredData } from "./hooks/useStructuredData";
+import { useStructuredData } from "./hooks/useStructuredData.hooks";
 import ScrollToTop from "./scrollToTop.utils";
 import { setConfig } from "./store/state.action";
 import { getClient, getStyle, getTemplates } from "./store/state.selector";

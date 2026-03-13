@@ -3,6 +3,37 @@ export type Artist = {
   mail: string | null;
 };
 
+export type AttachmentConfig = {
+  maxTotalSizeKB: number;
+  maxPhotos: number;
+  targetSizePerPhotoKB: number;
+  maxResolution: number;
+  compressionQuality: number;
+};
+
+export type CloudConfig = {
+  cloudName: string;
+  uploadPreset: string;
+  folder?: string;
+  maxPhotos: number;
+  transformation?: {
+    width?: number;
+    height?: number;
+    crop?: string;
+    quality?: string;
+  };
+};
+
+export type ImageDisplayFeature = {
+  type: "attachment" | "cloud";
+  cloud?: CloudConfig;
+  attachment?: AttachmentConfig;
+};
+
+export type FeaturesConfig = {
+  imagesDisplay: ImageDisplayFeature;
+};
+
 export type TattooContactProps = {
   datas: TattooContactDatas;
 };
@@ -10,6 +41,7 @@ export type TattooContactProps = {
 export type TattooContactDatas = {
   artists: Artist[];
   "data-testid"?: string;
+  features?: FeaturesConfig;
 };
 
 export type FormData = {

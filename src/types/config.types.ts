@@ -1,4 +1,4 @@
-import type { StructuredData } from "../hooks/useStructuredData";
+import type { StructuredData } from "../hooks/useStructuredData.hooks";
 
 export interface ClientContact {
   name?: string;

@@ -12,8 +12,11 @@ import { TattooContact } from './tattooContact.component';
 
 - **Sélection d'artiste** : Menu déroulant (select) pour choisir un artiste dans une liste
 - **Formulaire complet** : Collecte toutes les informations nécessaires pour une demande de tatouage
-- **Upload de photos** : Jusqu'à 5 photos (max 2MB chacune) avec prévisualisation
+- **Upload de photos avec feature flip** :
+  - **Mode Attachment** : Compression et envoi en pièce jointe (limite 500KB total)
+  - **Mode Cloud** : Upload sur Cloudinary avec URLs (max 3 photos de 2MB)
 - **Validation** : Validation des champs obligatoires et des fichiers uploadés
+- **Indicateur de taille** : Barre de progression visuelle pour le mode attachment
 - **Gestion des artistes sans email** : Bouton mailto si l'artiste n'a pas d'email configuré
 - **Responsive** : Design mobile-first adapté à tous les écrans
 - **Accessible** : ARIA labels, hints et messages d'erreur pour une accessibilité optimale
@@ -79,6 +82,8 @@ Le composant fonctionne en deux étapes :
 
 Copy-paste this template into your customer's `config.json` file:
 
+### Mode Cloud (recommandé - avec Cloudinary)
+
 ```json
 {
   "type": "contact",
@@ -92,15 +97,73 @@ Copy-paste this template into your customer's `config.json` file:
       {
         "artistName": "Jane Smith",
         "mail": "jane.smith@example.com"
-      },
-      {
-        "artistName": "Mike Johnson",
-        "mail": null
       }
     ],
-    "serviceId": "service_xxxxx",
-    "templateId": "template_xxxxx",
-    "replyTo": "contact@example.com"
+    "features": {
+      "imagesDisplay": {
+        "type": "cloud",
+        "cloud": {
+          "cloudName": "your-cloudinary-account",
+          "uploadPreset": "unsigned_preset_name",
+          "folder": "tattoo-references",
+          "maxPhotos": 3,
+          "transformation": {
+            "width": 1920,
+            "height": 1080,
+            "crop": "limit",
+            "quality": "auto:good"
+          }
+        }
+      }
+    }
+  }
+}
+```
+
+### Mode Attachment (avec EmailJS)
+
+```json
+{
+  "type": "contact",
+  "id": "tattooContact",
+  "datas": {
+    "artists": [
+      {
+        "artistName": "John Doe",
+        "mail": "john.doe@example.com"
+      }
+    ],
+    "features": {
+      "imagesDisplay": {
+        "type": "attachment",
+        "attachment": {
+          "maxTotalSizeKB": 500,
+          "maxPhotos": 2,
+          "targetSizePerPhotoKB": 240,
+          "maxResolution": 1400,
+          "compressionQuality": 0.85
+        }
+      }
+    }
+  }
+}
+```
+
+### Configuration sans features (par défaut = cloud)
+
+Si `features` n'est pas spécifié, le mode cloud est utilisé par défaut avec la configuration minimale.
+
+```json
+{
+  "type": "contact",
+  "id": "tattooContact",
+  "datas": {
+    "artists": [
+      {
+        "artistName": "Artist Name",
+        "mail": "artist@example.com"
+      }
+    ]
   }
 }
 ```
@@ -112,16 +175,140 @@ Chaque artiste doit avoir :
 - **mail** (string | null, obligatoire) : L'adresse email de l'artiste ou `null` si pas d'email
 
 **Important** :
-- Si `mail` est `null`, un bouton mailto vers `replyTo` sera affiché au lieu du formulaire
+- Si `mail` est `null`, un bouton mailto vers l'email général sera affiché au lieu du formulaire
 - Les artistes apparaissent dans l'ordre du tableau
+
+### Configuration des features - Images Display
+
+Le composant supporte deux modes d'upload d'images via le système de feature flip :
+
+#### Mode Cloud (Cloudinary) - Recommandé
+
+**Avantages** :
+- ✅ Jusqu'à 3 photos de 2MB chacune (après réduction légère)
+- ✅ URLs permanentes
+- ✅ CDN global rapide
+- ✅ Transformations automatiques
+- ✅ Aperçu thumbnail dans le formulaire
+
+**Configuration** :
+
+```json
+{
+  "features": {
+    "imagesDisplay": {
+      "type": "cloud",
+      "cloud": {
+        "cloudName": "your-cloudinary-account",
+        "uploadPreset": "unsigned_preset",
+        "folder": "tattoo-references",
+        "maxPhotos": 3,
+        "transformation": {
+          "width": 1920,
+          "height": 1080,
+          "crop": "limit",
+          "quality": "auto:good"
+        }
+      }
+    }
+  }
+}
+```
+
+**Champs** :
+- `cloudName` (string, requis) : Nom de votre compte Cloudinary
+- `uploadPreset` (string, requis) : Nom du preset unsigned (voir setup ci-dessous)
+- `folder` (string, optionnel) : Dossier de destination dans Cloudinary
+- `maxPhotos` (number, défaut: 3) : Nombre max de photos
+- `transformation` (object, optionnel) : Transformations automatiques
+  - `width` : Largeur max en pixels
+  - `height` : Hauteur max en pixels
+  - `crop` : Mode de crop (`"limit"`, `"fit"`, `"fill"`)
+  - `quality` : Qualité (`"auto:good"`, `"auto:best"`, `1-100`)
+
+**Setup Cloudinary** :
+
+1. Créer un compte gratuit : https://cloudinary.com/users/register/free
+2. Récupérer le **Cloud Name** (Dashboard → Account Details)
+3. Créer un **Upload Preset** :
+   - Settings → Upload → Upload presets
+   - Add upload preset
+   - **Signing Mode** : Unsigned ⚠️
+   - **Folder** : `tattoo-references`
+   - **Max file size** : 10MB
+   - **Allowed formats** : jpg, png, webp
+   - Copier le **Preset name**
+
+**Template EmailJS pour mode Cloud** :
+
+```html
+{{#if photoUrls}}
+<h3>Photos de référence</h3>
+{{#each photoUrls}}
+<div>
+  <a href="{{this}}">
+    <img src="{{this}}" alt="Photo" style="max-width: 400px;" />
+  </a>
+</div>
+{{/each}}
+{{/if}}
+```
+
+#### Mode Attachment (EmailJS) - Legacy
+
+**Avantages** :
+- ✅ Simple à configurer
+- ✅ Pas de service externe
+- ✅ Gratuit
+
+**Limitations** :
+- ❌ Limite à 2 photos maximum
+- ❌ 500KB total (limite EmailJS)
+- ❌ Qualité réduite par compression
+- ❌ Pas d'URLs permanentes
+
+**Configuration** :
+
+```json
+{
+  "features": {
+    "imagesDisplay": {
+      "type": "attachment",
+      "attachment": {
+        "maxTotalSizeKB": 500,
+        "maxPhotos": 2,
+        "targetSizePerPhotoKB": 240,
+        "maxResolution": 1400,
+        "compressionQuality": 0.85
+      }
+    }
+  }
+}
+```
+
+**Champs** :
+- `maxTotalSizeKB` (number, défaut: 500) : Taille totale max (limite EmailJS)
+- `maxPhotos` (number, défaut: 2) : Nombre max de photos
+- `targetSizePerPhotoKB` (number, défaut: 240) : Taille cible par photo après compression
+- `maxResolution` (number, défaut: 1400) : Résolution max (largeur/hauteur)
+- `compressionQuality` (number, défaut: 0.85) : Qualité compression (0-1)
+
+**Template EmailJS pour mode Attachment** :
+
+```html
+<p>{{photoCount}} photo(s) de référence en pièce jointe</p>
+```
+
+Les images arrivent automatiquement en pièces jointes de l'email.
 
 ### Configuration EmailJS
 
-Vous devez configurer un service EmailJS avec les paramètres suivants :
+Le service EmailJS doit être configuré dans le Redux store via `getClient().contact` avec :
 
-**Service ID** : `serviceId` - Votre ID de service EmailJS
+- **mailServiceId** : Votre ID de service EmailJS
+- **mailTemplate** : Votre ID de template EmailJS
 
-**Template ID** : `templateId` - Votre ID de template EmailJS qui doit accepter ces variables :
+Le template doit accepter ces variables :
 - `artistName` : Nom de l'artiste sélectionné
 - `artistMail` : Email de l'artiste
 - `email` : Email du client
@@ -133,11 +320,9 @@ Vous devez configurer un service EmailJS avec les paramètres suivants :
 - `tattooZone` : Zone du tatouage
 - `availability` : Disponibilités du client
 - `budget` : Budget estimé (optionnel)
-- `photos` : Photos en base64 séparées par des virgules
-- `photoNames` : Noms des fichiers photos
-- `replyTo` : Email de réponse
-
-**Reply-to** : `replyTo` - Email de réponse par défaut
+- `photoCount` : Nombre de photos
+- **Mode attachment** : `photos` (pièces jointes)
+- **Mode cloud** : `photoUrls` (array de URLs), `photoUrl_0`, `photoUrl_1`, etc.
 
 ### Exemple de template EmailJS
 
@@ -215,10 +400,13 @@ Les clés de traduction suivantes doivent être ajoutées dans vos fichiers de l
       "budgetHint": "Budget (optionnel)",
       "budgetPlaceholder": "500€",
       "photos": "Photos de référence",
-      "photosHint": "Max 5 photos (2MB chacune)",
-      "errorNotImage": "n'est pas une image",
-      "errorTooLarge": "est trop volumineux",
-      "errorMaxFiles": "Maximum 5 photos",
+      "photosHint": "Ajoutez jusqu'à 2 photos de référence (compression à ~240KB/photo, bonne qualité)",
+      "errorNotImage": "n'est pas une image valide",
+      "errorTooLarge": "est trop volumineux (max 10MB avant compression)",
+      "errorMaxFiles": "Maximum 2 photos autorisées (limite 500KB EmailJS)",
+      "errorUpload": "Erreur lors de l'upload de l'image",
+      "uploadingPhotos": "Upload des photos en cours",
+      "totalSize": "Taille totale",
       "removePhoto": "Supprimer la photo"
     }
   }
@@ -242,10 +430,20 @@ Les clés de traduction suivantes doivent être ajoutées dans vos fichiers de l
 5. Testez avec la version Storybook avant de déployer
 
 ### Gestion des photos
-- Les photos sont converties en base64 avant l'envoi
-- Maximum 5 photos pour éviter de dépasser les limites EmailJS
-- Taille maximale de 2MB par photo
-- Types acceptés : tous les types `image/*` (jpg, png, webp, etc.)
+
+**Mode Cloud (Cloudinary)** :
+- Les images sont uploadées sur Cloudinary avant l'envoi de l'email
+- Réduction légère à 1920x1080 max avec qualité auto:good
+- Maximum 3 photos de 2MB chacune après réduction
+- URLs permanentes transmises dans l'email
+- Aperçu thumbnail dans le formulaire
+
+**Mode Attachment (EmailJS)** :
+- Les images sont compressées côté client avec browser-image-compression
+- Maximum 2 photos pour rester sous la limite de 500KB
+- Taille cible de 240KB par photo
+- Envoyées en pièces jointes de l'email
+- Indicateur visuel de taille avec barre de progression
 
 ### Accessibilité
 - Tous les champs ont des labels visibles

@@ -224,7 +224,7 @@
                 "artists": [
                   {
                     "artistName": "DUF",
-                    "mail": "artist1@gmail.com"
+                    "mail": "florian.dufau@gmail.com"
                   },
                   {
                     "artistName": "Webtrine",
@@ -258,7 +258,18 @@
                     "artistName": "ELENA",
                     "mail": "artist7@gmail.com"
                   }
-                ]
+                ],
+                "features": {
+                  "imagesDisplay": {
+                    "type": "cloud",
+                    "cloud": {
+                      "cloudName": "webtrine",
+                      "uploadPreset": "Webtrine_preset",
+                      "folder": "customers/apt235",
+                      "maxPhotos": 3
+                    }
+                  }
+                }
               }
             }
           }

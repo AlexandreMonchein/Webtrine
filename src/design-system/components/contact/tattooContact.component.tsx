@@ -1,10 +1,10 @@
 import emailjs from "@emailjs/browser";
-import imageCompression from "browser-image-compression";
 import classNames from "classnames";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 
+import { useImageUpload } from "../../../hooks/useImageUpload.hooks";
 import { showPopUp } from "../../../store/state.action";
 import { getClient } from "../../../store/state.selector";
 import PopUp from "../popup/popUp.component";
@@ -12,16 +12,32 @@ import styles from "./tattooContact.module.css";
 import type { Artist, TattooContactProps } from "./tattooContact.types";
 
 export const TattooContact = ({ datas }: TattooContactProps) => {
-  const { artists, "data-testid": dataTestid } = datas;
+  const { artists, features, "data-testid": dataTestid } = datas;
   const dispatch = useDispatch();
   const { t } = useTranslation();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [selectedArtist, setSelectedArtist] = useState<Artist | null>(null);
   const [artistInput, setArtistInput] = useState("");
-  const [photos, setPhotos] = useState<File[]>([]);
-  const [photoErrors, setPhotoErrors] = useState<string[]>([]);
   const client = useSelector(getClient).contact;
   const { mailTemplate: templateId, mailServiceId: serviceId } = client;
+  const fileInputRef = useRef<HTMLInputElement>(null);
+
+  const {
+    uploadImages,
+    uploadStoredImagesToCloud,
+    images,
+    errors: photoErrors,
+    totalSize,
+    maxSize,
+    maxPhotos,
+    removeImage,
+    clearImages,
+  } = useImageUpload({
+    feature: features?.imagesDisplay || {
+      type: "attachment",
+    },
+    t,
+  });
 
   useEffect(() => emailjs.init("OYqEmnhZaB6k1hEGB"), []);
 
@@ -42,99 +58,16 @@ export const TattooContact = ({ datas }: TattooContactProps) => {
     }
   }, [artists, selectedArtist]);
 
-  const compressImage = useCallback(async (file: File): Promise<File> => {
-    const options = {
-      maxSizeMB: 0.01, // 10KB max pour test
-      maxWidthOrHeight: 800,
-      useWebWorker: true,
-      quality: 0.5,
-    };
-
-    try {
-      const compressedFile = await imageCompression(file, options);
-
-      return compressedFile;
-    } catch (error) {
-      console.error("Image compression error:", error);
-      return file; // Return original if compression fails
-    }
-  }, []);
-
-  const validatePhotos = useCallback(
-    async (files: FileList | null): Promise<File[]> => {
-      if (!files) return [];
-
-      const validFiles: File[] = [];
-      const errors: string[] = [];
-      const maxSize = 10 * 1024 * 1024; // 10MB before compression
-      const maxFiles = 1; // Limited to 1 photo due to EmailJS 50KB variable limit
-
-      const filesToProcess = Array.from(files).slice(0, maxFiles);
-
-      // Process all files in parallel for better performance
-      const results = await Promise.all(
-        filesToProcess.map(async (file) => {
-          if (!file.type.startsWith("image/")) {
-            return {
-              error: `${file.name}: ${t("contact.tattoo.errorNotImage")}`,
-            };
-          }
-
-          if (file.size > maxSize) {
-            return {
-              error: `${file.name}: ${t("contact.tattoo.errorTooLarge")}`,
-            };
-          }
-
-          try {
-            // Compress the image before adding
-            const compressedFile = await compressImage(file);
-            return { file: compressedFile };
-          } catch (error) {
-            return {
-              error: `${file.name}: ${t("contact.tattoo.errorNotImage")}`,
-            };
-          }
-        }),
-      );
-
-      // Separate files and errors
-      results.forEach((result) => {
-        if ("file" in result && result.file) {
-          validFiles.push(result.file);
-        } else if ("error" in result) {
-          errors.push(result.error);
-        }
-      });
-
-      if (files.length > maxFiles) {
-        errors.push(t("contact.tattoo.errorMaxFiles"));
-      }
-
-      setPhotoErrors(errors);
-      return validFiles;
-    },
-    [t, compressImage],
-  );
-
   const handlePhotoChange = useCallback(
     async (e: React.ChangeEvent<HTMLInputElement>) => {
-      const validatedPhotos = await validatePhotos(e.target.files);
-
-      // Store compressed photos in state (we'll inject them into the input on submit)
-      setPhotos((prev) => {
-        const combined = [...prev, ...validatedPhotos];
-        const result = combined.slice(0, 1); // Limit to 1 photo (EmailJS 50KB limit)
-
-        return result;
-      });
+      await uploadImages(e.target.files);
+      // Reset input to allow re-uploading the same file
+      if (fileInputRef.current) {
+        fileInputRef.current.value = "";
+      }
     },
-    [validatePhotos],
+    [uploadImages],
   );
-
-  const removePhoto = useCallback((index: number) => {
-    setPhotos((prev) => prev.filter((_, i) => i !== index));
-  }, []);
 
   const handleArtistSelectChange = useCallback(
     (e: React.ChangeEvent<HTMLSelectElement>) => {
@@ -161,11 +94,73 @@ export const TattooContact = ({ datas }: TattooContactProps) => {
 
       if (isSubmitting || !selectedArtist) return;
 
-      setIsSubmitting(true);
-
       const formElement = e.target as HTMLFormElement;
 
+      // Additional JavaScript validation before submission
+      const formData = new FormData(formElement);
+      const email = formData.get("fromEmail") as string;
+      const phone = formData.get("phone") as string;
+      const name = formData.get("name") as string;
+
+      // Email validation
+      const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+      if (!emailRegex.test(email)) {
+        dispatch(
+          showPopUp({
+            type: "error",
+            message: "Veuillez entrer une adresse email valide",
+          }),
+        );
+        return;
+      }
+
+      // Phone validation (10 characters, only numbers, +, -, spaces, parentheses)
+      const phoneRegex = /^[0-9+\s()-]{10,10}$/;
+      if (!phoneRegex.test(phone)) {
+        dispatch(
+          showPopUp({
+            type: "error",
+            message:
+              "Veuillez entrer un numéro de téléphone valide (10 chiffres)",
+          }),
+        );
+        return;
+      }
+
+      // Name validation (2-100 characters, letters only)
+      const nameRegex = /^[a-zA-ZÀ-ÿ\s'-]{2,100}$/;
+      if (!nameRegex.test(name)) {
+        dispatch(
+          showPopUp({
+            type: "error",
+            message:
+              "Veuillez entrer un nom valide (2-100 caractères, lettres uniquement)",
+          }),
+        );
+        return;
+      }
+
+      setIsSubmitting(true);
+
       try {
+        let imagesToSend: Array<File | string> = images;
+
+        // If cloud mode and images are File objects, upload to Cloudinary first
+        if (
+          features?.imagesDisplay?.type === "cloud" &&
+          images.length > 0 &&
+          images[0] instanceof File
+        ) {
+          const { urls, errors: uploadErrors } =
+            await uploadStoredImagesToCloud();
+
+          if (uploadErrors.length > 0) {
+            throw new Error(`Image upload failed: ${uploadErrors.join(", ")}`);
+          }
+
+          imagesToSend = urls;
+        }
+
         // Create FormData manually with all form fields + compressed photos
         const manualFormData = new FormData();
 
@@ -177,13 +172,35 @@ export const TattooContact = ({ datas }: TattooContactProps) => {
           }
         }
 
-        // Add compressed photos from state
-        photos.forEach((photo) => {
-          manualFormData.append("photos", photo, photo.name);
-        });
+        // Handle images based on mode (attachment vs cloud)
+        if (imagesToSend.length > 0) {
+          if (imagesToSend[0] instanceof File) {
+            // Attachment mode: Add File objects as attachments
+            imagesToSend.forEach((image) => {
+              if (image instanceof File) {
+                manualFormData.append("photos", image, image.name);
+              }
+            });
+          } else {
+            // Cloud mode: Add URLs for display in email template
+            imagesToSend.forEach((imageUrl, index) => {
+              if (typeof imageUrl === "string") {
+                manualFormData.append(`photoUrl_${index}`, imageUrl);
+              }
+            });
+            // Add comma-separated list of URLs for easy iteration in template
+            const urlsList = imagesToSend
+              .filter((img): img is string => typeof img === "string")
+              .join(",");
+            manualFormData.set("photoUrls", urlsList);
+          }
+        }
 
-        // Add photo count
-        manualFormData.set("photoCount", photos.length.toString());
+        // Add photo count and upload mode flags for template conditions
+        manualFormData.set("photoCount", imagesToSend.length.toString());
+        const isCloudMode = features?.imagesDisplay?.type === "cloud";
+        manualFormData.set("isCloudMode", isCloudMode ? "true" : "");
+        manualFormData.set("isAttachmentMode", isCloudMode ? "" : "true");
 
         // Add EmailJS required fields
         manualFormData.append("lib_version", "4.3.3");
@@ -212,8 +229,7 @@ export const TattooContact = ({ datas }: TattooContactProps) => {
         );
 
         formElement.reset();
-        setPhotos([]);
-        setPhotoErrors([]);
+        clearImages();
       } catch (error) {
         console.error("Email sending error:", error);
         console.error("Error details:", {
@@ -230,7 +246,18 @@ export const TattooContact = ({ datas }: TattooContactProps) => {
         setIsSubmitting(false);
       }
     },
-    [isSubmitting, selectedArtist, photos, serviceId, templateId, dispatch, t],
+    [
+      isSubmitting,
+      selectedArtist,
+      images,
+      features,
+      uploadStoredImagesToCloud,
+      serviceId,
+      templateId,
+      dispatch,
+      t,
+      clearImages,
+    ],
   );
 
   const hasValidEmailForForm =
@@ -300,7 +327,7 @@ export const TattooContact = ({ datas }: TattooContactProps) => {
                 <input
                   type="hidden"
                   name="photoCount"
-                  value={photos.length.toString()}
+                  value={images.length.toString()}
                 />
 
                 <div className={styles.formGrid}>
@@ -315,10 +342,12 @@ export const TattooContact = ({ datas }: TattooContactProps) => {
                     </p>
                     <input
                       type="email"
-                      id="email"
-                      name="email"
+                      id="fromEmail"
+                      name="fromEmail"
                       className={styles.input}
                       placeholder={t("contact.emailPlaceholder")}
+                      pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
+                      title="Veuillez entrer une adresse email valide (exemple@domaine.com)"
                       required
                       aria-describedby="hint-email"
                       aria-required="true"
@@ -340,6 +369,10 @@ export const TattooContact = ({ datas }: TattooContactProps) => {
                       name="name"
                       className={styles.input}
                       placeholder={t("contact.namePlaceholder")}
+                      minLength={2}
+                      maxLength={100}
+                      pattern="[a-zA-ZÀ-ÿ\s'-]{2,100}"
+                      title="Veuillez entrer un nom valide (2-100 caractères, lettres uniquement)"
                       required
                       aria-describedby="hint-name"
                       aria-required="true"
@@ -361,6 +394,8 @@ export const TattooContact = ({ datas }: TattooContactProps) => {
                       name="phone"
                       className={styles.input}
                       placeholder={t("contact.phonePlaceholder")}
+                      pattern="[0-9+\s()-]{8,20}"
+                      title="Veuillez entrer un numéro de téléphone valide (8-20 chiffres, +, espaces, - et parenthèses acceptés)"
                       required
                       aria-describedby="hint-phone"
                       aria-required="true"
@@ -424,6 +459,8 @@ export const TattooContact = ({ datas }: TattooContactProps) => {
                       name="tattooSize"
                       className={styles.input}
                       placeholder={t("contact.tattoo.sizePlaceholder")}
+                      pattern="[0-9x\s,.-]{1,20}"
+                      title="Veuillez entrer une taille valide (ex: 10x15, 5-10, etc.)"
                       required
                       aria-describedby="hint-tattooSize"
                       aria-required="true"
@@ -460,14 +497,16 @@ export const TattooContact = ({ datas }: TattooContactProps) => {
                       {t("contact.tattoo.photosHint")}
                     </p>
                     <input
+                      ref={fileInputRef}
                       type="file"
                       id="photos"
                       name="photos"
                       className={styles.inputFile}
                       accept="image/*"
+                      multiple
                       onChange={handlePhotoChange}
                       aria-describedby="hint-photos"
-                      disabled={photos.length >= 1}
+                      disabled={images.length >= maxPhotos}
                     />
 
                     {photoErrors.length > 0 && (
@@ -484,23 +523,68 @@ export const TattooContact = ({ datas }: TattooContactProps) => {
                       </ul>
                     )}
 
-                    {photos.length > 0 && (
+                    {images.length > 0 && (
                       <div className={styles.photoPreviewContainer}>
-                        {photos.map((photo, idx) => (
-                          <div key={photo.name} className={styles.photoPreview}>
-                            <span className={styles.photoName}>
-                              {photo.name}
-                            </span>
-                            <button
-                              type="button"
-                              className={styles.removePhotoButton}
-                              onClick={() => removePhoto(idx)}
-                              aria-label={`${t("contact.tattoo.removePhoto")} ${photo.name}`}
+                        {images.map((image, idx) => {
+                          const imageName =
+                            image instanceof File ? image.name : image;
+                          return (
+                            <div
+                              key={imageName}
+                              className={styles.photoPreview}
                             >
-                              ×
-                            </button>
-                          </div>
-                        ))}
+                              <span className={styles.photoName}>
+                                {imageName}
+                              </span>
+                              <button
+                                type="button"
+                                className={styles.removePhotoButton}
+                                onClick={() => removeImage(idx)}
+                                aria-label={`${t("contact.tattoo.removePhoto")} ${imageName}`}
+                              >
+                                ×
+                              </button>
+                            </div>
+                          );
+                        })}
+
+                        {/* Size indicator - only for attachment mode */}
+                        {features?.imagesDisplay?.type === "attachment" &&
+                          (() => {
+                            const percentage = Math.min(
+                              (totalSize / maxSize) * 100,
+                              100,
+                            );
+                            const totalSizeKB = (totalSize / 1024).toFixed(0);
+                            const maxSizeKB = (maxSize / 1024).toFixed(0);
+
+                            return (
+                              <div className={styles.sizeIndicator}>
+                                <div className={styles.sizeText}>
+                                  <span className={styles.sizeLabel}>
+                                    {t("contact.tattoo.totalSize")}:
+                                  </span>
+                                  <span
+                                    className={classNames(styles.sizeValue, {
+                                      [styles.sizeWarning]: percentage > 80,
+                                      [styles.sizeDanger]: percentage > 95,
+                                    })}
+                                  >
+                                    {totalSizeKB} KB / {maxSizeKB} KB
+                                  </span>
+                                </div>
+                                <div className={styles.sizeBarContainer}>
+                                  <div
+                                    className={classNames(styles.sizeBar, {
+                                      [styles.sizeBarWarning]: percentage > 80,
+                                      [styles.sizeBarDanger]: percentage > 95,
+                                    })}
+                                    style={{ width: `${percentage}%` }}
+                                  />
+                                </div>
+                              </div>
+                            );
+                          })()}
                       </div>
                     )}
                   </div>
