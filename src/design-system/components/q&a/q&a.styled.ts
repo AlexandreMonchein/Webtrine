@@ -202,7 +202,7 @@ export const AccordionHeader = styled.button<{ $isExpanded: boolean }>`
       )
       center bottom / 100% 100% no-repeat;
 
-    span {
+    p {
       color: var(--theme-color-primary);
     }
   }
@@ -215,7 +215,7 @@ export const AccordionHeader = styled.button<{ $isExpanded: boolean }>`
   )}
 `;
 
-export const QuestionText = styled.span`
+export const QuestionText = styled.p`
   color: var(--theme-color-tertiary);
   margin: 0;
   flex: 1;
