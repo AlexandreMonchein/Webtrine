@@ -1,0 +1,279 @@
+@import url('../../custom-media.css');
+
+.classicNavbarRoot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 32px;
+  background-color: var(--theme-color-secondary);
+  color: var(--theme-color-tertiary);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.isFixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: var(--z-index-navbars);
+}
+
+.show {
+  transition-duration: 0.5s;
+  transform: translateY(0);
+}
+
+.hide {
+  transition-duration: 0.5s;
+  transform: translateY(-100%);
+}
+
+.burgerMenuIcon {
+  display: none;
+  background: none;
+  flex-direction: column;
+  cursor: pointer;
+  z-index: 3;
+  border: none;
+  padding: 0;
+}
+
+.burgerMenuIcon div {
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  margin: 4px 0;
+  transition: 0.5s;
+}
+
+@media (--bp-max-medium) {
+  .burgerMenuIcon {
+    display: flex;
+  }
+}
+
+.logoContainer {
+  display: flex;
+  align-items: center;
+}
+
+@media (--bp-max-small) {
+  .logoContainer {
+    display: none;
+  }
+}
+
+@media (--bp-max-medium) {
+  .logoContainer {
+    position: relative;
+  }
+}
+
+.logo {
+  display: block;
+  max-width: none;
+}
+
+.link {
+  display: block;
+  text-decoration: none;
+  cursor: pointer;
+  color: var(--theme-color-primary);
+  border-bottom: 2px solid transparent;
+  padding: 10px 0;
+}
+
+.link:hover,
+.link:focus-visible {
+  color: var(--theme-color-hover);
+  border-bottom: 2px solid var(--theme-color-hover);
+}
+
+.category {
+  float: left;
+  text-align: center;
+  position: relative;
+}
+
+@media (--bp-max-medium) {
+  .category {
+    width: 100%;
+  }
+}
+
+.subCategoryContainer {
+  display: none;
+  list-style-type: none;
+  background-color: var(--color-secondary);
+  position: absolute;
+  width: 100%;
+  z-index: var(--z-index-navbars);
+  padding-inline-start: 0;
+}
+
+@media (--bp-max-medium) {
+  .subCategoryContainer {
+    flex-direction: column;
+    display: contents;
+    align-items: flex-start;
+    overflow-wrap: break-word;
+  }
+}
+
+.subCategoryContainer .subCategory {
+  float: none;
+  width: 100%;
+  text-align: left;
+}
+
+.subCategoryContainer .link {
+  color: var(--theme-color-tertiary);
+  padding: 10px;
+  border-bottom: none;
+}
+
+.subCategoryContainer .link:hover,
+.subCategoryContainer .link:focus-visible {
+  border-bottom: none;
+  color: var(--theme-color-hover);
+}
+
+.mainNavigation {
+  width: 100%;
+  margin: 0 auto;
+  position: sticky;
+  top: 0;
+}
+
+@media (--bp-max-medium) {
+  .mainNavigation {
+    display: none;
+  }
+}
+
+.mainNavigation ul li:hover .subCategoryContainer {
+  display: block;
+  width: 200%;
+}
+
+.mainNavigation .category.deroulant > .link::after {
+  content: "▼";
+  padding-left: 5px;
+}
+
+.content {
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-inline-start: 0;
+  gap: 32px;
+  padding: 0 12px;
+}
+
+@media (--bp-min-large) {
+  .content {
+    gap: 24px;
+  }
+}
+
+.settings {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.languages {
+  display: flex;
+  align-items: center;
+}
+
+.socials {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.socialContent {
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-inline-start: 0;
+  gap: 12px;
+}
+
+.socialLogo {
+  width: 24px;
+  height: 24px;
+}
+
+.sidebar {
+  height: 110vh;
+  width: 320px;
+  position: fixed;
+  top: 0;
+  left: -321px;
+  background-color: var(--theme-color-secondary);
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 80px;
+  border-right: 1px solid rgba(255, 255, 255, 0.3);
+  z-index: var(--z-index-navbars);
+}
+
+@media (--bp-min-large) {
+  .sidebar {
+    display: none;
+  }
+}
+
+.sidebar .burgerMenuIcon {
+  position: absolute;
+  left: 10%;
+  top: 2%;
+}
+
+.open {
+  left: 0 !important;
+  transition: left 0.5s;
+}
+
+.sidebar .category.deroulant > .link::after {
+  content: "▼";
+  padding-left: 5px;
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+.sidebar .subCategoryContainer {
+  display: none;
+}
+
+.sidebar .subCategoryContainer.show {
+  display: contents;
+}
+
+.sidebar .subCategoryContainer.hide {
+  display: none;
+}
+
+.sidebar .subCategory {
+  padding-left: 5%;
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+.sidebar .link {
+  padding: 8px 8px 8px 32px;
+  color: white;
+  transition: 0.5s;
+  text-align: left;
+}
+
+.sidebar .link:hover,
+.sidebar .link:focus-visible {
+  color: var(--theme-color-hover);
+}
+
+.sidebar .content {
+  flex-direction: column;
+}

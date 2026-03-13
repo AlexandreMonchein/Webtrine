@@ -4,8 +4,11 @@ export const getLogoDimensions = (shape) => {
       return { width: 48, height: 96 }; // Vertical logo
     case "horizontal":
       return { width: 96, height: 48 }; // Horizontal logo
+    case "horizontal-large":
+      return { width: 128, height: 48 }; // Wider logo
     case "horizontal-wide":
       return { width: 128, height: 48 }; // Wider logo
+
     case "square":
       return { width: 64, height: 64 }; // Square logo
     case "large-square":

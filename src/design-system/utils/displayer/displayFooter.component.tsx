@@ -8,7 +8,7 @@ const DisplayFooter = ({ template }) => {
       const { type, id, datas } = template;
 
       try {
-        const Module = await import(`../../footers/src/${id}.component.tsx`);
+        const Module = await import(`../../footers/${id}.component.tsx`);
         const Component = Module.default;
 
         setFooter(

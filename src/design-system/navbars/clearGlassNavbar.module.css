@@ -1,5 +1,5 @@
 /* IMPORTANT: Import custom media queries at the top of EVERY CSS Module file */
-@import url("../../../custom-media.css");
+@import url("../../custom-media.css");
 
 .clearGlassNavbarRoot {
   position: relative;

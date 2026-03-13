@@ -4,9 +4,9 @@ import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
 import { Link, useLocation } from "react-router-dom";
 
-import { getClient } from "../../../store/state.selector";
-import { getLogoDimensions } from "../../utils/dimensions.utils";
-import { useLoadComponent } from "../../utils/useLoadComponents.hook";
+import { getClient } from "../../store/state.selector";
+import { getLogoDimensions } from "../utils/dimensions.utils";
+import { useLoadComponent } from "../utils/useLoadComponents.hook";
 import styles from "./clearGlassNavbar.module.css";
 import type { ClearGlassNavbarProps } from "./clearGlassNavbar.types";
 

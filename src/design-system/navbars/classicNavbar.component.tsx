@@ -3,41 +3,23 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 
-import { toggleModal } from "../../../store/state.action";
+import { toggleModal } from "../../store/state.action";
 import {
   getClient,
   getModalState,
   getSocials,
-} from "../../../store/state.selector";
-import { ToggleButton } from "../../buttons/src/classicButton.component";
-import { ToggleThemeMode } from "../../buttons/src/modeTheme.component";
-import CalendlyButton from "../../components/calendly/calendlyButton.component";
-import {
-  SocialContent,
-  SocialLogo,
-  Socials,
-} from "../../footers/src/classicFooter.styled";
-import { getLogoDimensions } from "../../utils/dimensions.utils";
-import { FocusTrapProvider } from "../../utils/focusTrap/focusTrap.provider";
-import { MODAL_TYPES } from "../../utils/focusTrap/type";
-import { useLoadComponents } from "../../utils/useLoadComponents.hook";
-import {
-  BurgerMenuIcon,
-  Category,
-  Container,
-  Content,
-  Languages,
-  Links,
-  Logo,
-  LogoContainer,
-  MainNavigation,
-  Settings,
-  Sidebar,
-  SubCategory,
-  SubCategoryContainer,
-} from "./classicNavbar.styled";
+} from "../../store/state.selector";
+import { ToggleButton } from "../buttons/src/classicButton.component";
+import { ToggleThemeMode } from "../buttons/src/modeTheme.component";
+import CalendlyButton from "../components/calendly/calendlyButton.component";
+import { getLogoDimensions } from "../utils/dimensions.utils";
+import { FocusTrapProvider } from "../utils/focusTrap/focusTrap.provider";
+import { MODAL_TYPES } from "../utils/focusTrap/type";
+import { useLoadComponents } from "../utils/useLoadComponents.hook";
+import styles from "./classicNavbar.module.css";
+import type { ClassicNavbarProps } from "./classicNavbar.types";
 
-const ClassicNavbar = (props) => {
+const ClassicNavbar = (props: ClassicNavbarProps) => {
   const { i18n } = useTranslation();
   const dispatch = useDispatch();
   const { name: clientName } = useSelector(getClient);
@@ -55,11 +37,11 @@ const ClassicNavbar = (props) => {
   const components = useLoadComponents(socialItems, {
     renderFn: (Component, data) => (
       <li key={data.name}>
-        <SocialLogo>
+        <div className={styles.socialLogo}>
           <a aria-label={data.name} href={(data.link as any).link}>
             <Component />
           </a>
-        </SocialLogo>
+        </div>
       </li>
     ),
   }) as React.ReactNode[];
@@ -103,7 +85,7 @@ const ClassicNavbar = (props) => {
     setPrevScrollPos(currentScrollPos);
   }, [prevScrollPos, setPrevScrollPos]);
 
-  const handleChangeLanguage = (lang) => {
+  const handleChangeLanguage = (lang: string) => {
     i18n.changeLanguage(lang);
   };
 
@@ -114,22 +96,26 @@ const ClassicNavbar = (props) => {
     );
   };
 
-  const handleOnClick = (e) => {
-    if (e.target.nextSibling.classList.contains("show")) {
-      e.target.nextSibling.classList.remove("show");
-      e.target.nextSibling.classList.add("hide");
+  const handleOnClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    const nextSibling = (e.target as HTMLElement)
+      .nextSibling as HTMLElement | null;
+    if (nextSibling?.classList.contains("show")) {
+      nextSibling.classList.remove("show");
+      nextSibling.classList.add("hide");
     } else {
-      e.target.nextSibling.classList.add("show");
-      e.target.nextSibling.classList.remove("hide");
+      nextSibling?.classList.add("show");
+      nextSibling?.classList.remove("hide");
     }
   };
 
   const handleClickOutside = useCallback(
-    (event) => {
+    (event: MouseEvent) => {
       if (
         isSidebarOpen &&
-        !document.getElementById("sidebar")?.contains(event.target) &&
-        !document.getElementById("burgerMenuNavbarIcon")?.contains(event.target)
+        !document.getElementById("sidebar")?.contains(event.target as Node) &&
+        !document
+          .getElementById("burgerMenuNavbarIcon")
+          ?.contains(event.target as Node)
       ) {
         setIsSidebarOpen(false);
       }
@@ -158,62 +144,81 @@ const ClassicNavbar = (props) => {
 
   return (
     <FocusTrapProvider isVisible={modal?.active} type={modal?.type}>
-      <Container
+      <header
         id="navbar"
-        className={classNames({
-          isFixed: isFixed,
-          hideOnScroll: hasHideOnScroll,
+        data-testid="classicNavbarRoot"
+        className={classNames(styles.classicNavbarRoot, {
+          [styles.isFixed]: isFixed,
+          [styles.show]: hasHideOnScroll && isFixed,
+          [styles.hide]: hasHideOnScroll && isFixed,
         })}
       >
-        <BurgerMenuIcon
+        <button
+          type="button"
           tabIndex={isSidebarOpen ? -1 : 0}
           id="burgerMenuNavbarIcon"
           onClick={toggleSidebar}
           aria-label="Ouvrir le menu déroulant"
+          className={styles.burgerMenuIcon}
         >
           <div></div>
           <div></div>
           <div></div>
-        </BurgerMenuIcon>
-        <LogoContainer>
+        </button>
+        <div className={styles.logoContainer}>
           <a href="/">
-            <Logo
+            <img
               alt={name}
               src={`${import.meta.env.BASE_URL}assets/${clientName}/icons/${name}.webp`}
               width={width}
               height={height}
+              className={styles.logo}
             />
           </a>
-        </LogoContainer>
-        <MainNavigation>
-          <Content>
+        </div>
+        <nav className={styles.mainNavigation}>
+          <ul className={styles.content}>
             {categories.map((category) => {
               if (category.sub) {
                 return (
-                  <Category key={category.name} className="deroulant">
-                    <Links onClick={handleOnClick}>{category.name}</Links>
-                    <SubCategoryContainer className="sous">
+                  <li
+                    key={category.name}
+                    className={classNames(styles.category, "deroulant")}
+                  >
+                    <a onClick={handleOnClick} className={styles.link}>
+                      {category.name}
+                    </a>
+                    <ul
+                      className={classNames(
+                        styles.subCategoryContainer,
+                        "sous",
+                      )}
+                    >
                       {category.sub.map((sub) => (
-                        <SubCategory key={sub.name}>
-                          <Links href={sub.link}>{sub.name}</Links>
-                        </SubCategory>
+                        <li key={sub.name} className={styles.subCategory}>
+                          <a href={sub.link} className={styles.link}>
+                            {sub.name}
+                          </a>
+                        </li>
                       ))}
-                    </SubCategoryContainer>
-                  </Category>
+                    </ul>
+                  </li>
                 );
               }
 
               return (
-                <Category key={category.name}>
-                  <Links href={category.link}>{category.name}</Links>
-                </Category>
+                <li key={category.name} className={styles.category}>
+                  <a href={category.link} className={styles.link}>
+                    {category.name}
+                  </a>
+                </li>
               );
             })}
-          </Content>
-        </MainNavigation>
-        <Settings>
+          </ul>
+        </nav>
+        <div className={styles.settings}>
           {trad ? (
-            <Languages>
+            <div className={styles.languages}>
               <div>
                 {i18n.language === "fr" ? (
                   <button
@@ -231,16 +236,16 @@ const ClassicNavbar = (props) => {
                   </button>
                 )}
               </div>
-            </Languages>
+            </div>
           ) : null}
           {darkMode ? (
             <ToggleThemeMode toggleTheme={toggleTheme} theme={theme} />
           ) : null}
           {calendlyUrl ? <CalendlyButton url={calendlyUrl} /> : null}
           {shouldDisplaySocials && components ? (
-            <Socials>
-              <SocialContent>{components}</SocialContent>
-            </Socials>
+            <div className={styles.socials}>
+              <ul className={styles.socialContent}>{components}</ul>
+            </div>
           ) : null}
           {actionButton && actionButton.type === "call" ? (
             <ToggleButton
@@ -249,67 +254,73 @@ const ClassicNavbar = (props) => {
               hiddenText={actionButton.hiddenText}
             />
           ) : null}
-        </Settings>
-      </Container>
-      <Sidebar
+        </div>
+      </header>
+      <div
         id="sidebar"
-        className={classNames({
-          isFixed: isFixed,
-          open: isSidebarOpen,
+        className={classNames(styles.sidebar, {
+          [styles.isFixed]: isFixed,
+          [styles.open]: isSidebarOpen,
         })}
       >
-        <BurgerMenuIcon
+        <button
+          type="button"
           tabIndex={isSidebarOpen ? 0 : -1}
           id="burgerMenuSidebarIcon"
           onClick={toggleSidebar}
           aria-label="Fermer le menu déroulant"
+          className={styles.burgerMenuIcon}
         >
           <div></div>
           <div></div>
           <div></div>
-        </BurgerMenuIcon>
-        <Content>
+        </button>
+        <ul className={styles.content}>
           {categories.map((category) => {
             if (category.sub) {
               return (
-                <Category className="deroulant" key={category.name}>
-                  <Links
-                    tabIndex={isSidebarOpen ? 0 : -1}
-                    onClick={handleOnClick}
-                  >
+                <li
+                  className={classNames(styles.category, "deroulant")}
+                  key={category.name}
+                >
+                  <a onClick={handleOnClick} className={styles.link}>
                     {category.name}
-                  </Links>
-                  <SubCategoryContainer className="sous">
+                  </a>
+                  <ul
+                    className={classNames(styles.subCategoryContainer, "sous")}
+                  >
                     {category.sub.map((sub) => (
-                      <SubCategory key={sub.name}>
-                        <Links
+                      <li key={sub.name} className={styles.subCategory}>
+                        <a
                           tabIndex={isSidebarOpen ? 0 : -1}
                           href={sub.link}
                           onClick={toggleSidebar}
+                          className={styles.link}
                         >
                           {sub.name}
-                        </Links>
-                      </SubCategory>
+                        </a>
+                      </li>
                     ))}
-                  </SubCategoryContainer>
-                </Category>
+                  </ul>
+                </li>
               );
             }
 
             return (
-              <Category key={category.name}>
-                <Links
+              <li key={category.name} className={styles.category}>
+                <a
                   tabIndex={isSidebarOpen ? 0 : -1}
                   href={category.link}
                   onClick={toggleSidebar}
+                  className={styles.link}
                 >
                   {category.name}
-                </Links>
-              </Category>
+                </a>
+              </li>
             );
           })}
-        </Content>
-      </Sidebar>
+        </ul>
+      </div>
     </FocusTrapProvider>
   );
 };

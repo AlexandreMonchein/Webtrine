@@ -4,8 +4,8 @@ import { I18nextProvider } from "react-i18next";
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
 
-import i18n from "../../../i18n";
-import { initialState, stateReducer } from "../../../store/state.reducer";
+import i18n from "../../i18n";
+import { initialState, stateReducer } from "../../store/state.reducer";
 import { ClearGlassNavbar } from "./clearGlassNavbar.component";
 
 // Store mocké pour Storybook avec les données client

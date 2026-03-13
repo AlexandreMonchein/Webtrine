@@ -1,0 +1,214 @@
+/* BigLogos Footer - CSS Modules */
+
+/* OBLIGATOIRE : Import custom media queries */
+@import url('../../custom-media.css');
+
+/* Footer container */
+.bigLogosFooterRoot {
+  background-color: var(--theme-color-secondary);
+  color: var(--theme-color-primary);
+  padding: 40px 80px;
+
+  @media (width < 1024px) {
+    padding: 20px 40px;
+  }
+
+  @media (--bp-min-wide) {
+    padding: 40px 240px;
+  }
+}
+
+/* Footer content wrapper */
+.footerContent {
+  max-width: 100%;
+}
+
+/* Grid layout */
+.footerGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+
+  @media (--bp-min-medium) {
+    grid-template-columns: 0fr 1fr 1fr;
+    gap: 3rem;
+
+    &.isLogo {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+  }
+}
+
+/* Logos Section */
+.logosSection {
+  grid-column: 1;
+  display: flex;
+  justify-content: center;
+
+  @media (--bp-min-medium) {
+    grid-column: 1;
+  }
+}
+
+.logosGrid {
+  display: grid;
+}
+
+.logoItem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logoLink {
+  display: block;
+  transition: opacity 0.2s ease;
+
+  &:hover,
+  &:focus {
+    opacity: 0.8;
+    outline: none;
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--theme-color-hover);
+    outline-offset: 2px;
+  }
+}
+
+.logoImage {
+  max-width: 256px;
+  max-height: 256px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Menu Section */
+.menuSection {
+  grid-column: 1;
+
+  @media (--bp-min-medium) {
+    grid-column: 2;
+  }
+}
+
+.menuTitle {
+  color: var(--theme-color-primary);
+  margin: 0 0 1.5rem;
+  line-height: 1.3;
+}
+
+.menuList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.menuLink {
+  color: var(--theme-color-primary);
+  text-decoration: none;
+  transition: color 0.2s ease;
+
+  &:hover,
+  &:focus {
+    color: var(--theme-color-hover);
+    outline: none;
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--theme-color-hover);
+    outline-offset: 2px;
+  }
+}
+
+/* Brand Section */
+.brandSection {
+  @media (width < 1024px) {
+    grid-column: 1;
+  }
+
+  @media (--bp-min-medium) {
+    grid-column: 3;
+  }
+}
+
+.brandTitle {
+  color: var(--theme-color-primary);
+  margin: 0 0 1rem;
+}
+
+.brandDescription {
+  color: var(--theme-color-primary);
+  margin-bottom: 1rem;
+}
+
+.additionalText {
+  color: var(--theme-color-primary);
+  margin: 0;
+}
+
+/* Social Section */
+.socialSection {
+  margin-top: 2rem;
+  gap: 1rem;
+  grid-column: 1 / -1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.socialList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.socialLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  color: var(--theme-color-primary);
+  transition: color 0.2s ease;
+
+  &:hover,
+  &:focus {
+    color: var(--theme-color-hover);
+    outline: none;
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--theme-color-hover);
+    outline-offset: 2px;
+  }
+}
+
+.visuallyHidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.siteRef {
+  text-decoration: none;
+  cursor: pointer;
+  color: var(--theme-color-hover);
+
+  &:hover {
+    text-decoration: underline;
+  }
+}

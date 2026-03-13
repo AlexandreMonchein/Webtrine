@@ -1,0 +1,116 @@
+/* Classic Footer - CSS Modules */
+
+/* OBLIGATOIRE : Import custom media queries */
+@import url("../../custom-media.css");
+
+/* Footer container */
+.classicFooterRoot {
+  background-color: var(--theme-color-secondary);
+  color: var(--theme-color-primary);
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 16px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  z-index: var(--z-index-navbars);
+
+  @media (width < 768px) {
+    flex-direction: column;
+    padding: 24px 16px;
+    gap: 16px;
+  }
+}
+
+/* Left section - Logo */
+.leftSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logo {
+  display: block;
+  object-fit: contain;
+}
+
+/* Middle section - Copyright + Legal links */
+.middleSection {
+  text-align: center;
+  color: var(--theme-color-primary);
+
+  @media (width < 768px) {
+    padding: 0;
+  }
+}
+
+.topSection {
+  /* Container for copyright */
+  display: block;
+}
+
+.bottomSection {
+  display: flex;
+  gap: 24px;
+  justify-content: space-evenly;
+  flex-direction: column;
+
+  @media (--bp-min-small) {
+    flex-direction: row;
+  }
+}
+
+.siteRef {
+  text-decoration: none;
+  cursor: pointer;
+  color: var(--theme-color-foreground-1);
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+/* Right section - Social links */
+.rightSection {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.socials {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.socialContent {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.socialLogo {
+  width: 24px;
+  height: 24px;
+
+  a {
+    display: block;
+    width: 100%;
+    height: 100%;
+
+    svg {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  @media (--bp-min-xlarge) {
+    width: 40px;
+    height: 40px;
+  }
+}

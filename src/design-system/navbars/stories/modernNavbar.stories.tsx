@@ -4,8 +4,8 @@ import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
 
 import { initialState, stateReducer } from "../../../store/state.reducer";
-import ModernNavbar from "../src/modernNavbar.component";
-import type { ModernNavbarProps, NavItem } from "../src/modernNavbar.types";
+import ModernNavbar from "../modernNavbar.component";
+import type { ModernNavbarProps, NavItem } from "../modernNavbar.types";
 
 // Store mocké pour Storybook avec les données client
 const mockStore = configureStore({

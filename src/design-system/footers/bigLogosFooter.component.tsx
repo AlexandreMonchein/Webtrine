@@ -2,33 +2,9 @@ import classNames from "classnames";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 
-import { getClient, getSocials } from "../../../store/state.selector";
-import {
-  AdditionalText,
-  BrandDescription,
-  BrandSection,
-  BrandTitle,
-  FooterContainer,
-  FooterContent,
-  FooterGrid,
-  LogoImage,
-  LogoItem,
-  LogoLink,
-  LogosGrid,
-  LogosSection,
-  MenuLink,
-  MenuList,
-  MenuListItem,
-  MenuSection,
-  MenuTitle,
-  SiteRef,
-  SocialLink,
-  SocialList,
-  SocialListItem,
-  SocialSection,
-  VisuallyHidden,
-} from "./bigLogosFooter.styled";
-import { BigLogosFooterProps } from "./bigLogosFooter.types";
+import { getClient, getSocials } from "../../store/state.selector";
+import styles from "./bigLogosFooter.module.css";
+import type { BigLogosFooterProps } from "./bigLogosFooter.types";
 
 const componentFiles = import.meta.glob(
   "../../../assets/**/**/*.component.tsx",
@@ -63,17 +39,18 @@ const BigLogosFooter: React.FC<BigLogosFooterProps> = (datas) => {
                   const Component = resolvedModule.default;
 
                   return (
-                    <SocialListItem key={name}>
-                      <SocialLink
+                    <li key={name}>
+                      <a
+                        className={styles.socialLink}
                         href={link}
                         aria-label={`Suivre sur ${name}`}
                         target="_blank"
                         rel="noopener noreferrer"
                       >
                         <Component />
-                        <VisuallyHidden>{name}</VisuallyHidden>
-                      </SocialLink>
-                    </SocialListItem>
+                        <span className={styles.visuallyHidden}>{name}</span>
+                      </a>
+                    </li>
                   );
                 }
               }
@@ -96,33 +73,42 @@ const BigLogosFooter: React.FC<BigLogosFooterProps> = (datas) => {
   }, [socials]);
 
   return (
-    <FooterContainer role="contentinfo">
-      <FooterContent>
-        <FooterGrid
-          className={classNames({ isLogo: logos && logos.length > 0 })}
+    <footer
+      className={styles.bigLogosFooterRoot}
+      role="contentinfo"
+      data-testid="bigLogosFooterRoot"
+    >
+      <div className={styles.footerContent}>
+        <div
+          className={classNames(styles.footerGrid, {
+            [styles.isLogo]: logos && logos.length > 0,
+          })}
         >
           {logos && logos.length > 0 ? (
-            <LogosSection>
-              <LogosGrid>
+            <div className={styles.logosSection}>
+              <div className={styles.logosGrid}>
                 {logos.map((logo) => (
-                  <LogoItem key={`${logo.name}`}>
+                  <div className={styles.logoItem} key={`${logo.name}`}>
                     {logo.url ? (
-                      <LogoLink
+                      <a
+                        className={styles.logoLink}
                         href={logo.url}
                         aria-label={`Aller vers ${logo.alt}`}
                         target="_blank"
                         rel="noopener noreferrer"
                       >
-                        <LogoImage
+                        <img
+                          className={styles.logoImage}
                           src={`${import.meta.env.BASE_URL}assets/${clientName}/icons/${logo.name}.webp`}
                           alt={logo.alt}
                           loading="lazy"
                           width="128"
                           height="128"
                         />
-                      </LogoLink>
+                      </a>
                     ) : (
-                      <LogoImage
+                      <img
+                        className={styles.logoImage}
                         src={`${import.meta.env.BASE_URL}assets/${clientName}/icons/${logo.name}.webp`}
                         alt={logo.alt}
                         loading="lazy"
@@ -130,61 +116,65 @@ const BigLogosFooter: React.FC<BigLogosFooterProps> = (datas) => {
                         height="128"
                       />
                     )}
-                  </LogoItem>
+                  </div>
                 ))}
-              </LogosGrid>
-            </LogosSection>
+              </div>
+            </div>
           ) : null}
 
           {menuSection ? (
-            <MenuSection>
-              <MenuTitle>{menuSection.title}</MenuTitle>
+            <div className={styles.menuSection}>
+              <h2 className={styles.menuTitle}>{menuSection.title}</h2>
               <nav aria-label="Liens du footer">
-                <MenuList>
+                <ul className={styles.menuList}>
                   {menuSection.links.map((link) => (
-                    <MenuListItem key={link.label}>
-                      <MenuLink
+                    <li key={link.label}>
+                      <a
+                        className={styles.menuLink}
                         href={link.url}
                         aria-label={`Aller vers ${link.label}`}
                       >
                         {link.label}
-                      </MenuLink>
-                    </MenuListItem>
+                      </a>
+                    </li>
                   ))}
-                </MenuList>
+                </ul>
               </nav>
-            </MenuSection>
+            </div>
           ) : null}
 
           {brandInfo ? (
-            <BrandSection>
-              <BrandTitle>{brandInfo.title}</BrandTitle>
-              <BrandDescription
+            <div className={styles.brandSection}>
+              <h2 className={styles.brandTitle}>{brandInfo.title}</h2>
+              <div
+                className={styles.brandDescription}
                 dangerouslySetInnerHTML={{
                   __html: brandInfo.description,
                 }}
               />
               {brandInfo.additionalText && (
-                <AdditionalText>{brandInfo.additionalText}</AdditionalText>
+                <p className={styles.additionalText}>
+                  {brandInfo.additionalText}
+                </p>
               )}
-            </BrandSection>
+            </div>
           ) : null}
-        </FooterGrid>
+        </div>
 
         {socialComponents.length > 0 && (
-          <SocialSection>
+          <div className={styles.socialSection}>
             <nav aria-label="Liens vers les réseaux sociaux">
-              <SocialList role="list">{socialComponents}</SocialList>
+              <ul className={styles.socialList}>{socialComponents}</ul>
             </nav>
             <nav aria-label="© Réalisé par Webtrine 2025 - tout droit réservé">
-              <SiteRef href="https://www.webtrine.fr">
+              <a className={styles.siteRef} href="https://www.webtrine.fr">
                 Webtrine 2025 - tous droits réservés.
-              </SiteRef>
+              </a>
             </nav>
-          </SocialSection>
+          </div>
         )}
-      </FooterContent>
-    </FooterContainer>
+      </div>
+    </footer>
   );
 };
 

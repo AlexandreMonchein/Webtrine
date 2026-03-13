@@ -5,36 +5,29 @@ import {
   getClient,
   getSocials,
   getTemplates,
-} from "../../../store/state.selector";
-import { getLogoDimensions } from "../../utils/dimensions.utils";
-import { useLoadComponents } from "../../utils/useLoadComponents.hook";
-import {
-  BottomSection,
-  FooterContainer,
-  LeftSection,
-  Logo,
-  MiddleSection,
-  RightSection,
-  SiteRef,
-  SocialContent,
-  SocialLogo,
-  Socials,
-  TopSection,
-} from "./classicFooter.styled";
+} from "../../store/state.selector";
+import { getLogoDimensions } from "../utils/dimensions.utils";
+import { useLoadComponents } from "../utils/useLoadComponents.hook";
+import styles from "./classicFooter.module.css";
+import type {
+  ClassicFooterProps,
+  LegalItem,
+  SocialItem,
+} from "./classicFooter.types";
 
-const ClassicFooter = (props) => {
+const ClassicFooter = (props: ClassicFooterProps) => {
   const { name: clientName } = useSelector(getClient);
   const socials: { [key: string]: { link: string; color: string } } =
     useSelector(getSocials);
-  const legals = useSelector(getTemplates).filter(
-    (template) => template.type === "legals",
+  const legals: LegalItem[] = useSelector(getTemplates).filter(
+    (template: LegalItem) => template.type === "legals",
   );
 
   const { logo } = props || {};
   const { name, alt, link, shape } = logo || {};
   const { width, height } = getLogoDimensions(shape);
 
-  const socialItems = useMemo(
+  const socialItems: SocialItem[] = useMemo(
     () =>
       socials
         ? Object.entries(socials)
@@ -47,21 +40,25 @@ const ClassicFooter = (props) => {
   const components = useLoadComponents(socialItems, {
     renderFn: (Component, data) => (
       <li key={data.name}>
-        <SocialLogo>
+        <div className={styles.socialLogo}>
           <a aria-label={data.name} href={data.link}>
             <Component color={data.color} />
           </a>
-        </SocialLogo>
+        </div>
       </li>
     ),
-  });
+  }) as React.ReactNode[];
 
   return (
-    <FooterContainer>
-      <LeftSection>
+    <footer
+      className={styles.classicFooterRoot}
+      data-testid="classicFooterRoot"
+    >
+      <div className={styles.leftSection}>
         {logo && (
           <a href={link} key={name}>
-            <Logo
+            <img
+              className={styles.logo}
               alt={alt}
               src={`${import.meta.env.BASE_URL}assets/${clientName}/icons/${name}.webp`}
               width={width}
@@ -69,30 +66,35 @@ const ClassicFooter = (props) => {
             />
           </a>
         )}
-      </LeftSection>
-      <MiddleSection>
-        <TopSection>
-          <SiteRef
+      </div>
+      <div className={styles.middleSection}>
+        <div className={styles.topSection}>
+          <a
+            className={styles.siteRef}
             href="https://www.webtrine.fr"
             style={{ color: "var(--theme-color-foreground-1)" }}
           >
             Webtrine 2025 - tous droits réservés.
-          </SiteRef>
-        </TopSection>
-        <BottomSection>
+          </a>
+        </div>
+        <div className={styles.bottomSection}>
           {legals.map((legal) => (
-            <SiteRef key={legal.datas.type} href={legal.datas.type}>
+            <a
+              className={styles.siteRef}
+              key={legal.datas.type}
+              href={legal.datas.type}
+            >
               {legal.datas.type}
-            </SiteRef>
+            </a>
           ))}
-        </BottomSection>
-      </MiddleSection>
-      <RightSection>
-        <Socials>
-          <SocialContent>{components}</SocialContent>
-        </Socials>
-      </RightSection>
-    </FooterContainer>
+        </div>
+      </div>
+      <div className={styles.rightSection}>
+        <div className={styles.socials}>
+          <ul className={styles.socialContent}>{components}</ul>
+        </div>
+      </div>
+    </footer>
   );
 };
 

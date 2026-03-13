@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
 
-import { getClient } from "../../../store/state.selector";
+import { getClient } from "../../store/state.selector";
 import * as S from "./modernNavbar.styled";
 import type { ModernNavbarProps, NavItem } from "./modernNavbar.types";
 
