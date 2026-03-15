@@ -18,12 +18,12 @@
   @media (--bp-min-medium) {
     flex-direction: row;
     justify-content: space-around;
-    padding: 80px;
+    padding: 120px;
   }
 
   /* Desktop and up */
   @media (--bp-min-xlarge) {
-    padding: 60px 120px;
+    padding: 80px 180px;
     gap: 0;
   }
 }
@@ -48,15 +48,15 @@
   }
 
   @media (--bp-min-large) {
-    max-height: 600px;
+    max-height: 500px;
   }
 
   @media (--bp-min-xlarge) {
-    max-height: 700px;
+    max-height: 600px;
   }
 
   @media (--bp-min-wide) {
-    max-height: 850px;
+    max-height: 700px;
   }
 }
 

@@ -2,13 +2,13 @@
 
 .doubleImageDescriptionRoot {
   position: relative;
-  padding: 40px 60px 80px;
+  padding: 40px 60px 160px;
   color: var(--theme-color-tertiary);
   overflow: hidden;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 4rem;
+  gap: 10rem;
   width: 100%;
   box-sizing: border-box;
 
@@ -67,8 +67,8 @@
   }
 
   @media (--bp-min-wide) {
-    min-width: 700px;
-    max-width: 700px;
+    min-width: 650px;
+    max-width: 650px;
   }
 }
 
@@ -93,7 +93,7 @@
 
 /* Position text at top of left image */
 .textBlockTop {
-  bottom: -40px;
+  bottom: -120px;
 
   @media (--bp-min-medium) {
     top: 0;
@@ -104,10 +104,24 @@
 
 /* Position text at bottom of right image */
 .textBlockBottom {
-  bottom: -40px;
+  bottom: -120px;
 
   @media (--bp-min-medium) {
+    bottom: 0;
+    height: min-content;
     transform: translate(20px, 70px);
+  }
+
+  @media (--bp-min-large) {
+    transform: translate(20px, 65px);
+  }
+
+  @media (--bp-min-xlarge) {
+    transform: translate(20px, 57px);
+  }
+
+  @media (--bp-min-wide) {
+    transform: translate(20px, 50px);
   }
 }
 
@@ -125,6 +139,7 @@
 /* Title */
 .title {
   margin: 0;
+  padding: 0;
   color: var(--theme-color-tertiary);
 }
 
@@ -146,4 +161,11 @@
 .arrow {
   color: var(--theme-color-tertiary);
   align-self: flex-end;
+
+  svg {
+    @media (--bp-min-xlarge) {
+      width: 40px;
+      height: 40px;
+    }
+  }
 }

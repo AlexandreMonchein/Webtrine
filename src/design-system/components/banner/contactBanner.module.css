@@ -71,7 +71,7 @@
   }
 
   @media (--bp-min-xlarge) {
-    max-height: 1200px;
+    max-height: 1000px;
   }
 }
 
@@ -96,18 +96,17 @@
 
   @media (--bp-min-large) {
     padding: 2.5rem;
-    max-width: 550px;
+    max-width: 400px;
     right: 5%;
   }
 
   @media (--bp-min-xlarge) {
     padding: 3rem;
-    max-width: 550px;
   }
 
   @media (--bp-min-wide) {
     padding: 3rem;
-    max-width: 700px;
+    max-width: 550px;
   }
 }
 

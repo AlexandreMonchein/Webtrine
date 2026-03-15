@@ -18,6 +18,7 @@
   align-items: center;
   flex-wrap: wrap;
   padding: 40px 60px;
+  justify-content: center;
 
   @media (--bp-min-medium) {
     padding: 60px;
@@ -37,9 +38,14 @@
   border-radius: 12px;
   cursor: pointer;
 
-  @media (--bp-min-xlarge) {
-    width: 500px;
-    height: 500px;
+  @media (--bp-min-large) {
+    width: 400px;
+    height: 400px;
+  }
+
+  @media (--bp-min-wide) {
+    width: 600px;
+    height: 600px;
   }
 }
 
@@ -159,11 +165,12 @@
   margin: 8px 0;
   line-height: 1.5;
   display: -webkit-box;
-  -webkit-line-clamp: 5;
-  line-clamp: 5;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
+
+  /* -webkit-line-clamp: 5;
+  line-clamp: 5; */
 }
 
 /* Button */

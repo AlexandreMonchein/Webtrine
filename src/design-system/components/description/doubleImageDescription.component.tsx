@@ -1,6 +1,7 @@
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
+import Arrow from "../../../assets/icons/arrow.component";
 import { getClient } from "../../../store/state.selector";
 import styles from "./doubleImageDescription.module.css";
 import type { DoubleImageDescriptionProps } from "./doubleImageDescription.types";
@@ -37,7 +38,9 @@ export const DoubleImageDescription = ({
               <h2 className={styles.title}>{leftText.title}</h2>
               <hr className={styles.divider} />
               <p className={styles.description}>{leftText.description}</p>
-              <div className={styles.arrow}>→</div>
+              <div className={styles.arrow}>
+                <Arrow size={24} />
+              </div>
             </div>
           </Link>
         </div>
@@ -58,7 +61,9 @@ export const DoubleImageDescription = ({
               <h2 className={styles.title}>{rightText.title}</h2>
               <hr className={styles.divider} />
               <p className={styles.description}>{rightText.description}</p>
-              <div className={styles.arrow}>→</div>
+              <div className={styles.arrow}>
+                <Arrow size={24} />
+              </div>
             </div>
           </Link>
         </div>
