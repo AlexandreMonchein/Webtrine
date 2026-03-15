@@ -10,6 +10,7 @@ const GTAG_CONFIG = {
   webtrine: "G-FBCHRQGJN7",
   dipaolo: "G-PST3W53K46",
   chillpaws: "G-P24R0YD2NT",
+  apt235: "G-0VQRRDFPFR",
 };
 
 /**
