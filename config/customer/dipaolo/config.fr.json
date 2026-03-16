@@ -64,6 +64,11 @@
     }
   },
   "layout": {
+    "features": {
+      "scrollAnimations": false,
+      "alternateBackground": true,
+      "animateFirstElement": false
+    },
     "templates": [
       {
         "type": "navbars",

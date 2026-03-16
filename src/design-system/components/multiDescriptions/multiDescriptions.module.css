@@ -1,0 +1,35 @@
+@import url("../../../custom-media.css");
+
+.container {
+  min-height: 95vh;
+  background-color: var(--theme-color-background-2);
+}
+
+.singleSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Styles d'alternance des backgrounds - appliqués uniquement si la classe alternateBackground est présente */
+.alternateBackground {
+  /* Pour les cas où AnimatedSection retourne directement les children (disabled) */
+  & > section:nth-of-type(even) {
+    background-color: var(--theme-color-background-1);
+  }
+
+  & > section:nth-of-type(odd) {
+    background-color: var(--theme-color-background-2);
+  }
+
+  /* Cibler les divs wrapper (AnimatedSection) et leurs sections internes */
+  & > div:nth-child(even),
+  & > div:nth-child(even) > section {
+    background-color: var(--theme-color-background-1);
+  }
+
+  & > div:nth-child(odd),
+  & > div:nth-child(odd) > section {
+    background-color: var(--theme-color-background-2);
+  }
+}

@@ -37,7 +37,14 @@ export interface Template {
   datas?: Record<string, unknown>;
 }
 
+export interface LayoutFeatures {
+  scrollAnimations?: boolean;
+  alternateBackground?: boolean;
+  animateFirstElement?: boolean;
+}
+
 export interface Layout {
+  features?: LayoutFeatures;
   templates: Template[];
 }
 

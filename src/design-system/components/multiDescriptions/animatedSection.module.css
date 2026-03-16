@@ -1,0 +1,22 @@
+@import url("../../../custom-media.css");
+
+.animatedSection {
+  opacity: 0;
+  transform: translateY(100px);
+  transition:
+    opacity 0.15s cubic-bezier(0.34, 1.56, 0.64, 1),
+    transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* Animation plus prononcée pour les écrans moyens et grands */
+  @media (--bp-min-medium) {
+    transform: translateY(120px);
+    transition:
+      opacity 0.2s cubic-bezier(0.34, 1.56, 0.64, 1),
+      transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+}
+
+.visible {
+  opacity: 1;
+  transform: translateY(0);
+}

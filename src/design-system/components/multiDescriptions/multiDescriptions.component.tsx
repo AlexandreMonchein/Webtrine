@@ -1,3 +1,4 @@
+import classNames from "classnames";
 import { Suspense, useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
 import { useSelector } from "react-redux";
@@ -5,9 +6,14 @@ import { useLocation } from "react-router-dom";
 
 import type { TemplateData } from "../../../App";
 import { getTemplate } from "../../../App";
-import { getClient, getTemplates } from "../../../store/state.selector";
+import {
+  getClient,
+  getLayoutFeatures,
+  getTemplates,
+} from "../../../store/state.selector";
 import { PageNotFound } from "../../error/src/pageNotFound.component";
-import { Container } from "./multiDescriptions.styled";
+import AnimatedSection from "./animatedSection.component";
+import styles from "./multiDescriptions.module.css";
 import type {
   MultiDescriptionContent,
   MultiDescriptionDatas,
@@ -22,6 +28,12 @@ const MultiDescription = ({ templateName = null }: MultiDescriptionProps) => {
   const [components, setComponents] = useState<React.ReactNode[]>([]);
   const templates = useSelector(getTemplates) as TemplateData[];
   const { fullName } = useSelector(getClient) || {};
+  const layoutFeatures = useSelector(getLayoutFeatures);
+  const {
+    scrollAnimations = true,
+    alternateBackground = true,
+    animateFirstElement = false,
+  } = layoutFeatures || {};
 
   const template = getTemplate(
     templates,
@@ -51,7 +63,7 @@ const MultiDescription = ({ templateName = null }: MultiDescriptionProps) => {
       );
 
       const componentPromises = contentEntries.map(
-        async ([index, datas]: [string, MultiDescriptionContent]) => {
+        async ([index, datas]: [string, MultiDescriptionContent], idx) => {
           const { type } = datas;
           const moduleName = index.replace(regex, "");
 
@@ -75,11 +87,29 @@ const MultiDescription = ({ templateName = null }: MultiDescriptionProps) => {
                       datas.id,
                       type,
                     );
-                    return <Component key={index} {...datas} />;
+                    return (
+                      <AnimatedSection
+                        key={index}
+                        index={idx}
+                        disabled={!scrollAnimations}
+                        animateFirstElement={animateFirstElement}
+                      >
+                        <Component {...datas} />
+                      </AnimatedSection>
+                    );
                   }
                 } else {
                   console.warn(`>> no state`, datas.id, type);
-                  return <Component key={index} {...datas} />;
+                  return (
+                    <AnimatedSection
+                      key={index}
+                      index={idx}
+                      disabled={!scrollAnimations}
+                      animateFirstElement={animateFirstElement}
+                    >
+                      <Component {...datas} />
+                    </AnimatedSection>
+                  );
                 }
               }
             }
@@ -96,7 +126,7 @@ const MultiDescription = ({ templateName = null }: MultiDescriptionProps) => {
       setComponents(loadedComponents);
     };
     loadComponents();
-  }, [content, location.state]);
+  }, [content, location.state, scrollAnimations, animateFirstElement]);
 
   // Vérifier si le template existe APRÈS tous les hooks
   if (!template) {
@@ -111,9 +141,14 @@ const MultiDescription = ({ templateName = null }: MultiDescriptionProps) => {
         </title>
         <meta name="description" content={description} />
       </Helmet>
-      <Container className={components.length === 1 ? "single-section" : ""}>
+      <div
+        className={classNames(styles.container, {
+          [styles.singleSection]: components.length === 1,
+          [styles.alternateBackground]: alternateBackground,
+        })}
+      >
         {components}
-      </Container>
+      </div>
     </Suspense>
   );
 };
