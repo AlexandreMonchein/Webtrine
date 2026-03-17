@@ -5,6 +5,13 @@ import { FocusTrapContext } from "./focusTrap.context";
 import { tabKeyListener } from "./listener";
 import type { AnchorId, ModalType } from "./type";
 
+interface FocusTrapProviderProps {
+  isVisible: boolean;
+  type: ModalType;
+  children: React.ReactNode;
+  customAnchorId?: string; // Override config anchorId
+}
+
 /*
  * anchorId -> Id of the element that opened the modal/sideglass -> Where to set the focus after release.
  * wrapperElement -> react ref of the modal/sideglass wrapper element -> Element which is based on to trap the focus.
@@ -26,7 +33,12 @@ import type { AnchorId, ModalType } from "./type";
  * -> If the modal/sideglass is not visible and was trapped, release the focus.
  */
 
-export const FocusTrapProvider = ({ isVisible, type, children }) => {
+export const FocusTrapProvider = ({
+  isVisible,
+  type,
+  children,
+  customAnchorId,
+}: FocusTrapProviderProps) => {
   const [anchorId, setAnchorId] = useState<AnchorId>(null);
   const wrapperElement = useRef<HTMLElement | null>(null);
   const [isTrapped, setIsTrapped] = useState(false);
@@ -56,36 +68,35 @@ export const FocusTrapProvider = ({ isVisible, type, children }) => {
 
       const { wrapperId, idToFocus, anchorId } = focusEntry;
 
-      setAnchorId(anchorId);
+      // Use custom anchor ID if provided, otherwise use config anchor ID
+      setAnchorId(customAnchorId || anchorId);
 
       if (wrapperId) {
         const wrapperEl = document.getElementById(wrapperId);
 
         if (!wrapperEl || !idToFocus) {
-          /*
-           * and reset states
-           * Create reset fn
-           */
           return;
         }
 
         wrapperElement.current = wrapperEl;
 
         setIsTrapped(true);
-        document.getElementById(idToFocus)?.focus();
+        const focusElement = document.getElementById(idToFocus);
+        focusElement?.focus();
 
         // Will directly give the focus to the element on first call
         document.addEventListener("keydown", listener);
       }
     },
-    [listener],
+    [listener, customAnchorId],
   );
 
   const releaseFocus = useCallback(() => {
     document.removeEventListener("keydown", listener);
 
     if (anchorId) {
-      document.getElementById(anchorId)?.focus();
+      const anchorElement = document.getElementById(anchorId);
+      anchorElement?.focus();
     }
 
     resetStates();

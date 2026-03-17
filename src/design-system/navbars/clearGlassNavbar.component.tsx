@@ -1,11 +1,14 @@
 import classNames from "classnames";
 import { useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
 import { Link, useLocation } from "react-router-dom";
 
 import { getClient } from "../../store/state.selector";
 import { getLogoDimensions } from "../utils/dimensions.utils";
+import { FocusTrapProvider } from "../utils/focusTrap/focusTrap.provider";
+import { MODAL_TYPES } from "../utils/focusTrap/type";
 import { useLoadComponent } from "../utils/useLoadComponents.hook";
 import styles from "./clearGlassNavbar.module.css";
 import type { ClearGlassNavbarProps } from "./clearGlassNavbar.types";
@@ -18,6 +21,7 @@ export const ClearGlassNavbar = ({
   "data-testid": dataTestid,
 }: ClearGlassNavbarProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [shouldRenderMenu, setShouldRenderMenu] = useState(false);
   const scrollPosition = useRef(0);
   const { i18n } = useTranslation();
   const location = useLocation();
@@ -30,6 +34,21 @@ export const ClearGlassNavbar = ({
   const currentPath = activePath || location.pathname;
   const { width, height } = getLogoDimensions(shape);
   const logoSrc = `${import.meta.env.BASE_URL}assets/${clientName}/icons/${logo}.webp`;
+
+  // Keep menu mounted briefly after close to allow focus trap cleanup
+  useEffect(() => {
+    if (isMenuOpen) {
+      setShouldRenderMenu(true);
+      return undefined;
+    } else if (shouldRenderMenu) {
+      // Delay unmount to allow FocusTrapProvider to release focus
+      const timer = setTimeout(() => {
+        setShouldRenderMenu(false);
+      }, 50);
+      return () => clearTimeout(timer);
+    }
+    return undefined;
+  }, [isMenuOpen, shouldRenderMenu]);
 
   useEffect(() => {
     if (isMenuOpen) {
@@ -76,6 +95,7 @@ export const ClearGlassNavbar = ({
           />
         </a>
         <button
+          id="burgerMenuNavbarIcon"
           type="button"
           className={styles.burgerButton}
           onClick={toggleMenu}
@@ -87,69 +107,79 @@ export const ClearGlassNavbar = ({
           <span className={styles.burgerLine} />
         </button>
       </nav>
-      <div
-        className={classNames(styles.menuOverlay, {
-          [styles.menuOverlayOpen]: isMenuOpen,
-        })}
-        onClick={closeMenu}
-      >
-        <div
-          className={classNames(styles.menuPanel, {
-            [styles.menuPanelOpen]: isMenuOpen,
-          })}
-          onClick={(e) => e.stopPropagation()}
-        >
-          <button
-            type="button"
-            className={styles.closeButton}
-            onClick={closeMenu}
-            aria-label="Close menu"
-          >
-            {CloseIcon && <CloseIcon size={32} color="currentColor" />}
-          </button>
-          <div className={styles.languageSelector}>
-            <button
-              type="button"
-              className={classNames(styles.langButton, {
-                [styles.langButtonActive]: i18n.language === "en",
+      {shouldRenderMenu &&
+        createPortal(
+          <FocusTrapProvider isVisible={isMenuOpen} type={MODAL_TYPES.SIDE_NAV}>
+            <div
+              className={classNames(styles.menuOverlay, {
+                [styles.menuOverlayOpen]: isMenuOpen,
               })}
-              onClick={() => changeLanguage("en")}
-              aria-label="Switch to English"
+              onClick={closeMenu}
             >
-              {EnglishFlag && <EnglishFlag size={28} />}
-            </button>
-            <button
-              type="button"
-              className={classNames(styles.langButton, {
-                [styles.langButtonActive]: i18n.language === "fr",
-              })}
-              onClick={() => changeLanguage("fr")}
-              aria-label="Passer en français"
-            >
-              {FrenchFlag && <FrenchFlag size={28} />}
-            </button>
-          </div>
-          <ul className={styles.menuLinks}>
-            {links.map((link) => {
-              const isActive = link.path === currentPath;
-              return (
-                <li key={link.path} className={styles.menuLinkItem}>
-                  <Link
-                    to={link.path}
-                    className={classNames(styles.menuLink, {
-                      [styles.menuLinkActive]: isActive,
+              <div
+                id="sidebar"
+                className={classNames(styles.menuPanel, {
+                  [styles.menuPanelOpen]: isMenuOpen,
+                })}
+                onClick={(e) => e.stopPropagation()}
+              >
+                <button
+                  id="burgerMenuSidebarIcon"
+                  type="button"
+                  className={styles.closeButton}
+                  onClick={closeMenu}
+                  aria-label="Close menu"
+                >
+                  {CloseIcon && <CloseIcon size={32} color="currentColor" />}
+                </button>
+                <div className={styles.languageSelector}>
+                  <button
+                    type="button"
+                    className={classNames(styles.langButton, {
+                      [styles.langButtonActive]: i18n.language === "en",
                     })}
-                    onClick={closeMenu}
+                    onClick={() => changeLanguage("en")}
+                    aria-label="Switch to English"
                   >
-                    {link.label}
-                  </Link>
-                  {!isActive && <div className={styles.menuLinkUnderline} />}
-                </li>
-              );
-            })}
-          </ul>
-        </div>
-      </div>
+                    {EnglishFlag && <EnglishFlag size={28} />}
+                  </button>
+                  <button
+                    type="button"
+                    className={classNames(styles.langButton, {
+                      [styles.langButtonActive]: i18n.language === "fr",
+                    })}
+                    onClick={() => changeLanguage("fr")}
+                    aria-label="Passer en français"
+                  >
+                    {FrenchFlag && <FrenchFlag size={28} />}
+                  </button>
+                </div>
+                <ul className={styles.menuLinks}>
+                  {links.map((link) => {
+                    const isActive = link.path === currentPath;
+                    return (
+                      <li key={link.path} className={styles.menuLinkItem}>
+                        <Link
+                          to={link.path}
+                          className={classNames(styles.menuLink, {
+                            [styles.menuLinkActive]: isActive,
+                          })}
+                          onClick={closeMenu}
+                        >
+                          {link.label}
+                        </Link>
+                        {!isActive && (
+                          <div className={styles.menuLinkUnderline} />
+                        )}
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+            </div>
+          </FocusTrapProvider>,
+          document.body,
+        )}
     </>
   );
 };

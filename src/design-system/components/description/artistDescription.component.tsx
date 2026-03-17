@@ -36,6 +36,9 @@ const ArtistDescription: React.FC<{ datas: ArtistDescriptionData }> = ({
   const [currentIndex, setCurrentIndex] = useState(0);
   const [instagramIcon, setInstagramIcon] = useState<React.ReactNode>(null);
 
+  // ID unique pour le bouton du carousel (pour le retour du focus)
+  const carouselButtonId = `carousel-button-${name.toLowerCase().replace(/\s+/g, "-")}`;
+
   // Utilisation du hook fullscreen
   const fullscreenMode = useFullscreenMode(images.length);
 
@@ -72,23 +75,35 @@ const ArtistDescription: React.FC<{ datas: ArtistDescriptionData }> = ({
     <section className={styles.container}>
       <div className={styles.carouselWrapper}>
         {images.map((src, index) => (
-          <button
-            type="button"
+          <div
             key={src}
             className={classNames(styles.carouselImageButton, {
               [styles.carouselImageActive]: index === currentIndex,
             })}
-            onClick={() => fullscreenMode.openFullscreen(index)}
-            aria-label={`Voir l'image ${index + 1} de ${name} en plein écran`}
+            role="img"
+            aria-label={`${name} tattoo ${index + 1}`}
           >
             <img
               src={src}
-              alt={`${name} tattoo ${index + 1}`}
+              alt=""
               className={styles.carouselImage}
               draggable={false}
             />
-          </button>
+          </div>
         ))}
+        <button
+          id={carouselButtonId}
+          type="button"
+          className={styles.carouselOpenButton}
+          onClick={() => {
+            fullscreenMode.openFullscreen(currentIndex);
+          }}
+          aria-label={`Ouvrir la galerie de ${name} (${images.length} images)`}
+        >
+          <span className={styles.visuallyHidden}>
+            Ouvrir la galerie de {name}
+          </span>
+        </button>
         <div className={styles.imageCounter}>
           {currentIndex + 1}/{images.length}
         </div>
@@ -129,6 +144,7 @@ const ArtistDescription: React.FC<{ datas: ArtistDescriptionData }> = ({
         onNext={fullscreenMode.nextImage}
         onPrev={fullscreenMode.prevImage}
         altTextPrefix={name}
+        anchorButtonId={carouselButtonId}
       />
     </section>
   );

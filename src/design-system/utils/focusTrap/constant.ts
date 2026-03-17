@@ -6,4 +6,9 @@ export const focusConfig: Partial<FocusConfig> = {
     wrapperId: "sidebar",
     idToFocus: "burgerMenuSidebarIcon",
   },
+  [MODAL_TYPES.FULLSCREEN_GALLERY]: {
+    anchorId: null, // Sera défini dynamiquement
+    wrapperId: "fullscreenGallery",
+    idToFocus: "fullscreenCloseButton",
+  },
 };

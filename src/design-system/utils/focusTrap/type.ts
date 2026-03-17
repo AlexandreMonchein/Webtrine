@@ -1,11 +1,15 @@
-export type WrapperId = "sidebar" | null;
+export type WrapperId = "sidebar" | "fullscreenGallery" | null;
 
-export type AnchorId = "burgerMenuNavbarIcon" | null;
+export type AnchorId = "burgerMenuNavbarIcon" | string | null;
 
-export type FirstIdToFocus = "burgerMenuSidebarIcon" | null;
+export type FirstIdToFocus =
+  | "burgerMenuSidebarIcon"
+  | "fullscreenCloseButton"
+  | null;
 
 export const MODAL_TYPES = {
   SIDE_NAV: "SIDE_NAV",
+  FULLSCREEN_GALLERY: "FULLSCREEN_GALLERY",
 } as const;
 
 export type ModalType = keyof typeof MODAL_TYPES;
