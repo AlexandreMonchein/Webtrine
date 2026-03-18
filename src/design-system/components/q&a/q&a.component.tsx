@@ -80,7 +80,7 @@ const AccordionItemComponent: React.FC<{
       <AccordionContent
         $isExpanded={isExpanded}
         $maxHeight={maxHeight}
-        tabIndex={isExpanded ? 0 : -1}
+        tabIndex={-1}
       >
         <AccordionBody
           ref={contentRef}

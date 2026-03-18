@@ -98,11 +98,13 @@ export const Tab = styled.button<{ $isActive: boolean }>`
   transition: all 0.2s ease;
   position: relative;
 
+  color: var(--theme-color-foreground-1);
   background: linear-gradient(
-      var(--theme-color-hover),
-      var(--theme-color-hover)
+      var(--theme-color-background-1),
+      var(--theme-color-background-1)
     )
     center bottom / 100% 0px no-repeat;
+
   text-decoration: none;
   transition:
     background 300ms ease-in-out,
@@ -111,11 +113,11 @@ export const Tab = styled.button<{ $isActive: boolean }>`
   &:hover,
   &:focus {
     background: linear-gradient(
-        var(--theme-color-hover),
-        var(--theme-color-hover)
+        var(--theme-color-quinary),
+        var(--theme-color-quinary)
       )
       center bottom / 100% 100% no-repeat;
-    color: var(--theme-color-primary);
+    color: var(--theme-color-foreground-2);
   }
 
   ${({ $isActive }) =>
@@ -184,10 +186,11 @@ export const AccordionHeader = styled.button<{ $isExpanded: boolean }>`
   transition: all 0.2s ease;
   border-radius: 8px;
   position: relative;
+  color: var(--theme-color-foreground-1);
 
   background: linear-gradient(
-      var(--theme-color-hover),
-      var(--theme-color-hover)
+      var(--theme-color-background-1),
+      var(--theme-color-background-1)
     )
     center bottom / 100% 0px no-repeat;
   transition:
@@ -197,14 +200,12 @@ export const AccordionHeader = styled.button<{ $isExpanded: boolean }>`
   &:hover,
   &:focus {
     background: linear-gradient(
-        var(--theme-color-hover),
-        var(--theme-color-hover)
+        var(--theme-color-quinary),
+        var(--theme-color-quinary)
       )
       center bottom / 100% 100% no-repeat;
 
-    p {
-      color: var(--theme-color-primary);
-    }
+    color: var(--theme-color-foreground-2);
   }
 
   ${bp.max(
@@ -216,7 +217,6 @@ export const AccordionHeader = styled.button<{ $isExpanded: boolean }>`
 `;
 
 export const QuestionText = styled.p`
-  color: var(--theme-color-tertiary);
   margin: 0;
   flex: 1;
   padding-right: 16px;
