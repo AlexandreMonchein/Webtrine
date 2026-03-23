@@ -128,7 +128,7 @@
             "banner-1": {
               "type": "banner",
               "features": { "multi": false, "medium": false, "mask": false, "logoAsTitle": true },
-              "title": "bigLogoAPT235",
+              "title": "bigLogo_apt235",
               "images": [
                 {
                   "name": "banner_1"
