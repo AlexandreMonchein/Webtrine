@@ -127,9 +127,8 @@
           "content": {
             "banner-1": {
               "type": "banner",
-              "features": { "multi": false, "medium": false, "mask": false },
-              "title": "APT.235",
-              "subTitle": "Studio de tatouage",
+              "features": { "multi": false, "medium": false, "mask": false, "logoAsTitle": true },
+              "title": "bigLogoAPT235",
               "images": [
                 {
                   "name": "banner_1"
@@ -140,8 +139,8 @@
             "description-1": {
               "type": "doubleImageDescription",
               "leftText": {
-                "title": "Prendre rendez-vous",
-                "description": "Prenez rendez-vous avec votre artiste et laissez vous guider tout au long de votre séance",
+                "title": "PRENDRE RENDEZ-VOUS",
+                "description": "PRENEZ RENDEZ-VOUS AVEC VOTRE ARTISTE ET LAISSEZ VOUS GUIDER TOUT AU LONG DE VOTRE SÉANCE",
                 "link": "/contact"
               },
               "leftImage": {
@@ -153,8 +152,8 @@
                 "imageAlt": "Studio photo"
               },
               "rightText": {
-                "title": "Les artistes",
-                "description": "Regardez nos différents artistes, tous passionnés et prêts à vous offrir la meilleure expérience",
+                "title": "LES ARTISTES",
+                "description": "REGARDEZ NOS DIFFÉRENTS ARTISTES, TOUS PASSIONNÉS ET PRÊTS À VOUS OFFRIR LA MEILLEURE EXPÉRIENCE",
                 "link": "/artistes"
               }
             },
@@ -166,13 +165,13 @@
                   "src": "/assets/apt235/IMG_3.webp",
                   "alt": "Photo de présentation"
                 },
-                "title": "Le studio",
+                "title": "LE STUDIO",
                 "description": [
                   {
-                    "text": "APT.235 est un studio de tatouage à Bordeaux. Nos artistes tatoueurs résidents ainsi que nos invités nationaux et internationaux auront le plaisir de vous accueillir dans un endroit safe, propre et moderne avec une prestation de qualité. Ils seront à votre écoute pour réaliser vos tatouages personnalisés avec respect et confiance."
+                    "text": "APT.235 EST UN STUDIO DE TATOUAGE À BORDEAUX. NOS ARTISTES TATOUEURS RÉSIDENTS AINSI QUE NOS INVITÉS NATIONAUX ET INTERNATIONAUX AURONT LE PLAISIR DE VOUS ACCUEILLIR DANS UN ENDROIT SAFE, PROPRE ET MODERNE AVEC UNE PRESTATION DE QUALITÉ. ILS SERONT À VOTRE ÉCOUTE POUR RÉALISER VOS TATOUAGES PERSONNALISÉS AVEC RESPECT ET CONFIANCE."
                   },
                   {
-                    "text": "Nous sommes ouverts au public uniquement sur rendez-vous. Retrouvez toutes les informations via Instagram @apt.235"
+                    "text": "NOUS SOMMES OUVERTS AU PUBLIC UNIQUEMENT SUR RENDEZ-VOUS. RETROUVEZ TOUTES LES INFORMATIONS VIA INSTAGRAM @APT.235"
                   }
                 ]
               }
@@ -190,6 +189,12 @@
                 "content": [
                   {
                     "text": "139 Bd du Président Wilson, 33200 Bordeaux",
+                    "withSpacer": true
+                  },
+                  {
+                    "logo": "instagram",
+                    "text": "@apt.235",
+                    "link": "https://www.instagram.com/apt.235/",
                     "withSpacer": true
                   },
                   {
@@ -286,7 +291,7 @@
           "content": {
             "description-1": {
               "type": "description",
-              "title": "Les artistes",
+              "title": "LES ARTISTES",
               "features": { "isReversed": false, "isCentered": false }
             },
             "description-2": {
@@ -294,8 +299,8 @@
               "datas": {
                 "name": "DUF",
                 "instagram": "duftattoo",
-                "tagline": "Minimaliste / Contemporain / Épuré",
-                "description": "Florian est un artiste autodidacte depuis 2012. Il fait ses débuts dans le graffiti et se perfectionne en découvrant le tatouage. Créateur et gérant du studio APT.235, il réalise aujourd'hui des tattoos aux lignes simples et épurées au style reconnaissable.",
+                "tagline": "MINIMALISTE / CONTEMPORAIN / ÉPURÉ",
+                "description": "FLORIAN EST UN ARTISTE AUTODIDACTE DEPUIS 2012. IL FAIT SES DÉBUTS DANS LE GRAFFITI ET SE PERFECTIONNE EN DÉCOUVRANT LE TATOUAGE. CRÉATEUR ET GÉRANT DU STUDIO APT.235, IL RÉALISE AUJOURD'HUI DES TATTOOS AUX LIGNES SIMPLES ET ÉPURÉES AU STYLE RECONNAISSABLE.",
                 "images": [
                   "/assets/apt235/IMG_45.webp",
                   "/assets/apt235/IMG_46.webp",
@@ -313,8 +318,8 @@
               "datas": {
                 "name": "NOKTO",
                 "instagram": "nokto.ttt",
-                "tagline": "Blackwork / Dark",
-                "description": "Inspiré par l'encre noire et les ombres, Anthony combine des lignes et des aplats afin de créer des tatouages aux contrastes très marqués. En plaçant le noir au bon endroit, il laisse apparaître ses motifs avec finesse.",
+                "tagline": "BLACKWORK / DARK",
+                "description": "INSPIRÉ PAR L'ENCRE NOIRE ET LES OMBRES, ANTHONY COMBINE DES LIGNES ET DES APLATS AFIN DE CRÉER DES TATOUAGES AUX CONTRASTES TRÈS MARQUÉS. EN PLAÇANT LE NOIR AU BON ENDROIT, IL LAISSE APPARAÎTRE SES MOTIFS AVEC FINESSE.",
                 "images": [
                   "/assets/apt235/IMG_5.webp",
                   "/assets/apt235/IMG_6.webp",
@@ -332,8 +337,8 @@
               "datas": {
                 "name": "SARAH MALFATTI",
                 "instagram": "malfatti.ttt",
-                "tagline": "Transparence / X-ray / Fumée",
-                "description": "Formée par Duf au studio APT.235, le style de Sarah s'oriente vers des concepts de transparence et de fluidité, avec notamment des effets X-ray et de fumée. Mêlant le contraste entre ombres délicates et noirs saturés.",
+                "tagline": "TRANSPARENCE / X-RAY / FUMÉE",
+                "description": "FORMÉE PAR DUF AU STUDIO APT.235, LE STYLE DE SARAH S'ORIENTE VERS DES CONCEPTS DE TRANSPARENCE ET DE FLUIDITÉ, AVEC NOTAMMENT DES EFFETS X-RAY ET DE FUMÉE. MÊLANT LE CONTRASTE ENTRE OMBRES DÉLICATES ET NOIRS SATURÉS.",
                 "images": [
                   "/assets/apt235/IMG_10.webp",
                   "/assets/apt235/IMG_11.webp",
@@ -351,8 +356,8 @@
               "datas": {
                 "name": "EMMA",
                 "instagram": "marberyry.ttt",
-                "tagline": "Pop culture / Coloré",
-                "description": "Venant d'un DUT en graphisme, Emma développe en parallèle une sensibilité au monde du tatouage. Inspirée par la culture japonaise et le manga, elle décide donc naturellement d'orienter son style dans cette direction.",
+                "tagline": "POP CULTURE / COLORÉ",
+                "description": "VENANT D'UN DUT EN GRAPHISME, EMMA DÉVELOPPE EN PARALLÈLE UNE SENSIBILITÉ AU MONDE DU TATOUAGE. INSPIRÉE PAR LA CULTURE JAPONAISE ET LE MANGA, ELLE DÉCIDE DONC NATURELLEMENT D'ORIENTER SON STYLE DANS CETTE DIRECTION.",
                 "images": [
                   "/assets/apt235/IMG_15.webp",
                   "/assets/apt235/IMG_16.webp",
@@ -370,8 +375,8 @@
               "datas": {
                 "name": "AIEUH ÇA PIQUE",
                 "instagram": "aieuh_ca_pique",
-                "tagline": "Ornemental / Fine line",
-                "description": "Inspiré par l'éclat de la lune et la puissance du soleil, Marwane façonne des tatouages délicats, porteurs de significations profondes ou simplement esthétiques. Son art réside dans l'harmonie subtile entre des lignes délicates et des traits plus marqués, créant ainsi des contrastes qui confèrent à vos ornements une singularité envoûtante.",
+                "tagline": "ORNEMENTAL / FINE LINE",
+                "description": "INSPIRÉ PAR L'ÉCLAT DE LA LUNE ET LA PUISSANCE DU SOLEIL, MARWANE FAÇONNE DES TATOUAGES DÉLICATS, PORTEURS DE SIGNIFICATIONS PROFONDES OU SIMPLEMENT ESTHÉTIQUES. SON ART RÉSIDE DANS L'HARMONIE SUBTILE ENTRE DES LIGNES DÉLICATES ET DES TRAITS PLUS MARQUÉS, CRÉANT AINSI DES CONTRASTES QUI CONFÈRENT À VOS ORNEMENTS UNE SINGULARITÉ ENVOÛTANTE.",
                 "images": [
                   "/assets/apt235/IMG_20.webp",
                   "/assets/apt235/IMG_21.webp",
@@ -390,8 +395,8 @@
               "datas": {
                 "name": "MAHÉ",
                 "instagram": "tattooday_studio",
-                "tagline": "Illustration / Handpoke / Couleur",
-                "description": "Passionnée depuis petite par le dessin et la nature, Mahé dessine de manière poétique et enfantine tout ce qui l'entoure. Diplômée en design graphique, elle aime les combinaisons de couleurs et les compositions qui sauront vous mettre en valeur !",
+                "tagline": "ILLUSTRATION / HANDPOKE / COULEUR",
+                "description": "PASSIONNÉE DEPUIS PETITE PAR LE DESSIN ET LA NATURE, MAHÉ DESSINE DE MANIÈRE POÉTIQUE ET ENFANTINE TOUT CE QUI L'ENTOURE. DIPLÔMÉE EN DESIGN GRAPHIQUE, ELLE AIME LES COMBINAISONS DE COULEURS ET LES COMPOSITIONS QUI SAURONT VOUS METTRE EN VALEUR !",
                 "images": [
                   "/assets/apt235/IMG_26.webp",
                   "/assets/apt235/IMG_27.webp",
@@ -409,8 +414,8 @@
               "datas": {
                 "name": "NATURAFFECTION",
                 "instagram": "naturaffection.ttt",
-                "tagline": "Graphique / Surréalisme / Micro réalisme",
-                "description": "Portée par son parcours en design graphique et ses expériences personnelles, Cassandra compose des récits visuels où poésie, micro-réalisme et surréalisme s'entrelacent. Elle aime travailler les ombrages, les textures et explore chaque détail avec sensibilité pour créer des œuvres uniques, inspirées des émotions humaines et des histoires que chacun porte en soi.",
+                "tagline": "GRAPHIQUE / SURRÉALISME / MICRO RÉALISME",
+                "description": "PORTÉE PAR SON PARCOURS EN DESIGN GRAPHIQUE ET SES EXPÉRIENCES PERSONNELLES, CASSANDRA COMPOSE DES RÉCITS VISUELS OÙ POÉSIE, MICRO-RÉALISME ET SURRÉALISME S'ENTRELACENT. ELLE AIME TRAVAILLER LES OMBRAGES, LES TEXTURES ET EXPLORE CHAQUE DÉTAIL AVEC SENSIBILITÉ POUR CRÉER DES ŒUVRES UNIQUES, INSPIRÉES DES ÉMOTIONS HUMAINES ET DES HISTOIRES QUE CHACUN PORTE EN SOI.",
                 "images": [
                   "/assets/apt235/IMG_31.webp",
                   "/assets/apt235/IMG_32.webp",
@@ -428,8 +433,8 @@
               "datas": {
                 "name": "ELENA",
                 "instagram": "vidnevskaya_tattoo",
-                "tagline": "Micro réalisme / Floral",
-                "description": "Elena est une tatoueuse ukrainienne, passionnée de dessin depuis l'enfance. Le tatouage a commencé pour elle sur un coup de tête. Elle a toujours été attirée par les détails, notamment les plantes et les visages. Depuis maintenant 8 ans, elle développe un style axé sur le micro-réalisme et les traits fins, avec une prédilection pour les motifs botaniques. À travers ses tatouages, elle cherche à capturer un instant éternel et à raconter des histoires personnelles.",
+                "tagline": "MICRO RÉALISME / FLORAL",
+                "description": "ELENA EST UNE TATOUEUSE UKRAINIENNE, PASSIONNÉE DE DESSIN DEPUIS L'ENFANCE. LE TATOUAGE A COMMENCÉ POUR ELLE SUR UN COUP DE TÊTE. ELLE A TOUJOURS ÉTÉ ATTIRÉE PAR LES DÉTAILS, NOTAMMENT LES PLANTES ET LES VISAGES. DEPUIS MAINTENANT 8 ANS, ELLE DÉVELOPPE UN STYLE AXÉ SUR LE MICRO-RÉALISME ET LES TRAITS FINS, AVEC UNE PRÉDILECTION POUR LES MOTIFS BOTANIQUES. À TRAVERS SES TATOUAGES, ELLE CHERCHE À CAPTURER UN INSTANT ÉTERNEL ET À RACONTER DES HISTOIRES PERSONNELLES.",
                 "images": [
                   "/assets/apt235/IMG_36.webp",
                   "/assets/apt235/IMG_37.webp",
@@ -466,13 +471,13 @@
                   "extension": "mp4",
                   "alt": "Photo de présentation"
                 },
-                "title": "Le studio",
+                "title": "LE STUDIO",
                 "description": [
                   {
-                    "text": "APT.235 est un studio de tatouage à Bordeaux. Nos artistes tatoueurs résidents ainsi que nos invités nationaux et internationaux auront le plaisir de vous accueillir dans un endroit safe, propre et moderne avec une prestation de qualité. Ils seront à votre écoute pour réaliser vos tatouages personnalisés avec respect et confiance."
+                    "text": "APT.235 EST UN STUDIO DE TATOUAGE À BORDEAUX. NOS ARTISTES TATOUEURS RÉSIDENTS AINSI QUE NOS INVITÉS NATIONAUX ET INTERNATIONAUX AURONT LE PLAISIR DE VOUS ACCUEILLIR DANS UN ENDROIT SAFE, PROPRE ET MODERNE AVEC UNE PRESTATION DE QUALITÉ. ILS SERONT À VOTRE ÉCOUTE POUR RÉALISER VOS TATOUAGES PERSONNALISÉS AVEC RESPECT ET CONFIANCE."
                   },
                   {
-                    "text": "Nous sommes ouverts au public uniquement sur rendez-vous. Retrouvez toutes les informations via Instagram @apt.235"
+                    "text": "NOUS SOMMES OUVERTS AU PUBLIC UNIQUEMENT SUR RENDEZ-VOUS. RETROUVEZ TOUTES LES INFORMATIONS VIA INSTAGRAM @APT.235"
                   }
                 ]
               }
@@ -497,19 +502,19 @@
                   "extension": "mp4",
                   "alt": "Photo de présentation"
                 },
-                "title": "Flash day",
+                "title": "FLASH DAY",
                 "description": [
                   {
-                    "text": "Le flash day est une journée organisée par le studio APT.235. Elle se déroule une à deux fois par an à des dates aléatoires et cela sans rendez-vous."
+                    "text": "LE FLASH DAY EST UNE JOURNÉE ORGANISÉE PAR LE STUDIO APT.235. ELLE SE DÉROULE UNE À DEUX FOIS PAR AN À DES DATES ALÉATOIRES ET CELA SANS RENDEZ-VOUS."
                   },
                   {
-                    "text": "On y trouve des petits flashs tattoo aux prix réduits que les tatoueurs réalisent tout au long de la journée en non-stop."
+                    "text": "ON Y TROUVE DES PETITS FLASHS TATTOO AUX PRIX RÉDUITS QUE LES TATOUEURS RÉALISENT TOUT AU LONG DE LA JOURNÉE EN NON-STOP."
                   },
                   {
-                    "text": "Premier arrivé, premier servi !"
+                    "text": "PREMIER ARRIVÉ, PREMIER SERVI !"
                   },
                   {
-                    "text": "Ces événements sont organisés via l'Instagram du studio."
+                    "text": "CES ÉVÉNEMENTS SONT ORGANISÉS VIA L'INSTAGRAM DU STUDIO."
                   }
                 ]
               }

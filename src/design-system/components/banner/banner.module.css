@@ -227,6 +227,30 @@
   }
 }
 
+/* Logo as title */
+.logoContainer {
+  z-index: var(--z-index-text);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 48px;
+
+  @media (--bp-max-medium) {
+    padding: 0 24px;
+  }
+}
+
+.logo {
+  max-width: 100%;
+  height: auto;
+  width: auto;
+  max-height: 60vh;
+
+  @media (--bp-max-medium) {
+    max-height: 40vh;
+  }
+}
+
 /* ========================================
    CAROUSEL SELECTORS
    ======================================== */

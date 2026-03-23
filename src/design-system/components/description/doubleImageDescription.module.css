@@ -2,7 +2,7 @@
 
 .doubleImageDescriptionRoot {
   position: relative;
-  padding: 40px 60px 160px;
+  padding: 40px 40px 160px;
   color: var(--theme-color-tertiary);
   overflow: hidden;
   display: flex;
@@ -129,10 +129,14 @@
 .textContent {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 6px;
+
+  @media (--bp-min-medium) {
+    gap: 8px;
+  }
 
   @media (--bp-min-xlarge) {
-    gap: 8px;
+    gap: 12px;
   }
 }
 

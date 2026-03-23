@@ -2,6 +2,10 @@ export type ContactInfoItem = {
   text: string;
   /** Adds extra spacing below this item */
   withSpacer?: boolean;
+  /** Optional icon/logo name to display before the text */
+  logo?: string;
+  /** Optional link URL to make the item clickable */
+  link?: string;
 };
 
 export type ReviewButton = {

@@ -28,6 +28,7 @@ export interface BannerFeatures {
   textPositionFeature?: boolean;
   medium?: boolean;
   mask?: boolean;
+  logoAsTitle?: boolean;
 }
 
 export interface BannerDatas {

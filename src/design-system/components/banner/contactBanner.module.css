@@ -140,6 +140,30 @@
   margin: 0;
 }
 
+.infoTextWithIcon {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.infoTextWithLink {
+  text-decoration: none;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+  font-weight: bold;
+}
+
+.infoTextWithLink:hover {
+  opacity: 0.7;
+}
+
+.iconWrapper {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
 .infoTextWithSpacer {
   padding-bottom: 1rem;
 

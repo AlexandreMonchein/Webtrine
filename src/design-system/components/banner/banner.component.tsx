@@ -10,7 +10,13 @@ const Banner = (datas: BannerDatas) => {
   const customer = getCustomer();
 
   const {
-    features: { multi, textPositionFeature, medium = false, mask = true },
+    features: {
+      multi,
+      textPositionFeature,
+      medium = false,
+      mask = true,
+      logoAsTitle = false,
+    },
     title,
     subTitle,
     subTitle2,
@@ -46,6 +52,29 @@ const Banner = (datas: BannerDatas) => {
     g[1].toUpperCase(),
   );
 
+  // Render title content (either logo or text)
+  const renderTitleContent = () => {
+    if (logoAsTitle && title) {
+      return (
+        <div className={styles.logoContainer}>
+          <img
+            src={`/assets/${customer}/icons/${title}.webp`}
+            alt={title}
+            className={styles.logo}
+          />
+        </div>
+      );
+    }
+
+    return (
+      <>
+        {title ? <h1 className={styles.title}>{title}</h1> : null}
+        {subTitle ? <h2 className={styles.subTitle}>{subTitle}</h2> : null}
+        {subTitle2 ? <h2 className={styles.subTitle}>{subTitle2}</h2> : null}
+      </>
+    );
+  };
+
   return (
     <section
       className={classNames(styles.content, {
@@ -66,11 +95,7 @@ const Banner = (datas: BannerDatas) => {
               },
             )}
           >
-            {title ? <h1 className={styles.title}>{title}</h1> : null}
-            {subTitle ? <h2 className={styles.subTitle}>{subTitle}</h2> : null}
-            {subTitle2 ? (
-              <h2 className={styles.subTitle}>{subTitle2}</h2>
-            ) : null}
+            {renderTitleContent()}
           </div>
           <div className={styles.contactContainer}>
             {contact.map((info) => (
@@ -90,9 +115,7 @@ const Banner = (datas: BannerDatas) => {
             },
           )}
         >
-          {title ? <h1 className={styles.title}>{title}</h1> : null}
-          {subTitle ? <h2 className={styles.subTitle}>{subTitle}</h2> : null}
-          {subTitle2 ? <h2 className={styles.subTitle}>{subTitle2}</h2> : null}
+          {renderTitleContent()}
         </div>
       )}
       <div

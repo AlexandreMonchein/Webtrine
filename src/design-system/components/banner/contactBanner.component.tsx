@@ -1,8 +1,48 @@
 import classNames from "classnames";
 
 import CallToAction from "../../buttons/src/callToAction.component";
+import { useLoadComponent } from "../../utils/useLoadComponents.hook";
 import styles from "./contactBanner.module.css";
-import type { ContactBannerProps } from "./contactBanner.types";
+import type {
+  ContactBannerProps,
+  ContactInfoItem,
+} from "./contactBanner.types";
+
+const InfoContentItem = ({ item }: { item: ContactInfoItem }) => {
+  const Icon = useLoadComponent(item.logo || null);
+
+  const content = (
+    <>
+      {Icon && (
+        <span className={styles.iconWrapper}>
+          <Icon size={20} color="black" />
+        </span>
+      )}
+      <span>{item.text}</span>
+    </>
+  );
+
+  const className = classNames(styles.infoText, {
+    [styles.infoTextWithSpacer]: item.withSpacer,
+    [styles.infoTextWithIcon]: !!item.logo,
+    [styles.infoTextWithLink]: !!item.link,
+  });
+
+  if (item.link) {
+    return (
+      <a
+        href={item.link}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={className}
+      >
+        {content}
+      </a>
+    );
+  }
+
+  return <p className={className}>{content}</p>;
+};
 
 const ContactBanner = ({ datas }: ContactBannerProps) => {
   const { title, media, infoTitle, content, reviewButton } = datas;
@@ -47,14 +87,10 @@ const ContactBanner = ({ datas }: ContactBannerProps) => {
           <div className={styles.separator} />
           <div className={styles.infoContent}>
             {content.map((item, index) => (
-              <p
+              <InfoContentItem
                 key={`contactBanner-text-${index}`}
-                className={classNames(styles.infoText, {
-                  [styles.infoTextWithSpacer]: item.withSpacer,
-                })}
-              >
-                {item.text}
-              </p>
+                item={item}
+              />
             ))}
           </div>
         </div>

@@ -12,7 +12,7 @@
   flex-direction: column;
   align-items: center;
   gap: 2rem;
-  padding: 40px 80px 80px;
+  padding: 40px 40px 80px;
 
   /* Tablet and up - Side by side layout */
   @media (--bp-min-medium) {

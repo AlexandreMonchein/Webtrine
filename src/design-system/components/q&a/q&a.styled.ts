@@ -302,7 +302,7 @@ export const AccordionBody = styled.div`
   ${bp.max(
     breakpointNames.medium,
     css`
-      padding: 0 20px 16px 20px;
+      padding: 20px 20px 16px 20px;
     `,
   )}
 `;

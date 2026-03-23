@@ -39,10 +39,12 @@
 /* Middle section - Copyright + Legal links */
 .middleSection {
   text-align: center;
-  color: var(--theme-color-primary);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 
-  @media (width < 768px) {
-    padding: 0;
+  @media (--bp-min-medium) {
+    gap: 4px;
   }
 }
 
