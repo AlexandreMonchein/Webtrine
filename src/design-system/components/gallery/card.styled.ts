@@ -24,11 +24,15 @@ export const Image = styled.img`
   border-radius: 16px 16px 16px 16px;
   filter: drop-shadow(2px 3px 3px var(--theme-color-secondary));
 
+  &.isLogo {
+    filter: unset;
+  }
+
   ${bp.min(
     breakpointNames.wide,
     css`
-      width: 522px;
-      height: 522px;
+      width: 450px;
+      height: 450px;
     `,
   )};
 `;

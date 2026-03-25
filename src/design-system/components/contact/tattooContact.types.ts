@@ -40,6 +40,7 @@ export type TattooContactProps = {
 
 export type TattooContactDatas = {
   artists: Artist[];
+  logo: string;
   "data-testid"?: string;
   features?: FeaturesConfig;
 };

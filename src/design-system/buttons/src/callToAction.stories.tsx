@@ -1,5 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
+import ArrowRightIcon from "../../../assets/icons/arrowRight.component";
+import DownloadIcon from "../../../assets/icons/download.component";
+import HeartIcon from "../../../assets/icons/heart.component";
 import CallToAction from "./callToAction.component";
 
 const meta: Meta<typeof CallToAction> = {
@@ -22,37 +25,6 @@ const defaultArgs = {
   shape: "pill" as const,
   onClick: () => alert("Bouton cliqué !"),
 };
-
-// Icône SVG exemple
-const ArrowIcon = () => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 24 24"
-    fill="currentColor"
-  >
-    <path d="M13.025 1l-2.847 2.828 6.176 6.176h-16.354v3.992h16.354l-6.176 6.176 2.847 2.828 10.975-11z" />
-  </svg>
-);
-
-const HeartIcon = () => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 24 24"
-    fill="currentColor"
-  >
-    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
-  </svg>
-);
-
-const DownloadIcon = () => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 24 24"
-    fill="currentColor"
-  >
-    <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z" />
-  </svg>
-);
 
 /**
  * Vue d'ensemble de tous les cas d'usage du bouton CallToAction
@@ -98,19 +70,43 @@ export const Overview: Story = {
           <CallToAction
             {...defaultArgs}
             text="Continuer"
-            icon={<ArrowIcon />}
+            icon={<ArrowRightIcon size={24} />}
           />
           <CallToAction
             {...defaultArgs}
             text="Ajouter aux favoris"
-            icon={<HeartIcon />}
+            icon={<HeartIcon size={24} />}
             variant="secondary"
           />
           <CallToAction
             {...defaultArgs}
             text="Télécharger"
-            icon={<DownloadIcon />}
+            icon={<DownloadIcon size={24} />}
             size="large"
+          />
+        </div>
+      </div>
+
+      <div>
+        <h3 style={{ marginBottom: "20px" }}>Position de l'icône</h3>
+        <div style={{ display: "flex", gap: "20px", flexWrap: "wrap" }}>
+          <CallToAction
+            {...defaultArgs}
+            text="Icône à gauche"
+            icon={<ArrowRightIcon size={24} />}
+            iconPosition="left"
+          />
+          <CallToAction
+            {...defaultArgs}
+            text="Icône à droite"
+            icon={<ArrowRightIcon size={24} />}
+            iconPosition="right"
+          />
+          <CallToAction
+            {...defaultArgs}
+            text="Par défaut (droite)"
+            icon={<HeartIcon size={24} />}
+            variant="secondary"
           />
         </div>
       </div>
@@ -121,7 +117,7 @@ export const Overview: Story = {
           <CallToAction
             text="Voir la page d'accueil"
             href="/"
-            icon={<ArrowIcon />}
+            icon={<ArrowRightIcon size={24} />}
           />
           <CallToAction
             text="Nous contacter"
@@ -152,7 +148,7 @@ export const Overview: Story = {
             {...defaultArgs}
             text="Rounded avec icône"
             shape="rounded"
-            icon={<ArrowIcon />}
+            icon={<ArrowRightIcon size={24} />}
             variant="secondary"
           />
         </div>

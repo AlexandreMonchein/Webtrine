@@ -12,6 +12,7 @@ export const Card = ({ data, type }) => {
   return (
     <Wrapper className={classNames({ isLogo: type === "logo" })}>
       <Image
+        className={classNames({ isLogo: type === "logo" })}
         alt={alt}
         src={`${import.meta.env.BASE_URL}assets/${customer}/${imageSrc}.webp`}
         loading="lazy"

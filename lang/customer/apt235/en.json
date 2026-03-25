@@ -11,6 +11,13 @@
   "footer": {
     "copyright": "© 2026 Apt235 - All rights reserved"
   },
+  "alertView": {
+    "contact": {
+      "close": "Fermer",
+      "title": "MERCI POUR TA DEMANDE !",
+      "description": "ELLE A BIEN été envoyé à ton artiste, maintenant tout se passe directement sur ta boite mail. Ne t'inquiète pas s'il y a un délai avant d'obtenir une réponse. Merci de ta confiance, à bientôt."
+    }
+  },
   "contact": {
     "title": "Contact Us",
     "name": "Full name",

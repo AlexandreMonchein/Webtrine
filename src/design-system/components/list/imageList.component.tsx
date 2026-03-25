@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 
 import { getCustomer } from "../../../customer.utils";
+import { useLoadComponent } from "../../utils/useLoadComponents.hook";
 import {
   ConsultButton,
   Container,
@@ -13,16 +14,26 @@ import {
   SubTitle,
   Title,
 } from "./imageList.styled";
+import type { ImageListProps } from "./imageList.types";
 
-const List = (datas) => {
+const List = ({
+  title,
+  subtitle,
+  images,
+  "data-testid": dataTestid,
+}: ImageListProps) => {
   const customer = getCustomer();
-  const scrollContainerRef = useRef(null);
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [showButtons, setShowButtons] = useState(false);
 
-  const scroll = (direction) => {
+  const ChevronLeft = useLoadComponent("chevronLeft");
+  const ChevronRight = useLoadComponent("chevronRight");
+
+  const scroll = (direction: "left" | "right") => {
     if (scrollContainerRef.current) {
-      const { scrollLeft, clientWidth } = scrollContainerRef.current;
-      const scrollAmount = direction === "left" ? -clientWidth : clientWidth;
+      const { scrollLeft } = scrollContainerRef.current;
+      // Image width (200px) + gap (48px) = 248px per image
+      const scrollAmount = direction === "left" ? -248 : 248;
       scrollContainerRef.current.scrollTo({
         left: scrollLeft + scrollAmount,
         behavior: "smooth",
@@ -46,19 +57,19 @@ const List = (datas) => {
     };
   }, []);
 
-  const { title, subtitle, images } = datas;
-
   if (!images || images.length === 0) {
     return null;
   }
 
   return (
-    <Section>
+    <Section data-testid={dataTestid}>
       {title ? <Title>{title}</Title> : null}
       {subtitle ? <SubTitle>{subtitle}</SubTitle> : null}
       <Container>
-        {showButtons && (
-          <ScrollButton onClick={() => scroll("left")}>‹</ScrollButton>
+        {showButtons && ChevronLeft && (
+          <ScrollButton onClick={() => scroll("left")}>
+            <ChevronLeft size={40} />
+          </ScrollButton>
         )}
         <ImageList ref={scrollContainerRef} $imagecount={images.length}>
           {images.map((image) => (
@@ -76,8 +87,10 @@ const List = (datas) => {
             </ImageWrapper>
           ))}
         </ImageList>
-        {showButtons && (
-          <ScrollButton onClick={() => scroll("right")}>›</ScrollButton>
+        {showButtons && ChevronRight && (
+          <ScrollButton onClick={() => scroll("right")}>
+            <ChevronRight size={40} />
+          </ScrollButton>
         )}
       </Container>
     </Section>

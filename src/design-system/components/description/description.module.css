@@ -1,4 +1,4 @@
-@import url('../../../custom-media.css');
+@import url("../../../custom-media.css");
 
 .section {
   position: relative;
@@ -37,21 +37,25 @@
   width: 100%;
   display: flex;
   gap: 0;
-  flex-direction: column;
   align-items: center;
+  flex-direction: column;
 
   &.isCentered {
     display: flex;
   }
 
-  &.isTextBefore {
-    flex-direction: column-reverse;
+  @media (--bp-max-medium) {
+    &.isReversed {
+      flex-direction: column;
+    }
+
+    &.isTextBefore {
+      flex-direction: column-reverse;
+    }
   }
 
-  &.isReversed {
-    flex-direction: column;
-
-    @media (--bp-min-medium) {
+  @media (--bp-min-medium) {
+    &.isReversed {
       flex-direction: row-reverse;
       justify-content: space-between;
     }
@@ -92,6 +96,10 @@
 
   &.isCentered {
     @media (--bp-min-medium) {
+      width: 300px;
+    }
+
+    @media (--bp-min-xlarge) {
       width: auto;
     }
   }

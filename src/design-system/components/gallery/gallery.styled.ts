@@ -59,7 +59,7 @@ export const GalleryRoot = styled.section`
     ${bp.min(
       breakpointNames.wide,
       css`
-        padding: 40px 360px;
+        padding: 40px 240px;
       `,
     )}
   }
@@ -67,7 +67,7 @@ export const GalleryRoot = styled.section`
   ${bp.min(
     breakpointNames.wide,
     css`
-      padding: 40px 360px;
+      padding: 40px 240px;
     `,
   )}
 `;
@@ -83,7 +83,7 @@ export const Wrapper = styled.div`
   column-gap: 24px;
 
   &.isLogo {
-    padding-bottom: 0px;
+    align-items: center;
   }
 `;
 
@@ -99,8 +99,8 @@ export const CardWrapper = styled.div`
   ${bp.min(
     breakpointNames.wide,
     css`
-      min-width: 500px;
-      max-width: 500px;
+      min-width: 450px;
+      max-width: 450px;
     `,
   )};
 
@@ -116,7 +116,7 @@ export const CardWrapper = styled.div`
         breakpointNames.wide,
         css`
           min-width: auto;
-          max-width: 256px;
+          max-width: 128px;
         `,
       )};
     }

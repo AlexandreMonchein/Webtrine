@@ -29,6 +29,13 @@ import {
   Title,
 } from "./defaultContact.styled";
 
+// Convert YYYY-MM-DD to DD-MM-YYYY for email
+const formatDateForEmail = (isoDate: string): string => {
+  if (!isoDate || !/^\d{4}-\d{2}-\d{2}$/.test(isoDate)) return "";
+  const [year, month, day] = isoDate.split("-");
+  return `${day}-${month}-${year}`;
+};
+
 const PetSittingContact = () => {
   const dispatch = useDispatch();
   const { t } = useTranslation();
@@ -68,7 +75,7 @@ const PetSittingContact = () => {
   const [firstVisitDate, setFirstVisitDate] = useState("");
 
   const handleSubmit = useCallback(
-    async (e) => {
+    async (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault();
 
       // Empêcher les soumissions multiples
@@ -76,18 +83,26 @@ const PetSittingContact = () => {
 
       setIsSubmitting(true);
 
-      const firstName = e.target.firstName.value || null;
-      const lastName = e.target.lastName.value || null;
-      const emailFrom = e.target.email.value || null;
-      const number = e.target.phone.value || null;
-      const address = e.target.address.value || null;
-      const firstVisit = e.target.firstVisitDate.value || null;
-      const lastVisit = e.target.lastVisitDate.value || null;
-      const preVisitDateTime = e.target.preVisitDateTime.value || null;
-      const howKnown = e.target.howKnown.value || null;
-      const visitFrequency = e.target.visitFrequency.value || null;
-      const petType = e.target.petType.value || null;
-      const additionalInfo = e.target.additionalInfo.value || null;
+      const form = e.target as HTMLFormElement;
+
+      const firstName = form.firstName.value || null;
+      const lastName = form.lastName.value || null;
+      const emailFrom = form.email.value || null;
+      const number = form.phone.value || null;
+      const address = form.address.value || null;
+      const firstVisit = form.firstVisitDate.value
+        ? formatDateForEmail(form.firstVisitDate.value)
+        : null;
+      const lastVisit = form.lastVisitDate.value
+        ? formatDateForEmail(form.lastVisitDate.value)
+        : null;
+      const preVisitDateTime = form.preVisitDateTime.value
+        ? formatDateForEmail(form.preVisitDateTime.value)
+        : null;
+      const howKnown = form.howKnown.value || null;
+      const visitFrequency = form.visitFrequency.value || null;
+      const petType = form.petType.value || null;
+      const additionalInfo = form.additionalInfo.value || null;
       const replyTo = email || "webtrine.pro@gmail.com";
 
       const datas = {
@@ -117,7 +132,7 @@ const PetSittingContact = () => {
           }),
         );
 
-        e.target.reset();
+        form.reset();
         setFirstVisitDate("");
       } catch (error) {
         dispatch(
@@ -130,7 +145,7 @@ const PetSittingContact = () => {
         setIsSubmitting(false);
       }
     },
-    [isSubmitting, email, templateId, dispatch, t],
+    [isSubmitting, email, templateId, serviceId, dispatch, t],
   );
 
   const title = t("contact.title");

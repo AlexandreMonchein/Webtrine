@@ -1,0 +1,93 @@
+@import url('../../../custom-media.css');
+
+/* Overlay - full screen backdrop */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  animation: fadeIn 0.3s ease-out;
+  overflow: hidden;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* Modal container */
+.alertviewRoot {
+  align-content: center;
+  padding: 2rem;
+  background-color: var(--theme-color-background-1);
+  animation: slideIn 0.3s ease-out;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+
+  @media (--bp-min-medium) {
+    padding: 3rem;
+  }
+
+  @media (--bp-min-large) {
+    padding: 4rem;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 3rem;
+}
+
+.logoWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--theme-color-primary);
+}
+
+.logo {
+  max-height: 80px;
+  width: auto;
+  object-fit: contain;
+
+  @media (--bp-min-medium) {
+    max-height: 100px;
+  }
+}
+
+.title {
+  color: var(--theme-color-foreground-1);
+  margin: 0;
+  padding: 0;
+}
+
+.description {
+  color: var(--theme-color-foreground-1);
+  line-height: 1.6;
+  margin: 0;
+  max-width: 600px;
+}

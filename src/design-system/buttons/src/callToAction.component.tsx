@@ -6,6 +6,7 @@ import type { CallToActionProps } from "./callToAction.types";
 export const CallToAction = ({
   text,
   icon,
+  iconPosition = "left",
   onClick,
   href,
   variant = "primary",
@@ -24,8 +25,13 @@ export const CallToAction = ({
 
   const content = (
     <>
-      {icon && <span className={styles.icon}>{icon}</span>}
+      {icon && iconPosition === "left" && (
+        <span className={styles.icon}>{icon}</span>
+      )}
       <span className={styles.text}>{text}</span>
+      {icon && iconPosition === "right" && (
+        <span className={styles.icon}>{icon}</span>
+      )}
     </>
   );
 

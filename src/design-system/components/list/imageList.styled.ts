@@ -1,4 +1,7 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+
+import { bp } from "../../../breakpoint";
+import { breakpointNames } from "../../../breakpointDef";
 
 export const Section = styled.section`
   padding: 40px 0px;
@@ -11,6 +14,40 @@ export const Container = styled.div`
   position: relative;
   width: 100%;
   overflow: hidden;
+
+  /* Gradient gauche */
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 120px;
+    background: linear-gradient(
+      to right,
+      var(--theme-color-primary),
+      transparent
+    );
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  /* Gradient droit */
+  &::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 120px;
+    background: linear-gradient(
+      to left,
+      var(--theme-color-primary),
+      transparent
+    );
+    pointer-events: none;
+    z-index: 2;
+  }
 `;
 
 export const ImageList = styled.div<{ $imagecount: number }>`
@@ -20,14 +57,31 @@ export const ImageList = styled.div<{ $imagecount: number }>`
   width: 100%;
   padding: 10px 0;
   gap: 48px;
+  padding-left: 65px;
   scrollbar-width: none; /* Firefox */
 
   &::-webkit-scrollbar {
     display: none; /* WebKit */
   }
 
-  justify-content: ${(props) =>
-    props.$imagecount < 5 ? "center" : "flex-start"};
+  ${bp.min(
+    breakpointNames.medium,
+    css`
+      padding-left: 75px;
+    `,
+  )}
+
+  justify-content: flex-start;
+
+  ${(props) =>
+    props.$imagecount < 5 &&
+    `
+    &::before,
+    &::after {
+      content: '';
+      flex: 1;
+    }
+  `}
 `;
 
 export const Overlay = styled.div`
@@ -81,7 +135,7 @@ export const ImageItem = styled.img`
   min-width: 200px;
   min-height: 200px;
   border-radius: 50%;
-  object-fit: cover;
+  object-fit: contain;
 `;
 
 export const ScrollButton = styled.button`
@@ -89,22 +143,46 @@ export const ScrollButton = styled.button`
   top: 50%;
   transform: translateY(-50%);
   border: none;
-  color: white;
-  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.9);
+  width: 64px;
+  height: 64px;
+  padding: 0;
   cursor: pointer;
-  z-index: 1;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  transition: all 0.2s ease-in-out;
+  backdrop-filter: blur(4px);
+  display: none;
+
+  &:hover {
+    transform: translateY(-50%) scale(1.15);
+    background-color: rgba(255, 255, 255, 1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
 
   &:focus {
-    outline: none;
+    outline: 2px solid var(--theme-color-foreground-2);
+    outline-offset: 2px;
   }
 
   &:first-of-type {
-    left: 0;
+    left: 8px;
   }
 
   &:last-of-type {
-    right: 0;
+    right: 8px;
   }
+
+  ${bp.min(
+    breakpointNames.medium,
+    css`
+      display: flex;
+    `,
+  )}
 `;
 
 export const Title = styled.h2`

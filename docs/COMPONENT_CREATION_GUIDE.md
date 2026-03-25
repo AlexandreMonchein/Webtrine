@@ -13,12 +13,13 @@ Ce guide détaille comment créer un nouveau composant dans le Design System Web
 - ✅ **data-testid hardcodé** : `data-testid="{nom}Root"` (jamais en prop)
 - ✅ **defaultArgs pattern** : Créer `const defaultArgs` et spread `...defaultArgs` dans stories
 - ✅ **Default export** : `export default MyComponent` pour chargement dynamique
+- ✅ **Types minimalistes** : Fichiers `.types.ts` sans commentaires (noms auto-explicites)
 
 ### MUST NOT (Interdictions)
 - ❌ **JAMAIS créer sans** NOM + TYPE + DESCRIPTION
 - ❌ **JAMAIS** de dossier par composant (pas de `components/team/`)
 - ❌ **JAMAIS** de type `any` en TypeScript
-- ❌ **JAMAIS** de JSDoc au-dessus des composants React
+- ❌ **JAMAIS** de JSDoc (ni sur composants React, ni dans `.types.ts`)
 - ❌ **JAMAIS** de props `data-testid` dans les types
 - ❌ **JAMAIS** de font-properties dans CSS (`font-size`, `font-weight`, `font-family`, `font-style`)
 - ❌ **JAMAIS** de template strings pour classes CSS (utiliser `classNames()`)
@@ -66,7 +67,7 @@ START
   ├─ Créer 6 fichiers dans {TYPE}/
   │  ├─ {nom}.component.tsx (React + hardcoded data-testid)
   │  ├─ {nom}.module.css (@import custom-media + mobile-first)
-  │  ├─ {nom}.types.ts (interfaces + JSDoc si utile)
+  │  ├─ {nom}.types.ts (types purs, sans commentaires)
   │  ├─ {nom}.stories.tsx (defaultArgs + spread)
   │  ├─ {nom}.docs.md (full JSON implementation)
   │  └─ __tests__/{nom}.component.int.tsx (Vitest)
@@ -1218,10 +1219,11 @@ Les sélecteurs supportent la navigation au clavier :
 - ❌ **AUCUN `any`** autorisé (utiliser types spécifiques ou `unknown`)
 - ✅ Props typées avec interface/type exporté
 - ✅ `PropsWithChildren` pour composants avec children
-- ⚠️ **JSDoc : Par défaut, NE PAS en ajouter** - Uniquement si apporte info non-évidente
+- ❌ **JAMAIS de JSDoc dans `.types.ts`** - Les noms de props doivent être auto-explicites
 - ❌ **Jamais de JSDoc sur composants React** (documentation dans stories/docs)
-- ✅ Exporter variants séparément
+- ✅ Exporter variants séparément comme types
 - ✅ Typer retours de fonctions explicitement
+- ✅ Fichiers `.types.ts` MINIMALISTES - Juste les types, rien d'autre
 
 ### [CODE-RULES] Règles de Code
 
@@ -1350,7 +1352,10 @@ import classNames from 'classnames';
 
 ### Code Quality
 - [ ] Pas de `any` TypeScript
-- [ ] Props typées + JSDoc **si utile uniquement**
+- [ ] Props typées sans `any`
+- [ ] Types exportés
+- [ ] Variants séparés comme types
+- [ ] Pas de commentaires (noms auto-explicites)
 - [ ] CSS Modules (pas Styled Components)
 - [ ] `@import url('../../../custom-media.css');` ligne 1 CSS
 - [ ] Variables theme : `var(--theme-color-*)`
@@ -1377,11 +1382,10 @@ import classNames from 'classnames';
 - [ ] `beforeEach` pour props
 
 ### Documentation
-- [ ] ❌ Pas JSDoc sur composant React
-- [ ] Props documentées **si utile** dans types
 - [ ] `.docs.md` avec structure JSON complète
 - [ ] `.docs.md` MINIMALISTE : uniquement config JSON, pas de descriptions de types/classes CSS
 - [ ] Stories en français (titres, descriptions, contenu)
+- [ ] Pas de commentaires JSDoc (ni dans types, ni sur composants)
 
 ### Vérification finale
 - [ ] Affichage Storybook OK

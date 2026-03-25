@@ -23,7 +23,7 @@
   border-radius: 50px;
   border-width: 0;
   padding: 15px 30px;
-  background-color: var(--theme-color-background-1);
+  background-color: var(--theme-color-background-2);
   color: var(--theme-color-foreground-2);
   white-space: nowrap;
   transition: background-color 0.3s ease;

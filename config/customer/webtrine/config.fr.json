@@ -152,14 +152,19 @@
               "subtitle": null,
               "images": [
                 {
-                  "alt": "Logo entreprise cliente: Di Paolo",
-                  "link": "https://www.labodipaolo.com",
-                  "src": "dipaolo"
+                  "alt": "Logo entreprise cliente: APT.235",
+                  "link": "https://www.apt235.com",
+                  "src": "apt235"
                 },
                 {
                   "alt": "Logo entreprise cliente: ChillPaws",
                   "link": "https://www.chillpaws.fr",
                   "src": "chillpaws"
+                },
+                {
+                  "alt": "Logo entreprise cliente: Di Paolo",
+                  "link": "https://www.labodipaolo.com",
+                  "src": "dipaolo"
                 }
               ]
             },

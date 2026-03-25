@@ -118,11 +118,6 @@ Copiez et adaptez cette configuration dans votre \`config.json\` :
       description:
         "Tableau d'images avec src (nom du fichier), alt (texte alternatif), et link (URL de destination). Les images sont chargées depuis assets/{customer}/clients/",
     },
-    features: {
-      control: "object",
-      description:
-        "Configuration optionnelle pour personnaliser le comportement",
-    },
   },
 };
 
@@ -134,7 +129,6 @@ export const Default: Story = {
   name: "Liste d'images par défaut",
   args: {
     title: "Ils nous ont fait confiance",
-    subtitle: null,
     images: [
       {
         alt: "Logo entreprise cliente: Di Paolo",
@@ -142,7 +136,6 @@ export const Default: Story = {
         src: "dipaolo",
       },
     ],
-    features: null,
   },
   parameters: {
     docs: {
@@ -166,7 +159,6 @@ export const WithSubtitle: Story = {
         src: "dipaolo",
       },
     ],
-    features: null,
   },
   parameters: {
     docs: {
@@ -211,7 +203,6 @@ export const MultipleImages: Story = {
         src: "dipaolo", // Réutilisation pour la demo
       },
     ],
-    features: null,
   },
   parameters: {
     docs: {

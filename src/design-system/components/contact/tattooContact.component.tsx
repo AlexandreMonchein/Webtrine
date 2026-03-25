@@ -3,21 +3,32 @@ import classNames from "classnames";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 import { useImageUpload } from "../../../hooks/useImageUpload.hooks";
 import { showPopUp } from "../../../store/state.action";
 import { getClient } from "../../../store/state.selector";
+import { AlertView } from "../alertview/alertview.component";
 import PopUp from "../popup/popUp.component";
 import styles from "./tattooContact.module.css";
 import type { Artist, TattooContactProps } from "./tattooContact.types";
 
 export const TattooContact = ({ datas }: TattooContactProps) => {
-  const { artists, features, "data-testid": dataTestid } = datas;
+  const { artists, logo, features, "data-testid": dataTestid } = datas;
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { t } = useTranslation();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [selectedArtist, setSelectedArtist] = useState<Artist | null>(null);
   const [artistInput, setArtistInput] = useState("");
+  const [alert, setAlert] = useState<{
+    visible: boolean;
+    title: string;
+    description: string;
+    ctaText: string;
+    ctaIcon: string;
+    logo: string;
+  } | null>(null);
   const client = useSelector(getClient).contact;
   const { mailTemplate: templateId, mailServiceId: serviceId } = client;
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -105,6 +116,7 @@ export const TattooContact = ({ datas }: TattooContactProps) => {
       // Email validation
       const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
       if (!emailRegex.test(email)) {
+        console.warn(">>> error email validation", { email });
         dispatch(
           showPopUp({
             type: "error",
@@ -117,6 +129,7 @@ export const TattooContact = ({ datas }: TattooContactProps) => {
       // Phone validation (10 characters, only numbers, +, -, spaces, parentheses)
       const phoneRegex = /^[0-9+\s()-]{10,10}$/;
       if (!phoneRegex.test(phone)) {
+        console.warn(">>> error phone validation", { phone });
         dispatch(
           showPopUp({
             type: "error",
@@ -130,6 +143,7 @@ export const TattooContact = ({ datas }: TattooContactProps) => {
       // Name validation (2-100 characters, letters only)
       const nameRegex = /^[a-zA-ZÀ-ÿ\s'-]{2,100}$/;
       if (!nameRegex.test(name)) {
+        console.warn(">>> error name validation", { name });
         dispatch(
           showPopUp({
             type: "error",
@@ -221,12 +235,16 @@ export const TattooContact = ({ datas }: TattooContactProps) => {
           throw new Error(`EmailJS API error: ${apiResponse.status}`);
         }
 
-        dispatch(
-          showPopUp({
-            type: "success",
-            message: t("contact.emailSentSuccess"),
-          }),
-        );
+        console.warn(">>> success");
+
+        setAlert({
+          visible: true,
+          logo: logo,
+          title: t("alertView.contact.title"),
+          description: t("alertView.contact.description"),
+          ctaText: t("alertView.contact.close"),
+          ctaIcon: "arrowRight",
+        });
 
         formElement.reset();
         clearImages();
@@ -249,23 +267,40 @@ export const TattooContact = ({ datas }: TattooContactProps) => {
     [
       isSubmitting,
       selectedArtist,
+      dispatch,
       images,
-      features,
-      uploadStoredImagesToCloud,
+      features?.imagesDisplay?.type,
       serviceId,
       templateId,
-      dispatch,
+      logo,
       t,
       clearImages,
+      uploadStoredImagesToCloud,
     ],
   );
 
   const hasValidEmailForForm =
     selectedArtist?.mail && !selectedArtist.mail.startsWith("mailto:");
 
+  const handleCloseAlert = useCallback(() => {
+    setAlert(null);
+    navigate("/");
+  }, [navigate]);
+
   return (
     <section className={styles.tattooContactRoot} data-testid={dataTestid}>
       <PopUp />
+      {alert?.visible && (
+        <AlertView
+          title={alert.title}
+          description={alert.description}
+          ctaText={alert.ctaText}
+          ctaIcon={alert.ctaIcon}
+          ctaPosition="right"
+          logo={alert.logo}
+          onClose={handleCloseAlert}
+        />
+      )}
       <div className={styles.container}>
         <h1 className={styles.title}>{t("contact.tattoo.title")}</h1>
         <p className={styles.description}>{t("contact.tattoo.description")}</p>
