@@ -18,7 +18,7 @@
   @media (--bp-min-medium) {
     flex-direction: row;
     justify-content: space-around;
-    padding: 120px;
+    padding: 100px;
   }
 
   /* Desktop and up */
@@ -44,7 +44,7 @@
   min-width: 300px;
 
   @media (--bp-min-medium) {
-    max-height: 400px;
+    max-height: 350px;
   }
 
   @media (--bp-min-large) {

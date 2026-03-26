@@ -54,7 +54,7 @@
     }
   }
 
-  @media (--bp-min-medium) {
+  @media (--bp-min-large) {
     &.isReversed {
       flex-direction: row-reverse;
       justify-content: space-between;
@@ -63,6 +63,7 @@
 
   @media (--bp-min-large) {
     display: block;
+    flex-direction: row;
   }
 }
 
@@ -71,7 +72,7 @@
   float: left;
 
   @media (--bp-min-medium) {
-    padding: 0 24px 0 0;
+    padding: 0 24px 12px 0;
   }
 
   &.isReversed {
@@ -79,7 +80,7 @@
 
     @media (--bp-min-medium) {
       float: right;
-      padding: 0 0 0 24px;
+      padding: 0 0 12px 24px;
     }
   }
 
@@ -95,11 +96,9 @@
   border-radius: 24px;
 
   &.isCentered {
-    @media (--bp-min-medium) {
-      width: 300px;
-    }
+    width: 100%;
 
-    @media (--bp-min-xlarge) {
+    @media (--bp-min-medium) {
       width: auto;
     }
   }
