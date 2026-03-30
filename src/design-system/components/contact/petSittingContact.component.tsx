@@ -45,12 +45,7 @@ const PetSittingContact = () => {
   const socials: { [key: string]: { link: string; color: string } } =
     useSelector(getSocials);
 
-  const {
-    phone,
-    email,
-    mailTemplate: templateId,
-    mailServiceId: serviceId,
-  } = contact;
+  const { phone, email, mailTemplate: templateId } = contact;
 
   useEffect(() => emailjs.init("OYqEmnhZaB6k1hEGB"), []);
 
@@ -122,7 +117,7 @@ const PetSittingContact = () => {
       };
 
       try {
-        await emailjs.send(serviceId, templateId, {
+        await emailjs.send(import.meta.env.VITE_MAIL_SERVICE_ID, templateId, {
           ...datas,
         });
         dispatch(
@@ -145,7 +140,7 @@ const PetSittingContact = () => {
         setIsSubmitting(false);
       }
     },
-    [isSubmitting, email, templateId, serviceId, dispatch, t],
+    [isSubmitting, email, templateId, dispatch, t],
   );
 
   const title = t("contact.title");
@@ -340,6 +335,7 @@ const PetSittingContact = () => {
                     type="date"
                     id="preVisitDateTime"
                     name="preVisitDateTime"
+                    min={new Date().toISOString().split("T")[0]}
                     max={
                       firstVisitDate || new Date().toISOString().split("T")[0]
                     }

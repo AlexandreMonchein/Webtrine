@@ -47,14 +47,6 @@ export const AlertView = ({
     }
   };
 
-  console.warn(">>> Alertview props:", {
-    logo,
-    title,
-    description,
-    ctaText,
-    ctaIcon,
-  });
-
   return (
     <div
       className={styles.overlay}

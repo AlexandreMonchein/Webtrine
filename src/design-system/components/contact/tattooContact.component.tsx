@@ -30,7 +30,7 @@ export const TattooContact = ({ datas }: TattooContactProps) => {
     logo: string;
   } | null>(null);
   const client = useSelector(getClient).contact;
-  const { mailTemplate: templateId, mailServiceId: serviceId } = client;
+  const { mailTemplate: templateId } = client;
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const {
@@ -116,7 +116,6 @@ export const TattooContact = ({ datas }: TattooContactProps) => {
       // Email validation
       const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
       if (!emailRegex.test(email)) {
-        console.warn(">>> error email validation", { email });
         dispatch(
           showPopUp({
             type: "error",
@@ -129,7 +128,6 @@ export const TattooContact = ({ datas }: TattooContactProps) => {
       // Phone validation (10 characters, only numbers, +, -, spaces, parentheses)
       const phoneRegex = /^[0-9+\s()-]{10,10}$/;
       if (!phoneRegex.test(phone)) {
-        console.warn(">>> error phone validation", { phone });
         dispatch(
           showPopUp({
             type: "error",
@@ -143,7 +141,6 @@ export const TattooContact = ({ datas }: TattooContactProps) => {
       // Name validation (2-100 characters, letters only)
       const nameRegex = /^[a-zA-ZÀ-ÿ\s'-]{2,100}$/;
       if (!nameRegex.test(name)) {
-        console.warn(">>> error name validation", { name });
         dispatch(
           showPopUp({
             type: "error",
@@ -229,7 +226,10 @@ export const TattooContact = ({ datas }: TattooContactProps) => {
 
         // Add EmailJS required fields
         manualFormData.append("lib_version", "4.3.3");
-        manualFormData.append("service_id", serviceId);
+        manualFormData.append(
+          "service_id",
+          import.meta.env.VITE_MAIL_SERVICE_ID,
+        );
         manualFormData.append("template_id", templateId);
         manualFormData.append("user_id", "OYqEmnhZaB6k1hEGB");
 
@@ -245,8 +245,6 @@ export const TattooContact = ({ datas }: TattooContactProps) => {
         if (!apiResponse.ok) {
           throw new Error(`EmailJS API error: ${apiResponse.status}`);
         }
-
-        console.warn(">>> success");
 
         setAlert({
           visible: true,
@@ -281,7 +279,6 @@ export const TattooContact = ({ datas }: TattooContactProps) => {
       dispatch,
       images,
       features?.imagesDisplay?.type,
-      serviceId,
       templateId,
       logo,
       t,

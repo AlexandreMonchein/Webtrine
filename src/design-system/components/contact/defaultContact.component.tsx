@@ -33,12 +33,7 @@ const DefaultContact = ({ datas }) => {
 
   const { map } = datas || {};
 
-  const {
-    phone,
-    email,
-    mailTemplate: templateId,
-    mailServiceId: serviceId,
-  } = client;
+  const { phone, email, mailTemplate: templateId } = client;
 
   useEffect(() => emailjs.init("OYqEmnhZaB6k1hEGB"), []);
 
@@ -68,7 +63,7 @@ const DefaultContact = ({ datas }) => {
       };
 
       try {
-        await emailjs.send(serviceId, templateId, {
+        await emailjs.send(import.meta.env.VITE_MAIL_SERVICE_ID, templateId, {
           ...datas,
         });
         dispatch(
@@ -90,7 +85,7 @@ const DefaultContact = ({ datas }) => {
         setIsSubmitting(false);
       }
     },
-    [isSubmitting, email, serviceId, templateId, dispatch, t],
+    [isSubmitting, email, templateId, dispatch, t],
   );
 
   const title = t("contact.title");

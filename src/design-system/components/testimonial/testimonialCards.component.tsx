@@ -1,4 +1,10 @@
-import React, { useCallback, useEffect, useRef, useState } from "react";
+import React, {
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 import { useSelector } from "react-redux";
 
 import { getCustomerProdConfig } from "../../../customer.utils";
@@ -152,16 +158,15 @@ const TestimonialCards: React.FC<TestimonialCardsProps> = (props) => {
 
   const [testimonials, setTestimonials] = useState<Testimonial[]>([]);
 
-  // Créer les slides avec le nombre responsive de cartes par slide
-  const createSlides = () => {
-    const slides = [];
+  // Créer les slides avec le nombre responsive de cartes par slide (mémorisé)
+  const slides = useMemo(() => {
+    const result = [];
     for (let i = 0; i < testimonials.length; i += responsiveCardsPerSlide) {
-      slides.push(testimonials.slice(i, i + responsiveCardsPerSlide));
+      result.push(testimonials.slice(i, i + responsiveCardsPerSlide));
     }
-    return slides;
-  };
+    return result;
+  }, [testimonials, responsiveCardsPerSlide]);
 
-  const slides = createSlides();
   const totalSlides = slides.length;
 
   // Reset currentIndex si nécessaire quand cardsPerSlide change
@@ -186,10 +191,9 @@ const TestimonialCards: React.FC<TestimonialCardsProps> = (props) => {
     setCurrentIndex((prev) => (prev - 1 + totalSlides) % totalSlides);
   }, [totalSlides]);
 
-  // Gestion du swipe pour mobile/tablette ET souris pour test
+  // Gestion du swipe tactile pour mobile/tablette uniquement
   const touchStartX = useRef<number>(0);
   const touchEndX = useRef<number>(0);
-  const isDragging = useRef<boolean>(false);
 
   const handleTouchStart = useCallback((e: React.TouchEvent) => {
     touchStartX.current = e.touches[0].clientX;
@@ -212,78 +216,39 @@ const TestimonialCards: React.FC<TestimonialCardsProps> = (props) => {
     }
   }, [nextSlide, prevSlide]);
 
-  // Handlers souris pour tester sur ordinateur
-  const handleMouseDown = useCallback((e: React.MouseEvent) => {
-    isDragging.current = true;
-    touchStartX.current = e.clientX;
-  }, []);
-
-  const handleMouseMove = useCallback((e: React.MouseEvent) => {
-    if (!isDragging.current) return;
-    touchEndX.current = e.clientX;
-  }, []);
-
-  const handleMouseUp = useCallback(() => {
-    if (!isDragging.current) return;
-    isDragging.current = false;
-
-    const swipeDistance = touchStartX.current - touchEndX.current;
-    const minSwipeDistance = 50;
-
-    if (Math.abs(swipeDistance) > minSwipeDistance) {
-      if (swipeDistance > 0) {
-        nextSlide();
-      } else {
-        prevSlide();
-      }
-    }
-  }, [nextSlide, prevSlide]);
-
-  const handleMouseLeaveContainer = useCallback(() => {
-    isDragging.current = false;
-  }, []);
-
   // Gestion de l'autoplay
   useEffect(() => {
     if (autoplay && totalSlides > 1) {
       intervalRef.current = setInterval(nextSlide, autoplayDelay);
+
       return () => {
         if (intervalRef.current) {
           clearInterval(intervalRef.current);
+          intervalRef.current = null;
         }
       };
     }
-
-    return () => clearInterval(intervalRef.current!);
+    return undefined;
   }, [autoplay, autoplayDelay, nextSlide, totalSlides]);
 
-  // Cleanup de l'interval
-  useEffect(() => {
-    return () => {
-      if (intervalRef.current) {
-        clearInterval(intervalRef.current);
-      }
-    };
-  }, []);
-
   // Pause autoplay au hover
-  const handleMouseEnter = () => {
+  const handleMouseEnter = useCallback(() => {
     if (intervalRef.current) {
       clearInterval(intervalRef.current);
+      intervalRef.current = null;
     }
-  };
+  }, []);
 
-  const handleMouseLeave = () => {
+  const handleMouseLeave = useCallback(() => {
     if (autoplay && totalSlides > 1) {
       intervalRef.current = setInterval(nextSlide, autoplayDelay);
     }
-  };
+  }, [autoplay, totalSlides, nextSlide, autoplayDelay]);
 
   // Fonction pour charger les reviews depuis l'API
   const fetchGoogleReviews = useCallback(
     async (dataId: string) => {
       try {
-        console.warn(">>> customerName", { customerName });
         const config = getCustomerProdConfig(customerName);
 
         if (!config) {
@@ -295,8 +260,6 @@ const TestimonialCards: React.FC<TestimonialCardsProps> = (props) => {
         const response = await fetch(
           `${domainURL}/api/reviews?dataId=${dataId}&customer=${customerName}`,
         );
-
-        console.warn(">>> response", { response });
 
         if (!response.ok) {
           throw new Error("Erreur lors du chargement des reviews");
@@ -313,9 +276,6 @@ const TestimonialCards: React.FC<TestimonialCardsProps> = (props) => {
               position: review.user?.reviews
                 ? `${review.user.reviews} avis`
                 : undefined,
-              onTouchStart: handleTouchStart,
-              onTouchMove: handleTouchMove,
-              onTouchEnd: handleTouchEnd,
               rating: review.rating || 5,
               content: review.snippet || "",
               avatar: review.user?.thumbnail || undefined,
@@ -332,7 +292,7 @@ const TestimonialCards: React.FC<TestimonialCardsProps> = (props) => {
         return [];
       }
     },
-    [handleTouchEnd, handleTouchMove, handleTouchStart, customerName],
+    [customerName],
   );
 
   useEffect(() => {
@@ -352,14 +312,10 @@ const TestimonialCards: React.FC<TestimonialCardsProps> = (props) => {
         onTouchStart={handleTouchStart}
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
-        onMouseDown={handleMouseDown}
-        onMouseMove={handleMouseMove}
-        onMouseUp={handleMouseUp}
-        onMouseLeave={handleMouseLeaveContainer}
       >
         <TestimonialCardsWrapper $currentIndex={currentIndex}>
-          {slides.map((slide) => (
-            <TestimonialCardsSlide key={slide.map((t) => t.id).join("-")}>
+          {slides.map((slide, slideIndex) => (
+            <TestimonialCardsSlide key={`slide-${slideIndex}`}>
               {slide.map((testimonial) => (
                 <TestimonialCardsItem
                   key={testimonial.id}
@@ -375,7 +331,7 @@ const TestimonialCards: React.FC<TestimonialCardsProps> = (props) => {
             <PaginationContainer>
               {slides.map((slide, index) => (
                 <PaginationDot
-                  key={slide.map((t) => t.id).join("-")}
+                  key={`dot-${index}`}
                   $active={index === currentIndex}
                   onClick={() => goToSlide(index)}
                   aria-label={`Aller au slide ${index + 1}`}
