@@ -29,6 +29,7 @@ export const ContactSectionWithZone = styled.section`
   margin: 0 auto;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   text-align: center;
+  width: 100%;
 
   ${bp.max(
     breakpointNames.medium,
