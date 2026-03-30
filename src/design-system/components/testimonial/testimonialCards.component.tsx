@@ -1,5 +1,7 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
+import { useSelector } from "react-redux";
 
+import { getClient } from "../../../store/state.selector";
 import { Title } from "../cards/cardsList.styled";
 import {
   AvatarContainer,
@@ -27,77 +29,6 @@ import type {
   TestimonialCardsItemProps,
   TestimonialCardsProps,
 } from "./testimonialCards.types";
-
-// Mock response compatible avec fetch API
-const mockData = {
-  reviews: [
-    {
-      review_id: "mock-1",
-      user: {
-        name: "Sophie Martin",
-        reviews: 15,
-        thumbnail: "https://i.pravatar.cc/150?img=1",
-      },
-      rating: 5,
-      snippet:
-        "Service exceptionnel ! Mon chat a été très bien traité pendant mon absence. Je recommande vivement pour la qualité de l'attention portée aux animaux.",
-      iso_date: "2025-12-28T10:00:00Z",
-    },
-    {
-      review_id: "mock-2",
-      user: {
-        name: "Thomas Dubois",
-        reviews: 8,
-        thumbnail: "https://i.pravatar.cc/150?img=12",
-      },
-      rating: 5,
-      snippet:
-        "Parfait pour mon chien ! Communication excellente et beaucoup de photos envoyées pendant le séjour. Mon animal était heureux et détendu.",
-      iso_date: "2025-12-25T14:30:00Z",
-    },
-    {
-      review_id: "mock-3",
-      user: {
-        name: "Marie Leroy",
-        reviews: 22,
-        thumbnail: "https://i.pravatar.cc/150?img=5",
-      },
-      rating: 5,
-      snippet:
-        "Très professionnelle et attentionnée. Mes deux chats ont été choyés. Je n'hésiterai pas à refaire appel à ce service.",
-      iso_date: "2025-12-20T09:15:00Z",
-    },
-    {
-      review_id: "mock-4",
-      user: {
-        name: "Lucas Bernard",
-        reviews: 12,
-        thumbnail: "https://i.pravatar.cc/150?img=13",
-      },
-      rating: 4,
-      snippet:
-        "Bon service dans l'ensemble. Mon chien était bien gardé et semblait content. Quelques retards dans les réponses mais rien de grave.",
-      iso_date: "2025-12-18T16:45:00Z",
-    },
-    {
-      review_id: "mock-5",
-      user: {
-        name: "Emma Petit",
-        reviews: 19,
-        thumbnail: "https://i.pravatar.cc/150?img=9",
-      },
-      rating: 5,
-      snippet:
-        "Je suis ravie ! Mon chat est revenu tout propre et détendu. L'environnement était adapté et sécurisé. Merci pour cette belle expérience !",
-      iso_date: "2025-12-15T11:20:00Z",
-    },
-  ],
-};
-
-const mockResponse = {
-  ok: true,
-  json: async () => mockData,
-};
 
 // Hook pour détecter la taille d'écran et déterminer le nombre de cartes par slide
 const useResponsiveCardsPerSlide = () => {
@@ -213,6 +144,7 @@ const TestimonialCardsItem: React.FC<TestimonialCardsItemProps> = ({
 const TestimonialCards: React.FC<TestimonialCardsProps> = (props) => {
   const { title, dataId, features } = props;
   const { autoplay = false, autoplayDelay = 5000 } = features || {};
+  const { name: customerName } = useSelector(getClient);
   const [currentIndex, setCurrentIndex] = useState(0);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
   const responsiveCardsPerSlide = useResponsiveCardsPerSlide();
@@ -350,15 +282,12 @@ const TestimonialCards: React.FC<TestimonialCardsProps> = (props) => {
   const fetchGoogleReviews = useCallback(
     async (dataId: string) => {
       try {
-        const apiUrl =
-          process.env.NODE_ENV === "production"
-            ? "/api/reviews"
-            : "http://localhost:3001/api/reviews";
+        console.warn(">>> customerName", { customerName });
+        const response = await fetch(
+          `/api/reviews?dataId=${dataId}&customer=${customerName}`,
+        );
 
-        const response =
-          process.env.NODE_ENV === "production"
-            ? await fetch(`${apiUrl}?dataId=${dataId}`)
-            : mockResponse;
+        console.warn(">>> response", { response });
 
         if (!response.ok) {
           throw new Error("Erreur lors du chargement des reviews");
@@ -394,7 +323,7 @@ const TestimonialCards: React.FC<TestimonialCardsProps> = (props) => {
         return [];
       }
     },
-    [handleTouchEnd, handleTouchMove, handleTouchStart],
+    [handleTouchEnd, handleTouchMove, handleTouchStart, customerName],
   );
 
   useEffect(() => {

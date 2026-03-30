@@ -154,6 +154,17 @@ export const TattooContact = ({ datas }: TattooContactProps) => {
         return;
       }
 
+      // Image validation (at least 1 image required)
+      if (images.length === 0) {
+        dispatch(
+          showPopUp({
+            type: "error",
+            message: "Veuillez uploader au moins 1 image",
+          }),
+        );
+        return;
+      }
+
       setIsSubmitting(true);
 
       try {
@@ -523,10 +534,13 @@ export const TattooContact = ({ datas }: TattooContactProps) => {
                     />
                   </div>
 
-                  {/* Photos (optional) */}
+                  {/* Photos (required) */}
                   <div className={classNames(styles.field, styles.fieldFull)}>
                     <label htmlFor="photos" className={styles.label}>
                       {t("contact.tattoo.photos")}
+                      <span className={styles.required} aria-label="requis">
+                        *
+                      </span>
                     </label>
                     <p className={styles.hint} id="hint-photos">
                       {t("contact.tattoo.photosHint")}

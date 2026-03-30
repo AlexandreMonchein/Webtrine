@@ -584,6 +584,7 @@
   border-radius: 8px;
   cursor: pointer;
   transition: all 0.3s ease;
+  margin: 6px auto;
 
   &:focus {
     outline: 3px solid var(--theme-color-primary);
@@ -610,6 +611,5 @@
     width: auto;
     min-width: 300px;
     display: block;
-    margin: 0 auto;
   }
 }
