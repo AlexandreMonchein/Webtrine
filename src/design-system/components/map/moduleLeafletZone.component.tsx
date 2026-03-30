@@ -10,7 +10,7 @@ import {
 } from "@turf/turf";
 import * as L from "leaflet";
 import { GestureHandling } from "leaflet-gesture-handling";
-import { ReactElement, useEffect, useState } from "react";
+import { ReactElement, useEffect, useMemo, useRef, useState } from "react";
 import { GeoJSON, TileLayer, useMap } from "react-leaflet";
 
 import { ZoneContainer } from "./leafletMap.styled";
@@ -26,10 +26,13 @@ const FitBoundsToPolyline = ({
   positions: [number, number][];
 }) => {
   const map = useMap();
+  const hasInitialized = useRef(false);
 
   useEffect(() => {
-    if (positions && positions.length > 0) {
+    // Ne fit bounds qu'une seule fois au montage
+    if (positions && positions.length > 0 && !hasInitialized.current) {
       map.fitBounds(positions);
+      hasInitialized.current = true;
     }
   }, [map, positions]);
 
@@ -2274,14 +2277,38 @@ const workToParents = [
   [4.384616, 45.677412, 560.7],
 ];
 
+// GestureHandlingSetter component (défini en dehors pour éviter les re-créations)
+const GestureHandlingSetter = ({
+  onInitialized,
+}: {
+  onInitialized: () => void;
+}) => {
+  const map = useMap() as any;
+  const hasInitialized = useRef(false);
+
+  useEffect(() => {
+    // Activer gestureHandling si disponible, une seule fois
+    if (!hasInitialized.current) {
+      if (map.gestureHandling) {
+        map.gestureHandling.enable();
+      }
+      onInitialized();
+      hasInitialized.current = true;
+    }
+  }, [map, onInitialized]);
+
+  return null;
+};
+
 export const MapLeafletZone = (): ReactElement => {
   const [filledZone, setFilledZone] = useState<any>(null);
   const [init, setInit] = useState<boolean>(true);
 
-  const polylinePositions: [number, number][] = homeToWork.map((p) => [
-    p[1],
-    p[0],
-  ]);
+  // Mémoriser polylinePositions pour éviter de recréer le tableau à chaque render
+  const polylinePositions: [number, number][] = useMemo(
+    () => homeToWork.map((p) => [p[1], p[0]]),
+    [],
+  );
 
   useEffect(() => {
     const line = lineString(homeToWork);
@@ -2314,19 +2341,8 @@ export const MapLeafletZone = (): ReactElement => {
     setFilledZone(filled);
   }, []);
 
-  const GestureHandlingSetter = () => {
-    const map = useMap() as any;
-
-    useEffect(() => {
-      // Activer gestureHandling si disponible
-      if (map.gestureHandling) {
-        map.gestureHandling.enable();
-      }
-
-      setInit(false);
-    }, [map]);
-
-    return null;
+  const handleInitialized = () => {
+    setInit(false);
   };
 
   return (
@@ -2350,7 +2366,7 @@ export const MapLeafletZone = (): ReactElement => {
       )}
 
       <FitBoundsToPolyline positions={polylinePositions} />
-      {init && <GestureHandlingSetter />}
+      {init && <GestureHandlingSetter onInitialized={handleInitialized} />}
     </ZoneContainer>
   );
 };
