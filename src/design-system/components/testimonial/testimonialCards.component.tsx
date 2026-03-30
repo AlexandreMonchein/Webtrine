@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
 
+import { getCustomerProdConfig } from "../../../customer.utils";
 import { getClient } from "../../../store/state.selector";
 import { Title } from "../cards/cardsList.styled";
 import {
@@ -283,8 +284,16 @@ const TestimonialCards: React.FC<TestimonialCardsProps> = (props) => {
     async (dataId: string) => {
       try {
         console.warn(">>> customerName", { customerName });
+        const config = getCustomerProdConfig(customerName);
+
+        if (!config) {
+          throw new Error("Configuration client non trouvée");
+        }
+
+        const { domainURL } = config;
+
         const response = await fetch(
-          `/api/reviews?dataId=${dataId}&customer=${customerName}`,
+          `${domainURL}/api/reviews?dataId=${dataId}&customer=${customerName}`,
         );
 
         console.warn(">>> response", { response });
