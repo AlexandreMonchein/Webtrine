@@ -7,15 +7,15 @@ const CUSTOMER_PROD_CONFIG: { name: string; domainURL: string }[] = [
   },
   {
     name: "dipaolo",
-    domainURL: "https://labodipaolo.com/",
+    domainURL: "https://labodipaolo.com",
   },
   {
     name: "chillpaws",
-    domainURL: "https://chillpaws.fr/",
+    domainURL: "https://chillpaws.fr",
   },
   {
     name: "apt235",
-    domainURL: "https://apt235.com/",
+    domainURL: "https://apt235.com",
   },
 ];
 
