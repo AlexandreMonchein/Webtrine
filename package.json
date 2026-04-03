@@ -106,13 +106,11 @@
     "jackspeak": "2.1.1"
   },
   "scripts": {
-    "start": "node server.js",
-    "dev:server": "node server.js",
     "dev": "VITE_CUSTOMER=${VITE_CUSTOMER:=showcase} vite",
-    "storybook": "VITE_CUSTOMER=${VITE_CUSTOMER:=showcase} storybook dev -p 6006",
+    "dev:storybook": "VITE_CUSTOMER=${VITE_CUSTOMER:=showcase} storybook dev -p 6006",
     "build": "VITE_CUSTOMER=${VITE_CUSTOMER:=showcase} ./scripts/build.sh",
     "build:storybook": "storybook build",
-    "serve": "VITE_CUSTOMER=${VITE_CUSTOMER:=showcase} ./scripts/serve.sh",
+    "dev:serve": "VITE_CUSTOMER=${VITE_CUSTOMER:=showcase} ./scripts/serve.sh",
     "test": "VITE_CUSTOMER=${VITE_CUSTOMER:=showcase} vitest --config vitest.component.config.ts",
     "test:run": "VITE_CUSTOMER=${VITE_CUSTOMER:=showcase} vitest --config vitest.component.config.ts --run",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx",

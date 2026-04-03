@@ -5,20 +5,20 @@ import { BrowserRouter } from "react-router-dom";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
 import { initialState, stateReducer } from "../../../store/state.reducer";
+import ClassicNavbar from "../classicNavbar.component";
 import styles from "../classicNavbar.module.css";
 import type { ClassicNavbarProps } from "../classicNavbar.types";
-import ClassicNavbar from "../src/classicNavbar.component";
 
 // Mock des modules externes
-vi.mock("../../../components/calendly/calendlyButton.component", () => ({
+vi.mock("../../components/calendly/calendlyButton.component", () => ({
   default: () => <div>Calendly Button</div>,
 }));
 
-vi.mock("../../../buttons/src/classicButton.component", () => ({
+vi.mock("../../buttons/src/classicButton.component", () => ({
   ToggleButton: () => <div>Toggle Button</div>,
 }));
 
-vi.mock("../../../buttons/src/modeTheme.component", () => ({
+vi.mock("../../buttons/src/modeTheme.component", () => ({
   ToggleThemeMode: () => <div>Theme Toggle</div>,
 }));
 

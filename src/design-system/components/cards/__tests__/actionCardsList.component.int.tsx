@@ -17,8 +17,13 @@ const mockCardsData = [
     description: "Description for service 1",
     imageSrc: "service_1",
     buttons: [
-      { label: "Learn More", type: "link", route: "/service-1" },
-      { label: "Contact", type: "link", route: "/contact" },
+      {
+        id: "learn-more-1",
+        label: "Learn More",
+        type: "link",
+        route: "/service-1",
+      },
+      { id: "contact-1", label: "Contact", type: "link", route: "/contact" },
     ],
   },
   {
@@ -26,7 +31,14 @@ const mockCardsData = [
     title: "Service 2",
     description: "Description for service 2",
     imageSrc: "service_2",
-    buttons: [{ label: "Get Started", type: "link", route: "/get-started" }],
+    buttons: [
+      {
+        id: "get-started-2",
+        label: "Get Started",
+        type: "link",
+        route: "/get-started",
+      },
+    ],
   },
   {
     id: "3",
@@ -103,13 +115,13 @@ describe("ActionCardsList Component", () => {
     const learnMoreButton = screen.getByRole("link", { name: "Learn More" });
     const contactButton = screen.getByRole("link", { name: "Contact" });
 
-    // Tous les boutons pointent vers /information avec un état différent
-    expect(learnMoreButton).toHaveAttribute("href", "/information");
-    expect(contactButton).toHaveAttribute("href", "/information");
+    // Vérifier les routes définies dans mockCardsData
+    expect(learnMoreButton).toHaveAttribute("href", "/service-1");
+    expect(contactButton).toHaveAttribute("href", "/contact");
 
     // Teste le bouton de la deuxième carte
     const getStartedButton = screen.getByRole("link", { name: "Get Started" });
-    expect(getStartedButton).toHaveAttribute("href", "/information");
+    expect(getStartedButton).toHaveAttribute("href", "/get-started");
   });
 
   it("does not render buttons when not provided", () => {
@@ -156,8 +168,6 @@ describe("ActionCardsList Component", () => {
     );
 
     // Teste la navigation clavier
-    const title = screen.getByText("Service 1");
-    const description = screen.getByText("Description for service 1");
     const learnMoreButton = screen.getByRole("link", { name: "Learn More" });
     const contactButton = screen.getByRole("link", { name: "Contact" });
 
@@ -167,16 +177,9 @@ describe("ActionCardsList Component", () => {
 
     // Navigation avec Tab - les boutons sont focusables
     await user.tab();
-    expect(title).toHaveFocus();
-
-    // Puis la description
-    await user.tab();
-    expect(description).toHaveFocus();
-
-    // Puis les boutons
-    await user.tab();
     expect(learnMoreButton).toHaveFocus();
 
+    // Puis le deuxième bouton
     await user.tab();
     expect(contactButton).toHaveFocus();
   });

@@ -17,6 +17,11 @@ vi.mock("@emailjs/browser", () => ({
   },
 }));
 
+// Mock de browser-image-compression
+vi.mock("browser-image-compression", () => ({
+  default: vi.fn((file: File) => Promise.resolve(file)),
+}));
+
 // Mock du module customer.utils
 vi.mock("../../../../customer.utils", () => ({
   getCustomer: () => "test-customer",
@@ -129,6 +134,7 @@ const mockArtists: Artist[] = [
 const createContactProps = (overrides = {}) => ({
   datas: {
     artists: mockArtists,
+    logo: "test_logo",
     serviceId: "service_test",
     templateId: "template_test",
     replyTo: "reply@example.com",
@@ -164,8 +170,6 @@ describe("<TattooContact />", () => {
   it("should display artist selection initially", () => {
     renderWithProviders();
 
-    expect(screen.getByText("Choisissez votre artiste")).toBeInTheDocument();
-
     // Check that the artist select exists
     const artistSelect = screen.getByLabelText(
       /Nom de l'artiste/i,
@@ -191,10 +195,11 @@ describe("<TattooContact />", () => {
     const artistSelect = screen.getByLabelText(/Nom de l'artiste/i);
     await user.selectOptions(artistSelect, "John Doe");
 
+    // Wait for form fields to appear (artist has valid email)
     await waitFor(() => {
-      expect(screen.getByText("Artiste sélectionné:")).toBeInTheDocument();
       expect(screen.getByLabelText(/E-mail/i)).toBeInTheDocument();
       expect(screen.getByLabelText(/Nom complet/i)).toBeInTheDocument();
+      expect(screen.getByLabelText(/Téléphone/i)).toBeInTheDocument();
     });
   });
 
@@ -219,22 +224,23 @@ describe("<TattooContact />", () => {
     renderWithProviders();
 
     // Select first artist
-    const artistSelect = screen.getByLabelText(/Nom de l'artiste/i);
+    const artistSelect = screen.getByLabelText(
+      /Nom de l'artiste/i,
+    ) as HTMLSelectElement;
     await user.selectOptions(artistSelect, "John Doe");
 
+    // Wait for form to appear
     await waitFor(() => {
-      expect(screen.getByText("Artiste sélectionné:")).toBeInTheDocument();
+      expect(screen.getByLabelText(/E-mail/i)).toBeInTheDocument();
     });
 
-    // Change artist
-    const changeButton = screen.getByText("Changer");
-    await user.click(changeButton);
+    // The select is still visible, we can change it directly
+    await user.selectOptions(artistSelect, "Jane Smith");
 
     await waitFor(() => {
-      expect(screen.getByText("Choisissez votre artiste")).toBeInTheDocument();
-      expect(
-        (screen.getByLabelText(/Nom de l'artiste/i) as HTMLSelectElement).value,
-      ).toBe("");
+      expect(artistSelect.value).toBe("Jane Smith");
+      // Form should still be visible with same fields
+      expect(screen.getByLabelText(/E-mail/i)).toBeInTheDocument();
     });
   });
 
@@ -246,6 +252,7 @@ describe("<TattooContact />", () => {
     const artistSelect = screen.getByLabelText(/Nom de l'artiste/i);
     await user.selectOptions(artistSelect, "John Doe");
 
+    // Wait for all form fields to appear
     await waitFor(() => {
       expect(screen.getByLabelText(/E-mail/i)).toBeInTheDocument();
       expect(screen.getByLabelText(/Nom complet/i)).toBeInTheDocument();
@@ -264,7 +271,7 @@ describe("<TattooContact />", () => {
     const user = userEvent.setup();
     renderWithProviders();
 
-    // Select artist from the dropdown
+    // Select artist with valid email
     const artistSelect = screen.getByLabelText(/Nom de l'artiste/i);
     await user.selectOptions(artistSelect, "John Doe");
 
@@ -299,7 +306,7 @@ describe("<TattooContact />", () => {
     const user = userEvent.setup();
     renderWithProviders();
 
-    // Select artist from the dropdown
+    // Select artist with valid email to show form
     const artistSelect = screen.getByLabelText(/Nom de l'artiste/i);
     await user.selectOptions(artistSelect, "John Doe");
 

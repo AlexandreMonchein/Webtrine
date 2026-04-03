@@ -69,7 +69,7 @@ export const AlertView = ({
 
           {description && <p className={styles.description}>{description}</p>}
 
-          {ctaText && (
+          {ctaText && onClose && (
             <CallToAction
               text={ctaText}
               onClick={handleCtaClick}

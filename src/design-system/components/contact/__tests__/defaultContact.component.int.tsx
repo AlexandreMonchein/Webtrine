@@ -4,7 +4,7 @@ import { Provider } from "react-redux";
 import { MemoryRouter } from "react-router-dom";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
-import { stateReducer } from "../../../../store/state.reducer";
+import { initialState, stateReducer } from "../../../../store/state.reducer";
 import DefaultContact from "../defaultContact.component";
 
 // Mock d'emailjs - utiliser directement vi.fn() dans le mock
@@ -53,12 +53,12 @@ vi.mock("react-i18next", () => ({
 }));
 
 // Mock du composant MapLeaflet
-vi.mock("../map/moduleLeafletMap.component", () => ({
+vi.mock("../../map/moduleLeafletMap.component", () => ({
   MapLeaflet: vi.fn(() => <div data-testid="map-leaflet">Map Component</div>),
 }));
 
 // Mock du composant PopUp
-vi.mock("../popup/popUp.component", () => ({
+vi.mock("../../popup/popUp.component", () => ({
   default: () => <div data-testid="popup">PopUp Component</div>,
 }));
 
@@ -66,6 +66,7 @@ const createMockStore = () => {
   return configureStore({
     reducer: stateReducer,
     preloadedState: {
+      ...initialState,
       client: {
         contact: {
           phone: "0123456789",
@@ -76,17 +77,7 @@ const createMockStore = () => {
       layout: {
         templates: [],
       },
-      popUp: {
-        showPopUp: false,
-        type: null,
-        message: null,
-        error: null,
-      },
-      modal: {
-        type: null,
-        active: false,
-      },
-    },
+    } as any,
   });
 };
 
@@ -127,7 +118,16 @@ describe("DefaultContact Component", () => {
   });
 
   it("renders map when map data is provided", () => {
-    const props = createContactProps();
+    const props = createContactProps({
+      datas: {
+        map: {
+          datas: {
+            center: [48.8566, 2.3522],
+            zoom: 10,
+          },
+        },
+      },
+    });
     renderWithProviders(<DefaultContact {...props} />);
 
     // Vérifie que le composant de carte est rendu

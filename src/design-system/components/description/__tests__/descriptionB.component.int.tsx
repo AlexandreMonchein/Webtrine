@@ -20,12 +20,11 @@ describe("<DescriptionB />", () => {
           },
           title: "Test Title",
           description: mockDescription,
-          "data-testid": "description-b",
         }}
       />,
     );
 
-    expect(screen.getByTestId("description-b")).toBeInTheDocument();
+    expect(screen.getByTestId("descriptionBRoot")).toBeInTheDocument();
     expect(screen.getByText("Test Title")).toBeInTheDocument();
     expect(screen.getByText("Premier paragraphe de test")).toBeInTheDocument();
     expect(screen.getByText("Deuxième paragraphe de test")).toBeInTheDocument();
@@ -49,11 +48,12 @@ describe("<DescriptionB />", () => {
     );
 
     expect(screen.getByText("Video Test")).toBeInTheDocument();
-    const video = screen.getByLabelText("Test video");
+    const video = screen.getByLabelText("Test video") as HTMLVideoElement;
     expect(video).toBeInTheDocument();
-    expect(video).toHaveAttribute("autoplay");
-    expect(video).toHaveAttribute("loop");
-    expect(video).toHaveAttribute("muted");
+    // Vérifier les propriétés booléennes de l'élément vidéo
+    expect(video.autoplay).toBe(true);
+    expect(video.loop).toBe(true);
+    expect(video.muted).toBe(true);
   });
 
   it("should render multiple paragraphs", () => {

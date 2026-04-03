@@ -3,7 +3,6 @@ import userEvent from "@testing-library/user-event";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
 import ContactBanner from "../contactBanner.component";
-import styles from "../contactBanner.module.css";
 import type { ContactBannerProps } from "../contactBanner.types";
 
 describe("<ContactBanner />", () => {
@@ -142,8 +141,9 @@ describe("<ContactBanner />", () => {
     render(<ContactBanner {...propsWithSpacer} />);
 
     // Find the paragraph containing "Address line"
-    const addressParagraph = screen.getByText("Address line");
-    expect(addressParagraph).toHaveClass(styles.infoTextWithSpacer);
+    const addressText = screen.getByText("Address line");
+    const addressParagraph = addressText.closest("p");
+    expect(addressParagraph?.className).toMatch(/_infoTextWithSpacer_/);
   });
 
   it("should not apply withSpacer class when withSpacer is false or undefined", () => {

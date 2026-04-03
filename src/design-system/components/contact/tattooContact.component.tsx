@@ -376,7 +376,7 @@ export const TattooContact = ({ datas }: TattooContactProps) => {
                 <div className={styles.formGrid}>
                   {/* Email */}
                   <div className={styles.field}>
-                    <label htmlFor="email" className={styles.label}>
+                    <label htmlFor="fromEmail" className={styles.label}>
                       {t("contact.email")}{" "}
                       <span className={styles.required}>*</span>
                     </label>
