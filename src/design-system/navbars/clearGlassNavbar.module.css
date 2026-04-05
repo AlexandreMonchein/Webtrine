@@ -184,10 +184,14 @@
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1rem;
   align-items: center;
 
   @media (--bp-min-medium) {
+    gap: 1.5rem;
+  }
+
+  @media (--bp-min-xlarge) {
     gap: 2.5rem;
   }
 }

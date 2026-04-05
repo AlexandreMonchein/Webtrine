@@ -319,13 +319,13 @@
                 "name": "NOKTO",
                 "instagram": "nokto.ttt",
                 "tagline": "BLACKWORK / DARK",
-                "description": "INSPIRED BY BLACK INK AND SHADOWS, ANTHONY COMBINES LINES AND SOLID FILLS TO CREATE TATTOOS WITH STRONG CONTRASTS. BY PLACING BLACK IN THE RIGHT PLACE, HE REVEALS HIS PATTERNS WITH FINESSE.",
+                "description": "ANTHONY DRAWS INSPIRATION FROM CLASSICAL PAINTING TO CREATE SURREALIST COMPOSITIONS CENTERED AROUND PORTRAITURE. HE COMBINES FACES, PLANT ELEMENTS, AND VARIOUS GRAPHIC DETAILS TO BUILD STRONG, HIGH-CONTRAST IMAGES.",
                 "images": [
-                  "/assets/apt235/IMG_5.webp",
-                  "/assets/apt235/IMG_6.webp",
-                  "/assets/apt235/IMG_7.webp",
-                  "/assets/apt235/IMG_8.webp",
-                  "/assets/apt235/IMG_9.webp"
+                  "/assets/apt235/image10.webp",
+                  "/assets/apt235/image11.webp",
+                  "/assets/apt235/image12.webp",
+                  "/assets/apt235/image13.webp",
+                  "/assets/apt235/image14.webp"
                 ],
                 "intervalBetweenImages": 2500,
                 "instagramUrl": "https://www.instagram.com/nokto.ttt",
@@ -338,13 +338,13 @@
                 "name": "SARAH MALFATTI",
                 "instagram": "malfatti.ttt",
                 "tagline": "TRANSPARENCY / X-RAY / SMOKE",
-                "description": "TRAINED BY DUF AT APT.235 STUDIO, SARAH'S STYLE FOCUSES ON CONCEPTS OF TRANSPARENCY AND FLUIDITY, INCLUDING X-RAY AND SMOKE EFFECTS. BLENDING THE CONTRAST BETWEEN DELICATE SHADOWS AND SATURATED BLACKS.",
+                "description": "SARAH’S WORK EXPLORES TRANSPARENCY, X-RAY EFFECTS, AND SMOKE, BLENDING LIGHT SHADING WITH DEEP BLACKS TO CREATE FINE, HIGH-CONTRAST TATTOOS.",
                 "images": [
-                  "/assets/apt235/IMG_10.webp",
-                  "/assets/apt235/IMG_11.webp",
-                  "/assets/apt235/IMG_12.webp",
-                  "/assets/apt235/IMG_13.webp",
-                  "/assets/apt235/IMG_14.webp"
+                  "/assets/apt235/image0.webp",
+                  "/assets/apt235/image1.webp",
+                  "/assets/apt235/image2.webp",
+                  "/assets/apt235/image3.webp",
+                  "/assets/apt235/image4.webp"
                 ],
                 "intervalBetweenImages": 2500,
                 "instagramUrl": "https://www.instagram.com/malfatti.ttt",
@@ -355,18 +355,18 @@
               "type": "artistDescription",
               "datas": {
                 "name": "EMMA",
-                "instagram": "marberyry.ttt",
+                "instagram": "mayberry.ttt",
                 "tagline": "POP CULTURE / COLORFUL",
-                "description": "COMING FROM A GRAPHIC DESIGN DEGREE, EMMA DEVELOPS A PARALLEL SENSITIVITY TO THE WORLD OF TATTOOING. INSPIRED BY JAPANESE CULTURE AND MANGA, SHE NATURALLY DECIDES TO ORIENT HER STYLE IN THIS DIRECTION.",
+                "description": "A TATTOO ARTIST SINCE 2022, MAYBERRY QUICKLY DECIDED TO MAKE COLOR HER PRIMARY STYLE. DEEPLY INSPIRED BY JAPANESE AND KOREAN TATTOO ARTISTS FOR THEIR METICULOUS WORK, SHE SEEKS TO BLEND IT WITH HER COLORFUL WORLD, SHOJO, K-POP, AND ALL THE NOSTALGIA OF CHILDHOOD.",
                 "images": [
                   "/assets/apt235/IMG_15.webp",
-                  "/assets/apt235/IMG_16.webp",
-                  "/assets/apt235/IMG_17.webp",
-                  "/assets/apt235/IMG_18.webp",
-                  "/assets/apt235/IMG_19.webp"
+                  "/assets/apt235/DSC07681.webp",
+                  "/assets/apt235/DSC09184.webp",
+                  "/assets/apt235/DSC09401.webp",
+                  "/assets/apt235/IMG_6401.webp"
                 ],
                 "intervalBetweenImages": 2500,
-                "instagramUrl": "https://www.instagram.com/marberyry.ttt",
+                "instagramUrl": "https://www.instagram.com/mayberry.ttt",
                 "contactUrl": "/contact"
               }
             },
@@ -398,11 +398,11 @@
                 "tagline": "ILLUSTRATION / HANDPOKE / COLOR",
                 "description": "PASSIONATE ABOUT DRAWING AND NATURE SINCE CHILDHOOD, MAHÉ DRAWS IN A POETIC AND CHILDLIKE MANNER EVERYTHING AROUND HER. WITH A DEGREE IN GRAPHIC DESIGN, SHE LOVES COLOR COMBINATIONS AND COMPOSITIONS THAT WILL HIGHLIGHT YOU!",
                 "images": [
-                  "/assets/apt235/IMG_26.webp",
-                  "/assets/apt235/IMG_27.webp",
-                  "/assets/apt235/IMG_28.webp",
-                  "/assets/apt235/IMG_29.webp",
-                  "/assets/apt235/IMG_30.webp"
+                  "/assets/apt235/image9.webp",
+                  "/assets/apt235/image5.webp",
+                  "/assets/apt235/image6.webp",
+                  "/assets/apt235/image7.webp",
+                  "/assets/apt235/image8.webp"
                 ],
                 "intervalBetweenImages": 2500,
                 "instagramUrl": "https://www.instagram.com/tattooday_studio",
@@ -417,11 +417,11 @@
                 "tagline": "GRAPHIC / SURREALISM / MICRO REALISM",
                 "description": "DRIVEN BY HER BACKGROUND IN GRAPHIC DESIGN AND HER PERSONAL EXPERIENCES, CASSANDRA COMPOSES VISUAL NARRATIVES WHERE POETRY, MICRO-REALISM AND SURREALISM INTERTWINE. SHE LOVES WORKING WITH SHADING, TEXTURES AND EXPLORES EVERY DETAIL WITH SENSITIVITY TO CREATE UNIQUE WORKS, INSPIRED BY HUMAN EMOTIONS AND THE STORIES EACH PERSON CARRIES WITHIN.",
                 "images": [
-                  "/assets/apt235/IMG_31.webp",
-                  "/assets/apt235/IMG_32.webp",
-                  "/assets/apt235/IMG_33.webp",
-                  "/assets/apt235/IMG_34.webp",
-                  "/assets/apt235/IMG_35.webp"
+                  "/assets/apt235/image15.webp",
+                  "/assets/apt235/image16.webp",
+                  "/assets/apt235/image17.webp",
+                  "/assets/apt235/image18.webp",
+                  "/assets/apt235/image19.webp"
                 ],
                 "intervalBetweenImages": 2500,
                 "instagramUrl": "https://www.instagram.com/naturaffection.ttt",

@@ -34,8 +34,8 @@ const ClassicNavbar = (props: ClassicNavbarProps) => {
     [socials],
   );
 
-  const components = useLoadComponents(socialItems, {
-    renderFn: (Component, data) => (
+  const renderSocialIcon = useCallback(
+    (Component: React.ComponentType, data: { name: string; link: unknown }) => (
       <li key={data.name}>
         <div className={styles.socialLogo}>
           <a aria-label={data.name} href={(data.link as any).link}>
@@ -44,6 +44,11 @@ const ClassicNavbar = (props: ClassicNavbarProps) => {
         </div>
       </li>
     ),
+    [],
+  );
+
+  const components = useLoadComponents(socialItems, {
+    renderFn: renderSocialIcon,
   }) as React.ReactNode[];
 
   const {

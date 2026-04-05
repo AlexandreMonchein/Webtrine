@@ -92,7 +92,7 @@
   align-self: center;
 
   @media (--bp-min-medium) {
-    margin: 32px 0;
+    margin: 24px 0;
   }
 }
 

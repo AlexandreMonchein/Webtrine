@@ -139,6 +139,8 @@ export function useLoadComponents<T extends string | { name: string }>(
   | Array<LoaderResult> {
   const hasRenderFn = !!options?.renderFn;
   const returnAsRecord = options?.returnAsRecord ?? false;
+  const renderFn = options?.renderFn;
+  const onError = options?.onError;
 
   const getInitialState = () => {
     if (hasRenderFn) return [];
@@ -184,8 +186,8 @@ export function useLoadComponents<T extends string | { name: string }>(
           const Component = module.default;
 
           // If renderFn is provided, render immediately
-          if (hasRenderFn && options.renderFn) {
-            return options.renderFn(
+          if (hasRenderFn && renderFn) {
+            return renderFn(
               Component,
               data as T extends string ? { name: string } : T,
               index,
@@ -200,7 +202,7 @@ export function useLoadComponents<T extends string | { name: string }>(
         } catch (error) {
           const err = error instanceof Error ? error : new Error(String(error));
           console.error(`Error loading component: ${name}`, err);
-          options?.onError?.(err, name);
+          onError?.(err, name);
 
           if (hasRenderFn) {
             return null;
@@ -239,7 +241,7 @@ export function useLoadComponents<T extends string | { name: string }>(
     };
 
     loadComponents();
-  }, [items, hasRenderFn, returnAsRecord, options]);
+  }, [items, hasRenderFn, returnAsRecord, renderFn, onError]);
 
   return result;
 }

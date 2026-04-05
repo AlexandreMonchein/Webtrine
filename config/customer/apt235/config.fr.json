@@ -299,7 +299,7 @@
               "datas": {
                 "name": "DUF",
                 "instagram": "duftattoo",
-                "tagline": "MINIMALISTE / CONTEMPORAIN / ÉPURÉ",
+                "tagline": "STYLE: Minimaliste / Fine Line / Contemporain",
                 "description": "FLORIAN EST UN ARTISTE AUTODIDACTE DEPUIS 2012. IL FAIT SES DÉBUTS DANS LE GRAFFITI ET SE PERFECTIONNE EN DÉCOUVRANT LE TATOUAGE. CRÉATEUR ET GÉRANT DU STUDIO APT.235, IL RÉALISE AUJOURD'HUI DES TATTOOS AUX LIGNES SIMPLES ET ÉPURÉES AU STYLE RECONNAISSABLE.",
                 "images": [
                   "/assets/apt235/IMG_45.webp",
@@ -319,13 +319,13 @@
                 "name": "NOKTO",
                 "instagram": "nokto.ttt",
                 "tagline": "BLACKWORK / DARK",
-                "description": "INSPIRÉ PAR L'ENCRE NOIRE ET LES OMBRES, ANTHONY COMBINE DES LIGNES ET DES APLATS AFIN DE CRÉER DES TATOUAGES AUX CONTRASTES TRÈS MARQUÉS. EN PLAÇANT LE NOIR AU BON ENDROIT, IL LAISSE APPARAÎTRE SES MOTIFS AVEC FINESSE.",
+                "description": "ANTHONY S’INSPIRE DE LA PEINTURE CLASSIQUE POUR CRÉER DES COMPOSITIONS SURRÉALISTES CENTRÉES SUR LE PORTRAIT. IL MÊLE VISAGES, VÉGÉTAL ET DIFFÉRENTS ÉLÉMENTS GRAPHIQUES POUR CONSTRUIRE DES IMAGES FORTES ET CONTRASTÉES.",
                 "images": [
-                  "/assets/apt235/IMG_5.webp",
-                  "/assets/apt235/IMG_6.webp",
-                  "/assets/apt235/IMG_7.webp",
-                  "/assets/apt235/IMG_8.webp",
-                  "/assets/apt235/IMG_9.webp"
+                  "/assets/apt235/image10.webp",
+                  "/assets/apt235/image11.webp",
+                  "/assets/apt235/image12.webp",
+                  "/assets/apt235/image13.webp",
+                  "/assets/apt235/image14.webp"
                 ],
                 "intervalBetweenImages": 2500,
                 "instagramUrl": "https://www.instagram.com/nokto.ttt",
@@ -338,13 +338,13 @@
                 "name": "SARAH MALFATTI",
                 "instagram": "malfatti.ttt",
                 "tagline": "TRANSPARENCE / X-RAY / FUMÉE",
-                "description": "FORMÉE PAR DUF AU STUDIO APT.235, LE STYLE DE SARAH S'ORIENTE VERS DES CONCEPTS DE TRANSPARENCE ET DE FLUIDITÉ, AVEC NOTAMMENT DES EFFETS X-RAY ET DE FUMÉE. MÊLANT LE CONTRASTE ENTRE OMBRES DÉLICATES ET NOIRS SATURÉS.",
+                "description": "LE TRAVAIL DE SARAH EXPLORE LA TRANSPARENCE, LES EFFETS X-RAY ET LA FUMÉE, MÊLANT OMBRES LÉGÈRES ET NOIRS PROFONDS POUR CRÉER DES TATOUAGES FINS ET CONTRASTÉS.",
                 "images": [
-                  "/assets/apt235/IMG_10.webp",
-                  "/assets/apt235/IMG_11.webp",
-                  "/assets/apt235/IMG_12.webp",
-                  "/assets/apt235/IMG_13.webp",
-                  "/assets/apt235/IMG_14.webp"
+                  "/assets/apt235/image0.webp",
+                  "/assets/apt235/image1.webp",
+                  "/assets/apt235/image2.webp",
+                  "/assets/apt235/image3.webp",
+                  "/assets/apt235/image4.webp"
                 ],
                 "intervalBetweenImages": 2500,
                 "instagramUrl": "https://www.instagram.com/malfatti.ttt",
@@ -355,18 +355,18 @@
               "type": "artistDescription",
               "datas": {
                 "name": "EMMA",
-                "instagram": "marberyry.ttt",
+                "instagram": "mayberry.ttt",
                 "tagline": "POP CULTURE / COLORÉ",
-                "description": "VENANT D'UN DUT EN GRAPHISME, EMMA DÉVELOPPE EN PARALLÈLE UNE SENSIBILITÉ AU MONDE DU TATOUAGE. INSPIRÉE PAR LA CULTURE JAPONAISE ET LE MANGA, ELLE DÉCIDE DONC NATURELLEMENT D'ORIENTER SON STYLE DANS CETTE DIRECTION.",
+                "description": "TATOUEUSE DEPUIS 2022, MAYBERRY A TRÈS VITE DÉCIDÉ DE FAIRE DE LA COULEUR SON STYLE PRINCIPAL. TRÈS INSPIRÉE PAR LES TATOUEURS JAPONAIS ET CORÉENS POUR LEUR TRAVAIL MINUTIEUX, ELLE SOUHAITE LE CONFONDRE AVEC SON UNIVERS COLORÉ, SHOJOS, KPOP ET DE TOUTE LA NOSTALGIE DE L’ENFANCE.",
                 "images": [
                   "/assets/apt235/IMG_15.webp",
-                  "/assets/apt235/IMG_16.webp",
-                  "/assets/apt235/IMG_17.webp",
-                  "/assets/apt235/IMG_18.webp",
-                  "/assets/apt235/IMG_19.webp"
+                  "/assets/apt235/DSC07681.webp",
+                  "/assets/apt235/DSC09184.webp",
+                  "/assets/apt235/DSC09401.webp",
+                  "/assets/apt235/IMG_6401.webp"
                 ],
                 "intervalBetweenImages": 2500,
-                "instagramUrl": "https://www.instagram.com/marberyry.ttt",
+                "instagramUrl": "https://www.instagram.com/mayberry.ttt",
                 "contactUrl": "/contact"
               }
             },
@@ -398,11 +398,11 @@
                 "tagline": "ILLUSTRATION / HANDPOKE / COULEUR",
                 "description": "PASSIONNÉE DEPUIS PETITE PAR LE DESSIN ET LA NATURE, MAHÉ DESSINE DE MANIÈRE POÉTIQUE ET ENFANTINE TOUT CE QUI L'ENTOURE. DIPLÔMÉE EN DESIGN GRAPHIQUE, ELLE AIME LES COMBINAISONS DE COULEURS ET LES COMPOSITIONS QUI SAURONT VOUS METTRE EN VALEUR !",
                 "images": [
-                  "/assets/apt235/IMG_26.webp",
-                  "/assets/apt235/IMG_27.webp",
-                  "/assets/apt235/IMG_28.webp",
-                  "/assets/apt235/IMG_29.webp",
-                  "/assets/apt235/IMG_30.webp"
+                  "/assets/apt235/image9.webp",
+                  "/assets/apt235/image5.webp",
+                  "/assets/apt235/image6.webp",
+                  "/assets/apt235/image7.webp",
+                  "/assets/apt235/image8.webp"
                 ],
                 "intervalBetweenImages": 2500,
                 "instagramUrl": "https://www.instagram.com/tattooday_studio",
@@ -417,11 +417,11 @@
                 "tagline": "GRAPHIQUE / SURRÉALISME / MICRO RÉALISME",
                 "description": "PORTÉE PAR SON PARCOURS EN DESIGN GRAPHIQUE ET SES EXPÉRIENCES PERSONNELLES, CASSANDRA COMPOSE DES RÉCITS VISUELS OÙ POÉSIE, MICRO-RÉALISME ET SURRÉALISME S'ENTRELACENT. ELLE AIME TRAVAILLER LES OMBRAGES, LES TEXTURES ET EXPLORE CHAQUE DÉTAIL AVEC SENSIBILITÉ POUR CRÉER DES ŒUVRES UNIQUES, INSPIRÉES DES ÉMOTIONS HUMAINES ET DES HISTOIRES QUE CHACUN PORTE EN SOI.",
                 "images": [
-                  "/assets/apt235/IMG_31.webp",
-                  "/assets/apt235/IMG_32.webp",
-                  "/assets/apt235/IMG_33.webp",
-                  "/assets/apt235/IMG_34.webp",
-                  "/assets/apt235/IMG_35.webp"
+                  "/assets/apt235/image15.webp",
+                  "/assets/apt235/image16.webp",
+                  "/assets/apt235/image17.webp",
+                  "/assets/apt235/image18.webp",
+                  "/assets/apt235/image19.webp"
                 ],
                 "intervalBetweenImages": 2500,
                 "instagramUrl": "https://www.instagram.com/naturaffection.ttt",

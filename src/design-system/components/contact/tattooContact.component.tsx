@@ -311,6 +311,7 @@ export const TattooContact = ({ datas }: TattooContactProps) => {
       )}
       <div className={styles.container}>
         <h1 className={styles.title}>{t("contact.tattoo.title")}</h1>
+        <hr className={styles.separator} />
         <p className={styles.description}>{t("contact.tattoo.description")}</p>
         <div>
           <div className={styles.field}>
