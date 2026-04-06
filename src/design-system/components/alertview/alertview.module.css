@@ -59,7 +59,7 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  gap: 3rem;
+  gap: 2rem;
 }
 
 .logoWrapper {
@@ -83,6 +83,19 @@
   color: var(--theme-color-foreground-1);
   margin: 0;
   padding: 0;
+}
+
+.separator {
+  width: 120px;
+  height: 1px;
+  background-color: var(--theme-color-foreground-1);
+  border: none;
+  margin: 16px 0;
+  align-self: center;
+
+  @media (--bp-min-medium) {
+    margin: 24px 0;
+  }
 }
 
 .description {

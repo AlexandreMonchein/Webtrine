@@ -1,5 +1,7 @@
 import classNames from "classnames";
+import { useSelector } from "react-redux";
 
+import { getClient } from "../../../store/state.selector";
 import CallToAction from "../../buttons/src/callToAction.component";
 import { useLoadComponent } from "../../utils/useLoadComponents.hook";
 import styles from "./contactBanner.module.css";
@@ -46,8 +48,26 @@ const InfoContentItem = ({ item }: { item: ContactInfoItem }) => {
 
 const ContactBanner = ({ datas }: ContactBannerProps) => {
   const { title, media, infoTitle, content, reviewButton } = datas;
+  const { name: clientName } = useSelector(getClient);
+
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  // Render infoTitle as text or logo
+  const renderInfoTitle = () => {
+    if (typeof infoTitle === "string") {
+      return <h3 className={styles.infoTitle}>{infoTitle}</h3>;
+    }
+
+    // Logo type
+    return (
+      <img
+        src={`${import.meta.env.BASE_URL}assets/${clientName}/icons/${infoTitle.name}.webp`}
+        alt={infoTitle.alt || infoTitle.name}
+        className={styles.infoTitleLogo}
+      />
+    );
   };
 
   return (
@@ -83,7 +103,7 @@ const ContactBanner = ({ datas }: ContactBannerProps) => {
 
         {/* Information Box Overlay */}
         <div className={styles.infoBox}>
-          <h3 className={styles.infoTitle}>{infoTitle}</h3>
+          {renderInfoTitle()}
           <div className={styles.separator} />
           <div className={styles.infoContent}>
             {content.map((item, index) => (

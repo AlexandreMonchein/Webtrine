@@ -85,6 +85,9 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   border-radius: 4px;
   margin: 0 5%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
   @media (--bp-min-medium) {
     padding: 2rem;
@@ -116,6 +119,20 @@
   margin: 0 0 1rem;
 }
 
+.infoTitleLogo {
+  max-width: 200px;
+  height: auto;
+  display: block;
+
+  @media (--bp-min-medium) {
+    max-width: 250px;
+  }
+
+  @media (--bp-min-large) {
+    max-width: 300px;
+  }
+}
+
 .separator {
   width: 100px;
   height: 1px;
@@ -123,7 +140,7 @@
   margin: 1rem 0;
 
   @media (--bp-min-medium) {
-   margin: 2rem 0;
+    margin: 2rem 0;
   }
 }
 

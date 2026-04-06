@@ -76,7 +76,8 @@
     "features": {
       "scrollAnimations": true,
       "alternateBackground": true,
-      "animateFirstElement": false
+      "animateFirstElement": false,
+      "noBorderRadius": true
     },
     "templates": [
       {
@@ -184,7 +185,11 @@
                   "src": "/assets/apt235/IMG_4.webp",
                   "alt": "Studio interior"
                 },
-                "infoTitle": "APT.235",
+                "infoTitle": {
+                  "type": "logo",
+                  "name": "logo_apt235",
+                  "alt": "APT.235"
+                },
                 "content": [
                   {
                     "text": "139 Bd du Président Wilson, 33200 Bordeaux",
@@ -318,7 +323,7 @@
               "datas": {
                 "name": "NOKTO",
                 "instagram": "nokto.ttt",
-                "tagline": "BLACKWORK / DARK",
+                "tagline": "STYLE: Blackwork / Dark",
                 "description": "ANTHONY S’INSPIRE DE LA PEINTURE CLASSIQUE POUR CRÉER DES COMPOSITIONS SURRÉALISTES CENTRÉES SUR LE PORTRAIT. IL MÊLE VISAGES, VÉGÉTAL ET DIFFÉRENTS ÉLÉMENTS GRAPHIQUES POUR CONSTRUIRE DES IMAGES FORTES ET CONTRASTÉES.",
                 "images": [
                   "/assets/apt235/image10.webp",
@@ -337,7 +342,7 @@
               "datas": {
                 "name": "SARAH MALFATTI",
                 "instagram": "malfatti.ttt",
-                "tagline": "TRANSPARENCE / X-RAY / FUMÉE",
+                "tagline": "STYLE: Transparence / X-Ray / Fumée",
                 "description": "LE TRAVAIL DE SARAH EXPLORE LA TRANSPARENCE, LES EFFETS X-RAY ET LA FUMÉE, MÊLANT OMBRES LÉGÈRES ET NOIRS PROFONDS POUR CRÉER DES TATOUAGES FINS ET CONTRASTÉS.",
                 "images": [
                   "/assets/apt235/image0.webp",
@@ -356,7 +361,7 @@
               "datas": {
                 "name": "EMMA",
                 "instagram": "mayberry.ttt",
-                "tagline": "POP CULTURE / COLORÉ",
+                "tagline": "STYLE: Pop Culture / Coloré",
                 "description": "TATOUEUSE DEPUIS 2022, MAYBERRY A TRÈS VITE DÉCIDÉ DE FAIRE DE LA COULEUR SON STYLE PRINCIPAL. TRÈS INSPIRÉE PAR LES TATOUEURS JAPONAIS ET CORÉENS POUR LEUR TRAVAIL MINUTIEUX, ELLE SOUHAITE LE CONFONDRE AVEC SON UNIVERS COLORÉ, SHOJOS, KPOP ET DE TOUTE LA NOSTALGIE DE L’ENFANCE.",
                 "images": [
                   "/assets/apt235/IMG_15.webp",
@@ -375,7 +380,7 @@
               "datas": {
                 "name": "AIEUH ÇA PIQUE",
                 "instagram": "aieuh_ca_pique",
-                "tagline": "ORNEMENTAL / FINE LINE",
+                "tagline": "STYLE: Ornemental / Fine Line",
                 "description": "INSPIRÉ PAR L'ÉCLAT DE LA LUNE ET LA PUISSANCE DU SOLEIL, MARWANE FAÇONNE DES TATOUAGES DÉLICATS, PORTEURS DE SIGNIFICATIONS PROFONDES OU SIMPLEMENT ESTHÉTIQUES. SON ART RÉSIDE DANS L'HARMONIE SUBTILE ENTRE DES LIGNES DÉLICATES ET DES TRAITS PLUS MARQUÉS, CRÉANT AINSI DES CONTRASTES QUI CONFÈRENT À VOS ORNEMENTS UNE SINGULARITÉ ENVOÛTANTE.",
                 "images": [
                   "/assets/apt235/IMG_20.webp",
@@ -395,7 +400,7 @@
               "datas": {
                 "name": "MAHÉ",
                 "instagram": "tattooday_studio",
-                "tagline": "ILLUSTRATION / HANDPOKE / COULEUR",
+                "tagline": "STYLE: Illustration / Handpoke / Couleur",
                 "description": "PASSIONNÉE DEPUIS PETITE PAR LE DESSIN ET LA NATURE, MAHÉ DESSINE DE MANIÈRE POÉTIQUE ET ENFANTINE TOUT CE QUI L'ENTOURE. DIPLÔMÉE EN DESIGN GRAPHIQUE, ELLE AIME LES COMBINAISONS DE COULEURS ET LES COMPOSITIONS QUI SAURONT VOUS METTRE EN VALEUR !",
                 "images": [
                   "/assets/apt235/image9.webp",
@@ -414,7 +419,7 @@
               "datas": {
                 "name": "NATURAFFECTION",
                 "instagram": "naturaffection.ttt",
-                "tagline": "GRAPHIQUE / SURRÉALISME / MICRO RÉALISME",
+                "tagline": "STYLE: Graphique / Surréalisme / Micro Réalisme",
                 "description": "PORTÉE PAR SON PARCOURS EN DESIGN GRAPHIQUE ET SES EXPÉRIENCES PERSONNELLES, CASSANDRA COMPOSE DES RÉCITS VISUELS OÙ POÉSIE, MICRO-RÉALISME ET SURRÉALISME S'ENTRELACENT. ELLE AIME TRAVAILLER LES OMBRAGES, LES TEXTURES ET EXPLORE CHAQUE DÉTAIL AVEC SENSIBILITÉ POUR CRÉER DES ŒUVRES UNIQUES, INSPIRÉES DES ÉMOTIONS HUMAINES ET DES HISTOIRES QUE CHACUN PORTE EN SOI.",
                 "images": [
                   "/assets/apt235/image15.webp",
@@ -433,7 +438,7 @@
               "datas": {
                 "name": "ELENA",
                 "instagram": "vidnevskaya_tattoo",
-                "tagline": "MICRO RÉALISME / FLORAL",
+                "tagline": "STYLE: Micro Réalisme / Floral",
                 "description": "ELENA EST UNE TATOUEUSE UKRAINIENNE, PASSIONNÉE DE DESSIN DEPUIS L'ENFANCE. LE TATOUAGE A COMMENCÉ POUR ELLE SUR UN COUP DE TÊTE. ELLE A TOUJOURS ÉTÉ ATTIRÉE PAR LES DÉTAILS, NOTAMMENT LES PLANTES ET LES VISAGES. DEPUIS MAINTENANT 8 ANS, ELLE DÉVELOPPE UN STYLE AXÉ SUR LE MICRO-RÉALISME ET LES TRAITS FINS, AVEC UNE PRÉDILECTION POUR LES MOTIFS BOTANIQUES. À TRAVERS SES TATOUAGES, ELLE CHERCHE À CAPTURER UN INSTANT ÉTERNEL ET À RACONTER DES HISTOIRES PERSONNELLES.",
                 "images": [
                   "/assets/apt235/IMG_36.webp",

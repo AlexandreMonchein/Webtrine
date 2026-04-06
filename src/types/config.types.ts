@@ -41,6 +41,7 @@ export interface LayoutFeatures {
   scrollAnimations?: boolean;
   alternateBackground?: boolean;
   animateFirstElement?: boolean;
+  noBorderRadius?: boolean;
 }
 
 export interface Layout {

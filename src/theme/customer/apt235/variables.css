@@ -1,7 +1,7 @@
 /* Apt235 - CSS Variables Injection */
 
 /* Import SK Modernist Mono font family */
-@import url('./fonts.css');
+@import url("./fonts.css");
 
 :root {
   /* ============================================
@@ -11,7 +11,6 @@
   --subtitle-font-size: var(--subtitle-font-size-override, 1.5rem);
   --text-font-size: var(--text-font-size-override, 1rem);
   --description-font-size: var(--description-font-size-override, 0.875rem);
-
 
   /* ============================================
      Z-INDEX
@@ -48,6 +47,6 @@
 }
 
 body {
-   /* font-family: 'IBM Plex Mono', monospace; */
-  font-family: 'SK Modernist Mono', monospace;
+  /* font-family: 'IBM Plex Mono', monospace; */
+  font-family: 'SK Modernist', sans-serif;
 }

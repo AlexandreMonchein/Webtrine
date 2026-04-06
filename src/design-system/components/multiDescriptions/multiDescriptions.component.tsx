@@ -33,6 +33,7 @@ const MultiDescription = ({ templateName = null }: MultiDescriptionProps) => {
     scrollAnimations = true,
     alternateBackground = true,
     animateFirstElement = false,
+    noBorderRadius = false,
   } = layoutFeatures || {};
 
   const template = getTemplate(
@@ -145,6 +146,7 @@ const MultiDescription = ({ templateName = null }: MultiDescriptionProps) => {
         className={classNames(styles.container, {
           [styles.singleSection]: components.length === 1,
           [styles.alternateBackground]: alternateBackground,
+          [styles.noBorderRadius]: noBorderRadius,
         })}
       >
         {components}

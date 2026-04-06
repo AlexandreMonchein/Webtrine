@@ -44,10 +44,6 @@
   min-width: 300px;
 
   @media (--bp-min-medium) {
-    max-height: 350px;
-  }
-
-  @media (--bp-min-large) {
     max-height: 500px;
   }
 

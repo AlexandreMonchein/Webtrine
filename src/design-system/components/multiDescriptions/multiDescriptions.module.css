@@ -33,3 +33,18 @@
     background-color: var(--theme-color-background-2);
   }
 }
+
+/* Supprime tous les border-radius quand noBorderRadius est activé */
+.noBorderRadius {
+  /* Supprimer border-radius sur tous les éléments imbriqués */
+  & *,
+  & img,
+  & button,
+  & video,
+  & input,
+  & textarea,
+  & select,
+  & a {
+    border-radius: 0 !important;
+  }
+}

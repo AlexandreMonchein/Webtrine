@@ -66,7 +66,7 @@ export const AlertView = ({
           )}
 
           {title && <h2 className={styles.title}>{title}</h2>}
-
+          {title && description && <hr className={styles.separator} />}
           {description && <p className={styles.description}>{description}</p>}
 
           {ctaText && onClose && (

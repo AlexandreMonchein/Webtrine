@@ -23,10 +23,18 @@ export type ContactBannerMediaData = {
   alt?: string;
 };
 
+export type ContactBannerInfoTitle =
+  | string
+  | {
+      type: "logo";
+      name: string;
+      alt?: string;
+    };
+
 export type ContactBannerDatas = {
   title: string;
   media: ContactBannerMediaData;
-  infoTitle: string;
+  infoTitle: ContactBannerInfoTitle;
   content: ContactInfoItem[];
   reviewButton?: ReviewButton;
 };
