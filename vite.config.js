@@ -46,6 +46,29 @@ function copyCustomerAssetsPlugin() {
         copyRecursive(customerAssetsDir, destCustomerAssetsDir);
       }
 
+      // 2.5. Copier les favicons du customer à la racine du build
+      const customerIconsDir = path.join(customerAssetsDir, "icons");
+
+      const favicon32Src = path.join(customerIconsDir, "favicon-32x32.png");
+      const favicon16Src = path.join(customerIconsDir, "favicon-16x16.png");
+      const appleTouchIconSrc = path.join(
+        customerIconsDir,
+        "apple-touch-icon.png",
+      );
+
+      if (existsSync(favicon32Src)) {
+        copyFileSync(favicon32Src, path.join(outputDir, "favicon-32x32.png"));
+      }
+      if (existsSync(favicon16Src)) {
+        copyFileSync(favicon16Src, path.join(outputDir, "favicon-16x16.png"));
+      }
+      if (existsSync(appleTouchIconSrc)) {
+        copyFileSync(
+          appleTouchIconSrc,
+          path.join(outputDir, "apple-touch-icon.png"),
+        );
+      }
+
       // 3. Copier les assets globaux (fichiers à la racine de public/assets)
       const globalAssetsDir = path.join(publicDir, "assets");
       if (existsSync(globalAssetsDir)) {

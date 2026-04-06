@@ -10,6 +10,20 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 // Adjust path to point to public/assets from the scripts folder
 const baseDir = path.join(__dirname, "../public/assets");
 
+// Files to exclude from conversion
+const EXCLUDED_FILES = [
+  // Favicons (must remain PNG for browser compatibility)
+  "favicon-32x32.png",
+  "favicon-16x16.png",
+  "apple-touch-icon.png",
+  // Source logos (needed by create-favicons.sh to generate favicons)
+  "favicon_apt235.png",
+  "logo_chillpaws_color_2.png",
+  "logo-dipaolo.png",
+  "webtrine_logo_2_blanc_noTitle.png",
+  "webtrine_logo_2_color_noTitle.png",
+];
+
 async function convertImagesInFolder(folder) {
   const files = await fs.promises.readdir(folder);
 
@@ -20,6 +34,12 @@ async function convertImagesInFolder(folder) {
     if (stat.isDirectory()) {
       return convertImagesInFolder(filePath); // Recursively process subdirectories
     } else if (/\.(jpe?g|png|avif)$/i.test(file)) {
+      // Skip excluded files (favicons and source logos)
+      if (EXCLUDED_FILES.includes(file)) {
+        console.log(`⏭️  Skipped: ${file}`);
+        return { success: true, file: filePath, skipped: true };
+      }
+
       // Check for both .jpg and .png
       const webpPath = filePath.replace(/\.(jpe?g|png|avif)$/i, ".webp");
       try {

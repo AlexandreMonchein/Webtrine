@@ -6,7 +6,6 @@ import { breakpointNames } from "../../../breakpointDef";
 export const ContactSection = styled.section`
   padding: 40px 120px;
   margin: 0 auto;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   text-align: center;
 
   ${bp.max(

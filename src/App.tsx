@@ -123,16 +123,9 @@ function App(props: AppProps) {
 
   useEffect(() => {
     const clientName = import.meta.env.VITE_CUSTOMER;
-    const faviconPath = `/assets/${clientName}/icons/${logo}.webp`;
 
-    const favicon = document.createElement("link");
-    favicon.type = "image/webp";
-    favicon.rel = "icon";
-    favicon.href = faviconPath;
-
-    if (!favicon.parentElement) {
-      document.head.appendChild(favicon);
-    }
+    // Favicons are now handled in index.html as static links
+    // No need to manipulate them dynamically - Safari prefers static HTML
 
     // Initialiser Google Tag Manager pour ce client
     initializeGTM(clientName);
