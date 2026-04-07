@@ -257,9 +257,16 @@ const TestimonialCards: React.FC<TestimonialCardsProps> = (props) => {
 
         const { domainURL } = config;
 
+        // Create AbortController for timeout (2s client-side timeout)
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 2000);
+
         const response = await fetch(
           `${domainURL}/api/reviews?dataId=${dataId}&customer=${customerName}`,
+          { signal: controller.signal },
         );
+
+        clearTimeout(timeoutId);
 
         if (!response.ok) {
           throw new Error("Erreur lors du chargement des reviews");
@@ -288,6 +295,11 @@ const TestimonialCards: React.FC<TestimonialCardsProps> = (props) => {
 
         return data;
       } catch (error) {
+        // Silent fail for timeout/abort - component will just not display
+        if (error instanceof Error && error.name === "AbortError") {
+          console.warn("Reviews fetch timeout - component hidden");
+          return [];
+        }
         console.error("Erreur au chargement des reviews:", error);
         return [];
       }

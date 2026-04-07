@@ -24,7 +24,7 @@ test.describe("Visual Regression Tests", () => {
 
   for (const customer of customers) {
     test.describe(`${customer}`, () => {
-      let routes: Array<{ name: string; path: string }>;
+      let routes: Array<{ name: string; path: string; query?: string }>;
 
       test.beforeAll(() => {
         try {
@@ -53,7 +53,11 @@ test.describe("Visual Regression Tests", () => {
           // Dynamically create tests for each route
           test(`should load all pages without errors`, async ({ page }) => {
             for (const route of routes) {
-              const url = `${route.path}?customer=${customer}`;
+              // Build URL with customer param and optional query params
+              const queryParams = route.query
+                ? `customer=${customer}&${route.query}`
+                : `customer=${customer}`;
+              const url = `${route.path}?${queryParams}`;
 
               // eslint-disable-next-line no-await-in-loop
               const response = await page.goto(url, {
@@ -87,7 +91,11 @@ test.describe("Visual Regression Tests", () => {
             }
 
             for (const route of routes) {
-              const url = `${route.path}?customer=${customer}`;
+              // Build URL with customer param and optional query params
+              const queryParams = route.query
+                ? `customer=${customer}&${route.query}`
+                : `customer=${customer}`;
+              const url = `${route.path}?${queryParams}`;
 
               // eslint-disable-next-line no-await-in-loop
               await page.goto(url, {

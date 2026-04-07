@@ -29,6 +29,7 @@ export interface CustomerConfig {
 export interface Route {
   name: string;
   path: string;
+  query?: string; // Optional query parameters (e.g., "artist=DUF")
 }
 
 /**
@@ -99,6 +100,17 @@ export function extractRoutes(
 
       if (additionalRoutes.cguCgv && !existingPaths.has("/cgu-cgv")) {
         routes.push({ name: "CGU-CGV", path: "/cgu-cgv" });
+      }
+
+      // Add route variants with query parameters
+      if (additionalRoutes.routeVariants) {
+        additionalRoutes.routeVariants.forEach((variant) => {
+          routes.push({
+            name: variant.name,
+            path: variant.path,
+            query: variant.query,
+          });
+        });
       }
     }
   }

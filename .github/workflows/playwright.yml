@@ -38,9 +38,6 @@ jobs:
       - name: Install Playwright Browsers
         run: pnpm playwright install --with-deps chromium
 
-      - name: Build application
-        run: VITE_CUSTOMER=${{ matrix.customer }} pnpm build
-
       - name: Run Playwright tests for ${{ matrix.customer }}
         run: TEST_CUSTOMER=${{ matrix.customer }} pnpm test:e2e
         env:

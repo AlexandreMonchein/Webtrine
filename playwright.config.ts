@@ -60,7 +60,7 @@ export default defineConfig({
 
   /* Run your local dev server before starting the tests */
   webServer: {
-    command: `bash ./scripts/update-favicon.sh && VITE_CUSTOMER=\${TEST_CUSTOMER:-showcase} vite`,
+    command: `VITE_CUSTOMER=\${TEST_CUSTOMER:-showcase} bash ./scripts/update-favicon.sh && VITE_CUSTOMER=\${TEST_CUSTOMER:-showcase} vite`,
     url: "http://localhost:3000",
     reuseExistingServer: !process.env.CI,
     timeout: 120 * 1000,
