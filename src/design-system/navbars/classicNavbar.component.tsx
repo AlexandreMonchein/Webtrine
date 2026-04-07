@@ -38,7 +38,12 @@ const ClassicNavbar = (props: ClassicNavbarProps) => {
     (Component: React.ComponentType, data: { name: string; link: unknown }) => (
       <li key={data.name}>
         <div className={styles.socialLogo}>
-          <a aria-label={data.name} href={(data.link as any).link}>
+          <a
+            aria-label={data.name}
+            href={(data.link as any).link}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <Component />
           </a>
         </div>

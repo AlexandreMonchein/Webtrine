@@ -41,7 +41,12 @@ const ClassicFooter = (props: ClassicFooterProps) => {
     renderFn: (Component, data) => (
       <li key={data.name}>
         <div className={styles.socialLogo}>
-          <a aria-label={data.name} href={data.link}>
+          <a
+            aria-label={data.name}
+            href={data.link}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <Component color={data.color} />
           </a>
         </div>

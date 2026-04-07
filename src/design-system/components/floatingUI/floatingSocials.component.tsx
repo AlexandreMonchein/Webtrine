@@ -22,7 +22,12 @@ const FloatingSocials: React.FC = () => {
   const components = useLoadComponents(socialItems, {
     renderFn: (Component, data) => (
       <SocialLogo key={data.name}>
-        <a aria-label={data.name} href={data.link}>
+        <a
+          aria-label={data.name}
+          href={data.link}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <Component color="full" />
         </a>
       </SocialLogo>

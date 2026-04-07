@@ -61,7 +61,13 @@ const PetSittingContact = () => {
 
   const components = useLoadComponents(socialItems, {
     renderFn: (Component, data) => (
-      <a key={data.name} aria-label={data.name} href={data.link}>
+      <a
+        key={data.name}
+        aria-label={data.name}
+        href={data.link}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         <Component color="full" />
       </a>
     ),
