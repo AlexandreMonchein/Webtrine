@@ -42,11 +42,10 @@ export default defineConfig({
   /* Expect configuration for visual regression tests */
   expect: {
     toHaveScreenshot: {
-      // Use threshold instead of maxDiffPixels for font rendering differences
-      threshold: 0.2, // Allow 0.2% difference (good for font rendering variations)
+      // High threshold to accommodate font rendering differences between macOS and Linux
+      threshold: 0.5, // Allow 0.5% difference (increased for cross-platform compatibility)
       maxDiffPixels: undefined, // Disable pixel count check
-      // Optionally, use maxDiffPixelRatio for additional control
-      maxDiffPixelRatio: 0.01, // Max 1% of pixels can be different
+      maxDiffPixelRatio: 0.05, // Max 5% of pixels can be different (increased from 1%)
     },
   },
 
