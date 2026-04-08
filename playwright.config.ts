@@ -35,6 +35,10 @@ export default defineConfig({
     process.env.CI ? ["github"] : ["list"],
   ],
 
+  /* Snapshot path template - remove platform suffix for cross-platform compatibility */
+  snapshotPathTemplate:
+    "{testDir}/{testFileDir}/{testFileName}-snapshots/{arg}{ext}",
+
   /* Shared settings for all the projects below */
   use: {
     /* Base URL to use in actions like `await page.goto('/')` */
