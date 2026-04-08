@@ -43,9 +43,7 @@ export default defineConfig({
   expect: {
     toHaveScreenshot: {
       // High threshold to accommodate font rendering differences between macOS and Linux
-      threshold: 0.5, // Allow 0.5% difference (increased for cross-platform compatibility)
-      maxDiffPixels: undefined, // Disable pixel count check
-      maxDiffPixelRatio: 0.05, // Max 5% of pixels can be different (increased from 1%)
+      maxDiffPixels: 2000, // Disable pixel count check
     },
   },
 
