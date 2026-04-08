@@ -171,6 +171,30 @@ test.describe("Visual Regression Tests", () => {
                 "video pause",
               );
 
+              // Force testimonial avatars to use fallback (initials) to avoid CORS/loading issues
+              // eslint-disable-next-line no-await-in-loop
+              await safeEvaluate(
+                () => {
+                  const avatarContainers = document.querySelectorAll(
+                    '[data-testid="avatar-container"], [class*="AvatarContainer"]',
+                  );
+                  avatarContainers.forEach((container) => {
+                    // Hide avatar images and show fallback
+                    const img = container.querySelector("img");
+                    const fallback = container.querySelector(
+                      "[data-fallback]",
+                    ) as HTMLElement;
+
+                    if (img && fallback) {
+                      img.style.display = "none";
+                      fallback.style.display = "flex";
+                    }
+                  });
+                },
+                undefined,
+                "avatar fallback",
+              );
+
               // Stop all image carousels and reset to first image
               // eslint-disable-next-line no-await-in-loop
               await safeEvaluate(
@@ -285,9 +309,9 @@ test.describe("Visual Regression Tests", () => {
                   fullPage: true,
                   animations: "disabled",
                   timeout: 30000,
-                  maxDiffPixels: 100,
                   // Mask Leaflet maps to prevent flakiness from tile loading
                   mask: mapMasks.length > 0 ? mapMasks : undefined,
+                  // threshold and maxDiffPixelRatio configured globally in playwright.config.ts
                 },
               );
             }
