@@ -301,40 +301,16 @@ test.describe("Visual Regression Tests", () => {
                 mapMasks.push(leafletMaps.nth(i));
               }
 
-              // Full page screenshot
-              // Strategy:
-              // - CI or Linux: Strict validation with Linux snapshots (maxDiffPixels: 2000)
-              // - macOS/Windows local: Skip comparison (only capture) to avoid font issues
-              //   Use Docker to generate/validate Linux snapshots: pnpm test:e2e:snapshots:linux
-
-              const isLinuxOrCI =
-                process.env.CI === "true" ||
-                process.platform === "linux" ||
-                process.env.FORCE_VISUAL_VALIDATION === "true";
-
+              // Full page screenshot with visual regression detection
               const screenshotName = `${customer}-${route.name.toLowerCase().replace(/\s+/g, "-")}-${viewport.name}.png`;
-              const screenshotOptions = {
+
+              await expect(page).toHaveScreenshot(screenshotName, {
                 fullPage: true,
                 animations: "disabled" as const,
                 timeout: 30000,
                 mask: mapMasks.length > 0 ? mapMasks : undefined,
-                maxDiffPixels: 2000, // Strict validation (detects real visual regressions)
-              };
-              if (isLinuxOrCI) {
-                // Perform strict visual comparison
-                await expect(page).toHaveScreenshot(
-                  screenshotName,
-                  screenshotOptions,
-                );
-              } else {
-                // macOS/Windows: Skip comparison, just log
-                console.log(
-                  `⏭️  [${customer}/${route.name}] Skipping visual assertion (${process.platform})`,
-                );
-                console.log(
-                  `   💡 Generate Linux snapshots: pnpm test:e2e:snapshots:linux`,
-                );
-              }
+                maxDiffPixels: 3000, // Strict validation (detects real visual regressions)
+              });
             }
           });
         });

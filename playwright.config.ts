@@ -4,9 +4,11 @@ import { defineConfig, devices } from "@playwright/test";
  * Playwright configuration for multi-client visual regression and E2E testing
  *
  * Usage:
- *   pnpm test:e2e                     # Run all tests
+ *   pnpm test:e2e                          # Run all tests
  *   TEST_CUSTOMER=chillpaws pnpm test:e2e  # Test specific customer
- *   pnpm test:e2e --update-snapshots  # Update visual snapshots
+ *   playwright test --update-snapshots     # Update visual snapshots
+ *
+ * Note: Snapshots are stored locally and not committed to Git
  *
  * @see https://playwright.dev/docs/test-configuration
  */

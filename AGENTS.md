@@ -156,7 +156,25 @@ VITE_CUSTOMER=chillpaws pnpm test
 
 ### Tests E2E (Playwright)
 
-Disponible mais configuration dans les devDependencies. Les tests peuvent être ajoutés pour les parcours utilisateur critiques.
+Tests visuels de régression sur tous les clients avec capture de screenshots multi-viewports.
+
+```bash
+# Tester un client spécifique
+TEST_CUSTOMER=showcase pnpm test:e2e
+TEST_CUSTOMER=chillpaws pnpm test:e2e
+
+# Tester tous les clients
+pnpm test:e2e:all
+
+# Interface UI pour débugger
+pnpm test:e2e:ui
+
+# Générer/mettre à jour les snapshots (après changement visuel)
+TEST_CUSTOMER=showcase playwright test --update-snapshots
+pnpm test:e2e:all:update  # Tous les clients
+```
+
+**Note** : Les snapshots sont ignorés dans Git (développement local uniquement). Voir `docs/VISUAL_TESTING.md` pour plus de détails.
 
 ## 🔧 Utility Commands
 

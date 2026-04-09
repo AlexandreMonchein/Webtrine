@@ -36,3 +36,4 @@ yarn-error.log*
 /playwright/.cache/
 /tests/e2e/**/*-actual.png
 /tests/e2e/**/*-diff.png
+/tests/e2e/visual.spec.ts-snapshots/
