@@ -39,14 +39,6 @@ export default defineConfig({
   snapshotPathTemplate:
     "{testDir}/{testFileDir}/{testFileName}-snapshots/{arg}{ext}",
 
-  /* Expect configuration for visual regression tests */
-  expect: {
-    toHaveScreenshot: {
-      // High threshold to accommodate font rendering differences between macOS and Linux
-      maxDiffPixels: 2000, // Disable pixel count check
-    },
-  },
-
   /* Shared settings for all the projects below */
   use: {
     /* Base URL to use in actions like `await page.goto('/')` */
