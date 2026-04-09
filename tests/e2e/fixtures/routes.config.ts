@@ -5,10 +5,22 @@
  * (legal pages, terms, privacy policy, etc.)
  */
 
+export interface RouteVariant {
+  name: string; // Display name for the variant (e.g., "Contact - Artist DUF")
+  path: string; // Route path (e.g., "/contact")
+  query?: string; // Query parameters (e.g., "artist=DUF")
+}
+
 export interface AdditionalRoutes {
   mentionsLegals?: boolean;
   confidentialite?: boolean;
   cguCgv?: boolean;
+  /**
+   * Route variants with query parameters for visual testing
+   * Useful for testing different states of the same page
+   * Example: Pre-selected artist in contact form
+   */
+  routeVariants?: RouteVariant[];
 }
 
 export const customerRoutesConfig: Record<string, AdditionalRoutes> = {
@@ -36,5 +48,12 @@ export const customerRoutesConfig: Record<string, AdditionalRoutes> = {
     mentionsLegals: true,
     confidentialite: true,
     cguCgv: false, // No CGU-CGV page
+    routeVariants: [
+      {
+        name: "Contact - Artist DUF",
+        path: "/contact",
+        query: "artist=DUF",
+      },
+    ],
   },
 };

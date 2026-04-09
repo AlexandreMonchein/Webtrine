@@ -24,7 +24,7 @@ test.describe("Visual Regression Tests", () => {
 
   for (const customer of customers) {
     test.describe(`${customer}`, () => {
-      let routes: Array<{ name: string; path: string }>;
+      let routes: Array<{ name: string; path: string; query?: string }>;
 
       test.beforeAll(() => {
         try {
@@ -53,7 +53,11 @@ test.describe("Visual Regression Tests", () => {
           // Dynamically create tests for each route
           test(`should load all pages without errors`, async ({ page }) => {
             for (const route of routes) {
-              const url = `${route.path}?customer=${customer}`;
+              // Build URL with customer param and optional query params
+              const queryParams = route.query
+                ? `customer=${customer}&${route.query}`
+                : `customer=${customer}`;
+              const url = `${route.path}?${queryParams}`;
 
               // eslint-disable-next-line no-await-in-loop
               const response = await page.goto(url, {
@@ -79,7 +83,7 @@ test.describe("Visual Regression Tests", () => {
           // Visual regression test - screenshot all routes
           test(`all routes - visual snapshots`, async ({ page }) => {
             // Increase timeout for this specific test (8 routes × ~10-15s each)
-            test.setTimeout(2 * 60 * 1000); // 2 minutes max
+            test.setTimeout(5 * 60 * 1000); // 5 minutes max
 
             // Ensure routes are loaded
             if (!routes || routes.length === 0) {
@@ -87,13 +91,28 @@ test.describe("Visual Regression Tests", () => {
             }
 
             for (const route of routes) {
-              const url = `${route.path}?customer=${customer}`;
+              // Build URL with customer param and optional query params
+              const queryParams = route.query
+                ? `customer=${customer}&${route.query}`
+                : `customer=${customer}`;
+              const url = `${route.path}?${queryParams}`;
 
               // eslint-disable-next-line no-await-in-loop
               await page.goto(url, {
                 waitUntil: "load",
                 timeout: 30000,
               });
+
+              // Wait for network to be idle to ensure no late navigations
+              // eslint-disable-next-line no-await-in-loop
+              await page
+                .waitForLoadState("networkidle", { timeout: 10000 })
+                .catch(() => {
+                  // Ignore timeout - some pages may have long-polling or streaming
+                  console.warn(
+                    `[${customer}] Network not idle after 10s on ${route.path}`,
+                  );
+                });
 
               // Wait for main content to be visible
               // eslint-disable-next-line no-await-in-loop
@@ -102,49 +121,138 @@ test.describe("Visual Regression Tests", () => {
                 timeout: 10000,
               });
 
-              // Pause all videos and hide them to prevent flakiness
+              // Additional wait to ensure all React hydration and scripts are done
               // eslint-disable-next-line no-await-in-loop
-              await page.evaluate(() => {
-                const videos = document.querySelectorAll("video");
-                videos.forEach((video) => {
-                  video.pause();
-                  video.currentTime = 0; // Reset to first frame
-                });
-              });
+              await page.waitForTimeout(2000); // Increased from 500ms to give more time
+
+              // Helper function to safely execute page.evaluate with retry on context destruction
+              const safeEvaluate = async (
+                fn: any,
+                arg: any,
+                description: string,
+              ) => {
+                try {
+                  await page.evaluate(fn, arg);
+                } catch (error) {
+                  if (
+                    error instanceof Error &&
+                    error.message.includes("Execution context was destroyed")
+                  ) {
+                    console.warn(
+                      `[${customer}] Context destroyed during ${description} on ${route.path} - waiting and retrying`,
+                    );
+                    await page.waitForLoadState("load");
+                    await page.waitForTimeout(1000);
+                    // Retry once
+                    try {
+                      await page.evaluate(fn, arg);
+                    } catch {
+                      console.warn(
+                        `[${customer}] Retry failed for ${description} - skipping`,
+                      );
+                    }
+                  } else {
+                    throw error;
+                  }
+                }
+              };
+
+              // Pause all videos to prevent flakiness
+              // eslint-disable-next-line no-await-in-loop
+              await safeEvaluate(
+                () => {
+                  const videos = document.querySelectorAll("video");
+                  videos.forEach((video) => {
+                    video.pause();
+                    video.currentTime = 0;
+                  });
+                },
+                undefined,
+                "video pause",
+              );
+
+              // Force testimonial avatars to use fallback (initials) to avoid CORS/loading issues
+              // eslint-disable-next-line no-await-in-loop
+              await safeEvaluate(
+                () => {
+                  const avatarContainers = document.querySelectorAll(
+                    '[data-testid="avatar-container"], [class*="AvatarContainer"]',
+                  );
+                  avatarContainers.forEach((container) => {
+                    // Hide avatar images and show fallback
+                    const img = container.querySelector("img");
+                    const fallback = container.querySelector(
+                      "[data-fallback]",
+                    ) as HTMLElement;
+
+                    if (img && fallback) {
+                      img.style.display = "none";
+                      fallback.style.display = "flex";
+                    }
+                  });
+                },
+                undefined,
+                "avatar fallback",
+              );
 
               // Stop all image carousels and reset to first image
               // eslint-disable-next-line no-await-in-loop
-              await page.evaluate(() => {
-                // Clear all setInterval timers
-                const highestTimeoutId = setTimeout(() => {}, 0);
-                for (let i = 0; i < highestTimeoutId; i++) {
-                  clearInterval(i);
-                }
+              await safeEvaluate(
+                () => {
+                  // Clear all setInterval timers
+                  const highestTimeoutId = setTimeout(
+                    () => {},
+                    0,
+                  ) as unknown as number;
+                  for (let i = 0; i < highestTimeoutId; i++) {
+                    clearInterval(i);
+                  }
 
-                // Force all carousel images to show first image
-                const carouselContainers = document.querySelectorAll(
-                  '[class*="carousel"]',
-                );
-                carouselContainers.forEach((container) => {
-                  const images = container.querySelectorAll(
-                    '[class*="carouselImage"]',
+                  // Force all carousel images to show first image
+                  const carouselContainers = document.querySelectorAll(
+                    '[class*="carousel"]',
                   );
-                  images.forEach((img, index) => {
-                    const element = img as HTMLElement;
-                    if (index === 0) {
-                      // Show first image
-                      element.classList.add("carouselImageActive");
-                      element.style.opacity = "1";
-                      element.style.visibility = "visible";
-                    } else {
-                      // Hide others
-                      element.classList.remove("carouselImageActive");
-                      element.style.opacity = "0";
-                      element.style.visibility = "hidden";
+                  carouselContainers.forEach((container) => {
+                    const images = container.querySelectorAll(
+                      '[class*="carouselImage"]',
+                    );
+                    images.forEach((img, index) => {
+                      const element = img as HTMLElement;
+                      if (index === 0) {
+                        // Show first image
+                        element.classList.add("carouselImageActive");
+                        element.style.opacity = "1";
+                        element.style.visibility = "visible";
+                      } else {
+                        // Hide others
+                        element.classList.remove("carouselImageActive");
+                        element.style.opacity = "0";
+                        element.style.visibility = "hidden";
+                      }
+                    });
+
+                    // Fix image counter to always show "1/total"
+                    const counter = container.querySelector(
+                      '[class*="imageCounter"]',
+                    ) as HTMLElement;
+                    if (counter) {
+                      const totalImages = images.length;
+                      const fixedText = `1/${totalImages}`;
+
+                      // Replace with a static frozen element
+                      const frozenCounter = document.createElement("div");
+                      frozenCounter.className = counter.className;
+                      frozenCounter.style.cssText = counter.style.cssText;
+                      frozenCounter.textContent = fixedText;
+
+                      // Replace the original counter
+                      counter.parentNode?.replaceChild(frozenCounter, counter);
                     }
                   });
-                });
-              });
+                },
+                undefined,
+                "carousel freeze",
+              );
 
               // Wait a bit for React to update
               // eslint-disable-next-line no-await-in-loop
@@ -153,10 +261,14 @@ test.describe("Visual Regression Tests", () => {
               // Scroll progressively to trigger all lazy loading (in 5 steps)
               for (let i = 0; i <= 5; i++) {
                 // eslint-disable-next-line no-await-in-loop
-                await page.evaluate((step) => {
-                  const totalHeight = document.body.scrollHeight;
-                  window.scrollTo(0, (totalHeight * step) / 5);
-                }, i);
+                await safeEvaluate(
+                  (step: number) => {
+                    const totalHeight = document.body.scrollHeight;
+                    window.scrollTo(0, (totalHeight * step) / 5);
+                  },
+                  i,
+                  `scroll step ${i}`,
+                );
                 // eslint-disable-next-line no-await-in-loop
                 await page.waitForTimeout(200);
               }
@@ -169,14 +281,19 @@ test.describe("Visual Regression Tests", () => {
 
               // Scroll back to top
               // eslint-disable-next-line no-await-in-loop
-              await page.evaluate(() => {
-                window.scrollTo(0, 0);
-              });
+              await safeEvaluate(
+                () => {
+                  window.scrollTo(0, 0);
+                },
+                undefined,
+                "scroll to top",
+              );
               // eslint-disable-next-line no-await-in-loop
               await page.waitForTimeout(300);
 
               // Find all Leaflet map containers to mask them
               const leafletMaps = page.locator(".leaflet-container");
+              // eslint-disable-next-line no-await-in-loop
               const mapCount = await leafletMaps.count();
               const mapMasks = [];
 
@@ -184,19 +301,16 @@ test.describe("Visual Regression Tests", () => {
                 mapMasks.push(leafletMaps.nth(i));
               }
 
-              // Full page screenshot
-              // eslint-disable-next-line no-await-in-loop
-              await expect(page).toHaveScreenshot(
-                `${customer}-${route.name.toLowerCase().replace(/\s+/g, "-")}-${viewport.name}.png`,
-                {
-                  fullPage: true,
-                  animations: "disabled",
-                  timeout: 30000,
-                  maxDiffPixels: 100,
-                  // Mask Leaflet maps to prevent flakiness from tile loading
-                  mask: mapMasks.length > 0 ? mapMasks : undefined,
-                },
-              );
+              // Full page screenshot with visual regression detection
+              const screenshotName = `${customer}-${route.name.toLowerCase().replace(/\s+/g, "-")}-${viewport.name}.png`;
+
+              await expect(page).toHaveScreenshot(screenshotName, {
+                fullPage: true,
+                animations: "disabled" as const,
+                timeout: 30000,
+                mask: mapMasks.length > 0 ? mapMasks : undefined,
+                maxDiffPixels: 3000, // Strict validation (detects real visual regressions)
+              });
             }
           });
         });

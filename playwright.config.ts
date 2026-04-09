@@ -4,9 +4,11 @@ import { defineConfig, devices } from "@playwright/test";
  * Playwright configuration for multi-client visual regression and E2E testing
  *
  * Usage:
- *   pnpm test:e2e                     # Run all tests
+ *   pnpm test:e2e                          # Run all tests
  *   TEST_CUSTOMER=chillpaws pnpm test:e2e  # Test specific customer
- *   pnpm test:e2e --update-snapshots  # Update visual snapshots
+ *   playwright test --update-snapshots     # Update visual snapshots
+ *
+ * Note: Snapshots are stored locally and not committed to Git
  *
  * @see https://playwright.dev/docs/test-configuration
  */
@@ -35,6 +37,10 @@ export default defineConfig({
     process.env.CI ? ["github"] : ["list"],
   ],
 
+  /* Snapshot path template - remove platform suffix for cross-platform compatibility */
+  snapshotPathTemplate:
+    "{testDir}/{testFileDir}/{testFileName}-snapshots/{arg}{ext}",
+
   /* Shared settings for all the projects below */
   use: {
     /* Base URL to use in actions like `await page.goto('/')` */
@@ -60,7 +66,7 @@ export default defineConfig({
 
   /* Run your local dev server before starting the tests */
   webServer: {
-    command: `bash ./scripts/update-favicon.sh && VITE_CUSTOMER=\${TEST_CUSTOMER:-showcase} vite`,
+    command: `VITE_CUSTOMER=\${TEST_CUSTOMER:-showcase} bash ./scripts/update-favicon.sh && VITE_CUSTOMER=\${TEST_CUSTOMER:-showcase} vite`,
     url: "http://localhost:3000",
     reuseExistingServer: !process.env.CI,
     timeout: 120 * 1000,

@@ -10,6 +10,11 @@ packages/**/node_modules
 /build
 /dist
 
+# public
+public/apple-touch-icon.png
+public/favicon-16x16.png
+public/favicon-32x32.png
+
 # misc
 .DS_Store
 .env.local
@@ -31,4 +36,4 @@ yarn-error.log*
 /playwright/.cache/
 /tests/e2e/**/*-actual.png
 /tests/e2e/**/*-diff.png
-tests/e2e/visual.spec.ts-snapshots/*
+/tests/e2e/visual.spec.ts-snapshots/

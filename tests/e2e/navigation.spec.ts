@@ -21,7 +21,7 @@ test.describe("E2E Navigation Tests", () => {
 
   for (const customer of customers) {
     test.describe(`${customer}`, () => {
-      let routes: Array<{ name: string; path: string }>;
+      let routes: Array<{ name: string; path: string; query?: string }>;
       let config: any;
 
       test.beforeAll(() => {
@@ -46,8 +46,14 @@ test.describe("E2E Navigation Tests", () => {
 
         // Navigate to each route
         for (const route of routes) {
+          // Build URL with customer param and optional query params
+          const queryParams = route.query
+            ? `customer=${customer}&${route.query}`
+            : `customer=${customer}`;
+          const url = `${route.path}?${queryParams}`;
+
           // eslint-disable-next-line no-await-in-loop
-          await page.goto(`${route.path}?customer=${customer}`, {
+          await page.goto(url, {
             waitUntil: "load",
             timeout: 30000,
           });
