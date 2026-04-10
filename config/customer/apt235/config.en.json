@@ -76,7 +76,8 @@
     "features": {
       "scrollAnimations": true,
       "alternateBackground": true,
-      "animateFirstElement": false
+      "animateFirstElement": false,
+      "noBorderRadius": true
     },
     "templates": [
       {
@@ -299,7 +300,7 @@
               "datas": {
                 "name": "DUF",
                 "instagram": "duftattoo",
-                "tagline": "MINIMALIST / CONTEMPORARY / CLEAN",
+                "tagline": "STYLE: Minimalist / Fine Line / Contemporary",
                 "description": "FLORIAN IS A SELF-TAUGHT ARTIST SINCE 2012. HE STARTED WITH GRAFFITI AND PERFECTED HIS CRAFT BY DISCOVERING TATTOOING. CREATOR AND MANAGER OF APT.235 STUDIO, HE NOW CREATES TATTOOS WITH SIMPLE AND CLEAN LINES IN A RECOGNIZABLE STYLE.",
                 "images": [
                   "/assets/apt235/IMG_45.webp",
@@ -318,7 +319,7 @@
               "datas": {
                 "name": "NOKTO",
                 "instagram": "nokto.ttt",
-                "tagline": "BLACKWORK / DARK",
+                "tagline": "STYLE: Blackwork / Dark",
                 "description": "ANTHONY DRAWS INSPIRATION FROM CLASSICAL PAINTING TO CREATE SURREALIST COMPOSITIONS CENTERED AROUND PORTRAITURE. HE COMBINES FACES, PLANT ELEMENTS, AND VARIOUS GRAPHIC DETAILS TO BUILD STRONG, HIGH-CONTRAST IMAGES.",
                 "images": [
                   "/assets/apt235/image10.webp",
@@ -337,7 +338,7 @@
               "datas": {
                 "name": "SARAH MALFATTI",
                 "instagram": "malfatti.ttt",
-                "tagline": "TRANSPARENCY / X-RAY / SMOKE",
+                "tagline": "STYLE: Transparency / X-Ray / Smoke",
                 "description": "SARAH’S WORK EXPLORES TRANSPARENCY, X-RAY EFFECTS, AND SMOKE, BLENDING LIGHT SHADING WITH DEEP BLACKS TO CREATE FINE, HIGH-CONTRAST TATTOOS.",
                 "images": [
                   "/assets/apt235/image0.webp",
@@ -356,7 +357,7 @@
               "datas": {
                 "name": "EMMA",
                 "instagram": "mayberry.ttt",
-                "tagline": "POP CULTURE / COLORFUL",
+                "tagline": "STYLE: Pop Culture / Colorful",
                 "description": "A TATTOO ARTIST SINCE 2022, MAYBERRY QUICKLY DECIDED TO MAKE COLOR HER PRIMARY STYLE. DEEPLY INSPIRED BY JAPANESE AND KOREAN TATTOO ARTISTS FOR THEIR METICULOUS WORK, SHE SEEKS TO BLEND IT WITH HER COLORFUL WORLD, SHOJO, K-POP, AND ALL THE NOSTALGIA OF CHILDHOOD.",
                 "images": [
                   "/assets/apt235/IMG_15.webp",
@@ -375,7 +376,7 @@
               "datas": {
                 "name": "AIEUH ÇA PIQUE",
                 "instagram": "aieuh_ca_pique",
-                "tagline": "ORNAMENTAL / FINE LINE",
+                "tagline": "STYLE: Ornamental / Fine Line",
                 "description": "INSPIRED BY THE BRIGHTNESS OF THE MOON AND THE POWER OF THE SUN, MARWANE CRAFTS DELICATE TATTOOS, CARRYING DEEP MEANINGS OR SIMPLY AESTHETIC. HIS ART LIES IN THE SUBTLE HARMONY BETWEEN DELICATE LINES AND BOLDER STROKES, CREATING CONTRASTS THAT GIVE YOUR ORNAMENTS A CAPTIVATING UNIQUENESS.",
                 "images": [
                   "/assets/apt235/IMG_20.webp",
@@ -395,7 +396,7 @@
               "datas": {
                 "name": "MAHÉ",
                 "instagram": "tattooday_studio",
-                "tagline": "ILLUSTRATION / HANDPOKE / COLOR",
+                "tagline": "STYLE: Illustration / Handpoke / Color",
                 "description": "PASSIONATE ABOUT DRAWING AND NATURE SINCE CHILDHOOD, MAHÉ DRAWS IN A POETIC AND CHILDLIKE MANNER EVERYTHING AROUND HER. WITH A DEGREE IN GRAPHIC DESIGN, SHE LOVES COLOR COMBINATIONS AND COMPOSITIONS THAT WILL HIGHLIGHT YOU!",
                 "images": [
                   "/assets/apt235/image9.webp",
@@ -414,7 +415,7 @@
               "datas": {
                 "name": "NATURAFFECTION",
                 "instagram": "naturaffection.ttt",
-                "tagline": "GRAPHIC / SURREALISM / MICRO REALISM",
+                "tagline": "STYLE: Graphic / Surrealism / Micro Realism",
                 "description": "DRIVEN BY HER BACKGROUND IN GRAPHIC DESIGN AND HER PERSONAL EXPERIENCES, CASSANDRA COMPOSES VISUAL NARRATIVES WHERE POETRY, MICRO-REALISM AND SURREALISM INTERTWINE. SHE LOVES WORKING WITH SHADING, TEXTURES AND EXPLORES EVERY DETAIL WITH SENSITIVITY TO CREATE UNIQUE WORKS, INSPIRED BY HUMAN EMOTIONS AND THE STORIES EACH PERSON CARRIES WITHIN.",
                 "images": [
                   "/assets/apt235/image15.webp",
@@ -433,7 +434,7 @@
               "datas": {
                 "name": "ELENA",
                 "instagram": "vidnevskaya_tattoo",
-                "tagline": "MICRO REALISM / FLORAL",
+                "tagline": "STYLE: Micro Realism / Floral",
                 "description": "ELENA IS A UKRAINIAN TATTOO ARTIST, PASSIONATE ABOUT DRAWING SINCE CHILDHOOD. TATTOOING STARTED FOR HER ON A WHIM. SHE HAS ALWAYS BEEN ATTRACTED TO DETAILS, ESPECIALLY PLANTS AND FACES. FOR 8 YEARS NOW, SHE HAS BEEN DEVELOPING A STYLE FOCUSED ON MICRO-REALISM AND FINE LINES, WITH A PREDILECTION FOR BOTANICAL MOTIFS. THROUGH HER TATTOOS, SHE SEEKS TO CAPTURE AN ETERNAL MOMENT AND TELL PERSONAL STORIES.",
                 "images": [
                   "/assets/apt235/IMG_36.webp",
