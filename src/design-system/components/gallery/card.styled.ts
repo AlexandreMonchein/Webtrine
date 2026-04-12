@@ -37,6 +37,36 @@ export const Image = styled.img`
   )};
 `;
 
+export const ImageSkeleton = styled.div`
+  width: 261px;
+  height: 261px;
+  border-radius: 16px 16px 16px 16px;
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+
+  &.isLogo {
+    border-radius: 0;
+  }
+
+  @keyframes loading {
+    0% {
+      background-position: 200% 0;
+    }
+    100% {
+      background-position: -200% 0;
+    }
+  }
+
+  ${bp.min(
+    breakpointNames.wide,
+    css`
+      width: 450px;
+      height: 450px;
+    `,
+  )};
+`;
+
 export const Title = styled.div`
   display: flex;
   width: 100%;

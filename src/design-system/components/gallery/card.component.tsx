@@ -16,6 +16,12 @@ export const Card = ({ data, type }) => {
         alt={alt}
         src={`${import.meta.env.BASE_URL}assets/${customer}/${imageSrc}.webp`}
         loading="lazy"
+        decoding="async"
+        width="450"
+        height="450"
+        {...({
+          fetchpriority: "low",
+        } as React.ImgHTMLAttributes<HTMLImageElement>)}
       />
     </Wrapper>
   );

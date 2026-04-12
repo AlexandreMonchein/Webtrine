@@ -124,7 +124,8 @@
     "test:e2e:all": "npm-run-all test:e2e:apt235 test:e2e:chillpaws test:e2e:dipaolo test:e2e:showcase test:e2e:webtrine",
     "test:e2e:all:update": "TEST_CUSTOMER=apt235 playwright test --update-snapshots && TEST_CUSTOMER=chillpaws playwright test --update-snapshots && TEST_CUSTOMER=dipaolo playwright test --update-snapshots && TEST_CUSTOMER=showcase playwright test --update-snapshots && TEST_CUSTOMER=webtrine playwright test --update-snapshots",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx",
-    "convert:webp": "node ./scripts/convert-to-webp.js"
+    "convert:webp": "node ./scripts/convert-to-webp.js",
+    "compress:images": "node ./scripts/compress-images.js"
   },
   "eslintConfig": {
     "extends": [
