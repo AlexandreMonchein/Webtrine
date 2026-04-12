@@ -1,0 +1,50 @@
+@import url("../../../custom-media.css");
+
+.image {
+  width: 261px;
+  height: 261px;
+  object-fit: cover;
+  border-radius: 16px;
+  filter: drop-shadow(2px 3px 3px var(--theme-color-secondary));
+  display: block;
+
+  @media (--bp-min-xlarge) {
+    width: 450px;
+    height: 450px;
+  }
+}
+
+.imageIsLogo {
+  filter: unset;
+}
+
+.imageSkeleton {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 261px;
+  height: 261px;
+  border-radius: 16px;
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+
+  @media (--bp-min-xlarge) {
+    width: 450px;
+    height: 450px;
+  }
+}
+
+.imageSkeletonIsLogo {
+  border-radius: 0;
+}
+
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
+  }
+
+  100% {
+    background-position: -200% 0;
+  }
+}

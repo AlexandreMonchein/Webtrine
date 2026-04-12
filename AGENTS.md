@@ -304,6 +304,27 @@ src/design-system/
     [styles.disabled]: disabled
   })}>
   ```
+- **CSS Nesting (OBLIGATOIRE)** : Imbriquer TOUS les sélecteurs dans la classe principale
+  ```css
+  /* ✅ BON - Structure imbriquée */
+  .description {
+    width: 100%;
+
+    a {
+      color: blue;
+
+      &:hover,
+      &:focus {
+        color: red;
+      }
+    }
+  }
+
+  /* ❌ MAUVAIS - Sélecteurs séparés */
+  .description { width: 100%; }
+  .description a { color: blue; }
+  .description a:hover { color: red; }
+  ```
 - **Variables CSS** : Utiliser les variables de `style.config.json`
   ```css
   .title {

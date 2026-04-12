@@ -8,6 +8,7 @@ Ce guide vous accompagne dans la migration progressive de Styled Components vers
 - ✅ **Créer `.module.css`** avec `@import url('../../../custom-media.css');` ligne 1
 - ✅ **Importer avec** `import styles from './component.module.css'`
 - ✅ **Utiliser classNames()** pour classes multiples/conditionnelles
+- ✅ **CSS Nesting OBLIGATOIRE** : Imbriquer TOUS sélecteurs (descendants, pseudo-classes, media queries) dans classe principale
 - ✅ **Media queries imbriquées** DANS sélecteurs (mobile-first)
 - ✅ **Variables CSS identiques** : `var(--theme-color-*)` fonctionne pareil
 - ✅ **Default export** si chargement dynamique
@@ -15,6 +16,7 @@ Ce guide vous accompagne dans la migration progressive de Styled Components vers
 ### MUST NOT (Interdictions)
 - ❌ **Jamais de font-properties** (`font-size`, `font-weight`, `font-family`, `font-style`)
 - ❌ **Jamais template strings** pour classes (`${styles.a} ${styles.b}`)
+- ❌ **Jamais sélecteurs séparés** (descendants, pseudo-classes → toujours imbriqués)
 - ❌ **Jamais media queries séparées** (toujours imbriquées)
 - ❌ **Jamais desktop-first** (utiliser `--bp-min-*`)
 
@@ -37,6 +39,28 @@ const Title = styled.h1`
 
 // component.tsx
 <h1 className={styles.title}>
+```
+
+**CSS Nesting obligatoire** :
+```css
+/* ❌ MAUVAIS - Sélecteurs séparés */
+.description { width: 100%; }
+.description a { color: blue; }
+.description a:hover { color: red; }
+
+/* ✅ BON - Sélecteurs imbriqués */
+.description {
+  width: 100%;
+
+  a {
+    color: blue;
+
+    &:hover,
+    &:focus {
+      color: red;
+    }
+  }
+}
 ```
 
 ---
@@ -269,7 +293,68 @@ export const Button = ({ variant = 'primary', disabled }) => (
 .primaryButton { composes: baseButton; background: var(--primary); }
 ```
 
-### 3. Tests
+### 3. CSS Nesting (OBLIGATOIRE)
+Imbriquer **TOUS** les sélecteurs dans la classe principale pour une structure claire et maintenable.
+
+```css
+/* ❌ MAUVAIS - Sélecteurs plats séparés */
+.description { width: 100%; }
+.description a { color: blue; }
+.description a:hover { color: red; }
+.description a:focus { color: red; }
+
+/* ✅ BON - Structure imbriquée */
+.description {
+  width: 100%;
+
+  a {
+    color: blue;
+
+    &:hover,
+    &:focus {
+      color: red;
+    }
+  }
+}
+```
+
+**Règles de nesting** :
+- ✅ Descendants : `a`, `img`, `div` → imbriqués
+- ✅ Pseudo-classes : `&:hover`, `&:focus`, `&:active` → imbriquées
+- ✅ Pseudo-éléments : `&::before`, `&::after` → imbriqués
+- ✅ Media queries : `@media (...)` → imbriquées
+- ✅ Modifieurs : Dans classe séparée (`.buttonPrimary`) ou composée (`.button.primary`)
+
+**Exemple complexe** :
+```css
+.cardWrapper {
+  display: flex;
+  padding: 1rem;
+
+  img {
+    width: 100%;
+    border-radius: 8px;
+
+    @media (--bp-min-large) {
+      width: 50%;
+    }
+  }
+
+  &:hover {
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
+}
+
+.cardWrapperIsLogo {
+  padding: 0;
+
+  img {
+    border-radius: 0;
+  }
+}
+```
+
+### 4. Tests
 Les tests restent identiques - classes CSS automatiquement appliquées ✅
 
 ## [CHECKLIST] Checklist
@@ -277,6 +362,7 @@ Les tests restent identiques - classes CSS automatiquement appliquées ✅
 ### Par composant
 - [ ] Créer `.module.css` avec @import ligne 1
 - [ ] Convertir styled components → classes CSS
+- [ ] **CSS Nesting : Imbriquer tous sélecteurs (descendants, pseudo-classes, media queries)**
 - [ ] Props conditionnelles → `classNames()`
 - [ ] Media queries → imbriquées + mobile-first
 - [ ] Supprimer propriétés font

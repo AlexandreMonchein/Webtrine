@@ -4,37 +4,28 @@ import React from "react";
 
 import { getCustomer } from "../../../customer.utils";
 import { useFullscreenMode } from "../../utils/useFullscreenMode";
-import { CardDescription } from "../cards/cardsList.styled";
 import FullscreenMode from "../fullscreenMode/fullscreenMode.component";
 import { Card } from "./card.component";
-import {
-  CardWrapper,
-  GalleryDescription,
-  GalleryRoot,
-  GalleryTitle,
-  MainColumn,
-  Wrapper,
-} from "./gallery.styled";
+import styles from "./gallery.module.css";
+import type { CardData, GalleryProps } from "./gallery.types";
 
-const Gallery = (datas) => {
+const Gallery = ({ template }: GalleryProps) => {
   const {
-    template: {
-      title,
-      description,
-      type,
-      inventory,
-      features: { canFullScreen = false },
-    },
-  } = datas;
+    title,
+    description,
+    type,
+    inventory,
+    features: { canFullScreen = false },
+  } = template;
 
   const customer = getCustomer();
-  const images = inventory.map((data) => {
+  const images = inventory.map((data: CardData) => {
     return `${import.meta.env.BASE_URL}assets/${customer}/${data.imageSrc}.webp`;
   });
 
   const fullscreenMode = useFullscreenMode(images.length);
 
-  const handleCardClick = (index) => {
+  const handleCardClick = (index: number) => {
     if (canFullScreen) {
       fullscreenMode.openFullscreen(index);
     }
@@ -42,31 +33,42 @@ const Gallery = (datas) => {
 
   return (
     <>
-      <GalleryRoot className={classNames({ isLogo: type === "logo" })}>
-        {title ? <GalleryTitle>{title}</GalleryTitle> : null}
+      <section
+        className={classNames(styles.galleryRoot, {
+          [styles.galleryRootIsLogo]: type === "logo",
+        })}
+      >
+        {title ? <h1 className={styles.galleryTitle}>{title}</h1> : null}
         {description ? (
-          <GalleryDescription
+          <p
+            className={styles.galleryDescription}
             dangerouslySetInnerHTML={{
               __html: DOMPurify.sanitize(description),
             }}
           />
         ) : null}
-        <MainColumn>
-          <Wrapper className={classNames({ isLogo: type === "logo" })}>
-            {inventory.map((data, index) => (
-              <CardWrapper
+        <div className={styles.mainColumn}>
+          <div
+            className={classNames(styles.wrapper, {
+              [styles.wrapperIsLogo]: type === "logo",
+            })}
+          >
+            {inventory.map((data: CardData, index: number) => (
+              <div
                 key={data.imageSrc}
-                className={classNames({ isLogo: type === "logo" })}
+                className={classNames(styles.cardWrapper, {
+                  [styles.cardWrapperIsLogo]: type === "logo",
+                })}
                 onClick={() => handleCardClick(index)}
                 style={{ cursor: canFullScreen ? "pointer" : "default" }}
               >
                 <Card data={data} type={type} />
-                <CardDescription>{data.description}</CardDescription>
-              </CardWrapper>
+                <p className={styles.cardDescription}>{data.description}</p>
+              </div>
             ))}
-          </Wrapper>
-        </MainColumn>
-      </GalleryRoot>
+          </div>
+        </div>
+      </section>
       {canFullScreen && (
         <FullscreenMode
           images={images}
