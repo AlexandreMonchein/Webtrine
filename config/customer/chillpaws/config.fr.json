@@ -397,7 +397,14 @@
               "features": {
                 "autoplay": true,
                 "autoplayDelay": 4000
-              }
+              },
+              "reviewButton": {
+                  "text": "Laissez-nous un avis",
+                  "url": "https://search.google.com/local/writereview?placeid=ChIJzUNvzt-meGURDV0qrliWvLY",
+                  "variant": "secondary",
+                  "size": "medium",
+                  "shape": "rounded"
+                }
             },
             "description-2": {
               "type": "description",

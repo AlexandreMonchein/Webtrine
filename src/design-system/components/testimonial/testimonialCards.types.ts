@@ -8,7 +8,16 @@ export interface TestimonialCardsProps {
     autoplayDelay?: number; // Délai entre les slides en ms (défaut: 5000)
     // cardsPerSlide est géré automatiquement selon la taille d'écran (1/2/3)
   };
+  reviewButton?: ReviewButton;
 }
+
+export type ReviewButton = {
+  text: string;
+  url: string;
+  variant?: "primary" | "secondary";
+  size?: "small" | "medium" | "large";
+  shape?: "pill" | "rounded";
+};
 
 export interface TestimonialCardsItemProps {
   testimonial: Testimonial;

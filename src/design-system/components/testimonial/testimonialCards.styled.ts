@@ -342,3 +342,7 @@ export const PaginationDot = styled.button<{ $active?: boolean }>`
     `,
   )}
 `;
+
+export const CTAContainer = styled.div`
+  align-self: center;
+`;

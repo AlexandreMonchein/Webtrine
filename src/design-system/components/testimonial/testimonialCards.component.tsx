@@ -9,6 +9,7 @@ import { useSelector } from "react-redux";
 
 import { getCustomerProdConfig } from "../../../customer.utils";
 import { getClient } from "../../../store/state.selector";
+import CallToAction from "../../buttons/src/callToAction.component";
 import { Title } from "../cards/cardsList.styled";
 import {
   AvatarContainer,
@@ -24,6 +25,7 @@ import {
 import { Testimonial } from "./testimonial.types";
 import {
   CardHeader,
+  CTAContainer,
   PublicationDate,
   StarsContainer,
   TestimonialCardsContainer,
@@ -149,7 +151,7 @@ const TestimonialCardsItem: React.FC<TestimonialCardsItemProps> = ({
 };
 
 const TestimonialCards: React.FC<TestimonialCardsProps> = (props) => {
-  const { title, dataId, features } = props;
+  const { title, dataId, features, reviewButton } = props;
   const { autoplay = false, autoplayDelay = 5000 } = features || {};
   const { name: customerName } = useSelector(getClient);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -353,6 +355,17 @@ const TestimonialCards: React.FC<TestimonialCardsProps> = (props) => {
           </NavigationContainer>
         )}
       </TestimonialCardsContainer>
+      {reviewButton && (
+        <CTAContainer>
+          <CallToAction
+            text={reviewButton.text}
+            href={reviewButton.url}
+            variant={reviewButton.variant || "primary"}
+            size={reviewButton.size || "medium"}
+            shape={reviewButton.shape || "rounded"}
+          />
+        </CTAContainer>
+      )}
     </Section>
   );
 };

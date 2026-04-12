@@ -5,6 +5,8 @@ import { breakpointNames, breakpoints } from "../../../breakpointDef";
 
 export const Section = styled.section`
   padding: 40px 120px;
+  display: flex;
+  flex-direction: column;
 
   ${bp.max(
     breakpointNames.medium,
