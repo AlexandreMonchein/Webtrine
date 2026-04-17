@@ -27,6 +27,18 @@ const Banner = (datas: BannerDatas) => {
 
   const [currentIndex, setCurrentIndex] = useState(0);
 
+  // Helper function to generate srcSet for portrait images (mobile + tablet)
+  const generatePortraitSrcSet = (imageName: string) => {
+    const baseUrl = `/assets/${customer}`;
+    return `${baseUrl}/${imageName}_540x816.webp 540w, ${baseUrl}/${imageName}_1024x1366.webp 1024w`;
+  };
+
+  // Helper function to generate srcSet for landscape images (desktop)
+  const generateLandscapeSrcSet = (imageName: string) => {
+    const baseUrl = `/assets/${customer}`;
+    return `${baseUrl}/${imageName}_1920x1080.webp 1920w, ${baseUrl}/${imageName}_2560x1440.webp 2560w`;
+  };
+
   useEffect(() => {
     let interval: NodeJS.Timeout | undefined;
 
@@ -129,13 +141,28 @@ const Banner = (datas: BannerDatas) => {
 
           return (
             <div key={name}>
-              <img
-                alt={`Background ${name}`}
-                src={`/assets/${customer}/${name}.webp`}
-                className={classNames(styles.background, {
-                  [styles.active]: index === currentIndex,
-                })}
-              />
+              <picture>
+                {/* Portrait images for mobile and tablet */}
+                <source
+                  media="(orientation: portrait)"
+                  srcSet={generatePortraitSrcSet(name)}
+                  sizes="100vw"
+                />
+                {/* Landscape images for desktop */}
+                <source
+                  media="(orientation: landscape)"
+                  srcSet={generateLandscapeSrcSet(name)}
+                  sizes="100vw"
+                />
+                {/* Fallback image */}
+                <img
+                  alt={`Background ${name}`}
+                  src={`/assets/${customer}/${name}_540x1170.webp`}
+                  className={classNames(styles.background, {
+                    [styles.active]: index === currentIndex,
+                  })}
+                />
+              </picture>
               {url && copyrightTitle ? (
                 <a
                   key={`link-${url}`}

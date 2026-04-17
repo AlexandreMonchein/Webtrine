@@ -68,11 +68,11 @@
 }
 
 .imageContainer {
-  padding: 0 12px 12px 0;
+  padding: 0 12px 12px;
   float: left;
 
   @media (--bp-min-medium) {
-    padding: 0 24px 12px 0;
+    padding: 0 24px 12px;
   }
 
   &.isReversed {
@@ -80,7 +80,7 @@
 
     @media (--bp-min-medium) {
       float: right;
-      padding: 0 0 12px 24px;
+      padding: 0 24px 12px;
     }
   }
 
