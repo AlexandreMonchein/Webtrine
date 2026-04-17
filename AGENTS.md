@@ -250,6 +250,12 @@ pnpm convert:webp
 - **Assets**:
   - Icônes SVG: `.component.tsx` dans `/src/assets/icons/`
   - Images client: dans `/public/assets/{CUSTOMER}/`
+  - **Images Banner Responsive**: 4 variantes requises pour srcSet
+    - `{nom}-430x932.webp` (mobile portrait)
+    - `{nom}-1024x1366.webp` (tablet)
+    - `{nom}-1280x720.webp` (HD)
+    - `{nom}-1920x1080.webp` (Full HD)
+    - Le composant Banner génère automatiquement le srcSet avec ces suffixes
 
 ### Structure des Imports
 
