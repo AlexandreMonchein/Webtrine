@@ -1,6 +1,7 @@
 import classNames from "classnames";
 import React, { useEffect, useState } from "react";
 
+import { useLazyLoad } from "../../../hooks/useLazyLoad";
 import { useFullscreenMode } from "../../utils/useFullscreenMode";
 import FullscreenMode from "../fullscreenMode/fullscreenMode.component";
 import styles from "./artistDescription.module.css";
@@ -42,15 +43,26 @@ const ArtistDescription: React.FC<{ datas: ArtistDescriptionData }> = ({
   // Utilisation du hook fullscreen
   const fullscreenMode = useFullscreenMode(images.length);
 
+  // Lazy loading du composant
+  const { elementRef, isVisible } = useLazyLoad({
+    threshold: 0,
+    rootMargin: "0px",
+    triggerOnce: true,
+  });
+
   useEffect(() => {
+    if (!isVisible) return;
+
     const timer = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % images.length);
     }, intervalBetweenImages);
 
     return () => clearInterval(timer);
-  }, [images.length, intervalBetweenImages]);
+  }, [images.length, intervalBetweenImages, isVisible]);
 
   useEffect(() => {
+    if (!isVisible) return;
+
     const loadInstagramIcon = async () => {
       try {
         const componentPath = `../../../assets/icons/instagram.component.tsx`;
@@ -69,28 +81,30 @@ const ArtistDescription: React.FC<{ datas: ArtistDescriptionData }> = ({
     };
 
     loadInstagramIcon();
-  }, []);
+  }, [isVisible]);
 
   return (
-    <section className={styles.container}>
+    <section ref={elementRef} className={styles.container}>
       <div className={styles.carouselWrapper}>
-        {images.map((src, index) => (
-          <div
-            key={src}
-            className={classNames(styles.carouselImageButton, {
-              [styles.carouselImageActive]: index === currentIndex,
-            })}
-            role="img"
-            aria-label={`${name} tattoo ${index + 1}`}
-          >
-            <img
-              src={src}
-              alt=""
-              className={styles.carouselImage}
-              draggable={false}
-            />
-          </div>
-        ))}
+        {isVisible &&
+          images.map((src, index) => (
+            <div
+              key={src}
+              className={classNames(styles.carouselImageButton, {
+                [styles.carouselImageActive]: index === currentIndex,
+              })}
+              role="img"
+              aria-label={`${name} tattoo ${index + 1}`}
+            >
+              <img
+                src={src}
+                alt=""
+                className={styles.carouselImage}
+                draggable={false}
+                loading="lazy"
+              />
+            </div>
+          ))}
         <button
           id={carouselButtonId}
           type="button"
@@ -136,16 +150,18 @@ const ArtistDescription: React.FC<{ datas: ArtistDescriptionData }> = ({
         </a>
       </div>
 
-      <FullscreenMode
-        images={images}
-        currentIndex={fullscreenMode.currentIndex ?? 0}
-        isOpen={fullscreenMode.isOpen}
-        onClose={fullscreenMode.closeFullscreen}
-        onNext={fullscreenMode.nextImage}
-        onPrev={fullscreenMode.prevImage}
-        altTextPrefix={name}
-        anchorButtonId={carouselButtonId}
-      />
+      {isVisible && (
+        <FullscreenMode
+          images={images}
+          currentIndex={fullscreenMode.currentIndex ?? 0}
+          isOpen={fullscreenMode.isOpen}
+          onClose={fullscreenMode.closeFullscreen}
+          onNext={fullscreenMode.nextImage}
+          onPrev={fullscreenMode.prevImage}
+          altTextPrefix={name}
+          anchorButtonId={carouselButtonId}
+        />
+      )}
     </section>
   );
 };

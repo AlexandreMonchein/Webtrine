@@ -13,6 +13,7 @@ import {
 } from "../../../store/state.selector";
 import { PageNotFound } from "../../error/src/pageNotFound.component";
 import AnimatedSection from "./animatedSection.component";
+import LazyComponent from "./lazyComponent.component";
 import styles from "./multiDescriptions.module.css";
 import type {
   MultiDescriptionContent,
@@ -89,27 +90,29 @@ const MultiDescription = ({ templateName = null }: MultiDescriptionProps) => {
                       type,
                     );
                     return (
+                      <LazyComponent key={index} index={idx}>
+                        <AnimatedSection
+                          index={idx}
+                          disabled={!scrollAnimations}
+                          animateFirstElement={animateFirstElement}
+                        >
+                          <Component {...datas} />
+                        </AnimatedSection>
+                      </LazyComponent>
+                    );
+                  }
+                } else {
+                  console.warn(`>> no state`, datas.id, type);
+                  return (
+                    <LazyComponent key={index} index={idx}>
                       <AnimatedSection
-                        key={index}
                         index={idx}
                         disabled={!scrollAnimations}
                         animateFirstElement={animateFirstElement}
                       >
                         <Component {...datas} />
                       </AnimatedSection>
-                    );
-                  }
-                } else {
-                  console.warn(`>> no state`, datas.id, type);
-                  return (
-                    <AnimatedSection
-                      key={index}
-                      index={idx}
-                      disabled={!scrollAnimations}
-                      animateFirstElement={animateFirstElement}
-                    >
-                      <Component {...datas} />
-                    </AnimatedSection>
+                    </LazyComponent>
                   );
                 }
               }
