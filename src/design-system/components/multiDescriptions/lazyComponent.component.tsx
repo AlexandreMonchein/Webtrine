@@ -12,8 +12,8 @@ export const LazyComponent = ({
   placeholder = null,
 }: LazyComponentProps) => {
   const { elementRef, isVisible } = useLazyLoad({
-    threshold: 0.1,
-    rootMargin: "300px",
+    threshold: 0,
+    rootMargin: "0px",
     triggerOnce: true,
   });
 

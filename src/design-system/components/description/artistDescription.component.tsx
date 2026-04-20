@@ -45,8 +45,8 @@ const ArtistDescription: React.FC<{ datas: ArtistDescriptionData }> = ({
 
   // Lazy loading du composant
   const { elementRef, isVisible } = useLazyLoad({
-    threshold: 0.1,
-    rootMargin: "200px",
+    threshold: 0,
+    rootMargin: "0px",
     triggerOnce: true,
   });
 
