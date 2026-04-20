@@ -164,7 +164,7 @@ src/design-system/components/description/
     └── team.component.int.tsx
 
 ❌ INCORRECT:
-src/design-system/components/team/  ← Pas de dossier par composant !
+src/design-system/components/team/  ← Pas de dossier par composant!
 ```
 
 **Autre exemple** : "Créer un composant **contactBanner** de type **banner**"
@@ -177,7 +177,7 @@ src/design-system/components/banner/
 └── ...
 
 ❌ INCORRECT:
-src/design-system/components/contactBanner/  ← Pas de dossier par composant !
+src/design-system/components/contactBanner/  ← Pas de dossier par composant!
 ```
 
 ### Structure standard d'un composant
@@ -394,7 +394,7 @@ export type MyComponentProps = PropsWithChildren<{
 - ✅ Définir des valeurs par défaut dans les types si nécessaire
 - ❌ **NE PAS inclure `data-testid` dans les props** - Sera hardcodé dans le composant
 
-**⚠️ COMMENTAIRES : Par défaut, NE PAS en ajouter !**
+**⚠️ COMMENTAIRES : Par défaut, NE PAS en ajouter!**
 
 Les noms de propriétés et types doivent être self-explanatory. Ajouter un commentaire UNIQUEMENT s'il apporte une information non-évidente.
 
@@ -1426,4 +1426,4 @@ pnpm lint               # Linter
 
 ---
 
-**🎯 Bonne création de composants !**
+**🎯 Bonne création de composants!**

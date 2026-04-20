@@ -68,7 +68,7 @@ export default defineConfig({
   webServer: {
     command: `VITE_CUSTOMER=\${TEST_CUSTOMER:-showcase} bash ./scripts/update-favicon.sh && VITE_CUSTOMER=\${TEST_CUSTOMER:-showcase} vite`,
     url: "http://localhost:3000",
-    reuseExistingServer: !process.env.CI,
+    reuseExistingServer: false,
     timeout: 120 * 1000,
   },
 });

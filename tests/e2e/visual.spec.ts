@@ -195,7 +195,29 @@ test.describe("Visual Regression Tests", () => {
                 "avatar fallback",
               );
 
+              // Scroll progressively to trigger all lazy loading (in 5 steps)
+              for (let i = 0; i <= 5; i++) {
+                // eslint-disable-next-line no-await-in-loop
+                await safeEvaluate(
+                  (step: number) => {
+                    const totalHeight = document.body.scrollHeight;
+                    window.scrollTo(0, (totalHeight * step) / 5);
+                  },
+                  i,
+                  `scroll step ${i}`,
+                );
+                // eslint-disable-next-line no-await-in-loop
+                await page.waitForTimeout(200);
+              }
+
+              // Wait for all images to load (including lazy-loaded ones)
+              // eslint-disable-next-line no-await-in-loop
+              await page.waitForLoadState("load");
+              // eslint-disable-next-line no-await-in-loop
+              await page.waitForTimeout(300);
+
               // Stop all image carousels and reset to first image
+              // Must be done AFTER scroll to ensure lazy-loaded carousels are rendered
               // eslint-disable-next-line no-await-in-loop
               await safeEvaluate(
                 () => {
@@ -219,12 +241,10 @@ test.describe("Visual Regression Tests", () => {
                     images.forEach((img, index) => {
                       const element = img as HTMLElement;
                       if (index === 0) {
-                        // Show first image
                         element.classList.add("carouselImageActive");
                         element.style.opacity = "1";
                         element.style.visibility = "visible";
                       } else {
-                        // Hide others
                         element.classList.remove("carouselImageActive");
                         element.style.opacity = "0";
                         element.style.visibility = "hidden";
@@ -239,13 +259,11 @@ test.describe("Visual Regression Tests", () => {
                       const totalImages = images.length;
                       const fixedText = `1/${totalImages}`;
 
-                      // Replace with a static frozen element
                       const frozenCounter = document.createElement("div");
                       frozenCounter.className = counter.className;
                       frozenCounter.style.cssText = counter.style.cssText;
                       frozenCounter.textContent = fixedText;
 
-                      // Replace the original counter
                       counter.parentNode?.replaceChild(frozenCounter, counter);
                     }
                   });
@@ -253,31 +271,6 @@ test.describe("Visual Regression Tests", () => {
                 undefined,
                 "carousel freeze",
               );
-
-              // Wait a bit for React to update
-              // eslint-disable-next-line no-await-in-loop
-              await page.waitForTimeout(100);
-
-              // Scroll progressively to trigger all lazy loading (in 5 steps)
-              for (let i = 0; i <= 5; i++) {
-                // eslint-disable-next-line no-await-in-loop
-                await safeEvaluate(
-                  (step: number) => {
-                    const totalHeight = document.body.scrollHeight;
-                    window.scrollTo(0, (totalHeight * step) / 5);
-                  },
-                  i,
-                  `scroll step ${i}`,
-                );
-                // eslint-disable-next-line no-await-in-loop
-                await page.waitForTimeout(200);
-              }
-
-              // Wait for all images to load (including lazy-loaded ones)
-              // eslint-disable-next-line no-await-in-loop
-              await page.waitForLoadState("load");
-              // eslint-disable-next-line no-await-in-loop
-              await page.waitForTimeout(300);
 
               // Scroll back to top
               // eslint-disable-next-line no-await-in-loop

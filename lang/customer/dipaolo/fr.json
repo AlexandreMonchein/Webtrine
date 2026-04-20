@@ -7,7 +7,7 @@
     "subTitle": "Prothésiste dentaire sur Saint-Etienne"
   },
   "contact": {
-    "title": "Contactez-nous !",
+    "title": "Contactez-nous!",
     "description": null,
     "infoTitle": "Informations du contact",
     "phone": "Téléphone",
@@ -28,7 +28,7 @@
     "send": "Envoyer",
     "sending": "Envoi en cours...",
     "required": "(Obligatoire)",
-    "emailSentSuccess": "E-mail envoyé avec succès !",
+    "emailSentSuccess": "E-mail envoyé avec succès!",
     "emailSentError": "Erreur : L'e-mail n'a pas pu être envoyé."
   }
 }

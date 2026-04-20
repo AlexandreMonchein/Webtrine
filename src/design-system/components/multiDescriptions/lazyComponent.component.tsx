@@ -2,13 +2,11 @@ import { useLazyLoad } from "../../../hooks/useLazyLoad";
 
 interface LazyComponentProps {
   children: React.ReactNode;
-  index: number;
   placeholder?: React.ReactNode;
 }
 
 export const LazyComponent = ({
   children,
-  index,
   placeholder = null,
 }: LazyComponentProps) => {
   const { elementRef, isVisible } = useLazyLoad({

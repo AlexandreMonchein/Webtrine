@@ -90,7 +90,7 @@ const MultiDescription = ({ templateName = null }: MultiDescriptionProps) => {
                       type,
                     );
                     return (
-                      <LazyComponent key={index} index={idx}>
+                      <LazyComponent key={index}>
                         <AnimatedSection
                           index={idx}
                           disabled={!scrollAnimations}
@@ -104,7 +104,7 @@ const MultiDescription = ({ templateName = null }: MultiDescriptionProps) => {
                 } else {
                   console.warn(`>> no state`, datas.id, type);
                   return (
-                    <LazyComponent key={index} index={idx}>
+                    <LazyComponent key={index}>
                       <AnimatedSection
                         index={idx}
                         disabled={!scrollAnimations}

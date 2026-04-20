@@ -482,4 +482,4 @@ Vérifier `variables.css`, `style.config.json`, noms variables `-override`
 
 ---
 
-**Bonne création de client ! 🎨✨**
+**Bonne création de client! 🎨✨**

@@ -114,7 +114,7 @@ const MyComponent = () => {
       {showAlert && (
         <AlertView
           variant="success"
-          title="Opération réussie !"
+          title="Opération réussie!"
           description="Votre action a été effectuée avec succès."
           ctaText="Continuer"
           onClose={handleCloseAlert}
@@ -134,7 +134,7 @@ const MyComponent = () => {
   "type": "alertview",
   "datas": {
     "logo": "check",
-    "title": "Inscription réussie !",
+    "title": "Inscription réussie!",
     "description": "Votre compte a été créé avec succès. Vous pouvez maintenant vous connecter.",
     "ctaText": "Se connecter",
     "ctaLink": "/login",

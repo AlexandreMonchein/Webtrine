@@ -1,20 +1,8 @@
 {
-  "nav": {
-    "home": "Accueil",
-    "presentation": "Présentation",
-    "contact": "Contact"
-  },
-  "banner": {
-    "title": "Bienvenue",
-    "subtitle": "Votre partenaire de confiance"
-  },
-  "footer": {
-    "copyright": "© 2026 Apt235 - Tous droits réservés"
-  },
   "alertView": {
     "contact": {
       "close": "Fermer",
-      "title": "MERCI POUR TA DEMANDE !",
+      "title": "MERCI POUR TA DEMANDE!",
       "description": "ELLE A BIEN ÉTÉ ENVOYÉE À TON ARTISTE. DÉSORMAIS, TOUT SE PASSE DIRECTEMENT SUR TA BOÎTE MAIL. NE T’INQUIÈTE PAS S’IL Y A UN DÉLAI AVANT D’OBTENIR UNE RÉPONSE. MERCI DE TA CONFIANCE, À BIENTÔT."
     }
   },
@@ -26,9 +14,9 @@
     "message": "MESSAGE",
     "send": "ENVOYER",
     "sending": "Envoie en cours...",
-    "success": "Message envoyé avec succès !",
+    "success": "Message envoyé avec succès!",
     "error": "Erreur lors de l'envoi du message",
-    "emailSentSuccess": "E-mail envoyé avec succès !",
+    "emailSentSuccess": "E-mail envoyé avec succès!",
     "emailSentError": "Erreur lors de l'envoi de l'e-mail",
     "content": "CONTENU DU MESSAGE",
     "nameHint": "Votre nom complet",
@@ -82,11 +70,5 @@
       "totalSize": "Taille totale",
       "removePhoto": "Supprimer la photo"
     }
-  },
-  "errors": {
-    "404": "Page non trouvée",
-    "404_description": "La page que vous recherchez n'existe pas",
-    "500": "Erreur serveur",
-    "back_home": "Retour à l'accueil"
   }
 }

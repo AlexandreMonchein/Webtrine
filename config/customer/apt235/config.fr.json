@@ -401,7 +401,7 @@
                 "name": "MAHÉ",
                 "instagram": "tattooday_studio",
                 "tagline": "STYLE: Illustration / Handpoke / Couleur",
-                "description": "PASSIONNÉE DEPUIS PETITE PAR LE DESSIN ET LA NATURE, MAHÉ DESSINE DE MANIÈRE POÉTIQUE ET ENFANTINE TOUT CE QUI L'ENTOURE. DIPLÔMÉE EN DESIGN GRAPHIQUE, ELLE AIME LES COMBINAISONS DE COULEURS ET LES COMPOSITIONS QUI SAURONT VOUS METTRE EN VALEUR !",
+                "description": "PASSIONNÉE DEPUIS PETITE PAR LE DESSIN ET LA NATURE, MAHÉ DESSINE DE MANIÈRE POÉTIQUE ET ENFANTINE TOUT CE QUI L'ENTOURE. DIPLÔMÉE EN DESIGN GRAPHIQUE, ELLE AIME LES COMBINAISONS DE COULEURS ET LES COMPOSITIONS QUI SAURONT VOUS METTRE EN VALEUR!",
                 "images": [
                   "/assets/apt235/image9.webp",
                   "/assets/apt235/image5.webp",
@@ -422,8 +422,8 @@
                 "tagline": "STYLE: Graphique / Surréalisme / Micro Réalisme",
                 "description": "PORTÉE PAR SON PARCOURS EN DESIGN GRAPHIQUE ET SES EXPÉRIENCES PERSONNELLES, CASSANDRA COMPOSE DES RÉCITS VISUELS OÙ POÉSIE, MICRO-RÉALISME ET SURRÉALISME S'ENTRELACENT. ELLE AIME TRAVAILLER LES OMBRAGES, LES TEXTURES ET EXPLORE CHAQUE DÉTAIL AVEC SENSIBILITÉ POUR CRÉER DES ŒUVRES UNIQUES, INSPIRÉES DES ÉMOTIONS HUMAINES ET DES HISTOIRES QUE CHACUN PORTE EN SOI.",
                 "images": [
-                  "/assets/apt235/image15.webp",
                   "/assets/apt235/image16.webp",
+                  "/assets/apt235/image15.webp",
                   "/assets/apt235/image17.webp",
                   "/assets/apt235/image18.webp",
                   "/assets/apt235/image19.webp"
@@ -441,13 +441,10 @@
                 "tagline": "STYLE: Micro Réalisme / Floral",
                 "description": "ELENA EST UNE TATOUEUSE UKRAINIENNE, PASSIONNÉE DE DESSIN DEPUIS L'ENFANCE. LE TATOUAGE A COMMENCÉ POUR ELLE SUR UN COUP DE TÊTE. ELLE A TOUJOURS ÉTÉ ATTIRÉE PAR LES DÉTAILS, NOTAMMENT LES PLANTES ET LES VISAGES. DEPUIS MAINTENANT 8 ANS, ELLE DÉVELOPPE UN STYLE AXÉ SUR LE MICRO-RÉALISME ET LES TRAITS FINS, AVEC UNE PRÉDILECTION POUR LES MOTIFS BOTANIQUES. À TRAVERS SES TATOUAGES, ELLE CHERCHE À CAPTURER UN INSTANT ÉTERNEL ET À RACONTER DES HISTOIRES PERSONNELLES.",
                 "images": [
-                  "/assets/apt235/IMG_36.webp",
-                  "/assets/apt235/IMG_37.webp",
                   "/assets/apt235/IMG_38.webp",
+                  "/assets/apt235/IMG_36.webp",
                   "/assets/apt235/IMG_39.webp",
-                  "/assets/apt235/IMG_40.webp",
                   "/assets/apt235/IMG_41.webp",
-                  "/assets/apt235/IMG_42.webp",
                   "/assets/apt235/IMG_43.webp",
                   "/assets/apt235/IMG_44.webp"
                 ],
@@ -516,7 +513,7 @@
                     "text": "ON Y TROUVE DES PETITS FLASHS TATTOO AUX PRIX RÉDUITS QUE LES TATOUEURS RÉALISENT TOUT AU LONG DE LA JOURNÉE EN NON-STOP."
                   },
                   {
-                    "text": "PREMIER ARRIVÉ, PREMIER SERVI !"
+                    "text": "PREMIER ARRIVÉ, PREMIER SERVI!"
                   },
                   {
                     "text": "CES ÉVÉNEMENTS SONT ORGANISÉS VIA L'INSTAGRAM DU STUDIO."
@@ -627,7 +624,7 @@
                       {
                         "id": "faq-16",
                         "question": "Quel âge minimum se faire tatouer ?",
-                        "answer": "<p>Pour vous faire tatouer dans notre studio, il vous faudra avoir 18 ans, être donc majeur.</p><p>Si vous êtes mineur, et ca même avec l'autorisation de vos parents, vous ne pourrais pas être tatoué !</p>"
+                        "answer": "<p>Pour vous faire tatouer dans notre studio, il vous faudra avoir 18 ans, être donc majeur.</p><p>Si vous êtes mineur, et ca même avec l'autorisation de vos parents, vous ne pourrais pas être tatoué!</p>"
                       },
                       {
                         "id": "faq-17",

@@ -113,8 +113,6 @@
     "build:storybook": "storybook build",
     "dev:serve": "VITE_CUSTOMER=${VITE_CUSTOMER:=showcase} ./scripts/serve.sh",
     "test": "VITE_CUSTOMER=${VITE_CUSTOMER:=showcase} vitest --config vitest.component.config.ts",
-    "test:run": "VITE_CUSTOMER=${VITE_CUSTOMER:=showcase} vitest --config vitest.component.config.ts --run",
-    "test:e2e": "playwright test",
     "test:e2e:ui": "playwright test --ui",
     "test:e2e:chillpaws": "TEST_CUSTOMER=chillpaws playwright test",
     "test:e2e:dipaolo": "TEST_CUSTOMER=dipaolo playwright test",

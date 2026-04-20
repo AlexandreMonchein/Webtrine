@@ -125,7 +125,7 @@
           "brandInfo": {
             "title": "Me contacter:",
             "description": "<p><strong>06.24.78.74.42 ou via mon adresse mail: oceanemic.petsitting@gmail.com</strong></p>",
-            "additionalText": "Suivez-moi sur les réseaux pour découvrir mes petits protégés !"
+            "additionalText": "Suivez-moi sur les réseaux pour découvrir mes petits protégés!"
           },
           "logos": null
         }
@@ -151,10 +151,10 @@
                   "text": "Je suis là pour m’occuper de votre animal en toute confiance et vous garantir un départ serein et sans stress. "
                 },
                 {
-                  "text": "Faire appel à un pet-sitter labelisé et certifié lors de vos absences garantit les meilleurs soins pour vos compagnons. Les chats et les chiens n’aiment pas être sortis de leur environnement, ils tiennent à leur territoire et s’y sentent en sécurité. Grâce aux visites quotidiennes, ils ne souffrent pas de déplacements stressants, ni de solitude, et je leur offre toute mon attention !"
+                  "text": "Faire appel à un pet-sitter labelisé et certifié lors de vos absences garantit les meilleurs soins pour vos compagnons. Les chats et les chiens n’aiment pas être sortis de leur environnement, ils tiennent à leur territoire et s’y sentent en sécurité. Grâce aux visites quotidiennes, ils ne souffrent pas de déplacements stressants, ni de solitude, et je leur offre toute mon attention!"
                 },
                 {
-                  "text": "Prenez soin de lui comme il prend soin de vous !"
+                  "text": "Prenez soin de lui comme il prend soin de vous!"
                 }
               ]
             },
@@ -351,7 +351,7 @@
                 {
                   "id": "3",
                   "title": "Programme de fidélité",
-                  "description": "Pour récompenser votre confiance et votre fidélité, après 10 visites, bénéficiez d'une visite offerte ainsi qu'un jouet ou une friandise pour votre animal !",
+                  "description": "Pour récompenser votre confiance et votre fidélité, après 10 visites, bénéficiez d'une visite offerte ainsi qu'un jouet ou une friandise pour votre animal!",
                   "imageSrc": "IMG_7730",
                   "buttons": [
                     {
@@ -487,7 +487,7 @@
                   "title": "Programme de fidélité",
                   "description": [
                     {
-                      "text": "Afin de récompenser votre fidélité, une surprise vous attend tous les 10 visites effectuées !"
+                      "text": "Afin de récompenser votre fidélité, une surprise vous attend tous les 10 visites effectuées!"
                     }
                   ]
                 },
@@ -609,19 +609,19 @@
                   "title": "🐾 Luna – 2 ans",
                   "description": [
                     {
-                      "text": "Je suis une chatte très énergique et dominante !"
+                      "text": "Je suis une chatte très énergique et dominante!"
                     },
                     {
                       "text": "J’apporte mes jouets dans la bouche à mes parents."
                     },
                     {
-                      "text": "Je suis tellement mignonne que les vétérinaires veulent toujours me garder un peu plus longtemps !"
+                      "text": "Je suis tellement mignonne que les vétérinaires veulent toujours me garder un peu plus longtemps!"
                     },
                     {
                       "text": "Je suis très fusionnelle avec mon frère Tigrou, on dort toujours ensemble."
                     },
                     {
-                      "text": "Mon jouet préféré est mon doudou marmotte, à qui j’ai fait la misère !"
+                      "text": "Mon jouet préféré est mon doudou marmotte, à qui j’ai fait la misère!"
                     }
                   ],
                   "imageSrc": "IMG_7553"
@@ -1048,7 +1048,7 @@
         "id": "gallery",
         "datas": {
           "title": "Album photo",
-          "description": "L’album photo permet d’immortaliser vos animaux pendant leur garde. Une garde est un moment convivial avec votre animal de ce fait je l’Immortale pour vous. Avec votre autorisation, je partage ces photos sur les réseaux sociaux afin de montrer mon travail et le bien-être des animaux que je garde. </br> Ils nous ont fait confiance, suivez leurs avantures sur <a style='font-size: inherit;' href=\"https://www.instagram.com/chill_paws_off/\">Instagram</a> !",
+          "description": "L’album photo permet d’immortaliser vos animaux pendant leur garde. Une garde est un moment convivial avec votre animal de ce fait je l’Immortale pour vous. Avec votre autorisation, je partage ces photos sur les réseaux sociaux afin de montrer mon travail et le bien-être des animaux que je garde. </br> Ils nous ont fait confiance, suivez leurs avantures sur <a style='font-size: inherit;' href=\"https://www.instagram.com/chill_paws_off/\">Instagram</a>!",
           "features": { "canFullScreen": true, "shouldRedirect": false },
           "inventory": [
             {

@@ -33,7 +33,7 @@
     "email": "E-mail",
     "socials": "Réseaux sociaux",
     "requiredAriaLabel": "obligatoire",
-    "emailSentSuccess": "Email envoyé avec succès !",
+    "emailSentSuccess": "Email envoyé avec succès!",
     "emailSentError": "Erreur : L'email n'a pas pu être envoyé.",
     "firstName": "Prénom",
     "firstNamePlaceholder": "Votre prénom",

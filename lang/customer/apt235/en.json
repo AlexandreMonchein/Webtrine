@@ -1,16 +1,4 @@
 {
-  "nav": {
-    "home": "Home",
-    "presentation": "About",
-    "contact": "Contact"
-  },
-  "banner": {
-    "title": "Welcome",
-    "subtitle": "Your trusted partner"
-  },
-  "footer": {
-    "copyright": "© 2026 Apt235 - All rights reserved"
-  },
   "alertView": {
     "contact": {
       "close": "Close",
@@ -82,11 +70,5 @@
       "totalSize": "Total size",
       "removePhoto": "Remove photo"
     }
-  },
-  "errors": {
-    "404": "Page not found",
-    "404_description": "The page you are looking for does not exist",
-    "500": "Server error",
-    "back_home": "Back to home"
   }
 }

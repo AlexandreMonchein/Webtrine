@@ -151,7 +151,7 @@ AVIF offre une meilleure compression que WebP (~30% plus léger).
 
 ### 3. Optimisation au build avec Vite
 
-Le plugin `vite-plugin-imagemin` est déjà dans votre projet !
+Le plugin `vite-plugin-imagemin` est déjà dans votre projet!
 
 **Activation** :
 ```js

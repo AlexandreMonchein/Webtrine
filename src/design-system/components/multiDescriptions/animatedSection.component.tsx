@@ -42,7 +42,7 @@ export const AnimatedSection = ({
       },
       {
         threshold: 0, // Déclencher dès que l'élément est visible
-        rootMargin: "0px 0px -50px 0px", // Déclencher un peu avant que l'élément soit complètement visible
+        rootMargin: "0px", // Déclencher un peu avant que l'élément soit complètement visible
       },
     );
 

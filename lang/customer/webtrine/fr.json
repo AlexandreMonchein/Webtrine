@@ -47,7 +47,7 @@
     "send": "Envoyer",
     "sending": "Envoi en cours...",
     "required": "(Obligatoire)",
-    "emailSentSuccess": "E-mail envoyé avec succès !",
+    "emailSentSuccess": "E-mail envoyé avec succès!",
     "emailSentError": "Erreur : L'e-mail n'a pas pu être envoyé."
   },
   "prices": {

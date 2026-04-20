@@ -37,7 +37,7 @@ Footer avec sections distinctes pour logos partenaires, liens de navigation, inf
     "brandInfo": {
       "title": "Me contacter:",
       "description": "<p><strong>06.24.78.74.42 ou via mon adresse mail: oceanemic.petsitting@gmail.com</strong></p>",
-      "additionalText": "Suivez-moi sur les réseaux pour découvrir mes petits protégés !"
+      "additionalText": "Suivez-moi sur les réseaux pour découvrir mes petits protégés!"
     },
     "logos": null
   }

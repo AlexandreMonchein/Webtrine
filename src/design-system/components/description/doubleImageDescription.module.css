@@ -100,6 +100,14 @@
     height: min-content;
     transform: translate(50px, -95px);
   }
+
+  @media (--bp-min-large) {
+    transform: translate(65px, -95px);
+  }
+
+  @media (--bp-min-wide) {
+    transform: translate(100px, -95px);
+  }
 }
 
 /* Position text at bottom of right image */
@@ -121,7 +129,7 @@
   }
 
   @media (--bp-min-wide) {
-    transform: translate(20px, 50px);
+    transform: translate(25px, 50px);
   }
 }
 

@@ -150,7 +150,7 @@ import classNames from 'classnames';
 
 ### 4. Variables CSS
 
-Variables de `style.config.json` fonctionnent identiquement ! ✅
+Variables de `style.config.json` fonctionnent identiquement! ✅
 
 ```css
 .title {
