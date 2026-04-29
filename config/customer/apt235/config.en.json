@@ -250,10 +250,6 @@
                     "mail": "mayberry.tattoo@gmail.com"
                   },
                   {
-                    "artistName": "AIEUH ÇA PIQUE",
-                    "mail": "mailto:aieuh_ca_pique@outlook.fr"
-                  },
-                  {
                     "artistName": "MAHÉ",
                     "mail": "tattooday.contact@gmail.com"
                   },
@@ -264,6 +260,14 @@
                   {
                     "artistName": "ELENA",
                     "mail": "vidnevskaya.booking@gmail.com"
+                  },
+                  {
+                    "artistName": "KID WAPEN",
+                    "mail": "kid.wapen@gmail.com"
+                  },
+                  {
+                    "artistName": "LE YEM",
+                    "mail": "mailto:bookingleyem@gmail.com"
                   }
                 ],
                 "features": {
@@ -456,7 +460,7 @@
             "description-10": {
               "type": "artistDescription",
               "datas": {
-                "name": "Clément",
+                "name": "Le Yem ",
                 "instagram": "leyem",
                 "tagline": "STYLE: Realism / Cyber / Portrait",
                 "description": "LE YEM IS AN ILLUSTRATOR AND DESIGNER, DISCOVERED IN MONTREAL. CLÉMENT EXPLORES REALISM, CHROME FUTURISM, EROTIC CURVES, AND GLITCHED PORTRAITS. HIS SIGNATURE BEARS THE MARK OF A FREE SPIRIT, A FIGURE OF COUNTERCULTURE WITH A CAPITAL C. HE CREATES PIECES WITH A UNIQUE STYLE, BLENDING PRECISION AND RHYTHM.",
