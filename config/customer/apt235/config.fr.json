@@ -27,9 +27,7 @@
       "url": "https://apt235.com",
       "telephone": "+33123456789",
       "priceRange": "$$-$$$",
-      "image": [
-        "https://apt235.com/assets/apt235/images/studio.webp"
-      ],
+      "image": ["https://apt235.com/assets/apt235/images/studio.webp"],
       "address": {
         "streetAddress": "139 Bis Bd du Président Wilson",
         "addressLocality": "Bordeaux",
@@ -65,7 +63,14 @@
       ],
       "openingHoursSpecification": [
         {
-          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday"
+          ],
           "opens": "11:00",
           "closes": "19:00"
         }
@@ -127,7 +132,12 @@
           "content": {
             "banner-1": {
               "type": "banner",
-              "features": { "multi": false, "medium": false, "mask": false, "logoAsTitle": true },
+              "features": {
+                "multi": false,
+                "medium": false,
+                "mask": false,
+                "logoAsTitle": true
+              },
               "title": "bigLogo_apt235",
               "images": [
                 {
@@ -443,7 +453,7 @@
             "description-9": {
               "type": "artistDescription",
               "datas": {
-                "name": "Kid Wapen",
+                "name": "KID WAPEN",
                 "instagram": "kid.wapen",
                 "tagline": "STYLE: Blackwork texturé / Abstrait / Contemporain",
                 "description": "PIERRE EST UN ARTISTE AUTODIDACTE QUI S’INSCRIT DANS UNE DÉMARCHE ÉVOLUTIVE. AVEC LUI, CHAQUE PIÈCE EST UNIQUE ET NAÎT D’UNE RECHERCHE ARTISTIQUE PERMANENTE. SON STYLE SINGULIER PEUT ÊTRE DÉFINI COMME BRUT, BRUYANT, MAIS TOUJOURS RAFFINÉ. IL JOUE AVEC L’IMPRÉCISION, LES LIGNES AINSI QUE LES CHEMINS TRACÉS. LA RECHERCHE DE TEXTURE PERMET D’ATTEINDRE UN RÉSULTAT PLUS INTIME.",
@@ -463,7 +473,7 @@
             "description-10": {
               "type": "artistDescription",
               "datas": {
-                "name": "Le Yem",
+                "name": "LE YEM",
                 "instagram": "leyem",
                 "tagline": "STYLE: Réalisme / Cyber / Portrait",
                 "description": "LE YEM EST UN ARTISTE ILLUSTRATEUR ET DESIGNER, REPÉRÉ À MONTRÉAL. CLÉMENT EXPLORE LE RÉALISME, LE FUTURISME CHROMÉ, LES COURBES ÉROTIQUES ET LES PORTRAITS GLITCHÉS. SA SIGNATURE PORTE L’EMPREINTE D’UN ESPRIT LIBRE, FIGURE DE LA CONTRE-CULTURE AVEC UN GRAND C. IL CRÉE DES PIÈCES AU STYLE UNIQUE, MÊLANT PRÉCISION ET RYTHME.",

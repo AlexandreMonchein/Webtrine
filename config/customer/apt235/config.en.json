@@ -27,9 +27,7 @@
       "url": "https://apt235.com",
       "telephone": "+33123456789",
       "priceRange": "$$-$$$",
-      "image": [
-        "https://apt235.com/assets/apt235/images/studio.webp"
-      ],
+      "image": ["https://apt235.com/assets/apt235/images/studio.webp"],
       "address": {
         "streetAddress": "139 Bis Bd du Président Wilson",
         "addressLocality": "Bordeaux",
@@ -65,7 +63,14 @@
       ],
       "openingHoursSpecification": [
         {
-          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday"
+          ],
           "opens": "11:00",
           "closes": "19:00"
         }
@@ -127,7 +132,12 @@
           "content": {
             "banner-1": {
               "type": "banner",
-              "features": { "multi": false, "medium": false, "mask": false, "logoAsTitle": true },
+              "features": {
+                "multi": false,
+                "medium": false,
+                "mask": false,
+                "logoAsTitle": true
+              },
               "title": "bigLogo_apt235",
               "images": [
                 {
@@ -437,46 +447,46 @@
                 "instagramUrl": "https://www.instagram.com/vidnevskaya_tattoo",
                 "contactUrl": "/contact"
               },
-            "description-9": {
-              "type": "artistDescription",
-              "datas": {
-                "name": "Kid Wapen",
-                "instagram": "kid.wapen",
-                "tagline": "STYLE: Textured blackwork / Abstract / Contemporary",
-                "description": "PIERRE IS A SELF-TAUGHT ARTIST WHO FOLLOWS AN EVOLVING APPROACH. WITH HIM, EACH PIECE IS UNIQUE AND EMERGES FROM A CONSTANT ARTISTIC EXPLORATION. HIS DISTINCTIVE STYLE CAN BE DESCRIBED AS RAW, LOUD, YET ALWAYS REFINED. HE PLAYS WITH IMPRECISION, LINES, AS WELL AS PREDEFINED PATHS. THE SEARCH FOR TEXTURE ALLOWS HIM TO ACHIEVE A MORE INTIMATE RESULT.",
-                "images": [
-                  "/assets/apt235/DSC07452.webp",
-                  "/assets/apt235/DSC07462.webp",
-                  "/assets/apt235/IMG_5312.webp",
-                  "/assets/apt235/IMG_5313.webp",
-                  "/assets/apt235/IMG_5314.webp",
-                  "/assets/apt235/IMG_5315.webp"
-                ],
-                "intervalBetweenImages": 2500,
-                "instagramUrl": "https://www.instagram.com/kid.wapen",
-                "contactUrl": "/contact"
+              "description-9": {
+                "type": "artistDescription",
+                "datas": {
+                  "name": "KID WAPEN",
+                  "instagram": "kid.wapen",
+                  "tagline": "STYLE: Textured blackwork / Abstract / Contemporary",
+                  "description": "PIERRE IS A SELF-TAUGHT ARTIST WHO FOLLOWS AN EVOLVING APPROACH. WITH HIM, EACH PIECE IS UNIQUE AND EMERGES FROM A CONSTANT ARTISTIC EXPLORATION. HIS DISTINCTIVE STYLE CAN BE DESCRIBED AS RAW, LOUD, YET ALWAYS REFINED. HE PLAYS WITH IMPRECISION, LINES, AS WELL AS PREDEFINED PATHS. THE SEARCH FOR TEXTURE ALLOWS HIM TO ACHIEVE A MORE INTIMATE RESULT.",
+                  "images": [
+                    "/assets/apt235/DSC07452.webp",
+                    "/assets/apt235/DSC07462.webp",
+                    "/assets/apt235/IMG_5312.webp",
+                    "/assets/apt235/IMG_5313.webp",
+                    "/assets/apt235/IMG_5314.webp",
+                    "/assets/apt235/IMG_5315.webp"
+                  ],
+                  "intervalBetweenImages": 2500,
+                  "instagramUrl": "https://www.instagram.com/kid.wapen",
+                  "contactUrl": "/contact"
+                }
+              },
+              "description-10": {
+                "type": "artistDescription",
+                "datas": {
+                  "name": "LE YEM",
+                  "instagram": "leyem",
+                  "tagline": "STYLE: Realism / Cyber / Portrait",
+                  "description": "LE YEM IS AN ILLUSTRATOR AND DESIGNER, DISCOVERED IN MONTREAL. CLÉMENT EXPLORES REALISM, CHROME FUTURISM, EROTIC CURVES, AND GLITCHED PORTRAITS. HIS SIGNATURE BEARS THE MARK OF A FREE SPIRIT, A FIGURE OF COUNTERCULTURE WITH A CAPITAL C. HE CREATES PIECES WITH A UNIQUE STYLE, BLENDING PRECISION AND RHYTHM.",
+                  "images": [
+                    "/assets/apt235/IMG_7307.webp",
+                    "/assets/apt235/DSC07306.webp",
+                    "/assets/apt235/DSC07125.webp",
+                    "/assets/apt235/DSC09707.webp",
+                    "/assets/apt235/IMG_5344.webp",
+                    "/assets/apt235/IMG_5345.webp"
+                  ],
+                  "intervalBetweenImages": 2500,
+                  "instagramUrl": "https://www.instagram.com/leyem",
+                  "contactUrl": "mailto:bookingleyem@gmail.com"
+                }
               }
-            },
-            "description-10": {
-              "type": "artistDescription",
-              "datas": {
-                "name": "Le Yem ",
-                "instagram": "leyem",
-                "tagline": "STYLE: Realism / Cyber / Portrait",
-                "description": "LE YEM IS AN ILLUSTRATOR AND DESIGNER, DISCOVERED IN MONTREAL. CLÉMENT EXPLORES REALISM, CHROME FUTURISM, EROTIC CURVES, AND GLITCHED PORTRAITS. HIS SIGNATURE BEARS THE MARK OF A FREE SPIRIT, A FIGURE OF COUNTERCULTURE WITH A CAPITAL C. HE CREATES PIECES WITH A UNIQUE STYLE, BLENDING PRECISION AND RHYTHM.",
-                "images": [
-                  "/assets/apt235/IMG_7307.webp",
-                  "/assets/apt235/DSC07306.webp",
-                  "/assets/apt235/DSC07125.webp",
-                  "/assets/apt235/DSC09707.webp",
-                  "/assets/apt235/IMG_5344.webp",
-                  "/assets/apt235/IMG_5345.webp"
-                ],
-                "intervalBetweenImages": 2500,
-                "instagramUrl": "https://www.instagram.com/leyem",
-                "contactUrl": "mailto:bookingleyem@gmail.com"
-              }
-            }
             }
           }
         }
