@@ -22,7 +22,7 @@ import type {
   MultiDescriptionTemplate,
 } from "./multiDescriptions.types";
 
-const regex = /-[0-9]/i;
+const regex = /-[0-9]+/i;
 
 const MultiDescription = ({ templateName = null }: MultiDescriptionProps) => {
   const location = useLocation();

@@ -303,11 +303,15 @@
                 "tagline": "STYLE: Minimalist / Fine Line / Contemporary",
                 "description": "FLORIAN IS A SELF-TAUGHT ARTIST SINCE 2012. HE STARTED WITH GRAFFITI AND PERFECTED HIS CRAFT BY DISCOVERING TATTOOING. CREATOR AND MANAGER OF APT.235 STUDIO, HE NOW CREATES TATTOOS WITH SIMPLE AND CLEAN LINES IN A RECOGNIZABLE STYLE.",
                 "images": [
-                  "/assets/apt235/IMG_45.webp",
-                  "/assets/apt235/IMG_46.webp",
-                  "/assets/apt235/IMG_47.webp",
-                  "/assets/apt235/IMG_48.webp",
-                  "/assets/apt235/IMG_49.webp"
+                  "/assets/apt235/IMG_9825.webp",
+                  "/assets/apt235/IMG_49.webp",
+                  "/assets/apt235/IMG_0050.webp",
+                  "/assets/apt235/DSC09960.webp",
+                  "/assets/apt235/DSC00009.webp",
+                  "/assets/apt235/DSC02557.webp",
+                  "/assets/apt235/DSC04778.webp",
+                  "/assets/apt235/DSC08387.webp",
+                  "/assets/apt235/DSC02164.webp"
                 ],
                 "intervalBetweenImages": 2500,
                 "instagramUrl": "https://www.instagram.com/duftattoo",
@@ -374,26 +378,6 @@
             "description-6": {
               "type": "artistDescription",
               "datas": {
-                "name": "AIEUH ÇA PIQUE",
-                "instagram": "aieuh_ca_pique",
-                "tagline": "STYLE: Ornamental / Fine Line",
-                "description": "INSPIRED BY THE BRIGHTNESS OF THE MOON AND THE POWER OF THE SUN, MARWANE CRAFTS DELICATE TATTOOS, CARRYING DEEP MEANINGS OR SIMPLY AESTHETIC. HIS ART LIES IN THE SUBTLE HARMONY BETWEEN DELICATE LINES AND BOLDER STROKES, CREATING CONTRASTS THAT GIVE YOUR ORNAMENTS A CAPTIVATING UNIQUENESS.",
-                "images": [
-                  "/assets/apt235/IMG_20.webp",
-                  "/assets/apt235/IMG_21.webp",
-                  "/assets/apt235/IMG_22.webp",
-                  "/assets/apt235/IMG_23.webp",
-                  "/assets/apt235/IMG_24.webp",
-                  "/assets/apt235/IMG_25.webp"
-                ],
-                "intervalBetweenImages": 2500,
-                "instagramUrl": "https://www.instagram.com/aieuh_ca_pique",
-                "contactUrl": "mailto:aieuh_ca_pique@outlook.fr"
-              }
-            },
-            "description-7": {
-              "type": "artistDescription",
-              "datas": {
                 "name": "MAHÉ",
                 "instagram": "tattooday_studio",
                 "tagline": "STYLE: Illustration / Handpoke / Color",
@@ -410,7 +394,7 @@
                 "contactUrl": "/contact"
               }
             },
-            "description-8": {
+            "description-7": {
               "type": "artistDescription",
               "datas": {
                 "name": "NATURAFFECTION",
@@ -429,7 +413,7 @@
                 "contactUrl": "/contact"
               }
             },
-            "description-9": {
+            "description-8": {
               "type": "artistDescription",
               "datas": {
                 "name": "ELENA",
@@ -448,7 +432,47 @@
                 "intervalBetweenImages": 2500,
                 "instagramUrl": "https://www.instagram.com/vidnevskaya_tattoo",
                 "contactUrl": "/contact"
+              },
+            "description-9": {
+              "type": "artistDescription",
+              "datas": {
+                "name": "Kid Wapen",
+                "instagram": "kid.wapen",
+                "tagline": "STYLE: Textured blackwork / Abstract / Contemporary",
+                "description": "PIERRE IS A SELF-TAUGHT ARTIST WHO FOLLOWS AN EVOLVING APPROACH. WITH HIM, EACH PIECE IS UNIQUE AND EMERGES FROM A CONSTANT ARTISTIC EXPLORATION. HIS DISTINCTIVE STYLE CAN BE DESCRIBED AS RAW, LOUD, YET ALWAYS REFINED. HE PLAYS WITH IMPRECISION, LINES, AS WELL AS PREDEFINED PATHS. THE SEARCH FOR TEXTURE ALLOWS HIM TO ACHIEVE A MORE INTIMATE RESULT.",
+                "images": [
+                  "/assets/apt235/DSC07452.webp",
+                  "/assets/apt235/DSC07462.webp",
+                  "/assets/apt235/IMG_5312.webp",
+                  "/assets/apt235/IMG_5313.webp",
+                  "/assets/apt235/IMG_5314.webp",
+                  "/assets/apt235/IMG_5315.webp"
+                ],
+                "intervalBetweenImages": 2500,
+                "instagramUrl": "https://www.instagram.com/kid.wapen",
+                "contactUrl": "/contact"
               }
+            },
+            "description-10": {
+              "type": "artistDescription",
+              "datas": {
+                "name": "Clément",
+                "instagram": "leyem",
+                "tagline": "STYLE: Realism / Cyber / Portrait",
+                "description": "LE YEM IS AN ILLUSTRATOR AND DESIGNER, DISCOVERED IN MONTREAL. CLÉMENT EXPLORES REALISM, CHROME FUTURISM, EROTIC CURVES, AND GLITCHED PORTRAITS. HIS SIGNATURE BEARS THE MARK OF A FREE SPIRIT, A FIGURE OF COUNTERCULTURE WITH A CAPITAL C. HE CREATES PIECES WITH A UNIQUE STYLE, BLENDING PRECISION AND RHYTHM.",
+                "images": [
+                  "/assets/apt235/IMG_7307.webp",
+                  "/assets/apt235/DSC07306.webp",
+                  "/assets/apt235/DSC07125.webp",
+                  "/assets/apt235/DSC09707.webp",
+                  "/assets/apt235/IMG_5344.webp",
+                  "/assets/apt235/IMG_5345.webp"
+                ],
+                "intervalBetweenImages": 2500,
+                "instagramUrl": "https://www.instagram.com/leyem",
+                "contactUrl": "mailto:bookingleyem@gmail.com"
+              }
+            }
             }
           }
         }
