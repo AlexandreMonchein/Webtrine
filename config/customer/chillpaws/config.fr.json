@@ -1046,6 +1046,7 @@
       {
         "type": "gallery",
         "id": "gallery",
+        "name": "Gallery",
         "datas": {
           "title": "Album photo",
           "description": "L’album photo permet d’immortaliser vos animaux pendant leur garde. Une garde est un moment convivial avec votre animal de ce fait je l’Immortale pour vous. Avec votre autorisation, je partage ces photos sur les réseaux sociaux afin de montrer mon travail et le bien-être des animaux que je garde. </br> Ils nous ont fait confiance, suivez leurs avantures sur <a style='font-size: inherit;' href=\"https://www.instagram.com/chill_paws_off/\">Instagram</a>!",
