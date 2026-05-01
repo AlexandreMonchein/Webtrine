@@ -1,6 +1,6 @@
 import classNames from "classnames";
 import DOMPurify from "dompurify";
-import React from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 import { getCustomer } from "../../../customer.utils";
 import { useFullscreenMode } from "../../utils/useFullscreenMode";
@@ -8,6 +8,8 @@ import FullscreenMode from "../fullscreenMode/fullscreenMode.component";
 import { Card } from "./card.component";
 import styles from "./gallery.module.css";
 import type { CardData, GalleryProps } from "./gallery.types";
+
+const BATCH_SIZE = 8;
 
 const Gallery = ({ template }: GalleryProps) => {
   const {
@@ -25,11 +27,40 @@ const Gallery = ({ template }: GalleryProps) => {
 
   const fullscreenMode = useFullscreenMode(images.length);
 
+  const [visibleCount, setVisibleCount] = useState(
+    Math.min(BATCH_SIZE, inventory.length),
+  );
+  const sentinelRef = useRef<HTMLDivElement>(null);
+
+  const loadMore = useCallback(() => {
+    setVisibleCount((prev) => Math.min(prev + BATCH_SIZE, inventory.length));
+  }, [inventory.length]);
+
+  useEffect(() => {
+    const sentinel = sentinelRef.current;
+    if (!sentinel) return undefined;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          loadMore();
+        }
+      },
+      { rootMargin: "200px" },
+    );
+
+    observer.observe(sentinel);
+    return () => observer.disconnect();
+  }, [loadMore, visibleCount]);
+
   const handleCardClick = (index: number) => {
     if (canFullScreen) {
       fullscreenMode.openFullscreen(index);
     }
   };
+
+  const visibleInventory = inventory.slice(0, visibleCount);
+  const hasMore = visibleCount < inventory.length;
 
   return (
     <>
@@ -53,7 +84,7 @@ const Gallery = ({ template }: GalleryProps) => {
               [styles.wrapperIsLogo]: type === "logo",
             })}
           >
-            {inventory.map((data: CardData, index: number) => (
+            {visibleInventory.map((data: CardData, index: number) => (
               <div
                 key={data.imageSrc}
                 className={classNames(styles.cardWrapper, {
@@ -67,6 +98,7 @@ const Gallery = ({ template }: GalleryProps) => {
               </div>
             ))}
           </div>
+          {hasMore && <div ref={sentinelRef} className={styles.sentinel} />}
         </div>
       </section>
       {canFullScreen && (
