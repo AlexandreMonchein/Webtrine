@@ -1052,110 +1052,134 @@
           "features": { "canFullScreen": true, "shouldRedirect": false },
           "inventory": [
             {
-              "alt": "Photo de chien: Vegas - 5 ans",
+              "alt": "Photo de Vegas - 5 ans",
               "imageSrc": "IMG_7862",
               "description": "Vegas - 5 ans"
             },
             {
-              "alt": "Photo de NAC: Néo - 9 ans",
+              "alt": "Photo de Néo - 9 ans",
               "imageSrc": "IMG_7789",
               "description": "Néo - 9 ans"
             },
             {
-              "alt": "Photo de chat: Tigrou - 3 ans",
+              "alt": "Photo de Tigrou - 3 ans",
               "imageSrc": "IMG_6037",
               "description": "Tigrou - 3 ans"
             },
             {
-              "alt": "Photo de chat: Luna - 2 ans",
+              "alt": "Photo de Luna - 2 ans",
               "imageSrc": "IMG_5834",
               "description": "Luna - 2 ans"
             },
-
             {
-              "alt": "Photo de chat: Nougat - 7 mois",
+              "alt": "Photo de Nougat - 7 mois",
               "imageSrc": "IMG_7557",
               "description": "Nougat - 7 mois"
             },
             {
-              "alt": "Photo de chat: Minoune - 2 ans",
+              "alt": "Photo de Minoune - 2 ans",
               "imageSrc": "IMG_7897",
               "description": "Minoune - 2 ans"
             },
             {
-              "alt": "Photo de chat: Yoko - 1 ans",
+              "alt": "Photo de Yoko - 1 ans",
               "imageSrc": "IMG_7895",
               "description": "Yoko - 1 ans"
             },
             {
-              "alt": "Photo de chien: Milka - 4 ans",
+              "alt": "Photo de Milka - 4 ans",
               "imageSrc": "IMG_7900",
               "description": "Milka - 4 ans"
             },
             {
-              "alt": "Photo de chien: Léo - 5 mois",
+              "alt": "Photo de Léo - 5 mois",
               "imageSrc": "IMG_7899",
               "description": "Léo - 5 mois"
             },
             {
-              "alt": "Photo de chien: Chelsea - 6 ans",
+              "alt": "Photo de Chelsea - 6 ans",
               "imageSrc": "IMG_8048",
               "description": "Chelsea - 6 ans"
             },
             {
-              "alt": "Photo de chien: Ice - 2 mois",
+              "alt": "Photo de Ice - 2 mois",
               "imageSrc": "IMG_8285",
               "description": "Ice - 2 mois"
             },
             {
-              "alt": "Photo de chien: Jojo - 2 ans",
+              "alt": "Photo de Jojo - 2 ans",
               "imageSrc": "IMG_8236",
               "description": "Jojo - 2 ans"
             },
             {
-              "alt": "Photo de 3 chiens: Oyat - 7 ans",
+              "alt": "Photo de Oyat - 7 ans",
               "imageSrc": "IMG_8368",
               "description": "Oyat - 7 ans"
             },
             {
-              "alt": "Photo de 3 chiens: Jordan - 11 ans",
+              "alt": "Photo de Jordan - 11 ans",
               "imageSrc": "IMG_8366",
               "description": "Jordan - 11 ans"
             },
             {
-              "alt": "Photo de 3 chiens: J'adore - 11 ans",
+              "alt": "Photo de J'adore - 11 ans",
               "imageSrc": "IMG_8340",
               "description": "J'adore - 11 ans"
             },
             {
-              "alt": "Photo de 3 chiens: Toufou - 5 ans",
+              "alt": "Photo de Toufou - 5 ans",
               "imageSrc": "IMG_8799",
               "description": "Toufou - 5 ans"
             },
             {
-              "alt": "Photo de 3 chiens: Picolo",
+              "alt": "Photo de Picolo",
               "imageSrc": "IMG_8765",
               "description": "Picolo"
             },
             {
-              "alt": "Photo de 3 chiens: Pantoufle",
+              "alt": "Photo de Pantoufle",
               "imageSrc": "IMG_8782",
               "description": "Pantoufle"
             },
             {
-              "alt": "Photo de 3 chiens: Ruby",
+              "alt": "Photo de Ruby",
               "imageSrc": "IMG_8809",
               "description": "Ruby"
             },
             {
-              "alt": "Photo de 3 chiens: Pompom - 5 ans",
+              "alt": "Photo de Pompom - 5 ans",
               "imageSrc": "IMG_8947",
               "description": "Pompom - 5 ans"
             },
             {
-              "alt": "Photo de 3 chiens: Vanille - 5 ans",
+              "alt": "Photo de Vanille - 5 ans",
               "imageSrc": "IMG_8998",
               "description": "Vanille - 5 ans"
+            },
+            {
+              "alt": "Photo de Django - 6 mois",
+              "imageSrc": "IMG_9096",
+              "description": "Django - 6 mois"
+            },
+            {
+              "alt": "Photo de Gatsby - 11 ans",
+              "imageSrc": "IMG_9172",
+              "description": "Gatsby - 11 ans"
+            },
+            {
+              "alt": "Photo de Sonic",
+              "imageSrc": "IMG_9229",
+              "description": "Sonic"
+            },
+            {
+              "alt": "Photo de Sky",
+              "imageSrc": "IMG_6652",
+              "description": "Sky"
+            },
+            {
+              "alt": "Photo de Pipo - 2 ans",
+              "imageSrc": "IMG_9524",
+              "description": "Pipo - 2 ans"
             }
           ]
         }
