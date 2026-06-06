@@ -983,7 +983,7 @@
               ],
               "images": [
                 {
-                  "name": "IMG_7875",
+                  "name": "IMG_9992",
                   "focusable": false
                 }
               ]
@@ -1181,6 +1181,11 @@
               "alt": "Photo de Pipo - 2 ans",
               "imageSrc": "IMG_9524",
               "description": "Pipo - 2 ans"
+            },
+            {
+              "alt": "Photo de Joy - 9 ans",
+              "imageSrc": "IMG_0278",
+              "description": "Joy - 9 ans"
             }
           ]
         }
