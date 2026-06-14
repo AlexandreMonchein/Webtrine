@@ -243,7 +243,10 @@ export const TattooContact = ({ datas }: TattooContactProps) => {
         );
 
         if (!apiResponse.ok) {
-          throw new Error(`EmailJS API error: ${apiResponse.status}`);
+          const responseText = await apiResponse.text().catch(() => "");
+          throw new Error(
+            `EmailJS API error: ${apiResponse.status}${responseText ? ` — ${responseText}` : ""}`,
+          );
         }
 
         setAlert({
@@ -263,10 +266,12 @@ export const TattooContact = ({ datas }: TattooContactProps) => {
           message: error instanceof Error ? error.message : "Unknown error",
           stack: error instanceof Error ? error.stack : undefined,
         });
+        const errorMessage =
+          error instanceof Error ? error.message : String(error);
         dispatch(
           showPopUp({
             type: "error",
-            message: t("contact.emailSentError"),
+            message: `${t("contact.emailSentError")} — ${errorMessage}`,
           }),
         );
       } finally {
