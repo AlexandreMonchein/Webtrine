@@ -91,7 +91,7 @@ export const useImageUpload = ({ feature, t }: UseImageUploadConfig) => {
         maxSizeMB: 2,
         maxWidthOrHeight: 1920,
         useWebWorker: true,
-        quality: 0.85,
+        quality: 0.6,
       };
 
       try {
@@ -171,8 +171,8 @@ export const useImageUpload = ({ feature, t }: UseImageUploadConfig) => {
 
       const validImages: Array<File | string> = [];
       const validationErrors: string[] = [];
-      const maxSize = 3 * 1024 * 1024; // 3MB before compression
-      const absoluteMaxSize = 15 * 1024 * 1024; // 15MB absolute limit
+      const maxSize = 5 * 1024 * 1024; // 5MB before compression
+      const absoluteMaxSize = 20 * 1024 * 1024; // 15MB absolute limit
 
       const filesToProcess = Array.from(files).slice(0, maxPhotos);
 
