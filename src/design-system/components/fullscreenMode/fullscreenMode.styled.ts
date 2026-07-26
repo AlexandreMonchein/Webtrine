@@ -38,6 +38,11 @@ export const NavButton = styled.button<{ $left?: boolean }>`
   ${({ $left }) => ($left ? "left: 30px;" : "right: 30px;")}
   transform: translateY(-50%);
   font-size: 3rem;
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   color: white;
   background: transparent;
   border: none;
@@ -49,8 +54,10 @@ export const NavButton = styled.button<{ $left?: boolean }>`
   }
 
   @media (max-width: 768px) {
-    font-size: 2rem;
-    ${({ $left }) => ($left ? "left: 15px;" : "right: 15px;")}
+    font-size: 2.5rem;
+    width: 48px;
+    height: 48px;
+    ${({ $left }) => ($left ? "left: 8px;" : "right: 8px;")}
   }
 `;
 
