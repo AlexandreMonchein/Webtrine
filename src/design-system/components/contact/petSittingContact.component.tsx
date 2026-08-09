@@ -85,25 +85,33 @@ const PetSittingContact = () => {
       setIsSubmitting(true);
 
       const form = e.target as HTMLFormElement;
+      const getValue = (name: string) =>
+        (form.elements.namedItem(name) as HTMLInputElement | null)?.value ||
+        null;
 
-      const firstName = form.firstName.value || null;
-      const lastName = form.lastName.value || null;
-      const emailFrom = form.email.value || null;
-      const number = form.phone.value || null;
-      const address = form.address.value || null;
-      const firstVisit = form.firstVisitDate.value
-        ? formatDateForEmail(form.firstVisitDate.value)
+      const firstName = getValue("firstName");
+      const lastName = getValue("lastName");
+      const emailFrom = getValue("email");
+      const number = getValue("phone");
+      const address = getValue("address");
+      const cp = getValue("cp");
+      const city = getValue("city");
+      const firstVisitValue = getValue("firstVisitDate");
+      const firstVisit = firstVisitValue
+        ? formatDateForEmail(firstVisitValue)
         : null;
-      const lastVisit = form.lastVisitDate.value
-        ? formatDateForEmail(form.lastVisitDate.value)
+      const lastVisitValue = getValue("lastVisitDate");
+      const lastVisit = lastVisitValue
+        ? formatDateForEmail(lastVisitValue)
         : null;
-      const preVisitDateTime = form.preVisitDateTime.value
-        ? formatDateForEmail(form.preVisitDateTime.value)
+      const preVisitValue = getValue("preVisitDateTime");
+      const preVisitDateTime = preVisitValue
+        ? formatDateForEmail(preVisitValue)
         : null;
-      const howKnown = form.howKnown.value || null;
-      const visitFrequency = form.visitFrequency.value || null;
-      const petType = form.petType.value || null;
-      const additionalInfo = form.additionalInfo.value || null;
+      const howKnown = getValue("howKnown");
+      const visitFrequency = getValue("visitFrequency");
+      const petType = getValue("petType");
+      const additionalInfo = getValue("additionalInfo");
       const replyTo = email || "webtrine.pro@gmail.com";
 
       const datas = {
@@ -112,6 +120,8 @@ const PetSittingContact = () => {
         emailFrom,
         number,
         address,
+        cp,
+        city,
         firstVisit,
         lastVisit,
         preVisitDateTime,
@@ -281,6 +291,45 @@ const PetSittingContact = () => {
                   aria-required="true"
                   aria-describedby="hint-address"
                   aria-label={t("contact.addressAriaLabel")}
+                />
+              </Field>
+
+              <Field>
+                <Label htmlFor="cp">
+                  {t("contact.cp")}{" "}
+                  <span aria-label={t("contact.requiredAriaLabel")}>*</span>
+                </Label>
+                <Hint id="hint-cp">{t("contact.cpHint")}</Hint>
+                <Input
+                  type="text"
+                  id="cp"
+                  name="cp"
+                  placeholder={t("contact.cpPlaceholder")}
+                  pattern="^\d{5}$"
+                  inputMode="numeric"
+                  maxLength={5}
+                  required
+                  aria-required="true"
+                  aria-describedby="hint-cp"
+                  aria-label={t("contact.cpAriaLabel")}
+                />
+              </Field>
+
+              <Field>
+                <Label htmlFor="city">
+                  {t("contact.city")}{" "}
+                  <span aria-label={t("contact.requiredAriaLabel")}>*</span>
+                </Label>
+                <Hint id="hint-city">{t("contact.cityHint")}</Hint>
+                <Input
+                  type="text"
+                  id="city"
+                  name="city"
+                  placeholder={t("contact.cityPlaceholder")}
+                  required
+                  aria-required="true"
+                  aria-describedby="hint-city"
+                  aria-label={t("contact.cityAriaLabel")}
                 />
               </Field>
 
