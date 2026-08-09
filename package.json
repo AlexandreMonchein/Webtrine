@@ -11,7 +11,7 @@
   "scripts": {
     "dev": "pnpm --filter webtrine-app dev",
     "dev:storybook": "pnpm --filter webtrine-app dev:storybook",
-    "dev:serve": "pnpm --filter webtrine-app dev:serve",
+    "serve": "pnpm --filter webtrine-app dev:serve",
     "build": "pnpm --filter webtrine-app build",
     "build:storybook": "pnpm --filter webtrine-app build:storybook",
     "test": "pnpm --filter webtrine-app test",
@@ -27,7 +27,7 @@
     "convert:webp": "pnpm --filter webtrine-app convert:webp",
     "compress:images": "pnpm --filter webtrine-app compress:images",
     "analyze:unused": "pnpm --filter webtrine-app analyze:unused",
-    "dev:simulator": "pnpm --parallel --filter webtrine-app --filter webtrine-simulator dev",
+    "dev:simulator": "VITE_NO_OPEN=true pnpm --parallel --filter webtrine-app --filter webtrine-simulator dev",
     "test:simulator": "pnpm --filter webtrine-simulator test"
   },
   "pnpm": {

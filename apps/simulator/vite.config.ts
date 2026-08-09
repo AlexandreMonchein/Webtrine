@@ -5,5 +5,5 @@ import { fileApiPlugin } from "./server/fileApi";
 
 export default defineConfig({
   plugins: [react(), fileApiPlugin()],
-  server: { port: 3001 },
+  server: { port: 3001, strictPort: true, open: true },
 });

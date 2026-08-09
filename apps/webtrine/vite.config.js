@@ -129,6 +129,14 @@ export default defineConfig({
   },
   server: {
     port: 3000, // Dev server port
+    strictPort: true, // Fail if 3000 is taken instead of drifting to 3001 (simulator's port)
+    // Open browser automatically — disabled when the app runs behind the
+    // simulator (dev:simulator), which embeds it in an iframe
+    open: process.env.VITE_NO_OPEN !== "true",
+  },
+  preview: {
+    port: 4173, // Port for `vite preview` (dev:serve)
+    strictPort: true,
     open: true, // Open browser automatically
   },
   css: {
