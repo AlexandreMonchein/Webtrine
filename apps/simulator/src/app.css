@@ -1,0 +1,776 @@
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  font-family:
+    system-ui,
+    -apple-system,
+    "Segoe UI",
+    sans-serif;
+  color: #1c1c1c;
+}
+
+.app-shell {
+  display: grid;
+  grid-template-columns: 260px 1fr 360px;
+  grid-template-rows: 48px 1fr;
+  height: 100vh;
+}
+
+.app-topbar {
+  grid-column: 1 / -1;
+  grid-row: 1;
+  border-bottom: 1px solid #ddd;
+}
+
+.app-tree,
+.app-editor {
+  overflow-y: auto;
+  padding: 12px;
+  color: #777;
+}
+
+.app-tree {
+  grid-column: 1;
+  grid-row: 2;
+  border-right: 1px solid #ddd;
+}
+
+.app-preview {
+  grid-column: 2;
+  grid-row: 2;
+  overflow: hidden;
+}
+
+.app-editor {
+  grid-column: 3;
+  grid-row: 2;
+  border-left: 1px solid #ddd;
+}
+
+/* TopBar */
+
+.topbar {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 0 12px;
+}
+
+.topbar-field {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+}
+
+.topbar-langs {
+  display: flex;
+  gap: 4px;
+}
+
+.lang-toggle {
+  border: 1px solid #ccc;
+  background: #fff;
+  border-radius: 4px;
+  padding: 4px 10px;
+  font-size: 13px;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+.lang-toggle.active {
+  background: #1c1c1c;
+  color: #fff;
+  border-color: #1c1c1c;
+}
+
+.topbar-spacer {
+  flex: 1;
+}
+
+.save-chip {
+  font-size: 13px;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  padding: 3px 12px;
+}
+
+/* Tree */
+
+.tree-section {
+  margin-bottom: 16px;
+}
+
+.tree-section-title {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: #999;
+  margin: 0 0 6px;
+  text-transform: uppercase;
+}
+
+.tree-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.tree-row {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  border-radius: 4px;
+  padding: 6px 8px;
+  font-size: 13px;
+  color: #333;
+  cursor: pointer;
+}
+
+.tree-row:hover {
+  background: #f0f0f0;
+}
+
+.tree-row-selected {
+  background: #1c1c1c;
+  color: #fff;
+}
+
+.tree-row-selected:hover {
+  background: #1c1c1c;
+}
+
+.tree-create-page {
+  width: 100%;
+  border: 1px dashed #bbb;
+  border-radius: 4px;
+  background: #fff;
+  padding: 8px;
+  font-size: 13px;
+  color: #333;
+  cursor: pointer;
+}
+
+.tree-row-wrap {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.tree-row-wrap .tree-row {
+  flex: 1;
+  min-width: 0;
+}
+
+.tree-row-actions {
+  display: flex;
+  gap: 2px;
+  flex-shrink: 0;
+}
+
+.tree-row-actions button {
+  border: 1px solid #ccc;
+  background: #fff;
+  border-radius: 4px;
+  width: 22px;
+  height: 22px;
+  font-size: 11px;
+  line-height: 1;
+  cursor: pointer;
+  color: #555;
+  padding: 0;
+}
+
+.tree-row-actions button:hover {
+  background: #f0f0f0;
+}
+
+.tree-row-actions button:disabled {
+  color: #ccc;
+  cursor: not-allowed;
+}
+
+.tree-add-component {
+  width: 100%;
+  border: 1px dashed #bbb;
+  border-radius: 4px;
+  background: #fff;
+  padding: 8px;
+  font-size: 13px;
+  color: #333;
+  cursor: pointer;
+  margin-top: 6px;
+}
+
+/* AddComponentDialog */
+
+.dialog-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.dialog {
+  background: #fff;
+  border-radius: 8px;
+  width: 420px;
+  max-width: 90vw;
+  max-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+}
+
+.dialog-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  border-bottom: 1px solid #eee;
+}
+
+.dialog-header h3 {
+  margin: 0;
+  font-size: 15px;
+}
+
+.dialog-header button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 14px;
+  color: #666;
+}
+
+.dialog-error {
+  color: #cf222e;
+  font-size: 13px;
+  padding: 8px 16px;
+}
+
+.dialog-body {
+  overflow-y: auto;
+  padding: 12px 16px;
+}
+
+.dialog-group {
+  margin-bottom: 12px;
+}
+
+.dialog-group-title {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: #999;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.dialog-group-items {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.dialog-item {
+  text-align: left;
+  border: 1px solid #eee;
+  border-radius: 4px;
+  background: #fff;
+  padding: 6px 10px;
+  font-size: 13px;
+  cursor: pointer;
+  color: #333;
+}
+
+.dialog-item:hover {
+  background: #f5f5f5;
+}
+
+/* Preview */
+
+.preview-pane {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+.preview-banner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  background: #b42318;
+  color: #fff;
+  padding: 8px 12px;
+  font-size: 13px;
+  text-align: center;
+}
+
+.preview-iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+
+/* Editor */
+
+.editor-empty {
+  color: #999;
+  font-size: 13px;
+}
+
+.editor {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.editor-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  color: #1c1c1c;
+  margin-bottom: 8px;
+}
+
+.editor-dirty-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #9a6700;
+  display: inline-block;
+}
+
+.editor-tabs {
+  display: flex;
+  gap: 4px;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 12px;
+}
+
+.editor-tab {
+  border: none;
+  background: none;
+  padding: 6px 10px;
+  font-size: 13px;
+  cursor: pointer;
+  color: #666;
+  border-bottom: 2px solid transparent;
+}
+
+.editor-tab-active {
+  color: #1c1c1c;
+  border-bottom-color: #1c1c1c;
+  font-weight: 600;
+}
+
+.editor-body {
+  flex: 1;
+  overflow-y: auto;
+}
+
+/* All four tab panels stay mounted (see Editor.tsx) and are toggled via
+   the `hidden` attribute rather than conditional rendering, so a panel's
+   local state (LangTab/ThemeTab drafts, the JSON textarea) survives
+   switching tabs. `height: 100%` keeps the same fill-then-scroll layout
+   the previously-single mounted child relied on. */
+.editor-tab-panel {
+  height: 100%;
+}
+
+.editor-footer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-top: 1px solid #ddd;
+  padding-top: 8px;
+  margin-top: 8px;
+}
+
+.editor-sync-warning {
+  font-size: 12px;
+  color: #9a6700;
+}
+
+.editor-save {
+  border: 1px solid #1c1c1c;
+  background: #1c1c1c;
+  color: #fff;
+  border-radius: 4px;
+  padding: 6px 14px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.editor-save:disabled {
+  border-color: #ccc;
+  background: #eee;
+  color: #999;
+  cursor: not-allowed;
+}
+
+/* ContentForm */
+
+.field-row {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 10px;
+  font-size: 13px;
+}
+
+.field-row label {
+  color: #555;
+  font-size: 12px;
+}
+
+.field-row input[type="text"],
+.field-row input[type="number"],
+.field-row textarea {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 5px 8px;
+  font-size: 13px;
+  font-family: inherit;
+}
+
+.field-row textarea {
+  min-height: 70px;
+  resize: vertical;
+}
+
+.field-row-checkbox label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #333;
+  font-size: 13px;
+}
+
+.field-readonly {
+  color: #999;
+  font-size: 13px;
+  padding: 5px 0;
+}
+
+.field-group {
+  border: 1px solid #eee;
+  border-radius: 6px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.field-group legend {
+  font-size: 12px;
+  font-weight: 600;
+  color: #555;
+  padding: 0 4px;
+}
+
+.field-list {
+  margin-bottom: 10px;
+}
+
+.field-list-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #555;
+  margin-bottom: 6px;
+}
+
+.field-list-item {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  border: 1px solid #eee;
+  border-radius: 6px;
+  padding: 8px;
+  margin-bottom: 8px;
+}
+
+.field-list-item-fields {
+  flex: 1;
+  min-width: 0;
+}
+
+.field-list-item-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.field-list-item-controls button {
+  border: 1px solid #ccc;
+  background: #fff;
+  border-radius: 4px;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.field-list-item-controls button:disabled {
+  color: #ccc;
+  cursor: not-allowed;
+}
+
+.field-list-add {
+  border: 1px dashed #bbb;
+  background: #fff;
+  border-radius: 4px;
+  padding: 6px 10px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.field-list-add:disabled {
+  color: #ccc;
+  cursor: not-allowed;
+}
+
+/* JsonEditor */
+
+.json-editor {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  height: 100%;
+}
+
+.json-editor-textarea {
+  flex: 1;
+  min-height: 300px;
+  font-family:
+    ui-monospace,
+    SFMono-Regular,
+    Menlo,
+    Consolas,
+    monospace;
+  font-size: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 8px;
+  resize: vertical;
+}
+
+.json-editor-error {
+  color: #cf222e;
+  font-size: 13px;
+  white-space: pre-wrap;
+}
+
+.json-editor-apply {
+  align-self: flex-start;
+  border: 1px solid #1c1c1c;
+  background: #fff;
+  color: #1c1c1c;
+  border-radius: 4px;
+  padding: 6px 14px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+/* ConfigRepair */
+
+.config-repair {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  height: 100%;
+}
+
+.config-repair-title {
+  font-weight: 600;
+  color: #cf222e;
+  font-size: 14px;
+}
+
+.config-repair-message {
+  font-size: 13px;
+  color: #555;
+  white-space: pre-wrap;
+}
+
+.config-repair-textarea {
+  flex: 1;
+  min-height: 300px;
+  font-family:
+    ui-monospace,
+    SFMono-Regular,
+    Menlo,
+    Consolas,
+    monospace;
+  font-size: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 8px;
+  resize: vertical;
+}
+
+.config-repair-error {
+  color: #cf222e;
+  font-size: 13px;
+  white-space: pre-wrap;
+}
+
+.config-repair-apply {
+  align-self: flex-start;
+  border: 1px solid #1c1c1c;
+  background: #1c1c1c;
+  color: #fff;
+  border-radius: 4px;
+  padding: 6px 14px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.config-repair-apply:disabled {
+  border-color: #ccc;
+  background: #eee;
+  color: #999;
+  cursor: not-allowed;
+}
+
+/* LangTab / ThemeTab */
+
+.lang-tab,
+.theme-tab {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  height: 100%;
+}
+
+.lang-missing-summary {
+  font-size: 12px;
+  color: #9a6700;
+  background: #fff8e6;
+  border: 1px solid #f0dca0;
+  border-radius: 4px;
+  padding: 6px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.lang-search {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 6px 8px;
+  font-size: 13px;
+}
+
+.lang-tree {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.lang-node {
+  margin-left: 8px;
+}
+
+.lang-node > summary {
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 600;
+  color: #555;
+  padding: 4px 0;
+}
+
+.lang-node-children {
+  margin-left: 10px;
+  border-left: 1px solid #eee;
+  padding-left: 10px;
+}
+
+.lang-leaf {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  margin-bottom: 8px;
+  font-size: 13px;
+}
+
+.lang-leaf-key {
+  color: #555;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.lang-leaf input {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 5px 8px;
+  font-size: 13px;
+  font-family: inherit;
+}
+
+.lang-missing-badge {
+  color: #9a6700;
+  font-size: 11px;
+}
+
+.save-status-text {
+  font-size: 12px;
+  color: #777;
+  margin-left: 8px;
+}
+
+.theme-tab-rows {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.theme-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 8px;
+  font-size: 13px;
+}
+
+.theme-row label {
+  color: #555;
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.theme-row input[type="text"],
+.theme-row input[type="number"] {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 5px 8px;
+  font-size: 13px;
+  width: 120px;
+}
+
+.theme-row input[type="color"] {
+  width: 40px;
+  height: 28px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 2px;
+  cursor: pointer;
+}

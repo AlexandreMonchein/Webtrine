@@ -1,5 +1,7 @@
 # Optimisation du chargement des images de la galerie
 
+> **Note:** file paths in this guide are relative to `apps/webtrine/` (pnpm workspace member) unless stated otherwise.
+
 ## 🎯 Problème identifié
 
 Les images de la galerie prennent du temps à charger et impactent le rendu initial de la page (FOUC - Flash of Unstyled Content).

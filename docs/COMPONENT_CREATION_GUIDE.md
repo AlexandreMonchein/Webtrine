@@ -1,5 +1,7 @@
 # Guide de Création de Composants - Design System Webtrine
 
+> **Note:** file paths in this guide are relative to `apps/webtrine/` (pnpm workspace member) unless stated otherwise.
+
 Ce guide détaille comment créer un nouveau composant dans le Design System Webtrine en suivant les meilleures pratiques et les conventions du projet.
 
 ## ⚡ Quick Rules for AI

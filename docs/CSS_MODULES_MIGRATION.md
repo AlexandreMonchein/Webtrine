@@ -1,5 +1,7 @@
 # Guide de Migration : Styled Components → CSS Modules
 
+> **Note:** file paths in this guide are relative to `apps/webtrine/` (pnpm workspace member) unless stated otherwise.
+
 Ce guide vous accompagne dans la migration progressive de Styled Components vers CSS Modules.
 
 ## ⚡ Quick Rules for AI

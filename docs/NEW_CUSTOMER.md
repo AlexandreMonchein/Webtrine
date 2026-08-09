@@ -1,5 +1,7 @@
 # Guide d'Ajout d'un Nouveau Client
 
+> **Note:** file paths in this guide are relative to `apps/webtrine/` (pnpm workspace member) unless stated otherwise.
+
 Ce guide détaille comment ajouter un nouveau client dans le système multi-tenant de Webtrine.
 
 ## ⚡ Quick Rules for AI

@@ -1,19 +1,17 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
-/node_modules
-packages/**/pnpm.lock.yml
-packages/**/node_modules
+node_modules/
 
 # production
-/temp_build
-/build
-/dist
+apps/*/temp_build/
+apps/*/build/
+dist/
 
-# public
-public/apple-touch-icon.png
-public/favicon-16x16.png
-public/favicon-32x32.png
+# public (favicons copied by update-favicon.sh)
+apps/webtrine/public/apple-touch-icon.png
+apps/webtrine/public/favicon-16x16.png
+apps/webtrine/public/favicon-32x32.png
 
 # misc
 .DS_Store
@@ -28,12 +26,15 @@ yarn-error.log*
 
 # storybook
 *storybook.log
-/storybook-static
+apps/*/storybook-static/
 
 # Playwright
-/test-results/
-/playwright-report/
-/playwright/.cache/
-/tests/e2e/**/*-actual.png
-/tests/e2e/**/*-diff.png
-/tests/e2e/visual.spec.ts-snapshots/
+apps/*/test-results/
+apps/*/playwright-report/
+apps/*/playwright/.cache/
+apps/*/tests/e2e/**/*-actual.png
+apps/*/tests/e2e/**/*-diff.png
+apps/*/tests/e2e/visual.spec.ts-snapshots/
+
+# Superpowers brainstorm sessions
+.superpowers/
