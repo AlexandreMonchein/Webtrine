@@ -2,14 +2,27 @@
 
 **Webtrine** est une application web React/Redux multi-clients permettant de créer des sites vitrines personnalisés pour différentes marques. Construit avec Vite et TypeScript, il utilise une architecture multi-tenant où une seule base de code sert plusieurs clients (chillpaws, dipaolo, showcase, webtrine) avec des configurations, thèmes et assets spécifiques.
 
+## 📦 Monorepo Layout
+
+This repo is a pnpm workspace:
+
+- `apps/webtrine/` — the multi-tenant site app (all paths below live here unless noted)
+- `apps/simulator/` — visual config editor (local dev tool, upcoming; see docs/superpowers/specs/)
+- `config/eslint/` — shared lint rules (root)
+- `docs/` — project docs (root)
+
+All root `pnpm` scripts (`pnpm dev`, `pnpm build`, `pnpm test:e2e:*`, …) proxy to
+`apps/webtrine` via `pnpm --filter webtrine-app` — commands below work unchanged from root.
+Note: positional arguments to proxied scripts resolve relative to `apps/webtrine/`, not the
+repo root (e.g. `pnpm lint src/App.tsx` lints `apps/webtrine/src/App.tsx`).
+
 ## 🏗️ Architecture & Technology Stack
 
 - **Frontend**: React 18, Redux Toolkit, CSS Modules + Styled Components (migration en cours), TypeScript
-- **Backend**: Express.js server (server.js pour servir les builds)
 - **Build Tools**: Vite 6 avec plugins personnalisés
 - **Package Manager**: pnpm (v10)
 - **Node**: v22
-- **Design System**: Système de composants réutilisables dans `src/design-system/`
+- **Design System**: Système de composants réutilisables dans `apps/webtrine/src/design-system/`
 - **Documentation**: Storybook 8.6.7
 
 ### Technologies Principales
@@ -31,7 +44,7 @@
 - **Composants existants** : Peuvent rester avec Styled Components temporairement
 - **Coexistence** : Les deux approches peuvent coexister pendant la migration
 - **Documentation complète** : Voir `docs/CSS_MODULES_MIGRATION.md`
-- **Composant exemple** : `src/design-system/example/` montre le pattern CSS Modules
+- **Composant exemple** : `apps/webtrine/src/design-system/example/` montre le pattern CSS Modules
 
 ### Plugins Vite Personnalisés
 
@@ -43,13 +56,13 @@
 L'application utilise un système de configuration par client sophistiqué. Chaque client dispose de sa propre configuration, traductions, thème et assets, permettant de servir plusieurs marques avec une seule base de code.
 
 - **Clients**: `chillpaws`, `dipaolo`, `showcase`, `webtrine`
-- **Configuration**: Fichiers JSON dans `/config/customer/{CUSTOMER}/`
+- **Configuration**: Fichiers JSON dans `apps/webtrine/config/customer/{CUSTOMER}/`
   - `config.json`: Configuration complète du layout et des templates
   - `style.config.json`: Variables CSS (couleurs, tailles de police, z-index)
-- **Traductions**: Fichiers JSON par langue dans `/lang/customer/{CUSTOMER}/`
-- **Thèmes**: Styles globaux dans `/src/theme/customer/{CUSTOMER}/`
-- **Assets**: Ressources statiques dans `/public/assets/{CUSTOMER}/`
-- **Builds**: Sortie par client dans `/build/{CUSTOMER}/`
+- **Traductions**: Fichiers JSON par langue dans `apps/webtrine/lang/customer/{CUSTOMER}/`
+- **Thèmes**: Styles globaux dans `apps/webtrine/src/theme/customer/{CUSTOMER}/`
+- **Assets**: Ressources statiques dans `apps/webtrine/public/assets/{CUSTOMER}/`
+- **Builds**: Sortie par client dans `apps/webtrine/build/{CUSTOMER}/`
 
 ### Variable d'Environnement
 
@@ -114,17 +127,14 @@ VITE_CUSTOMER=chillpaws pnpm build
 VITE_CUSTOMER=dipaolo pnpm build
 
 # Le script build.sh demande une confirmation avant de procéder
-# Il crée le build dans ./build/{CUSTOMER}/
+# Il crée le build dans apps/webtrine/build/{CUSTOMER}/
 ```
 
 ### Servir le Build de Production
 
 ```bash
-# Servir le build avec le client spécifique
-VITE_CUSTOMER=showcase pnpm serve
-
-# Le serveur Express (server.js) sert les fichiers statiques du build
-pnpm start  # Alternative qui lance server.js directement
+# Servir le build avec le client spécifique (vite preview via scripts/serve.sh)
+VITE_CUSTOMER=showcase pnpm dev:serve
 ```
 
 ### Storybook (Design System)
@@ -142,11 +152,8 @@ pnpm build:storybook
 ### Tests Unitaires & Intégration (Vitest)
 
 ```bash
-# Lancer les tests en mode watch
+# Lancer les tests (mode watch en interactif, run unique en CI/non-interactif)
 pnpm test
-
-# Lancer les tests une seule fois
-pnpm test:run
 
 # Lancer avec un client spécifique
 VITE_CUSTOMER=chillpaws pnpm test
@@ -160,8 +167,8 @@ Tests visuels de régression sur tous les clients avec capture de screenshots mu
 
 ```bash
 # Tester un client spécifique
-TEST_CUSTOMER=showcase pnpm test:e2e
-TEST_CUSTOMER=chillpaws pnpm test:e2e
+pnpm test:e2e:showcase
+pnpm test:e2e:chillpaws
 
 # Tester tous les clients
 pnpm test:e2e:all
@@ -248,8 +255,8 @@ pnpm convert:webp
   - JSON: `config.json`, `style.config.json`
   - JS/TS: `{name}.config.{js,ts,mjs}`
 - **Assets**:
-  - Icônes SVG: `.component.tsx` dans `/src/assets/icons/`
-  - Images client: dans `/public/assets/{CUSTOMER}/`
+  - Icônes SVG: `.component.tsx` dans `apps/webtrine/src/assets/icons/`
+  - Images client: dans `apps/webtrine/public/assets/{CUSTOMER}/`
 
 ### Structure des Imports
 
@@ -265,7 +272,7 @@ Les imports doivent être automatiquement triés par `simple-import-sort` :
 
 **Nouveau pattern (CSS Modules)** :
 ```
-src/design-system/
+apps/webtrine/src/design-system/
   ├── components/        # Composants réutilisables
   │   ├── banner/
   │   │   ├── banner.component.tsx
@@ -284,7 +291,7 @@ src/design-system/
 
 **Legacy pattern (Styled Components - à migrer)** :
 ```
-src/design-system/
+apps/webtrine/src/design-system/
   ├── components/        # Composants réutilisables
   │   ├── banner/
   │   │   ├── banner.component.tsx
@@ -332,7 +339,7 @@ src/design-system/
     font-size: var(--subtitle-font-size);
   }
   ```
-- **Custom Media Queries** : Utiliser les breakpoints définis dans `src/custom-media.css`
+- **Custom Media Queries** : Utiliser les breakpoints définis dans `apps/webtrine/src/custom-media.css`
   ```css
   @media (--bp-min-medium) {
     .container { padding: 2rem; }
@@ -461,7 +468,7 @@ test(banner): add integration tests for responsive behavior
 - **Changement de client**: Utiliser le préfixe `VITE_CUSTOMER=` pour toutes les commandes
 - **Gestion des assets**: Assets spécifiques au client automatiquement copiés via plugin Vite
 - **Configuration**: Chaque client a sa propre structure de config complète
-- **Isolation**: Les builds sont complètement isolés par client dans `/build/{CUSTOMER}/`
+- **Isolation**: Les builds sont complètement isolés par client dans `apps/webtrine/build/{CUSTOMER}/`
 
 ### Architecture des Templates
 
@@ -483,7 +490,7 @@ Le système de templates est le cœur de l'application :
 
 ### Système d'Icônes
 
-- **Localisation**: `/src/assets/icons/`
+- **Localisation**: `apps/webtrine/src/assets/icons/`
 - **Format**: Composants React SVG (`.component.tsx`)
 - **Chargement**: Import dynamique via `import.meta.glob`
 - **Usage**: Référencé par nom dans les configs (ex: `"logo_chillpaws_color_2"`)
@@ -491,7 +498,7 @@ Le système de templates est le cœur de l'application :
 ### Internationalisation (i18n)
 
 - **Framework**: i18next avec détection automatique de langue
-- **Structure**: `/lang/customer/{CUSTOMER}/{lang}.json`
+- **Structure**: `apps/webtrine/lang/customer/{CUSTOMER}/{lang}.json`
 - **Langues supportées**: fr (défaut), en, et autres selon le client
 - **Fallback**: Toujours français (`fr`) par défaut
 - **Chargement**: Dynamique selon le client via `resourcesToBackend`
@@ -541,16 +548,16 @@ Le système de templates est le cœur de l'application :
 ### Structure du Workspace
 
 ```
-/
+apps/webtrine/          # Note: config/eslint/ et eslint.config.mjs (partagés) vivent
+│                        # à la racine du repo, pas ici — voir "Monorepo Layout"
 ├── config/
-│   ├── customer/           # Configurations par client
-│   │   ├── chillpaws/
-│   │   │   ├── config.json
-│   │   │   └── style.config.json
-│   │   ├── dipaolo/
-│   │   ├── showcase/
-│   │   └── webtrine/
-│   └── eslint/            # Configs ESLint modulaires
+│   └── customer/           # Configurations par client
+│       ├── chillpaws/
+│       │   ├── config.json
+│       │   └── style.config.json
+│       ├── dipaolo/
+│       ├── showcase/
+│       └── webtrine/
 │
 ├── lang/
 │   └── customer/          # Traductions par client
@@ -616,10 +623,8 @@ Le système de templates est le cœur de l'application :
 │
 ├── storybook-static/      # Build Storybook
 │
-├── server.js              # Serveur Express pour production
 ├── vite.config.js         # Configuration Vite avec plugins
 ├── vitest.component.config.ts
-├── eslint.config.mjs
 └── package.json
 ```
 
@@ -628,22 +633,22 @@ Le système de templates est le cœur de l'application :
 - **Commandes**: Voir section "Build and test commands"
 - **Architecture**: Voir section "Multi-Tenant Architecture"
 - **Design System**: Documentation Storybook (pnpm storybook)
-- **Composants**: Stories dans `/src/design-system/**/**.stories.tsx`
+- **Composants**: Stories dans `apps/webtrine/src/design-system/**/**.stories.tsx`
 
 ### Workflows Courants
 
 #### Ajouter un Nouveau Client
 
-1. Créer la structure dans `config/customer/{CLIENT}/`
-2. Créer les traductions dans `lang/customer/{CLIENT}/`
-3. Créer le thème dans `src/theme/customer/{CLIENT}/` (optionnel)
-4. Ajouter les assets dans `public/assets/{CLIENT}/`
+1. Créer la structure dans `apps/webtrine/config/customer/{CLIENT}/`
+2. Créer les traductions dans `apps/webtrine/lang/customer/{CLIENT}/`
+3. Créer le thème dans `apps/webtrine/src/theme/customer/{CLIENT}/` (optionnel)
+4. Ajouter les assets dans `apps/webtrine/public/assets/{CLIENT}/`
 5. Tester avec `VITE_CUSTOMER={CLIENT} pnpm dev`
 6. Builder avec `VITE_CUSTOMER={CLIENT} pnpm build`
 
 #### Ajouter un Nouveau Template
 
-1. Créer le composant dans `src/design-system/{TYPE}/src/{NAME}.component.tsx`
+1. Créer le composant dans `apps/webtrine/src/design-system/{TYPE}/src/{NAME}.component.tsx`
 2. Créer les styles dans `{NAME}.styled.ts`
 3. Créer la story dans `{NAME}.component.stories.tsx`
 4. Ajouter dans la config client `config.json`
@@ -651,7 +656,7 @@ Le système de templates est le cœur de l'application :
 
 #### Modifier un Style Global
 
-1. Éditer `config/customer/{CLIENT}/style.config.json`
+1. Éditer `apps/webtrine/config/customer/{CLIENT}/style.config.json`
 2. Les variables CSS sont automatiquement injectées
 3. Utiliser via `var(--nom-variable)` dans styled-components
 

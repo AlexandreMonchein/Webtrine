@@ -1,5 +1,7 @@
 # Tests Visuels E2E avec Playwright
 
+> **Note:** file paths in this guide are relative to `apps/webtrine/` (pnpm workspace member) unless stated otherwise.
+
 Documentation simplifiée pour les tests de régression visuelle en local.
 
 ## 🎯 Objectif
