@@ -35,12 +35,13 @@ export interface DataTableFeature {
 export interface DataTableProps {
   content: DataTableContent;
   title?: string;
+  hash?: string;
   subTitle?: string;
   features?: DataTableFeature;
 }
 
 const DataTable = (datas: DataTableProps) => {
-  const { title, subTitle, features, content } = datas;
+  const { title, subTitle, hash, features, content } = datas;
   const { columns, data } = content;
   const { centeredTitles = false, centerContent = false } = features || {};
 
@@ -51,7 +52,7 @@ const DataTable = (datas: DataTableProps) => {
   return (
     <Section>
       {title && (
-        <TableTitle id={captionId} centered={centeredTitles}>
+        <TableTitle id={hash} centered={centeredTitles}>
           {title}
         </TableTitle>
       )}

@@ -6,13 +6,28 @@ export default function ScrollToTop() {
 
   useEffect(() => {
     if (hash) {
-      // Si un hash est présent, attendre que le DOM soit prêt puis scroller vers l'élément
-      setTimeout(() => {
-        const element = document.getElementById(hash.replace("#", ""));
-        if (element) {
-          element.scrollIntoView({ behavior: "smooth" });
-        }
-      }, 100);
+      // Le contenu ciblé peut monter de façon asynchrone (import dynamique +
+      // lazy-load par IntersectionObserver), donc on réessaie jusqu'à ce que
+      // l'élément existe plutôt que de supposer qu'il est prêt après un délai fixe.
+      const id = hash.replace("#", "");
+
+      const scrollToElement = () => {
+        const element = document.getElementById(id);
+        if (!element) return false;
+        element.scrollIntoView({ behavior: "smooth" });
+        return true;
+      };
+
+      if (!scrollToElement()) {
+        const observer = new MutationObserver(() => {
+          if (scrollToElement()) {
+            observer.disconnect();
+          }
+        });
+        observer.observe(document.body, { childList: true, subtree: true });
+
+        setTimeout(() => observer.disconnect(), 5000);
+      }
     } else {
       // Scroll vers le haut - utiliser requestAnimationFrame pour s'assurer que le DOM est rendu
       const scrollToTopImmediate = () => {

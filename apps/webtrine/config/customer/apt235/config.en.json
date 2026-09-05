@@ -470,26 +470,6 @@
                 "instagramUrl": "https://www.instagram.com/kid.wapen",
                 "contactUrl": "/contact"
               }
-            },
-            "description-10": {
-              "type": "artistDescription",
-              "datas": {
-                "name": "LE YEM",
-                "instagram": "leyem",
-                "tagline": "STYLE: Realism / Cyber / Portrait",
-                "description": "LE YEM IS AN ILLUSTRATOR AND DESIGNER, DISCOVERED IN MONTREAL. CLÉMENT EXPLORES REALISM, CHROME FUTURISM, EROTIC CURVES, AND GLITCHED PORTRAITS. HIS SIGNATURE BEARS THE MARK OF A FREE SPIRIT, A FIGURE OF COUNTERCULTURE WITH A CAPITAL C. HE CREATES PIECES WITH A UNIQUE STYLE, BLENDING PRECISION AND RHYTHM.",
-                "images": [
-                  "/assets/apt235/IMG_7307.webp",
-                  "/assets/apt235/DSC07306.webp",
-                  "/assets/apt235/DSC07125.webp",
-                  "/assets/apt235/DSC09707.webp",
-                  "/assets/apt235/IMG_5344.webp",
-                  "/assets/apt235/IMG_5345.webp"
-                ],
-                "intervalBetweenImages": 2500,
-                "instagramUrl": "https://www.instagram.com/leyem",
-                "contactUrl": "mailto:bookingleyem@gmail.com"
-              }
             }
           }
         }

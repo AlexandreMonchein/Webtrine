@@ -32,7 +32,7 @@ export const TableTitle = styled.h2.withConfig({
   shouldForwardProp: (prop) => !["centered"].includes(prop),
 })<{ centered?: boolean }>`
   text-align: center;
-  color: var(--theme-color-hover);
+  color: var(--theme-color-foreground-1);
   text-align: ${({ centered }) => (centered ? "center" : "left")};
 `;
 
