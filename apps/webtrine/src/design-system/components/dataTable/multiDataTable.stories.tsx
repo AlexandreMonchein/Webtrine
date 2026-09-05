@@ -77,20 +77,13 @@ export const Overview: Story = {
       </div>
 
       <div>
-        <h3 style={{ marginBottom: "1rem", color: "#666" }}>
-          Sans sous-titre
-        </h3>
+        <h3 style={{ marginBottom: "1rem", color: "#666" }}>Sans sous-titre</h3>
         <MultiDataTable {...defaultArgs} subTitle={undefined} />
       </div>
 
       <div>
-        <h3 style={{ marginBottom: "1rem", color: "#666" }}>
-          Un seul tableau
-        </h3>
-        <MultiDataTable
-          {...defaultArgs}
-          tables={[defaultArgs.tables[0]]}
-        />
+        <h3 style={{ marginBottom: "1rem", color: "#666" }}>Un seul tableau</h3>
+        <MultiDataTable {...defaultArgs} tables={[defaultArgs.tables[0]]} />
       </div>
 
       <div>
