@@ -53,5 +53,5 @@ Affiche plusieurs tableaux de données liés sous un titre/sous-titre partagé, 
 ### Notes
 
 - `features` est optionnel : `centeredTitles` centre le titre/sous-titre, `centerContent` centre le contenu des cellules (les deux valent `false` par défaut).
-- `title`/`subTitle`/`hash` sont partagés par tout le groupe — chaque tableau de `tables` distingue son propre sujet via son premier en-tête de colonne (ex: "1 chien" / "2 chiens").
+- `title`/`subTitle`/`hash` sont partagés par tout le groupe — chaque tableau de `tables` distingue son propre sujet via son premier en-tête de colonne (ex: "1 chien" / "2 chiens" / "3 chiens").
 - Si `data` est vide pour un tableau donné, ce tableau affiche une ligne "Aucune donnée disponible".
