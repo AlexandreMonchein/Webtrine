@@ -1,0 +1,136 @@
+@import url('../../../custom-media.css');
+
+.multiDataTableRoot {
+  padding: 20px 40px;
+  color: var(--theme-color-tertiary);
+
+  @media (--bp-min-medium) {
+    padding: 40px 120px;
+  }
+
+  @media (--bp-min-wide) {
+    padding: 40px 480px;
+  }
+}
+
+.title {
+  color: var(--theme-color-foreground-1);
+  text-align: left;
+
+  &.titleCentered {
+    text-align: center;
+  }
+}
+
+.subTitle {
+  text-align: left;
+
+  &.subTitleCentered {
+    text-align: center;
+  }
+}
+
+.tableContainer {
+  width: 100%;
+  overflow-x: auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.1);
+  background: var(--theme-color-primary);
+  border: 1px solid var(--theme-color-tertiary);
+
+  @media (--bp-min-medium) {
+    border-radius: 12px;
+    box-shadow:
+      0 4px 6px -1px rgba(0, 0, 0, 0.1),
+      0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  }
+}
+
+.tableContainer + .tableContainer {
+  margin-top: 24px;
+
+  @media (--bp-min-medium) {
+    margin-top: 32px;
+  }
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+
+  @media (--bp-min-medium) {
+    table-layout: auto;
+  }
+}
+
+.tableHeader {
+  background: var(--theme-color-background-1);
+  border-bottom: 2px solid var(--theme-color-tertiary);
+}
+
+.tableHeaderCell {
+  padding: 10px 12px;
+  text-align: left;
+  color: var(--theme-color-tertiary);
+  letter-spacing: 0.025em;
+  text-transform: uppercase;
+  white-space: normal;
+
+  @media (--bp-min-medium) {
+    padding: 16px 20px;
+    white-space: nowrap;
+  }
+
+  &.tableHeaderCellCentered {
+    text-align: center;
+  }
+
+  &.tableHeaderCellFirst {
+    border-top-left-radius: 12px;
+  }
+
+  &.tableHeaderCellLast {
+    border-top-right-radius: 12px;
+  }
+}
+
+.tableRow {
+  border-bottom: 1px solid var(--theme-color-tertiary);
+  transition: background-color 0.2s ease;
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  &:hover {
+    background-color: var(--theme-color-background-1);
+  }
+}
+
+.tableCell {
+  padding: 10px 12px;
+  color: var(--theme-color-tertiary);
+  vertical-align: top;
+  text-align: left;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+
+  @media (--bp-min-medium) {
+    padding: 16px 20px;
+  }
+
+  &.tableCellCentered {
+    text-align: center;
+  }
+}
+
+.tableCellEmpty {
+  padding: 10px 12px;
+  text-align: center;
+  color: var(--theme-color-tertiary);
+
+  @media (--bp-min-medium) {
+    padding: 16px 20px;
+  }
+}
