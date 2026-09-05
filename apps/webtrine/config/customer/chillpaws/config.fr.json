@@ -776,293 +776,257 @@
           "description": null,
           "content": {
             "dataTable-1": {
-              "type": "dataTable",
+              "type": "multiDataTable",
               "hash": "visite-chien",
               "features": {
                 "centeredTitles": true
               },
               "title": "Visite chien / Promenade",
               "subTitle": "*Tarifs dégressifs de 15% à partir du 2ème animal",
-              "content": {
-                "columns": [
-                  {
-                    "header": "1 chien",
-                    "key": "type"
-                  },
-                  {
-                    "header": "Tarif / heure",
-                    "key": "price1"
-                  },
-                  {
-                    "header": "Tarif / demi heure",
-                    "key": "price2"
-                  }
-                ],
-                "data": [
-                  {
-                    "type": "Visite ponctuelle",
-                    "price1": "25 €",
-                    "price2": "18 €"
-                  },
-                  {
-                    "type": "Visite semaine lundi à samedi",
-                    "price1": "150 €",
-                    "price2": "108 €"
-                  },
-                  {
-                    "type": "Visite dimanche et jours fériés (majoration 20%)",
-                    "price1": "30 €",
-                    "price2": "22 €"
-                  }
-                ]
-              }
+              "tables": [
+                {
+                  "columns": [
+                    {
+                      "header": "1 chien",
+                      "key": "type"
+                    },
+                    {
+                      "header": "Tarif / heure",
+                      "key": "price1"
+                    },
+                    {
+                      "header": "Tarif / demi heure",
+                      "key": "price2"
+                    }
+                  ],
+                  "data": [
+                    {
+                      "type": "Visite ponctuelle",
+                      "price1": "25 €",
+                      "price2": "18 €"
+                    },
+                    {
+                      "type": "Visite semaine lundi à samedi",
+                      "price1": "150 €",
+                      "price2": "108 €"
+                    },
+                    {
+                      "type": "Visite dimanche et jours fériés (majoration 20%)",
+                      "price1": "30 €",
+                      "price2": "22 €"
+                    }
+                  ]
+                },
+                {
+                  "columns": [
+                    {
+                      "header": "2 chien",
+                      "key": "type"
+                    },
+                    {
+                      "header": "Tarif / heure",
+                      "key": "price1"
+                    },
+                    {
+                      "header": "Tarif / demi heure",
+                      "key": "price2"
+                    }
+                  ],
+                  "data": [
+                    {
+                      "type": "Visite ponctuelle",
+                      "price1": "43 €",
+                      "price2": "31 €"
+                    },
+                    {
+                      "type": "Visite semaine lundi à samedi",
+                      "price1": "258 €",
+                      "price2": "186 €"
+                    },
+                    {
+                      "type": "Visite dimanche et jours fériés (majoration 20%)",
+                      "price1": "52 €",
+                      "price2": "37 €"
+                    }
+                  ]
+                },
+                {
+                  "columns": [
+                    {
+                      "header": "3 chien",
+                      "key": "type"
+                    },
+                    {
+                      "header": "Tarif / heure",
+                      "key": "price1"
+                    },
+                    {
+                      "header": "Tarif / demi heure",
+                      "key": "price2"
+                    }
+                  ],
+                  "data": [
+                    {
+                      "type": "Visite ponctuelle",
+                      "price1": "65 €",
+                      "price2": "47 €"
+                    },
+                    {
+                      "type": "Visite semaine lundi à samedi",
+                      "price1": "390 €",
+                      "price2": "282 €"
+                    },
+                    {
+                      "type": "Visite dimanche et jours fériés (majoration 20%)",
+                      "price1": "78 €",
+                      "price2": "56 €"
+                    }
+                  ]
+                }
+              ]
             },
             "dataTable-2": {
-              "type": "dataTable",
-              "features": {
-                "centeredTitles": true
-              },
-              "title": null,
-              "subTitle": null,
-              "content": {
-                "columns": [
-                  {
-                    "header": "2 chien",
-                    "key": "type"
-                  },
-                  {
-                    "header": "Tarif / heure",
-                    "key": "price1"
-                  },
-                  {
-                    "header": "Tarif / demi heure",
-                    "key": "price2"
-                  }
-                ],
-                "data": [
-                  {
-                    "type": "Visite ponctuelle",
-                    "price1": "43 €",
-                    "price2": "31 €"
-                  },
-                  {
-                    "type": "Visite semaine lundi à samedi",
-                    "price1": "258 €",
-                    "price2": "186 €"
-                  },
-                  {
-                    "type": "Visite dimanche et jours fériés (majoration 20%)",
-                    "price1": "52 €",
-                    "price2": "37 €"
-                  }
-                ]
-              }
-            },
-            "dataTable-3": {
-              "type": "dataTable",
-              "features": {
-                "centeredTitles": true
-              },
-              "title": null,
-              "subTitle": null,
-              "content": {
-                "columns": [
-                  {
-                    "header": "3 chien",
-                    "key": "type"
-                  },
-                  {
-                    "header": "Tarif / heure",
-                    "key": "price1"
-                  },
-                  {
-                    "header": "Tarif / demi heure",
-                    "key": "price2"
-                  }
-                ],
-                "data": [
-                  {
-                    "type": "Visite ponctuelle",
-                    "price1": "65 €",
-                    "price2": "47 €"
-                  },
-                  {
-                    "type": "Visite semaine lundi à samedi",
-                    "price1": "390 €",
-                    "price2": "282 €"
-                  },
-                  {
-                    "type": "Visite dimanche et jours fériés (majoration 20%)",
-                    "price1": "78 €",
-                    "price2": "56 €"
-                  }
-                ]
-              }
-            },
-            "dataTable-4": {
-              "type": "dataTable",
+              "type": "multiDataTable",
               "hash": "visite-chat-nac",
               "features": {
                 "centeredTitles": true
               },
               "title": "Visite chat / NAC",
               "subTitle": "*Tarifs dégressifs de 15% à partir du 2ème animal",
-              "content": {
-                "columns": [
-                  {
-                    "header": "1 chat",
-                    "key": "type"
-                  },
-                  {
-                    "header": "Tarif / heure",
-                    "key": "price1"
-                  },
-                  {
-                    "header": "Tarif / demi heure",
-                    "key": "price2"
-                  }
-                ],
-                "data": [
-                  {
-                    "type": "Visite ponctuelle",
-                    "price1": "17 €",
-                    "price2": "10 €"
-                  },
-                  {
-                    "type": "Visite semaine lundi à samedi",
-                    "price1": "102 €",
-                    "price2": "60 €"
-                  },
-                  {
-                    "type": "Visite dimanche et jours fériés (majoration 20%)",
-                    "price1": "20 €",
-                    "price2": "12 €"
-                  }
-                ]
-              }
-            },
-            "dataTable-5": {
-              "type": "dataTable",
-              "features": {
-                "centeredTitles": true
-              },
-              "title": null,
-              "subTitle": null,
-              "content": {
-                "columns": [
-                  {
-                    "header": "2 chat",
-                    "key": "type"
-                  },
-                  {
-                    "header": "Tarif / heure",
-                    "key": "price1"
-                  },
-                  {
-                    "header": "Tarif / demi heure",
-                    "key": "price2"
-                  }
-                ],
-                "data": [
-                  {
-                    "type": "Visite ponctuelle",
-                    "price1": "30 €",
-                    "price2": "16 €"
-                  },
-                  {
-                    "type": "Visite semaine lundi à samedi",
-                    "price1": "180 €",
-                    "price2": "96 €"
-                  },
-                  {
-                    "type": "Visite dimanche et jours fériés (majoration 20%)",
-                    "price1": "35 €",
-                    "price2": "19 €"
-                  }
-                ]
-              }
-            },
-            "dataTable-6": {
-              "type": "dataTable",
-              "features": {
-                "centeredTitles": true
-              },
-              "title": null,
-              "subTitle": null,
-              "content": {
-                "columns": [
-                  {
-                    "header": "3 chat",
-                    "key": "type"
-                  },
-                  {
-                    "header": "Tarif / heure",
-                    "key": "price1"
-                  },
-                  {
-                    "header": "Tarif / demi heure",
-                    "key": "price2"
-                  }
-                ],
-                "data": [
-                  {
-                    "type": "Visite ponctuelle",
-                    "price1": "45 €",
-                    "price2": "23 €"
-                  },
-                  {
-                    "type": "Visite semaine lundi à samedi",
-                    "price1": "270 €",
-                    "price2": "138 €"
-                  },
-                  {
-                    "type": "Visite dimanche et jours fériés (majoration 20%)",
-                    "price1": "53 €",
-                    "price2": "28 €"
-                  }
-                ]
-              }
-            },
-            "dataTable-7": {
-              "type": "dataTable",
-              "features": {
-                "centeredTitles": true
-              },
-              "title": null,
-              "subTitle": null,
-              "content": {
-                "columns": [
-                  {
-                    "header": "4 chat",
-                    "key": "type"
-                  },
-                  {
-                    "header": "Tarif / heure",
-                    "key": "price1"
-                  },
-                  {
-                    "header": "Tarif / demi heure",
-                    "key": "price2"
-                  }
-                ],
-                "data": [
-                  {
-                    "type": "Visite ponctuelle",
-                    "price1": "58 €",
-                    "price2": "31 €"
-                  },
-                  {
-                    "type": "Visite semaine lundi à samedi",
-                    "price1": "348 €",
-                    "price2": "186 €"
-                  },
-                  {
-                    "type": "Visite dimanche et jours fériés (majoration 20%)",
-                    "price1": "69 €",
-                    "price2": "37 €"
-                  }
-                ]
-              }
+              "tables": [
+                {
+                  "columns": [
+                    {
+                      "header": "1 chat",
+                      "key": "type"
+                    },
+                    {
+                      "header": "Tarif / heure",
+                      "key": "price1"
+                    },
+                    {
+                      "header": "Tarif / demi heure",
+                      "key": "price2"
+                    }
+                  ],
+                  "data": [
+                    {
+                      "type": "Visite ponctuelle",
+                      "price1": "17 €",
+                      "price2": "10 €"
+                    },
+                    {
+                      "type": "Visite semaine lundi à samedi",
+                      "price1": "102 €",
+                      "price2": "60 €"
+                    },
+                    {
+                      "type": "Visite dimanche et jours fériés (majoration 20%)",
+                      "price1": "20 €",
+                      "price2": "12 €"
+                    }
+                  ]
+                },
+                {
+                  "columns": [
+                    {
+                      "header": "2 chat",
+                      "key": "type"
+                    },
+                    {
+                      "header": "Tarif / heure",
+                      "key": "price1"
+                    },
+                    {
+                      "header": "Tarif / demi heure",
+                      "key": "price2"
+                    }
+                  ],
+                  "data": [
+                    {
+                      "type": "Visite ponctuelle",
+                      "price1": "30 €",
+                      "price2": "16 €"
+                    },
+                    {
+                      "type": "Visite semaine lundi à samedi",
+                      "price1": "180 €",
+                      "price2": "96 €"
+                    },
+                    {
+                      "type": "Visite dimanche et jours fériés (majoration 20%)",
+                      "price1": "35 €",
+                      "price2": "19 €"
+                    }
+                  ]
+                },
+                {
+                  "columns": [
+                    {
+                      "header": "3 chat",
+                      "key": "type"
+                    },
+                    {
+                      "header": "Tarif / heure",
+                      "key": "price1"
+                    },
+                    {
+                      "header": "Tarif / demi heure",
+                      "key": "price2"
+                    }
+                  ],
+                  "data": [
+                    {
+                      "type": "Visite ponctuelle",
+                      "price1": "45 €",
+                      "price2": "23 €"
+                    },
+                    {
+                      "type": "Visite semaine lundi à samedi",
+                      "price1": "270 €",
+                      "price2": "138 €"
+                    },
+                    {
+                      "type": "Visite dimanche et jours fériés (majoration 20%)",
+                      "price1": "53 €",
+                      "price2": "28 €"
+                    }
+                  ]
+                },
+                {
+                  "columns": [
+                    {
+                      "header": "4 chat",
+                      "key": "type"
+                    },
+                    {
+                      "header": "Tarif / heure",
+                      "key": "price1"
+                    },
+                    {
+                      "header": "Tarif / demi heure",
+                      "key": "price2"
+                    }
+                  ],
+                  "data": [
+                    {
+                      "type": "Visite ponctuelle",
+                      "price1": "58 €",
+                      "price2": "31 €"
+                    },
+                    {
+                      "type": "Visite semaine lundi à samedi",
+                      "price1": "348 €",
+                      "price2": "186 €"
+                    },
+                    {
+                      "type": "Visite dimanche et jours fériés (majoration 20%)",
+                      "price1": "69 €",
+                      "price2": "37 €"
+                    }
+                  ]
+                }
+              ]
             },
             "cards-1": {
               "type": "cardsList",
