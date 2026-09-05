@@ -60,14 +60,16 @@ One shared `title`/`subTitle`/`hash` for the whole group — matches the current
 
 ### Config migration (chillpaws only)
 
-In both `config.fr.json` and `config.en.json`, tarifs page content:
+In `config.fr.json` (chillpaws has no `config.en.json` — French only), tarifs page content:
 
-- `dataTable-1` + `dataTable-2` + `dataTable-3` (chien 1/2/3 pets) → one `multiDataTable-1`:
+- `dataTable-1` + `dataTable-2` + `dataTable-3` (chien 1/2/3 pets) → one block, key `dataTable-1`, `"type": "multiDataTable"`:
   - `title`/`subTitle`/`hash` taken from current `dataTable-1` (`"visite-chien"`)
   - `tables: [dataTable-1.content, dataTable-2.content, dataTable-3.content]`
-- `dataTable-4` + `dataTable-5` + `dataTable-6` + `dataTable-7` (chat 1/2/3/4 pets) → one `multiDataTable-2`:
+- `dataTable-4` + `dataTable-5` + `dataTable-6` + `dataTable-7` (chat 1/2/3/4 pets) → one block, key `dataTable-2`, `"type": "multiDataTable"`:
   - `title`/`subTitle`/`hash` taken from current `dataTable-4` (`"visite-chat-nac"`)
   - `tables: [dataTable-4.content, ..., dataTable-7.content]`
+
+Note: the content-block *key*'s prefix (before its trailing `-N`) must match the component's *folder* (`dataTable/`, per `multiDescriptions.component.tsx`'s dynamic-import resolution), while `"type"` selects the *file* within that folder (`multiDataTable.component.tsx`) — these are independent, matching the existing `"description-1"` (folder) / `"type": "team"` (file) convention elsewhere in this codebase. The keys are `dataTable-1`/`dataTable-2` (reusing what the removed `dataTable-1..7` blocks freed up), not `multiDataTable-1`/`multiDataTable-2`.
 
 All existing text/prices/columns are preserved exactly — this is a structural regrouping, not a content change. No other customer config is touched.
 
