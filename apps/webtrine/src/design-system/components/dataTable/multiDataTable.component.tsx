@@ -42,7 +42,7 @@ const MultiDataTableItem = ({
             ))}
           </tr>
         </thead>
-        <tbody>
+        <tbody className={styles.tableBody}>
           {data.length === 0 ? (
             <tr>
               <td colSpan={columns.length} className={styles.tableCellEmpty}>

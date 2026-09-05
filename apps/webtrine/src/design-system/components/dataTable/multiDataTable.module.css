@@ -69,6 +69,10 @@
   border-bottom: 2px solid var(--theme-color-tertiary);
 }
 
+.tableBody {
+  background: var(--theme-color-background-3);
+}
+
 .tableHeaderCell {
   padding: 10px 12px;
   text-align: left;
