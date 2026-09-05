@@ -98,7 +98,6 @@ export const Tab = styled.button<{ $isActive: boolean }>`
   transition: all 0.2s ease;
   position: relative;
 
-  color: var(--theme-color-foreground-1);
   background: linear-gradient(
       var(--theme-color-background-1),
       var(--theme-color-background-1)
@@ -117,7 +116,7 @@ export const Tab = styled.button<{ $isActive: boolean }>`
         var(--theme-color-quinary)
       )
       center bottom / 100% 100% no-repeat;
-    color: var(--theme-color-foreground-2);
+    color: var(--theme-color-tertiary);
   }
 
   ${({ $isActive }) =>
@@ -186,7 +185,6 @@ export const AccordionHeader = styled.button<{ $isExpanded: boolean }>`
   transition: all 0.2s ease;
   border-radius: 8px;
   position: relative;
-  color: var(--theme-color-foreground-1);
 
   background: linear-gradient(
       var(--theme-color-background-1),
@@ -205,7 +203,7 @@ export const AccordionHeader = styled.button<{ $isExpanded: boolean }>`
       )
       center bottom / 100% 100% no-repeat;
 
-    color: var(--theme-color-foreground-2);
+    color: var(--theme-color-tertiary);
   }
 
   ${bp.max(

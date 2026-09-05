@@ -139,172 +139,6 @@
       {
         "type": "description",
         "id": "multiDescriptions",
-        "name": "Information",
-        "datas": {
-          "title": "Informations",
-          "description": "Toutes les informations sur les prestations de Chill Paws",
-          "content": {
-            "description-1": {
-              "id": "pet_care",
-              "type": "description",
-              "title": "Garde d'animaux",
-              "features": {
-                "isReversed": false,
-                "isCentered": false
-              },
-              "content": [
-                {
-                  "text": "Vous partez en vacances ou manquez de temps pour promener votre chien ? Un déplacement professionnel, une hospitalisation ou un imprévu ?"
-                },
-                {
-                  "text": "Je suis là pour m’occuper de votre animal en toute confiance et vous garantir un départ serein et sans stress. "
-                },
-                {
-                  "text": "Faire appel à un pet-sitter labelisé et certifié lors de vos absences garantit les meilleurs soins pour vos compagnons. Les chats et les chiens n’aiment pas être sortis de leur environnement, ils tiennent à leur territoire et s’y sentent en sécurité. Grâce aux visites quotidiennes, ils ne souffrent pas de déplacements stressants, ni de solitude, et je leur offre toute mon attention!"
-                },
-                {
-                  "text": "Prenez soin de lui comme il prend soin de vous!"
-                }
-              ]
-            },
-            "dataTable-1": {
-              "id": "pet_care",
-              "type": "dataTable",
-              "features": {
-                "centeredTitles": true
-              },
-              "title": "Tarifs des prestations complémentaires",
-              "subTitle": null,
-              "content": {
-                "columns": [
-                  {
-                    "header": "Type de prestation",
-                    "key": "type"
-                  },
-                  {
-                    "header": "Détail",
-                    "key": "detail"
-                  },
-                  {
-                    "header": "Tarif HT",
-                    "key": "price"
-                  }
-                ],
-                "data": [
-                  {
-                    "type": "Suppression / modification simple",
-                    "detail": "Texte, bouton, image, élément isolé. Prix par page et selon la quantité (hors éléments globaux reliés type menu, footer)",
-                    "price": "15 – 30 €"
-                  },
-                  {
-                    "type": "Ajout",
-                    "detail": "Ajouter une image, un bouton, une section simple",
-                    "price": "40 €"
-                  },
-                  {
-                    "type": "Création / modification de style",
-                    "detail": "Ajustements de style, responsive",
-                    "price": "50 – 100 €"
-                  },
-                  {
-                    "type": "Nouveau composant au sein d'une section/page",
-                    "detail": "Nouveau composant",
-                    "price": "100 – 200 €"
-                  },
-                  {
-                    "type": "Nouvelle section",
-                    "detail": "Ex : \"À propos\", \"Contact\" avec formulaire simple...",
-                    "price": "150 – 300 €"
-                  },
-                  {
-                    "type": "Nouvelle page complète",
-                    "detail": "Nouvelle page avec structure, contenu et responsive",
-                    "price": "250 – 500 €"
-                  }
-                ]
-              }
-            },
-            "description-2": {
-              "id": "dog_care",
-              "type": "description",
-              "title": "Garde de chien",
-              "features": {
-                "isReversed": false,
-                "isCentered": false
-              }
-            },
-            "dataTable-2": {
-              "id": "dog_care",
-              "type": "dataTable",
-              "features": {
-                "centeredTitles": true
-              },
-              "title": "Tarifs des prestations complémentaires",
-              "subTitle": null,
-              "content": {
-                "columns": [
-                  {
-                    "header": "Type de prestation",
-                    "key": "type"
-                  },
-                  {
-                    "header": "Détail",
-                    "key": "detail"
-                  },
-                  {
-                    "header": "Tarif HT",
-                    "key": "price"
-                  }
-                ],
-                "data": [
-                  {
-                    "type": "Suppression / modification simple",
-                    "detail": "Texte, bouton, image, élément isolé. Prix par page et selon la quantité (hors éléments globaux reliés type menu, footer)",
-                    "price": "15 – 30 €"
-                  },
-                  {
-                    "type": "Ajout",
-                    "detail": "Ajouter une image, un bouton, une section simple",
-                    "price": "40 €"
-                  },
-                  {
-                    "type": "Création / modification de style",
-                    "detail": "Ajustements de style, responsive",
-                    "price": "50 – 100 €"
-                  },
-                  {
-                    "type": "Nouveau composant au sein d'une section/page",
-                    "detail": "Nouveau composant",
-                    "price": "100 – 200 €"
-                  },
-                  {
-                    "type": "Nouvelle section",
-                    "detail": "Ex : \"À propos\", \"Contact\" avec formulaire simple...",
-                    "price": "150 – 300 €"
-                  },
-                  {
-                    "type": "Nouvelle page complète",
-                    "detail": "Nouvelle page avec structure, contenu et responsive",
-                    "price": "250 – 500 €"
-                  }
-                ]
-              }
-            },
-            "description-3": {
-              "id": "cat_care",
-              "type": "description",
-              "title": "Garde de chat",
-              "features": {
-                "isReversed": false,
-                "isCentered": false
-              }
-            }
-          }
-        }
-      },
-      {
-        "type": "description",
-        "id": "multiDescriptions",
         "name": "Home",
         "datas": {
           "title": "Accueil",
@@ -412,22 +246,16 @@
                   "imageSrc": "IMG_7558",
                   "buttons": [
                     {
-                      "label": "Visites chien/chat",
+                      "label": "Visites chien / Promenade",
                       "route": "/tarifs",
-                      "hash": "#visite-chien-chat",
-                      "id": "tarifs-visite-chien-chat"
+                      "hash": "#visite-chien",
+                      "id": "tarifs-visite-chien"
                     },
                     {
-                      "label": "Visites NAC",
+                      "label": "Visites chat / NAC",
                       "route": "/tarifs",
-                      "hash": "#visite-nac",
-                      "id": "tarifs-visite-nac"
-                    },
-                    {
-                      "label": "Promenade de chien",
-                      "route": "/tarifs",
-                      "hash": "#promenades",
-                      "id": "tarifs-promenade-chien"
+                      "hash": "#visite-chat-nac",
+                      "id": "tarifs-visite-chat-nac"
                     }
                   ]
                 }
@@ -947,115 +775,256 @@
           "title": "Tarifs",
           "description": null,
           "content": {
-            "description-1": {
-              "type": "description",
-              "title": "Pet sitting",
+            "dataTable-1": {
+              "type": "multiDataTable",
+              "hash": "visite-chien",
               "features": {
-                "isReversed": false,
-                "isCentered": false
+                "centeredTitles": true
               },
-              "content": [
+              "title": "Visite chien / Promenade",
+              "subTitle": "*Tarifs dégressifs de 15% à partir du 2ème animal",
+              "tables": [
                 {
-                  "text": "J’ai fait le choix de proposer des visites d’une heure chacune. Prendre le temps nécessaire pour le bien-être de vos animaux est ma priorité."
+                  "columns": [
+                    {
+                      "header": "1 chien",
+                      "key": "type"
+                    },
+                    {
+                      "header": "Tarif / heure",
+                      "key": "price1"
+                    },
+                    {
+                      "header": "Tarif / demi heure",
+                      "key": "price2"
+                    }
+                  ],
+                  "data": [
+                    {
+                      "type": "Visite ponctuelle",
+                      "price1": "25 €",
+                      "price2": "18 €"
+                    },
+                    {
+                      "type": "Visite semaine lundi à samedi",
+                      "price1": "150 €",
+                      "price2": "108 €"
+                    },
+                    {
+                      "type": "Visite dimanche et jours fériés (majoration 20%)",
+                      "price1": "30 €",
+                      "price2": "22 €"
+                    }
+                  ]
                 },
                 {
-                  "text": "Une visite de 30 minutes ne permet pas de réaliser toutes les tâches essentielles tout en offrant à vos compagnons l’attention et les soins qu’ils méritent. Le temps de jeux est souvent trop court c’est donc pour ses raison que je préfère prendre le temps de jouer et de les chouchouter en votre absence"
+                  "columns": [
+                    {
+                      "header": "2 chien",
+                      "key": "type"
+                    },
+                    {
+                      "header": "Tarif / heure",
+                      "key": "price1"
+                    },
+                    {
+                      "header": "Tarif / demi heure",
+                      "key": "price2"
+                    }
+                  ],
+                  "data": [
+                    {
+                      "type": "Visite ponctuelle",
+                      "price1": "43 €",
+                      "price2": "31 €"
+                    },
+                    {
+                      "type": "Visite semaine lundi à samedi",
+                      "price1": "258 €",
+                      "price2": "186 €"
+                    },
+                    {
+                      "type": "Visite dimanche et jours fériés (majoration 20%)",
+                      "price1": "52 €",
+                      "price2": "37 €"
+                    }
+                  ]
+                },
+                {
+                  "columns": [
+                    {
+                      "header": "3 chien",
+                      "key": "type"
+                    },
+                    {
+                      "header": "Tarif / heure",
+                      "key": "price1"
+                    },
+                    {
+                      "header": "Tarif / demi heure",
+                      "key": "price2"
+                    }
+                  ],
+                  "data": [
+                    {
+                      "type": "Visite ponctuelle",
+                      "price1": "65 €",
+                      "price2": "47 €"
+                    },
+                    {
+                      "type": "Visite semaine lundi à samedi",
+                      "price1": "390 €",
+                      "price2": "282 €"
+                    },
+                    {
+                      "type": "Visite dimanche et jours fériés (majoration 20%)",
+                      "price1": "78 €",
+                      "price2": "56 €"
+                    }
+                  ]
                 }
               ]
             },
-            "description-2": {
-              "type": "description",
-              "title": "Visite chien et chat",
-              "hash": "visite-chien-chat",
+            "dataTable-2": {
+              "type": "multiDataTable",
+              "hash": "visite-chat-nac",
               "features": {
-                "isReversed": false,
-                "isCentered": true
+                "centeredTitles": true
               },
-              "content": [
+              "title": "Visite chat / NAC",
+              "subTitle": "*Tarifs dégressifs de 15% à partir du 2ème animal",
+              "tables": [
                 {
-                  "text": "1 h : 10 € par jour"
+                  "columns": [
+                    {
+                      "header": "1 chat",
+                      "key": "type"
+                    },
+                    {
+                      "header": "Tarif / heure",
+                      "key": "price1"
+                    },
+                    {
+                      "header": "Tarif / demi heure",
+                      "key": "price2"
+                    }
+                  ],
+                  "data": [
+                    {
+                      "type": "Visite ponctuelle",
+                      "price1": "17 €",
+                      "price2": "10 €"
+                    },
+                    {
+                      "type": "Visite semaine lundi à samedi",
+                      "price1": "102 €",
+                      "price2": "60 €"
+                    },
+                    {
+                      "type": "Visite dimanche et jours fériés (majoration 20%)",
+                      "price1": "20 €",
+                      "price2": "12 €"
+                    }
+                  ]
                 },
                 {
-                  "text": "Forfait 2 jours : 20 €"
+                  "columns": [
+                    {
+                      "header": "2 chat",
+                      "key": "type"
+                    },
+                    {
+                      "header": "Tarif / heure",
+                      "key": "price1"
+                    },
+                    {
+                      "header": "Tarif / demi heure",
+                      "key": "price2"
+                    }
+                  ],
+                  "data": [
+                    {
+                      "type": "Visite ponctuelle",
+                      "price1": "30 €",
+                      "price2": "16 €"
+                    },
+                    {
+                      "type": "Visite semaine lundi à samedi",
+                      "price1": "180 €",
+                      "price2": "96 €"
+                    },
+                    {
+                      "type": "Visite dimanche et jours fériés (majoration 20%)",
+                      "price1": "35 €",
+                      "price2": "19 €"
+                    }
+                  ]
                 },
                 {
-                  "text": "Forfait 5 jours : 50 €"
+                  "columns": [
+                    {
+                      "header": "3 chat",
+                      "key": "type"
+                    },
+                    {
+                      "header": "Tarif / heure",
+                      "key": "price1"
+                    },
+                    {
+                      "header": "Tarif / demi heure",
+                      "key": "price2"
+                    }
+                  ],
+                  "data": [
+                    {
+                      "type": "Visite ponctuelle",
+                      "price1": "45 €",
+                      "price2": "23 €"
+                    },
+                    {
+                      "type": "Visite semaine lundi à samedi",
+                      "price1": "270 €",
+                      "price2": "138 €"
+                    },
+                    {
+                      "type": "Visite dimanche et jours fériés (majoration 20%)",
+                      "price1": "53 €",
+                      "price2": "28 €"
+                    }
+                  ]
                 },
                 {
-                  "text": "Forfait une semaine (7 jours) : 70 €"
-                },
-                {
-                  "text": "* Supplément de 5 € par animal en plus par semaine"
-                },
-                {
-                  "text": "** Deuxième visite le même jour : 5 € supplémentaires par semaine (3 semaines = 15 € supplémentaires)"
-                }
-              ],
-              "images": [
-                {
-                  "name": "IMG_7858",
-                  "focusable": false
-                }
-              ]
-            },
-            "description-3": {
-              "type": "description",
-              "title": "Visite NAC",
-              "hash": "visite-nac",
-              "features": {
-                "isReversed": true,
-                "isCentered": true
-              },
-              "content": [
-                {
-                  "text": "1 h : 10 € par jour"
-                },
-                {
-                  "text": "Forfait 2 jours : 20 €"
-                },
-                {
-                  "text": "Forfait 5 jours : 50 €"
-                },
-                {
-                  "text": "Forfait une semaine (7 jours) : 70 €"
-                },
-                {
-                  "text": "* Supplément de 5 € par animal en plus par semaine"
-                },
-                {
-                  "text": "** Deuxième visite le même jour : 5 € supplémentaires par semaine (3 semaines = 15 € supplémentaires)"
-                }
-              ],
-              "images": [
-                {
-                  "name": "IMG_7865",
-                  "focusable": false
-                }
-              ]
-            },
-            "description-4": {
-              "type": "description",
-              "title": "Promenade chien / chat ",
-              "hash": "promenades",
-              "features": {
-                "isReversed": false,
-                "isCentered": true
-              },
-              "content": [
-                {
-                  "text": "Je réalise des promenades pour chiens, qui varient selon les besoins d’activité de votre animal. La durée sera définie avec vous lors de la pré-visite. Je récupère l’animal à votre domicile."
-                },
-                {
-                  "text": "La laisse ainsi que le harnais sont fournis par le propriétaire. J’emporte avec moi une gamelle d’eau pendant toute la durée de la promenade."
-                },
-                {
-                  "text": "Promenades: 30min: 12€ / 45min: 15€ / 1h: 20€"
-                }
-              ],
-              "images": [
-                {
-                  "name": "IMG_9992",
-                  "focusable": false
+                  "columns": [
+                    {
+                      "header": "4 chat",
+                      "key": "type"
+                    },
+                    {
+                      "header": "Tarif / heure",
+                      "key": "price1"
+                    },
+                    {
+                      "header": "Tarif / demi heure",
+                      "key": "price2"
+                    }
+                  ],
+                  "data": [
+                    {
+                      "type": "Visite ponctuelle",
+                      "price1": "58 €",
+                      "price2": "31 €"
+                    },
+                    {
+                      "type": "Visite semaine lundi à samedi",
+                      "price1": "348 €",
+                      "price2": "186 €"
+                    },
+                    {
+                      "type": "Visite dimanche et jours fériés (majoration 20%)",
+                      "price1": "69 €",
+                      "price2": "37 €"
+                    }
+                  ]
                 }
               ]
             },
@@ -1244,9 +1213,9 @@
               "description": "Gatsby - 11 ans"
             },
             {
-              "alt": "Photo de Sonic",
+              "alt": "Photo de Sonic - 11 ans",
               "imageSrc": "IMG_9229",
-              "description": "Sonic"
+              "description": "Sonic - 11 ans"
             },
             {
               "alt": "Photo de Sky",
@@ -1262,6 +1231,111 @@
               "alt": "Photo de Joy - 9 ans",
               "imageSrc": "IMG_0278",
               "description": "Joy - 9 ans"
+            },
+            {
+              "alt": "Photo de Ambre - 6 ans",
+              "imageSrc": "IMG_0001",
+              "description": "Ambre - 6 ans"
+            },
+            {
+              "alt": "Photo de Compote - 2 ans",
+              "imageSrc": "IMG_0002",
+              "description": "Compote - 2 ans"
+            },
+            {
+              "alt": "Photo de Deemerys - 1 an",
+              "imageSrc": "IMG_0004",
+              "description": "Deemerys - 1 an"
+            },
+            {
+              "alt": "Photo de Nala et Isis - 8 et 5 ans",
+              "imageSrc": "IMG_0005",
+              "description": "Nala et Isis - 8 et 5 ans"
+            },
+            {
+              "alt": "Photo de Tao - 9 ans",
+              "imageSrc": "IMG_0006",
+              "description": "Tao - 9 ans"
+            },
+            {
+              "alt": "Photo de Naska - 5 ans",
+              "imageSrc": "IMG_0007",
+              "description": "Naska - 5 ans"
+            },
+            {
+              "alt": "Photo de Raya - 4 ans",
+              "imageSrc": "IMG_0008",
+              "description": "Raya - 4 ans"
+            },
+            {
+              "alt": "Photo de Voldi - 3 ans",
+              "imageSrc": "IMG_0009",
+              "description": "Voldi - 3 ans"
+            },
+            {
+              "alt": "Photo de Robbie - 6 ans",
+              "imageSrc": "IMG_0011",
+              "description": "Robbie - 6 ans"
+            },
+            {
+              "alt": "Photo de Mojito - 5 ans",
+              "imageSrc": "IMG_0012",
+              "description": "Mojito - 5 ans"
+            },
+            {
+              "alt": "Photo de Woody - 1 an",
+              "imageSrc": "IMG_0013",
+              "description": "Woody - 1 an"
+            },
+            {
+              "alt": "Photo de Peanut - 7 ans",
+              "imageSrc": "IMG_0014",
+              "description": "Peanut - 7 ans"
+            },
+            {
+              "alt": "Photo de Ghost - 7 ans",
+              "imageSrc": "IMG_0015",
+              "description": "Ghost - 7 ans"
+            },
+            {
+              "alt": "Photo de Stella - 8 ans",
+              "imageSrc": "IMG_0017",
+              "description": "Stella - 8 ans"
+            },
+            {
+              "alt": "Photo de Freddie - 5 ans",
+              "imageSrc": "IMG_0018",
+              "description": "Freddie - 5 ans"
+            },
+            {
+              "alt": "Photo de Agatha - 17 ans",
+              "imageSrc": "IMG_0019",
+              "description": "Agatha - 17 ans"
+            },
+            {
+              "alt": "Photo de Aïko - 7 mois",
+              "imageSrc": "IMG_0020",
+              "description": "Aïko - 7 mois"
+            },
+            {
+              "alt": "Photo de Arkan - 7 mois",
+              "imageSrc": "IMG_0021",
+              "description": "Arkan - 7 mois"
+            },
+            {
+              "alt": "Photo de Chipie - 5 ans",
+              "imageSrc": "IMG_0022",
+              "description": "Chipie - 5 ans"
+            },
+            {
+              "alt": "Photo de Népherette - 1 an",
+              "imageSrc": "IMG_0023",
+              "description": "Népherette - 1 an"
+            },
+            {
+              "alt": "Photo de Speedy - 3 ans",
+              "imageSrc": "IMG_0016",
+              "description": "Speedy - 3 ans"
             }
           ]
         }
