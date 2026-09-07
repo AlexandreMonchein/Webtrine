@@ -353,9 +353,6 @@
                   "description": [
                     {
                       "text": "Je ne facture aucun frais kilométrique pour les déplacements effectués dans ma zone d’intervention."
-                    },
-                    {
-                      "text": "Aucuns frais supplémentaires ne sont appliqués pour les interventions réalisées le week-end ou les jours fériés."
                     }
                   ]
                 },
@@ -364,14 +361,6 @@
                   "description": [
                     {
                       "text": "Afin de récompenser votre fidélité, une surprise vous attend tous les 10 visites effectuées!"
-                    }
-                  ]
-                },
-                {
-                  "title": "Pré-visite offerte si pub",
-                  "description": [
-                    {
-                      "text": "La pré-visite vous est offerte si vous me faites une publication/story sur l'un de vos réseaux sociaux (Instagram...)"
                     }
                   ]
                 },
@@ -1062,9 +1051,6 @@
                   "description": [
                     {
                       "text": "Frais kilométrique"
-                    },
-                    {
-                      "text": "Week-ends et Jours fériés"
                     }
                   ]
                 },
@@ -1484,7 +1470,7 @@
                       {
                         "id": "pay-3",
                         "question": "Y a-t-il des frais supplémentaires (kilomètres, week-ends, jours fériés) ?",
-                        "answer": "<p><strong>Non</strong>. Je n’applique <strong>aucun frais kilométrique</strong> dans ma zone d’intervention, et <strong>aucun supplément</strong> n’est facturé pour les prestations le week-end ou les jours fériés.</p>"
+                        "answer": "<p><strong>Non</strong>. Je n’applique <strong>aucun frais kilométrique</strong> dans ma zone d’intervention.</p>"
                       }
                     ]
                   },
