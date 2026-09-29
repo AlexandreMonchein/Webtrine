@@ -215,7 +215,7 @@
                   "title": "Déroulement d’une visite",
                   "hash": "visites",
                   "description": "Lors de chaque visite, je consacre un temps privilégié à votre animal, en respectant ses besoins spécifiques et vos consignes.",
-                  "imageSrc": "IMG_7861",
+                  "imageSrc": "IMG_0024",
                   "buttons": [
                     {
                       "label": "Déroulement",
@@ -1084,16 +1084,6 @@
           },
           "inventory": [
             {
-              "alt": "Photo de Vegas - 5 ans",
-              "imageSrc": "IMG_7862",
-              "description": "Vegas - 5 ans"
-            },
-            {
-              "alt": "Photo de Néo - 9 ans",
-              "imageSrc": "IMG_7789",
-              "description": "Néo - 9 ans"
-            },
-            {
               "alt": "Photo de Tigrou - 3 ans",
               "imageSrc": "IMG_6037",
               "description": "Tigrou - 3 ans"
@@ -1104,19 +1094,14 @@
               "description": "Luna - 2 ans"
             },
             {
+              "alt": "Photo de Néo - 9 ans",
+              "imageSrc": "IMG_7789",
+              "description": "Néo - 9 ans"
+            },
+            {
               "alt": "Photo de Nougat - 7 mois",
               "imageSrc": "IMG_7557",
               "description": "Nougat - 7 mois"
-            },
-            {
-              "alt": "Photo de Minoune - 2 ans",
-              "imageSrc": "IMG_7897",
-              "description": "Minoune - 2 ans"
-            },
-            {
-              "alt": "Photo de Yoko - 1 ans",
-              "imageSrc": "IMG_7895",
-              "description": "Yoko - 1 ans"
             },
             {
               "alt": "Photo de Milka - 4 ans",
@@ -1127,16 +1112,6 @@
               "alt": "Photo de Léo - 5 mois",
               "imageSrc": "IMG_7899",
               "description": "Léo - 5 mois"
-            },
-            {
-              "alt": "Photo de Chelsea - 6 ans",
-              "imageSrc": "IMG_8048",
-              "description": "Chelsea - 6 ans"
-            },
-            {
-              "alt": "Photo de Ice - 2 mois",
-              "imageSrc": "IMG_8285",
-              "description": "Ice - 2 mois"
             },
             {
               "alt": "Photo de Jojo - 2 ans",
