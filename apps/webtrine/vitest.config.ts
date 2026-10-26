@@ -15,9 +15,6 @@ const dirname =
 export default mergeConfig(
   viteConfig,
   defineConfig({
-    optimizeDeps: {
-      include: ["react-helmet"], // évite un rechargement de Vite en cours de run
-    },
     plugins: [
       storybookTest({
         configDir: path.join(dirname, ".storybook"),

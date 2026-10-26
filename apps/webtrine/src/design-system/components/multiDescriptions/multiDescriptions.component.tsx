@@ -1,6 +1,5 @@
 import classNames from "classnames";
 import { Suspense, useEffect, useState } from "react";
-import { Helmet } from "react-helmet";
 import { useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
 
@@ -139,12 +138,8 @@ const MultiDescription = ({ templateName = null }: MultiDescriptionProps) => {
 
   return (
     <Suspense fallback={<div>Loading...</div>}>
-      <Helmet>
-        <title>
-          {fullName} - {title}
-        </title>
-        <meta name="description" content={description} />
-      </Helmet>
+      <title>{`${fullName} - ${title}`}</title>
+      <meta name="description" content={description} />
       <div
         className={classNames(styles.container, {
           [styles.singleSection]: components.length === 1,

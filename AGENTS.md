@@ -18,22 +18,22 @@ repo root (e.g. `pnpm lint src/App.tsx` lints `apps/webtrine/src/App.tsx`).
 
 ## 🏗️ Architecture & Technology Stack
 
-- **Frontend**: React 18, Redux Toolkit, CSS Modules + Styled Components (migration en cours), TypeScript
-- **Build Tools**: Vite 6 avec plugins personnalisés
+- **Frontend**: React 19, Redux Toolkit, CSS Modules + Styled Components (migration en cours), TypeScript
+- **Build Tools**: Vite 8 avec plugins personnalisés
 - **Package Manager**: pnpm (v10)
-- **Node**: v22
+- **Node**: v24 (>= 24.22.1)
 - **Design System**: Système de composants réutilisables dans `apps/webtrine/src/design-system/`
-- **Documentation**: Storybook 8.6.7
+- **Documentation**: Storybook 10
 
 ### Technologies Principales
 
 - **UI/Styling**: CSS Modules (nouveau) + Styled Components 6.1.11 (legacy), CSS moderne avec variables
 - **State Management**: Redux Toolkit (@reduxjs/toolkit 2.2.4)
-- **Routing**: React Router DOM 6.23.1
-- **Internationalization**: i18next 23.11.5 + react-i18next 14.1.1
-- **Maps**: Leaflet 1.9.4 + React Leaflet avec gesture handling
+- **Routing**: React Router DOM 7
+- **Internationalization**: i18next 26 + react-i18next 17
+- **Maps**: Leaflet 1.9.4 + React Leaflet 5 avec gesture handling
 - **Forms**: EmailJS pour l'envoi d'emails, React Calendly pour la planification
-- **Testing**: Vitest 3.0.9 + Testing Library + Playwright
+- **Testing**: Vitest 4 + Testing Library + Playwright
 - **Linting**: ESLint 9 avec flat config + Prettier + Stylelint
 - **CSS Modules**: typescript-plugin-css-modules pour le support TypeScript
 
@@ -384,7 +384,7 @@ apps/webtrine/src/design-system/
 
 ### Configuration de Test
 
-- **Framework**: Vitest 3.0.9
+- **Framework**: Vitest 4
 - **Environment**: jsdom pour simuler le DOM
 - **Testing Library**: @testing-library/react + @testing-library/user-event
 - **Coverage**: @vitest/coverage-v8
@@ -539,7 +539,7 @@ Le système de templates est le cœur de l'application :
 - **Images**: Conversion automatique en WebP avec compression
 - **Code splitting**: Import dynamique des templates
 - **Lazy loading**: Chargement différé des composants lourds
-- **Build optimisé**: Vite avec minification esbuild
+- **Build optimisé**: Vite avec minification Oxc
 - **Console logs**: Supprimés en production
 
 ### Points d'Attention Communs

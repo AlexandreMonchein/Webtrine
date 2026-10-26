@@ -106,7 +106,6 @@ export const MapLeaflet = (datas): ReactElement | null => {
           doubleClickZoom={true}
           minZoom={2}
           preferCanvas={false}
-          whenCreated={() => console.warn(">>> Map Created")}
           whenReady={() => console.warn(">>> Map Ready")}
         >
           <TileLayer
