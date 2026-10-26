@@ -115,7 +115,6 @@ export default defineConfig({
       ? `./build/${process.env.VITE_CUSTOMER}`
       : "./build/showcase", // Output directory for production build - showcase par défaut pour les tests
     assetsDir: "assets", // Folder for static assets like images
-    minify: "esbuild", // Terser is the default minifier in Vite
     // Désactiver la copie automatique du dossier public
     copyPublicDir: false,
     terserOptions: {
@@ -156,8 +155,5 @@ export default defineConfig({
   },
   define: {
     "process.env": process.env, // Mimic process.env like in Webpack (important for environment variables)
-  },
-  esbuild: {
-    jsxInject: `import React from 'react'`, // Auto-inject React for JSX (since React 17+ has no need to import `React` explicitly)
   },
 });

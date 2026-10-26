@@ -27,8 +27,6 @@ const config: KnipConfig = {
   // Deliberately NOT silenced via ignoreDependencies so a real unused dep still shows.
   // Endgame: move lint tooling to root devDependencies in a later plan.
   ignoreDependencies: [
-    // Required by CRA/react-scripts but not directly imported
-    "react-scripts",
     // PostCSS plugins referenced in postcss.config.js (not imported in code)
     "postcss-custom-media",
     "postcss-import",

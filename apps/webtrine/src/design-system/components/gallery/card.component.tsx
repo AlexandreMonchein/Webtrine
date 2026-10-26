@@ -29,6 +29,7 @@ export const Card = ({ data, type }: CardProps) => {
         src={imageSrc}
         loading="lazy"
         decoding="async"
+        fetchPriority="low"
         width="450"
         height="450"
         onLoad={() => setIsLoaded(true)}
@@ -36,9 +37,6 @@ export const Card = ({ data, type }: CardProps) => {
           opacity: isLoaded ? 1 : 0,
           transition: "opacity 0.3s ease-in-out",
         }}
-        {...({
-          fetchpriority: "low",
-        } as React.ImgHTMLAttributes<HTMLImageElement>)}
       />
     </article>
   );

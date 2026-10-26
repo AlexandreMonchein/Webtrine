@@ -70,7 +70,7 @@ Ajoutez cette structure dans votre `config/customer/{CLIENT}/config.json` :
 - **`title`** : `"Our Team"` - Titre affiché dans l'onglet du navigateur
 
 - **`description`** : `"Meet our amazing team..."` - Description pour SEO
-  - Génère un tag `<meta name="description" content="..." data-react-helmet="true">`
+  - Génère un tag `<meta name="description" content="...">`
   - Peut être `null` si non nécessaire
 
 #### Niveau 3 : Content (composants de la page)
