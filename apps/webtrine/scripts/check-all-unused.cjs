@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+/* eslint-disable no-console */
 
 /**
  * Script précis pour détecter les images inutilisées (tous clients sauf showcase)

@@ -3,9 +3,7 @@ export type WrapperId = "sidebar" | "fullscreenGallery" | null;
 export type AnchorId = "burgerMenuNavbarIcon" | string | null;
 
 export type FirstIdToFocus =
-  | "burgerMenuSidebarIcon"
-  | "fullscreenCloseButton"
-  | null;
+  "burgerMenuSidebarIcon" | "fullscreenCloseButton" | null;
 
 export const MODAL_TYPES = {
   SIDE_NAV: "SIDE_NAV",

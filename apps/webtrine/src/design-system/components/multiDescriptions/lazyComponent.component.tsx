@@ -21,7 +21,10 @@ export const LazyComponent = ({
   const shouldRender = isVisible || window.location.hash.length > 0;
 
   return (
-    <div ref={elementRef} style={{ minHeight: shouldRender ? "auto" : "400px" }}>
+    <div
+      ref={elementRef}
+      style={{ minHeight: shouldRender ? "auto" : "400px" }}
+    >
       {shouldRender ? children : placeholder}
     </div>
   );

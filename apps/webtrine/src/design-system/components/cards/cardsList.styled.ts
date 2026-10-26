@@ -61,17 +61,25 @@ export const CardContainer = styled.div<{
       ${bp.min(
         breakpointNames.medium,
         css`
-          ${$isEvenCount
-            ? css`
-                /* Nombre pair: 2 colonnes max */
-                grid-template-columns: repeat(${Math.min($cardCount, 2)}, 1fr);
-                justify-content: center;
-              `
-            : css`
-                /* Nombre impair: 3 colonnes max */
-                grid-template-columns: repeat(${Math.min($cardCount, 3)}, 1fr);
-                justify-content: center;
-              `}
+          ${
+            $isEvenCount
+              ? css`
+                  /* Nombre pair: 2 colonnes max */
+                  grid-template-columns: repeat(
+                    ${Math.min($cardCount, 2)},
+                    1fr
+                  );
+                  justify-content: center;
+                `
+              : css`
+                  /* Nombre impair: 3 colonnes max */
+                  grid-template-columns: repeat(
+                    ${Math.min($cardCount, 3)},
+                    1fr
+                  );
+                  justify-content: center;
+                `
+          }
         `,
       )}
 
@@ -79,17 +87,25 @@ export const CardContainer = styled.div<{
       ${bp.min(
         breakpointNames.xlarge,
         css`
-          ${$isEvenCount
-            ? css`
-                /* Nombre pair: 4 colonnes max, mais pas plus que le nombre de cartes */
-                grid-template-columns: repeat(${Math.min($cardCount, 4)}, 1fr);
-                justify-content: center;
-              `
-            : css`
-                /* Nombre impair: 3 colonnes max, mais pas plus que le nombre de cartes */
-                grid-template-columns: repeat(${Math.min($cardCount, 3)}, 1fr);
-                justify-content: center;
-              `}
+          ${
+            $isEvenCount
+              ? css`
+                  /* Nombre pair: 4 colonnes max, mais pas plus que le nombre de cartes */
+                  grid-template-columns: repeat(
+                    ${Math.min($cardCount, 4)},
+                    1fr
+                  );
+                  justify-content: center;
+                `
+              : css`
+                  /* Nombre impair: 3 colonnes max, mais pas plus que le nombre de cartes */
+                  grid-template-columns: repeat(
+                    ${Math.min($cardCount, 3)},
+                    1fr
+                  );
+                  justify-content: center;
+                `
+          }
         `,
       )}
     `}

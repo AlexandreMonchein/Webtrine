@@ -59,6 +59,7 @@ test.describe("E2E Navigation Tests", () => {
           });
 
           // Check no 404 (if heading exists)
+          // eslint-disable-next-line no-await-in-loop
           const headingCount = await page.locator("h1, h2").count();
           if (headingCount > 0) {
             const heading = page.locator("h1, h2").first();

@@ -340,7 +340,9 @@ describe("<PetSittingContact />", () => {
     };
     await fillRequiredFields(user, dates);
 
-    await user.click(screen.getByRole("button", { name: "Envoyer la demande" }));
+    await user.click(
+      screen.getByRole("button", { name: "Envoyer la demande" }),
+    );
 
     await waitFor(() => {
       expect(emailjs.send).toHaveBeenCalledTimes(1);
@@ -375,16 +377,18 @@ describe("<PetSittingContact />", () => {
       pre: futureDate(5),
     });
 
-    await user.click(screen.getByRole("button", { name: "Envoyer la demande" }));
+    await user.click(
+      screen.getByRole("button", { name: "Envoyer la demande" }),
+    );
 
     await waitFor(() => {
       expect(emailjs.send).toHaveBeenCalledTimes(1);
     });
 
     await waitFor(() => {
-      expect(
-        (screen.getByLabelText(/^Prénom/) as HTMLInputElement).value,
-      ).toBe("");
+      expect((screen.getByLabelText(/^Prénom/) as HTMLInputElement).value).toBe(
+        "",
+      );
       expect(
         (screen.getByLabelText(/Code postal/) as HTMLInputElement).value,
       ).toBe("");
@@ -402,7 +406,9 @@ describe("<PetSittingContact />", () => {
       pre: futureDate(5),
     });
 
-    await user.click(screen.getByRole("button", { name: "Envoyer la demande" }));
+    await user.click(
+      screen.getByRole("button", { name: "Envoyer la demande" }),
+    );
 
     await waitFor(() => {
       expect(emailjs.send).toHaveBeenCalledTimes(1);

@@ -297,6 +297,7 @@ test.describe("Visual Regression Tests", () => {
               // Full page screenshot with visual regression detection
               const screenshotName = `${customer}-${route.name.toLowerCase().replace(/\s+/g, "-")}-${viewport.name}.png`;
 
+              // eslint-disable-next-line no-await-in-loop
               await expect(page).toHaveScreenshot(screenshotName, {
                 fullPage: true,
                 animations: "disabled" as const,

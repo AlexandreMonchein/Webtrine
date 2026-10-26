@@ -57,6 +57,7 @@ const ArtistDescription: React.FC<{ datas: ArtistDescriptionData }> = ({
       setCurrentIndex((prev) => (prev + 1) % images.length);
     }, intervalBetweenImages);
 
+    // eslint-disable-next-line consistent-return
     return () => clearInterval(timer);
   }, [images.length, intervalBetweenImages, isVisible]);
 

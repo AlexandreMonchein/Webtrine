@@ -10,8 +10,7 @@ export interface DescriptionContentButton {
 }
 
 export type DescriptionContentItem =
-  | DescriptionContentText
-  | DescriptionContentButton;
+  DescriptionContentText | DescriptionContentButton;
 
 export interface DescriptionImage {
   name: string;

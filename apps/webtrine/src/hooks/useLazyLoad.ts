@@ -39,6 +39,7 @@ export const useLazyLoad = ({
 
     observer.observe(element);
 
+    // eslint-disable-next-line consistent-return
     return () => {
       if (element) {
         observer.unobserve(element);

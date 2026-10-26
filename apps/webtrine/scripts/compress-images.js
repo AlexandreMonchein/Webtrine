@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+/* eslint-disable no-console */
 
 /**
  * Script de compression d'images pour optimiser les assets clients
@@ -65,6 +66,17 @@ async function getFileStats(filepath) {
     );
     return null;
   }
+}
+
+/**
+ * Formate les octets en taille lisible
+ */
+function formatBytes(bytes) {
+  if (bytes === 0) return "0 B";
+  const k = 1024;
+  const sizes = ["B", "KB", "MB", "GB"];
+  const i = Math.floor(Math.log(bytes) / Math.log(k));
+  return `${Math.round((bytes / Math.pow(k, i)) * 100) / 100} ${sizes[i]}`;
 }
 
 /**
@@ -140,7 +152,11 @@ async function compressImage(filepath) {
     // Nettoie le fichier temporaire en cas d'erreur
     try {
       await unlink(`${filepath}.tmp`);
-    } catch {}
+    } catch {
+      console.warn(
+        `⚠️ Impossible de supprimer le fichier temporaire: ${filepath}.tmp`,
+      );
+    }
   }
 }
 
@@ -171,17 +187,6 @@ async function processDirectory(dirPath) {
       error.message,
     );
   }
-}
-
-/**
- * Formate les octets en taille lisible
- */
-function formatBytes(bytes) {
-  if (bytes === 0) return "0 B";
-  const k = 1024;
-  const sizes = ["B", "KB", "MB", "GB"];
-  const i = Math.floor(Math.log(bytes) / Math.log(k));
-  return `${Math.round((bytes / Math.pow(k, i)) * 100) / 100} ${sizes[i]}`;
 }
 
 /**
