@@ -19,7 +19,7 @@ interface Plan {
   features: string[];
 }
 
-interface MultiplePricesProps {
+export interface MultiplePricesProps {
   title: string;
   subtitle: string;
   plans: Plan[];

@@ -343,7 +343,7 @@ const TestimonialCards: React.FC<TestimonialCardsProps> = (props) => {
         {totalSlides > 1 && (
           <NavigationContainer>
             <PaginationContainer>
-              {slides.map((slide, index) => (
+              {slides.map((_, index) => (
                 <PaginationDot
                   key={`dot-${index}`}
                   $active={index === currentIndex}

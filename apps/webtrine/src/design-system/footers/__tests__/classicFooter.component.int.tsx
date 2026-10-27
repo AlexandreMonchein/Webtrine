@@ -142,8 +142,8 @@ describe("<ClassicFooter />", () => {
 
   it("should render social links from Redux", async () => {
     await renderWithProviders(<ClassicFooter {...defaultProps} />);
-    // Les liens sociaux sont rendus dynamiquement, vérifions qu'ils existent
-    const socialLinks = screen.getAllByRole("link", {
+    // Les liens sociaux sont rendus dynamiquement (import async) : on attend leur apparition
+    const socialLinks = await screen.findAllByRole("link", {
       name: /instagram|facebook/i,
     });
     expect(socialLinks.length).toBeGreaterThan(0);
@@ -163,26 +163,11 @@ describe("<ClassicFooter />", () => {
       store: storeWithEmptySocial,
     });
 
-    // Attendre que les icônes sociales se chargent
-    await waitFor(
-      () => {
-        const icons = screen.queryAllByTestId("social-icon");
-        return icons.length > 0;
-      },
-      { timeout: 2000 },
-    );
+    // Facebook (lien valide) est rendu une fois l'import async des icônes terminé
+    expect(await screen.findByLabelText("facebook")).toBeInTheDocument();
 
-    // Instagram ne devrait pas être rendu (lien vide) - vérifier via absence de lien
-    const instagramLink = screen.queryByLabelText("instagram");
-    expect(instagramLink).not.toBeInTheDocument();
-
-    // Facebook devrait être rendu - vérifier qu'il existe
-    const facebookLink = screen.queryByLabelText("facebook");
-    // Si facebook n'est pas trouvé, c'est probablement un problème de chargement async
-    // Acceptons les deux cas pour éviter les tests flaky
-    if (facebookLink) {
-      expect(facebookLink).toBeInTheDocument();
-    }
+    // Instagram ne doit pas être rendu (lien vide) - vérifié après le chargement des icônes
+    expect(screen.queryByLabelText("instagram")).not.toBeInTheDocument();
   });
 
   it("should render with horizontal logo shape", () => {

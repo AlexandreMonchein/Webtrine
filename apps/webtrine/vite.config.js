@@ -117,12 +117,13 @@ export default defineConfig({
     assetsDir: "assets", // Folder for static assets like images
     // Désactiver la copie automatique du dossier public
     copyPublicDir: false,
-    terserOptions: {
-      compress: {
-        drop_console: true, // Remove console logs in production
-      },
-      mangle: {
-        toplevel: true, // Mangle top-level variables (may break things, use with caution)
+    rolldownOptions: {
+      output: {
+        minify: {
+          compress: {
+            dropConsole: true, // Remove console logs in production
+          },
+        },
       },
     },
   },
@@ -154,6 +155,9 @@ export default defineConfig({
     include: ["react", "react-dom"], // Pre-bundle React for faster startup
   },
   define: {
-    "process.env": process.env, // Mimic process.env like in Webpack (important for environment variables)
+    // Empty object : les libs qui lisent `process.env.X` obtiennent `undefined` au lieu de planter,
+    // sans embarquer les variables d'environnement de la machine de build dans le bundle client
+    // (les variables du client passent par `import.meta.env.VITE_*`).
+    "process.env": {},
   },
 });

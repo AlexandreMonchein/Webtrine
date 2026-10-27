@@ -17,11 +17,10 @@ import type {
 
 const ClassicFooter = (props: ClassicFooterProps) => {
   const { name: clientName } = useSelector(getClient);
-  const socials: { [key: string]: { link: string; color: string } } =
-    useSelector(getSocials);
-  const legals: LegalItem[] = useSelector(getTemplates).filter(
-    (template: LegalItem) => template.type === "legals",
-  );
+  const socials = useSelector(getSocials);
+  const legals = useSelector(getTemplates).filter(
+    (template) => template.type === "legals",
+  ) as LegalItem[];
 
   const { logo } = props || {};
   const { name, alt, link, shape } = logo || {};

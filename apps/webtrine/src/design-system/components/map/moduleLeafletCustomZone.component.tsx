@@ -2337,8 +2337,11 @@ const MapLeafletZone = (): ReactElement => {
     const buffer2 = buffer(simplifiedLine2, 5, { units: "kilometers" });
     const buffer3 = buffer(simplifiedLine3, 5, { units: "kilometers" });
 
-    let combined = union(featureCollection([buffer1, buffer2]));
-    combined = union(featureCollection([combined, buffer3]));
+    const merged = union(
+      featureCollection([buffer1, buffer2].filter((zone) => !!zone)),
+    );
+    const combined =
+      merged && buffer3 ? union(featureCollection([merged, buffer3])) : merged;
 
     setCombinedZone(combined);
   }, []);

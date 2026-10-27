@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getCustomer } from "../../../customer.utils";
 import { showPopUp } from "../../../store/state.action";
 import { getClient, getSocials } from "../../../store/state.selector";
+import type { ClientContact } from "../../../types/config.types";
 import { useLoadComponents } from "../../utils/useLoadComponents.hook";
 import { MapLeafletZone } from "../map/moduleLeafletZone.component";
 import PopUp from "../popup/popUp.component";
@@ -42,10 +43,13 @@ const PetSittingContact = () => {
   const customer = getCustomer();
   const { contact, logo } = useSelector(getClient);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const socials: { [key: string]: { link: string; color: string } } =
-    useSelector(getSocials);
+  const socials = useSelector(getSocials);
 
-  const { phone, email, mailTemplate: templateId } = contact;
+  const {
+    phone,
+    email,
+    mailTemplate: templateId,
+  }: ClientContact = contact ?? {};
 
   useEffect(() => emailjs.init("OYqEmnhZaB6k1hEGB"), []);
 
@@ -133,9 +137,13 @@ const PetSittingContact = () => {
       };
 
       try {
-        await emailjs.send(import.meta.env.VITE_MAIL_SERVICE_ID, templateId, {
-          ...datas,
-        });
+        await emailjs.send(
+          import.meta.env.VITE_MAIL_SERVICE_ID,
+          templateId ?? "",
+          {
+            ...datas,
+          },
+        );
         dispatch(
           showPopUp({
             type: "success",

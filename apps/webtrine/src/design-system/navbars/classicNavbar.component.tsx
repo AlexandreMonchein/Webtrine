@@ -28,7 +28,7 @@ const ClassicNavbar = (props: ClassicNavbarProps) => {
 
   const socialItems = useMemo(
     () =>
-      Object.entries(socials)
+      Object.entries(socials ?? {})
         .filter(([_, link]) => link)
         .map(([name, link]) => ({ name, link })),
     [socials],

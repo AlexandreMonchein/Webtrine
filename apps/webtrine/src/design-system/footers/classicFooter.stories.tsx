@@ -3,33 +3,36 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
 
+import { initialState, stateReducer } from "../../store/state.reducer";
 import ClassicFooter from "./classicFooter.component";
 import type { ClassicFooterProps } from "./classicFooter.types";
 
-// Mock Redux store pour Storybook
+// Mock Redux store pour Storybook (même forme que le vrai store : client + layout)
 const mockStore = configureStore({
-  reducer: {
-    state: (
-      state = {
-        client: { name: "showcase" },
-        socials: {
-          instagram: {
-            link: "https://instagram.com/showcase",
-            color: "#E4405F",
-          },
-          facebook: { link: "https://facebook.com/showcase", color: "#1877F2" },
-          linkedin: {
-            link: "https://linkedin.com/company/showcase",
-            color: "#0A66C2",
-          },
+  reducer: stateReducer,
+  preloadedState: {
+    ...initialState,
+    client: {
+      name: "showcase",
+      socials: {
+        instagram: {
+          link: "https://instagram.com/showcase",
+          color: "#E4405F",
         },
-        templates: [
-          { type: "legals", datas: { type: "mentions-legals" } },
-          { type: "legals", datas: { type: "confidentialite" } },
-        ],
+        facebook: { link: "https://facebook.com/showcase", color: "#1877F2" },
+        linkedin: {
+          link: "https://linkedin.com/company/showcase",
+          color: "#0A66C2",
+        },
       },
-    ) => state,
-  },
+    },
+    layout: {
+      templates: [
+        { type: "legals", datas: { type: "mentions-legals" } },
+        { type: "legals", datas: { type: "confidentialite" } },
+      ],
+    },
+  } as any,
 });
 
 const meta: Meta<typeof ClassicFooter> = {

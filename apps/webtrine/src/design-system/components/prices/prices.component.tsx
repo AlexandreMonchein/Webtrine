@@ -1,10 +1,14 @@
-import AllInOne from "./allInOne.component";
-import MultiplePrices from "./multiplePrices.component";
+import AllInOne, { type AllInOneProps } from "./allInOne.component";
+import MultiplePrices, {
+  type MultiplePricesProps,
+} from "./multiplePrices.component";
 
-const Prices = (props) => {
-  const { type } = props;
+type PricesProps =
+  | ({ type: "multiplePrices" } & MultiplePricesProps)
+  | ({ type: "allInOne" } & AllInOneProps);
 
-  switch (type) {
+const Prices = (props: PricesProps) => {
+  switch (props.type) {
     case "multiplePrices":
       return <MultiplePrices {...props} />;
 

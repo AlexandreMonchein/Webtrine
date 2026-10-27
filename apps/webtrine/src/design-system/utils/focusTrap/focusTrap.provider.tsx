@@ -7,7 +7,7 @@ import type { AnchorId, ModalType } from "./type";
 
 interface FocusTrapProviderProps {
   isVisible: boolean;
-  type: ModalType;
+  type: ModalType | null;
   children: React.ReactNode;
   customAnchorId?: string; // Override config anchorId
 }
@@ -55,7 +55,7 @@ export const FocusTrapProvider = ({
   }, []);
 
   const setFocus = useCallback(
-    (modalType: ModalType) => {
+    (modalType: ModalType | null) => {
       if (!modalType) {
         return;
       }

@@ -1,6 +1,8 @@
 import { Suspense, useEffect, useState } from "react";
 
-const DisplayFooter = ({ template }) => {
+import type { Template } from "../../../types/config.types";
+
+const DisplayFooter = ({ template }: { template: Template }) => {
   const [footer, setFooter] = useState<React.ReactNode>();
 
   useEffect(() => {

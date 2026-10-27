@@ -1,10 +1,11 @@
 import emailjs from "@emailjs/browser";
-import { useCallback, useEffect, useState } from "react";
+import { FormEvent, useCallback, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 
 import { showPopUp } from "../../../store/state.action";
 import { getClient } from "../../../store/state.selector";
+import type { ClientContact } from "../../../types/config.types";
 import { MapLeaflet } from "../map/moduleLeafletMap.component";
 import PopUp from "../popup/popUp.component";
 import {
@@ -24,11 +25,12 @@ import {
   Textarea,
   Title,
 } from "./defaultContact.styled";
+import type { DefaultContactProps } from "./defaultContact.types";
 
-const DefaultContact = ({ datas }) => {
+const DefaultContact = ({ datas }: DefaultContactProps) => {
   const dispatch = useDispatch();
   const { t } = useTranslation();
-  const client = useSelector(getClient).contact;
+  const client: ClientContact = useSelector(getClient).contact ?? {};
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const { map } = datas || {};
@@ -38,7 +40,7 @@ const DefaultContact = ({ datas }) => {
   useEffect(() => emailjs.init("OYqEmnhZaB6k1hEGB"), []);
 
   const handleSubmit = useCallback(
-    async (e) => {
+    async (e: FormEvent<HTMLFormElement>) => {
       e.preventDefault();
 
       // Empêcher les soumissions multiples
@@ -46,11 +48,17 @@ const DefaultContact = ({ datas }) => {
 
       setIsSubmitting(true);
 
-      const name = e.target.name.value || null;
-      const company = e.target.company.value || null;
-      const emailFrom = e.target.email.value || null;
-      const number = e.target.phone.value || null;
-      const content = e.target.content.value || null;
+      // currentTarget n'est plus disponible après un await : on garde la référence du formulaire
+      const form = e.currentTarget;
+      const getValue = (field: string) =>
+        (form.elements.namedItem(field) as HTMLInputElement | null)?.value ||
+        null;
+
+      const name = getValue("name");
+      const company = getValue("company");
+      const emailFrom = getValue("email");
+      const number = getValue("phone");
+      const content = getValue("content");
       const replyTo = email || "webtrine.pro@gmail.com";
 
       const datas = {
@@ -63,9 +71,13 @@ const DefaultContact = ({ datas }) => {
       };
 
       try {
-        await emailjs.send(import.meta.env.VITE_MAIL_SERVICE_ID, templateId, {
-          ...datas,
-        });
+        await emailjs.send(
+          import.meta.env.VITE_MAIL_SERVICE_ID,
+          templateId ?? "",
+          {
+            ...datas,
+          },
+        );
         dispatch(
           showPopUp({
             type: "success",
@@ -73,7 +85,7 @@ const DefaultContact = ({ datas }) => {
           }),
         );
 
-        e.target.reset();
+        form.reset();
       } catch (error) {
         dispatch(
           showPopUp({

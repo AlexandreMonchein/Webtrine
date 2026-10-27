@@ -6,7 +6,7 @@ import Banner from "../banner.component";
 import { BannerDatas } from "../banner.types";
 
 // Mock customer utils
-vi.mock("../../../customer.utils", () => ({
+vi.mock("../../../../customer.utils", () => ({
   getCustomer: () => "showcase",
 }));
 
@@ -43,7 +43,29 @@ describe("<Banner />", () => {
       render(<Banner {...defaultBannerData} />);
 
       const image = screen.getByAltText("Background test-image");
-      expect(image).toHaveAttribute("src", "/assets/showcase/test-image.webp");
+      expect(image).toHaveAttribute(
+        "src",
+        "/assets/showcase/test-image_540x1170.webp",
+      );
+    });
+
+    it("should render responsive sources for portrait and landscape", () => {
+      const { container } = render(<Banner {...defaultBannerData} />);
+
+      const portrait = container.querySelector(
+        'source[media="(orientation: portrait)"]',
+      );
+      const landscape = container.querySelector(
+        'source[media="(orientation: landscape)"]',
+      );
+      expect(portrait).toHaveAttribute(
+        "srcset",
+        "/assets/showcase/test-image_540x816.webp 540w, /assets/showcase/test-image_1024x1366.webp 1024w",
+      );
+      expect(landscape).toHaveAttribute(
+        "srcset",
+        "/assets/showcase/test-image_1920x1080.webp 1920w, /assets/showcase/test-image_2560x1440.webp 2560w",
+      );
     });
 
     it("should render without title when not provided", () => {

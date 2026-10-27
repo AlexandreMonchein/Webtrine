@@ -24,6 +24,7 @@
     "test:e2e:all": "pnpm --filter webtrine-app test:e2e:all",
     "test:e2e:all:update": "pnpm --filter webtrine-app test:e2e:all:update",
     "lint": "pnpm --filter webtrine-app lint",
+    "typecheck": "pnpm --filter webtrine-app typecheck",
     "convert:webp": "pnpm --filter webtrine-app convert:webp",
     "compress:images": "pnpm --filter webtrine-app compress:images",
     "analyze:unused": "pnpm --filter webtrine-app analyze:unused",

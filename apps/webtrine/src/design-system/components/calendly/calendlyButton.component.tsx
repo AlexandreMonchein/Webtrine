@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 
 import { CalendlyButton as CalendlyButtonStyle } from "./calendlyButton.styled";
 
-const CalendlyButton = ({ url }) => {
+const CalendlyButton = ({ url }: { url: string }) => {
   const { t } = useTranslation();
 
   useCalendlyEventListener({
@@ -16,7 +16,7 @@ const CalendlyButton = ({ url }) => {
   return (
     <CalendlyButtonStyle
       url={url}
-      rootElement={document.getElementById("root")}
+      rootElement={document.getElementById("root") as HTMLElement}
       text={t("calendly.buttonText")}
     />
   );

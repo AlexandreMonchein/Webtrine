@@ -2335,7 +2335,9 @@ export const MapLeafletZone = (): ReactElement => {
     const buffer3 = buffer(simplifiedLine3, 5, { units: "kilometers" });
 
     // Créer une enveloppe convexe pour remplir l'intérieur
-    const allPoints = featureCollection([buffer1, buffer2, buffer3]);
+    const allPoints = featureCollection(
+      [buffer1, buffer2, buffer3].filter((zone) => !!zone),
+    );
     const filled = convex(allPoints);
 
     setFilledZone(filled);

@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { getCustomer } from "./customer.utils";
 import FloatingSocials from "./design-system/components/floatingUI/floatingSocials.component";
 import Gallery from "./design-system/components/gallery/gallery.component";
+import type { GalleryTemplate } from "./design-system/components/gallery/gallery.types";
 import Legals from "./design-system/components/legals/legals.component";
 import MultiDescription from "./design-system/components/multiDescriptions/multiDescriptions.component";
 import KeyboardShortcuts from "./design-system/components/shortcut/keyboardShortcuts.component";
@@ -83,7 +84,7 @@ function App(props: AppProps) {
 
   const templates = useSelector(getTemplates);
   const client = useSelector(getClient);
-  const { logo = "", structuredData } = client;
+  const { logo = "", structuredData, fullName } = client;
   const customer = useSelector(getCustomer);
 
   // Inject structured data for SEO
@@ -119,6 +120,15 @@ function App(props: AppProps) {
   const navbarTemplate = getTemplate(templates, "navbars");
   const footerTemplate = getTemplate(templates, "footers");
   const galleryTemplate = getTemplate(templates, "gallery");
+  const galleryDatas = galleryTemplate?.datas as GalleryTemplate | undefined;
+  const galleryPage = galleryDatas ? (
+    <>
+      <title>
+        {galleryDatas.title ? `${fullName} - ${galleryDatas.title}` : fullName}
+      </title>
+      <Gallery template={galleryDatas} />
+    </>
+  ) : null;
   const flaotingUI = getTemplate(templates, "floatingUI");
 
   useEffect(() => {
@@ -209,12 +219,7 @@ function App(props: AppProps) {
           />
           <Route path="/cgu-cgv" element={<Legals type="cgu-cgv" />} />
 
-          {galleryTemplate && (
-            <Route
-              path="/gallerie"
-              element={<Gallery template={galleryTemplate.datas} />}
-            />
-          )}
+          {galleryPage && <Route path="/gallerie" element={galleryPage} />}
 
           <Route path="/*" element={<PageNotFound />} />
         </Routes>

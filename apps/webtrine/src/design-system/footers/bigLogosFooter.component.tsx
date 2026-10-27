@@ -14,8 +14,7 @@ const BigLogosFooter: React.FC<BigLogosFooterProps> = (datas) => {
   const [socialComponents, setSocialComponents] = useState<React.ReactNode[]>(
     [],
   );
-  const socials: { [key: string]: { link: string; color: string } } =
-    useSelector(getSocials);
+  const socials = useSelector(getSocials);
   const { name: clientName } = useSelector(getClient);
 
   const { menuSection, brandInfo, logos } = datas;
@@ -87,8 +86,11 @@ const BigLogosFooter: React.FC<BigLogosFooterProps> = (datas) => {
           {logos && logos.length > 0 ? (
             <div className={styles.logosSection}>
               <div className={styles.logosGrid}>
-                {logos.map((logo) => (
-                  <div className={styles.logoItem} key={`${logo.name}`}>
+                {logos.map((logo, index) => (
+                  <div
+                    className={styles.logoItem}
+                    key={`${logo.name}-${index}`}
+                  >
                     {logo.url ? (
                       <a
                         className={styles.logoLink}

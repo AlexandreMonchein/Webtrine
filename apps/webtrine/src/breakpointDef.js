@@ -6,6 +6,7 @@ export const breakpointNames = {
   medium: "medium",
   large: "large",
   xlarge: "xlarge",
+  wide: "wide",
 };
 
 export const breakpoints = {

@@ -6,8 +6,7 @@ import { useLoadComponents } from "../../utils/useLoadComponents.hook";
 import { FloatingContainer, SocialLogo } from "./floatingSocials.styled";
 
 const FloatingSocials: React.FC = () => {
-  const socials: { [key: string]: { link: string; color: string } } =
-    useSelector(getSocials);
+  const socials = useSelector(getSocials);
 
   const socialItems = useMemo(
     () =>

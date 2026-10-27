@@ -1,4 +1,6 @@
-export const initialState = {
+import type { AppState, StateAction } from "../types/store.types";
+
+export const initialState: Partial<AppState> = {
   popUp: {
     showPopUp: false,
     type: null,
@@ -11,7 +13,10 @@ export const initialState = {
   },
 };
 
-export function stateReducer(state = initialState, action) {
+export function stateReducer(
+  state = initialState,
+  action: StateAction,
+): Partial<AppState> {
   switch (action.type) {
     case "SET_CONFIG": {
       const { client, style, layout } = action;

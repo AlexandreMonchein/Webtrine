@@ -22,7 +22,7 @@ interface StoryArgs {
 }
 
 // Create mock templates data
-const createMockStore = (templates = []) => {
+const createMockStore = (templates: StoryArgs["templates"] = []) => {
   return configureStore({
     reducer: {
       layout: (state = { templates }) => state,

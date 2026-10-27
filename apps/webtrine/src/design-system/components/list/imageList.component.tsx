@@ -72,8 +72,8 @@ const List = ({
           </ScrollButton>
         )}
         <ImageList ref={scrollContainerRef} $imagecount={images.length}>
-          {images.map((image) => (
-            <ImageWrapper key={image.src}>
+          {images.map((image, index) => (
+            <ImageWrapper key={`${image.src}-${index}`}>
               <ImageItem
                 src={`${import.meta.env.BASE_URL}assets/${customer}/clients/${image.src}.webp`}
                 alt={image.alt}

@@ -110,8 +110,8 @@ const Banner = (datas: BannerDatas) => {
             {renderTitleContent()}
           </div>
           <div className={styles.contactContainer}>
-            {contact.map((info) => (
-              <ToggleButton key={info.type} {...info} />
+            {contact.map((info, index) => (
+              <ToggleButton key={`${info.type}-${index}`} {...info} />
             ))}
           </div>
         </div>

@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 import { useImageUpload } from "../../../hooks/useImageUpload.hooks";
 import { showPopUp } from "../../../store/state.action";
 import { getClient } from "../../../store/state.selector";
+import type { ClientContact } from "../../../types/config.types";
 import { AlertView } from "../alertview/alertview.component";
 import PopUp from "../popup/popUp.component";
 import styles from "./tattooContact.module.css";
@@ -29,7 +30,7 @@ export const TattooContact = ({ datas }: TattooContactProps) => {
     ctaIcon: string;
     logo: string;
   } | null>(null);
-  const client = useSelector(getClient).contact;
+  const client: ClientContact = useSelector(getClient).contact ?? {};
   const { mailTemplate: templateId } = client;
   const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -230,7 +231,7 @@ export const TattooContact = ({ datas }: TattooContactProps) => {
           "service_id",
           import.meta.env.VITE_MAIL_SERVICE_ID,
         );
-        manualFormData.append("template_id", templateId);
+        manualFormData.append("template_id", templateId ?? "");
         manualFormData.append("user_id", "OYqEmnhZaB6k1hEGB");
 
         // Send directly to EmailJS API

@@ -10,7 +10,7 @@ export type FooterLogo = {
 export type SocialItem = {
   name: string;
   link: string;
-  color: string;
+  color?: string;
 };
 
 export type LegalItem = {

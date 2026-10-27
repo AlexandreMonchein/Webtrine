@@ -23,6 +23,7 @@ const CONTENT_BLOCKS = [
   { folder: "cards", type: "cardsList" },
   { folder: "cards", type: "actionCardsList" },
   { folder: "dataTable", type: "dataTable" },
+  { folder: "dataTable", type: "multiDataTable" },
   { folder: "q&a", type: "q&a" },
   { folder: "list", type: "numberedList" },
   { folder: "list", type: "imageList" },

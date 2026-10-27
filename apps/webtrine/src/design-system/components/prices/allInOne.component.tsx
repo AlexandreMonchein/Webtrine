@@ -22,7 +22,7 @@ interface Content {
   text: string;
 }
 
-interface AllInOneProps {
+export interface AllInOneProps {
   title: string;
   descriptionTop: string;
   descriptionBottom: [{ text: string }];

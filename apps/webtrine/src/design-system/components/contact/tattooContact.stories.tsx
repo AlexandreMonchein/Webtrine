@@ -1,9 +1,22 @@
+import { configureStore } from "@reduxjs/toolkit";
 import type { Meta, StoryObj } from "@storybook/react";
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
 
-import store from "../../../store";
+import { initialState, stateReducer } from "../../../store/state.reducer";
 import { TattooContact } from "./tattooContact.component";
+
+// Mock Redux store : le composant lit client.contact.mailTemplate
+const mockStore = configureStore({
+  reducer: stateReducer,
+  preloadedState: {
+    ...initialState,
+    client: {
+      name: "showcase",
+      contact: { mailTemplate: "template_storybook" },
+    },
+  } as any,
+});
 
 const meta: Meta<typeof TattooContact> = {
   title: "Components/Contact/TattooContact",
@@ -11,7 +24,7 @@ const meta: Meta<typeof TattooContact> = {
   tags: ["autodocs"],
   decorators: [
     (Story) => (
-      <Provider store={store}>
+      <Provider store={mockStore}>
         <BrowserRouter>
           <Story />
         </BrowserRouter>
@@ -44,14 +57,12 @@ type Story = StoryObj<typeof TattooContact>;
 export const Default: Story = {
   args: {
     datas: {
+      logo: "webtrine_logo_2_blanc_noTitle",
       artists: [
         { artistName: "John Doe", mail: "john.doe@example.com" },
         { artistName: "Jane Smith", mail: "jane.smith@example.com" },
         { artistName: "Mike Johnson", mail: "mike.johnson@example.com" },
       ],
-      serviceId: "service_example",
-      templateId: "template_example",
-      replyTo: "contact@example.com",
     },
   },
 };
@@ -60,14 +71,12 @@ export const Default: Story = {
 export const WithArtistWithoutEmail: Story = {
   args: {
     datas: {
+      logo: "webtrine_logo_2_blanc_noTitle",
       artists: [
         { artistName: "John Doe", mail: "john.doe@example.com" },
         { artistName: "Jane Smith", mail: null },
         { artistName: "Mike Johnson", mail: "mike.johnson@example.com" },
       ],
-      serviceId: "service_example",
-      templateId: "template_example",
-      replyTo: "contact@example.com",
     },
   },
 };
@@ -76,6 +85,7 @@ export const WithArtistWithoutEmail: Story = {
 export const ManyArtists: Story = {
   args: {
     datas: {
+      logo: "webtrine_logo_2_blanc_noTitle",
       artists: [
         { artistName: "John Doe", mail: "john.doe@example.com" },
         { artistName: "Jane Smith", mail: "jane.smith@example.com" },
@@ -84,9 +94,6 @@ export const ManyArtists: Story = {
         { artistName: "David Brown", mail: "david.brown@example.com" },
         { artistName: "Emma Davis", mail: "emma.davis@example.com" },
       ],
-      serviceId: "service_example",
-      templateId: "template_example",
-      replyTo: "contact@example.com",
     },
   },
 };
@@ -95,10 +102,8 @@ export const ManyArtists: Story = {
 export const SingleArtist: Story = {
   args: {
     datas: {
+      logo: "webtrine_logo_2_blanc_noTitle",
       artists: [{ artistName: "John Doe", mail: "john.doe@example.com" }],
-      serviceId: "service_example",
-      templateId: "template_example",
-      replyTo: "contact@example.com",
     },
   },
 };
@@ -107,14 +112,12 @@ export const SingleArtist: Story = {
 export const OnlyArtistsWithoutEmail: Story = {
   args: {
     datas: {
+      logo: "webtrine_logo_2_blanc_noTitle",
       artists: [
         { artistName: "John Doe", mail: null },
         { artistName: "Jane Smith", mail: null },
         { artistName: "Mike Johnson", mail: null },
       ],
-      serviceId: "service_example",
-      templateId: "template_example",
-      replyTo: "contact@example.com",
     },
   },
 };

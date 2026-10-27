@@ -31,7 +31,7 @@ const FeatureSection = (datas: Datas) => {
         <Text>{data.text}</Text>
       </ContentItem>
     ),
-  });
+  }) as React.ReactNode[];
 
   return (
     <Section>

@@ -291,7 +291,7 @@ describe("buildRegistry (real design-system tree)", () => {
     // default block, so it must self-exclude (see canonical-shape check).
     expect(hasTeam).toBe(false);
 
-    // 25 = the authoritative catalog in apps/webtrine/scripts/check-docs-examples.mjs (20 content + 5 templates); update both together.
-    expect(entries).toHaveLength(25);
+    // 26 = the authoritative catalog in apps/webtrine/scripts/check-docs-examples.mjs (21 content + 5 templates); update both together.
+    expect(entries).toHaveLength(26);
   });
 });

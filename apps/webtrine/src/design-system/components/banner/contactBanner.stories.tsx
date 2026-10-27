@@ -1,7 +1,19 @@
+import { configureStore } from "@reduxjs/toolkit";
 import type { Meta, StoryObj } from "@storybook/react";
+import { Provider } from "react-redux";
 
+import { initialState, stateReducer } from "../../../store/state.reducer";
 import ContactBanner from "./contactBanner.component";
 import type { ContactBannerProps } from "./contactBanner.types";
+
+// Mock Redux store : le composant lit le nom du client via useSelector
+const mockStore = configureStore({
+  reducer: stateReducer,
+  preloadedState: {
+    ...initialState,
+    client: { name: "showcase" },
+  } as any,
+});
 
 const defaultArgs: ContactBannerProps = {
   datas: {
@@ -27,6 +39,13 @@ const meta: Meta<typeof ContactBanner> = {
   title: "Design System/Components/Banner/ContactBanner",
   component: ContactBanner,
   tags: ["autodocs"],
+  decorators: [
+    (Story) => (
+      <Provider store={mockStore}>
+        <Story />
+      </Provider>
+    ),
+  ],
   parameters: {
     layout: "fullscreen",
   },

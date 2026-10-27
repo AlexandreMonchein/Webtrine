@@ -78,7 +78,7 @@ type Story = StoryObj<typeof GalleryComponent>;
 export const Default: Story = {
   args: {
     template: {
-      type: "gallery",
+      type: "default",
       inventory: [
         { imageSrc: "square_image_1", alt: "Image d'accueil 1" },
         { imageSrc: "square_image_2", alt: "Image d'accueil 2" },

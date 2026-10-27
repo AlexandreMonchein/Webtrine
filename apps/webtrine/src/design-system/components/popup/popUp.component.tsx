@@ -57,7 +57,7 @@ const PopUp: React.FC = () => {
   }, [progress, showPopUp, handlePopUpClose]);
 
   return showPopUp ? (
-    <PopUpContainer type={type}>
+    <PopUpContainer type={type as PopUpType}>
       <Icon>{icons[type as PopUpType]}</Icon>
       <Message>
         {message}

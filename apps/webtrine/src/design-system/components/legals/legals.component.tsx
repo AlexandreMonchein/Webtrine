@@ -12,7 +12,7 @@ import {
   MainSubtitle,
   MainTitle,
 } from "./legals.styled";
-import type { LegalsProps } from "./legals.types";
+import type { LegalsDatas, LegalsProps } from "./legals.types";
 
 const Legals = ({ type = null }: LegalsProps) => {
   const templates = useSelector(getTemplates);
@@ -20,9 +20,15 @@ const Legals = ({ type = null }: LegalsProps) => {
     (template) => template.type === "legals",
   );
 
-  const {
-    datas: { title, subTitle, disclaimer, content },
-  } = legalsTemplates.find((template) => template.datas.type === type);
+  const legalsDatas = legalsTemplates.find(
+    (template) => template.datas?.type === type,
+  )?.datas as LegalsDatas | undefined;
+
+  if (!legalsDatas) {
+    return null;
+  }
+
+  const { title, subTitle, disclaimer, content } = legalsDatas;
 
   return (
     <Container>

@@ -1,6 +1,18 @@
 import { Suspense, useEffect, useState } from "react";
 
-const DisplayNavbar = ({ template, toggleTheme, theme }) => {
+import type { Template } from "../../../types/config.types";
+
+type DisplayNavbarProps = {
+  template: Template;
+  toggleTheme: () => void;
+  theme: string;
+};
+
+const DisplayNavbar = ({
+  template,
+  toggleTheme,
+  theme,
+}: DisplayNavbarProps) => {
   const [navbar, setNavbar] = useState<React.ReactNode>();
 
   useEffect(() => {

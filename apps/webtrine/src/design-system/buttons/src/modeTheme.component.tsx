@@ -1,6 +1,14 @@
 import { ToggleThemeButton } from "./modeTheme.styled";
 
-export const ToggleThemeMode = ({ toggleTheme, theme }) => {
+type ToggleThemeModeProps = {
+  toggleTheme?: () => void;
+  theme?: string;
+};
+
+export const ToggleThemeMode = ({
+  toggleTheme,
+  theme,
+}: ToggleThemeModeProps) => {
   return (
     <ToggleThemeButton onClick={toggleTheme}>
       <svg

@@ -86,7 +86,7 @@ const Gallery = ({ template }: GalleryProps) => {
           >
             {visibleInventory.map((data: CardData, index: number) => (
               <div
-                key={data.imageSrc}
+                key={`${data.imageSrc}-${index}`}
                 className={classNames(styles.cardWrapper, {
                   [styles.cardWrapperIsLogo]: type === "logo",
                 })}

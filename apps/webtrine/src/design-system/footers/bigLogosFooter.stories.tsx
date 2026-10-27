@@ -2,15 +2,18 @@ import { configureStore } from "@reduxjs/toolkit";
 import type { Meta, StoryObj } from "@storybook/react";
 import { Provider } from "react-redux";
 
+import { initialState, stateReducer } from "../../store/state.reducer";
 import BigLogosFooter from "./bigLogosFooter.component";
 import type { BigLogosFooterProps } from "./bigLogosFooter.types";
 
-// Create mock store with socials data
+// Create mock store with socials data (même forme que le vrai store : client.socials)
 const createMockStore = (socials = {}) => {
   return configureStore({
-    reducer: {
-      state: (state = { client: { name: "showcase" }, socials }) => state,
-    },
+    reducer: stateReducer,
+    preloadedState: {
+      ...initialState,
+      client: { name: "showcase", socials },
+    } as any,
   });
 };
 

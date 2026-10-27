@@ -14,10 +14,10 @@ const mockStore = configureStore({
     ...initialState,
     client: {
       name: "showcase",
-    },
-    socials: {
-      instagram: { link: "https://instagram.com" },
-      facebook: { link: "https://facebook.com" },
+      socials: {
+        instagram: { link: "https://instagram.com" },
+        facebook: { link: "https://facebook.com" },
+      },
     },
   } as any,
 });
@@ -125,67 +125,63 @@ type Story = StoryObj<typeof ClassicNavbar>;
  */
 export const Overview: Story = {
   render: () => (
-    <Provider store={mockStore}>
-      <BrowserRouter>
-        <div>
-          <h3>Navbar basique</h3>
-          <ClassicNavbar {...defaultArgs} />
+    <div>
+      <h3>Navbar basique</h3>
+      <ClassicNavbar {...defaultArgs} />
 
-          <h3 style={{ marginTop: "100px" }}>
-            Navbar avec traduction et mode sombre
-          </h3>
-          <ClassicNavbar
-            {...defaultArgs}
-            features={{
-              ...defaultArgs.features,
-              trad: true,
-              darkMode: true,
-            }}
-          />
+      <h3 style={{ marginTop: "100px" }}>
+        Navbar avec traduction et mode sombre
+      </h3>
+      <ClassicNavbar
+        {...defaultArgs}
+        features={{
+          ...defaultArgs.features,
+          trad: true,
+          darkMode: true,
+        }}
+      />
 
-          <h3 style={{ marginTop: "100px" }}>
-            Navbar fixe avec masquage au scroll
-          </h3>
-          <ClassicNavbar
-            {...defaultArgs}
-            features={{
-              ...defaultArgs.features,
-              isFixed: true,
-              hasHideOnScroll: true,
-            }}
-          />
+      <h3 style={{ marginTop: "100px" }}>
+        Navbar fixe avec masquage au scroll
+      </h3>
+      <ClassicNavbar
+        {...defaultArgs}
+        features={{
+          ...defaultArgs.features,
+          isFixed: true,
+          hasHideOnScroll: true,
+        }}
+      />
 
-          <h3 style={{ marginTop: "100px" }}>Navbar avec bouton d'action</h3>
-          <ClassicNavbar
-            {...defaultArgs}
-            actionButton={{
-              type: "call",
-              displayedText: "Nous contacter",
-              hiddenText: "+33 1 23 45 67 89",
-            }}
-          />
+      <h3 style={{ marginTop: "100px" }}>Navbar avec bouton d'action</h3>
+      <ClassicNavbar
+        {...defaultArgs}
+        actionButton={{
+          type: "call",
+          displayedText: "Nous contacter",
+          hiddenText: "+33 1 23 45 67 89",
+        }}
+      />
 
-          <h3 style={{ marginTop: "100px" }}>Navbar avec Calendly</h3>
-          <ClassicNavbar
-            {...defaultArgs}
-            content={{
-              ...defaultArgs.content,
-              calendly: {
-                url: "https://calendly.com/exemple",
-              },
-            }}
-          />
+      <h3 style={{ marginTop: "100px" }}>Navbar avec Calendly</h3>
+      <ClassicNavbar
+        {...defaultArgs}
+        content={{
+          ...defaultArgs.content,
+          calendly: {
+            url: "https://calendly.com/exemple",
+          },
+        }}
+      />
 
-          <h3 style={{ marginTop: "100px" }}>Navbar sans réseaux sociaux</h3>
-          <ClassicNavbar
-            {...defaultArgs}
-            features={{
-              ...defaultArgs.features,
-              shouldDisplaySocials: false,
-            }}
-          />
-        </div>
-      </BrowserRouter>
-    </Provider>
+      <h3 style={{ marginTop: "100px" }}>Navbar sans réseaux sociaux</h3>
+      <ClassicNavbar
+        {...defaultArgs}
+        features={{
+          ...defaultArgs.features,
+          shouldDisplaySocials: false,
+        }}
+      />
+    </div>
   ),
 };

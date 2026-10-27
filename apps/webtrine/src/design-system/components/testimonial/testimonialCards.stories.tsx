@@ -1,7 +1,19 @@
+import { configureStore } from "@reduxjs/toolkit";
 import type { Meta, StoryObj } from "@storybook/react";
+import { Provider } from "react-redux";
 
+import { initialState, stateReducer } from "../../../store/state.reducer";
 import TestimonialCards from "./testimonialCards.component";
 import type { TestimonialCardsProps } from "./testimonialCards.types";
+
+// Mock Redux store : le composant lit le nom du client via useSelector
+const mockStore = configureStore({
+  reducer: stateReducer,
+  preloadedState: {
+    ...initialState,
+    client: { name: "showcase" },
+  } as any,
+});
 
 // Note: Les témoignages sont chargés depuis l'API mock dans le composant
 // Les données ci-dessous servent uniquement de référence pour la documentation
@@ -22,6 +34,13 @@ Example testimonial structure:
 const meta: Meta<typeof TestimonialCards> = {
   title: "Design System/Components/Testimonial/TestimonialCards",
   component: TestimonialCards,
+  decorators: [
+    (Story) => (
+      <Provider store={mockStore}>
+        <Story />
+      </Provider>
+    ),
+  ],
   parameters: {
     layout: "fullscreen",
     docs: {

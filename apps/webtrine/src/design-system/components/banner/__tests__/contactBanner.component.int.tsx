@@ -1,9 +1,25 @@
+import { configureStore } from "@reduxjs/toolkit";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
+import { Provider } from "react-redux";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
+import { initialState, stateReducer } from "../../../../store/state.reducer";
 import ContactBanner from "../contactBanner.component";
 import type { ContactBannerProps } from "../contactBanner.types";
+
+// Mock Redux store (le composant lit le nom du client via useSelector)
+const createMockStore = () =>
+  configureStore({
+    reducer: stateReducer,
+    preloadedState: {
+      ...initialState,
+      client: { name: "showcase" },
+    } as any,
+  });
+
+const renderWithStore = (ui: React.ReactElement) =>
+  render(<Provider store={createMockStore()}>{ui}</Provider>);
 
 describe("<ContactBanner />", () => {
   let props: ContactBannerProps;
@@ -30,28 +46,28 @@ describe("<ContactBanner />", () => {
   });
 
   it("should render the component", () => {
-    render(<ContactBanner {...props} />);
+    renderWithStore(<ContactBanner {...props} />);
     expect(screen.getByTestId("contactBannerRoot")).toBeInTheDocument();
   });
 
   it("should render the main title", () => {
-    render(<ContactBanner {...props} />);
+    renderWithStore(<ContactBanner {...props} />);
     expect(screen.getByText("LE STUDIO.")).toBeInTheDocument();
   });
 
   it("should render the info title", () => {
-    render(<ContactBanner {...props} />);
+    renderWithStore(<ContactBanner {...props} />);
     expect(screen.getByText("INFORMATIONS")).toBeInTheDocument();
   });
 
   it("should render all content items", () => {
-    render(<ContactBanner {...props} />);
+    renderWithStore(<ContactBanner {...props} />);
     expect(screen.getByText("First line of information")).toBeInTheDocument();
     expect(screen.getByText("Second line of information")).toBeInTheDocument();
   });
 
   it("should render image when media type is image", () => {
-    render(<ContactBanner {...props} />);
+    renderWithStore(<ContactBanner {...props} />);
     const image = screen.getByAltText("Test image");
     expect(image).toBeInTheDocument();
     expect(image.tagName).toBe("IMG");
@@ -68,21 +84,21 @@ describe("<ContactBanner />", () => {
         },
       },
     };
-    const { container } = render(<ContactBanner {...videoProps} />);
+    const { container } = renderWithStore(<ContactBanner {...videoProps} />);
     const video = container.querySelector("video");
     expect(video).toBeInTheDocument();
     expect(video?.tagName).toBe("VIDEO");
   });
 
   it("should render back to top button", () => {
-    render(<ContactBanner {...props} />);
+    renderWithStore(<ContactBanner {...props} />);
     const button = screen.getByRole("button", { name: /back to top/i });
     expect(button).toBeInTheDocument();
   });
 
   it("should scroll to top when button is clicked", async () => {
     const user = userEvent.setup();
-    render(<ContactBanner {...props} />);
+    renderWithStore(<ContactBanner {...props} />);
 
     const button = screen.getByRole("button", { name: /back to top/i });
     await user.click(button);
@@ -105,7 +121,7 @@ describe("<ContactBanner />", () => {
         ],
       },
     };
-    render(<ContactBanner {...multipleContentProps} />);
+    renderWithStore(<ContactBanner {...multipleContentProps} />);
 
     expect(screen.getByText("Item 1")).toBeInTheDocument();
     expect(screen.getByText("Item 2")).toBeInTheDocument();
@@ -123,7 +139,7 @@ describe("<ContactBanner />", () => {
         },
       },
     };
-    render(<ContactBanner {...propsWithoutAlt} />);
+    renderWithStore(<ContactBanner {...propsWithoutAlt} />);
     const image = screen.getByAltText("Contact banner image");
     expect(image).toBeInTheDocument();
   });
@@ -138,7 +154,7 @@ describe("<ContactBanner />", () => {
         ],
       },
     };
-    render(<ContactBanner {...propsWithSpacer} />);
+    renderWithStore(<ContactBanner {...propsWithSpacer} />);
 
     // Find the paragraph containing "Address line"
     const addressText = screen.getByText("Address line");
@@ -147,7 +163,7 @@ describe("<ContactBanner />", () => {
   });
 
   it("should not apply withSpacer class when withSpacer is false or undefined", () => {
-    render(<ContactBanner {...props} />);
+    renderWithStore(<ContactBanner {...props} />);
 
     // Find the first paragraph (no withSpacer property)
     const firstParagraph = screen.getByText("First line of information");

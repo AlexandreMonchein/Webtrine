@@ -191,6 +191,9 @@ pnpm test:e2e:all:update  # Tous les clients
 # Linter le code
 pnpm lint
 
+# Vérifier les types TypeScript
+pnpm typecheck
+
 # Convertir les images en WebP
 pnpm convert:webp
 ```
@@ -257,12 +260,13 @@ pnpm convert:webp
 - **Assets**:
   - Icônes SVG: `.component.tsx` dans `apps/webtrine/src/assets/icons/`
   - Images client: dans `apps/webtrine/public/assets/{CUSTOMER}/`
-  - **Images Banner Responsive**: 4 variantes requises pour srcSet
-    - `{nom}-430x932.webp` (mobile portrait)
-    - `{nom}-1024x1366.webp` (tablet)
-    - `{nom}-1280x720.webp` (HD)
-    - `{nom}-1920x1080.webp` (Full HD)
-    - Le composant Banner génère automatiquement le srcSet avec ces suffixes
+  - **Images Banner Responsive**: 5 variantes requises (srcSet + image de secours)
+    - `{nom}_540x816.webp` (mobile portrait)
+    - `{nom}_1024x1366.webp` (tablette portrait)
+    - `{nom}_1920x1080.webp` (desktop)
+    - `{nom}_2560x1440.webp` (grand écran)
+    - `{nom}_540x1170.webp` (image de secours `<img src>`)
+    - Le composant Banner génère automatiquement les `srcSet` avec ces suffixes
 
 ### Structure des Imports
 

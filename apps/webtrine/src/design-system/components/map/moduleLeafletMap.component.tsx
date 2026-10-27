@@ -3,7 +3,7 @@ import "leaflet-gesture-handling/dist/leaflet-gesture-handling.css";
 
 import { icon } from "leaflet";
 import { GestureHandling } from "leaflet-gesture-handling";
-import { ReactElement, useState } from "react";
+import { ReactElement, useEffect, useState } from "react";
 import { Marker, TileLayer, useMap, useMapEvents } from "react-leaflet";
 
 import {
@@ -18,13 +18,14 @@ import {
   Section,
   Title,
 } from "./leafletMap.styled";
+import type { MapLeafletProps } from "./moduleLeafletMap.types";
 
 const ICON = icon({
   iconUrl: "./assets/marker_icon.webp",
   iconSize: [32, 32],
 });
 
-export const MapLeaflet = (datas): ReactElement | null => {
+export const MapLeaflet = (datas: MapLeafletProps): ReactElement | null => {
   const { places, openTimesTitle, openTimes, title, bigTitle } = datas;
 
   const [selectedPosition, setSelectedPosition] = useState<[number, number]>([
@@ -54,9 +55,13 @@ export const MapLeaflet = (datas): ReactElement | null => {
   };
   const GestureHandlingSetter = () => {
     const map = useMap() as any;
-    map.gestureHandling.enable();
-    map.addHandler("gestureHandling", GestureHandling);
-    setInit(false);
+
+    useEffect(() => {
+      map.gestureHandling.enable();
+      map.addHandler("gestureHandling", GestureHandling);
+      setInit(false);
+    }, [map]);
+
     return null;
   };
 
