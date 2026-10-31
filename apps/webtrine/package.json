@@ -50,7 +50,7 @@
     "@storybook/react": "10.6.4",
     "@storybook/react-vite": "10.6.4",
     "@stylistic/eslint-plugin": "5.10.0",
-    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/jest-dom": "^7.0.0",
     "@testing-library/react": "^16.3.0",
     "@testing-library/user-event": "^14.6.1",
     "@types/lodash": "4.17.27",
