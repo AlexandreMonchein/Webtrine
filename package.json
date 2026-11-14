@@ -33,7 +33,7 @@
   },
   "pnpm": {
     "overrides": {
-      "jackspeak": "2.3.6"
+      "jackspeak": "4.2.3"
     },
     "onlyBuiltDependencies": [
       "@parcel/watcher",
