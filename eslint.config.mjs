@@ -76,7 +76,8 @@ export default tseslint.config([
     plugins: {
       "react-hooks": reactHooks,
     },
-    rules: reactHooks.configs.recommended.rules,
+    // v7 "recommended" enables React Compiler rules; only rules-of-hooks and
+    // exhaustive-deps are enabled (see config/eslint/base.config.mjs)
     name: "plugin/react-hook",
   },
   ...importConfigs,
