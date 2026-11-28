@@ -9,7 +9,6 @@
 /* Screen reader only content */
 .sr-only {
   border: 0 !important;
-  clip: rect(1px, 1px, 1px, 1px) !important;
   clip-path: inset(50%) !important;
   height: 1px !important;
   overflow: hidden !important;
@@ -142,7 +141,7 @@ h1 {
 
 h2 {
   font-size: x-large;
-  word-wrap: break-word;
+  overflow-wrap: break-word;
   padding: 24px 0;
 
   @media (--bp-min-xlarge) {

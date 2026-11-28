@@ -24,6 +24,7 @@
     ],
     "color-hex-length": null,
     "color-function-notation": "legacy",
+    "color-function-alias-notation": null,
     "alpha-value-notation": "number"
   }
 }

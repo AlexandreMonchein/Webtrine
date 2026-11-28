@@ -117,7 +117,6 @@
   color: var(--theme-color-tertiary);
   vertical-align: top;
   text-align: left;
-  word-wrap: break-word;
   overflow-wrap: break-word;
 
   @media (--bp-min-medium) {
